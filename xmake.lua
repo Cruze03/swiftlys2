@@ -131,12 +131,15 @@ target("swiftlys2")
 
     --[[ -------------------------------- HL2SDK Mandatory Libs Section -------------------------------- ]]
 
+    add_files({
+        sdk_path.."/mathlib/*.cpp"
+    })
+
     if is_plat("windows") then
         add_links({
             sdk_path.."/lib/public/win64/tier0.lib",
             sdk_path.."/lib/public/win64/tier1.lib",
             sdk_path.."/lib/public/win64/interfaces.lib",
-            sdk_path.."/lib/public/win64/mathlib.lib",
             sdk_path.."/lib/public/win64/2015/libprotobuf.lib",
             sdk_path.."/lib/public/win64/steam_api64.lib",
             "vendor/s2binlib/s2binlib.lib"
@@ -146,7 +149,6 @@ target("swiftlys2")
             sdk_path.."/lib/linux64/libtier0.so",
             sdk_path.."/lib/linux64/tier1.a",
             sdk_path.."/lib/linux64/interfaces.a",
-            sdk_path.."/lib/linux64/mathlib.a",
             sdk_path.."/lib/linux64/release/libprotobuf.a",
             sdk_path.."/lib/linux64/libsteam_api.so",
             "vendor/s2binlib/libs2binlib.a"
