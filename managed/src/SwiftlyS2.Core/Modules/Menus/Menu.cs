@@ -121,7 +121,7 @@ internal class Menu : IMenu
 
         html.Append("<br>");
 
-        html.Append(BuildFooter(Parent != null));
+        html.Append(BuildFooter());
 
         html.Append("</font>");
 
@@ -132,7 +132,7 @@ internal class Menu : IMenu
         AfterRender?.Invoke(player);
     }
     
-    private string BuildFooter(bool isSubmenu)
+    private string BuildFooter()
     {
         var footer = new StringBuilder("<font color='#ffffff' class='fontSize-s'>");
 
@@ -143,10 +143,7 @@ internal class Menu : IMenu
 
         footer.Append($"Move: <font color='#{RenderColor.ToHex(true)}'>{scrollDisplay}</font>");
 
-        if (isSubmenu)
-        {
-            footer.Append($" | Use: <font color='#{RenderColor.ToHex(true)}'>{selectDisplay}</font>");
-        }
+        footer.Append($" | Use: <font color='#{RenderColor.ToHex(true)}'>{selectDisplay}</font>");
 
         footer.Append($" | Exit: <font color='#{RenderColor.ToHex(true)}'>{exitDisplay}</font>");
 
