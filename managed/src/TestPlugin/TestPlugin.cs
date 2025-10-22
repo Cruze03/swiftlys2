@@ -75,11 +75,12 @@ public class TestPlugin : BasePlugin
     //   Console.WriteLine($"[TestPlugin] ConsoleOutput: {@event.Message}");
     // };
 
-    // Core.Event.OnCommandExecuteHook += (@event) =>
-    // {
-    //   Console.WriteLine($"[TestPlugin] CommandExecute({@event.HookMode}): {@event.OriginalName} ({string.Join(" ", @event.OriginalArgs)})");
-    //   @event.SetCommandName("test");
-    // };
+    Core.Event.OnCommandExecuteHook += (@event) =>
+    {
+      if (@event.HookMode == HookMode.Pre) return;
+      Core.Logger.LogInformation("CommandExecute: {name} with {args}", @event.OriginalName, @event.OriginalArgs.Length > 0 ? string.Join(" ", @event.OriginalArgs) : "no args");
+      // @event.SetCommandName("test");
+    };
     Core.Engine.ExecuteCommandWithBuffer("@ping", (buffer) =>
     {
       Console.WriteLine($"pong: {buffer}");
