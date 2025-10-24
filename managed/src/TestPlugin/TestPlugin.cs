@@ -343,30 +343,21 @@ public class TestPlugin : BasePlugin
   public void TestCommandBad(ICommandContext context)
   {
     try {
-      Core.Profiler.StartRecording("GetGameRules().IsValveDS");
       var isValveDS = Core.EntitySystem.GetGameRules()!.IsValveDS;
     } catch (Exception e) {
       Core.Logger.LogWarning("{Exception}", e.Message);
-    } finally {
-      Core.Profiler.StopRecording("GetGameRules().IsValveDS");
     }
 
     try {
-      Core.Profiler.StartRecording("GetGameRules().IsValveDS = true");
       Core.EntitySystem.GetGameRules()!.IsValveDS = true;
     } catch (Exception e) {
       Core.Logger.LogWarning("{Exception}", e.Message);
-    } finally {
-      Core.Profiler.StopRecording("GetGameRules().IsValveDS = true");
     }
 
     try {
-      Core.Profiler.StartRecording("GetGameRules().IsValveDSUpdated");
       Core.EntitySystem.GetGameRules()!.IsValveDSUpdated();
     } catch (Exception e) {
       Core.Logger.LogWarning("{Exception}", e.Message);
-    } finally {
-      Core.Profiler.StopRecording("GetGameRules().IsValveDSUpdated");
     }
   }
 
