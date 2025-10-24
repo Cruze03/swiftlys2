@@ -49,7 +49,7 @@ internal static class Schema {
   [MethodImpl(MethodImplOptions.AggressiveInlining)]  
   public static int GetOffset(ulong hash) {
     if (isFollowingServerGuidelines && dangerousFields.Contains(hash)) {
-      throw new InvalidOperationException($"Cannot execute dangerous operation {hash} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
+      throw new InvalidOperationException($"Cannot get or set 0x{hash:X16} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
     }
     return NativeSchema.GetOffset(hash);
   }
@@ -57,7 +57,7 @@ internal static class Schema {
   [MethodImpl(MethodImplOptions.AggressiveInlining)]  
   public static void Update(nint handle, ulong hash) {
     if (isFollowingServerGuidelines && dangerousFields.Contains(hash)) {
-      throw new InvalidOperationException($"Cannot execute dangerous operation {hash} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
+      throw new InvalidOperationException($"Cannot get or set  0x{hash:X16} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
     }
     NativeSchema.SetStateChanged(handle, hash);
   }
@@ -65,7 +65,7 @@ internal static class Schema {
   [MethodImpl(MethodImplOptions.AggressiveInlining)]  
   public static void SetString(nint handle, ulong hash, string value) {
     if (isFollowingServerGuidelines && dangerousFields.Contains(hash)) {
-      throw new InvalidOperationException($"Cannot execute dangerous operation {hash} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
+      throw new InvalidOperationException($"Cannot get or set 0x{hash:X16} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
     }
     (handle + GetOffset(hash)).Write(StringPool.Allocate(value));
   }
@@ -73,7 +73,7 @@ internal static class Schema {
   [MethodImpl(MethodImplOptions.AggressiveInlining)]  
   public static void SetFixedString(nint handle, ulong hash, string value, int maxSize) {
     if (isFollowingServerGuidelines && dangerousFields.Contains(hash)) {
-      throw new InvalidOperationException($"Cannot execute dangerous operation {hash} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
+      throw new InvalidOperationException($"Cannot get or set 0x{hash:X16} while \"FollowCS2ServerGuidelines\" is enabled.\n\tTo use this operation, disable the option in core.jsonc.");
     }
     var pool = ArrayPool<byte>.Shared;
     var size = Encoding.UTF8.GetByteCount(value);
