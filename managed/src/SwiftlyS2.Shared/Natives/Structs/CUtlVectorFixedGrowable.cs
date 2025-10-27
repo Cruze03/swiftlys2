@@ -6,7 +6,7 @@ namespace SwiftlyS2.Shared.Natives;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlVectorFixedGrowable<T, TBuffer>
     where T : unmanaged
-    where TBuffer : unmanaged, IFixedBuffer
+    where TBuffer : unmanaged
 {
     private int _size;
     private CUtlMemoryFixedGrowable<T, TBuffer> _memory;

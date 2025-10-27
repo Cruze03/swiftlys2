@@ -100,17 +100,17 @@ public unsafe struct CCommand
         _args.RemoveAll();
     }
 
-    public int ArgC() => _args.Count;
+    public readonly int ArgC() => _args.Count;
 
-    public string? ArgS() => _argv0Size == 0 ? null : Marshal.PtrToStringUTF8(_argSBuffer.Base + _argv0Size);
+    public readonly string? ArgS() => _argv0Size == 0 ? null : Marshal.PtrToStringUTF8(_argSBuffer.Base + _argv0Size);
 
-    public string? GetCommandString() => ArgC() == 0 ? null : Marshal.PtrToStringUTF8(_argSBuffer.Base);
+    public readonly string? GetCommandString() => ArgC() == 0 ? null : Marshal.PtrToStringUTF8(_argSBuffer.Base);
 
-    public string? Arg(int index) => (index < 0 || index >= ArgC()) ? null : Marshal.PtrToStringUTF8((nint)_args[index]);
+    public readonly string? Arg(int index) => (index < 0 || index >= ArgC()) ? null : Marshal.PtrToStringUTF8((nint)_args[index]);
 
-    public string? this[int index] => Arg(index);
+    public readonly string? this[int index] => Arg(index);
 
-    public int FindArg(string name)
+    public readonly int FindArg(string name)
     {
         int nArgC = ArgC();
         for (int i = 1; i < nArgC; i++)
@@ -124,7 +124,7 @@ public unsafe struct CCommand
         return -1;
     }
 
-    public int FindArgInt(string name, int defaultVal)
+    public readonly int FindArgInt(string name, int defaultVal)
     {
         int idx = FindArg(name);
         if (idx != -1)

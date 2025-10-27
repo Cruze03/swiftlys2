@@ -6,7 +6,7 @@ namespace SwiftlyS2.Shared.Natives;
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlMemoryFixedGrowable<T, TBuffer>
     where T : unmanaged
-    where TBuffer : unmanaged, IFixedBuffer
+    where TBuffer : unmanaged
 {
     private nint _memory;
     private int _allocationCount;
@@ -25,18 +25,14 @@ public unsafe struct CUtlMemoryFixedGrowable<T, TBuffer>
     public readonly int AllocationCount => _allocationCount;
 }
 
-public interface IFixedBuffer
-{
-}
-
 [InlineArray(512)]
-public struct FixedCharBuffer512 : IFixedBuffer
+public struct FixedCharBuffer512
 {
     private byte _element0;
 }
 
 [InlineArray(64)]
-public struct FixedPtrBuffer64 : IFixedBuffer
+public struct FixedPtrBuffer64
 {
     private nint _element0;
 }
