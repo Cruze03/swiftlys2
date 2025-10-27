@@ -13,16 +13,16 @@ public unsafe struct CCommand
     };
 
     private int _argv0Size;
-    private CUtlVectorFixedGrowable<byte> _argSBuffer;
-    private CUtlVectorFixedGrowable<byte> _argvBuffer;
-    private CUtlVectorFixedGrowable<nint> _args;
+    private CUtlVectorFixedGrowable<byte, FixedCharBuffer512> _argSBuffer;
+    private CUtlVectorFixedGrowable<byte, FixedCharBuffer512> _argvBuffer;
+    private CUtlVectorFixedGrowable<nint, FixedPtrBuffer64> _args;
 
     public CCommand()
     {
         _argv0Size = 0;
-        _argSBuffer = new CUtlVectorFixedGrowable<byte>((int)COMMAND.MAX_LENGTH);
-        _argvBuffer = new CUtlVectorFixedGrowable<byte>((int)COMMAND.MAX_LENGTH);
-        _args = new CUtlVectorFixedGrowable<nint>((int)COMMAND.MAX_ARGC);
+        _argSBuffer = new CUtlVectorFixedGrowable<byte, FixedCharBuffer512>((int)COMMAND.MAX_LENGTH);
+        _argvBuffer = new CUtlVectorFixedGrowable<byte, FixedCharBuffer512>((int)COMMAND.MAX_LENGTH);
+        _args = new CUtlVectorFixedGrowable<nint, FixedPtrBuffer64>((int)COMMAND.MAX_ARGC);
         EnsureBuffers();
         Reset();
     }
@@ -30,9 +30,9 @@ public unsafe struct CCommand
     public CCommand(string[] args)
     {
         _argv0Size = 0;
-        _argSBuffer = new CUtlVectorFixedGrowable<byte>((int)COMMAND.MAX_LENGTH);
-        _argvBuffer = new CUtlVectorFixedGrowable<byte>((int)COMMAND.MAX_LENGTH);
-        _args = new CUtlVectorFixedGrowable<nint>((int)COMMAND.MAX_ARGC);
+        _argSBuffer = new CUtlVectorFixedGrowable<byte, FixedCharBuffer512>((int)COMMAND.MAX_LENGTH);
+        _argvBuffer = new CUtlVectorFixedGrowable<byte, FixedCharBuffer512>((int)COMMAND.MAX_LENGTH);
+        _args = new CUtlVectorFixedGrowable<nint, FixedPtrBuffer64>((int)COMMAND.MAX_ARGC);
         EnsureBuffers();
         Reset();
 

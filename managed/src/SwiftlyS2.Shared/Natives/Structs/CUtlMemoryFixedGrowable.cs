@@ -1,22 +1,42 @@
 using System.Runtime.InteropServices;
-using SwiftlyS2.Core.Natives;
-using SwiftlyS2.Shared.Schemas;
+using System.Runtime.CompilerServices;
 
 namespace SwiftlyS2.Shared.Natives;
 
 [StructLayout(LayoutKind.Sequential)]
-public struct CUtlMemoryFixedGrowable<T>
+public unsafe struct CUtlMemoryFixedGrowable<T, TBuffer>
+    where T : unmanaged
+    where TBuffer : unmanaged, IFixedBuffer
 {
-    private CUtlMemory<T> _baseMemory;
-    private nint _fixedMemory;
+    private nint _memory;
+    private int _allocationCount;
+    private int _growSize;
+    private TBuffer _fixedMemory;
 
-    public CUtlMemoryFixedGrowable(int size, int growSize = 0, int initSize = 0)
+    public CUtlMemoryFixedGrowable(int size, int growSize = 0)
     {
-        var elementSize = SchemaSize.Get<T>();
-        _fixedMemory = NativeAllocator.Alloc((nuint)(size * elementSize));
-        _baseMemory = new CUtlMemory<T>(_fixedMemory, size, false);
+        _allocationCount = size;
+        _growSize = growSize | unchecked((int)0x80000000);
+
+        _memory = (nint)Unsafe.AsPointer(ref _fixedMemory);
     }
 
-    public nint Base => _baseMemory.Base;
-    public int Count => _baseMemory.Count;
+    public readonly nint Base => _memory;
+    public readonly int AllocationCount => _allocationCount;
+}
+
+public interface IFixedBuffer
+{
+}
+
+[InlineArray(512)]
+public struct FixedCharBuffer512 : IFixedBuffer
+{
+    private byte _element0;
+}
+
+[InlineArray(64)]
+public struct FixedPtrBuffer64 : IFixedBuffer
+{
+    private nint _element0;
 }

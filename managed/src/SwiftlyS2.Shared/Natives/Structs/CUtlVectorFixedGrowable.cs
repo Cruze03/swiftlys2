@@ -1,16 +1,19 @@
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace SwiftlyS2.Shared.Natives;
 
 [StructLayout(LayoutKind.Sequential)]
-public struct CUtlVectorFixedGrowable<T>
+public unsafe struct CUtlVectorFixedGrowable<T, TBuffer>
+    where T : unmanaged
+    where TBuffer : unmanaged, IFixedBuffer
 {
     private int _size;
-    private CUtlMemoryFixedGrowable<T> _memory;
+    private CUtlMemoryFixedGrowable<T, TBuffer> _memory;
 
     public CUtlVectorFixedGrowable(int maxSize, int growSize = 0)
     {
-        _memory = new CUtlMemoryFixedGrowable<T>(maxSize, growSize, maxSize);
+        _memory = new CUtlMemoryFixedGrowable<T, TBuffer>(maxSize, growSize);
         _size = 0;
     }
 
@@ -36,10 +39,7 @@ public struct CUtlVectorFixedGrowable<T>
     {
         get
         {
-            unsafe
-            {
-                return ref System.Runtime.CompilerServices.Unsafe.AsRef<T>((byte*)_memory.Base + index * Marshal.SizeOf<T>());
-            }
+            return ref Unsafe.AsRef<T>((void*)(_memory.Base + index * sizeof(T)));
         }
     }
 
