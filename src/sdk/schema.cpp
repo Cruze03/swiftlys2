@@ -112,7 +112,8 @@ void CSDKSchema::Load()
 		int result = s2binlib_find_vtable_nested_2("server", name.first, name.second, &vtable);
 		if (result == 0) {
 			inlineNetworkVarVtbs.push_back((uint64_t)vtable);
-		} else {
+		}
+		else {
 			logger->Error("SDK", fmt::format("Failed to find inline network var vtable: {}::{}, error: {}\n", name.first, name.second, result));
 		}
 	}
@@ -201,10 +202,10 @@ void CSDKSchema::SetStateChanged(void* pEntity, uint64_t uHash)
 		if (pEntity)
 			pEntity->NetworkStateChanged(NetworkStateChangedData(fieldInfo.m_uOffset, -1, pChainer->m_PathIndex));
 	}
-	else if (fieldInfo.m_bIsStruct) {
-		NetworkStateChangedData data(fieldInfo.m_uOffset);
-		CALL_VIRTUAL(void, WIN_LINUX(27, 28), pEntity, &data);
-	}
+	// else if (fieldInfo.m_bIsStruct) {
+	// 	NetworkStateChangedData data(fieldInfo.m_uOffset);
+	// 	CALL_VIRTUAL(void, WIN_LINUX(27, 28), pEntity, &data);
+	// }
 	else {
 		reinterpret_cast<CEntityInstance*>(pEntity)->NetworkStateChanged(NetworkStateChangedData(fieldInfo.m_uOffset));
 	}
