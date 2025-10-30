@@ -437,6 +437,62 @@ public class TestPlugin : BasePlugin
     });
   }
 
+  [Command("tt8")]
+  public unsafe void TestCommand8(ICommandContext context)
+  {
+    var sender = context.Sender!;
+    var target = Core.PlayerManager.GetAllPlayers().FirstOrDefault(p => p.PlayerID != sender.PlayerID)!;
+
+    var origin = sender.RequiredPlayerPawn.AbsOrigin ?? Vector.Zero;
+    var targetOrigin = target.RequiredPlayerPawn.AbsOrigin ?? Vector.Zero;
+
+    Console.WriteLine("\n");
+    Console.WriteLine($"Origin: {origin}");
+    Console.WriteLine($"Target Origin: {targetOrigin}");
+
+    // Ray_t* ray = stackalloc Ray_t[1];
+    // ray->Init(Vector.Zero, Vector.Zero);
+    Ray_t ray = new();
+    ray.Init(Vector.Zero, Vector.Zero);
+
+    var filter = new CTraceFilter
+    {
+      unk01 = 1,
+      IterateEntities = true,
+      QueryShapeAttributes = new RnQueryShapeAttr_t
+      {
+        InteractsWith = MaskTrace.Player,
+        InteractsExclude = MaskTrace.Empty,
+        InteractsAs = MaskTrace.Empty,
+        CollisionGroup = CollisionGroup.Default,
+        ObjectSetMask = RnQueryObjectSet.AllGameEntities,
+        HitSolid = true,
+        HitTrigger = false,
+        HitSolidRequiresGenerateContacts = false,
+        ShouldIgnoreDisabledPairs = true,
+        IgnoreIfBothInteractWithHitboxes = true,
+        ForceHitEverything = true
+      }
+    };
+
+    filter.QueryShapeAttributes.EntityIdsToIgnore[0] = unchecked((uint)-1);
+    filter.QueryShapeAttributes.EntityIdsToIgnore[1] = unchecked((uint)-1);
+    filter.QueryShapeAttributes.OwnerIdsToIgnore[0] = unchecked((uint)-1);
+    filter.QueryShapeAttributes.OwnerIdsToIgnore[1] = unchecked((uint)-1);
+    filter.QueryShapeAttributes.HierarchyIds[0] = 0;
+    filter.QueryShapeAttributes.HierarchyIds[1] = 0;
+
+    var trace = new CGameTrace();
+    Core.Trace.TraceShape(origin, targetOrigin, ray, filter, ref trace);
+
+    Console.WriteLine(trace.pEntity != null ? $"! Hit Entity: {trace.Entity.DesignerName}" : "! No entity hit");
+    Console.WriteLine($"! SurfaceProperties: {(nint)trace.SurfaceProperties}, pEntity: {(nint)trace.pEntity}, HitBox: {(nint)trace.HitBox}({trace.HitBox->m_name.Value}), Body: {(nint)trace.Body}, Shape: {(nint)trace.Shape}, Contents: {trace.Contents}");
+    Console.WriteLine($"! StartPos: {trace.StartPos}, EndPos: {trace.EndPos}, HitNormal: {trace.HitNormal}, HitPoint: {trace.HitPoint}");
+    Console.WriteLine($"! HitOffset: {trace.HitOffset}, Fraction: {trace.Fraction}, Triangle: {trace.Triangle}, HitboxBoneIndex: {trace.HitboxBoneIndex}");
+    Console.WriteLine($"! RayType: {trace.RayType}, StartInSolid: {trace.StartInSolid}, ExactHitPoint: {trace.ExactHitPoint}");
+    Console.WriteLine("\n");
+  }
+
   [GameEventHandler(HookMode.Pre)]
   public HookResult TestGameEventHandler(EventPlayerJump @e)
   {
