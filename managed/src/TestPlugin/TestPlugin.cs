@@ -402,7 +402,9 @@ public class TestPlugin : BasePlugin
   {
     var ent = Core.EntitySystem.CreateEntity<CPointWorldText>();
     ent.DispatchSpawn();
-    ent.Collision.CollisionAttribute.CollisionGroupUpdated();
+    ent.Collision.MaxsUpdated();
+    ent.Collision.CollisionAttribute.OwnerIdUpdated();
+    
   }
 
   [Command("tt3")]
