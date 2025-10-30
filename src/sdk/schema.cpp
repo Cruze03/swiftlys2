@@ -19,7 +19,7 @@
 #include "schema.h"
 
 #include <fmt/format.h>
-#include <map>
+#include <unordered_map>
 
 #include <core/entrypoint.h>
 
@@ -33,54 +33,54 @@
 
 #define CBaseEntity_m_nSubclassID 0x9DC483B8C02CE796
 
-std::map<uint64_t, SchemaField> offsets;
-std::map<uint32_t, SchemaClass> classes;
-std::vector<uint64_t> inlineNetworkVarVtbs;
+std::unordered_map<uint64_t, SchemaField> offsets;
+std::unordered_map<uint32_t, SchemaClass> classes;
+std::unordered_map<uint64_t, uint64_t> inlineNetworkVarVtbs;
 
 // Special inline classes for state changed
 // These fields has vtable "CLASS::NetworkVar_FIELDNAME"
 // which has the virtual function to call state changed without entity pointer
 
 std::pair<const char*, const char*> inlineNetworkVarVtbNames[] = {
-	{"sky3dparams_t", "NetworkVar_fog"},
-	{"CTriggerFan", "NetworkVar_m_RampTimer"},
-	{"CSkyCamera", "NetworkVar_m_skyboxData"},
-	{"CSkeletonInstance", "NetworkVar_m_modelState"},
-	{"CShatterGlassShardPhysics", "NetworkVar_m_ShardDesc"},
-	{"CPlayer_CameraServices", "NetworkVar_m_audio"},
-	{"CPlayer_CameraServices", "NetworkVar_m_PlayerFog"},
-	{"CPlantedC4", "NetworkVar_m_entitySpottedState"},
-	{"CPlantedC4", "NetworkVar_m_AttributeManager"},
-	{"CHostage", "NetworkVar_m_reuseTimer"},
-	{"CHostage", "NetworkVar_m_entitySpottedState"},
-	{"CGameSceneNode", "NetworkVar_m_hParent"},
-	{"CFogController", "NetworkVar_m_fog"},
-	{"CEnvWindController", "NetworkVar_m_EnvWindShared"},
-	{"CEnvWind", "NetworkVar_m_EnvWindShared"},
-	{"CEconItemView", "NetworkVar_m_NetworkedDynamicAttributes"},
-	{"CEconItemView", "NetworkVar_m_AttributeList"},
-	{"CEconEntity", "NetworkVar_m_AttributeManager"},
-	{"CCollisionProperty", "NetworkVar_m_collisionAttribute"},
-	{"CChicken", "NetworkVar_m_AttributeManager"},
-	{"CCSPlayer_ActionTrackingServices", "NetworkVar_m_weaponPurchasesThisRound"},
-	{"CCSPlayer_ActionTrackingServices", "NetworkVar_m_weaponPurchasesThisMatch"},
-	{"CCSPlayerPawn", "NetworkVar_m_entitySpottedState"},
-	{"CCSPlayerPawn", "NetworkVar_m_EconGloves"},
-	{"CCSPlayerController_ActionTrackingServices", "NetworkVar_m_matchStats"},
-	{"CCSGameRules", "NetworkVar_m_RetakeRules"},
-	{"CCSGO_TeamPreviewCharacterPosition", "NetworkVar_m_weaponItem"},
-	{"CCSGO_TeamPreviewCharacterPosition", "NetworkVar_m_glovesItem"},
-	{"CCSGO_TeamPreviewCharacterPosition", "NetworkVar_m_agentItem"},
-	{"CC4", "NetworkVar_m_entitySpottedState"},
-	{"CBodyComponentSkeletonInstance", "NetworkVar_m_skeletonInstance"},
-	{"CBodyComponentPoint", "NetworkVar_m_sceneNode"},
-	{"CBodyComponentBaseAnimGraph", "NetworkVar_m_animationController"},
-	{"CBasePlayerPawn", "NetworkVar_m_skybox3d"},
-	{"CBaseModelEntity", "NetworkVar_m_Glow"},
-	{"CBaseModelEntity", "NetworkVar_m_Collision"},
-	{"CBaseAnimGraphController", "NetworkVar_m_animGraphNetworkedVars"},
-	{"CBaseAnimGraph", "NetworkVar_m_RagdollPose"},
-	{"CAttributeContainer", "NetworkVar_m_Item"},
+	{"sky3dparams_t", "fog"},
+	{"CTriggerFan", "m_RampTimer"},
+	{"CSkyCamera", "m_skyboxData"},
+	{"CSkeletonInstance", "m_modelState"},
+	{"CShatterGlassShardPhysics", "m_ShardDesc"},
+	{"CPlayer_CameraServices", "m_audio"},
+	{"CPlayer_CameraServices", "m_PlayerFog"},
+	{"CPlantedC4", "m_entitySpottedState"},
+	{"CPlantedC4", "m_AttributeManager"},
+	{"CHostage", "m_reuseTimer"},
+	{"CHostage", "m_entitySpottedState"},
+	{"CGameSceneNode", "m_hParent"},
+	{"CFogController", "m_fog"},
+	{"CEnvWindController", "m_EnvWindShared"},
+	{"CEnvWind", "m_EnvWindShared"},
+	{"CEconItemView", "m_NetworkedDynamicAttributes"},
+	{"CEconItemView", "m_AttributeList"},
+	{"CEconEntity", "m_AttributeManager"},
+	{"CCollisionProperty", "m_collisionAttribute"},
+	{"CChicken", "m_AttributeManager"},
+	{"CCSPlayer_ActionTrackingServices", "m_weaponPurchasesThisRound"},
+	{"CCSPlayer_ActionTrackingServices", "m_weaponPurchasesThisMatch"},
+	{"CCSPlayerPawn", "m_entitySpottedState"},
+	{"CCSPlayerPawn", "m_EconGloves"},
+	{"CCSPlayerController_ActionTrackingServices", "m_matchStats"},
+	{"CCSGameRules", "m_RetakeRules"},
+	{"CCSGO_TeamPreviewCharacterPosition", "m_weaponItem"},
+	{"CCSGO_TeamPreviewCharacterPosition", "m_glovesItem"},
+	{"CCSGO_TeamPreviewCharacterPosition", "m_agentItem"},
+	{"CC4", "m_entitySpottedState"},
+	{"CBodyComponentSkeletonInstance", "m_skeletonInstance"},
+	{"CBodyComponentPoint", "m_sceneNode"},
+	{"CBodyComponentBaseAnimGraph", "m_animationController"},
+	{"CBasePlayerPawn", "m_skybox3d"},
+	{"CBaseModelEntity", "m_Glow"},
+	{"CBaseModelEntity", "m_Collision"},
+	{"CBaseAnimGraphController", "m_animGraphNetworkedVars"},
+	{"CBaseAnimGraph", "m_RagdollPose"},
+	{"CAttributeContainer", "m_Item"},
 };
 
 class CNetworkVarChainer
@@ -109,11 +109,17 @@ void CSDKSchema::Load()
 
 	for (auto& name : inlineNetworkVarVtbNames) {
 		void* vtable;
-		int result = s2binlib_find_vtable_nested_2("server", name.first, name.second, &vtable);
+		int result = s2binlib_find_vtable_nested_2("server", name.first, (std::string("NetworkVar_") + name.second).c_str(), &vtable);
 		if (result == 0) {
-			inlineNetworkVarVtbs.push_back((uint64_t)vtable);
-		}
-		else {
+			uint64_t index;
+			result = s2binlib_find_networkvar_vtable_statechanged((uint64_t)vtable, &index);
+			if (result == 0) {
+				inlineNetworkVarVtbs[(uint64_t)vtable] = index;
+				logger->Info("SDK", fmt::format("Loaded vfunc '{}::{}->StateChanged' => {}.\n", name.first, name.second, index));
+			} else {
+				logger->Error("SDK", fmt::format("Failed to find inline network var vtable state changed: {}, error: {}\n", name.first, name.second, result));
+			}
+		} else {
 			logger->Error("SDK", fmt::format("Failed to find inline network var vtable: {}::{}, error: {}\n", name.first, name.second, result));
 		}
 	}
@@ -186,13 +192,14 @@ void CSDKSchema::SetStateChanged(void* pEntity, uint64_t uHash)
 
 	auto& fieldInfo = fieldData->second;
 	if (!fieldInfo.m_bNetworked) return;
+	auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
 
 	auto uncheckedNetworkVar = reinterpret_cast<NetworkVar*>(pEntity);
-	for (auto& vtb : inlineNetworkVarVtbs) {
-		if (uncheckedNetworkVar->pVtable() == vtb) {
-			uncheckedNetworkVar->StateChanged(NetworkStateChangedData(fieldInfo.m_uOffset));
-			return;
-		}
+	auto it = inlineNetworkVarVtbs.find(uncheckedNetworkVar->pVtable());
+	if (it != inlineNetworkVarVtbs.end()) {
+		auto index = it->second;
+		uncheckedNetworkVar->StateChanged(index, NetworkStateChangedData(fieldInfo.m_uOffset));
+		return;
 	}
 
 	if (fieldInfo.m_bChainer) {
@@ -202,10 +209,11 @@ void CSDKSchema::SetStateChanged(void* pEntity, uint64_t uHash)
 		if (pEntity)
 			pEntity->NetworkStateChanged(NetworkStateChangedData(fieldInfo.m_uOffset, -1, pChainer->m_PathIndex));
 	}
-	// else if (fieldInfo.m_bIsStruct) {
-	// 	NetworkStateChangedData data(fieldInfo.m_uOffset);
-	// 	CALL_VIRTUAL(void, WIN_LINUX(27, 28), pEntity, &data);
-	// }
+	else if (fieldInfo.m_bIsStruct) {
+		logger->Error("SDK", fmt::format("State changed is called on an unsupported field (hash={}), please report this to the developer.\n", uHash));
+		// NetworkStateChangedData data(fieldInfo.m_uOffset);
+		// CALL_VIRTUAL(void, WIN_LINUX(27, 28), pEntity, &data);
+	}
 	else {
 		reinterpret_cast<CEntityInstance*>(pEntity)->NetworkStateChanged(NetworkStateChangedData(fieldInfo.m_uOffset));
 	}
