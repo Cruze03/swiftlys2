@@ -99,7 +99,7 @@ public class TestPlugin : BasePlugin
     //   return HookResult.Continue;
     // });
     
-    // Core.Event.OnConsoleOutput += (@event) =>
+    Core.Event.OnConsoleOutput += (@event) =>
     // {
     //   Console.WriteLine($"[TestPlugin] ConsoleOutput: {@event.Message}");
     // };
@@ -109,6 +109,28 @@ public class TestPlugin : BasePlugin
     //   if (@event.HookMode == HookMode.Pre) return;
     //   Core.Logger.LogInformation("CommandExecute: {name} with {args}", @event.Command[0], @event.Command.ArgS);
     // };
+
+    // Core.Event.OnEntityStartTouchHook += (@event) =>
+    // {
+    //   // Console.WriteLine($"EntityStartTouch: {@event.Entity.Entity?.DesignerName} {@event.OtherEntity.Entity?.DesignerName}");
+    // };
+
+    // Core.Event.OnEntityTouchHook += (@event) =>
+    // {
+    //   @event.Result = HookResult.Stop;
+    // };
+
+    // Core.Event.OnEntityEndTouchHook += (@event) =>
+    // {
+    //   if (@event.Entity.Entity?.DesignerName != "player" || @event.OtherEntity.Entity?.DesignerName != "player")
+    //   {
+    //     return;
+    //   }
+    //   var player = @event.Entity.As<CCSPlayerPawn>();
+    //   var otherPlayer = @event.OtherEntity.As<CCSPlayerPawn>();
+    //   // Console.WriteLine($"EntityTouch: {(player.Controller.Value?.PlayerName ?? string.Empty)} -> {(otherPlayer.Controller.Value?.PlayerName ?? string.Empty)}");
+    // };
+
     Core.Engine.ExecuteCommandWithBuffer("@ping", (buffer) =>
     {
       Console.WriteLine($"pong: {buffer}");

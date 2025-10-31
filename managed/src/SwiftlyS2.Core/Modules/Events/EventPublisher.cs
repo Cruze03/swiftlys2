@@ -513,6 +513,45 @@ internal static class EventPublisher
     }
   }
 
+  public static void InvokeOnEntityTouchHook(OnEntityTouchHookEvent @event, int type)
+  {
+    if (_subscribers.Count == 0) return;
+    try
+    {
+      foreach (var subscriber in _subscribers)
+      {
+        switch (type)
+        {
+          case 0:
+            subscriber.InvokeOnEntityStartTouchHook(@event);
+            break;
+          case 1:
+            subscriber.InvokeOnEntityTouchHook(@event);
+            break;
+          case 2:
+            subscriber.InvokeOnEntityEndTouchHook(@event);
+            break;
+        }
+
+        if (@event.Result == HookResult.Handled)
+        {
+          return;
+        }
+
+        if (@event.Result == HookResult.Stop)
+        {
+          return;
+        }
+      }
+      return;
+    }
+    catch (Exception e)
+    {
+      AnsiConsole.WriteException(e);
+      return;
+    }
+  }
+
   public static void InvokeOnCanAcquireHook(OnItemServicesCanAcquireHookEvent @event)
   {
     if (_subscribers.Count == 0) return;
