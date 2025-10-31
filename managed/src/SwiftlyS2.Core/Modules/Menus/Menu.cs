@@ -256,6 +256,7 @@ internal class Menu : IMenu
                         buttonOption.OnValidationFailed?.Invoke(player);
                     }
                     buttonOption.OnClick?.Invoke(player);
+                    buttonOption.OnClickWithOption?.Invoke(player, buttonOption);
                     if (buttonOption.CloseOnSelect)
                     {
                         MenuManager.CloseMenuForPlayer(player);

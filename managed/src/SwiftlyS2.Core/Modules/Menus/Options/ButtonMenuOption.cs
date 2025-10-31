@@ -8,6 +8,7 @@ internal class ButtonMenuOption : IOption
 {
     public string Text { get; set; }
     public Action<IPlayer>? OnClick { get; set; }
+    public Action<IPlayer, IOption>? OnClickWithOption { get; set; }
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<IPlayer, bool>? EnabledCheck { get; set; }
     public Func<IPlayer, bool>? ValidationCheck { get; set; }
@@ -23,6 +24,13 @@ internal class ButtonMenuOption : IOption
     {
         Text = text;
         OnClick = onClick;
+        Size = size;
+    }
+
+    public ButtonMenuOption(string text, Action<IPlayer, IOption>? onClick, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        OnClickWithOption = onClick;
         Size = size;
     }
     public bool ShouldShow(IPlayer player)

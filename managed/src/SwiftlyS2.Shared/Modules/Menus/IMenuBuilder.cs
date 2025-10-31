@@ -35,6 +35,16 @@ public interface IMenuBuilder
     IMenuBuilder AddButton(string text, Action<IPlayer>? onClick = null, IMenuTextSize size = IMenuTextSize.Medium);
 
     /// <summary>
+    /// Adds a clickable button option to the menu.
+    /// When selected, executes the provided action with the player and option as parameters.
+    /// </summary>
+    /// <param name="text">The display text for the button.</param>
+    /// <param name="onClick">Optional action to execute when the button is clicked. Receives the player and option as parameters.</param>
+    /// <param name="size">The text size for the button display. Defaults to Medium.</param>
+    /// <returns>The current menu builder instance for method chaining.</returns>
+    IMenuBuilder AddButton(string text, Action<IPlayer, IOption>? onClick, IMenuTextSize size = IMenuTextSize.Medium);
+
+    /// <summary>
     /// Adds a toggle switch option to the menu that can be turned on or off.
     /// Players can interact with this option to change its boolean state.
     /// </summary>
@@ -44,6 +54,17 @@ public interface IMenuBuilder
     /// <param name="size">The text size for the toggle display. Defaults to Medium.</param>
     /// <returns>The current menu builder instance for method chaining.</returns>
     IMenuBuilder AddToggle(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium);
+
+    /// <summary>
+    /// Adds a toggle switch option to the menu that can be turned on or off.
+    /// Players can interact with this option to change its boolean state.
+    /// </summary>
+    /// <param name="text">The display text for the toggle option.</param>
+    /// <param name="defaultValue">The initial state of the toggle. Defaults to false.</param>
+    /// <param name="onToggle">Optional action to execute when the toggle state changes. Receives the player, option, and new boolean value.</param>
+    /// <param name="size">The text size for the toggle display. Defaults to Medium.</param>
+    /// <returns>The current menu builder instance for method chaining.</returns>
+    IMenuBuilder AddToggle(string text, bool defaultValue, Action<IPlayer, IOption, bool>? onToggle, IMenuTextSize size = IMenuTextSize.Medium);
 
     /// <summary>
     /// Adds a slider option to the menu for selecting numeric values within a specified range.
@@ -60,6 +81,20 @@ public interface IMenuBuilder
     IMenuBuilder AddSlider(string text, float min, float max, float defaultValue, float step = 1, Action<IPlayer, float>? onChange = null, IMenuTextSize size = IMenuTextSize.Medium);
 
     /// <summary>
+    /// Adds a slider option to the menu for selecting numeric values within a specified range.
+    /// Players can adjust the value using left/right navigation.
+    /// </summary>
+    /// <param name="text">The display text for the slider option.</param>
+    /// <param name="min">The minimum allowed value for the slider.</param>
+    /// <param name="max">The maximum allowed value for the slider.</param>
+    /// <param name="defaultValue">The initial value of the slider.</param>
+    /// <param name="step">The increment/decrement step size.</param>
+    /// <param name="onChange">Optional action to execute when the slider value changes. Receives the player, option, and new float value.</param>
+    /// <param name="size">The text size for the slider display. Defaults to Medium.</param>
+    /// <returns>The current menu builder instance for method chaining.</returns>
+    IMenuBuilder AddSlider(string text, float min, float max, float defaultValue, float step, Action<IPlayer, IOption, float>? onChange, IMenuTextSize size = IMenuTextSize.Medium);
+
+    /// <summary>
     /// Adds an asynchronous button option to the menu that executes async operations.
     /// When selected, executes the provided async function with the player as parameter.
     /// </summary>
@@ -68,6 +103,16 @@ public interface IMenuBuilder
     /// <param name="size">The text size for the button display. Defaults to Medium.</param>
     /// <returns>The current menu builder instance for method chaining.</returns>
     IMenuBuilder AddAsyncButton(string text, Func<IPlayer, Task> onClickAsync, IMenuTextSize size = IMenuTextSize.Medium);
+
+    /// <summary>
+    /// Adds an asynchronous button option to the menu that executes async operations.
+    /// When selected, executes the provided async function with the player and option as parameters.
+    /// </summary>
+    /// <param name="text">The display text for the async button.</param>
+    /// <param name="onClickAsync">The async function to execute when the button is clicked. Receives the player and option as parameters.</param>
+    /// <param name="size">The text size for the button display. Defaults to Medium.</param>
+    /// <returns>The current menu builder instance for method chaining.</returns>
+    IMenuBuilder AddAsyncButton(string text, Func<IPlayer, IOption, Task> onClickAsync, IMenuTextSize size = IMenuTextSize.Medium);
 
     /// <summary>
     /// Adds a non-interactive text display option to the menu.
@@ -139,6 +184,18 @@ public interface IMenuBuilder
     /// <param name="onChange">Optional action to execute when the choice changes. Receives the player and selected choice string.</param>
     /// <returns>The current menu builder instance for method chaining.</returns>
     IMenuBuilder AddChoice(string text, string[] choices, string? defaultChoice, Action<IPlayer, string>? onChange);
+
+    /// <summary>
+    /// Adds a choice selection option that allows players to select from multiple predefined options.
+    /// Players can cycle through the available choices using left/right navigation.
+    /// </summary>
+    /// <param name="text">The display text for the choice option.</param>
+    /// <param name="choices">An array of available choice strings.</param>
+    /// <param name="defaultChoice">The initially selected choice.</param>
+    /// <param name="onChange">Optional action to execute when the choice changes. Receives the player, option, and selected choice string.</param>
+    /// <param name="size">The text size for the choice display. Defaults to Medium.</param>
+    /// <returns>The current menu builder instance for method chaining.</returns>
+    IMenuBuilder AddChoice(string text, string[] choices, string? defaultChoice, Action<IPlayer, IOption, string>? onChange, IMenuTextSize size = IMenuTextSize.Medium);
 
     /// <summary>
     /// Adds a visual separator line to the menu for organizing content.

@@ -4,21 +4,38 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-internal class ToggleMenuOption(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium) : IOption
+internal class ToggleMenuOption : IOption
 {
-    public string Text { get; set; } = text;
-    public bool Value { get; set; } = defaultValue;
-    public Action<IPlayer, bool>? OnToggle { get; set; } = onToggle;
+    public string Text { get; set; }
+    public bool Value { get; set; }
+    public Action<IPlayer, bool>? OnToggle { get; set; }
+    public Action<IPlayer, IOption, bool>? OnToggleWithOption { get; set; }
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<IPlayer, bool>? EnabledCheck { get; set; }
     public Func<IPlayer, bool>? ValidationCheck { get; set; }
     public Action<IPlayer>? OnValidationFailed { get; set; }
-    public IMenuTextSize Size { get; set; } = size;
+    public IMenuTextSize Size { get; set; }
     public bool CloseOnSelect { get; set; }
     public IMenu? Menu { get; set; }
 
     public bool Visible => true;
     public bool Enabled => true;
+
+    public ToggleMenuOption(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        Value = defaultValue;
+        OnToggle = onToggle;
+        Size = size;
+    }
+
+    public ToggleMenuOption(string text, bool defaultValue, Action<IPlayer, IOption, bool>? onToggle, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        Value = defaultValue;
+        OnToggleWithOption = onToggle;
+        Size = size;
+    }
 
     public bool ShouldShow(IPlayer player)
     {
@@ -61,5 +78,6 @@ internal class ToggleMenuOption(string text, bool defaultValue = false, Action<I
 
         Value = !Value;
         OnToggle?.Invoke(player, Value);
+        OnToggleWithOption?.Invoke(player, this, Value);
     }
 }

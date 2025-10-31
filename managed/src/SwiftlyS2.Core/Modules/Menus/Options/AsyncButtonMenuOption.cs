@@ -4,15 +4,16 @@ using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-internal class AsyncButtonMenuOption(string text, Func<IPlayer, Task>? onClickAsync = null, IMenuTextSize size = IMenuTextSize.Medium) : IOption
+internal class AsyncButtonMenuOption : IOption
 {
-    public string Text { get; set; } = text;
-    public Func<IPlayer, Task>? OnClickAsync { get; set; } = onClickAsync;
+    public string Text { get; set; }
+    public Func<IPlayer, Task>? OnClickAsync { get; set; }
+    public Func<IPlayer, IOption, Task>? OnClickAsyncWithOption { get; set; }
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<IPlayer, bool>? EnabledCheck { get; set; }
     public Func<IPlayer, bool>? ValidationCheck { get; set; }
     public Action<IPlayer>? OnValidationFailed { get; set; }
-    public IMenuTextSize Size { get; set; } = size;
+    public IMenuTextSize Size { get; set; }
     public bool CloseOnSelect { get; set; }
     public IMenu? Menu { get; set; }
 
@@ -21,6 +22,20 @@ internal class AsyncButtonMenuOption(string text, Func<IPlayer, Task>? onClickAs
     public bool IsLoading { get; set; }
 
     private string? _loadingText;
+
+    public AsyncButtonMenuOption(string text, Func<IPlayer, Task>? onClickAsync = null, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        OnClickAsync = onClickAsync;
+        Size = size;
+    }
+
+    public AsyncButtonMenuOption(string text, Func<IPlayer, IOption, Task>? onClickAsync, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        OnClickAsyncWithOption = onClickAsync;
+        Size = size;
+    }
 
     public bool ShouldShow(IPlayer player)
     {
@@ -56,13 +71,16 @@ internal class AsyncButtonMenuOption(string text, Func<IPlayer, Task>? onClickAs
 
     public async Task ExecuteAsync(IPlayer player, string? loadingText = null)
     {
-        if (OnClickAsync == null) return;
+        if (OnClickAsync == null && OnClickAsyncWithOption == null) return;
 
         _loadingText = loadingText;
 
         try
         {
-            await OnClickAsync.Invoke(player);
+            if (OnClickAsync != null)
+                await OnClickAsync.Invoke(player);
+            else if (OnClickAsyncWithOption != null)
+                await OnClickAsyncWithOption.Invoke(player, this);
         }
         finally
         {
