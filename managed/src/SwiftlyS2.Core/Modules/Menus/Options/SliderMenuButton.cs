@@ -62,10 +62,18 @@ internal class SliderMenuButton(string text, float min = 0, float max = 10, floa
         return Size;
     }
 
+    private static float Wrap(float value, float min, float max)
+    {
+        float range = max - min + 1;
+        return ((value - min) % range + range) % range + min;
+    }
+
     public void Increase(IPlayer player)
     {
         if (!CanInteract(player)) return;
-        var newValue = Math.Min(Value + Step, Max);
+
+        var newValue = Wrap(Value + Step, Min, Max);
+
         if (newValue != Value)
         {
             Value = newValue;
@@ -75,7 +83,9 @@ internal class SliderMenuButton(string text, float min = 0, float max = 10, floa
     public void Decrease(IPlayer player)
     {
         if (!CanInteract(player)) return;
-        var newValue = Math.Max(Value - Step, Min);
+
+        var newValue = Wrap(Value - Step, Min, Max);
+
         if (newValue != Value)
         {
             Value = newValue;
