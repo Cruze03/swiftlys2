@@ -110,6 +110,11 @@ public class TestPlugin : BasePlugin
     //   Core.Logger.LogInformation("CommandExecute: {name} with {args}", @event.Command[0], @event.Command.ArgS);
     // };
 
+    Core.Event.OnEntityStartTouch += (@event) =>
+    {
+      Console.WriteLine($"[New] EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
+    };
+
     Core.Event.OnEntityTouchHook += (@event) =>
     {
       switch (@event.TouchType)
