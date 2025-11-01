@@ -110,31 +110,31 @@ public class TestPlugin : BasePlugin
     //   Core.Logger.LogInformation("CommandExecute: {name} with {args}", @event.Command[0], @event.Command.ArgS);
     // };
 
-    Core.Event.OnEntityStartTouch += (@event) =>
-    {
-      Console.WriteLine($"[New] EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
-    };
+    // Core.Event.OnEntityStartTouch += (@event) =>
+    // {
+    //   Console.WriteLine($"[New] EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
+    // };
 
-    Core.Event.OnEntityTouchHook += (@event) =>
-    {
-      switch (@event.TouchType)
-      {
-        case EntityTouchType.StartTouch:
-          Console.WriteLine($"EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
-          break;
-        case EntityTouchType.Touch:
-          break;
-        case EntityTouchType.EndTouch:
-          if (@event.Entity.Entity?.DesignerName != "player" || @event.OtherEntity.Entity?.DesignerName != "player")
-          {
-            return;
-          }
-          var player = @event.Entity.As<CCSPlayerPawn>();
-          var otherPlayer = @event.OtherEntity.As<CCSPlayerPawn>();
-          Console.WriteLine($"EntityEndTouch: {(player.Controller.Value?.PlayerName ?? string.Empty)} -> {(otherPlayer.Controller.Value?.PlayerName ?? string.Empty)}");
-          break;
-      }
-    };
+    // Core.Event.OnEntityTouchHook += (@event) =>
+    // {
+    //   switch (@event.TouchType)
+    //   {
+    //     case EntityTouchType.StartTouch:
+    //       Console.WriteLine($"EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
+    //       break;
+    //     case EntityTouchType.Touch:
+    //       break;
+    //     case EntityTouchType.EndTouch:
+    //       if (@event.Entity.Entity?.DesignerName != "player" || @event.OtherEntity.Entity?.DesignerName != "player")
+    //       {
+    //         return;
+    //       }
+    //       var player = @event.Entity.As<CCSPlayerPawn>();
+    //       var otherPlayer = @event.OtherEntity.As<CCSPlayerPawn>();
+    //       Console.WriteLine($"EntityEndTouch: {(player.Controller.Value?.PlayerName ?? string.Empty)} -> {(otherPlayer.Controller.Value?.PlayerName ?? string.Empty)}");
+    //       break;
+    //   }
+    // };
 
     Core.Engine.ExecuteCommandWithBuffer("@ping", (buffer) =>
     {
