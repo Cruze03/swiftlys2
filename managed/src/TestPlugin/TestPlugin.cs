@@ -561,7 +561,7 @@ public class TestPlugin : BasePlugin
 
     IMenu settingsMenu = Core.Menus.CreateMenu("Settings");
     
-    settingsMenu.Builder.SetScrollStyle(MenuScrollStyle.WaitingCenter);
+    settingsMenu.Builder.SetScrollStyle(MenuScrollStyle.ArrowFollow);
     
     settingsMenu.Builder.AddButton("1. AButton",(p) =>
     {

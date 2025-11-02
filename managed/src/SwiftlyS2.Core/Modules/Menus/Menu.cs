@@ -44,7 +44,7 @@ internal class Menu : IMenu
     public bool HasSound { get; set; } = true;
     public bool RenderOntick { get; set; } = false;
     private bool Initialized { get; set; } = false;
-    public MenuScrollStyle ScrollStyle { get; set; } = MenuScrollStyle.WaitingCenter;
+    public MenuScrollStyle ScrollStyle { get; set; } = MenuScrollStyle.CenterFixed;
 
     public void Close(IPlayer player)
     {
@@ -148,12 +148,7 @@ internal class Menu : IMenu
                         arrowPosition = halfVisible;
                     }
                 }
-                else if (ScrollStyle == MenuScrollStyle.CenterFixed)
-                {
-                    startIndex = Math.Max(0, Math.Min(selectedIdx - halfVisible, totalOptions - maxVisibleOptions));
-                    arrowPosition = halfVisible;
-                }
-                else
+                else if (ScrollStyle == MenuScrollStyle.ArrowFollow)
                 {
                     if (selectedIdx < maxVisibleOptions - 1)
                     {
@@ -169,12 +164,30 @@ internal class Menu : IMenu
                     }
                     arrowPosition = selectedIdx - startIndex;
                 }
+                else
+                {
+                    arrowPosition = halfVisible;
+                    startIndex = -1;
+                }
 
                 for (int i = 0; i < maxVisibleOptions; i++)
                 {
-                    var actualIndex = startIndex + i;
+                    int actualIndex;
+                    bool isSelected;
+
+                    if (ScrollStyle == MenuScrollStyle.CenterFixed)
+                    {
+                        var offset = i - halfVisible;
+                        actualIndex = (selectedIdx + offset + totalOptions) % totalOptions;
+                        isSelected = offset == 0;
+                    }
+                    else
+                    {
+                        actualIndex = startIndex + i;
+                        isSelected = i == arrowPosition;
+                    }
+
                     var option = visibleOptions[actualIndex];
-                    var isSelected = i == arrowPosition;
                     var arrowSizeClass = MenuSizeHelper.GetSizeClass(option.GetTextSize());
 
                     if (isSelected)
