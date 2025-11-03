@@ -12,23 +12,26 @@ internal class TextMenuOption : IOption
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<string>? DynamicText { get; set; }
     public IMenu? Menu { get; set; }
+    public MenuHorizontalStyle? OverflowStyle { get; init; }
 
     public bool Visible => true;
     public bool Enabled => false;
 
-    public TextMenuOption(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium)
+    public TextMenuOption(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium, MenuHorizontalStyle? overflowStyle = null)
     {
         Text = text;
         Alignment = alignment;
         Size = size;
+        OverflowStyle = overflowStyle;
     }
 
-    public TextMenuOption(Func<string> dynamicText, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium)
+    public TextMenuOption(Func<string> dynamicText, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium, MenuHorizontalStyle? overflowStyle = null)
     {
-        Text = "";
+        Text = string.Empty;
         DynamicText = dynamicText;
         Alignment = alignment;
         Size = size;
+        OverflowStyle = overflowStyle;
     }
 
     public bool ShouldShow(IPlayer player)
@@ -45,7 +48,7 @@ internal class TextMenuOption : IOption
     {
         var text = DynamicText?.Invoke() ?? Text;
 
-        text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(text) ?? text;
+        text = (Menu as Menus.Menu)?.ApplyHorizontalStyle(text, OverflowStyle) ?? text;
 
         var sizeClass = MenuSizeHelper.GetSizeClass(Size);
 

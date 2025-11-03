@@ -95,9 +95,9 @@ internal class MenuBuilder : IMenuBuilder
         return AddAsyncButton(text, onClickAsync, IMenuTextSize.Medium);
     }
 
-    public IMenuBuilder AddText(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium)
+    public IMenuBuilder AddText(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium, MenuHorizontalStyle? overflowStyle = null)
     {
-        _menu!.Options.Add(new TextMenuOption(text, alignment, size));
+        _menu!.Options.Add(new TextMenuOption(text, alignment, size, overflowStyle));
         _menu!.Options[^1].Menu = _menu;
         return this;
     }

@@ -415,25 +415,28 @@ internal class Menu : IMenu
         pawn.MoveTypeUpdated();
     }
 
-    internal string ApplyHorizontalStyle(string text)
+    internal string ApplyHorizontalStyle(string text, MenuHorizontalStyle? overflowStyle = null)
     {
-        if (HorizontalStyle == null || string.IsNullOrEmpty(text))
+        var activeStyle = overflowStyle ?? HorizontalStyle;
+
+        if (activeStyle == null || string.IsNullOrEmpty(text))
         {
             return text;
         }
 
-        if (Helper.EstimateTextWidth(text) <= HorizontalStyle.Value.MaxWidth)
+        if (Helper.EstimateTextWidth(text) <= activeStyle.Value.MaxWidth)
         {
             return text;
         }
 
-        return HorizontalStyle.Value.OverflowStyle switch
+        return activeStyle.Value.OverflowStyle switch
         {
-            MenuHorizontalOverflowStyle.TruncateEnd => TruncateTextEnd(text, HorizontalStyle.Value.MaxWidth),
-            MenuHorizontalOverflowStyle.TruncateBothEnds => TruncateTextBothEnds(text, HorizontalStyle.Value.MaxWidth),
-            MenuHorizontalOverflowStyle.ScrollLeftFade => ScrollTextWithFade(text, HorizontalStyle.Value.MaxWidth, true),
-            MenuHorizontalOverflowStyle.ScrollRightFade => ScrollTextWithFade(text, HorizontalStyle.Value.MaxWidth, false),
-            MenuHorizontalOverflowStyle.ScrollLeftLoop => ScrollTextWithLoop($"{text.TrimEnd()} ", HorizontalStyle.Value.MaxWidth, true),
+            MenuHorizontalOverflowStyle.TruncateEnd => TruncateTextEnd(text, activeStyle.Value.MaxWidth),
+            MenuHorizontalOverflowStyle.TruncateBothEnds => TruncateTextBothEnds(text, activeStyle.Value.MaxWidth),
+            MenuHorizontalOverflowStyle.ScrollLeftFade => ScrollTextWithFade(text, activeStyle.Value.MaxWidth, true),
+            MenuHorizontalOverflowStyle.ScrollRightFade => ScrollTextWithFade(text, activeStyle.Value.MaxWidth, false),
+            MenuHorizontalOverflowStyle.ScrollLeftLoop => ScrollTextWithLoop($"{text.TrimEnd()} ", activeStyle.Value.MaxWidth, true),
+            MenuHorizontalOverflowStyle.ScrollRightLoop => ScrollTextWithLoop($" {text.TrimStart()}", activeStyle.Value.MaxWidth, false),
             _ => text
         };
     }

@@ -565,7 +565,7 @@ public class TestPlugin : BasePlugin
 
     // settingsMenu.Builder.Design.MaxVisibleItems(Random.Shared.Next(-2, 8));
 
-    if (!int.TryParse(context.Args[0], out int vtype)) vtype = 0;
+    if (context.Args.Length < 1 || !int.TryParse(context.Args[0], out int vtype)) vtype = 0;
 
     settingsMenu.Builder.Design.SetVerticalScrollStyle(vtype switch
     {
@@ -574,12 +574,12 @@ public class TestPlugin : BasePlugin
       _ => MenuVerticalScrollStyle.CenterFixed
     });
 
-    if (!int.TryParse(context.Args[1], out int htype)) htype = 0;
+    if (context.Args.Length < 2 || !int.TryParse(context.Args[1], out int htype)) htype = 0;
     settingsMenu.Builder.Design.SetGlobalHorizontalStyle(htype switch
     {
       1 => MenuHorizontalStyle.TruncateBothEnds(26f),
-      2 => MenuHorizontalStyle.ScrollLeftFade(26f, 32),
-      3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 32),
+      2 => MenuHorizontalStyle.ScrollLeftFade(26f, 16),
+      3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 16),
       _ => MenuHorizontalStyle.TruncateEnd(26f)
     });
     
@@ -610,10 +610,14 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("9. Text");
     settingsMenu.Builder.AddText("123456789012345678901234567890");
     settingsMenu.Builder.AddText("一二三四五六七八九十一二三四五六七八九十");
-    settingsMenu.Builder.AddText("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    settingsMenu.Builder.AddText("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
     settingsMenu.Builder.AddText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    settingsMenu.Builder.AddText(@"`~!@#$%^&*()_+!@#$%^&*()_+/|\{}`~!@#$%^&*()_+!@#$%^&*()_+/|\{}");
+    settingsMenu.Builder.AddText("问候世界，Swiftlys2 满怀热爱而来", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8));
+    settingsMenu.Builder.AddText("世界へ、Swiftlys2 より愛を込めて");
+    settingsMenu.Builder.AddText("세상에 인사를, Swiftlys2가 사랑을 담아");
+    settingsMenu.Builder.AddText("Приветствуем мир с любовью от Swiftlys2");
+    settingsMenu.Builder.AddText("Salutăm lumea cu dragoste din Swiftlys2");
+    settingsMenu.Builder.AddText("Greetings to the world, with love from Swiftlys2");
+    settingsMenu.Builder.AddText("Saluton al la mondo, kun amo de Swiftlys2");
 
     // settingsMenu.Builder.AddProgressBar("8. ProgressBar", () => 0.5f);
 

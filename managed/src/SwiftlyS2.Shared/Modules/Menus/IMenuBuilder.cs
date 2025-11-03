@@ -123,8 +123,9 @@ public interface IMenuBuilder
     /// <param name="text">The text content to display.</param>
     /// <param name="alignment">The text alignment within the menu. Defaults to Left.</param>
     /// <param name="size">The text size for the display. Defaults to Medium.</param>
+    /// <param name="overflowStyle">The overflow style for the text. Defaults to null.</param>
     /// <returns>The current menu builder instance for method chaining.</returns>
-    IMenuBuilder AddText(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium);
+    IMenuBuilder AddText(string text, ITextAlign alignment = ITextAlign.Left, IMenuTextSize size = IMenuTextSize.Medium, MenuHorizontalStyle? overflowStyle = null);
 
     /// <summary>
     /// Adds a submenu option that navigates to another menu when selected.
