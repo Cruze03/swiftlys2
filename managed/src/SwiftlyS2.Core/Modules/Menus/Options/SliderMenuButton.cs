@@ -5,21 +5,44 @@ using SwiftlyS2.Shared.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.Menu.Options;
 
-internal class SliderMenuButton(string text, float min = 0, float max = 10, float defaultValue = 5, float step = 1, Action<IPlayer, float>? onChange = null, IMenuTextSize size = IMenuTextSize.Medium) : IOption
+internal class SliderMenuButton : IOption
 {
-    public string Text { get; set; } = text;
-    public float Value { get; set; } = Math.Clamp(defaultValue, min, max);
-    public float Min { get; set; } = min;
-    public float Max { get; set; } = max;
-    public float Step { get; set; } = step;
-    public Action<IPlayer, float>? OnChange { get; set; } = onChange;
+    public string Text { get; set; }
+    public float Value { get; set; }
+    public float Min { get; set; }
+    public float Max { get; set; }
+    public float Step { get; set; }
+    public Action<IPlayer, float>? OnChange { get; set; }
+    public Action<IPlayer, IOption, float>? OnChangeWithOption { get; set; }
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<IPlayer, bool>? EnabledCheck { get; set; }
-    public IMenuTextSize Size { get; set; } = size;
+    public IMenuTextSize Size { get; set; }
     public IMenu? Menu { get; set; }
 
     public bool Visible => true;
     public bool Enabled => true;
+
+    public SliderMenuButton(string text, float min = 0, float max = 10, float defaultValue = 5, float step = 1, Action<IPlayer, float>? onChange = null, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        Min = min;
+        Max = max;
+        Value = Math.Clamp(defaultValue, min, max);
+        Step = step;
+        OnChange = onChange;
+        Size = size;
+    }
+
+    public SliderMenuButton(string text, float min, float max, float defaultValue, float step, Action<IPlayer, IOption, float>? onChange, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        Min = min;
+        Max = max;
+        Value = Math.Clamp(defaultValue, min, max);
+        Step = step;
+        OnChangeWithOption = onChange;
+        Size = size;
+    }
 
     public bool ShouldShow(IPlayer player)
     {
@@ -62,24 +85,36 @@ internal class SliderMenuButton(string text, float min = 0, float max = 10, floa
         return Size;
     }
 
+    private static float Wrap(float value, float min, float max)
+    {
+        float range = max - min + 1;
+        return ((value - min) % range + range) % range + min;
+    }
+
     public void Increase(IPlayer player)
     {
         if (!CanInteract(player)) return;
-        var newValue = Math.Min(Value + Step, Max);
+
+        var newValue = Wrap(Value + Step, Min, Max);
+
         if (newValue != Value)
         {
             Value = newValue;
             OnChange?.Invoke(player, Value);
+            OnChangeWithOption?.Invoke(player, this, Value);
         }
     }
     public void Decrease(IPlayer player)
     {
         if (!CanInteract(player)) return;
-        var newValue = Math.Max(Value - Step, Min);
+
+        var newValue = Wrap(Value - Step, Min, Max);
+
         if (newValue != Value)
         {
             Value = newValue;
             OnChange?.Invoke(player, Value);
+            OnChangeWithOption?.Invoke(player, this, Value);
         }
     }
 }

@@ -24,6 +24,7 @@ internal class CoreHookService : IDisposable
     _Logger = logger;
     _Core = core;
 
+    HookTouch();
     HookCanAcquire();
     HookCommandExecute();
     HookICVarFindConCommand();
@@ -58,6 +59,7 @@ internal class CoreHookService : IDisposable
   private delegate nint ExecuteCommandDelegate(nint a1, int a2, uint a3, nint a4, nint a5);
 
   private delegate byte CCSPlayer_WeaponServices_CanUse(nint pWeaponServices, nint pBasePlayerWeapon);
+  private delegate nint CBaseEntity_Touch_Template(nint pBaseEntity, nint pOtherEntity);
 
   private IUnmanagedFunction<ExecuteCommandDelegate>? _ExecuteCommand;
   private Guid _ExecuteCommandGuid;
@@ -65,6 +67,12 @@ internal class CoreHookService : IDisposable
   private Guid _CanAcquireGuid;
   private IUnmanagedFunction<CCSPlayer_WeaponServices_CanUse>? _CCSPlayer_WeaponServices_CanUse;
   private Guid _CCSPlayer_WeaponServices_CanUseGuid;
+  private IUnmanagedFunction<CBaseEntity_Touch_Template>? _CBaseEntity_StartTouch;
+  private Guid _CBaseEntity_StartTouchGuid;
+  private IUnmanagedFunction<CBaseEntity_Touch_Template>? _CBaseEntity_Touch;
+  private Guid _CBaseEntity_TouchGuid;
+  private IUnmanagedFunction<CBaseEntity_Touch_Template>? _CBaseEntity_EndTouch;
+  private Guid _CBaseEntity_EndTouchGuid;
 
   private void HookCCSPlayer_WeaponServices_CanUse()
   {
@@ -104,6 +112,51 @@ internal class CoreHookService : IDisposable
     });
   }
 
+  private void HookTouch()
+  {
+    var touchOffset = _Core.GameData.GetOffset("CBaseEntity::Touch");
+    var startTouchOffset = _Core.GameData.GetOffset("CBaseEntity::StartTouch");
+    var endTouchOffset = _Core.GameData.GetOffset("CBaseEntity::EndTouch");
+    var pVtable = _Core.Memory.GetVTableAddress(Library.Server, "CBaseEntity");
+
+    if (pVtable == null) {
+      _Logger.LogError("Failed to get CBaseEntity vtable.");
+      return;
+    }
+    _CBaseEntity_StartTouch = _Core.Memory.GetUnmanagedFunctionByVTable<CBaseEntity_Touch_Template>(pVtable!.Value, startTouchOffset);
+    _CBaseEntity_Touch = _Core.Memory.GetUnmanagedFunctionByVTable<CBaseEntity_Touch_Template>(pVtable!.Value, touchOffset);
+    _CBaseEntity_EndTouch = _Core.Memory.GetUnmanagedFunctionByVTable<CBaseEntity_Touch_Template>(pVtable!.Value, endTouchOffset);
+    _Logger.LogInformation("Hooking CBaseEntity::StartTouch at {Address}", _CBaseEntity_StartTouch.Address);
+    _Logger.LogInformation("Hooking CBaseEntity::Touch at {Address}", _CBaseEntity_Touch.Address);
+    _Logger.LogInformation("Hooking CBaseEntity::EndTouch at {Address}", _CBaseEntity_EndTouch.Address);
+
+    _CBaseEntity_StartTouchGuid = _CBaseEntity_StartTouch.AddHook(next =>
+    {
+      return (pBaseEntity, pOtherEntity) =>
+      {
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.StartTouch });
+        return next()(pBaseEntity, pOtherEntity);
+      };
+    });
+
+    _CBaseEntity_TouchGuid = _CBaseEntity_Touch.AddHook(next =>
+    {
+      return (pBaseEntity, pOtherEntity) =>
+      {
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.Touch });
+        return next()(pBaseEntity, pOtherEntity);
+      };
+    });
+
+    _CBaseEntity_EndTouchGuid = _CBaseEntity_EndTouch.AddHook(next =>
+    {
+      return (pBaseEntity, pOtherEntity) =>
+      {
+        EventPublisher.InvokeOnEntityTouchHook(new OnEntityTouchHookEvent { Entity = new CBaseEntityImpl(pBaseEntity), OtherEntity = new CBaseEntityImpl(pOtherEntity), TouchType = EntityTouchType.EndTouch });
+        return next()(pBaseEntity, pOtherEntity);
+      };
+    });
+  }
   private void HookCanAcquire()
   {
 

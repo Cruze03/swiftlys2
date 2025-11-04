@@ -11,6 +11,7 @@ internal class ChoiceMenuOption : IOption
     public List<string> Choices { get; set; }
     public int SelectedIndex { get; set; }
     public Action<IPlayer, string>? OnChange { get; set; }
+    public Action<IPlayer, IOption, string>? OnChangeWithOption { get; set; }
     public Func<IPlayer, bool>? VisibilityCheck { get; set; }
     public Func<IPlayer, bool>? EnabledCheck { get; set; }
     public IMenuTextSize Size { get; set; }
@@ -35,6 +36,22 @@ internal class ChoiceMenuOption : IOption
         }
 
         OnChange = onChange;
+    }
+
+    public ChoiceMenuOption(string text, IEnumerable<string> choices, string? defaultChoice, Action<IPlayer, IOption, string>? onChange, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        Text = text;
+        Choices = [.. choices];
+        SelectedIndex = 0;
+        Size = size;
+
+        if (defaultChoice != null)
+        {
+            var index = Choices.IndexOf(defaultChoice);
+            if (index >= 0) SelectedIndex = index;
+        }
+
+        OnChangeWithOption = onChange;
     }
 
     public bool ShouldShow(IPlayer player)
@@ -70,11 +87,13 @@ internal class ChoiceMenuOption : IOption
         if (!CanInteract(player) || Choices.Count == 0) return;
         SelectedIndex = (SelectedIndex + 1) % Choices.Count;
         OnChange?.Invoke(player, SelectedChoice);
+        OnChangeWithOption?.Invoke(player, this, SelectedChoice);
     }
     public void Previous(IPlayer player)
     {
         if (!CanInteract(player) || Choices.Count == 0) return;
         SelectedIndex = (SelectedIndex - 1 + Choices.Count) % Choices.Count;
         OnChange?.Invoke(player, SelectedChoice);
+        OnChangeWithOption?.Invoke(player, this, SelectedChoice);
     }
 }

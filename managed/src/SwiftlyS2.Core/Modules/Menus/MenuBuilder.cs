@@ -23,12 +23,26 @@ internal class MenuBuilder : IMenuBuilder
         return this;
     }
 
+    public IMenuBuilder AddButton(string text, Action<IPlayer, IOption>? onClick, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        _menu!.Options.Add(new ButtonMenuOption(text, onClick, size));
+        _menu!.Options[^1].Menu = _menu;
+        return this;
+    }
+
     public IMenuBuilder AddButton(string text, Action<IPlayer>? onClick)
     {
         return AddButton(text, onClick, IMenuTextSize.Medium);
     }
 
     public IMenuBuilder AddToggle(string text, bool defaultValue = false, Action<IPlayer, bool>? onToggle = null, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        _menu!.Options.Add(new ToggleMenuOption(text, defaultValue, onToggle, size));
+        _menu!.Options[^1].Menu = _menu;
+        return this;
+    }
+
+    public IMenuBuilder AddToggle(string text, bool defaultValue, Action<IPlayer, IOption, bool>? onToggle, IMenuTextSize size = IMenuTextSize.Medium)
     {
         _menu!.Options.Add(new ToggleMenuOption(text, defaultValue, onToggle, size));
         _menu!.Options[^1].Menu = _menu;
@@ -47,12 +61,26 @@ internal class MenuBuilder : IMenuBuilder
         return this;
     }
 
+    public IMenuBuilder AddSlider(string text, float min, float max, float defaultValue, float step, Action<IPlayer, IOption, float>? onChange, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        _menu!.Options.Add(new SliderMenuButton(text, min, max, defaultValue, step, onChange, size));
+        _menu!.Options[^1].Menu = _menu;
+        return this;
+    }
+
     public IMenuBuilder AddSlider(string text, float min, float max, float defaultValue, float step, Action<IPlayer, float>? onChange)
     {
         return AddSlider(text, min, max, defaultValue, step, onChange, IMenuTextSize.Medium);
     }
 
     public IMenuBuilder AddAsyncButton(string text, Func<IPlayer, Task> onClickAsync, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        _menu!.Options.Add(new AsyncButtonMenuOption(text, onClickAsync, size));
+        _menu!.Options[^1].Menu = _menu;
+        return this;
+    }
+
+    public IMenuBuilder AddAsyncButton(string text, Func<IPlayer, IOption, Task> onClickAsync, IMenuTextSize size = IMenuTextSize.Medium)
     {
         _menu!.Options.Add(new AsyncButtonMenuOption(text, onClickAsync, size));
         _menu!.Options[^1].Menu = _menu;
@@ -107,6 +135,13 @@ internal class MenuBuilder : IMenuBuilder
         return this;
     }
 
+    public IMenuBuilder AddChoice(string text, string[] choices, string? defaultChoice, Action<IPlayer, IOption, string>? onChange, IMenuTextSize size = IMenuTextSize.Medium)
+    {
+        _menu!.Options.Add(new ChoiceMenuOption(text, choices, defaultChoice, onChange, size));
+        _menu!.Options[^1].Menu = _menu;
+        return this;
+    }
+
     public IMenuBuilder AddChoice(string text, string[] choices, string? defaultChoice, Action<IPlayer, string>? onChange)
     {
         return AddChoice(text, choices, defaultChoice, onChange, IMenuTextSize.Medium);
@@ -121,6 +156,7 @@ internal class MenuBuilder : IMenuBuilder
     {
         _menu!.Options.Add(new ProgressBarMenuOption(text, progressProvider, barWidth, size));
         _menu!.Options[^1].Menu = _menu;
+        _menu!.RenderOntick = true;
         return this;
     }
 

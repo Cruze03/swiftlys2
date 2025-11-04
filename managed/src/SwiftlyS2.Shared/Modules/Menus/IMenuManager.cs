@@ -33,6 +33,12 @@ public struct MenuSettings
     public string ButtonsScroll;
 
     /// <summary>
+    /// The button configuration used for scrolling back through menu options.
+    /// Defines which keys or buttons players use to navigate back up in menus.
+    /// </summary>
+    public string ButtonsScrollBack;
+
+    /// <summary>
     /// The button configuration used for exiting or closing menus.
     /// Defines which keys or buttons players press to close the current menu.
     /// </summary>

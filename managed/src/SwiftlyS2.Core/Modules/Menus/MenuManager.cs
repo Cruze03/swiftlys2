@@ -58,14 +58,15 @@ internal class MenuManager : IMenuManager
             InputMode = parts[1],
             ButtonsUse = parts[2],
             ButtonsScroll = parts[3],
-            ButtonsExit = parts[4],
-            SoundUseName = parts[5],
-            SoundUseVolume = float.Parse(parts[6], CultureInfo.InvariantCulture),
-            SoundScrollName = parts[7],
-            SoundScrollVolume = float.Parse(parts[8], CultureInfo.InvariantCulture),
-            SoundExitName = parts[9],
-            SoundExitVolume = float.Parse(parts[10], CultureInfo.InvariantCulture),
-            ItemsPerPage = int.Parse(parts[11]),
+            ButtonsScrollBack = parts[4],
+            ButtonsExit = parts[5],
+            SoundUseName = parts[6],
+            SoundUseVolume = float.Parse(parts[7], CultureInfo.InvariantCulture),
+            SoundScrollName = parts[8],
+            SoundScrollVolume = float.Parse(parts[9], CultureInfo.InvariantCulture),
+            SoundExitName = parts[10],
+            SoundExitVolume = float.Parse(parts[11], CultureInfo.InvariantCulture),
+            ItemsPerPage = int.Parse(parts[12]),
         };
 
         _scrollSound.Name = Settings.SoundScrollName;
@@ -102,12 +103,24 @@ internal class MenuManager : IMenuManager
         if (Settings.InputMode == "button")
         {
             var scrollKey = menu.ButtonOverrides?.Move ?? StringToKeyKind.GetValueOrDefault(Settings.ButtonsScroll);
+            var scrollBackKey = menu.ButtonOverrides?.MoveBack ?? StringToKeyKind.GetValueOrDefault(Settings.ButtonsScrollBack);
             var exitKey = menu.ButtonOverrides?.Exit ?? StringToKeyKind.GetValueOrDefault(Settings.ButtonsExit);
             var useKey = menu.ButtonOverrides?.Select ?? StringToKeyKind.GetValueOrDefault(Settings.ButtonsUse);
 
             if (@event.Key == scrollKey)
             {
                 menu.MoveSelection(player, 1);
+
+                if (menu.HasSound)
+                {
+                    _scrollSound.Recipients.AddRecipient(@event.PlayerId);
+                    _scrollSound.Emit();
+                    _scrollSound.Recipients.RemoveRecipient(@event.PlayerId);
+                }
+            }
+            else if (@event.Key == scrollBackKey)
+            {
+                menu.MoveSelection(player, -1);
 
                 if (menu.HasSound)
                 {
@@ -242,6 +255,12 @@ internal class MenuManager : IMenuManager
 
     public void OpenMenu(IPlayer player, IMenu menu)
     {
+        if (OpenMenus.TryGetValue(player, out var currentMenu))
+        {
+            currentMenu.Close(player);
+            OnMenuClosed?.Invoke(player, currentMenu);
+        }
+
         OpenMenus[player] = menu;
         menu.Show(player);
         OnMenuOpened?.Invoke(player, menu);

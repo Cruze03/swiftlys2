@@ -7,6 +7,7 @@ internal class MenuButtonOverrides : IMenuButtonOverrides
 {
     public KeyKind? Select { get; set; }
     public KeyKind? Move { get; set; }
+    public KeyKind? MoveBack { get; set; }
     public KeyKind? Exit { get; set; }
 
     internal static KeyKind ParseButton(string buttonName)

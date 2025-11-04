@@ -39,14 +39,25 @@ internal class Menu : IMenu
 
     private ConcurrentDictionary<IPlayer, string> RenderedText { get; set; } = new();
     private ConcurrentDictionary<IPlayer, int> SelectedIndex { get; set; } = new();
+    private List<IPlayer> PlayersWithMenuOpen { get; set; } = new();
     internal ISwiftlyCore _Core { get; set; }
     public bool HasSound { get; set; } = true;
+    public bool RenderOntick { get; set; } = false;
+    private bool Initialized { get; set; } = false;
 
     public void Close(IPlayer player)
     {
         NativePlayer.ClearCenterMenuRender(player.PlayerID);
         OnClose?.Invoke(player);
         if (ShouldFreeze == true) SetFreezeState(player, false);
+
+        PlayersWithMenuOpen.Remove(player);
+
+        if (Initialized && PlayersWithMenuOpen.Count == 0 && RenderOntick)
+        {
+            Initialized = false;
+            _Core.Event.OnTick -= OnTickRender;
+        }
     }
 
     public void MoveSelection(IPlayer player, int offset)
@@ -192,11 +203,30 @@ internal class Menu : IMenu
         return footer.ToString();
     }
 
+    private void OnTickRender()
+    {
+        foreach (var p in PlayersWithMenuOpen)
+        {
+            Rerender(p);
+        }
+    }
+
     public void Show(IPlayer player)
     {
         if (!SelectedIndex.TryAdd(player, 0))
         {
             SelectedIndex[player] = 0;
+        }
+
+        if (!PlayersWithMenuOpen.Contains(player))
+        {
+            PlayersWithMenuOpen.Add(player);
+        }
+
+        if (!Initialized && RenderOntick)
+        {
+            Initialized = true;
+            _Core.Event.OnTick += OnTickRender;
         }
 
         Rerender(player);
@@ -226,6 +256,7 @@ internal class Menu : IMenu
                         buttonOption.OnValidationFailed?.Invoke(player);
                     }
                     buttonOption.OnClick?.Invoke(player);
+                    buttonOption.OnClickWithOption?.Invoke(player, buttonOption);
                     if (buttonOption.CloseOnSelect)
                     {
                         MenuManager.CloseMenuForPlayer(player);

@@ -34,6 +34,8 @@ internal class CoreCommandService
   {
     try
     {
+      if (context.IsSentByPlayer) return;
+
       var args = context.Args;
       if (args.Length == 0)
       {
@@ -192,10 +194,10 @@ GitHub: https://github.com/swiftly-solution/swiftlys2");
     if (args.Length == 1)
     {
       var table = new Table().AddColumn("Command").AddColumn("Description");
-      table.AddRow("enable", "List all plugins");
-      table.AddRow("disable", "Load a plugin");
-      table.AddRow("status", "Unload a plugin");
-      table.AddRow("save", "Reload a plugin");
+      table.AddRow("enable", "Enable the profiler");
+      table.AddRow("disable", "Disable the profiler");
+      table.AddRow("status", "Show the status of the profiler");
+      table.AddRow("save", "Save the profiler data to a file");
       AnsiConsole.Write(table);
       return;
     }

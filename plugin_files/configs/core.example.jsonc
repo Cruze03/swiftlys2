@@ -18,6 +18,7 @@
         "Buttons": {
             "Exit": "tab",
             "Scroll": "shift",
+            "ScrollBack": "alt",
             "Use": "e"
         },
         "InputMode": "button",

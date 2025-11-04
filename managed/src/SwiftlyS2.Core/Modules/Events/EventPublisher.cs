@@ -513,6 +513,24 @@ internal static class EventPublisher
     }
   }
 
+  public static void InvokeOnEntityTouchHook(OnEntityTouchHookEvent @event)
+  {
+    if (_subscribers.Count == 0) return;
+    try
+    {
+      foreach (var subscriber in _subscribers)
+      {
+        subscriber.InvokeOnEntityTouchHook(@event);
+      }
+      return;
+    }
+    catch (Exception e)
+    {
+      AnsiConsole.WriteException(e);
+      return;
+    }
+  }
+
   public static void InvokeOnCanAcquireHook(OnItemServicesCanAcquireHookEvent @event)
   {
     if (_subscribers.Count == 0) return;

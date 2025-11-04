@@ -19,12 +19,14 @@
 #include <api/interfaces/manager.h>
 #include <api/shared/files.h>
 #include <api/shared/string.h>
+#include <api/shared/plat.h>
 
 #include <core/entrypoint.h>
 #include <scripting/scripting.h>
 
 #include <public/filesystem.h>
 #include <public/steam/isteamgameserver.h>
+#include <public/tier0/platform.h>
 #include <igamesystemfactory.h>
 
 #include <core/bridge/metamod.h>
@@ -107,6 +109,22 @@ void* Bridge_EngineHelpers_GetTraceManager()
     return g_pTraceManager;
 }
 
+int Bridge_EngineHelpers_GetCSGODirectoryPath(char* out)
+{
+    static std::string s;
+    s = fmt::format("{}{}csgo", Plat_GetGameDirectory(), WIN_LINUX("\\", "/"));
+    if (out != nullptr) strcpy(out, s.c_str());
+    return s.size();
+}
+
+int Bridge_EngineHelpers_GetGameDirectoryPath(char* out)
+{
+    static std::string s;
+    s = Plat_GetGameDirectory();
+    if (out != nullptr) strcpy(out, s.c_str());
+    return s.size();
+}
+
 int Bridge_EngineHelpers_GetCurrentGame(char* out)
 {
     static std::string s;
@@ -136,6 +154,7 @@ int Bridge_EngineHelpers_GetMenuSettings(char* out)
                 std::get<std::string>(configuration->GetValue("core.Menu.InputMode")),
                 std::get<std::string>(configuration->GetValue("core.Menu.Buttons.Use")),
                 std::get<std::string>(configuration->GetValue("core.Menu.Buttons.Scroll")),
+                std::get<std::string>(configuration->GetValue("core.Menu.Buttons.ScrollBack")),
                 std::get<std::string>(configuration->GetValue("core.Menu.Buttons.Exit")),
                 std::get<std::string>(configuration->GetValue("core.Menu.Sound.Use.Name")),
                 std::to_string(std::get<double>(configuration->GetValue("core.Menu.Sound.Use.Volume"))),
@@ -175,3 +194,5 @@ DEFINE_NATIVE("EngineHelpers.GetCurrentGame", Bridge_EngineHelpers_GetCurrentGam
 DEFINE_NATIVE("EngineHelpers.GetNativeVersion", Bridge_EngineHelpers_GetNativeVersion);
 DEFINE_NATIVE("EngineHelpers.GetMenuSettings", Bridge_EngineHelpers_GetMenuSettings);
 DEFINE_NATIVE("EngineHelpers.GetGlobalVars", Bridge_EngineHelpers_GetGlobalVars);
+DEFINE_NATIVE("EngineHelpers.GetCSGODirectoryPath", Bridge_EngineHelpers_GetCSGODirectoryPath);
+DEFINE_NATIVE("EngineHelpers.GetGameDirectoryPath", Bridge_EngineHelpers_GetGameDirectoryPath);

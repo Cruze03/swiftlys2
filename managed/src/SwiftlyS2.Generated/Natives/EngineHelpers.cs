@@ -141,4 +141,32 @@ internal static class NativeEngineHelpers {
     var ret = _GetGlobalVars();
     return ret;
   }
+
+  private unsafe static delegate* unmanaged<byte*, int> _GetCSGODirectoryPath;
+
+  public unsafe static string GetCSGODirectoryPath() {
+    var ret = _GetCSGODirectoryPath(null);
+    var pool = ArrayPool<byte>.Shared;
+    var retBuffer = pool.Rent(ret + 1);
+    fixed (byte* retBufferPtr = retBuffer) {
+      ret = _GetCSGODirectoryPath(retBufferPtr);
+      var retString = Encoding.UTF8.GetString(retBufferPtr, ret);
+      pool.Return(retBuffer);
+      return retString;
+    }
+  }
+
+  private unsafe static delegate* unmanaged<byte*, int> _GetGameDirectoryPath;
+
+  public unsafe static string GetGameDirectoryPath() {
+    var ret = _GetGameDirectoryPath(null);
+    var pool = ArrayPool<byte>.Shared;
+    var retBuffer = pool.Rent(ret + 1);
+    fixed (byte* retBufferPtr = retBuffer) {
+      ret = _GetGameDirectoryPath(retBufferPtr);
+      var retString = Encoding.UTF8.GetString(retBufferPtr, ret);
+      pool.Return(retBuffer);
+      return retString;
+    }
+  }
 }

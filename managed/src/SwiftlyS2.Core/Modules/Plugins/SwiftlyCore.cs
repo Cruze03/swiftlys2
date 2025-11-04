@@ -38,6 +38,7 @@ using SwiftlyS2.Core.Players;
 using SwiftlyS2.Shared.CommandLine;
 using SwiftlyS2.Core.CommandLine;
 using SwiftlyS2.Shared.Helpers;
+using SwiftlyS2.Core.Natives;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -73,12 +74,13 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
   public CommandLineService CommandLineService { get; init; }
   public HelpersService Helpers { get; init; }
   public string ContextBasePath { get; init; }
-  public SwiftlyCore(string contextId, string contextBaseDirectory, PluginMetadata? pluginManifest, Type contextType, IServiceProvider coreProvider)
+  public string PluginDataDirectory { get; init; }
+  public SwiftlyCore(string contextId, string contextBaseDirectory, PluginMetadata? pluginManifest, Type contextType, IServiceProvider coreProvider, string pluginDataDirectory)
   {
 
     CoreContext id = new(contextId, contextBaseDirectory, pluginManifest);
     ContextBasePath = contextBaseDirectory;
-
+    PluginDataDirectory = pluginDataDirectory;
     ServiceCollection services = new();
 
     services
@@ -215,6 +217,8 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
   IRegistratorService ISwiftlyCore.Registrator => RegistratorService;
   IMenuManager ISwiftlyCore.Menus => MenuManager;
   string ISwiftlyCore.PluginPath => ContextBasePath;
+  string ISwiftlyCore.CSGODirectory => NativeEngineHelpers.GetCSGODirectoryPath();
+  string ISwiftlyCore.GameDirectory => NativeEngineHelpers.GetGameDirectoryPath();
   ICommandLine ISwiftlyCore.CommandLine => CommandLineService;
   IHelpers ISwiftlyCore.Helpers => Helpers;
 }

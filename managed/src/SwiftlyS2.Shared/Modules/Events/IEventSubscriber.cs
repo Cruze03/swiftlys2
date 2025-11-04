@@ -122,4 +122,9 @@ public interface IEventSubscriber
   /// Called when a command is executed.
   /// </summary>
   public event EventDelegates.OnCommandExecuteHook? OnCommandExecuteHook;
+
+  /// <summary>
+  /// Called when an entity is touching another entity.
+  /// </summary>
+  public event EventDelegates.OnEntityTouchHook? OnEntityTouchHook;
 }

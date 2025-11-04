@@ -46,6 +46,7 @@ internal class EventSubscriber : IEventSubscriber, IDisposable
   public event EventDelegates.OnConVarCreated? OnConVarCreated;
   public event EventDelegates.OnEntityTakeDamage? OnEntityTakeDamage;
   public event EventDelegates.OnPrecacheResource? OnPrecacheResource;
+  public event EventDelegates.OnEntityTouchHook? OnEntityTouchHook;
   public event EventDelegates.OnItemServicesCanAcquireHook? OnItemServicesCanAcquireHook;
   public event EventDelegates.OnWeaponServicesCanUseHook? OnWeaponServicesCanUseHook;
   public event EventDelegates.OnConsoleOutput? OnConsoleOutput;
@@ -340,6 +341,24 @@ internal class EventSubscriber : IEventSubscriber, IDisposable
     finally
     {
       _Profiler.StopRecording("Event::OnPrecacheResource");
+    }
+  }
+
+  public void InvokeOnEntityTouchHook(OnEntityTouchHookEvent @event)
+  {
+    try
+    {
+      if (OnEntityTouchHook == null) return;
+      _Profiler.StartRecording("Event::OnEntityTouchHook");
+      OnEntityTouchHook?.Invoke(@event);
+    }
+    catch (Exception e)
+    {
+      _Logger.LogError(e, "Error invoking OnEntityTouchHook.");
+    }
+    finally
+    {
+      _Profiler.StopRecording("Event::OnEntityTouchHook");
     }
   }
 

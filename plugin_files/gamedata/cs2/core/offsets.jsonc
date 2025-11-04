@@ -171,5 +171,17 @@
     "CServerSideClient::ProcessRespondCvarValue": {
         "windows": 38,
         "linux": 40
+    },
+    "CBaseEntity::StartTouch": {
+        "windows": 153,
+        "linux": 152
+    },
+    "CBaseEntity::Touch": {
+        "windows": 154,
+        "linux": 153
+    },
+    "CBaseEntity::EndTouch": {
+        "windows": 155,
+        "linux": 154
     }
 }

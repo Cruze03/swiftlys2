@@ -485,6 +485,7 @@ bool Configuration::Load()
 
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Use", "e");
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Scroll", "shift");
+        RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.ScrollBack", "alt");
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Exit", "tab");
 
         RegisterConfigurationVector<std::string>(wasEdited, config_json, "core", "core", "Menu.AvailableInputModes", { "button", "wasd" }, true, " ");

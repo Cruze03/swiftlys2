@@ -272,6 +272,27 @@ bool Bridge_Player_HasMenuShown(int playerid)
     return player->HasMenuShown();
 }
 
+void Bridge_Player_ExecuteCommand(int playerid, const char* command)
+{
+    static auto playerManager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
+    auto player = playerManager->GetPlayer(playerid);
+    if (!player) return;
+
+    CCommand cmd;
+    cmd.Tokenize(command);
+
+    ConCommandRef cmdRef(command[0]);
+
+    if (cmdRef.IsValidRef()) {
+        CCommandContext context(CommandTarget_t::CT_FIRST_SPLITSCREEN_CLIENT, CPlayerSlot(player->GetSlot()));
+        cmdRef.Dispatch(context, cmd);
+    }
+    else {
+        static auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
+        engine->ClientCommand(player->GetSlot(), command);
+    }
+}
+
 DEFINE_NATIVE("Player.SendMessage", Bridge_Player_SendMessage);
 DEFINE_NATIVE("Player.IsFakeClient", Bridge_Player_IsFakeClient);
 DEFINE_NATIVE("Player.IsAuthorized", Bridge_Player_IsAuthorized);
@@ -296,3 +317,4 @@ DEFINE_NATIVE("Player.GetLanguage", Bridge_Player_GetLanguage);
 DEFINE_NATIVE("Player.SetCenterMenuRender", Bridge_Player_SetCenterMenuRender);
 DEFINE_NATIVE("Player.ClearCenterMenuRender", Bridge_Player_ClearCenterMenuRender);
 DEFINE_NATIVE("Player.HasMenuShown", Bridge_Player_HasMenuShown);
+DEFINE_NATIVE("Player.ExecuteCommand", Bridge_Player_ExecuteCommand);

@@ -143,11 +143,6 @@ public interface ISwiftlyCore
   public IRegistratorService Registrator { get; }
 
   /// <summary>
-  /// Gets the file path to the plugin directory.
-  /// </summary>
-  public string PluginPath { get; }
-
-  /// <summary>
   /// Menu manager.
   /// </summary>
   public IMenuManager Menus { get; }
@@ -156,4 +151,25 @@ public interface ISwiftlyCore
   /// Command line.
   /// </summary>
   public ICommandLine CommandLine { get; }
+
+  /// <summary>
+  /// Gets the file path to the plugin directory.
+  /// </summary>
+  public string PluginPath { get; }
+
+  /// <summary>
+  /// Gets the absolute file path to the `game/csgo` directory.
+  /// </summary>
+  public string CSGODirectory { get; }
+
+  /// <summary>
+  /// Gets the absolute file path to the game's root directory.
+  /// </summary>
+  public string GameDirectory { get; }
+
+  /// <summary>
+  /// Gets the file path to the plugin data directory.
+  /// This directory is ensured to exist by the framework.
+  /// </summary>
+  public string PluginDataDirectory { get; }
 }

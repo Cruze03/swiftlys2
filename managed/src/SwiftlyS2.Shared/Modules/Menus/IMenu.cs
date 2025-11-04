@@ -81,6 +81,11 @@ public interface IMenu
     public float AutoCloseAfter { get; set; }
 
     /// <summary>
+    /// Gets a value indicating whether the menu should be re-rendered on each game tick.
+    /// </summary>
+    public bool RenderOntick { get; set; }
+
+    /// <summary>
     /// Gets the menu builder used to construct and configure this menu.
     /// Provides fluent API for menu construction and modification.
     /// </summary>

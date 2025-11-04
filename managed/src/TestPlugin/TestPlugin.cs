@@ -57,7 +57,8 @@ public class TestPlugin : BasePlugin
   public TestPlugin(ISwiftlyCore core) : base(core)
   {
     Console.WriteLine("[TestPlugin] TestPlugin constructed successfully!");
-
+    // Console.WriteLine($"sizeof(bool): {sizeof(bool)}");
+    // Console.WriteLine($"Marshal.SizeOf<bool>: {Marshal.SizeOf<bool>()}");
     Core.Event.OnWeaponServicesCanUseHook += (@event) =>
     {
       // Console.WriteLine($"WeaponServicesCanUse: {@event.Weapon.WeaponBaseVData.AttackMovespeedFactor} {@event.OriginalResult}");
@@ -108,6 +109,28 @@ public class TestPlugin : BasePlugin
     //   if (@event.HookMode == HookMode.Pre) return;
     //   Core.Logger.LogInformation("CommandExecute: {name} with {args}", @event.Command[0], @event.Command.ArgS);
     // };
+
+    Core.Event.OnEntityTouchHook += (@event) =>
+    {
+      switch (@event.TouchType)
+      {
+        case EntityTouchType.StartTouch:
+          Console.WriteLine($"EntityStartTouch: {@event.Entity.Entity?.DesignerName} -> {@event.OtherEntity.Entity?.DesignerName}");
+          break;
+        case EntityTouchType.Touch:
+          break;
+        case EntityTouchType.EndTouch:
+          if (@event.Entity.Entity?.DesignerName != "player" || @event.OtherEntity.Entity?.DesignerName != "player")
+          {
+            return;
+          }
+          var player = @event.Entity.As<CCSPlayerPawn>();
+          var otherPlayer = @event.OtherEntity.As<CCSPlayerPawn>();
+          Console.WriteLine($"EntityEndTouch: {(player.Controller.Value?.PlayerName ?? string.Empty)} -> {(otherPlayer.Controller.Value?.PlayerName ?? string.Empty)}");
+          break;
+      }
+    };
+
     Core.Engine.ExecuteCommandWithBuffer("@ping", (buffer) =>
     {
       Console.WriteLine($"pong: {buffer}");
@@ -402,12 +425,20 @@ public class TestPlugin : BasePlugin
   {
     var ent = Core.EntitySystem.CreateEntity<CPointWorldText>();
     ent.DispatchSpawn();
-    ent.Collision.CollisionAttribute.CollisionGroupUpdated();
+    ent.Collision.MaxsUpdated();
+    ent.Collision.CollisionAttribute.OwnerIdUpdated();
+    
   }
 
   [Command("tt3")]
   public void TestCommand33(ICommandContext context)
   {
+    var ent = Core.EntitySystem.CreateEntity<CPhysicsPropOverride>();
+    using CEntityKeyValues kv = new();
+    kv.Set<uint>("m_spawnflags", 256);
+    ent.DispatchSpawn(kv);
+    ent.SetModel("weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl");
+    ent.Teleport(new Vector(context.Sender!.PlayerPawn!.AbsOrigin!.Value.X + 50, context.Sender!.PlayerPawn!.AbsOrigin!.Value.Y + 50, context.Sender!.PlayerPawn!.AbsOrigin!.Value.Z + 30), QAngle.Zero, Vector.Zero);
   }
 
   [Command("tt4")]
@@ -435,6 +466,68 @@ public class TestPlugin : BasePlugin
     {
       Console.WriteLine($"pong: {buffer}");
     });
+  }
+
+  [Command("tt8")]
+  public unsafe void TestCommand8(ICommandContext context)
+  {
+    Core.EntitySystem.GetAllEntitiesByDesignerName<CBuyZone>("func_buyzone").ToList().ForEach(zone =>
+    {
+      if (!(zone?.IsValid ?? false)) return;
+      zone.Despawn();
+    });
+
+    var sender = context.Sender!;
+    var target = Core.PlayerManager.GetAllPlayers().FirstOrDefault(p => p.PlayerID != sender.PlayerID)!;
+
+    var origin = sender.RequiredPlayerPawn.AbsOrigin ?? Vector.Zero;
+    var targetOrigin = target.RequiredPlayerPawn.AbsOrigin ?? Vector.Zero;
+
+    Console.WriteLine("\n");
+    Console.WriteLine($"Origin: {origin}");
+    Console.WriteLine($"Target Origin: {targetOrigin}");
+
+    // Ray_t* ray = stackalloc Ray_t[1];
+    // ray->Init(Vector.Zero, Vector.Zero);
+    Ray_t ray = new();
+    ray.Init(Vector.Zero, Vector.Zero);
+
+    var filter = new CTraceFilter
+    {
+      // unk01 = 1,
+      IterateEntities = true,
+      QueryShapeAttributes = new RnQueryShapeAttr_t
+      {
+        InteractsWith = MaskTrace.Player | MaskTrace.Solid | MaskTrace.Hitbox | MaskTrace.Npc,
+        InteractsExclude = MaskTrace.Empty,
+        InteractsAs = MaskTrace.Player,
+        CollisionGroup = CollisionGroup.PlayerMovement,
+        ObjectSetMask = RnQueryObjectSet.AllGameEntities,
+        HitSolid = true,
+        // HitTrigger = false,
+        // HitSolidRequiresGenerateContacts = false,
+        // ShouldIgnoreDisabledPairs = true,
+        // IgnoreIfBothInteractWithHitboxes = true,
+        // ForceHitEverything = true
+      }
+    };
+
+    // filter.QueryShapeAttributes.EntityIdsToIgnore[0] = unchecked((uint)-1);
+    // filter.QueryShapeAttributes.EntityIdsToIgnore[1] = unchecked((uint)-1);
+    // filter.QueryShapeAttributes.OwnerIdsToIgnore[0] = unchecked((uint)-1);
+    // filter.QueryShapeAttributes.OwnerIdsToIgnore[1] = unchecked((uint)-1);
+    // filter.QueryShapeAttributes.HierarchyIds[0] = 0;
+    // filter.QueryShapeAttributes.HierarchyIds[1] = 0;
+
+    var trace = new CGameTrace();
+    Core.Trace.TraceShape(origin, targetOrigin, ray, filter, ref trace);
+
+    Console.WriteLine(trace.pEntity != null ? $"! Hit Entity: {trace.Entity.DesignerName}" : "! No entity hit");
+    Console.WriteLine($"! SurfaceProperties: {(nint)trace.SurfaceProperties}, pEntity: {(nint)trace.pEntity}, HitBox: {(nint)trace.HitBox}({trace.HitBox->m_name.Value}), Body: {(nint)trace.Body}, Shape: {(nint)trace.Shape}, Contents: {trace.Contents}");
+    Console.WriteLine($"! StartPos: {trace.StartPos}, EndPos: {trace.EndPos}, HitNormal: {trace.HitNormal}, HitPoint: {trace.HitPoint}");
+    Console.WriteLine($"! HitOffset: {trace.HitOffset}, Fraction: {trace.Fraction}, Triangle: {trace.Triangle}, HitboxBoneIndex: {trace.HitboxBoneIndex}");
+    Console.WriteLine($"! RayType: {trace.RayType}, StartInSolid: {trace.StartInSolid}, ExactHitPoint: {trace.ExactHitPoint}");
+    Console.WriteLine("\n");
   }
 
   [GameEventHandler(HookMode.Pre)]
