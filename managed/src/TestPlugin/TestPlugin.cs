@@ -578,8 +578,8 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.Design.SetGlobalHorizontalStyle(htype switch
     {
       1 => MenuHorizontalStyle.TruncateBothEnds(26f),
-      2 => MenuHorizontalStyle.ScrollLeftFade(26f, 16),
-      3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 16),
+      2 => MenuHorizontalStyle.ScrollLeftFade(26f, 8),
+      3 => MenuHorizontalStyle.ScrollLeftLoop(26f, 8),
       _ => MenuHorizontalStyle.TruncateEnd(26f)
     });
     
@@ -609,12 +609,12 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("8. Text");
     settingsMenu.Builder.AddText("9. Text");
     settingsMenu.Builder.AddSeparator();
-    settingsMenu.Builder.AddText("<font color='yellow'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
-    settingsMenu.Builder.AddText("<font color='red'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
-    settingsMenu.Builder.AddText("<font color='lightblue'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollRightFade(26f, 8));
-    settingsMenu.Builder.AddText("<font color='blue'><b><garbage>abcdefghijklmnopqrstuvwxyz<font color='purple'>split</font>ABCDEFGHIJKLMNOPQRSTUVWXYZ</garbage></b></font>", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 8));
-    settingsMenu.Builder.AddText("123456789012345678901234567890");
-    settingsMenu.Builder.AddText("一二三四五六七八九十一二三四五六七八九十");
+    settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE4E1", "#FFC0CB", "#FF69B4")}</b>", overflowStyle: MenuHorizontalStyle.TruncateEnd(26f));
+    settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#FFE5CC", "#FFAB91", "#FF7043")}</b>", overflowStyle: MenuHorizontalStyle.TruncateBothEnds(26f));
+    settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#E6E6FA", "#00FFFF", "#FF1493")}</b>", overflowStyle: MenuHorizontalStyle.ScrollRightFade(26f, 8));
+    settingsMenu.Builder.AddText($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", overflowStyle: MenuHorizontalStyle.ScrollLeftLoop(26f, 8));
+    settingsMenu.Builder.AddText("<font color='#F5FFFA'><b><garbage>12345678901234567890<font color='#00FA9A'>split</font>12345678901234567890</garbage></b></font>");
+    settingsMenu.Builder.AddText("<font color='#00FA9A'><b><garbage>一二三四五六七八九十<font color='#F5FFFA'>分割</font>一二三四五六七八九十</garbage></b></font>");
     settingsMenu.Builder.AddSeparator();
     settingsMenu.Builder.AddText("Swiftlys2 向这广袤世界致以温柔问候", overflowStyle: MenuHorizontalStyle.ScrollRightLoop(26f, 8));
     settingsMenu.Builder.AddText("Swiftlys2 からこの広大なる世界へ温かい挨拶を");
@@ -625,10 +625,6 @@ public class TestPlugin : BasePlugin
     settingsMenu.Builder.AddText("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo");
     settingsMenu.Builder.AddSeparator();
     settingsMenu.Builder.AddAsyncButton("AsyncButton|AsyncButton|AsyncButton", async (p) => await Task.Delay(2000));
-    settingsMenu.Builder.AddButton("Button|Button|Button|Button", (p) => { });
-    settingsMenu.Builder.AddChoice("Choice|Choice|Choice|Choice", ["Option 1", "Option 2", "Option 3"], "Option 1", (p, value) => { }, overflowStyle: MenuHorizontalStyle.TruncateEnd(10f));
-    settingsMenu.Builder.AddProgressBar("ProgressBar|ProgressBar|ProgressBar", () => 0.5f, overflowStyle: MenuHorizontalStyle.ScrollRightFade(20f, 12));
-    settingsMenu.Builder.AddSlider("Slider|Slider|Slider|Slider", 0f, 100f, 0f, 1f, (p, value) => { }, overflowStyle: MenuHorizontalStyle.ScrollRightLoop(8f, 12));
     // settingsMenu.Builder.AddSubmenu("Submenu");
     settingsMenu.Builder.AddToggle("Toggle|Toggle|Toggle|Toggle", true, (p, value) => { });
     settingsMenu.Builder.AddSeparator();

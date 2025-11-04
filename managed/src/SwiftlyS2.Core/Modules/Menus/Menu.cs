@@ -739,6 +739,11 @@ internal partial class Menu
     [GeneratedRegex("<.*?>")]
     private static partial Regex HtmlTagRegex();
 
+    /// <summary>
+    /// Removes all HTML tags from the given text.
+    /// </summary>
+    /// <param name="text">The text containing HTML tags.</param>
+    /// <returns>The text with all HTML tags removed.</returns>
     private static string StripHtmlTags(string text)
     {
         if (string.IsNullOrEmpty(text))
@@ -749,6 +754,11 @@ internal partial class Menu
         return HtmlTagRegex().Replace(text, string.Empty);
     }
 
+    /// <summary>
+    /// Parses text into segments, separating HTML tags from plain text content.
+    /// </summary>
+    /// <param name="text">The text to parse.</param>
+    /// <returns>A list of segments where each segment is either a tag or plain text content.</returns>
     private static List<(string Content, bool IsTag)> ParseHtmlSegments(string text)
     {
         var tagMatches = HtmlTagRegex().Matches(text);
@@ -778,6 +788,12 @@ internal partial class Menu
         return segments;
     }
 
+    /// <summary>
+    /// Processes an HTML tag and updates the list of currently open tags.
+    /// Adds opening tags to the list and removes matching closing tags.
+    /// </summary>
+    /// <param name="tag">The HTML tag to process.</param>
+    /// <param name="openTags">The list of currently open tag names.</param>
     private static void ProcessOpenTag(string tag, List<string> openTags)
     {
         var tagName = tag switch
@@ -805,11 +821,22 @@ internal partial class Menu
         }
     }
 
+    /// <summary>
+    /// Appends closing tags for all currently open tags in reverse order.
+    /// </summary>
+    /// <param name="result">The StringBuilder to append closing tags to.</param>
+    /// <param name="openTags">The list of currently open tag names.</param>
     private static void CloseOpenTags(StringBuilder result, List<string> openTags)
     {
         openTags.AsEnumerable().Reverse().ToList().ForEach(tag => result.Append($"</{tag}>"));
     }
 
+    /// <summary>
+    /// Calculates how many characters can fit within the specified width.
+    /// </summary>
+    /// <param name="plainChars">The characters to measure.</param>
+    /// <param name="maxWidth">The maximum width allowed.</param>
+    /// <returns>The number of characters that fit within the width.</returns>
     private static int CalculateTargetCharCount(ReadOnlySpan<char> plainChars, float maxWidth)
     {
         var currentWidth = 0f;
@@ -826,6 +853,15 @@ internal partial class Menu
         return count;
     }
 
+    /// <summary>
+    /// Updates and returns the scroll offset for the given text.
+    /// The offset increments based on tick count and wraps around at the specified length.
+    /// </summary>
+    /// <param name="plainText">The plain text being scrolled.</param>
+    /// <param name="scrollLeft">Whether scrolling left or right.</param>
+    /// <param name="wrapLength">The length at which the offset wraps around.</param>
+    /// <param name="style">Optional horizontal style settings.</param>
+    /// <returns>The current scroll offset.</returns>
     private int UpdateScrollOffset(string plainText, bool scrollLeft, int wrapLength, MenuHorizontalStyle? style)
     {
         var key = $"{plainText}_{scrollLeft}";
@@ -842,6 +878,12 @@ internal partial class Menu
         return ScrollOffsets[key];
     }
 
+    /// <summary>
+    /// Updates the list of active tags based on the given HTML tag content.
+    /// Adds opening tags and removes matching closing tags.
+    /// </summary>
+    /// <param name="content">The HTML tag content to process.</param>
+    /// <param name="activeTags">The list of currently active tags.</param>
     private static void UpdateTagState(string content, List<string> activeTags)
     {
         if (!content.StartsWith("</") && !content.StartsWith("<!") && !content.EndsWith("/>"))
@@ -859,6 +901,12 @@ internal partial class Menu
         }
     }
 
+    /// <summary>
+    /// Prepares data required for text scrolling by extracting plain characters and parsing segments.
+    /// </summary>
+    /// <param name="text">The text to prepare for scrolling.</param>
+    /// <param name="maxWidth">The maximum width available for display.</param>
+    /// <returns>A tuple containing plain characters array, HTML segments, and target character count.</returns>
     private static (char[]? PlainChars, List<(string Content, bool IsTag)> Segments, int TargetCharCount) PrepareScrollData(string text, float maxWidth)
     {
         var plainText = StripHtmlTags(text);
