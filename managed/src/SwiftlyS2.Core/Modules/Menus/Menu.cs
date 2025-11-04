@@ -105,7 +105,7 @@ internal partial class Menu : IMenu
         Rerender(player);
     }
 
-    public void Rerender(IPlayer player)
+    public void Rerender(IPlayer player, bool updateDisplayText = false)
     {
         BeforeRender?.Invoke(player);
 
@@ -185,7 +185,10 @@ internal partial class Menu : IMenu
                         html.Append("\u00A0\u00A0\u00A0 ");
                     }
 
-                    html.Append(option.GetDisplayText(player));
+                    if (updateDisplayText)
+                    {
+                        html.Append(option.GetDisplayText(player));
+                    }
 
                     html.Append("<br>");
                 }
@@ -207,7 +210,10 @@ internal partial class Menu : IMenu
                         html.Append("\u00A0\u00A0\u00A0 ");
                     }
 
-                    html.Append(option.GetDisplayText(player));
+                    if (updateDisplayText)
+                    {
+                        html.Append(option.GetDisplayText(player));
+                    }
 
                     html.Append("<br>");
                 }
@@ -248,9 +254,9 @@ internal partial class Menu : IMenu
 
     private void OnTickRender()
     {
-        foreach (var p in PlayersWithMenuOpen)
+        foreach (var player in PlayersWithMenuOpen)
         {
-            Rerender(p);
+            Rerender(player, true);
         }
     }
 
@@ -317,7 +323,7 @@ internal partial class Menu : IMenu
                     }
                     asyncButton.IsLoading = true;
                     asyncButton.SetLoadingText("Processing...");
-                    Rerender(player);
+                    Rerender(player, true);
                     var closeAfter = asyncButton.CloseOnSelect;
                     Task.Run(async () =>
                     {
@@ -328,7 +334,7 @@ internal partial class Menu : IMenu
                         finally
                         {
                             asyncButton.IsLoading = false;
-                            Rerender(player);
+                            Rerender(player, true);
 
                             if (closeAfter && player.IsValid)
                             {
@@ -347,7 +353,7 @@ internal partial class Menu : IMenu
                     }
                     else
                     {
-                        Rerender(player);
+                        Rerender(player, true);
                     }
                     break;
                 }

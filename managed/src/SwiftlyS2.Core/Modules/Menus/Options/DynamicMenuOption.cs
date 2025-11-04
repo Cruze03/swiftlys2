@@ -69,7 +69,7 @@ internal class DynamicMenuOption : IOption
 
             if (oldText != _cachedText && Menu != null)
             {
-                Menu.Rerender(player);
+                Menu.Rerender(player, true);
             }
         }
 
