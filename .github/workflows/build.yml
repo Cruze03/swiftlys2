@@ -339,97 +339,87 @@ jobs:
       if: github.ref == 'refs/heads/beta'
       id: beta_commits
       run: |
-        COMMITS=$(git log -5 --pretty=format:"• %s (%h)" | head -c 1000)
+        # Get the previous tag
+        PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+        # Get commits since previous tag, or last 10 if no previous tag
+        if [ -n "$PREV_TAG" ]; then
+          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s (\`%h\`)" | head -c 900)
+        else
+          COMMITS=$(git log -10 --pretty=format:"• %s (\`%h\`)" | head -c 900)
+        fi
+
+        # If commits are empty, set a default message
+        if [ -z "$COMMITS" ]; then
+          COMMITS="No commit information available"
+        fi
+
         echo "summary<<EOF" >> $GITHUB_OUTPUT
         echo "$COMMITS" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Send Discord notification (Beta)
       if: github.ref == 'refs/heads/beta'
-      run: |
-        curl -H "Content-Type: application/json" \
-          -d '{
-            "embeds": [{
-              "title": "🚀 New Beta Release",
-              "description": "**SwiftlyS2** v${{ needs.versioning.outputs.semVer }} has been released!",
-              "color": 65261,
-              "fields": [
-                {
-                  "name": "📦 Version",
-                  "value": "`${{ needs.versioning.outputs.semVer }}`",
-                  "inline": true
-                },
-                {
-                  "name": "🔖 Tag",
-                  "value": "`${{ env.TAG_NAME }}`",
-                  "inline": true
-                },
-                {
-                  "name": "📝 Recent Commits",
-                  "value": "${{ steps.beta_commits.outputs.summary }}",
-                  "inline": false
-                },
-                {
-                  "name": "📥 Download",
-                  "value": "[View Release](https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})",
-                  "inline": false
-                }
-              ],
-              "timestamp": "${{ github.event.head_commit.timestamp }}",
-              "footer": {
-                "text": "Beta Release • SwiftlyS2"
-              }
-            }]
-          }' \
-          ${{ secrets.DISCORD_WEBHOOK_BETA }}
+      uses: tsickert/discord-webhook@v6.0.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK_BETA }}
+        embed-title: "🚀 New Beta Release"
+        embed-description: |
+          **SwiftlyS2** v${{ needs.versioning.outputs.semVer }} has been released!
+
+          **📦 Version:** `${{ needs.versioning.outputs.semVer }}`
+          **🔖 Tag:** `${{ env.TAG_NAME }}`
+
+          **📝 Recent Commits:**
+          ${{ steps.beta_commits.outputs.summary }}
+
+          **📥 Download:** [View Release](https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})
+        embed-color: 65261
+        embed-timestamp: ${{ github.event.head_commit.timestamp }}
+        embed-footer-text: "Beta Release • SwiftlyS2"
 
     - name: Get commit summary for master
       if: github.ref == 'refs/heads/master'
       id: master_commits
       run: |
-        COMMITS=$(git log -10 --pretty=format:"• %s (%h)" | head -c 1000)
+        # Get the previous tag
+        PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+        # Get commits since previous tag, or last 15 if no previous tag
+        if [ -n "$PREV_TAG" ]; then
+          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s (\`%h\`)" | head -c 900)
+        else
+          COMMITS=$(git log -15 --pretty=format:"• %s (\`%h\`)" | head -c 900)
+        fi
+
+        # If commits are empty, set a default message
+        if [ -z "$COMMITS" ]; then
+          COMMITS="No commit information available"
+        fi
+
         echo "summary<<EOF" >> $GITHUB_OUTPUT
         echo "$COMMITS" >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Send Discord notification (Master)
       if: github.ref == 'refs/heads/master'
-      run: |
-        curl -H "Content-Type: application/json" \
-          -d '{
-            "embeds": [{
-              "title": "✨ New Stable Release",
-              "description": "**SwiftlyS2** v${{ needs.versioning.outputs.semVer }} is now available!",
-              "color": 65261,
-              "fields": [
-                {
-                  "name": "📦 Version",
-                  "value": "`${{ needs.versioning.outputs.semVer }}`",
-                  "inline": true
-                },
-                {
-                  "name": "🔖 Tag",
-                  "value": "`${{ env.TAG_NAME }}`",
-                  "inline": true
-                },
-                {
-                  "name": "📝 Changelog Summary",
-                  "value": "${{ steps.master_commits.outputs.summary }}",
-                  "inline": false
-                },
-                {
-                  "name": "📥 Download",
-                  "value": "[View Release](https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})",
-                  "inline": false
-                }
-              ],
-              "timestamp": "${{ github.event.head_commit.timestamp }}",
-              "footer": {
-                "text": "Stable Release • SwiftlyS2"
-              }
-            }]
-          }' \
-          ${{ secrets.DISCORD_WEBHOOK_MASTER }}
+      uses: tsickert/discord-webhook@v6.0.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK_MASTER }}
+        embed-title: "✨ New Stable Release"
+        embed-description: |
+          **SwiftlyS2** v${{ needs.versioning.outputs.semVer }} is now available!
+
+          **📦 Version:** `${{ needs.versioning.outputs.semVer }}`
+          **🔖 Tag:** `${{ env.TAG_NAME }}`
+
+          **📝 Changelog Summary:**
+          ${{ steps.master_commits.outputs.summary }}
+
+          **📥 Download:** [View Release](https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})
+        embed-color: 65261
+        embed-timestamp: ${{ github.event.head_commit.timestamp }}
+        embed-footer-text: "Stable Release • SwiftlyS2"
   nuget:
     if: ${{ github.event_name == 'push' && github.repository_owner == 'swiftly-solution' }}
     needs: [versioning, releasing]
