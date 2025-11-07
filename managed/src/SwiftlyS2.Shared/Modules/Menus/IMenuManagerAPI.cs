@@ -76,7 +76,7 @@ public readonly record struct MenuManagerConfiguration
 /// <summary>
 /// Provides event data for menu manager events.
 /// </summary>
-public sealed class MenuEventArgs : EventArgs
+public sealed class MenuManagerEventArgs : EventArgs
 {
     /// <summary>
     /// The player involved in this menu event.
@@ -143,17 +143,17 @@ public interface IMenuManagerAPI
     /// <summary>
     /// Fired when a menu is closed for a player.
     /// </summary>
-    public event EventHandler<MenuEventArgs>? MenuClosed;
+    public event EventHandler<MenuManagerEventArgs>? MenuClosed;
 
     /// <summary>
     /// Fired when a menu is opened for a player.
     /// </summary>
-    public event EventHandler<MenuEventArgs>? MenuOpened;
+    public event EventHandler<MenuManagerEventArgs>? MenuOpened;
 
     /// <summary>
     /// Fired when a menu is rendered for a player.
     /// </summary>
-    public event EventHandler<MenuEventArgs>? MenuRendered;
+    public event EventHandler<MenuManagerEventArgs>? MenuRendered;
 
     /// <summary>
     /// Global configuration settings for all menus.

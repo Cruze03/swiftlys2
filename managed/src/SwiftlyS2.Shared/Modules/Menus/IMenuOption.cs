@@ -3,68 +3,225 @@ using SwiftlyS2.Shared.Players;
 namespace SwiftlyS2.Shared.Menus;
 
 /// <summary>
+/// Represents an asynchronous event handler that returns a ValueTask.
+/// </summary>
+/// <typeparam name="TEventArgs">The type of event arguments.</typeparam>
+/// <param name="sender">The source of the event.</param>
+/// <param name="args">Event data.</param>
+/// <returns>A task that represents the asynchronous operation.</returns>
+public delegate ValueTask AsyncEventHandler<TEventArgs>( object? sender, TEventArgs args ) where TEventArgs : EventArgs;
+
+/// <summary>
+/// Provides event data for menu option events.
+/// </summary>
+public sealed class MenuOptionEventArgs : EventArgs
+{
+    /// <summary>
+    /// The player who triggered this menu event.
+    /// </summary>
+    public IPlayer? Player { get; init; }
+
+    /// <summary>
+    /// The menu option involved in this event, or null for lifecycle events like opening or closing the menu.
+    /// </summary>
+    public IMenuOption? Option { get; init; }
+}
+
+/// <summary>
+/// Provides event data for menu option rendering events.
+/// </summary>
+public sealed class MenuOptionRenderEventArgs : EventArgs
+{
+    /// <summary>
+    /// The player for whom the option is being rendered.
+    /// </summary>
+    public required IPlayer Player { get; init; }
+
+    /// <summary>
+    /// The menu option being rendered.
+    /// </summary>
+    public IMenuOption? Option { get; init; }
+
+    /// <summary>
+    /// Gets or sets custom text to use instead of the default rendered text.
+    /// </summary>
+    public string? CustomText { get; set; }
+}
+
+/// <summary>
+/// Provides event data for menu option validation events.
+/// </summary>
+public sealed class MenuOptionValidatingEventArgs : EventArgs
+{
+    /// <summary>
+    /// The player attempting to interact with the option.
+    /// </summary>
+    public required IPlayer Player { get; init; }
+
+    /// <summary>
+    /// The menu option being validated.
+    /// </summary>
+    public IMenuOption? Option { get; init; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the interaction should be canceled.
+    /// </summary>
+    public bool Cancel { get; set; }
+
+    /// <summary>
+    /// Gets or sets the reason why the interaction was canceled.
+    /// </summary>
+    public string? CancelReason { get; set; }
+}
+
+/// <summary>
+/// Provides event data for menu option click events.
+/// </summary>
+public sealed class MenuOptionClickEventArgs : EventArgs
+{
+    /// <summary>
+    /// The player who clicked the option.
+    /// </summary>
+    public required IPlayer Player { get; init; }
+
+    /// <summary>
+    /// The menu option that was clicked.
+    /// </summary>
+    public IMenuOption? Option { get; init; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the menu should be closed after handling the click.
+    /// </summary>
+    public bool CloseMenu { get; set; }
+}
+
+/// <summary>
 /// Represents a menu option that can be displayed and interacted with by players.
 /// </summary>
 public interface IMenuOption
 {
     /// <summary>
-    /// Gets or sets the text content of the menu option.
+    /// Gets or sets the text content displayed for this menu option.
     /// </summary>
     public string Text { get; set; }
 
     /// <summary>
-    /// Gets a value indicating whether the option is visible in the menu.
+    /// Gets or sets a value indicating whether this option is visible in the menu.
     /// </summary>
-    public bool Visible { get; }
+    public bool Visible { get; set; }
 
     /// <summary>
-    /// Gets a value indicating whether the option can be interacted with.
+    /// Gets or sets a value indicating whether this option can be interacted with.
     /// </summary>
-    public bool Enabled { get; }
+    public bool Enabled { get; set; }
 
     /// <summary>
-    /// Gets the menu that this option belongs to, or null if not associated with a menu.
+    /// Gets or sets the menu that this option belongs to.
     /// </summary>
-    public IMenu? Menu { get; set; }
-
-    // /// <summary>
-    // /// Gets the horizontal overflow style for this option's text display.
-    // /// </summary>
-    // public MenuHorizontalStyle? OverflowStyle { get; }
+    public IMenuAPI? Menu { get; set; }
 
     /// <summary>
-    /// Determines whether this option should be shown to the specified player.
+    /// Gets or sets an object that contains data about this option.
+    /// </summary>
+    public object? Tag { get; set; }
+
+    /// <summary>
+    /// Gets or sets the text size for this option.
+    /// </summary>
+    public IMenuOptionTextSize TextSize { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether a sound should play when this option is selected.
+    /// </summary>
+    public bool PlaySound { get; set; }
+
+    /// <summary>
+    /// Occurs when the visibility of the option changes.
+    /// </summary>
+    public event EventHandler<MenuOptionEventArgs>? VisibilityChanged;
+
+    /// <summary>
+    /// Occurs when the enabled state of the option changes.
+    /// </summary>
+    public event EventHandler<MenuOptionEventArgs>? EnabledChanged;
+
+    /// <summary>
+    /// Occurs when the text of the option changes.
+    /// </summary>
+    public event EventHandler<MenuOptionEventArgs>? TextChanged;
+
+    /// <summary>
+    /// Occurs before a click is processed, allowing validation and cancellation.
+    /// </summary>
+    public event EventHandler<MenuOptionValidatingEventArgs>? Validating;
+
+    /// <summary>
+    /// Occurs when the option is clicked by a player.
+    /// </summary>
+    public event AsyncEventHandler<MenuOptionClickEventArgs>? Click;
+
+    /// <summary>
+    /// Occurs when a player's cursor enters this option.
+    /// </summary>
+    public event EventHandler<MenuOptionEventArgs>? OptionEnter;
+
+    /// <summary>
+    /// Occurs when a player's cursor leaves this option.
+    /// </summary>
+    public event EventHandler<MenuOptionEventArgs>? OptionLeave;
+
+    /// <summary>
+    /// Occurs before the option is rendered, allowing customization of the display text.
+    /// </summary>
+    public event EventHandler<MenuOptionRenderEventArgs>? BeforeRender;
+
+    /// <summary>
+    /// Occurs after the option has been rendered.
+    /// </summary>
+    public event EventHandler<MenuOptionRenderEventArgs>? AfterRender;
+
+    /// <summary>
+    /// Determines whether this option is visible to the specified player.
     /// </summary>
     /// <param name="player">The player to check visibility for.</param>
-    /// <returns>True if the option should be shown to the player; otherwise, false.</returns>
-    public bool ShouldShow( IPlayer player );
+    /// <returns>True if the option is visible to the player; otherwise, false.</returns>
+    public bool GetVisible( IPlayer player );
 
     /// <summary>
-    /// Determines whether the specified player can interact with this option.
+    /// Determines whether this option is enabled for the specified player.
     /// </summary>
-    /// <param name="player">The player to check interaction capability for.</param>
-    /// <returns>True if the player can interact with the option; otherwise, false.</returns>
-    public bool CanInteract( IPlayer player );
+    /// <param name="player">The player to check enabled state for.</param>
+    /// <returns>True if the option is enabled for the player; otherwise, false.</returns>
+    public bool GetEnabled( IPlayer player );
 
     /// <summary>
-    /// Gets the display text for this option as it should appear to the specified player.
+    /// Gets the text to display for this option for the specified player.
     /// </summary>
-    /// <param name="player">The player requesting the display text.</param>
-    /// <param name="updateHorizontalStyle">Indicates whether to update the horizontal style of the text.</param>
-    /// <returns>The formatted display text for the option.</returns>
-    public string GetDisplayText( IPlayer player, bool updateHorizontalStyle );
+    /// <param name="player">The player requesting the text.</param>
+    /// <returns>The text to display.</returns>
+    public string GetText( IPlayer player );
 
     /// <summary>
-    /// Gets the text size configuration for this option.
+    /// Renders this option as formatted HTML text for display to the player.
     /// </summary>
-    /// <returns>The text size setting for the option.</returns>
-    public IMenuOptionTextSize GetTextSize();
+    /// <param name="player">The player to render for.</param>
+    /// <returns>The formatted HTML string ready for display.</returns>
+    public string GetRenderedHtmlText( IPlayer player );
 
     /// <summary>
-    /// Determines whether this option should play a sound when selected.
+    /// Validates whether the specified player can interact with this option.
     /// </summary>
-    /// <returns>True if the option should play a sound; otherwise, false.</returns>
-    public bool HasSound();
+    /// <param name="player">The player to validate.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result is true if validation succeeds; otherwise, false.</returns>
+    public ValueTask<bool> OnValidatingAsync( IPlayer player );
+
+    /// <summary>
+    /// Handles the click action for this option.
+    /// </summary>
+    /// <param name="player">The player who clicked the option.</param>
+    /// <param name="closeMenu">Whether to close the menu after handling the click.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    public ValueTask OnClickAsync( IPlayer player, bool closeMenu = false );
 }
 
 /// <summary>

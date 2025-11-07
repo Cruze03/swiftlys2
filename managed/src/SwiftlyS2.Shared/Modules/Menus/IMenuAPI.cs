@@ -42,7 +42,7 @@ public record class MenuConfiguration
 /// <summary>
 /// Provides event data for menu-related events.
 /// </summary>
-public sealed class MenuOptionEventArgs : EventArgs
+public sealed class MenuEventArgs : EventArgs
 {
     /// <summary>
     /// The player who triggered this menu event.
@@ -88,22 +88,22 @@ public interface IMenuAPI
     /// <summary>
     /// Fired when a player navigates to a different menu option.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? SelectionMoved;
+    public event EventHandler<MenuEventArgs>? SelectionMoved;
 
     /// <summary>
     /// Fired when a player selects a menu option. The Option property contains the selected option.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? OptionSelected;
+    public event EventHandler<MenuEventArgs>? OptionSelected;
 
     /// <summary>
     /// Fired just before the menu is displayed to a player.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? BeforeRender;
+    public event EventHandler<MenuEventArgs>? BeforeRender;
 
     /// <summary>
     /// Fired after the menu has been displayed to a player.
     /// </summary>
-    public event EventHandler<MenuOptionEventArgs>? AfterRender;
+    public event EventHandler<MenuEventArgs>? AfterRender;
 
     /// <summary>
     /// Displays this menu to the specified player.
