@@ -69,4 +69,25 @@ public interface IConVar<T> {
   /// <param name="clientId"></param>
   /// <param name="callback">The action to execute with the value.</param>
   void QueryClient(int clientId, Action<string> callback);
+
+  /// <summary>
+  /// Try to get the min value of the convar.
+  /// </summary>
+  /// <param name="minValue">The min value of the convar.</param>
+  /// <returns>True if the min value is found, false otherwise.</returns>
+  bool TryGetMinValue(out T minValue);
+
+  /// <summary>
+  /// Try to get the max value of the convar.
+  /// </summary>
+  /// <param name="maxValue">The max value of the convar.</param>
+  /// <returns>True if the max value is found, false otherwise.</returns>
+  bool TryGetMaxValue(out T maxValue);
+
+  /// <summary>
+  /// Try to get the default value of the convar.
+  /// </summary>
+  /// <param name="defaultValue">The default value of the convar.</param>
+  /// <returns>True if the default value is found, false otherwise.</returns>
+  bool TryGetDefaultValue(out T defaultValue);
 }

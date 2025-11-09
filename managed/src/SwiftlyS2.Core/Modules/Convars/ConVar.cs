@@ -313,4 +313,42 @@ internal class ConVar<T> : IConVar<T>{
       }
     }
   }
+
+  public bool TryGetMinValue(out T minValue)
+  {
+    if (!IsMinMaxType) {
+      minValue = default;
+      return false;
+    }
+    if (!HasMinValue) {
+      minValue = default;
+      return false;
+    }
+    minValue = GetMinValue();
+    return true;
+  }
+
+  public bool TryGetMaxValue(out T maxValue)
+  {
+    if (!IsMinMaxType) {
+      maxValue = default;
+      return false;
+    }
+    if (!HasMaxValue) {
+      maxValue = default;
+      return false;
+    }
+    maxValue = GetMaxValue();
+    return true;
+  }
+
+  public bool TryGetDefaultValue(out T defaultValue)
+  {
+    if (!HasDefaultValue) {
+      defaultValue = default;
+      return false;
+    }
+    defaultValue = GetDefaultValue();
+    return true;
+  }
 }
