@@ -7,7 +7,7 @@ namespace SwiftlyS2.Core.Services;
 
 internal class HelpersService : IHelpers
 {
-    private static readonly Dictionary<string, int> WeaponItemDefinitionIndices = new()
+    public static readonly Dictionary<string, int> WeaponItemDefinitionIndices = new()
     {
         // Pistols
         { "weapon_deagle", 1 },
@@ -103,6 +103,27 @@ internal class HelpersService : IHelpers
     public CCSWeaponBaseVData? GetWeaponCSDataFromKey(int itemDefinitionIndex)
     {
         return GetWeaponCSDataFromKey(-1, itemDefinitionIndex.ToString());
+    }
+
+    public string? GetClassnameByDefinitionIndex(int itemDefinitionIndex)
+    {
+        foreach (var kvp in WeaponItemDefinitionIndices)
+        {
+            if (kvp.Value == itemDefinitionIndex)
+            {
+                return kvp.Key;
+            }
+        }
+        return null;
+    }
+
+    public int? GetDefinitionIndexByClassname(string classname)
+    {
+        if (WeaponItemDefinitionIndices.TryGetValue(classname, out int index))
+        {
+            return index;
+        }
+        return null;
     }
 
 }
