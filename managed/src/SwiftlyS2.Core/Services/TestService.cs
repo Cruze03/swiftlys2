@@ -53,7 +53,14 @@ internal class TestService {
 
   public void Test()
   {
+    _Core.Event.OnEntityDeleted += (@event) => {
+      Console.WriteLine("Entity deleted: " + @event.Entity.Entity?.DesignerName);
+    };
     _Core.Command.RegisterCommand("rrr", (context) => {
+
+      _Core.EntitySystem.GetAllEntities().ToList().ForEach(entity => {
+        entity.Entity.Flags |= 0x200;
+      });
 
       var a = _Core.ConVar.Create("test_convar", "Test convar", "abc");
 
