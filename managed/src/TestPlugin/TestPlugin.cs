@@ -641,8 +641,9 @@ public class TestPlugin : BasePlugin
             .FreezePlayer(false)
             // .AutoClose(15f)
             .Design.MaxVisibleItems(5)
-            .Design.SetMenuTitle("Refactored Menu")
+            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
             .Design.HideMenuTitle(false)
+            .Design.HideMenuFooter(false)
             .Design.SetGlobalOptionScrollStyle(MenuOptionScrollStyle.WaitingCenter)
             .AddOption(new TextMenuOption("1") { Visible = false })
             .AddOption(new TextMenuOption("12"))
@@ -673,7 +674,8 @@ public class TestPlugin : BasePlugin
             .AddOption(new TextMenuOption("1") { Visible = false })
             .Build();
 
-        Core.MenusAPI.OpenMenuForPlayer(player, menu);
+        Core.MenusAPI.OpenMenu(menu);
+        // Core.MenusAPI.OpenMenuForPlayer(player, menu);
     }
 
     [Command("mt")]

@@ -287,11 +287,21 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return $"{prefix}{option.GetDisplayText(player, 0)}";
         });
 
+        var footerSection = Configuration.HideFooter ? string.Empty : new Func<string>(() =>
+        {
+            var isWasd = core.MenusAPI.Configuration.InputMode == "wasd";
+            var moveKey = isWasd ? "W/S" : $"{KeybindOverrides.Move?.ToString() ?? core.MenusAPI.Configuration.ButtonsScroll.ToUpper()}/{KeybindOverrides.MoveBack?.ToString() ?? core.MenusAPI.Configuration.ButtonsScrollBack.ToUpper()}";
+            var useKey = isWasd ? "D" : (KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse).ToUpper();
+            var exitKey = isWasd ? "A" : (KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit).ToUpper();
+            return $"<br><font class='fontSize-s' color='#FFFFFF'><font color='#FF0000'>Move:</font> {moveKey} | <font color='#FF0000'>Use:</font> {useKey} | <font color='#FF0000'>Exit:</font> {exitKey}</font>";
+        })();
+
         return string.Concat(
             titleSection,
             "<font color='#FFFFFF' class='fontSize-sm'>",
             string.Join("<br>", menuItems),
-            "</font>"
+            "</font>",
+            footerSection
         );
     }
 

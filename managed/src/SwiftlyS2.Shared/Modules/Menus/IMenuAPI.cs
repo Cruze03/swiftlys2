@@ -22,6 +22,11 @@ public record class MenuConfiguration
     public bool HideTitle { get; set; } = false;
 
     /// <summary>
+    /// Whether to hide the menu footer.
+    /// </summary>
+    public bool HideFooter { get; set; } = false;
+
+    /// <summary>
     /// Whether to play sounds when players interact with the menu.
     /// </summary>
     public bool PlaySound { get; set; } = true;
