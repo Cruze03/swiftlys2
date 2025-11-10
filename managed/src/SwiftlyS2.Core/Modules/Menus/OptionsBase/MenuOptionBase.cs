@@ -11,7 +11,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 {
     private string text = string.Empty;
-    private string dynamicText = string.Empty;
+    private string? dynamicText = null;
     private float maxWidth = 26f;
     private MenuOptionTextStyle textStyle = MenuOptionTextStyle.TruncateEnd;
     private bool visible = true;
@@ -111,7 +111,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
             }
 
             text = value;
-            dynamicText = string.Empty;
+            dynamicText = null;
 
             textStyleProcessor?.ClearScrollOffsets();
 
@@ -136,7 +136,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
             }
 
             maxWidth = Math.Max(value, 1f);
-            dynamicText = string.Empty;
+            dynamicText = null;
 
             textStyleProcessor?.ClearScrollOffsets();
         }
@@ -207,7 +207,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
             }
 
             textStyle = value;
-            dynamicText = string.Empty;
+            dynamicText = null;
 
             textStyleProcessor?.ClearScrollOffsets();
         }
@@ -338,7 +338,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 
         BeforeFormat?.Invoke(this, args);
 
-        var displayText = args.CustomText ?? (string.IsNullOrWhiteSpace(dynamicText) ? Text : dynamicText);
+        var displayText = args.CustomText ?? (dynamicText == null ? Text : (dynamicText ?? string.Empty));
 
         if (displayLine > 0)
         {

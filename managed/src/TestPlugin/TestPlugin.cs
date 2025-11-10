@@ -622,7 +622,7 @@ public class TestPlugin : BasePlugin
         {
             // myText.Visible = false;
             myText.Enabled = false;
-            // myText.TextStyle = MenuOptionTextStyle.TruncateEnd;
+            // myText.TextStyle = MenuOptionTextStyle.ScrollRightFade;
             // myText.Text = Regex.Match(myText.Text, @"^(.*)#(\d+)$") is { Success: true } m
             //     ? $"{m.Groups[1].Value}#{int.Parse(m.Groups[2].Value) + 1}"
             //     : $"{myText.Text}#1";
@@ -645,6 +645,8 @@ public class TestPlugin : BasePlugin
             .Design.HideMenuTitle(false)
             .Design.HideMenuFooter(false)
             .Design.SetGlobalOptionScrollStyle(MenuOptionScrollStyle.WaitingCenter)
+            // .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", textStyle: MenuOptionTextStyle.ScrollLeftFade))
+            // .AddOption(new TextMenuOption($"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", textStyle: MenuOptionTextStyle.ScrollLeftFade))
             .AddOption(new TextMenuOption("1") { Visible = false })
             .AddOption(new TextMenuOption("12"))
             .AddOption(new TextMenuOption("123"))

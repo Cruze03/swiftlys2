@@ -96,6 +96,7 @@ internal sealed partial class TextStyleProcessor
         }
 
         CloseOpenTags(result, outputTags);
+        // Console.WriteLine($"styledText: {result}, offset: {offset}");
         return (result.ToString(), offset);
     }
 
