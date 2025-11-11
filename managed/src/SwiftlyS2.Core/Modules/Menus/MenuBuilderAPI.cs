@@ -25,7 +25,7 @@ internal sealed class MenuBuilderAPI : IMenuBuilderAPI
         options.Clear();
     }
 
-    public IMenuBuilderAPI WithParent( IMenuAPI parent )
+    public IMenuBuilderAPI BindToParent( IMenuAPI parent )
     {
         this.parent = parent;
         return this;
@@ -37,43 +37,49 @@ internal sealed class MenuBuilderAPI : IMenuBuilderAPI
         return this;
     }
 
-    public IMenuBuilderAPI PlaySound( bool playSound = false )
+    public IMenuBuilderAPI EnableSound()
     {
-        configuration.PlaySound = playSound;
+        configuration.PlaySound = true;
         return this;
     }
 
-    public IMenuBuilderAPI FreezePlayer( bool freeze = false )
+    public IMenuBuilderAPI DisableSound()
     {
-        configuration.FreezePlayer = freeze;
+        configuration.PlaySound = false;
         return this;
     }
 
-    public IMenuBuilderAPI AutoClose( float seconds = 0f )
+    public IMenuBuilderAPI SetPlayerFrozen( bool frozen = false )
+    {
+        configuration.FreezePlayer = frozen;
+        return this;
+    }
+
+    public IMenuBuilderAPI SetAutoCloseDelay( float seconds = 0f )
     {
         configuration.AutoCloseAfter = seconds;
         return this;
     }
 
-    public IMenuBuilderAPI OverrideSelectButton( KeyBind keyBind )
+    public IMenuBuilderAPI SetSelectButton( KeyBind keyBind )
     {
         keybindOverrides = keybindOverrides with { Select = keyBind };
         return this;
     }
 
-    public IMenuBuilderAPI OverrideMoveButton( KeyBind keyBind )
+    public IMenuBuilderAPI SetMoveForwardButton( KeyBind keyBind )
     {
         keybindOverrides = keybindOverrides with { Move = keyBind };
         return this;
     }
 
-    public IMenuBuilderAPI OverrideMoveBackButton( KeyBind keyBind )
+    public IMenuBuilderAPI SetMoveBackwardButton( KeyBind keyBind )
     {
         keybindOverrides = keybindOverrides with { MoveBack = keyBind };
         return this;
     }
 
-    public IMenuBuilderAPI OverrideExitButton( KeyBind keyBind )
+    public IMenuBuilderAPI SetExitButton( KeyBind keyBind )
     {
         keybindOverrides = keybindOverrides with { Exit = keyBind };
         return this;

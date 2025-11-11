@@ -23,31 +23,37 @@ internal sealed class MenuDesignAPI : IMenuDesignAPI
         return builder;
     }
 
-    public IMenuBuilderAPI HideMenuTitle( bool hide = false )
+    public IMenuBuilderAPI SetMenuTitleVisible( bool visible = true )
     {
-        configuration.HideTitle = hide;
+        configuration.HideTitle = !visible;
         return builder;
     }
 
-    public IMenuBuilderAPI HideMenuFooter( bool hide = false )
+    public IMenuBuilderAPI SetMenuFooterVisible( bool visible = true )
     {
-        configuration.HideFooter = hide;
+        configuration.HideFooter = !visible;
         return builder;
     }
 
-    public IMenuBuilderAPI MaxVisibleItems( int count = 5 )
+    public IMenuBuilderAPI SetMaxVisibleItems( int count = 5 )
     {
         configuration.MaxVisibleItems = count;
         return builder;
     }
 
-    public IMenuBuilderAPI AutoIncreaseVisibleItems( bool autoIncrease = true )
+    public IMenuBuilderAPI EnableAutoAdjustVisibleItems()
     {
-        configuration.AutoIncreaseVisibleItems = autoIncrease;
+        configuration.AutoIncreaseVisibleItems = true;
         return builder;
     }
 
-    public IMenuBuilderAPI SetGlobalOptionScrollStyle( MenuOptionScrollStyle style )
+    public IMenuBuilderAPI DisableAutoAdjustVisibleItems()
+    {
+        configuration.AutoIncreaseVisibleItems = false;
+        return builder;
+    }
+
+    public IMenuBuilderAPI SetGlobalScrollStyle( MenuOptionScrollStyle style )
     {
         setScrollStyle(style);
         return builder;

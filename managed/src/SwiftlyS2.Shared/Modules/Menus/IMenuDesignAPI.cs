@@ -3,53 +3,62 @@ namespace SwiftlyS2.Shared.Menus;
 public interface IMenuDesignAPI
 {
     /// <summary>
-    /// Sets the title of the menu.
+    /// Sets the title text displayed at the top of the menu.
     /// </summary>
-    /// <param name="title">The title to display for the menu.</param>
+    /// <param name="title">The title text. Pass null to clear the title.</param>
     /// <returns>The menu builder for method chaining.</returns>
     public IMenuBuilderAPI SetMenuTitle( string? title = null );
 
     /// <summary>
-    /// Hides the menu title.
+    /// Controls the visibility of the menu title.
     /// </summary>
-    /// <param name="hide">True to hide the title, false to show it.</param>
+    /// <param name="visible">True to show the title, false to hide it. Default is true.</param>
     /// <returns>The menu builder for method chaining.</returns>
-    public IMenuBuilderAPI HideMenuTitle( bool hide = false );
+    public IMenuBuilderAPI SetMenuTitleVisible( bool visible = true );
 
     /// <summary>
-    /// Hides the menu footer.
+    /// Controls the visibility of the menu footer.
     /// </summary>
-    /// <param name="hide">True to hide the footer, false to show it.</param>
+    /// <param name="visible">True to show the footer, false to hide it. Default is true.</param>
     /// <returns>The menu builder for method chaining.</returns>
-    public IMenuBuilderAPI HideMenuFooter( bool hide = false );
+    public IMenuBuilderAPI SetMenuFooterVisible( bool visible = true );
 
     /// <summary>
-    /// Sets how many menu items can be displayed on screen at once. Menus with more items will be paginated.
+    /// Sets the maximum number of menu options visible on screen at once.
     /// </summary>
-    /// <param name="count">Maximum visible items (clamped between 1 and 5).</param>
+    /// <param name="count">The maximum visible item count. Valid range is 1-5. Default is 5.</param>
     /// <returns>The menu builder for method chaining.</returns>
     /// <remarks>
-    /// Values outside the range of 1-5 will be automatically clamped, and a warning will be logged.
+    /// Values outside the range of 1-5 will be automatically clamped to the nearest valid value.
+    /// Menus with more options than this limit will be paginated.
     /// </remarks>
-    public IMenuBuilderAPI MaxVisibleItems( int count = 5 );
+    public IMenuBuilderAPI SetMaxVisibleItems( int count = 5 );
 
     /// <summary>
-    /// Sets whether to automatically increase MaxVisibleItems when <see cref="HideMenuTitle"/> or <see cref="HideMenuFooter"/> is enabled.
+    /// Enables automatic adjustment of visible items when title or footer is hidden.
     /// </summary>
-    /// <param name="autoIncrease">True to automatically increase the maximum visible items, false to disable.</param>
     /// <returns>The menu builder for method chaining.</returns>
     /// <remarks>
-    /// This does not modify the actual MaxVisibleItems value.
-    /// Instead, the increase is applied during rendering calculations only.
+    /// When enabled, hiding the title or footer will increase the effective visible item count
+    /// during rendering without modifying the configured <see cref="SetMaxVisibleItems"/> value.
     /// </remarks>
-    public IMenuBuilderAPI AutoIncreaseVisibleItems( bool autoIncrease = true );
+    public IMenuBuilderAPI EnableAutoAdjustVisibleItems();
 
     /// <summary>
-    /// Sets the global option scroll style for the menu.
+    /// Disables automatic adjustment of visible items when title or footer is hidden.
     /// </summary>
-    /// <param name="style">The scroll style to apply to all options in the menu.</param>
     /// <returns>The menu builder for method chaining.</returns>
-    public IMenuBuilderAPI SetGlobalOptionScrollStyle( MenuOptionScrollStyle style );
+    public IMenuBuilderAPI DisableAutoAdjustVisibleItems();
+
+    /// <summary>
+    /// Sets the default scroll animation style for all menu options.
+    /// </summary>
+    /// <param name="style">The scroll style to apply globally.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    /// <remarks>
+    /// Individual options can override this global setting.
+    /// </remarks>
+    public IMenuBuilderAPI SetGlobalScrollStyle( MenuOptionScrollStyle style );
 
     // /// <summary>
     // /// Sets the global option text style for the menu.

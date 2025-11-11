@@ -640,14 +640,14 @@ public class TestPlugin : BasePlugin
         var player = context.Sender!;
         var menu = Core.MenusAPI
             .CreateBuilder()
-            .FreezePlayer(false)
-            // .AutoClose(15f)
-            .Design.MaxVisibleItems(5)
+            .SetPlayerFrozen(false)
+            // .SetAutoCloseDelay(15f)
+            .Design.SetMaxVisibleItems(5)
             .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
-            .Design.HideMenuTitle(false)
-            .Design.HideMenuFooter(false)
-            .Design.AutoIncreaseVisibleItems(true)
-            .Design.SetGlobalOptionScrollStyle(MenuOptionScrollStyle.WaitingCenter)
+            .Design.SetMenuTitleVisible(true)
+            .Design.SetMenuFooterVisible(true)
+            .Design.EnableAutoAdjustVisibleItems()
+            .Design.SetGlobalScrollStyle(MenuOptionScrollStyle.WaitingCenter)
             // .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>", textStyle: MenuOptionTextStyle.ScrollRightFade))
             // .AddOption(new TextMenuOption($"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", textStyle: MenuOptionTextStyle.ScrollLeftFade))
             // .AddOption(new TextMenuOption("<font color='#F5FFFA'><b><invalid>12345678901234567890<font color='#00FA9A'>split</font>12345678901234567890</invalid></b></font>", textStyle: MenuOptionTextStyle.TruncateBothEnds))
@@ -658,8 +658,9 @@ public class TestPlugin : BasePlugin
             .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
             .AddOption(new SubmenuMenuOption("123456", async () =>
             {
-                await Task.Delay(2000);
+                await Task.Delay(1000);
                 var menu = Core.MenusAPI.CreateBuilder()
+                    .SetPlayerFrozen(true)
                     .Design.SetMenuTitle("Async Submenu")
                     .AddOption(new TextMenuOption("123456"))
                     .Build();

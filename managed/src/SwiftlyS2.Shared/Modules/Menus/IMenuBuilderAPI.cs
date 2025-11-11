@@ -12,83 +12,92 @@ public interface IMenuBuilderAPI
     public IMenuDesignAPI Design { get; }
 
     /// <summary>
-    /// Creates a hierarchical menu by setting a parent menu that players can navigate back to.
+    /// Binds this menu to a parent menu, creating a hierarchical navigation structure.
     /// </summary>
     /// <param name="parent">The parent menu.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI WithParent( IMenuAPI parent );
+    public IMenuBuilderAPI BindToParent( IMenuAPI parent );
 
     /// <summary>
-    /// Adds an option to the menu.
+    /// Adds a menu option to the menu.
     /// </summary>
     /// <param name="option">The menu option to add.</param>
     /// <returns>This builder for method chaining.</returns>
     public IMenuBuilderAPI AddOption( IMenuOption option );
 
     /// <summary>
-    /// Enables or disables sound effects for menu interactions.
+    /// Enables sound effects for menu interactions.
     /// </summary>
-    /// <param name="playSound">True to play sounds, false to remain silent.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI PlaySound( bool playSound = false );
+    public IMenuBuilderAPI EnableSound();
 
     /// <summary>
-    /// Controls whether players can move while the menu is open.
+    /// Disables sound effects for menu interactions.
     /// </summary>
-    /// <param name="freeze">True to freeze player movement, false to allow movement.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI FreezePlayer( bool freeze = false );
+    public IMenuBuilderAPI DisableSound();
 
     /// <summary>
-    /// Sets how long the menu stays open before automatically closing.
+    /// Controls whether player movement is frozen while the menu is open.
     /// </summary>
-    /// <param name="seconds">Time in seconds before auto-close. Set to 0 to disable.</param>
+    /// <param name="frozen">True to freeze player movement, false to allow movement. Default is false.</param>
     /// <returns>This builder for method chaining.</returns>
-    public IMenuBuilderAPI AutoClose( float seconds = 0f );
+    public IMenuBuilderAPI SetPlayerFrozen( bool frozen = false );
 
     /// <summary>
-    /// Overrides the key binding for selecting menu options.
+    /// Sets the automatic close delay for the menu.
+    /// </summary>
+    /// <param name="seconds">Time in seconds before the menu automatically closes. Set to 0 to disable auto-close. Default is 0.</param>
+    /// <returns>This builder for method chaining.</returns>
+    public IMenuBuilderAPI SetAutoCloseDelay( float seconds = 0f );
+
+    /// <summary>
+    /// Overrides the default key binding for selecting menu options.
     /// </summary>
     /// <param name="keyBind">The key binding to use.</param>
     /// <returns>This builder for method chaining.</returns>
     /// <remarks>
+    /// This overrides the default select button behavior.
     /// Supports multiple key bindings using the bitwise OR operator.
     /// Example: <c>KeyBind.Mouse1 | KeyBind.E</c> allows either Mouse1 or E to select options.
     /// </remarks>
-    public IMenuBuilderAPI OverrideSelectButton( KeyBind keyBind );
+    public IMenuBuilderAPI SetSelectButton( KeyBind keyBind );
 
     /// <summary>
-    /// Overrides the key binding for moving forward through menu options.
+    /// Overrides the default key binding for moving forward through menu options.
     /// </summary>
     /// <param name="keyBind">The key binding to use.</param>
     /// <returns>This builder for method chaining.</returns>
     /// <remarks>
+    /// This overrides the default move forward button behavior.
     /// Supports multiple key bindings using the bitwise OR operator.
     /// Example: <c>KeyBind.W | KeyBind.Mouse1</c> allows either W or Mouse1 to move forward.
     /// </remarks>
-    public IMenuBuilderAPI OverrideMoveButton( KeyBind keyBind );
+    public IMenuBuilderAPI SetMoveForwardButton( KeyBind keyBind );
 
     /// <summary>
-    /// Overrides the key binding for moving backward through menu options.
+    /// Overrides the default key binding for moving backward through menu options.
     /// </summary>
     /// <param name="keyBind">The key binding to use.</param>
     /// <returns>This builder for method chaining.</returns>
     /// <remarks>
+    /// This overrides the default move backward button behavior.
     /// Supports multiple key bindings using the bitwise OR operator.
     /// Example: <c>KeyBind.S | KeyBind.Mouse2</c> allows either S or Mouse2 to move backward.
     /// </remarks>
-    public IMenuBuilderAPI OverrideMoveBackButton( KeyBind keyBind );
+    public IMenuBuilderAPI SetMoveBackwardButton( KeyBind keyBind );
 
     /// <summary>
-    /// Overrides the key binding for closing the menu.
+    /// Overrides the default key binding for closing the menu.
     /// </summary>
     /// <param name="keyBind">The key binding to use.</param>
     /// <returns>This builder for method chaining.</returns>
     /// <remarks>
+    /// This overrides the default exit button behavior.
     /// Supports multiple key bindings using the bitwise OR operator.
     /// Example: <c>KeyBind.Esc | KeyBind.A</c> allows either Esc or A to close the menu.
     /// </remarks>
-    public IMenuBuilderAPI OverrideExitButton( KeyBind keyBind );
+    public IMenuBuilderAPI SetExitButton( KeyBind keyBind );
 
     /// <summary>
     /// Builds the menu and returns the final menu instance.
