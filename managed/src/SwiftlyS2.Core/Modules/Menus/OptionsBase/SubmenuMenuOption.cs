@@ -9,7 +9,6 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class SubmenuMenuOption : MenuOptionBase
 {
-    private IMenuAPI? submenu;
     private readonly Func<Task<IMenuAPI>>? submenuBuilderAsync;
     private readonly ConcurrentDictionary<IPlayer, bool> isLoading = new();
 
@@ -33,7 +32,7 @@ public sealed class SubmenuMenuOption : MenuOptionBase
     {
         Text = text;
         PlaySound = true;
-        this.submenu = submenu;
+        this.submenuBuilderAsync = () => Task.FromResult(submenu);
 
         Click += OnSubmenuClick;
     }
@@ -93,7 +92,7 @@ public sealed class SubmenuMenuOption : MenuOptionBase
             return;
         }
 
-        if (Menu != Menu.MenuManager.GetCurrentMenu(args.Player))
+        if (Menu != Menu.MenuManager.GetCurrentMenu(args.Player) || Menu.MenuManager.GetCurrentMenu(args.Player) == null)
         {
             return;
         }
@@ -108,19 +107,13 @@ public sealed class SubmenuMenuOption : MenuOptionBase
 
     private async Task<IMenuAPI?> GetSubmenuAsync( IPlayer player )
     {
-        if (submenu != null)
-        {
-            return submenu;
-        }
-
         if (submenuBuilderAsync != null)
         {
             _ = isLoading.AddOrUpdate(player, true, ( _, _ ) => true);
 
             try
             {
-                submenu = await submenuBuilderAsync.Invoke();
-                return submenu;
+                return await submenuBuilderAsync.Invoke();
             }
             finally
             {

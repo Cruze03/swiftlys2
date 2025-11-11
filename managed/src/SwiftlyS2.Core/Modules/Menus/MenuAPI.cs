@@ -52,12 +52,14 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 return;
             }
 
-            if (parent == null || parent == this)
+            if (value == null || value == this)
             {
                 Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"Parent cannot be null or self.", nameof(value)));
             }
-
-            parent = value;
+            else
+            {
+                parent = value;
+            }
         }
     }
 
@@ -169,7 +171,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 }
             });
 
-        options.ForEach(option => option.Dispose());
+        // options.ForEach(option => option.Dispose());
         options.Clear();
         selectedOptionIndex.Clear();
         desiredOptionIndex.Clear();
@@ -410,10 +412,10 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             token.Dispose();
         }
 
-        if (!selectedOptionIndex.Any(kvp => !kvp.Key.IsFakeClient) && !desiredOptionIndex.Any(kvp => !kvp.Key.IsFakeClient))
-        {
-            Dispose();
-        }
+        // if (!selectedOptionIndex.Any(kvp => !kvp.Key.IsFakeClient) && !desiredOptionIndex.Any(kvp => !kvp.Key.IsFakeClient))
+        // {
+        //     Dispose();
+        // }
     }
 
     public void AddOption( IMenuOption option )
