@@ -143,11 +143,11 @@ public interface ISwiftlyCore
     /// </summary>
     public IRegistratorService Registrator { get; }
 
-    /// <summary>
-    /// Menu manager.
-    /// </summary>
-    [Obsolete("IMenuManager will be deprecared at the release of SwiftlyS2. Please use IMenuManagerAPI instead")]
-    public IMenuManager Menus { get; }
+    // /// <summary>
+    // /// Menu manager.
+    // /// </summary>
+    // [Obsolete("IMenuManager will be deprecared at the release of SwiftlyS2. Please use IMenuManagerAPI instead")]
+    // public IMenuManager Menus { get; }
 
     /// <summary>
     /// Menu manager API.

@@ -1,6 +1,4 @@
 using McMaster.NETCore.Plugins;
-using Microsoft.Extensions.DependencyInjection;
-using SwiftlyS2.Core.Plugins;
 using SwiftlyS2.Core.Services;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Plugins;
@@ -24,7 +22,7 @@ internal class PluginContext : IDisposable
     {
         Plugin?.Unload();
         Loader?.Dispose();
-        Core?.MenuManager?.CloseAllMenus();
+        // Core?.MenuManager?.CloseAllMenus();
         Core?.MenuManagerAPI?.CloseAllMenus();
         Core?.Dispose();
     }

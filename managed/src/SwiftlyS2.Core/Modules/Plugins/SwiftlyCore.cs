@@ -70,8 +70,8 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
     public Localizer Localizer { get; init; }
     public PermissionManager PermissionManager { get; init; }
     public RegistratorService RegistratorService { get; init; }
-    [Obsolete("MenuManager will be deprecared at the release of SwiftlyS2. Please use MenuManagerAPI instead")]
-    public MenuManager MenuManager { get; init; }
+    // [Obsolete("MenuManager will be deprecared at the release of SwiftlyS2. Please use MenuManagerAPI instead")]
+    // public MenuManager MenuManager { get; init; }
     public MenuManagerAPI MenuManagerAPI { get; init; }
     public CommandLineService CommandLineService { get; init; }
     public HelpersService Helpers { get; init; }
@@ -116,7 +116,7 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
             .AddSingleton<TranslationService>()
             .AddSingleton<Localizer>(provider => provider.GetRequiredService<TranslationService>().GetLocalizer())
             .AddSingleton<RegistratorService>()
-            .AddSingleton<MenuManager>()
+            // .AddSingleton<MenuManager>()
             .AddSingleton<MenuManagerAPI>()
             .AddSingleton<CommandLineService>()
             .AddSingleton<HelpersService>()
@@ -141,7 +141,7 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
             .AddSingleton<ITranslationService>(provider => provider.GetRequiredService<TranslationService>())
             .AddSingleton<ILocalizer>(provider => provider.GetRequiredService<TranslationService>().GetLocalizer())
             .AddSingleton<IRegistratorService>(provider => provider.GetRequiredService<RegistratorService>())
-            .AddSingleton<IMenuManager>(provider => provider.GetRequiredService<MenuManager>())
+            // .AddSingleton<IMenuManager>(provider => provider.GetRequiredService<MenuManager>())
             .AddSingleton<IMenuManagerAPI>(provider => provider.GetRequiredService<MenuManagerAPI>())
             .AddSingleton<ICommandLine>(provider => provider.GetRequiredService<CommandLineService>())
             .AddSingleton<IHelpers>(provider => provider.GetRequiredService<HelpersService>())
@@ -172,7 +172,7 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
         Localizer = serviceProvider.GetRequiredService<Localizer>();
         PermissionManager = serviceProvider.GetRequiredService<PermissionManager>();
         RegistratorService = serviceProvider.GetRequiredService<RegistratorService>();
-        MenuManager = serviceProvider.GetRequiredService<MenuManager>();
+        // MenuManager = serviceProvider.GetRequiredService<MenuManager>();
         MenuManagerAPI = serviceProvider.GetRequiredService<MenuManagerAPI>();
         CommandLineService = serviceProvider.GetRequiredService<CommandLineService>();
         Helpers = serviceProvider.GetRequiredService<HelpersService>();
@@ -217,8 +217,8 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
     ILocalizer ISwiftlyCore.Localizer => Localizer;
     IPermissionManager ISwiftlyCore.Permission => PermissionManager;
     IRegistratorService ISwiftlyCore.Registrator => RegistratorService;
-    [Obsolete("MenuManager will be deprecared at the release of SwiftlyS2. Please use MenuManagerAPI instead")]
-    IMenuManager ISwiftlyCore.Menus => MenuManager;
+    // [Obsolete("MenuManager will be deprecared at the release of SwiftlyS2. Please use MenuManagerAPI instead")]
+    // IMenuManager ISwiftlyCore.Menus => MenuManager;
     IMenuManagerAPI ISwiftlyCore.MenusAPI => MenuManagerAPI;
     string ISwiftlyCore.PluginPath => ContextBasePath;
     string ISwiftlyCore.CSGODirectory => NativeEngineHelpers.GetCSGODirectoryPath();
