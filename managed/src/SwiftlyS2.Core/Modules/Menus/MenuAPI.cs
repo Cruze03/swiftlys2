@@ -9,6 +9,8 @@ namespace SwiftlyS2.Core.Menus;
 
 internal sealed class MenuAPI : IMenuAPI, IDisposable
 {
+    private IMenuAPI? parent;
+
     /// <summary>
     /// The menu manager that this menu belongs to.
     /// </summary>
@@ -42,7 +44,22 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     /// <summary>
     /// The parent menu in a hierarchical menu structure, or null if this is a top-level menu.
     /// </summary>
-    public IMenuAPI? Parent { get; init; }
+    public IMenuAPI? Parent {
+        get => parent;
+        internal set {
+            if (parent == value)
+            {
+                return;
+            }
+
+            if (parent == null || parent == this)
+            {
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"Parent cannot be null or self.", nameof(value)));
+            }
+
+            parent = value;
+        }
+    }
 
     /// <summary>
     /// Read-only collection of all options in this menu.
@@ -97,7 +114,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     private volatile bool disposed;
 
     // [SetsRequiredMembers]
-    public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, MenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null, IMenuAPI? parent = null, MenuOptionScrollStyle optionScrollStyle = MenuOptionScrollStyle.CenterFixed/*, MenuOptionTextStyle optionTextStyle = MenuOptionTextStyle.TruncateEnd*/ )
+    public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, MenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null/*, IMenuAPI? parent = null*/, MenuOptionScrollStyle optionScrollStyle = MenuOptionScrollStyle.CenterFixed/*, MenuOptionTextStyle optionTextStyle = MenuOptionTextStyle.TruncateEnd*/ )
     {
         disposed = false;
 
@@ -109,7 +126,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         OptionScrollStyle = optionScrollStyle;
         // OptionTextStyle = optionTextStyle;
         Builder = builder;
-        Parent = parent;
+        // Parent = parent;
 
         options.Clear();
         selectedOptionIndex.Clear();

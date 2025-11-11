@@ -88,14 +88,22 @@ public sealed class SubmenuMenuOption : MenuOptionBase
     private async ValueTask OnSubmenuClick( object? sender, MenuOptionClickEventArgs args )
     {
         var menu = await GetSubmenuAsync(args.Player);
-        if (menu != null)
+        if (menu is not MenuAPI submenu || Menu == null)
         {
-            // SubmenuRequested?.Invoke(this, new MenuManagerEventArgs {
-            //     Player = args.Player,
-            //     Menu = menu
-            // });
-            Menu?.MenuManager.OpenMenuForPlayer(args.Player, menu);
+            return;
         }
+
+        if (Menu != Menu.MenuManager.GetCurrentMenu(args.Player))
+        {
+            return;
+        }
+
+        // SubmenuRequested?.Invoke(this, new MenuManagerEventArgs {
+        //     Player = args.Player,
+        //     Menu = menu
+        // });
+        submenu.Parent = Menu;
+        Menu.MenuManager.OpenMenuForPlayer(args.Player, submenu);
     }
 
     private async Task<IMenuAPI?> GetSubmenuAsync( IPlayer player )

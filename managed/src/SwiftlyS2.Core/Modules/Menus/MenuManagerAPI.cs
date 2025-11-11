@@ -279,7 +279,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
         }
 
-        return new MenuAPI(core, configuration, keybindOverrides, null, parent, optionScrollStyle/*, optionTextStyle*/);
+        return new MenuAPI(core, configuration, keybindOverrides, null/*, parent*/, optionScrollStyle/*, optionTextStyle*/) { Parent = parent };
     }
 
     public IMenuAPI? GetCurrentMenu( IPlayer player )
