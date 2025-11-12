@@ -72,6 +72,7 @@ internal static class SchedulerManager
         }
         catch (Exception ex)
         {
+          if (!GlobalExceptionHandler.Handle(ex)) return;
           AnsiConsole.WriteException(ex);
         }
       }
@@ -88,6 +89,7 @@ internal static class SchedulerManager
         }
         catch (Exception ex)
         {
+          if (!GlobalExceptionHandler.Handle(ex)) return;
           AnsiConsole.WriteException(ex);
         }
 

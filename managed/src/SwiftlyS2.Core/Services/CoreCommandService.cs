@@ -129,6 +129,7 @@ GitHub: https://github.com/swiftly-solution/swiftlys2");
     }
     catch (Exception e)
     {
+      if (!GlobalExceptionHandler.Handle(e)) return;
       _Logger.LogError(e, "Error executing command");
     }
   }

@@ -165,6 +165,7 @@ internal class PluginManager
         }
         catch (Exception ex)
         {
+            if (!GlobalExceptionHandler.Handle(ex)) return;
             _Logger.LogError(ex, "Error handling plugin change");
         }
     }
@@ -195,6 +196,7 @@ internal class PluginManager
                         }
                         catch (Exception innerEx)
                         {
+                            if (!GlobalExceptionHandler.Handle(innerEx)) return;
                             _Logger.LogWarning(innerEx, $"Failed to load export assembly: {exportFile}");
                         }
                     }
@@ -234,6 +236,7 @@ internal class PluginManager
                 }
                 catch (Exception ex)
                 {
+                    if (!GlobalExceptionHandler.Handle(ex)) return;
                     _Logger.LogWarning(ex, $"Failed to load export assembly: {exportFile}");
                 }
             }
@@ -247,6 +250,7 @@ internal class PluginManager
         }
         catch (Exception ex)
         {
+            if (!GlobalExceptionHandler.Handle(ex)) return;
             _Logger.LogError(ex, "Unexpected error during export loading");
         }
     }
@@ -271,6 +275,7 @@ internal class PluginManager
                 }
                 catch (Exception e)
                 {
+                    if (!GlobalExceptionHandler.Handle(e)) continue;
                     _Logger.LogWarning(e, "Error loading plugin: " + pluginDir);
                     continue;
                 }
@@ -382,6 +387,11 @@ internal class PluginManager
         }
         catch (Exception e)
         {
+            if (!GlobalExceptionHandler.Handle(e))
+            {
+                context.Status = PluginStatus.Error;
+                return null;
+            }
             _Logger.LogWarning(e, $"Error loading plugin {entrypointDll}");
             context.Status = PluginStatus.Error;
             return null;

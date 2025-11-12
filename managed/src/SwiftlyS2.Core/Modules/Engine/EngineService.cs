@@ -26,6 +26,7 @@ internal class EngineService : IEngineService
             }
             catch (Exception e)
             {
+                if (!GlobalExceptionHandler.Handle(e)) return null;
                 AnsiConsole.WriteException(e);
                 return null;
             }

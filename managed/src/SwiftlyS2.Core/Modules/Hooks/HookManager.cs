@@ -108,6 +108,7 @@ internal class HookManager
           }
           catch (Exception e)
           {
+            if (!GlobalExceptionHandler.Handle(e)) return;
           }
         };
         NativeHooks.SetMHook(chain.HookHandle, address, Marshal.GetFunctionPointerForDelegate(_unmanagedCallback));
@@ -220,6 +221,7 @@ internal class HookManager
     }
     catch (Exception e)
     {
+      if (!GlobalExceptionHandler.Handle(e)) return;
       AnsiConsole.WriteException(e);
     }
   }

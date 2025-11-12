@@ -180,8 +180,9 @@ public sealed class InputMenuOption : MenuOptionBase
                     completedCts.Dispose();
                 }
             }
-            catch (OperationCanceledException)
+            catch (Exception e)
             {
+                if (!GlobalExceptionHandler.Handle(e)) return;
             }
         }, cts.Token);
 
