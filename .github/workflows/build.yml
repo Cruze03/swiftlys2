@@ -377,6 +377,7 @@ jobs:
         embed-color: 65261
         embed-timestamp: ${{ github.event.head_commit.timestamp }}
         embed-footer-text: "Beta Release • SwiftlyS2"
+        content: <@1438068022706311279>
 
     - name: Get commit summary for master
       if: github.ref == 'refs/heads/master'
@@ -420,6 +421,8 @@ jobs:
         embed-color: 65261
         embed-timestamp: ${{ github.event.head_commit.timestamp }}
         embed-footer-text: "Stable Release • SwiftlyS2"
+        content: <@1438068068587933706>
+        
   nuget:
     if: ${{ github.event_name == 'push' && github.repository_owner == 'swiftly-solution' }}
     needs: [versioning, releasing]

@@ -7,12 +7,13 @@ using System.Runtime.CompilerServices;
 
 namespace SwiftlyS2.Core.Convars;
 
-internal delegate void ConVarCallbackDelegate(int playerId, nint name, nint value);
+internal delegate void ConVarCallbackDelegate( int playerId, nint name, nint value );
 
-internal class ConVar<T> : IConVar<T>{
+internal class ConVar<T> : IConVar<T>
+{
 
   private Dictionary<int, ConVarCallbackDelegate> _callbacks = new();
-  private object _lock = new();
+  private Lock _lock = new();
 
   private nint _minValuePtrPtr => NativeConvars.GetMinValuePtrPtr(Name);
   private nint _maxValuePtrPtr => NativeConvars.GetMaxValuePtrPtr(Name);
@@ -24,11 +25,11 @@ internal class ConVar<T> : IConVar<T>{
   // im not sure
   private bool IsMinMaxType => IsValidType && Type != EConVarType.EConVarType_String && Type != EConVarType.EConVarType_Color;
 
-  public T MinValue { 
+  public T MinValue {
     get => GetMinValue();
     set => SetMinValue(value);
   }
-  public T MaxValue { 
+  public T MaxValue {
     get => GetMaxValue();
     set => SetMaxValue(value);
   }
@@ -50,7 +51,8 @@ internal class ConVar<T> : IConVar<T>{
 
   public string Name { get; set; }
 
-  internal ConVar(string name) {
+  internal ConVar( string name )
+  {
     Name = name;
 
     ValidateType();
@@ -74,7 +76,8 @@ internal class ConVar<T> : IConVar<T>{
       (typeof(T) == typeof(Vector2D) && Type != EConVarType.EConVarType_Vector2) ||
       (typeof(T) == typeof(Vector4D) && Type != EConVarType.EConVarType_Vector4) ||
       (typeof(T) == typeof(string) && Type != EConVarType.EConVarType_String)
-    ) {
+    )
+    {
       throw new Exception($"Type mismatch for convar {Name}. The real type is {Type}.");
     }
   }
@@ -83,76 +86,91 @@ internal class ConVar<T> : IConVar<T>{
     get => GetValue();
     set => SetValue(value);
   }
-  public void ReplicateToClient(int clientId, T value)
+  public void ReplicateToClient( int clientId, T value )
   {
-    if (value is bool boolValue) {
+    if (value is bool boolValue)
+    {
       NativeConvars.SetClientConvarValueBool(clientId, Name, boolValue);
       return;
     }
-    else if (value is short shortValue) {
+    else if (value is short shortValue)
+    {
       NativeConvars.SetClientConvarValueInt16(clientId, Name, shortValue);
       return;
     }
-    else if (value is ushort ushortValue) {
+    else if (value is ushort ushortValue)
+    {
       NativeConvars.SetClientConvarValueUInt16(clientId, Name, ushortValue);
       return;
     }
-    else if (value is int intValue) {
+    else if (value is int intValue)
+    {
       NativeConvars.SetClientConvarValueInt32(clientId, Name, intValue);
       return;
     }
-    else if (value is uint uintValue) {
+    else if (value is uint uintValue)
+    {
       NativeConvars.SetClientConvarValueUInt32(clientId, Name, uintValue);
       return;
     }
-    else if (value is float floatValue) {
+    else if (value is float floatValue)
+    {
       NativeConvars.SetClientConvarValueFloat(clientId, Name, floatValue);
       return;
     }
-    else if (value is long longValue) {
+    else if (value is long longValue)
+    {
       NativeConvars.SetClientConvarValueInt64(clientId, Name, longValue);
       return;
     }
-    else if (value is ulong ulongValue) {
+    else if (value is ulong ulongValue)
+    {
       NativeConvars.SetClientConvarValueUInt64(clientId, Name, ulongValue);
       return;
     }
-    else if (value is double doubleValue) {
+    else if (value is double doubleValue)
+    {
       NativeConvars.SetClientConvarValueDouble(clientId, Name, doubleValue);
       return;
     }
-    else if (value is Color colorValue) {
+    else if (value is Color colorValue)
+    {
       NativeConvars.SetClientConvarValueColor(clientId, Name, colorValue);
       return;
     }
-    else if (value is QAngle qAngleValue) {
+    else if (value is QAngle qAngleValue)
+    {
       NativeConvars.SetClientConvarValueQAngle(clientId, Name, qAngleValue);
       return;
     }
-    else if (value is Vector vectorValue) {
+    else if (value is Vector vectorValue)
+    {
       NativeConvars.SetClientConvarValueVector(clientId, Name, vectorValue);
       return;
     }
-    else if (value is Vector2D vector2DValue) {
+    else if (value is Vector2D vector2DValue)
+    {
       NativeConvars.SetClientConvarValueVector2D(clientId, Name, vector2DValue);
       return;
     }
-    else if (value is Vector4D vector4DValue) {
+    else if (value is Vector4D vector4DValue)
+    {
       NativeConvars.SetClientConvarValueVector4D(clientId, Name, vector4DValue);
       return;
     }
-    else if (value is string stringValue) {
+    else if (value is string stringValue)
+    {
       NativeConvars.SetClientConvarValueString(clientId, Name, stringValue);
       return;
     }
     throw new ArgumentException($"Invalid type {typeof(T).Name}");
   }
 
-  public void QueryClient(int clientId, Action<string> callback)
+  public void QueryClient( int clientId, Action<string> callback )
   {
 
     Action? removeSelf = null;
-    ConVarCallbackDelegate nativeCallback = (playerId, namePtr, valuePtr) =>
+    ConVarCallbackDelegate nativeCallback = ( playerId, namePtr, valuePtr ) =>
     {
       if (clientId != playerId) return;
       var name = Marshal.PtrToStringAnsi(namePtr);
@@ -161,7 +179,7 @@ internal class ConVar<T> : IConVar<T>{
 
       // var convertedValue = (T)Convert.ChangeType(value, typeof(T))!;
       callback(value);
-      if(removeSelf != null) removeSelf();
+      if (removeSelf != null) removeSelf();
     };
 
 
@@ -173,35 +191,43 @@ internal class ConVar<T> : IConVar<T>{
       _callbacks[listenerId] = nativeCallback;
     }
 
-    removeSelf = () => {
-      lock (_lock) {
+    removeSelf = () =>
+    {
+      lock (_lock)
+      {
         _callbacks.Remove(listenerId);
         NativeConvars.RemoveQueryClientCvarCallback(listenerId);
       }
     };
-    
+
     NativeConvars.QueryClientConvar(clientId, Name);
   }
 
   public T GetValue()
   {
-    unsafe {
-      if (Type != EConVarType.EConVarType_String) {
+    unsafe
+    {
+      if (Type != EConVarType.EConVarType_String)
+      {
         return *(T*)NativeConvars.GetValuePtr(Name);
       }
-      else {
+      else
+      {
         return (T)(object)(*(CUtlString*)NativeConvars.GetValuePtr(Name)).Value;
       }
     }
   }
 
-  public void SetValue(T value)
+  public void SetValue( T value )
   {
-    unsafe {
-      if (Type != EConVarType.EConVarType_String) {
+    unsafe
+    {
+      if (Type != EConVarType.EConVarType_String)
+      {
         NativeConvars.SetValuePtr(Name, (nint)(&value));
       }
-      else {
+      else
+      {
         CUtlString str = new();
         str.Value = (string)(object)value;
         NativeConvars.SetValuePtr(Name, (nint)(&str));
@@ -230,46 +256,55 @@ internal class ConVar<T> : IConVar<T>{
 
   public T GetMinValue()
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       throw new Exception($"Convar {Name} is not a min/max type.");
     }
-    if (!HasMinValue) {
+    if (!HasMinValue)
+    {
       throw new Exception($"Convar {Name} doesn't have a min value.");
     }
-    unsafe {
+    unsafe
+    {
       return **(T**)_minValuePtrPtr;
     }
   }
 
   public T GetMaxValue()
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       throw new Exception($"Convar {Name} is not a min/max type.");
     }
-    if (!HasMaxValue) {
+    if (!HasMaxValue)
+    {
       throw new Exception($"Convar {Name} doesn't have a max value.");
     }
-    unsafe {
+    unsafe
+    {
       return **(T**)_maxValuePtrPtr;
     }
   }
-  public void SetMinValue(T minValue)
+  public void SetMinValue( T minValue )
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       throw new Exception($"Convar {Name} is not a min/max type.");
     }
     unsafe
     {
-      if (_minValuePtrPtr.Read<nint>() == nint.Zero) {
+      if (_minValuePtrPtr.Read<nint>() == nint.Zero)
+      {
         _minValuePtrPtr.Write(NativeAllocator.Alloc(16));
       }
       **(T**)_minValuePtrPtr = minValue;
     }
   }
 
-  public void SetMaxValue(T maxValue)
+  public void SetMaxValue( T maxValue )
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       throw new Exception($"Convar {Name} is not a min/max type.");
     }
     unsafe
@@ -284,43 +319,53 @@ internal class ConVar<T> : IConVar<T>{
 
   public T GetDefaultValue()
   {
-    unsafe {
+    unsafe
+    {
       var ptr = NativeConvars.GetDefaultValuePtr(Name);
-      if (ptr == nint.Zero) {
+      if (ptr == nint.Zero)
+      {
         throw new Exception($"Convar {Name} doesn't have a default value.");
       }
-      if (Type != EConVarType.EConVarType_String) {
+      if (Type != EConVarType.EConVarType_String)
+      {
         return *(T*)ptr;
       }
-      else {
+      else
+      {
         return (T)(object)(*(CUtlString*)ptr).Value;
       }
     }
   }
 
-  public void SetDefaultValue(T defaultValue)
+  public void SetDefaultValue( T defaultValue )
   {
-    unsafe {
+    unsafe
+    {
       var ptr = NativeConvars.GetDefaultValuePtr(Name);
-      if (ptr == nint.Zero) {
+      if (ptr == nint.Zero)
+      {
         throw new Exception($"Convar {Name} doesn't have a default value.");
       }
-      if (Type != EConVarType.EConVarType_String) {
+      if (Type != EConVarType.EConVarType_String)
+      {
         *(T*)NativeConvars.GetDefaultValuePtr(Name) = defaultValue;
       }
-      else {
+      else
+      {
         NativeConvars.GetDefaultValuePtr(Name).Write(StringPool.Allocate((string)(object)defaultValue));
       }
     }
   }
 
-  public bool TryGetMinValue(out T minValue)
+  public bool TryGetMinValue( out T minValue )
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       minValue = default;
       return false;
     }
-    if (!HasMinValue) {
+    if (!HasMinValue)
+    {
       minValue = default;
       return false;
     }
@@ -328,13 +373,15 @@ internal class ConVar<T> : IConVar<T>{
     return true;
   }
 
-  public bool TryGetMaxValue(out T maxValue)
+  public bool TryGetMaxValue( out T maxValue )
   {
-    if (!IsMinMaxType) {
+    if (!IsMinMaxType)
+    {
       maxValue = default;
       return false;
     }
-    if (!HasMaxValue) {
+    if (!HasMaxValue)
+    {
       maxValue = default;
       return false;
     }
@@ -342,9 +389,10 @@ internal class ConVar<T> : IConVar<T>{
     return true;
   }
 
-  public bool TryGetDefaultValue(out T defaultValue)
+  public bool TryGetDefaultValue( out T defaultValue )
   {
-    if (!HasDefaultValue) {
+    if (!HasDefaultValue)
+    {
       defaultValue = default;
       return false;
     }

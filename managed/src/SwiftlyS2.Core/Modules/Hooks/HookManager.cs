@@ -43,11 +43,11 @@ internal class HookManager
     public List<MidHookNode> Nodes { get; } = new();
   }
 
-  private readonly object _sync = new();
+  private readonly Lock _sync = new();
   private readonly Dictionary<nint, HookChain> _chains = new();
   private readonly Dictionary<nint, MidHookChain> _midChains = new();
 
-  public bool IsMidHooked(nint address)
+  public bool IsMidHooked( nint address )
   {
     lock (_sync)
     {
@@ -55,7 +55,7 @@ internal class HookManager
     }
   }
 
-  public bool IsHooked(nint functionAddress)
+  public bool IsHooked( nint functionAddress )
   {
     lock (_sync)
     {
@@ -63,7 +63,7 @@ internal class HookManager
     }
   }
 
-  public nint GetOriginal(nint functionAddress)
+  public nint GetOriginal( nint functionAddress )
   {
     lock (_sync)
     {
@@ -83,11 +83,10 @@ internal class HookManager
     }
   }
 
-  public Guid AddMidHook(nint address, MidHookDelegate callback)
+  public Guid AddMidHook( nint address, MidHookDelegate callback )
   {
     MidHookChain chain;
-    MidHookNode node = new MidHookNode
-    {
+    MidHookNode node = new MidHookNode {
       Id = Guid.NewGuid(),
       BuiltDelegate = callback,
     };
@@ -98,7 +97,7 @@ internal class HookManager
       {
         chain = new MidHookChain { Address = address };
         chain.HookHandle = NativeHooks.AllocateMHook();
-        MidHookDelegate _unmanagedCallback = (ref MidHookContext ctx) =>
+        MidHookDelegate _unmanagedCallback = ( ref MidHookContext ctx ) =>
         {
           try
           {
@@ -122,11 +121,10 @@ internal class HookManager
     return node.Id;
   }
 
-  public Guid AddHook(nint functionAddress, Func<Func<nint>, Delegate> callbackBuilder)
+  public Guid AddHook( nint functionAddress, Func<Func<nint>, Delegate> callbackBuilder )
   {
     HookChain chain;
-    HookNode node = new HookNode
-    {
+    HookNode node = new HookNode {
       Id = Guid.NewGuid(),
       CallbackBuilder = callbackBuilder,
     };
@@ -145,7 +143,7 @@ internal class HookManager
     return node.Id;
   }
 
-  public void RemoveMidHook(List<Guid> nodeIds)
+  public void RemoveMidHook( List<Guid> nodeIds )
   {
     lock (_sync)
     {
@@ -158,7 +156,7 @@ internal class HookManager
     }
   }
 
-  public void Remove(List<Guid> nodeIds)
+  public void Remove( List<Guid> nodeIds )
   {
     lock (_sync)
     {
@@ -172,7 +170,7 @@ internal class HookManager
     }
   }
 
-  private void RebuildChain(HookChain chain)
+  private void RebuildChain( HookChain chain )
   {
     try
     {

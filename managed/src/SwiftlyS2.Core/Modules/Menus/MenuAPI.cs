@@ -102,8 +102,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     private readonly ISwiftlyCore core;
     private readonly List<IMenuOption> options = new();
-    // TODO: Replace with `Lock` when framework is upgraded to .NET 10 for better lock performance
-    private readonly object optionsLock = new(); // Lock for synchronizing modifications to the `options`
+    private readonly Lock optionsLock = new(); // Lock for synchronizing modifications to the `options`
     private readonly ConcurrentDictionary<IPlayer, int> selectedOptionIndex = new(); // Stores the currently selected option index for each player
     // NOTE: Menu selection movement is entirely driven by changes to `desiredOptionIndex` (independent of any other variables)
     private readonly ConcurrentDictionary<IPlayer, int> desiredOptionIndex = new(); // Stores the desired option index for each player

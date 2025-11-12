@@ -19,7 +19,7 @@ internal class CommandService : ICommandService, IDisposable
   private IPlayerManagerService _PlayerManagerService { get; init; }
   private IPermissionManager _PermissionManager { get; init; }
 
-  private object _lock = new();
+  private Lock _lock = new();
 
   public CommandService( ILogger<CommandService> logger, ILoggerFactory loggerFactory, IContextedProfilerService profiler, IPlayerManagerService playerManagerService, IPermissionManager permissionManager )
   {
