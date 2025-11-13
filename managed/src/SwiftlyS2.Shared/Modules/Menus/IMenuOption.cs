@@ -242,6 +242,13 @@ public interface IMenuOption : IDisposable
     public event EventHandler<MenuOptionFormattingEventArgs>? AfterFormat;
 
     /// <summary>
+    /// Determines whether the click task for the specified player is completed.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <returns>True if the click task is completed; otherwise, false.</returns>
+    public bool IsClickTaskCompleted( IPlayer player );
+
+    /// <summary>
     /// Determines whether this option is visible to the specified player.
     /// </summary>
     /// <param name="player">The player to check visibility for.</param>
@@ -249,11 +256,31 @@ public interface IMenuOption : IDisposable
     public bool GetVisible( IPlayer player );
 
     /// <summary>
+    /// Sets the visibility of this option for a specific player.
+    /// </summary>
+    /// <param name="player">The player to set visibility for.</param>
+    /// <param name="visible">True to make the option visible to the player; false to hide it.</param>
+    /// <remarks>
+    /// The per-player visibility has lower priority than the global <see cref="Visible"/> property.
+    /// </remarks>
+    public void SetVisible( IPlayer player, bool visible );
+
+    /// <summary>
     /// Determines whether this option is enabled for the specified player.
     /// </summary>
     /// <param name="player">The player to check enabled state for.</param>
     /// <returns>True if the option is enabled for the player, otherwise, false.</returns>
     public bool GetEnabled( IPlayer player );
+
+    /// <summary>
+    /// Sets the enabled state of this option for a specific player.
+    /// </summary>
+    /// <param name="player">The player to set enabled state for.</param>
+    /// <param name="enabled">True to enable the option for the player; false to disable it.</param>
+    /// <remarks>
+    /// The per-player enabled state has lower priority than the global <see cref="Enabled"/> property.
+    /// </remarks>
+    public void SetEnabled( IPlayer player, bool enabled );
 
     // /// <summary>
     // /// Gets the text to display for this option for the specified player.

@@ -168,7 +168,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             else if (useKey.HasFlag(@event.Key.ToKeyBind()))
             {
                 var option = menu.GetCurrentOption(player);
-                if (option != null && option.Enabled && option.GetEnabled(player))
+                if (option != null && option.Enabled && option.GetEnabled(player) && option.IsClickTaskCompleted(player))
                 {
                     _ = Task.Run(async () => await option.OnClickAsync(player));
 
@@ -218,7 +218,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             else if (KeyBind.D.HasFlag(@event.Key.ToKeyBind()))
             {
                 var option = menu.GetCurrentOption(player);
-                if (option != null && option.Enabled && option.GetEnabled(player))
+                if (option != null && option.Enabled && option.GetEnabled(player) && option.IsClickTaskCompleted(player))
                 {
                     _ = Task.Run(async () => await option.OnClickAsync(player));
 

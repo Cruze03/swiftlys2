@@ -10,7 +10,6 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 public sealed class SubmenuMenuOption : MenuOptionBase
 {
     private readonly Func<Task<IMenuAPI>>? submenuBuilderAsync;
-    private readonly ConcurrentDictionary<IPlayer, bool> isLoading = new();
 
     // /// <summary>
     // /// Occurs when the submenu is ready to be opened.
@@ -122,22 +121,21 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         Text = text;
     }
 
-    public override string GetDisplayText( IPlayer player, int displayLine = 0 )
-    {
-        return isLoading.TryGetValue(player, out var loading) && loading
-            ? "<font color='#C0FF3E'>Waiting...</font>"
-            : base.GetDisplayText(player, displayLine);
-    }
-
     private async ValueTask OnSubmenuClick( object? sender, MenuOptionClickEventArgs args )
     {
-        var menu = await GetSubmenuAsync(args.Player);
-        if (menu is not MenuAPI submenu || Menu == null)
+        if (submenuBuilderAsync == null || Menu == null)
         {
             return;
         }
 
-        if (Menu != Menu.MenuManager.GetCurrentMenu(args.Player) || Menu.MenuManager.GetCurrentMenu(args.Player) == null)
+        var menu = await submenuBuilderAsync.Invoke();
+        if (menu is not MenuAPI submenu)
+        {
+            return;
+        }
+
+        var currentMenu = Menu.MenuManager.GetCurrentMenu(args.Player);
+        if (Menu != currentMenu || currentMenu == null)
         {
             return;
         }
@@ -148,24 +146,5 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         // });
         submenu.Parent = (Menu, this);
         Menu.MenuManager.OpenMenuForPlayer(args.Player, submenu);
-    }
-
-    private async Task<IMenuAPI?> GetSubmenuAsync( IPlayer player )
-    {
-        if (submenuBuilderAsync != null)
-        {
-            _ = isLoading.AddOrUpdate(player, true, ( _, _ ) => true);
-
-            try
-            {
-                return await submenuBuilderAsync.Invoke();
-            }
-            finally
-            {
-                _ = isLoading.AddOrUpdate(player, false, ( _, _ ) => false);
-            }
-        }
-
-        return null;
     }
 }

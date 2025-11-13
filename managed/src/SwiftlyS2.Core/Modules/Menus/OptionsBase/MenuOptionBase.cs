@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Shared.Players;
@@ -17,6 +18,9 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     private bool visible = true;
     private bool enabled = true;
     private readonly DynamicTextUpdater? dynamicTextUpdater;
+    private readonly ConcurrentDictionary<IPlayer, bool> playerVisible = new();
+    private readonly ConcurrentDictionary<IPlayer, bool> playerEnabled = new();
+    private readonly ConcurrentDictionary<IPlayer, Task> playerClickTask = new();
 
     private volatile bool disposed;
 
@@ -256,18 +260,45 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     public event EventHandler<MenuOptionFormattingEventArgs>? AfterFormat;
 
     /// <summary>
+    /// Determines whether the click task for the specified player is completed.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <returns>True if the click task is completed; otherwise, false.</returns>
+    public virtual bool IsClickTaskCompleted( IPlayer player ) => !playerClickTask.TryGetValue(player, out var value) || value.IsCompleted;
+
+    /// <summary>
     /// Determines whether this option is visible to the specified player.
     /// </summary>
     /// <param name="player">The player to check visibility for.</param>
     /// <returns>True if the option is visible to the player; otherwise, false.</returns>
-    public virtual bool GetVisible( IPlayer player ) => Visible;
+    public virtual bool GetVisible( IPlayer player ) => playerVisible.TryGetValue(player, out var value) ? value : Visible;
+
+    /// <summary>
+    /// Sets the visibility of this option for a specific player.
+    /// </summary>
+    /// <param name="player">The player to set visibility for.</param>
+    /// <param name="visible">True to make the option visible to the player; false to hide it.</param>
+    /// <remarks>
+    /// The per-player visibility has lower priority than the global <see cref="Visible"/> property.
+    /// </remarks>
+    public virtual void SetVisible( IPlayer player, bool visible ) => playerVisible.AddOrUpdate(player, visible, ( key, value ) => visible);
 
     /// <summary>
     /// Determines whether this option is enabled for the specified player.
     /// </summary>
     /// <param name="player">The player to check enabled state for.</param>
     /// <returns>True if the option is enabled for the player; otherwise, false.</returns>
-    public virtual bool GetEnabled( IPlayer player ) => Enabled;
+    public virtual bool GetEnabled( IPlayer player ) => playerEnabled.TryGetValue(player, out var value) ? value : Enabled;
+
+    /// <summary>
+    /// Sets the enabled state of this option for a specific player.
+    /// </summary>
+    /// <param name="player">The player to set enabled state for.</param>
+    /// <param name="enabled">True to enable the option for the player; false to disable it.</param>
+    /// <remarks>
+    /// The per-player enabled state has lower priority than the global <see cref="Enabled"/> property.
+    /// </remarks>
+    public virtual void SetEnabled( IPlayer player, bool enabled ) => playerEnabled.AddOrUpdate(player, enabled, ( key, value ) => enabled);
 
     // /// <summary>
     // /// Gets the text to display for this option for the specified player.
@@ -335,30 +366,37 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 
         BeforeFormat?.Invoke(this, args);
 
-        var displayText = args.CustomText ?? dynamicText ?? Text;
-
-        if (displayLine > 0)
+        if (playerClickTask.TryGetValue(player, out var value) && !value.IsCompleted)
         {
-            var lines = BrTagRegex().Split(displayText);
-            if (displayLine <= lines.Length)
+            args.CustomText = "<font color='#C0FF3E'>Waiting...</font>";
+        }
+        else
+        {
+            var displayText = args.CustomText ?? dynamicText ?? Text;
+
+            if (displayLine > 0)
             {
-                displayText = lines[displayLine - 1];
+                var lines = BrTagRegex().Split(displayText);
+                if (displayLine <= lines.Length)
+                {
+                    displayText = lines[displayLine - 1];
+                }
             }
+
+            var isEnabled = Enabled && GetEnabled(player);
+            var sizeClass = TextSize.ToCssClass();
+
+            if (!isEnabled)
+            {
+                displayText = ColorTagRegex().Replace(displayText, string.Empty);
+            }
+
+            var colorStyle = isEnabled ? string.Empty : $" color='{Menu?.Configuration.DisabledColor ?? "#666666"}'";
+            var result = $"<font class='{sizeClass}'{colorStyle}>{displayText}</font>";
+            // Console.WriteLine($"displayText: {displayText}");
+
+            args.CustomText = result;
         }
-
-        var isEnabled = Enabled && GetEnabled(player);
-        var sizeClass = TextSize.ToCssClass();
-
-        if (!isEnabled)
-        {
-            displayText = ColorTagRegex().Replace(displayText, string.Empty);
-        }
-
-        var colorStyle = isEnabled ? string.Empty : $" color='{Menu?.Configuration.DisabledColor ?? "#666666"}'";
-        var result = $"<font class='{sizeClass}'{colorStyle}>{displayText}</font>";
-        // Console.WriteLine($"displayText: {displayText}");
-
-        args.CustomText = result;
         AfterFormat?.Invoke(this, args);
 
         return args.CustomText;
@@ -423,7 +461,12 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public virtual async ValueTask OnClickAsync( IPlayer player )
     {
-        if (!visible || !enabled)
+        if (!visible || !enabled || !GetVisible(player) || !GetEnabled(player))
+        {
+            return;
+        }
+
+        if (playerClickTask.TryGetValue(player, out var value) && !value.IsCompleted)
         {
             return;
         }
@@ -441,7 +484,16 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
                 CloseMenu = CloseAfterClick
             };
 
-            await Click.Invoke(this, args);
+            try
+            {
+                var clickTask = Click.Invoke(this, args).AsTask();
+                _ = playerClickTask.AddOrUpdate(player, clickTask, ( _, _ ) => clickTask);
+                await clickTask;
+            }
+            finally
+            {
+                _ = playerClickTask.TryRemove(player, out _);
+            }
         }
 
         if (CloseAfterClick)
