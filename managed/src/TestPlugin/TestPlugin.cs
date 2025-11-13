@@ -662,7 +662,7 @@ public class TestPlugin : BasePlugin
                 return menu;
             }))
             .AddOption(new InputMenuOption("1234567"))
-            .AddOption(new TextMenuOption("12345678") { TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
+            .AddOption(new TextMenuOption() { Text = "12345678", TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
             .AddOption(new TextMenuOption("123456789"))
             .AddOption(new TextMenuOption("1234567890") { Visible = false })
             .AddOption(button)
