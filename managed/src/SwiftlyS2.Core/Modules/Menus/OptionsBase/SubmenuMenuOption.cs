@@ -10,12 +10,30 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 public sealed class SubmenuMenuOption : MenuOptionBase
 {
     private readonly Func<Task<IMenuAPI>>? submenuBuilderAsync;
-    private readonly ConcurrentDictionary<IPlayer, bool> isLoading = new();
 
     // /// <summary>
     // /// Occurs when the submenu is ready to be opened.
     // /// </summary>
     // public event EventHandler<MenuManagerEventArgs>? SubmenuRequested;
+
+    /// <summary>
+    /// Creates an instance of <see cref="SubmenuMenuOption"/> with a pre-built submenu.
+    /// </summary>
+    /// <param name="submenu">The submenu to open when this option is clicked.</param>
+    /// <param name="updateIntervalMs">The interval in milliseconds between text updates. Defaults to 120ms.</param>
+    /// <param name="pauseIntervalMs">The pause duration in milliseconds before starting the next text update cycle. Defaults to 1000ms.</param>
+    /// <remarks>
+    /// When using this constructor, the <see cref="MenuOptionBase.Text"/> property must be manually set to specify the initial text.
+    /// </remarks>
+    public SubmenuMenuOption(
+        IMenuAPI submenu,
+        int updateIntervalMs = 120,
+        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+    {
+        PlaySound = true;
+        this.submenuBuilderAsync = () => Task.FromResult(submenu);
+        Click += OnSubmenuClick;
+    }
 
     /// <summary>
     /// Creates an instance of <see cref="SubmenuMenuOption"/> with a pre-built submenu.
@@ -28,12 +46,27 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         string text,
         IMenuAPI submenu,
         int updateIntervalMs = 120,
-        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+        int pauseIntervalMs = 1000 ) : this(submenu, updateIntervalMs, pauseIntervalMs)
     {
         Text = text;
-        PlaySound = true;
-        this.submenuBuilderAsync = () => Task.FromResult(submenu);
+    }
 
+    /// <summary>
+    /// Creates an instance of <see cref="SubmenuMenuOption"/> with a synchronous builder.
+    /// </summary>
+    /// <param name="submenuBuilder">Function that builds and returns the submenu.</param>
+    /// <param name="updateIntervalMs">The interval in milliseconds between text updates. Defaults to 120ms.</param>
+    /// <param name="pauseIntervalMs">The pause duration in milliseconds before starting the next text update cycle. Defaults to 1000ms.</param>
+    /// <remarks>
+    /// When using this constructor, the <see cref="MenuOptionBase.Text"/> property must be manually set to specify the initial text.
+    /// </remarks>
+    public SubmenuMenuOption(
+        Func<IMenuAPI> submenuBuilder,
+        int updateIntervalMs = 120,
+        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+    {
+        PlaySound = true;
+        this.submenuBuilderAsync = () => Task.FromResult(submenuBuilder());
         Click += OnSubmenuClick;
     }
 
@@ -48,12 +81,27 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         string text,
         Func<IMenuAPI> submenuBuilder,
         int updateIntervalMs = 120,
-        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+        int pauseIntervalMs = 1000 ) : this(submenuBuilder, updateIntervalMs, pauseIntervalMs)
     {
         Text = text;
-        PlaySound = true;
-        this.submenuBuilderAsync = () => Task.FromResult(submenuBuilder());
+    }
 
+    /// <summary>
+    /// Creates an instance of <see cref="SubmenuMenuOption"/> with an asynchronous builder.
+    /// </summary>
+    /// <param name="submenuBuilderAsync">Async function that builds and returns the submenu.</param>
+    /// <param name="updateIntervalMs">The interval in milliseconds between text updates. Defaults to 120ms.</param>
+    /// <param name="pauseIntervalMs">The pause duration in milliseconds before starting the next text update cycle. Defaults to 1000ms.</param>
+    /// <remarks>
+    /// When using this constructor, the <see cref="MenuOptionBase.Text"/> property must be manually set to specify the initial text.
+    /// </remarks>
+    public SubmenuMenuOption(
+        Func<Task<IMenuAPI>> submenuBuilderAsync,
+        int updateIntervalMs = 120,
+        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+    {
+        PlaySound = true;
+        this.submenuBuilderAsync = submenuBuilderAsync;
         Click += OnSubmenuClick;
     }
 
@@ -68,31 +116,26 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         string text,
         Func<Task<IMenuAPI>> submenuBuilderAsync,
         int updateIntervalMs = 120,
-        int pauseIntervalMs = 1000 ) : base(updateIntervalMs, pauseIntervalMs)
+        int pauseIntervalMs = 1000 ) : this(submenuBuilderAsync, updateIntervalMs, pauseIntervalMs)
     {
         Text = text;
-        PlaySound = true;
-        this.submenuBuilderAsync = submenuBuilderAsync;
-
-        Click += OnSubmenuClick;
-    }
-
-    public override string GetDisplayText( IPlayer player, int displayLine = 0 )
-    {
-        return isLoading.TryGetValue(player, out var loading) && loading
-            ? "<font color='#C0FF3E'>Waiting...</font>"
-            : base.GetDisplayText(player, displayLine);
     }
 
     private async ValueTask OnSubmenuClick( object? sender, MenuOptionClickEventArgs args )
     {
-        var menu = await GetSubmenuAsync(args.Player);
-        if (menu is not MenuAPI submenu || Menu == null)
+        if (submenuBuilderAsync == null || Menu == null)
         {
             return;
         }
 
-        if (Menu != Menu.MenuManager.GetCurrentMenu(args.Player) || Menu.MenuManager.GetCurrentMenu(args.Player) == null)
+        var menu = await submenuBuilderAsync.Invoke();
+        if (menu is not MenuAPI submenu)
+        {
+            return;
+        }
+
+        var currentMenu = Menu.MenuManager.GetCurrentMenu(args.Player);
+        if (Menu != currentMenu || currentMenu == null)
         {
             return;
         }
@@ -101,26 +144,7 @@ public sealed class SubmenuMenuOption : MenuOptionBase
         //     Player = args.Player,
         //     Menu = menu
         // });
-        submenu.Parent = Menu;
+        submenu.Parent = (Menu, this);
         Menu.MenuManager.OpenMenuForPlayer(args.Player, submenu);
-    }
-
-    private async Task<IMenuAPI?> GetSubmenuAsync( IPlayer player )
-    {
-        if (submenuBuilderAsync != null)
-        {
-            _ = isLoading.AddOrUpdate(player, true, ( _, _ ) => true);
-
-            try
-            {
-                return await submenuBuilderAsync.Invoke();
-            }
-            finally
-            {
-                _ = isLoading.AddOrUpdate(player, false, ( _, _ ) => false);
-            }
-        }
-
-        return null;
     }
 }

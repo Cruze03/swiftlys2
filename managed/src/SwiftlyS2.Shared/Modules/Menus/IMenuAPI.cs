@@ -1,4 +1,3 @@
-using SwiftlyS2.Core.Menus;
 using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Shared.Menus;
@@ -12,6 +11,12 @@ namespace SwiftlyS2.Shared.Menus;
 /// </summary>
 public record class MenuConfiguration
 {
+    private int maxVisibleItems = -1;
+    private string? navigationMarkerColor = null;
+    private string? footerColor = null;
+    private string? visualGuideLineColor = null;
+    private string? disabledColor = null;
+
     /// <summary>
     /// The title of the menu.
     /// </summary>
@@ -76,13 +81,98 @@ public record class MenuConfiguration
     /// </summary>
     public float AutoCloseAfter { get; set; } = 0f;
 
-    private int maxVisibleItems = -1;
+    /// <summary>
+    /// The color of navigation markers (selection indicators, page indicators, etc.) in hex format.
+    /// </summary>
+    /// <remarks>
+    /// Supports "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA" formats.
+    /// </remarks>
+    public string? NavigationMarkerColor {
+        get => navigationMarkerColor;
+        set {
+            if (string.IsNullOrWhiteSpace(value) || Helper.ParseHexColor(value) is not (not null, not null, not null, _))
+            {
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"NavigationMarkerColor: '{value}' is not a valid hex color format. Expected '#RRGGBB'.", nameof(value)));
+                navigationMarkerColor = null;
+            }
+            else
+            {
+                navigationMarkerColor = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// The color of the menu footer in hex format.
+    /// </summary>
+    /// <remarks>
+    /// Supports "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA" formats.
+    /// </remarks>
+    public string? FooterColor {
+        get => footerColor;
+        set {
+            if (string.IsNullOrWhiteSpace(value) || Helper.ParseHexColor(value) is not (not null, not null, not null, _))
+            {
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"FooterColor: '{value}' is not a valid hex color format. Expected '#RRGGBB'.", nameof(value)));
+                footerColor = null;
+            }
+            else
+            {
+                footerColor = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// The color of visual guide lines in hex format.
+    /// </summary>
+    /// <remarks>
+    /// Supports "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA" formats.
+    /// </remarks>
+    public string? VisualGuideLineColor {
+        get => visualGuideLineColor;
+        set {
+            if (string.IsNullOrWhiteSpace(value) || Helper.ParseHexColor(value) is not (not null, not null, not null, _))
+            {
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"VisualGuideLineColor: '{value}' is not a valid hex color format. Expected '#RRGGBB'.", nameof(value)));
+                visualGuideLineColor = null;
+            }
+            else
+            {
+                visualGuideLineColor = value;
+            }
+        }
+    }
+
+    /// <summary>
+    /// The color of disabled menu options in hex format.
+    /// </summary>
+    /// <remarks>
+    /// Supports "#RGB", "#RGBA", "#RRGGBB", and "#RRGGBBAA" formats.
+    /// </remarks>
+    public string? DisabledColor {
+        get => disabledColor;
+        set {
+            if (string.IsNullOrWhiteSpace(value) || Helper.ParseHexColor(value) is not (not null, not null, not null, _))
+            {
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"DisabledColor: '{value}' is not a valid hex color format. Expected '#RRGGBB'.", nameof(value)));
+                disabledColor = null;
+            }
+            else
+            {
+                disabledColor = value;
+            }
+        }
+    }
 }
 
 /// <summary>
 /// Custom key bindings for menu actions.
 /// Each property can be set to override the default bindings, or left null to use defaults.
 /// </summary>
+/// <remarks>
+/// NOTE: For WASD input mode, any key binding overrides will not take effect.
+/// </remarks>
 public readonly record struct MenuKeybindOverrides
 {
     /// <summary>
@@ -158,9 +248,13 @@ public interface IMenuAPI : IDisposable
     public IMenuBuilderAPI? Builder { get; }
 
     /// <summary>
-    /// The parent menu in a hierarchical menu structure, or null if this is a top-level menu.
+    /// The parent hierarchy information in a hierarchical menu structure.
     /// </summary>
-    public IMenuAPI? Parent { get; }
+    /// <remarks>
+    /// ParentMenu is the parent menu instance, null for top-level menus.
+    /// TriggerOption is the menu option that triggered this submenu, null for top-level or directly created menus.
+    /// </remarks>
+    public (IMenuAPI? ParentMenu, IMenuOption? TriggerOption) Parent { get; }
 
     /// <summary>
     /// Read-only collection of all options in this menu.

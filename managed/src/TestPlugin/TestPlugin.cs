@@ -35,6 +35,7 @@ using SwiftlyS2.Shared.SteamAPI;
 using SwiftlyS2.Core.Menus.OptionsBase;
 using System.Collections.Concurrent;
 using Dia2Lib;
+using System.Reflection.Metadata;
 
 namespace TestPlugin;
 
@@ -456,7 +457,8 @@ public class TestPlugin : BasePlugin
     [Command("tt99")]
     public void TestCommand99( ICommandContext context )
     {
-        Console.WriteLine(Core.Engine.ServerIP);
+        Console.WriteLine(context.Sender!.SteamID);
+        Console.WriteLine(context.Sender!.UnauthorizedSteamID);
     }
 
     [Command("tt7")]
@@ -619,10 +621,45 @@ public class TestPlugin : BasePlugin
     //     Core.Menus.OpenMenu(player, settingsMenu);
     // }
 
+    [Command("tm")]
+    public void TestMenuCommand( ICommandContext context )
+    {
+        var buyButton = new ButtonMenuOption("Purchase") { CloseAfterClick = true };
+        buyButton.Click += async ( sender, args ) =>
+        {
+            await Task.Delay(1000);
+
+            if (sender is MenuOptionBase option)
+            {
+                var triggerOption = option!.Menu!.Parent.TriggerOption;
+                triggerOption!.Enabled = false;
+                args.Player.SendChat($"Purchase completed -> {triggerOption!.Text}");
+            }
+        };
+
+        var confirmMenu = Core.MenusAPI
+            .CreateBuilder()
+            .Design.SetMenuTitle("Confirmation Menu")
+            .AddOption(buyButton)
+            .AddOption(new ButtonMenuOption("Cancel") { CloseAfterClick = true })
+            .Build();
+
+        var menu = Core.MenusAPI
+            .CreateBuilder()
+            .Design.SetMenuTitle("Shop Menu")
+            .AddOption(new SubmenuMenuOption("Item 1", confirmMenu))
+            .AddOption(new SubmenuMenuOption("Item 2", confirmMenu))
+            .AddOption(new SubmenuMenuOption("Item 3", confirmMenu))
+            .AddOption(new SubmenuMenuOption("Item 4", confirmMenu))
+            .Build();
+
+        Core.MenusAPI.OpenMenuForPlayer(context.Sender!, menu);
+    }
+
     [Command("rmt")]
     public void RefactoredMenuTestCommand( ICommandContext context )
     {
-        var button = new ButtonMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 向这广袤世界致以温柔问候", "#FFE4E1", "#FFC0CB", "#FF69B4")}</b>") { TextStyle = MenuOptionTextStyle.ScrollLeftLoop };
+        var button = new ButtonMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 向这广袤世界致以温柔问候", "#FFE4E1", "#FFC0CB", "#FF69B4")) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop/*, CloseAfterClick = true*/ };
         button.Click += ( sender, args ) =>
         {
             args.Player.SendMessage(MessageType.Chat, "Swiftlys2 向这广袤世界致以温柔问候");
@@ -635,6 +672,12 @@ public class TestPlugin : BasePlugin
             return ValueTask.CompletedTask;
         };
 
+        var toggle = new ToggleMenuOption("12");
+        toggle.ValueChanged += ( sender, args ) =>
+        {
+            args.Player.SendChat($"OldValue: {args.OldValue}({args.OldValue.GetType().Name}), NewValue: {args.NewValue}({args.NewValue.GetType().Name})");
+        };
+
         var player = context.Sender!;
         var menu = Core.MenusAPI
             .CreateBuilder()
@@ -643,10 +686,14 @@ public class TestPlugin : BasePlugin
             .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
             .Design.SetMenuTitleVisible(true)
             .Design.SetMenuFooterVisible(true)
+            .Design.SetMenuFooterColor("#0F0")
+            .Design.SetNavigationMarkerColor("#F0F8FFFF")
+            .Design.SetVisualGuideLineColor("#FFFFFF")
+            .Design.SetDisabledColor("#808080")
             .Design.EnableAutoAdjustVisibleItems()
             .Design.SetGlobalScrollStyle(MenuOptionScrollStyle.WaitingCenter)
             .AddOption(new TextMenuOption("1") { Visible = false })
-            .AddOption(new ToggleMenuOption("12"))
+            .AddOption(toggle)
             .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
             .AddOption(new SliderMenuOption("1234"))
             .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
@@ -661,13 +708,13 @@ public class TestPlugin : BasePlugin
                 return menu;
             }))
             .AddOption(new InputMenuOption("1234567"))
-            .AddOption(new TextMenuOption("12345678") { TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
+            .AddOption(new TextMenuOption() { Text = "12345678", TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
             .AddOption(new TextMenuOption("123456789"))
             .AddOption(new TextMenuOption("1234567890") { Visible = false })
             .AddOption(button)
-            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 からこの広大なる世界へ温かい挨拶を", "#FFE5CC", "#FFAB91", "#FF7043")}</b>") { TextStyle = MenuOptionTextStyle.ScrollRightLoop })
-            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다", "#E6E6FA", "#00FFFF", "#FF1493")}</b>") { TextStyle = MenuOptionTextStyle.ScrollLeftFade })
-            .AddOption(new TextMenuOption($"<b>{HtmlGradient.GenerateGradientText("Swiftlys2 приветствует этот прекрасный мир", "#AFEEEE", "#7FFFD4", "#40E0D0")}</b>") { TextStyle = MenuOptionTextStyle.ScrollRightFade })
+            .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 からこの広大なる世界へ温かい挨拶を", "#FFE5CC", "#FFAB91", "#FF7043")) { TextStyle = MenuOptionTextStyle.ScrollRightLoop })
+            .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다", "#E6E6FA", "#00FFFF", "#FF1493")) { TextStyle = MenuOptionTextStyle.ScrollLeftFade })
+            .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 приветствует этот прекрасный мир", "#AFEEEE", "#7FFFD4", "#40E0D0")) { TextStyle = MenuOptionTextStyle.ScrollRightFade })
             .AddOption(new TextMenuOption("<font color='#F5FFFA'><b><invalid><font color='#00FA9A'>Swiftlys2</font> salută această lume minunată</invalid></b></font>") { TextStyle = MenuOptionTextStyle.TruncateEnd })
             .AddOption(new TextMenuOption("<font color='#00FA9A'><b><invalid><font color='#F5FFFA'>Swiftlys2</font> extends warmest greetings to this wondrous world</invalid></b></font>") { TextStyle = MenuOptionTextStyle.TruncateBothEnds })
             // .AddOption(new TextMenuOption("Swiftlys2 sendas korajn salutojn al ĉi tiu mirinda mondo"))
@@ -686,7 +733,7 @@ public class TestPlugin : BasePlugin
             .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
             .AddOption(new SliderMenuOption("1234"))
             .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
-            .AddOption(new ToggleMenuOption("12"))
+            .AddOption(new ToggleMenuOption("12", false, "O", "X"))
             .AddOption(new TextMenuOption("1") { Visible = false })
             .Build();
 

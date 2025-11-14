@@ -60,6 +60,90 @@ public interface IMenuDesignAPI
     /// </remarks>
     public IMenuBuilderAPI SetGlobalScrollStyle( MenuOptionScrollStyle style );
 
+    /// <summary>
+    /// Sets the color of the navigation markers using hex color format.
+    /// </summary>
+    /// <param name="hexColor">The color in hex format (e.g., "#FFFFFF" for white). Pass null to reset to default.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetNavigationMarkerColor( string? hexColor = null );
+
+    /// <summary>
+    /// Sets the color of the navigation markers using SwiftlyS2 native color.
+    /// </summary>
+    /// <param name="color">The SwiftlyS2 native color to apply to the navigation markers.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetNavigationMarkerColor( Natives.Color color );
+
+    /// <summary>
+    /// Sets the color of the navigation markers using System.Drawing color.
+    /// </summary>
+    /// <param name="color">The System.Drawing color to apply to the navigation markers.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetNavigationMarkerColor( System.Drawing.Color color );
+
+    /// <summary>
+    /// Sets the color of the menu footer using hex color format.
+    /// </summary>
+    /// <param name="hexColor">The color in hex format (e.g., "#FF0000" for red). Pass null to reset to default.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetMenuFooterColor( string? hexColor = null );
+
+    /// <summary>
+    /// Sets the color of the menu footer using SwiftlyS2 native color.
+    /// </summary>
+    /// <param name="color">The SwiftlyS2 native color to apply to the footer.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetMenuFooterColor( Natives.Color color );
+
+    /// <summary>
+    /// Sets the color of the menu footer using System.Drawing color.
+    /// </summary>
+    /// <param name="color">The System.Drawing color to apply to the footer.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetMenuFooterColor( System.Drawing.Color color );
+
+    /// <summary>
+    /// Sets the color of the visual guide lines using hex color format.
+    /// </summary>
+    /// <param name="hexColor">The color in hex format (e.g., "#FFFFFF" for white). Pass null to reset to default.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetVisualGuideLineColor( string? hexColor = null );
+
+    /// <summary>
+    /// Sets the color of the visual guide lines using SwiftlyS2 native color.
+    /// </summary>
+    /// <param name="color">The SwiftlyS2 native color to apply to the guide lines.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetVisualGuideLineColor( Natives.Color color );
+
+    /// <summary>
+    /// Sets the color of the visual guide lines using System.Drawing color.
+    /// </summary>
+    /// <param name="color">The System.Drawing color to apply to the guide lines.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetVisualGuideLineColor( System.Drawing.Color color );
+
+    /// <summary>
+    /// Sets the color of disabled menu options using hex color format.
+    /// </summary>
+    /// <param name="hexColor">The color in hex format (e.g., "#808080" for gray). Pass null to reset to default.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetDisabledColor( string? hexColor = null );
+
+    /// <summary>
+    /// Sets the color of disabled menu options using SwiftlyS2 native color.
+    /// </summary>
+    /// <param name="color">The SwiftlyS2 native color to apply to disabled options.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetDisabledColor( Natives.Color color );
+
+    /// <summary>
+    /// Sets the color of disabled menu options using System.Drawing color.
+    /// </summary>
+    /// <param name="color">The System.Drawing color to apply to disabled options.</param>
+    /// <returns>The menu builder for method chaining.</returns>
+    public IMenuBuilderAPI SetDisabledColor( System.Drawing.Color color );
+
     // /// <summary>
     // /// Sets the global option text style for the menu.
     // /// </summary>

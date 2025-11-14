@@ -9,7 +9,7 @@ namespace SwiftlyS2.Core.Menus;
 
 internal sealed class MenuAPI : IMenuAPI, IDisposable
 {
-    private IMenuAPI? parent;
+    private (IMenuAPI? ParentMenu, IMenuOption? TriggerOption) parent;
 
     /// <summary>
     /// The menu manager that this menu belongs to.
@@ -42,9 +42,9 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     public IMenuBuilderAPI? Builder { get; init; }
 
     /// <summary>
-    /// The parent menu in a hierarchical menu structure, or null if this is a top-level menu.
+    /// The parent hierarchy information in a hierarchical menu structure.
     /// </summary>
-    public IMenuAPI? Parent {
+    public (IMenuAPI? ParentMenu, IMenuOption? TriggerOption) Parent {
         get => parent;
         internal set {
             if (parent == value)
@@ -52,9 +52,9 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 return;
             }
 
-            if (value == null || value == this)
+            if (value.ParentMenu == this)
             {
-                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"Parent cannot be null or self.", nameof(value)));
+                Spectre.Console.AnsiConsole.WriteException(new ArgumentException($"Parent cannot be self.", nameof(value)));
             }
             else
             {
@@ -318,41 +318,49 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     private string BuildMenuHtml( IPlayer player, IReadOnlyList<IMenuOption> visibleOptions, int arrowPosition, int selectedIndex, int maxOptions, int maxVisibleItems )
     {
-        var titleSection = Configuration.HideTitle
-            ? string.Empty
-            : string.Concat(
-                $"<font class='fontSize-m' color='#FFFFFF'>{Configuration.Title}</font>",
-                maxOptions > maxVisibleItems
-                    ? $"<font class='fontSize-s' color='#FFFFFF'> [{selectedIndex + 1}/{maxOptions}]</font><br><font class='fontSize-s' color='#FFFFFF'>──────────────────────────</font><br>"
-                    : "<br><font class='fontSize-s' color='#FFFFFF'>──────────────────────────</font><br>"
-            );
+        var guideLineColor = Configuration.VisualGuideLineColor ?? "#FFFFFF";
+        var navigationColor = Configuration.NavigationMarkerColor ?? "#FFFFFF";
+        var footerColor = Configuration.FooterColor ?? "#FF0000";
+        var guideLine = $"<font class='fontSize-s' color='{guideLineColor}'>──────────────────────────</font>";
 
-        var menuItems = visibleOptions.Select(( option, index ) =>
-        {
-            var prefix = index == arrowPosition
-                ? $"<font color='#FFFFFF' class='fontSize-sm'>{core.MenusAPI.Configuration.NavigationPrefix} </font>"
-                : "\u00A0\u00A0\u00A0 ";
-            return $"{prefix}{option.GetDisplayText(player, 0)}";
-        });
+        var titleSection = Configuration.HideTitle ? string.Empty : string.Concat(
+            $"<font class='fontSize-m' color='#FFFFFF'>{Configuration.Title}</font>",
+            maxOptions > maxVisibleItems
+                ? string.Concat($"<font class='fontSize-s' color='#FFFFFF'> [{selectedIndex + 1}/{maxOptions}]</font><br>", guideLine, "<br>")
+                : string.Concat("<br>", guideLine, "<br>")
+        );
 
-        var footerSection = Configuration.HideFooter ? string.Empty : new Func<string>(() =>
-        {
-            var isWasd = core.MenusAPI.Configuration.InputMode == "wasd";
-            var moveKey = isWasd ? "W/S" : $"{KeybindOverrides.Move?.ToString() ?? core.MenusAPI.Configuration.ButtonsScroll.ToUpper()}/{KeybindOverrides.MoveBack?.ToString() ?? core.MenusAPI.Configuration.ButtonsScrollBack.ToUpper()}";
-            var useKey = isWasd ? "D" : (KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse).ToUpper();
-            var exitKey = isWasd ? "A" : (KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit).ToUpper();
-            return string.Concat(
-                $"<br>",
-                $"<font class='fontSize-s' color='#FFFFFF'>──────────────────────────</font>",
-                $"<br>",
-                $"<font class='fontSize-s' color='#FFFFFF'><font color='#FF0000'>Move:</font> {moveKey} | <font color='#FF0000'>Use:</font> {useKey} | <font color='#FF0000'>Exit:</font> {exitKey}</font>"
-            );
-        })();
+        var menuItems = string.Join("<br>", visibleOptions.Select(( option, index ) => string.Concat(
+            index == arrowPosition
+                ? $"<font color='{navigationColor}' class='fontSize-sm'>{core.MenusAPI.Configuration.NavigationPrefix} </font>"
+                : "\u00A0\u00A0\u00A0 ",
+            option.GetDisplayText(player, 0)
+        )));
+
+        var footerSection = Configuration.HideFooter ? string.Empty :
+            core.MenusAPI.Configuration.InputMode switch {
+                "wasd" => string.Concat(
+                    "<br>", guideLine, "<br>",
+                    "<font class='fontSize-s' color='#FFFFFF'>",
+                    $"<font color='{footerColor}'>Move:</font> W/S | ",
+                    $"<font color='{footerColor}'>Use:</font> D | ",
+                    $"<font color='{footerColor}'>Exit:</font> A",
+                    "</font>"
+                ),
+                _ => string.Concat(
+                    "<br>", guideLine, "<br>",
+                    "<font class='fontSize-s' color='#FFFFFF'>",
+                    $"<font color='{footerColor}'>Move:</font> {KeybindOverrides.Move?.ToString() ?? core.MenusAPI.Configuration.ButtonsScroll.ToUpper()}/{KeybindOverrides.MoveBack?.ToString() ?? core.MenusAPI.Configuration.ButtonsScrollBack.ToUpper()} | ",
+                    $"<font color='{footerColor}'>Use:</font> {KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse.ToUpper()} | ",
+                    $"<font color='{footerColor}'>Exit:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}",
+                    "</font>"
+                )
+            };
 
         return string.Concat(
             titleSection,
             "<font color='#FFFFFF' class='fontSize-sm'>",
-            string.Join("<br>", menuItems),
+            menuItems,
             "</font>",
             footerSection
         );

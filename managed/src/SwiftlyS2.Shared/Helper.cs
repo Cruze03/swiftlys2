@@ -1,3 +1,4 @@
+using System.Globalization;
 using SwiftlyS2.Shared.Schemas;
 
 namespace SwiftlyS2.Shared;
@@ -120,4 +121,50 @@ public static class Helper
     /// <param name="text">The text string to measure.</param>
     /// <returns>The estimated display width in relative units.</returns>
     public static float EstimateTextWidth( string text ) => text.Sum(GetCharWidth);
+
+    /// <summary>
+    /// Parses a hex color string and returns the RGBA color components.
+    /// </summary>
+    /// <param name="hexColor">The hex color string to parse.</param>
+    /// <param name="alphaFirst">Whether alpha component comes first (ARGB format). Default is false (RGBA format).</param>
+    /// <returns>Color components (R, G, B, A) or nulls if invalid. Alpha defaults to 255 for RGB format.</returns>
+    public static (int? r, int? g, int? b, int? a) ParseHexColor( string hexColor, bool alphaFirst = false )
+    {
+        if (string.IsNullOrWhiteSpace(hexColor) || !hexColor.StartsWith('#'))
+        {
+            return (null, null, null, null);
+        }
+
+        var hexPart = hexColor[1..];
+        if (hexPart.Length == 0 || !hexPart.All(char.IsAsciiHexDigit))
+        {
+            return (null, null, null, null);
+        }
+
+        foreach (var groupCount in new[] { 3, 4 })
+        {
+            if (hexPart.Length % groupCount != 0)
+            {
+                continue;
+            }
+
+            var groupSize = hexPart.Length / groupCount;
+            var groups = Enumerable.Range(0, groupCount)
+                .Select(i => hexPart.Substring(i * groupSize, groupSize))
+                .Select(g => int.TryParse(g, NumberStyles.HexNumber, null, out var v) && v is >= 0 and <= 255 ? v : (int?)null)
+                .ToArray();
+
+            if (groups.All(g => g.HasValue))
+            {
+                return groupCount switch {
+                    3 => (groups[0], groups[1], groups[2], 255),                         // RGB
+                    4 when alphaFirst => (groups[1], groups[2], groups[3], groups[0]),   // ARGB → RGBA
+                    4 => (groups[0], groups[1], groups[2], groups[3]),                   // RGBA
+                    _ => (null, null, null, null)
+                };
+            }
+        }
+
+        return (null, null, null, null);
+    }
 }
