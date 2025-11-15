@@ -354,7 +354,7 @@ IPlayer* CPlayerManager::GetPlayer(int playerid)
         return nullptr;
 
     auto player = g_Players[playerid];
-    return *(void***)player ? player : nullptr;
+    return player && *(void***)player ? player : nullptr;
 }
 
 bool CPlayerManager::IsPlayerOnline(int playerid)
