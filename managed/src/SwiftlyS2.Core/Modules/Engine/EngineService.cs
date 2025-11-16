@@ -22,7 +22,7 @@ internal class EngineService : IEngineService
 
     public ref CGlobalVars GlobalVars => ref NativeEngineHelpers.GetGlobalVars().AsRef<CGlobalVars>();
 
-    public string Map => GlobalVars.MapName.ToString() ?? string.Empty;
+    public string Map => GlobalVars.MapName.Value;
 
     public int MaxPlayers => GlobalVars.MaxClients;
 

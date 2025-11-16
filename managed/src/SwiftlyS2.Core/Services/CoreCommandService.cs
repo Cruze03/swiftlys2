@@ -68,8 +68,8 @@ GitHub: https://github.com/swiftly-solution/swiftlys2");
           var outStrings = $"Uptime: {uptime.Days}d {uptime.Hours}h {uptime.Minutes}m {uptime.Seconds}s";
           outStrings += $"\nManaged Heap Memory: {GC.GetTotalMemory(false) / 1024.0f / 1024.0f:0.00} MB";
           outStrings += $"\nLoaded Plugins: {_PluginManager.GetPlugins().Count()}";
-          outStrings += $"\nPlayers: {_Core.PlayerManager.PlayerCount}/{_Core.Engine.MaxPlayers}";
-          outStrings += $"\nMap: {_Core.Engine.Map}";
+          outStrings += $"\nPlayers: {_Core.PlayerManager.PlayerCount}/{_Core.Engine.GlobalVars.MaxClients}";
+          outStrings += $"\nMap: {_Core.Engine.GlobalVars.MapName.Value}";
           _Logger.LogInformation(outStrings);
           break;
         case "version":
