@@ -7,6 +7,7 @@ using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Core.Services;
 using SwiftlyS2.Shared.Plugins;
 using SwiftlyS2.Core.Modules.Plugins;
+using System.Collections.Concurrent;
 
 namespace SwiftlyS2.Core.Plugins;
 
@@ -20,6 +21,7 @@ internal class PluginManager
     private readonly InterfaceManager interfaceManager;
     private readonly List<Type> sharedTypes;
     private readonly List<PluginContext> plugins;
+    private readonly ConcurrentDictionary<string, DateTime> fileLastChange;
 
     private readonly FileSystemWatcher? fileWatcher;
 
@@ -38,6 +40,7 @@ internal class PluginManager
         this.interfaceManager = new();
         this.sharedTypes = [];
         this.plugins = [];
+        this.fileLastChange = new();
 
         this.fileWatcher = new FileSystemWatcher {
             Path = rootDirService.GetPluginsRoot(),
@@ -56,9 +59,26 @@ internal class PluginManager
                 }
 
                 var directoryName = Path.GetFileName(Path.GetDirectoryName(e.FullPath)) ?? string.Empty;
-                if (string.IsNullOrWhiteSpace(directoryName))
+                var fileName = Path.GetFileNameWithoutExtension(e.FullPath);
+                if (string.IsNullOrWhiteSpace(directoryName) || !fileName.Equals(directoryName))
                 {
-                    _ = ReloadPluginByDllName(directoryName, true);
+                    return;
+                }
+
+                var now = DateTime.UtcNow;
+                if ((now - fileLastChange.GetValueOrDefault(directoryName, DateTime.MinValue)).TotalSeconds > 2)
+                {
+                    _ = fileLastChange.AddOrUpdate(directoryName, now, ( _, _ ) => now);
+                    Console.WriteLine("\n");
+                    if (ReloadPluginByDllName(directoryName, true))
+                    {
+                        logger.LogInformation("Reloaded plugin: {Format}", directoryName);
+                    }
+                    else
+                    {
+                        logger.LogWarning("Failed to reload plugin: {Format}", directoryName);
+                    }
+                    Console.WriteLine("\n");
                 }
             }
             catch (Exception ex)
@@ -341,17 +361,21 @@ internal class PluginManager
             logger.LogError(ex, "Failed to load exports");
         }
     }
-
     private void LoadPlugins()
     {
         EnumeratePluginDirectories(rootDirService.GetPluginsRoot(), pluginDir =>
         {
+            var relativePath = Path.GetRelativePath(rootDirService.GetRoot(), pluginDir);
+            var displayPath = Path.Join("(swRoot)", relativePath);
+            var dllName = Path.GetFileName(pluginDir);
+            var fullDisplayPath = string.IsNullOrWhiteSpace(displayPath) ? string.Empty : $"{Path.Join(displayPath, dllName)}.dll";
+
             Console.WriteLine(string.Empty);
-            var relativePath = pluginDir is { } dir ? Path.Join("(swRoot)", Path.GetRelativePath(rootDirService.GetRoot(), dir)) : string.Empty;
-            logger.LogInformation("Loading plugin: {RelativePath}.dll", Path.Join(relativePath, Path.GetFileName(relativePath)));
+            logger.LogInformation("Loading plugin: {Path}", fullDisplayPath);
+
             try
             {
-                var context = LoadPlugin(pluginDir, false);
+                var context = LoadPlugin(pluginDir, true);
                 if (context?.Status == PluginStatus.Loaded)
                 {
                     logger.LogInformation(
@@ -364,8 +388,12 @@ internal class PluginManager
                         context.Metadata!.Id,
                         context.Metadata!.Version,
                         context.Metadata!.Author,
-                        relativePath
+                        displayPath
                     );
+                }
+                else
+                {
+                    logger.LogWarning("Failed to load plugin: {Path}", fullDisplayPath);
                 }
             }
             catch (Exception e)
@@ -374,8 +402,9 @@ internal class PluginManager
                 {
                     return;
                 }
-                logger.LogWarning(e, "Failed to load plugin: {RelativePath}.dll", Path.Join(relativePath, Path.GetFileName(relativePath)));
+                logger.LogWarning(e, "Failed to load plugin: {Path}", fullDisplayPath);
             }
+
             Console.WriteLine(string.Empty);
         });
 
