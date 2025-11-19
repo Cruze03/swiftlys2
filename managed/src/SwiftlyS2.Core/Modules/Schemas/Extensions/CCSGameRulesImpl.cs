@@ -1,3 +1,4 @@
+using SwiftlyS2.Shared.Misc;
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Schemas;
 using SwiftlyS2.Shared.SchemaDefinitions;
@@ -7,6 +8,11 @@ namespace SwiftlyS2.Core.SchemaDefinitions;
 
 internal partial class CCSGameRulesImpl : CCSGameRules
 {
+    public GamePhase GamePhaseEnum {
+        get => (GamePhase)GamePhase;
+        set => GamePhase = (int)value;
+    }
+
     public T? FindPickerEntity<T>( CBasePlayerController controller ) where T : ISchemaClass<T>
     {
         return ((CBaseEntity)new CBaseEntityImpl(GameFunctions.FindPickerEntity(Address, controller.Address))).As<T>();

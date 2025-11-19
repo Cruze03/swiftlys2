@@ -1,3 +1,4 @@
+using SwiftlyS2.Shared.Misc;
 using SwiftlyS2.Shared.Schemas;
 using SwiftlyS2.Shared.Natives;
 
@@ -5,6 +6,8 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 
 public partial interface CCSGameRules
 {
+    public GamePhase GamePhaseEnum { get; set; }
+
     /// <summary>
     /// Find the player that the controller is targetting
     /// </summary>
