@@ -632,6 +632,12 @@ public class TestPlugin : BasePlugin
     //         player.SendMessage(MessageType.Chat, "Button");
     //     });
 
+    //     settingsMenu.Builder.Design.OverrideExitButton("shift");
+    //     settingsMenu.Builder.Design.OverrideSelectButton("e");
+
+    //     Core.Menus.OpenMenu(player, settingsMenu);
+    // }
+
     [Command("ed")]
     public void EndRoundCommand( ICommandContext _ )
     {
