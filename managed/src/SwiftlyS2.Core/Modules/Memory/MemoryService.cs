@@ -105,10 +105,21 @@ internal class MemoryService : IMemoryService, IDisposable
 
   public nint? GetVTableAddress( string library, string vtableName )
   {
-    var ptr = NativeMemoryHelpers.GetVirtualTableAddress(library, vtableName);
-    if (ptr == 0)
+    var classes = vtableName.Split("::");
+    nint? ptr;
+    if (classes.Length == 1)
     {
-      return null;
+      ptr = NativeMemoryHelpers.GetVirtualTableAddress(library, vtableName);
+    } 
+    else if (classes.Length == 2)
+    {
+      ptr = NativeMemoryHelpers.GetVirtualTableAddressNested2(library, classes[0], classes[1]);
+    }
+    else {
+      throw new ArgumentException("Vtable has too many nested classes, which is not supported for now.");
+    }
+    if (ptr == 0) {
+      ptr = null;
     }
     return ptr;
   }

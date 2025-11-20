@@ -51,6 +51,35 @@ internal static class NativeMemoryHelpers {
     }
   }
 
+  private unsafe static delegate* unmanaged<byte*, byte*, byte*, nint> _GetVirtualTableAddressNested2;
+
+  public unsafe static nint GetVirtualTableAddressNested2(string library, string class1, string class2) {
+    var pool = ArrayPool<byte>.Shared;
+    var libraryLength = Encoding.UTF8.GetByteCount(library);
+    var libraryBuffer = pool.Rent(libraryLength + 1);
+    Encoding.UTF8.GetBytes(library, libraryBuffer);
+    libraryBuffer[libraryLength] = 0;
+    var class1Length = Encoding.UTF8.GetByteCount(class1);
+    var class1Buffer = pool.Rent(class1Length + 1);
+    Encoding.UTF8.GetBytes(class1, class1Buffer);
+    class1Buffer[class1Length] = 0;
+    var class2Length = Encoding.UTF8.GetByteCount(class2);
+    var class2Buffer = pool.Rent(class2Length + 1);
+    Encoding.UTF8.GetBytes(class2, class2Buffer);
+    class2Buffer[class2Length] = 0;
+    fixed (byte* libraryBufferPtr = libraryBuffer) {
+      fixed (byte* class1BufferPtr = class1Buffer) {
+        fixed (byte* class2BufferPtr = class2Buffer) {
+          var ret = _GetVirtualTableAddressNested2(libraryBufferPtr, class1BufferPtr, class2BufferPtr);
+          pool.Return(libraryBuffer);
+          pool.Return(class1Buffer);
+          pool.Return(class2Buffer);
+          return ret;
+        }
+      }
+    }
+  }
+
   private unsafe static delegate* unmanaged<byte*, byte*, int, byte, nint> _GetAddressBySignature;
 
   public unsafe static nint GetAddressBySignature(string library, string sig, int len, bool rawBytes) {

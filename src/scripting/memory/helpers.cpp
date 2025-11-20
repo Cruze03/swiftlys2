@@ -31,7 +31,16 @@ void* Bridge_MemoryHelpers_FetchInterfaceByName(const char* iface_name)
 void* Bridge_MemoryHelpers_GetVirtualTableAddress(const char* binary, const char* vtable_name)
 {
     void* result = nullptr;
+
     s2binlib_find_vtable(binary, vtable_name, &result);
+    return result;
+}
+
+void* Bridge_MemoryHelpers_GetVirtualTableAddressNested2(const char* binary, const char* class1, const char* class2)
+{
+    void* result = nullptr;
+
+    s2binlib_find_vtable_nested_2(binary, class1, class2, &result);
     return result;
 }
 
@@ -90,6 +99,7 @@ bool Bridge_MemoryHelpers_ObjectPtrHasBaseClass(void* objptr, const char* base_c
 
 DEFINE_NATIVE("MemoryHelpers.FetchInterfaceByName", Bridge_MemoryHelpers_FetchInterfaceByName);
 DEFINE_NATIVE("MemoryHelpers.GetVirtualTableAddress", Bridge_MemoryHelpers_GetVirtualTableAddress);
+DEFINE_NATIVE("MemoryHelpers.GetVirtualTableAddressNested2", Bridge_MemoryHelpers_GetVirtualTableAddressNested2);
 DEFINE_NATIVE("MemoryHelpers.GetAddressBySignature", Bridge_MemoryHelpers_GetAddressBySignature);
 DEFINE_NATIVE("MemoryHelpers.GetObjectPtrVtableName", Bridge_MemoryHelpers_GetObjectPtrVtableName);
 DEFINE_NATIVE("MemoryHelpers.ObjectPtrHasVtable", Bridge_MemoryHelpers_ObjectPtrHasVtable);
