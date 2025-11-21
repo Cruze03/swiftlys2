@@ -642,6 +642,7 @@ public class TestPlugin : BasePlugin
     public void EmitGrenadeCommand( ICommandContext _ )
     {
         var smoke = CSmokeGrenadeProjectile.EmitGrenade(new(0, 0, 0), new(0, 0, 0), new(0, 0, 0), Team.CT, null);
+        smoke.Despawn();
     }
 
     [Command("ss")]
@@ -670,7 +671,7 @@ public class TestPlugin : BasePlugin
     }
 
     [Command("tm")]
-    public void TestMenuCommand( ICommandContext context )
+    public void TestMenuCommand( ICommandContext _ )
     {
         var buyButton = new ButtonMenuOption("Purchase") { CloseAfterClick = true };
         buyButton.Click += async ( sender, args ) =>
@@ -961,6 +962,45 @@ public class TestPlugin : BasePlugin
 
     //     Core.Menus.OpenMenu(player, menu);
     // }
+
+    [Command("mru")]
+    public void MenuResourceUsageCommand( ICommandContext context )
+    {
+        var menus = new List<IMenuAPI>();
+
+        for (var i = 0; i < 30; i++)
+        {
+            var builder = Core.MenusAPI
+                .CreateBuilder()
+                .Design.SetMenuTitle($"Test Menu {i + 1}");
+
+            for (var j = 0; j < 5; j++)
+            {
+                var optionText = $"Menu # {i + 1} - Option # {j + 1}";
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                button.Click += ( sender, args ) =>
+                {
+                    args.Player.SendChat($"Clicked: {optionText}");
+                    return ValueTask.CompletedTask;
+                };
+                _ = builder.AddOption(button);
+            }
+
+            menus.Add(builder.Build());
+        }
+
+        var mainMenu = Core.MenusAPI
+            .CreateBuilder()
+            .Design.SetMenuTitle("Menu");
+
+        for (var i = 0; i < menus.Count; i++)
+        {
+            var menuIndex = i;
+            _ = mainMenu.AddOption(new SubmenuMenuOption($"Menu #{i + 1}", menus[menuIndex]));
+        }
+
+        Core.MenusAPI.OpenMenu(mainMenu.Build());
+    }
 
     public override void Unload()
     {
