@@ -255,6 +255,28 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        var now = DateTime.UtcNow;
+        lock (optionsLock)
+        {
+            try
+            {
+                const string category = "MenuAPI::UpdateDynamicText";
+                core.Profiler.StartRecording(category);
+
+                foreach (var option in options)
+                {
+                    if (option is OptionsBase.MenuOptionBase optionBase)
+                    {
+                        optionBase.UpdateDynamicText(now);
+                    }
+                }
+
+                core.Profiler.StopRecording(category);
+            }
+            catch
+            { }
+        }
+
         var playerStates = core.PlayerManager
             .GetAllPlayers()
             .Where(player => player.IsValid && !player.IsFakeClient)

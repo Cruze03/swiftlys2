@@ -527,6 +527,17 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     //     Hover?.Invoke(this, new MenuOptionEventArgs { Player = player, Option = this });
     // }
 
+    /// <summary>
+    /// Updates dynamic text.
+    /// </summary>
+    /// <remarks>
+    /// Called by MenuAPI's render loop.
+    /// </remarks>
+    internal void UpdateDynamicText( DateTime now )
+    {
+        dynamicTextUpdater?.TryUpdate(now);
+    }
+
     [GeneratedRegex(@"<[/\\]*br[/\\]*>", RegexOptions.IgnoreCase)]
     private static partial Regex BrTagRegex();
 

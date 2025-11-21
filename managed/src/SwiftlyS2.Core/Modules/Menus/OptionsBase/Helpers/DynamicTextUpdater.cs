@@ -9,8 +9,11 @@ internal sealed class DynamicTextUpdater : IDisposable
     private readonly Func<MenuOptionTextStyle> getTextStyle;
     private readonly Func<float> getMaxWidth;
     private readonly Action<string> setDynamicText;
-    private readonly CancellationTokenSource cancellationTokenSource;
-    private readonly SemaphoreSlim pauseSemaphore;
+    private readonly int updateIntervalMs;
+    private readonly int pauseIntervalMs;
+    private volatile bool isPaused;
+    private DateTime lastUpdateTime = DateTime.MinValue;
+    private DateTime pauseEndTime = DateTime.MinValue;
 
     private volatile bool disposed;
 
@@ -23,17 +26,16 @@ internal sealed class DynamicTextUpdater : IDisposable
         int pauseIntervalMs = 1000 )
     {
         disposed = false;
+        isPaused = true;
 
         this.getSourceText = getSourceText;
         this.getTextStyle = getTextStyle;
         this.getMaxWidth = getMaxWidth;
         this.setDynamicText = setDynamicText;
+        this.updateIntervalMs = updateIntervalMs;
+        this.pauseIntervalMs = pauseIntervalMs;
 
         processor = new();
-        cancellationTokenSource = new();
-        pauseSemaphore = new(0, 1); // Initially paused (0 count), need manual Resume() to start
-
-        _ = Task.Run(() => UpdateLoopAsync(updateIntervalMs, pauseIntervalMs, cancellationTokenSource.Token), cancellationTokenSource.Token);
     }
 
     ~DynamicTextUpdater()
@@ -48,73 +50,68 @@ internal sealed class DynamicTextUpdater : IDisposable
             return;
         }
 
-        // Console.WriteLine($"{GetType().Name} has been disposed.");
-        _ = pauseSemaphore.Release(); // Ensure any waiting thread can exit
-
-        cancellationTokenSource.Cancel();
-        cancellationTokenSource.Dispose();
-
-        pauseSemaphore.Dispose();
+        disposed = true;
         processor.Dispose();
 
-        disposed = true;
         GC.SuppressFinalize(this);
     }
 
     public void Pause()
     {
-        try
+        if (!disposed)
         {
-            if (!disposed)
-            {
-                pauseSemaphore.Wait();
-            }
+            isPaused = true;
         }
-        catch { }
     }
 
     public void Resume()
     {
+        if (!disposed)
+        {
+            isPaused = false;
+            pauseEndTime = DateTime.MinValue;
+        }
+    }
+
+    public void TryUpdate( DateTime now )
+    {
+        if (disposed || isPaused)
+        {
+            return;
+        }
+
+        // Check if still in pause interval
+        if (now < pauseEndTime)
+        {
+            return;
+        }
+
+        // Check if enough time has passed since last update
+        if (lastUpdateTime != DateTime.MinValue)
+        {
+            var elapsed = (now - lastUpdateTime).TotalMilliseconds;
+            if (elapsed < updateIntervalMs)
+            {
+                return;
+            }
+        }
+
         try
         {
-            if (!disposed)
+            var sourceText = getSourceText();
+            var textStyle = getTextStyle();
+            var maxWidth = getMaxWidth();
+            var (styledText, offset) = processor.ApplyHorizontalStyle(sourceText, textStyle, maxWidth);
+            setDynamicText(styledText);
+
+            lastUpdateTime = now;
+
+            // If offset is 0 (text fits completely), enter pause interval
+            if (offset == 0)
             {
-                _ = pauseSemaphore.Release();
+                pauseEndTime = now.AddMilliseconds(pauseIntervalMs);
             }
         }
         catch { }
-    }
-
-    private async Task UpdateLoopAsync( int intervalMs, int pauseIntervalMs, CancellationToken token )
-    {
-        while (!token.IsCancellationRequested && !disposed)
-        {
-            try
-            {
-                // Wait if paused
-                await pauseSemaphore.WaitAsync(token);
-                _ = pauseSemaphore.Release();
-
-                await Task.Delay(intervalMs, token);
-                var sourceText = getSourceText();
-                var textStyle = getTextStyle();
-                var maxWidth = getMaxWidth();
-                var (styledText, offset) = processor.ApplyHorizontalStyle(sourceText, textStyle, maxWidth);
-                setDynamicText(styledText);
-                // Console.WriteLine($"sourceText: {sourceText}, textStyle: {textStyle}, maxWidth: {maxWidth}, styledText: {styledText}, offset: {offset}");
-
-                if (offset == 0)
-                {
-                    await Task.Delay(pauseIntervalMs, token);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                break;
-            }
-            catch
-            {
-            }
-        }
     }
 }
