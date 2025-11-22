@@ -17,25 +17,25 @@ internal partial class CAudioSentenceImpl : SchemaClass, CAudioSentence {
   public CAudioSentenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ShouldVoiceDuckOffset = new(() => Schema.GetOffset(0x25F8D719C546CD15), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldVoiceDuckOffset = Schema.GetOffset(0x25F8D719C546CD15);
 
   public ref bool ShouldVoiceDuck {
-    get => ref _Handle.AsRef<bool>(_ShouldVoiceDuckOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldVoiceDuckOffset);
   }
-  private static readonly Lazy<nint> _RunTimePhonemesOffset = new(() => Schema.GetOffset(0x25F8D719C0434838), LazyThreadSafetyMode.None);
+  private static readonly nint _RunTimePhonemesOffset = Schema.GetOffset(0x25F8D719C0434838);
 
   public ref CUtlVector<CAudioPhonemeTag> RunTimePhonemes {
-    get => ref _Handle.AsRef<CUtlVector<CAudioPhonemeTag>>(_RunTimePhonemesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAudioPhonemeTag>>(_RunTimePhonemesOffset);
   }
-  private static readonly Lazy<nint> _EmphasisSamplesOffset = new(() => Schema.GetOffset(0x25F8D7194EBE8F82), LazyThreadSafetyMode.None);
+  private static readonly nint _EmphasisSamplesOffset = Schema.GetOffset(0x25F8D7194EBE8F82);
 
   public ref CUtlVector<CAudioEmphasisSample> EmphasisSamples {
-    get => ref _Handle.AsRef<CUtlVector<CAudioEmphasisSample>>(_EmphasisSamplesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAudioEmphasisSample>>(_EmphasisSamplesOffset);
   }
-  private static readonly Lazy<nint> _MorphDataOffset = new(() => Schema.GetOffset(0x25F8D719A8207F65), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphDataOffset = Schema.GetOffset(0x25F8D719A8207F65);
 
   public CAudioMorphData MorphData {
-    get => new CAudioMorphDataImpl(_Handle + _MorphDataOffset.Value);
+    get => new CAudioMorphDataImpl(_Handle + _MorphDataOffset);
   }
 
 

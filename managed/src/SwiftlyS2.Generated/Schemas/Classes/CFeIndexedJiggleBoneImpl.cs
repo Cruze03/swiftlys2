@@ -17,20 +17,20 @@ internal partial class CFeIndexedJiggleBoneImpl : SchemaClass, CFeIndexedJiggleB
   public CFeIndexedJiggleBoneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0x1DD153AEF6FB9B19), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0x1DD153AEF6FB9B19);
 
   public ref uint Node {
-    get => ref _Handle.AsRef<uint>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _JiggleParentOffset = new(() => Schema.GetOffset(0x1DD153AE8AABF3B9), LazyThreadSafetyMode.None);
+  private static readonly nint _JiggleParentOffset = Schema.GetOffset(0x1DD153AE8AABF3B9);
 
   public ref uint JiggleParent {
-    get => ref _Handle.AsRef<uint>(_JiggleParentOffset.Value);
+    get => ref _Handle.AsRef<uint>(_JiggleParentOffset);
   }
-  private static readonly Lazy<nint> _JiggleBoneOffset = new(() => Schema.GetOffset(0x1DD153AE6038C557), LazyThreadSafetyMode.None);
+  private static readonly nint _JiggleBoneOffset = Schema.GetOffset(0x1DD153AE6038C557);
 
   public CFeJiggleBone JiggleBone {
-    get => new CFeJiggleBoneImpl(_Handle + _JiggleBoneOffset.Value);
+    get => new CFeJiggleBoneImpl(_Handle + _JiggleBoneOffset);
   }
 
 

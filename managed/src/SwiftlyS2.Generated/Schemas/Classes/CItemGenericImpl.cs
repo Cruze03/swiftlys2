@@ -17,201 +17,201 @@ internal partial class CItemGenericImpl : CItemImpl, CItemGeneric {
   public CItemGenericImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HasTriggerRadiusOffset = new(() => Schema.GetOffset(0xE5C051B6D8BAB96B), LazyThreadSafetyMode.None);
+  private static readonly nint _HasTriggerRadiusOffset = Schema.GetOffset(0xE5C051B6D8BAB96B);
 
   public ref bool HasTriggerRadius {
-    get => ref _Handle.AsRef<bool>(_HasTriggerRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasTriggerRadiusOffset);
   }
-  private static readonly Lazy<nint> _HasPickupRadiusOffset = new(() => Schema.GetOffset(0xE5C051B6665CA089), LazyThreadSafetyMode.None);
+  private static readonly nint _HasPickupRadiusOffset = Schema.GetOffset(0xE5C051B6665CA089);
 
   public ref bool HasPickupRadius {
-    get => ref _Handle.AsRef<bool>(_HasPickupRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasPickupRadiusOffset);
   }
-  private static readonly Lazy<nint> _PickupRadiusSqrOffset = new(() => Schema.GetOffset(0xE5C051B6B3C8BD69), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupRadiusSqrOffset = Schema.GetOffset(0xE5C051B6B3C8BD69);
 
   public ref float PickupRadiusSqr {
-    get => ref _Handle.AsRef<float>(_PickupRadiusSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_PickupRadiusSqrOffset);
   }
-  private static readonly Lazy<nint> _TriggerRadiusSqrOffset = new(() => Schema.GetOffset(0xE5C051B64E7B40B7), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerRadiusSqrOffset = Schema.GetOffset(0xE5C051B64E7B40B7);
 
   public ref float TriggerRadiusSqr {
-    get => ref _Handle.AsRef<float>(_TriggerRadiusSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_TriggerRadiusSqrOffset);
   }
-  private static readonly Lazy<nint> _LastPickupCheckOffset = new(() => Schema.GetOffset(0xE5C051B6CE974DB1), LazyThreadSafetyMode.None);
+  private static readonly nint _LastPickupCheckOffset = Schema.GetOffset(0xE5C051B6CE974DB1);
 
   public GameTime_t LastPickupCheck {
-    get => new GameTime_tImpl(_Handle + _LastPickupCheckOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastPickupCheckOffset);
   }
-  private static readonly Lazy<nint> _PlayerCounterListenerAddedOffset = new(() => Schema.GetOffset(0xE5C051B6198E288E), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerCounterListenerAddedOffset = Schema.GetOffset(0xE5C051B6198E288E);
 
   public ref bool PlayerCounterListenerAdded {
-    get => ref _Handle.AsRef<bool>(_PlayerCounterListenerAddedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayerCounterListenerAddedOffset);
   }
-  private static readonly Lazy<nint> _PlayerInTriggerRadiusOffset = new(() => Schema.GetOffset(0xE5C051B66DC39F9F), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerInTriggerRadiusOffset = Schema.GetOffset(0xE5C051B66DC39F9F);
 
   public ref bool PlayerInTriggerRadius {
-    get => ref _Handle.AsRef<bool>(_PlayerInTriggerRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayerInTriggerRadiusOffset);
   }
-  private static readonly Lazy<nint> _SpawnParticleEffectOffset = new(() => Schema.GetOffset(0xE5C051B6576146D5), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnParticleEffectOffset = Schema.GetOffset(0xE5C051B6576146D5);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> SpawnParticleEffect {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_SpawnParticleEffectOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_SpawnParticleEffectOffset);
   }
-  private static readonly Lazy<nint> _AmbientSoundEffectOffset = new(() => Schema.GetOffset(0xE5C051B65DD78861), LazyThreadSafetyMode.None);
+  private static readonly nint _AmbientSoundEffectOffset = Schema.GetOffset(0xE5C051B65DD78861);
 
   public string AmbientSoundEffect {
     get {
-      var ptr = _Handle.Read<nint>(_AmbientSoundEffectOffset.Value);
+      var ptr = _Handle.Read<nint>(_AmbientSoundEffectOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AmbientSoundEffectOffset.Value, value);
+    set => Schema.SetString(_Handle, _AmbientSoundEffectOffset, value);
   } 
-  private static readonly Lazy<nint> _AutoStartAmbientSoundOffset = new(() => Schema.GetOffset(0xE5C051B678660D41), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoStartAmbientSoundOffset = Schema.GetOffset(0xE5C051B678660D41);
 
   public ref bool AutoStartAmbientSound {
-    get => ref _Handle.AsRef<bool>(_AutoStartAmbientSoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutoStartAmbientSoundOffset);
   }
-  private static readonly Lazy<nint> _SpawnScriptFunctionOffset = new(() => Schema.GetOffset(0xE5C051B6BC2C9805), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnScriptFunctionOffset = Schema.GetOffset(0xE5C051B6BC2C9805);
 
   public string SpawnScriptFunction {
     get {
-      var ptr = _Handle.Read<nint>(_SpawnScriptFunctionOffset.Value);
+      var ptr = _Handle.Read<nint>(_SpawnScriptFunctionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SpawnScriptFunctionOffset.Value, value);
+    set => Schema.SetString(_Handle, _SpawnScriptFunctionOffset, value);
   } 
-  private static readonly Lazy<nint> _PickupParticleEffectOffset = new(() => Schema.GetOffset(0xE5C051B6A61E7280), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupParticleEffectOffset = Schema.GetOffset(0xE5C051B6A61E7280);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> PickupParticleEffect {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_PickupParticleEffectOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_PickupParticleEffectOffset);
   }
-  private static readonly Lazy<nint> _PickupSoundEffectOffset = new(() => Schema.GetOffset(0xE5C051B6ECB75E7B), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupSoundEffectOffset = Schema.GetOffset(0xE5C051B6ECB75E7B);
 
   public string PickupSoundEffect {
     get {
-      var ptr = _Handle.Read<nint>(_PickupSoundEffectOffset.Value);
+      var ptr = _Handle.Read<nint>(_PickupSoundEffectOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PickupSoundEffectOffset.Value, value);
+    set => Schema.SetString(_Handle, _PickupSoundEffectOffset, value);
   } 
-  private static readonly Lazy<nint> _PickupScriptFunctionOffset = new(() => Schema.GetOffset(0xE5C051B64242F490), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupScriptFunctionOffset = Schema.GetOffset(0xE5C051B64242F490);
 
   public string PickupScriptFunction {
     get {
-      var ptr = _Handle.Read<nint>(_PickupScriptFunctionOffset.Value);
+      var ptr = _Handle.Read<nint>(_PickupScriptFunctionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PickupScriptFunctionOffset.Value, value);
+    set => Schema.SetString(_Handle, _PickupScriptFunctionOffset, value);
   } 
-  private static readonly Lazy<nint> _TimeoutParticleEffectOffset = new(() => Schema.GetOffset(0xE5C051B6FE95C38D), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutParticleEffectOffset = Schema.GetOffset(0xE5C051B6FE95C38D);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> TimeoutParticleEffect {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_TimeoutParticleEffectOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_TimeoutParticleEffectOffset);
   }
-  private static readonly Lazy<nint> _TimeoutSoundEffectOffset = new(() => Schema.GetOffset(0xE5C051B6F5AD0260), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutSoundEffectOffset = Schema.GetOffset(0xE5C051B6F5AD0260);
 
   public string TimeoutSoundEffect {
     get {
-      var ptr = _Handle.Read<nint>(_TimeoutSoundEffectOffset.Value);
+      var ptr = _Handle.Read<nint>(_TimeoutSoundEffectOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TimeoutSoundEffectOffset.Value, value);
+    set => Schema.SetString(_Handle, _TimeoutSoundEffectOffset, value);
   } 
-  private static readonly Lazy<nint> _TimeoutScriptFunctionOffset = new(() => Schema.GetOffset(0xE5C051B6E8BF2F2D), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutScriptFunctionOffset = Schema.GetOffset(0xE5C051B6E8BF2F2D);
 
   public string TimeoutScriptFunction {
     get {
-      var ptr = _Handle.Read<nint>(_TimeoutScriptFunctionOffset.Value);
+      var ptr = _Handle.Read<nint>(_TimeoutScriptFunctionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TimeoutScriptFunctionOffset.Value, value);
+    set => Schema.SetString(_Handle, _TimeoutScriptFunctionOffset, value);
   } 
-  private static readonly Lazy<nint> _PickupFilterNameOffset = new(() => Schema.GetOffset(0xE5C051B613C0B032), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupFilterNameOffset = Schema.GetOffset(0xE5C051B613C0B032);
 
   public string PickupFilterName {
     get {
-      var ptr = _Handle.Read<nint>(_PickupFilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PickupFilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PickupFilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PickupFilterNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PickupFilterOffset = new(() => Schema.GetOffset(0xE5C051B605240E41), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupFilterOffset = Schema.GetOffset(0xE5C051B605240E41);
 
   public ref CHandle<CBaseFilter> PickupFilter {
-    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_PickupFilterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_PickupFilterOffset);
   }
-  private static readonly Lazy<nint> _OnPickupOffset = new(() => Schema.GetOffset(0xE5C051B628BC1F6C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPickupOffset = Schema.GetOffset(0xE5C051B628BC1F6C);
 
   public CEntityIOOutput OnPickup {
-    get => new CEntityIOOutputImpl(_Handle + _OnPickupOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPickupOffset);
   }
-  private static readonly Lazy<nint> _OnTimeoutOffset = new(() => Schema.GetOffset(0xE5C051B6C5301603), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTimeoutOffset = Schema.GetOffset(0xE5C051B6C5301603);
 
   public CEntityIOOutput OnTimeout {
-    get => new CEntityIOOutputImpl(_Handle + _OnTimeoutOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTimeoutOffset);
   }
-  private static readonly Lazy<nint> _OnTriggerStartTouchOffset = new(() => Schema.GetOffset(0xE5C051B66E537987), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTriggerStartTouchOffset = Schema.GetOffset(0xE5C051B66E537987);
 
   public CEntityIOOutput OnTriggerStartTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnTriggerStartTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTriggerStartTouchOffset);
   }
-  private static readonly Lazy<nint> _OnTriggerTouchOffset = new(() => Schema.GetOffset(0xE5C051B63BCAE033), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTriggerTouchOffset = Schema.GetOffset(0xE5C051B63BCAE033);
 
   public CEntityIOOutput OnTriggerTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnTriggerTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTriggerTouchOffset);
   }
-  private static readonly Lazy<nint> _OnTriggerEndTouchOffset = new(() => Schema.GetOffset(0xE5C051B63DA3CB84), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTriggerEndTouchOffset = Schema.GetOffset(0xE5C051B63DA3CB84);
 
   public CEntityIOOutput OnTriggerEndTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnTriggerEndTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTriggerEndTouchOffset);
   }
-  private static readonly Lazy<nint> _AllowPickupScriptFunctionOffset = new(() => Schema.GetOffset(0xE5C051B6DC2DF75F), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowPickupScriptFunctionOffset = Schema.GetOffset(0xE5C051B6DC2DF75F);
 
   public string AllowPickupScriptFunction {
     get {
-      var ptr = _Handle.Read<nint>(_AllowPickupScriptFunctionOffset.Value);
+      var ptr = _Handle.Read<nint>(_AllowPickupScriptFunctionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AllowPickupScriptFunctionOffset.Value, value);
+    set => Schema.SetString(_Handle, _AllowPickupScriptFunctionOffset, value);
   } 
-  private static readonly Lazy<nint> _PickupRadiusOffset = new(() => Schema.GetOffset(0xE5C051B64EED9A9D), LazyThreadSafetyMode.None);
+  private static readonly nint _PickupRadiusOffset = Schema.GetOffset(0xE5C051B64EED9A9D);
 
   public ref float PickupRadius {
-    get => ref _Handle.AsRef<float>(_PickupRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_PickupRadiusOffset);
   }
-  private static readonly Lazy<nint> _TriggerRadiusOffset = new(() => Schema.GetOffset(0xE5C051B6051F7F0F), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerRadiusOffset = Schema.GetOffset(0xE5C051B6051F7F0F);
 
   public ref float TriggerRadius {
-    get => ref _Handle.AsRef<float>(_TriggerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_TriggerRadiusOffset);
   }
-  private static readonly Lazy<nint> _TriggerSoundEffectOffset = new(() => Schema.GetOffset(0xE5C051B67E4EA459), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerSoundEffectOffset = Schema.GetOffset(0xE5C051B67E4EA459);
 
   public string TriggerSoundEffect {
     get {
-      var ptr = _Handle.Read<nint>(_TriggerSoundEffectOffset.Value);
+      var ptr = _Handle.Read<nint>(_TriggerSoundEffectOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TriggerSoundEffectOffset.Value, value);
+    set => Schema.SetString(_Handle, _TriggerSoundEffectOffset, value);
   } 
-  private static readonly Lazy<nint> _GlowWhenInTriggerOffset = new(() => Schema.GetOffset(0xE5C051B6FCAD755D), LazyThreadSafetyMode.None);
+  private static readonly nint _GlowWhenInTriggerOffset = Schema.GetOffset(0xE5C051B6FCAD755D);
 
   public ref bool GlowWhenInTrigger {
-    get => ref _Handle.AsRef<bool>(_GlowWhenInTriggerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlowWhenInTriggerOffset);
   }
-  private static readonly Lazy<nint> _GlowColorOffset = new(() => Schema.GetOffset(0xE5C051B674A5EE03), LazyThreadSafetyMode.None);
+  private static readonly nint _GlowColorOffset = Schema.GetOffset(0xE5C051B674A5EE03);
 
   public ref Color GlowColor {
-    get => ref _Handle.AsRef<Color>(_GlowColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_GlowColorOffset);
   }
-  private static readonly Lazy<nint> _UseableOffset = new(() => Schema.GetOffset(0xE5C051B6E4DBE46C), LazyThreadSafetyMode.None);
+  private static readonly nint _UseableOffset = Schema.GetOffset(0xE5C051B6E4DBE46C);
 
   public ref bool Useable {
-    get => ref _Handle.AsRef<bool>(_UseableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseableOffset);
   }
-  private static readonly Lazy<nint> _TriggerHelperOffset = new(() => Schema.GetOffset(0xE5C051B62DCBD7A9), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerHelperOffset = Schema.GetOffset(0xE5C051B62DCBD7A9);
 
   public ref CHandle<CItemGenericTriggerHelper> TriggerHelper {
-    get => ref _Handle.AsRef<CHandle<CItemGenericTriggerHelper>>(_TriggerHelperOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CItemGenericTriggerHelper>>(_TriggerHelperOffset);
   }
 
 

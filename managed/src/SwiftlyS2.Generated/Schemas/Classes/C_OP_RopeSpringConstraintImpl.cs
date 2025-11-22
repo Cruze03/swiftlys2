@@ -17,30 +17,30 @@ internal partial class C_OP_RopeSpringConstraintImpl : CParticleFunctionConstrai
   public C_OP_RopeSpringConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RestLengthOffset = new(() => Schema.GetOffset(0x2CF6156393AC4079), LazyThreadSafetyMode.None);
+  private static readonly nint _RestLengthOffset = Schema.GetOffset(0x2CF6156393AC4079);
 
   public CParticleCollectionFloatInput RestLength {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RestLengthOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RestLengthOffset);
   }
-  private static readonly Lazy<nint> _MinDistanceOffset = new(() => Schema.GetOffset(0x2CF6156392BCAD06), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistanceOffset = Schema.GetOffset(0x2CF6156392BCAD06);
 
   public CParticleCollectionFloatInput MinDistance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MinDistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MinDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0x2CF6156398893360), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0x2CF6156398893360);
 
   public CParticleCollectionFloatInput MaxDistance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxDistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _AdjustmentScaleOffset = new(() => Schema.GetOffset(0x2CF61563A29D34AE), LazyThreadSafetyMode.None);
+  private static readonly nint _AdjustmentScaleOffset = Schema.GetOffset(0x2CF61563A29D34AE);
 
   public ref float AdjustmentScale {
-    get => ref _Handle.AsRef<float>(_AdjustmentScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AdjustmentScaleOffset);
   }
-  private static readonly Lazy<nint> _InitialRestingLengthOffset = new(() => Schema.GetOffset(0x2CF61563FE9273C1), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialRestingLengthOffset = Schema.GetOffset(0x2CF61563FE9273C1);
 
   public CParticleCollectionFloatInput InitialRestingLength {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InitialRestingLengthOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InitialRestingLengthOffset);
   }
 
 

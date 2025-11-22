@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmConstBoolNode__CDefinition : CNmBoolValueNode__CDefinition, ISchemaClass<CNmConstBoolNode__CDefinition> {
 
   static CNmConstBoolNode__CDefinition ISchemaClass<CNmConstBoolNode__CDefinition>.From(nint handle) => new CNmConstBoolNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmConstBoolNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmConstBoolNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmConstBoolNode__CDefinition>.ClassName => null;
 
   

@@ -17,30 +17,30 @@ internal partial class VPhysics2ShapeDef_tImpl : SchemaClass, VPhysics2ShapeDef_
   public VPhysics2ShapeDef_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpheresOffset = new(() => Schema.GetOffset(0xB5A68CEBBFDA8091), LazyThreadSafetyMode.None);
+  private static readonly nint _SpheresOffset = Schema.GetOffset(0xB5A68CEBBFDA8091);
 
   public ref CUtlVector<RnSphereDesc_t> Spheres {
-    get => ref _Handle.AsRef<CUtlVector<RnSphereDesc_t>>(_SpheresOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnSphereDesc_t>>(_SpheresOffset);
   }
-  private static readonly Lazy<nint> _CapsulesOffset = new(() => Schema.GetOffset(0xB5A68CEBF8737C4D), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsulesOffset = Schema.GetOffset(0xB5A68CEBF8737C4D);
 
   public ref CUtlVector<RnCapsuleDesc_t> Capsules {
-    get => ref _Handle.AsRef<CUtlVector<RnCapsuleDesc_t>>(_CapsulesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnCapsuleDesc_t>>(_CapsulesOffset);
   }
-  private static readonly Lazy<nint> _HullsOffset = new(() => Schema.GetOffset(0xB5A68CEB31F7453F), LazyThreadSafetyMode.None);
+  private static readonly nint _HullsOffset = Schema.GetOffset(0xB5A68CEB31F7453F);
 
   public ref CUtlVector<RnHullDesc_t> Hulls {
-    get => ref _Handle.AsRef<CUtlVector<RnHullDesc_t>>(_HullsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnHullDesc_t>>(_HullsOffset);
   }
-  private static readonly Lazy<nint> _MeshesOffset = new(() => Schema.GetOffset(0xB5A68CEBC0F01FD8), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshesOffset = Schema.GetOffset(0xB5A68CEBC0F01FD8);
 
   public ref CUtlVector<RnMeshDesc_t> Meshes {
-    get => ref _Handle.AsRef<CUtlVector<RnMeshDesc_t>>(_MeshesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnMeshDesc_t>>(_MeshesOffset);
   }
-  private static readonly Lazy<nint> _CollisionAttributeIndicesOffset = new(() => Schema.GetOffset(0xB5A68CEB86453EB2), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionAttributeIndicesOffset = Schema.GetOffset(0xB5A68CEB86453EB2);
 
   public ref CUtlVector<ushort> CollisionAttributeIndices {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_CollisionAttributeIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_CollisionAttributeIndicesOffset);
   }
 
 

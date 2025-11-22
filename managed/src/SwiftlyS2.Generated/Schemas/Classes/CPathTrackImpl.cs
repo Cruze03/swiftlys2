@@ -17,63 +17,63 @@ internal partial class CPathTrackImpl : CPointEntityImpl, CPathTrack {
   public CPathTrackImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PnextOffset = new(() => Schema.GetOffset(0xF86750E8B008D5EE), LazyThreadSafetyMode.None);
+  private static readonly nint _PnextOffset = Schema.GetOffset(0xF86750E8B008D5EE);
 
   public CPathTrack? Pnext {
     get {
-      var ptr = _Handle.Read<nint>(_PnextOffset.Value);
+      var ptr = _Handle.Read<nint>(_PnextOffset);
       return ptr.IsValidPtr() ? new CPathTrackImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PpreviousOffset = new(() => Schema.GetOffset(0xF86750E8BD38AFD2), LazyThreadSafetyMode.None);
+  private static readonly nint _PpreviousOffset = Schema.GetOffset(0xF86750E8BD38AFD2);
 
   public CPathTrack? Pprevious {
     get {
-      var ptr = _Handle.Read<nint>(_PpreviousOffset.Value);
+      var ptr = _Handle.Read<nint>(_PpreviousOffset);
       return ptr.IsValidPtr() ? new CPathTrackImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PaltpathOffset = new(() => Schema.GetOffset(0xF86750E868D10551), LazyThreadSafetyMode.None);
+  private static readonly nint _PaltpathOffset = Schema.GetOffset(0xF86750E868D10551);
 
   public CPathTrack? Paltpath {
     get {
-      var ptr = _Handle.Read<nint>(_PaltpathOffset.Value);
+      var ptr = _Handle.Read<nint>(_PaltpathOffset);
       return ptr.IsValidPtr() ? new CPathTrackImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xF86750E85ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xF86750E85ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _LengthOffset = new(() => Schema.GetOffset(0xF86750E83AFED1B5), LazyThreadSafetyMode.None);
+  private static readonly nint _LengthOffset = Schema.GetOffset(0xF86750E83AFED1B5);
 
   public ref float Length {
-    get => ref _Handle.AsRef<float>(_LengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LengthOffset);
   }
-  private static readonly Lazy<nint> _AltNameOffset = new(() => Schema.GetOffset(0xF86750E8501CA457), LazyThreadSafetyMode.None);
+  private static readonly nint _AltNameOffset = Schema.GetOffset(0xF86750E8501CA457);
 
   public string AltName {
     get {
-      var ptr = _Handle.Read<nint>(_AltNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AltNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AltNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AltNameOffset, value);
   } 
-  private static readonly Lazy<nint> _IterValOffset = new(() => Schema.GetOffset(0xF86750E808061552), LazyThreadSafetyMode.None);
+  private static readonly nint _IterValOffset = Schema.GetOffset(0xF86750E808061552);
 
   public ref int IterVal {
-    get => ref _Handle.AsRef<int>(_IterValOffset.Value);
+    get => ref _Handle.AsRef<int>(_IterValOffset);
   }
-  private static readonly Lazy<nint> _OrientationTypeOffset = new(() => Schema.GetOffset(0xF86750E8468ECE0A), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationTypeOffset = Schema.GetOffset(0xF86750E8468ECE0A);
 
   public ref TrackOrientationType_t OrientationType {
-    get => ref _Handle.AsRef<TrackOrientationType_t>(_OrientationTypeOffset.Value);
+    get => ref _Handle.AsRef<TrackOrientationType_t>(_OrientationTypeOffset);
   }
-  private static readonly Lazy<nint> _OnPassOffset = new(() => Schema.GetOffset(0xF86750E89B527249), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPassOffset = Schema.GetOffset(0xF86750E89B527249);
 
   public CEntityIOOutput OnPass {
-    get => new CEntityIOOutputImpl(_Handle + _OnPassOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPassOffset);
   }
 
 

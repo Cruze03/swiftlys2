@@ -17,30 +17,30 @@ internal partial class C_OP_ExternalGameImpulseForceImpl : CParticleFunctionForc
   public C_OP_ExternalGameImpulseForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceScaleOffset = new(() => Schema.GetOffset(0x9579EDD64817F390), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceScaleOffset = Schema.GetOffset(0x9579EDD64817F390);
 
   public CPerParticleFloatInput ForceScale {
-    get => new CPerParticleFloatInputImpl(_Handle + _ForceScaleOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ForceScaleOffset);
   }
-  private static readonly Lazy<nint> _RopesOffset = new(() => Schema.GetOffset(0x9579EDD63A651EDA), LazyThreadSafetyMode.None);
+  private static readonly nint _RopesOffset = Schema.GetOffset(0x9579EDD63A651EDA);
 
   public ref bool Ropes {
-    get => ref _Handle.AsRef<bool>(_RopesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RopesOffset);
   }
-  private static readonly Lazy<nint> _RopesZOnlyOffset = new(() => Schema.GetOffset(0x9579EDD686709BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _RopesZOnlyOffset = Schema.GetOffset(0x9579EDD686709BB2);
 
   public ref bool RopesZOnly {
-    get => ref _Handle.AsRef<bool>(_RopesZOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RopesZOnlyOffset);
   }
-  private static readonly Lazy<nint> _ExplosionsOffset = new(() => Schema.GetOffset(0x9579EDD64CD39BC9), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplosionsOffset = Schema.GetOffset(0x9579EDD64CD39BC9);
 
   public ref bool Explosions {
-    get => ref _Handle.AsRef<bool>(_ExplosionsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExplosionsOffset);
   }
-  private static readonly Lazy<nint> _ParticlesOffset = new(() => Schema.GetOffset(0x9579EDD6B287A104), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlesOffset = Schema.GetOffset(0x9579EDD6B287A104);
 
   public ref bool Particles {
-    get => ref _Handle.AsRef<bool>(_ParticlesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ParticlesOffset);
   }
 
 

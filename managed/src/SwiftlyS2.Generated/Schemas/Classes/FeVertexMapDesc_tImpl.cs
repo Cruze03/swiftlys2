@@ -17,69 +17,69 @@ internal partial class FeVertexMapDesc_tImpl : SchemaClass, FeVertexMapDesc_t {
   public FeVertexMapDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xD8EDB44626980769), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xD8EDB44626980769);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameHashOffset = new(() => Schema.GetOffset(0xD8EDB446BA4B2BDE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameHashOffset = Schema.GetOffset(0xD8EDB446BA4B2BDE);
 
   public ref uint NameHash {
-    get => ref _Handle.AsRef<uint>(_NameHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NameHashOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0xD8EDB44643AC69B4), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0xD8EDB44643AC69B4);
 
   public ref uint Color {
-    get => ref _Handle.AsRef<uint>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ColorOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xD8EDB446B8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xD8EDB446B8D52E48);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _VertexBaseOffset = new(() => Schema.GetOffset(0xD8EDB4462D00367E), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexBaseOffset = Schema.GetOffset(0xD8EDB4462D00367E);
 
   public ref ushort VertexBase {
-    get => ref _Handle.AsRef<ushort>(_VertexBaseOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexBaseOffset);
   }
-  private static readonly Lazy<nint> _VertexCountOffset = new(() => Schema.GetOffset(0xD8EDB44625B0F972), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexCountOffset = Schema.GetOffset(0xD8EDB44625B0F972);
 
   public ref ushort VertexCount {
-    get => ref _Handle.AsRef<ushort>(_VertexCountOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexCountOffset);
   }
-  private static readonly Lazy<nint> _MapOffsetOffset = new(() => Schema.GetOffset(0xD8EDB4463B93E882), LazyThreadSafetyMode.None);
+  private static readonly nint _MapOffsetOffset = Schema.GetOffset(0xD8EDB4463B93E882);
 
   public ref uint MapOffset {
-    get => ref _Handle.AsRef<uint>(_MapOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_MapOffsetOffset);
   }
-  private static readonly Lazy<nint> _NodeListOffsetOffset = new(() => Schema.GetOffset(0xD8EDB44655CAC7CA), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeListOffsetOffset = Schema.GetOffset(0xD8EDB44655CAC7CA);
 
   public ref uint NodeListOffset {
-    get => ref _Handle.AsRef<uint>(_NodeListOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NodeListOffsetOffset);
   }
-  private static readonly Lazy<nint> _CenterOfMassOffset = new(() => Schema.GetOffset(0xD8EDB4467DD919BD), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOfMassOffset = Schema.GetOffset(0xD8EDB4467DD919BD);
 
   public ref Vector CenterOfMass {
-    get => ref _Handle.AsRef<Vector>(_CenterOfMassOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CenterOfMassOffset);
   }
-  private static readonly Lazy<nint> _VolumetricSolveStrengthOffset = new(() => Schema.GetOffset(0xD8EDB446F787BED7), LazyThreadSafetyMode.None);
+  private static readonly nint _VolumetricSolveStrengthOffset = Schema.GetOffset(0xD8EDB446F787BED7);
 
   public ref float VolumetricSolveStrength {
-    get => ref _Handle.AsRef<float>(_VolumetricSolveStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_VolumetricSolveStrengthOffset);
   }
-  private static readonly Lazy<nint> _ScaleSourceNodeOffset = new(() => Schema.GetOffset(0xD8EDB446052CD004), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleSourceNodeOffset = Schema.GetOffset(0xD8EDB446052CD004);
 
   public ref short ScaleSourceNode {
-    get => ref _Handle.AsRef<short>(_ScaleSourceNodeOffset.Value);
+    get => ref _Handle.AsRef<short>(_ScaleSourceNodeOffset);
   }
-  private static readonly Lazy<nint> _NodeListCountOffset = new(() => Schema.GetOffset(0xD8EDB446CAB099F4), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeListCountOffset = Schema.GetOffset(0xD8EDB446CAB099F4);
 
   public ref ushort NodeListCount {
-    get => ref _Handle.AsRef<ushort>(_NodeListCountOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeListCountOffset);
   }
 
 

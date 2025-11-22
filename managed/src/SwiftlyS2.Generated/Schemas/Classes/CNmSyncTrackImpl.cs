@@ -17,15 +17,15 @@ internal partial class CNmSyncTrackImpl : SchemaClass, CNmSyncTrack {
   public CNmSyncTrackImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SyncEventsOffset = new(() => Schema.GetOffset(0x29C7FA0336BAB4FF), LazyThreadSafetyMode.None);
+  private static readonly nint _SyncEventsOffset = Schema.GetOffset(0x29C7FA0336BAB4FF);
 
   public SchemaUntypedField SyncEvents {
-    get => new SchemaUntypedField(_Handle + _SyncEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SyncEventsOffset);
   }
-  private static readonly Lazy<nint> _StartEventOffsetOffset = new(() => Schema.GetOffset(0x29C7FA03DDBC640E), LazyThreadSafetyMode.None);
+  private static readonly nint _StartEventOffsetOffset = Schema.GetOffset(0x29C7FA03DDBC640E);
 
   public ref int StartEventOffset {
-    get => ref _Handle.AsRef<int>(_StartEventOffsetOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartEventOffsetOffset);
   }
 
 

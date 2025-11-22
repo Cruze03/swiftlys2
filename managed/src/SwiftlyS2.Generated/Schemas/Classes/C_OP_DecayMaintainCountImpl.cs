@@ -17,44 +17,44 @@ internal partial class C_OP_DecayMaintainCountImpl : CParticleFunctionOperatorIm
   public C_OP_DecayMaintainCountImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParticlesToMaintainOffset = new(() => Schema.GetOffset(0x168E27F3537AE378), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlesToMaintainOffset = Schema.GetOffset(0x168E27F3537AE378);
 
   public ref int ParticlesToMaintain {
-    get => ref _Handle.AsRef<int>(_ParticlesToMaintainOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParticlesToMaintainOffset);
   }
-  private static readonly Lazy<nint> _DecayDelayOffset = new(() => Schema.GetOffset(0x168E27F38D6DD836), LazyThreadSafetyMode.None);
+  private static readonly nint _DecayDelayOffset = Schema.GetOffset(0x168E27F38D6DD836);
 
   public ref float DecayDelay {
-    get => ref _Handle.AsRef<float>(_DecayDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DecayDelayOffset);
   }
-  private static readonly Lazy<nint> _SnapshotControlPointOffset = new(() => Schema.GetOffset(0x168E27F3192638EC), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapshotControlPointOffset = Schema.GetOffset(0x168E27F3192638EC);
 
   public ref int SnapshotControlPoint {
-    get => ref _Handle.AsRef<int>(_SnapshotControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_SnapshotControlPointOffset);
   }
-  private static readonly Lazy<nint> _StrSnapshotSubsetOffset = new(() => Schema.GetOffset(0x168E27F3BD8A8E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _StrSnapshotSubsetOffset = Schema.GetOffset(0x168E27F3BD8A8E5E);
 
   public string StrSnapshotSubset {
     get {
-      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset, value);
   } 
-  private static readonly Lazy<nint> _LifespanDecayOffset = new(() => Schema.GetOffset(0x168E27F39642CC6B), LazyThreadSafetyMode.None);
+  private static readonly nint _LifespanDecayOffset = Schema.GetOffset(0x168E27F39642CC6B);
 
   public ref bool LifespanDecay {
-    get => ref _Handle.AsRef<bool>(_LifespanDecayOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LifespanDecayOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x168E27F3B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x168E27F3B731A42F);
 
   public CParticleCollectionFloatInput Scale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _KillNewestOffset = new(() => Schema.GetOffset(0x168E27F3B8EA2EC7), LazyThreadSafetyMode.None);
+  private static readonly nint _KillNewestOffset = Schema.GetOffset(0x168E27F3B8EA2EC7);
 
   public ref bool KillNewest {
-    get => ref _Handle.AsRef<bool>(_KillNewestOffset.Value);
+    get => ref _Handle.AsRef<bool>(_KillNewestOffset);
   }
 
 

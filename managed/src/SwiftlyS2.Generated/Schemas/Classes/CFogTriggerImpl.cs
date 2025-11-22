@@ -17,10 +17,10 @@ internal partial class CFogTriggerImpl : CBaseTriggerImpl, CFogTrigger {
   public CFogTriggerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FogOffset = new(() => Schema.GetOffset(0x18A9AE6A9014635F), LazyThreadSafetyMode.None);
+  private static readonly nint _FogOffset = Schema.GetOffset(0x18A9AE6A9014635F);
 
   public fogparams_t Fog {
-    get => new fogparams_tImpl(_Handle + _FogOffset.Value);
+    get => new fogparams_tImpl(_Handle + _FogOffset);
   }
 
 

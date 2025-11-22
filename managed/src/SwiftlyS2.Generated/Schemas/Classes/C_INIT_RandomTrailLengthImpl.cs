@@ -17,20 +17,20 @@ internal partial class C_INIT_RandomTrailLengthImpl : CParticleFunctionInitializ
   public C_INIT_RandomTrailLengthImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinLengthOffset = new(() => Schema.GetOffset(0x6418031B95FB8E51), LazyThreadSafetyMode.None);
+  private static readonly nint _MinLengthOffset = Schema.GetOffset(0x6418031B95FB8E51);
 
   public ref float MinLength {
-    get => ref _Handle.AsRef<float>(_MinLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinLengthOffset);
   }
-  private static readonly Lazy<nint> _MaxLengthOffset = new(() => Schema.GetOffset(0x6418031B87A8B4C7), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxLengthOffset = Schema.GetOffset(0x6418031B87A8B4C7);
 
   public ref float MaxLength {
-    get => ref _Handle.AsRef<float>(_MaxLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxLengthOffset);
   }
-  private static readonly Lazy<nint> _LengthRandExponentOffset = new(() => Schema.GetOffset(0x6418031B41B064A7), LazyThreadSafetyMode.None);
+  private static readonly nint _LengthRandExponentOffset = Schema.GetOffset(0x6418031B41B064A7);
 
   public ref float LengthRandExponent {
-    get => ref _Handle.AsRef<float>(_LengthRandExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_LengthRandExponentOffset);
   }
 
 

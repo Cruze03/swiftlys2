@@ -17,115 +17,115 @@ internal partial class CEnvLightProbeVolumeImpl : CBaseEntityImpl, CEnvLightProb
   public CEnvLightProbeVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_AmbientCubeOffset = new(() => Schema.GetOffset(0xA8F87EA5148FA944), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_AmbientCubeOffset = Schema.GetOffset(0xA8F87EA5148FA944);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_AmbientCube {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_AmbientCubeOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_AmbientCubeOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_SDFOffset = new(() => Schema.GetOffset(0xA8F87EA5B0D8BE62), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_SDFOffset = Schema.GetOffset(0xA8F87EA5B0D8BE62);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_SDF {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SDFOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SDFOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_SH2_DCOffset = new(() => Schema.GetOffset(0xA8F87EA5C9357F5E), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_SH2_DCOffset = Schema.GetOffset(0xA8F87EA5C9357F5E);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_SH2_DC {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_DCOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_DCOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_SH2_ROffset = new(() => Schema.GetOffset(0xA8F87EA50E80FF9F), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_SH2_ROffset = Schema.GetOffset(0xA8F87EA50E80FF9F);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_SH2_R {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_ROffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_ROffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_SH2_GOffset = new(() => Schema.GetOffset(0xA8F87EA5198110F0), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_SH2_GOffset = Schema.GetOffset(0xA8F87EA5198110F0);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_SH2_G {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_GOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_GOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeTexture_SH2_BOffset = new(() => Schema.GetOffset(0xA8F87EA51E8118CF), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeTexture_SH2_BOffset = Schema.GetOffset(0xA8F87EA51E8118CF);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeTexture_SH2_B {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_BOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeTexture_SH2_BOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeDirectLightIndicesTextureOffset = new(() => Schema.GetOffset(0xA8F87EA52251ACF2), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeDirectLightIndicesTextureOffset = Schema.GetOffset(0xA8F87EA52251ACF2);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeDirectLightIndicesTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightIndicesTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightIndicesTextureOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeDirectLightScalarsTextureOffset = new(() => Schema.GetOffset(0xA8F87EA5A463880E), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeDirectLightScalarsTextureOffset = Schema.GetOffset(0xA8F87EA5A463880E);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeDirectLightScalarsTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightScalarsTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightScalarsTextureOffset);
   }
-  private static readonly Lazy<nint> _Entity_hLightProbeDirectLightShadowsTextureOffset = new(() => Schema.GetOffset(0xA8F87EA594B00D56), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hLightProbeDirectLightShadowsTextureOffset = Schema.GetOffset(0xA8F87EA594B00D56);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hLightProbeDirectLightShadowsTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightShadowsTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hLightProbeDirectLightShadowsTextureOffset);
   }
-  private static readonly Lazy<nint> _Entity_vBoxMinsOffset = new(() => Schema.GetOffset(0xA8F87EA5D35AD599), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_vBoxMinsOffset = Schema.GetOffset(0xA8F87EA5D35AD599);
 
   public ref Vector Entity_vBoxMins {
-    get => ref _Handle.AsRef<Vector>(_Entity_vBoxMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_Entity_vBoxMinsOffset);
   }
-  private static readonly Lazy<nint> _Entity_vBoxMaxsOffset = new(() => Schema.GetOffset(0xA8F87EA57C83608B), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_vBoxMaxsOffset = Schema.GetOffset(0xA8F87EA57C83608B);
 
   public ref Vector Entity_vBoxMaxs {
-    get => ref _Handle.AsRef<Vector>(_Entity_vBoxMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_Entity_vBoxMaxsOffset);
   }
-  private static readonly Lazy<nint> _Entity_bMoveableOffset = new(() => Schema.GetOffset(0xA8F87EA554059592), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bMoveableOffset = Schema.GetOffset(0xA8F87EA554059592);
 
   public ref bool Entity_bMoveable {
-    get => ref _Handle.AsRef<bool>(_Entity_bMoveableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bMoveableOffset);
   }
-  private static readonly Lazy<nint> _Entity_nHandshakeOffset = new(() => Schema.GetOffset(0xA8F87EA5069A2774), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nHandshakeOffset = Schema.GetOffset(0xA8F87EA5069A2774);
 
   public ref int Entity_nHandshake {
-    get => ref _Handle.AsRef<int>(_Entity_nHandshakeOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nHandshakeOffset);
   }
-  private static readonly Lazy<nint> _Entity_nPriorityOffset = new(() => Schema.GetOffset(0xA8F87EA5BAACBFAB), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nPriorityOffset = Schema.GetOffset(0xA8F87EA5BAACBFAB);
 
   public ref int Entity_nPriority {
-    get => ref _Handle.AsRef<int>(_Entity_nPriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nPriorityOffset);
   }
-  private static readonly Lazy<nint> _Entity_bStartDisabledOffset = new(() => Schema.GetOffset(0xA8F87EA5D04F520D), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bStartDisabledOffset = Schema.GetOffset(0xA8F87EA5D04F520D);
 
   public ref bool Entity_bStartDisabled {
-    get => ref _Handle.AsRef<bool>(_Entity_bStartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bStartDisabledOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeSizeXOffset = new(() => Schema.GetOffset(0xA8F87EA59A840E10), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeSizeXOffset = Schema.GetOffset(0xA8F87EA59A840E10);
 
   public ref int Entity_nLightProbeSizeX {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeXOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeXOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeSizeYOffset = new(() => Schema.GetOffset(0xA8F87EA59B840FA3), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeSizeYOffset = Schema.GetOffset(0xA8F87EA59B840FA3);
 
   public ref int Entity_nLightProbeSizeY {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeYOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeYOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeSizeZOffset = new(() => Schema.GetOffset(0xA8F87EA59C841136), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeSizeZOffset = Schema.GetOffset(0xA8F87EA59C841136);
 
   public ref int Entity_nLightProbeSizeZ {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeZOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeSizeZOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeAtlasXOffset = new(() => Schema.GetOffset(0xA8F87EA553C9E610), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeAtlasXOffset = Schema.GetOffset(0xA8F87EA553C9E610);
 
   public ref int Entity_nLightProbeAtlasX {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasXOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasXOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeAtlasYOffset = new(() => Schema.GetOffset(0xA8F87EA554C9E7A3), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeAtlasYOffset = Schema.GetOffset(0xA8F87EA554C9E7A3);
 
   public ref int Entity_nLightProbeAtlasY {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasYOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasYOffset);
   }
-  private static readonly Lazy<nint> _Entity_nLightProbeAtlasZOffset = new(() => Schema.GetOffset(0xA8F87EA555C9E936), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nLightProbeAtlasZOffset = Schema.GetOffset(0xA8F87EA555C9E936);
 
   public ref int Entity_nLightProbeAtlasZ {
-    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasZOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nLightProbeAtlasZOffset);
   }
-  private static readonly Lazy<nint> _Entity_bEnabledOffset = new(() => Schema.GetOffset(0xA8F87EA5453FD9DC), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bEnabledOffset = Schema.GetOffset(0xA8F87EA5453FD9DC);
 
   public ref bool Entity_bEnabled {
-    get => ref _Handle.AsRef<bool>(_Entity_bEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bEnabledOffset);
   }
 
   public void Entity_hLightProbeTexture_AmbientCubeUpdated() {

@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNavWalkable : CPointEntity, ISchemaClass<CNavWalkable> {
 
   static CNavWalkable ISchemaClass<CNavWalkable>.From(nint handle) => new CNavWalkableImpl(handle);
-  static int ISchemaClass<CNavWalkable>.Size => 2008;
+  static int ISchemaClass<CNavWalkable>.Size => 1264;
   static string? ISchemaClass<CNavWalkable>.ClassName => "point_nav_walkable";
 
 

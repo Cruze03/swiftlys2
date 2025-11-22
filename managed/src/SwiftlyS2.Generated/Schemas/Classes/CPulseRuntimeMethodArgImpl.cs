@@ -17,24 +17,24 @@ internal partial class CPulseRuntimeMethodArgImpl : SchemaClass, CPulseRuntimeMe
   public CPulseRuntimeMethodArgImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xA8B175BCCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xA8B175BCCAE8A266);
 
   public SchemaUntypedField Name {
-    get => new SchemaUntypedField(_Handle + _NameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NameOffset);
   }
-  private static readonly Lazy<nint> _DescriptionOffset = new(() => Schema.GetOffset(0xA8B175BC678744E9), LazyThreadSafetyMode.None);
+  private static readonly nint _DescriptionOffset = Schema.GetOffset(0xA8B175BC678744E9);
 
   public string Description {
     get {
-      var ptr = _Handle.Read<nint>(_DescriptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_DescriptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DescriptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _DescriptionOffset, value);
   } 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0xA8B175BC8ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0xA8B175BC8ED6D5CD);
 
   public SchemaUntypedField Type {
-    get => new SchemaUntypedField(_Handle + _TypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TypeOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class WaterWheelFrictionScale_tImpl : SchemaClass, WaterWheelFr
   public WaterWheelFrictionScale_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FractionOfWheelSubmergedOffset = new(() => Schema.GetOffset(0x79315E8EF2D4C09B), LazyThreadSafetyMode.None);
+  private static readonly nint _FractionOfWheelSubmergedOffset = Schema.GetOffset(0x79315E8EF2D4C09B);
 
   public ref float FractionOfWheelSubmerged {
-    get => ref _Handle.AsRef<float>(_FractionOfWheelSubmergedOffset.Value);
+    get => ref _Handle.AsRef<float>(_FractionOfWheelSubmergedOffset);
   }
-  private static readonly Lazy<nint> _FrictionScaleOffset = new(() => Schema.GetOffset(0x79315E8ECB7D1875), LazyThreadSafetyMode.None);
+  private static readonly nint _FrictionScaleOffset = Schema.GetOffset(0x79315E8ECB7D1875);
 
   public ref float FrictionScale {
-    get => ref _Handle.AsRef<float>(_FrictionScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrictionScaleOffset);
   }
 
 

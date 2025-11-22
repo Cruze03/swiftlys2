@@ -17,20 +17,20 @@ internal partial class CStaticPoseCacheImpl : SchemaClass, CStaticPoseCache {
   public CStaticPoseCacheImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PosesOffset = new(() => Schema.GetOffset(0x2223EF1DB851C9F5), LazyThreadSafetyMode.None);
+  private static readonly nint _PosesOffset = Schema.GetOffset(0x2223EF1DB851C9F5);
 
   public ref CUtlVector<CCachedPose> Poses {
-    get => ref _Handle.AsRef<CUtlVector<CCachedPose>>(_PosesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CCachedPose>>(_PosesOffset);
   }
-  private static readonly Lazy<nint> _BoneCountOffset = new(() => Schema.GetOffset(0x2223EF1D71FE39A2), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneCountOffset = Schema.GetOffset(0x2223EF1D71FE39A2);
 
   public ref int BoneCount {
-    get => ref _Handle.AsRef<int>(_BoneCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneCountOffset);
   }
-  private static readonly Lazy<nint> _MorphCountOffset = new(() => Schema.GetOffset(0x2223EF1D32C62DD0), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphCountOffset = Schema.GetOffset(0x2223EF1D32C62DD0);
 
   public ref int MorphCount {
-    get => ref _Handle.AsRef<int>(_MorphCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_MorphCountOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class C_INIT_CheckParticleForWaterImpl : CParticleFunctionIniti
   public C_INIT_CheckParticleForWaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x6829046A5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x6829046A5ACFC08D);
 
   public CPerParticleFloatInput Radius {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x6829046AE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x6829046AE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputRemapOffset = new(() => Schema.GetOffset(0x6829046A1239396F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRemapOffset = Schema.GetOffset(0x6829046A1239396F);
 
   public CParticleRemapFloatInput OutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x6829046AFB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x6829046AFB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
 
 

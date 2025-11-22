@@ -17,10 +17,10 @@ internal partial class CSSDSMsg_EndFrameImpl : SchemaClass, CSSDSMsg_EndFrame {
   public CSSDSMsg_EndFrameImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ViewsOffset = new(() => Schema.GetOffset(0x6F265E19E9FEAC51), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewsOffset = Schema.GetOffset(0x6F265E19E9FEAC51);
 
   public ref CUtlVector<CSSDSEndFrameViewInfo> Views {
-    get => ref _Handle.AsRef<CUtlVector<CSSDSEndFrameViewInfo>>(_ViewsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSSDSEndFrameViewInfo>>(_ViewsOffset);
   }
 
 

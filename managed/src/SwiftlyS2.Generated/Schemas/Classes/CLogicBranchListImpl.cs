@@ -17,39 +17,39 @@ internal partial class CLogicBranchListImpl : CLogicalEntityImpl, CLogicBranchLi
   public CLogicBranchListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LogicBranchNamesOffset = new(() => Schema.GetOffset(0xB21E12B82C1677D7), LazyThreadSafetyMode.None);
+  private static readonly nint _LogicBranchNamesOffset = Schema.GetOffset(0xB21E12B82C1677D7);
 
   public string LogicBranchNames {
     get {
-      var ptr = _Handle.Read<nint>(_LogicBranchNamesOffset.Value);
+      var ptr = _Handle.Read<nint>(_LogicBranchNamesOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LogicBranchNamesOffset.Value, value);
+    set => Schema.SetString(_Handle, _LogicBranchNamesOffset, value);
   } 
-  private static readonly Lazy<nint> _LogicBranchListOffset = new(() => Schema.GetOffset(0xB21E12B8E4DEC285), LazyThreadSafetyMode.None);
+  private static readonly nint _LogicBranchListOffset = Schema.GetOffset(0xB21E12B8E4DEC285);
 
   public ref CUtlVector<CHandle<CBaseEntity>> LogicBranchList {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_LogicBranchListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_LogicBranchListOffset);
   }
-  private static readonly Lazy<nint> _LastStateOffset = new(() => Schema.GetOffset(0xB21E12B89A391AC5), LazyThreadSafetyMode.None);
+  private static readonly nint _LastStateOffset = Schema.GetOffset(0xB21E12B89A391AC5);
 
   public ref CLogicBranchList__LogicBranchListenerLastState_t LastState {
-    get => ref _Handle.AsRef<CLogicBranchList__LogicBranchListenerLastState_t>(_LastStateOffset.Value);
+    get => ref _Handle.AsRef<CLogicBranchList__LogicBranchListenerLastState_t>(_LastStateOffset);
   }
-  private static readonly Lazy<nint> _OnAllTrueOffset = new(() => Schema.GetOffset(0xB21E12B8419FFFAF), LazyThreadSafetyMode.None);
+  private static readonly nint _OnAllTrueOffset = Schema.GetOffset(0xB21E12B8419FFFAF);
 
   public CEntityIOOutput OnAllTrue {
-    get => new CEntityIOOutputImpl(_Handle + _OnAllTrueOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnAllTrueOffset);
   }
-  private static readonly Lazy<nint> _OnAllFalseOffset = new(() => Schema.GetOffset(0xB21E12B86EFCD332), LazyThreadSafetyMode.None);
+  private static readonly nint _OnAllFalseOffset = Schema.GetOffset(0xB21E12B86EFCD332);
 
   public CEntityIOOutput OnAllFalse {
-    get => new CEntityIOOutputImpl(_Handle + _OnAllFalseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnAllFalseOffset);
   }
-  private static readonly Lazy<nint> _OnMixedOffset = new(() => Schema.GetOffset(0xB21E12B8EBC72437), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMixedOffset = Schema.GetOffset(0xB21E12B8EBC72437);
 
   public CEntityIOOutput OnMixed {
-    get => new CEntityIOOutputImpl(_Handle + _OnMixedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMixedOffset);
   }
 
 

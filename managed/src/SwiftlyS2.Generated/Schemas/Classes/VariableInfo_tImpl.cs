@@ -17,39 +17,39 @@ internal partial class VariableInfo_tImpl : SchemaClass, VariableInfo_t {
   public VariableInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xED8F756E4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xED8F756E4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameTokenOffset = new(() => Schema.GetOffset(0xED8F756E9293FEF3), LazyThreadSafetyMode.None);
+  private static readonly nint _NameTokenOffset = Schema.GetOffset(0xED8F756E9293FEF3);
 
   public ref CUtlStringToken NameToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset);
   }
-  private static readonly Lazy<nint> _IndexOffset = new(() => Schema.GetOffset(0xED8F756EB73DBE67), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexOffset = Schema.GetOffset(0xED8F756EB73DBE67);
 
   public FuseVariableIndex_t Index {
-    get => new FuseVariableIndex_tImpl(_Handle + _IndexOffset.Value);
+    get => new FuseVariableIndex_tImpl(_Handle + _IndexOffset);
   }
-  private static readonly Lazy<nint> _NumComponentsOffset = new(() => Schema.GetOffset(0xED8F756EC5454F4B), LazyThreadSafetyMode.None);
+  private static readonly nint _NumComponentsOffset = Schema.GetOffset(0xED8F756EC5454F4B);
 
   public ref byte NumComponents {
-    get => ref _Handle.AsRef<byte>(_NumComponentsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_NumComponentsOffset);
   }
-  private static readonly Lazy<nint> _VarTypeOffset = new(() => Schema.GetOffset(0xED8F756E3AC34F99), LazyThreadSafetyMode.None);
+  private static readonly nint _VarTypeOffset = Schema.GetOffset(0xED8F756E3AC34F99);
 
   public ref FuseVariableType_t VarType {
-    get => ref _Handle.AsRef<FuseVariableType_t>(_VarTypeOffset.Value);
+    get => ref _Handle.AsRef<FuseVariableType_t>(_VarTypeOffset);
   }
-  private static readonly Lazy<nint> _AccessOffset = new(() => Schema.GetOffset(0xED8F756E73907152), LazyThreadSafetyMode.None);
+  private static readonly nint _AccessOffset = Schema.GetOffset(0xED8F756E73907152);
 
   public ref FuseVariableAccess_t Access {
-    get => ref _Handle.AsRef<FuseVariableAccess_t>(_AccessOffset.Value);
+    get => ref _Handle.AsRef<FuseVariableAccess_t>(_AccessOffset);
   }
 
 

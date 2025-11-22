@@ -17,15 +17,15 @@ internal partial class CPulseCell_Outflow_CycleShuffled__InstanceState_tImpl : S
   public CPulseCell_Outflow_CycleShuffled__InstanceState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ShuffleOffset = new(() => Schema.GetOffset(0xD33F67BD200E9ACE), LazyThreadSafetyMode.None);
+  private static readonly nint _ShuffleOffset = Schema.GetOffset(0xD33F67BD200E9ACE);
 
   public SchemaUntypedField Shuffle {
-    get => new SchemaUntypedField(_Handle + _ShuffleOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ShuffleOffset);
   }
-  private static readonly Lazy<nint> _NextShuffleOffset = new(() => Schema.GetOffset(0xD33F67BD741282A5), LazyThreadSafetyMode.None);
+  private static readonly nint _NextShuffleOffset = Schema.GetOffset(0xD33F67BD741282A5);
 
   public ref int NextShuffle {
-    get => ref _Handle.AsRef<int>(_NextShuffleOffset.Value);
+    get => ref _Handle.AsRef<int>(_NextShuffleOffset);
   }
 
 

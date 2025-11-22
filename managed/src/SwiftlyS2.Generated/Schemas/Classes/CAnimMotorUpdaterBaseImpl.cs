@@ -17,19 +17,19 @@ internal partial class CAnimMotorUpdaterBaseImpl : SchemaClass, CAnimMotorUpdate
   public CAnimMotorUpdaterBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x3FB6E1144D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x3FB6E1144D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _DefaultOffset = new(() => Schema.GetOffset(0x3FB6E11485F067BE), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultOffset = Schema.GetOffset(0x3FB6E11485F067BE);
 
   public ref bool Default {
-    get => ref _Handle.AsRef<bool>(_DefaultOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DefaultOffset);
   }
 
 

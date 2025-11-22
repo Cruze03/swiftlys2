@@ -17,53 +17,53 @@ internal partial class CPhysFixedImpl : CPhysConstraintImpl, CPhysFixed {
   public CPhysFixedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LinearFrequencyOffset = new(() => Schema.GetOffset(0x8E8A38382FE6B034), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearFrequencyOffset = Schema.GetOffset(0x8E8A38382FE6B034);
 
   public ref float LinearFrequency {
-    get => ref _Handle.AsRef<float>(_LinearFrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearFrequencyOffset);
   }
-  private static readonly Lazy<nint> _LinearDampingRatioOffset = new(() => Schema.GetOffset(0x8E8A383882438FAF), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearDampingRatioOffset = Schema.GetOffset(0x8E8A383882438FAF);
 
   public ref float LinearDampingRatio {
-    get => ref _Handle.AsRef<float>(_LinearDampingRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearDampingRatioOffset);
   }
-  private static readonly Lazy<nint> _AngularFrequencyOffset = new(() => Schema.GetOffset(0x8E8A383836D56C7B), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularFrequencyOffset = Schema.GetOffset(0x8E8A383836D56C7B);
 
   public ref float AngularFrequency {
-    get => ref _Handle.AsRef<float>(_AngularFrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularFrequencyOffset);
   }
-  private static readonly Lazy<nint> _AngularDampingRatioOffset = new(() => Schema.GetOffset(0x8E8A3838689E74E2), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularDampingRatioOffset = Schema.GetOffset(0x8E8A3838689E74E2);
 
   public ref float AngularDampingRatio {
-    get => ref _Handle.AsRef<float>(_AngularDampingRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularDampingRatioOffset);
   }
-  private static readonly Lazy<nint> _EnableLinearConstraintOffset = new(() => Schema.GetOffset(0x8E8A383868F4518C), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableLinearConstraintOffset = Schema.GetOffset(0x8E8A383868F4518C);
 
   public ref bool EnableLinearConstraint {
-    get => ref _Handle.AsRef<bool>(_EnableLinearConstraintOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableLinearConstraintOffset);
   }
-  private static readonly Lazy<nint> _EnableAngularConstraintOffset = new(() => Schema.GetOffset(0x8E8A3838F98A5C8B), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableAngularConstraintOffset = Schema.GetOffset(0x8E8A3838F98A5C8B);
 
   public ref bool EnableAngularConstraint {
-    get => ref _Handle.AsRef<bool>(_EnableAngularConstraintOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableAngularConstraintOffset);
   }
-  private static readonly Lazy<nint> _BoneName1Offset = new(() => Schema.GetOffset(0x8E8A3838EA2A0C6A), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneName1Offset = Schema.GetOffset(0x8E8A3838EA2A0C6A);
 
   public string BoneName1 {
     get {
-      var ptr = _Handle.Read<nint>(_BoneName1Offset.Value);
+      var ptr = _Handle.Read<nint>(_BoneName1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneName1Offset.Value, value);
+    set => Schema.SetString(_Handle, _BoneName1Offset, value);
   } 
-  private static readonly Lazy<nint> _BoneName2Offset = new(() => Schema.GetOffset(0x8E8A3838E92A0AD7), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneName2Offset = Schema.GetOffset(0x8E8A3838E92A0AD7);
 
   public string BoneName2 {
     get {
-      var ptr = _Handle.Read<nint>(_BoneName2Offset.Value);
+      var ptr = _Handle.Read<nint>(_BoneName2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneName2Offset.Value, value);
+    set => Schema.SetString(_Handle, _BoneName2Offset, value);
   } 
 
 

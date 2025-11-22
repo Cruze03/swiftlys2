@@ -17,20 +17,20 @@ internal partial class FeBuildTaperedCapsuleRigid_tImpl : FeTaperedCapsuleRigid_
   public FeBuildTaperedCapsuleRigid_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0x444BEEFEE7EFB335), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0x444BEEFEE7EFB335);
 
   public ref int Priority {
-    get => ref _Handle.AsRef<int>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_PriorityOffset);
   }
-  private static readonly Lazy<nint> _VertexMapHashOffset = new(() => Schema.GetOffset(0x444BEEFE06BCA0A3), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexMapHashOffset = Schema.GetOffset(0x444BEEFE06BCA0A3);
 
   public ref uint VertexMapHash {
-    get => ref _Handle.AsRef<uint>(_VertexMapHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VertexMapHashOffset);
   }
-  private static readonly Lazy<nint> _AntitunnelGroupBitsOffset = new(() => Schema.GetOffset(0x444BEEFEA5C6E91A), LazyThreadSafetyMode.None);
+  private static readonly nint _AntitunnelGroupBitsOffset = Schema.GetOffset(0x444BEEFEA5C6E91A);
 
   public ref uint AntitunnelGroupBits {
-    get => ref _Handle.AsRef<uint>(_AntitunnelGroupBitsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_AntitunnelGroupBitsOffset);
   }
 
 

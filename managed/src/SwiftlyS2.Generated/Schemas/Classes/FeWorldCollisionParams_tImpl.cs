@@ -17,25 +17,25 @@ internal partial class FeWorldCollisionParams_tImpl : SchemaClass, FeWorldCollis
   public FeWorldCollisionParams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WorldFrictionOffset = new(() => Schema.GetOffset(0x85D16E65E1266C23), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldFrictionOffset = Schema.GetOffset(0x85D16E65E1266C23);
 
   public ref float WorldFriction {
-    get => ref _Handle.AsRef<float>(_WorldFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_WorldFrictionOffset);
   }
-  private static readonly Lazy<nint> _GroundFrictionOffset = new(() => Schema.GetOffset(0x85D16E652D394B72), LazyThreadSafetyMode.None);
+  private static readonly nint _GroundFrictionOffset = Schema.GetOffset(0x85D16E652D394B72);
 
   public ref float GroundFriction {
-    get => ref _Handle.AsRef<float>(_GroundFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_GroundFrictionOffset);
   }
-  private static readonly Lazy<nint> _ListBeginOffset = new(() => Schema.GetOffset(0x85D16E650BA98846), LazyThreadSafetyMode.None);
+  private static readonly nint _ListBeginOffset = Schema.GetOffset(0x85D16E650BA98846);
 
   public ref ushort ListBegin {
-    get => ref _Handle.AsRef<ushort>(_ListBeginOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ListBeginOffset);
   }
-  private static readonly Lazy<nint> _ListEndOffset = new(() => Schema.GetOffset(0x85D16E658683DD62), LazyThreadSafetyMode.None);
+  private static readonly nint _ListEndOffset = Schema.GetOffset(0x85D16E658683DD62);
 
   public ref ushort ListEnd {
-    get => ref _Handle.AsRef<ushort>(_ListEndOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ListEndOffset);
   }
 
 

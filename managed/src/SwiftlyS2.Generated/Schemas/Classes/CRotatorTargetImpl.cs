@@ -17,15 +17,15 @@ internal partial class CRotatorTargetImpl : CPointEntityImpl, CRotatorTarget {
   public CRotatorTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnArrivedAtOffset = new(() => Schema.GetOffset(0x448D6B2611C20554), LazyThreadSafetyMode.None);
+  private static readonly nint _OnArrivedAtOffset = Schema.GetOffset(0x448D6B2611C20554);
 
   public CEntityIOOutput OnArrivedAt {
-    get => new CEntityIOOutputImpl(_Handle + _OnArrivedAtOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnArrivedAtOffset);
   }
-  private static readonly Lazy<nint> _SpaceOffset = new(() => Schema.GetOffset(0x448D6B26A8FD0676), LazyThreadSafetyMode.None);
+  private static readonly nint _SpaceOffset = Schema.GetOffset(0x448D6B26A8FD0676);
 
   public ref RotatorTargetSpace_t Space {
-    get => ref _Handle.AsRef<RotatorTargetSpace_t>(_SpaceOffset.Value);
+    get => ref _Handle.AsRef<RotatorTargetSpace_t>(_SpaceOffset);
   }
 
 

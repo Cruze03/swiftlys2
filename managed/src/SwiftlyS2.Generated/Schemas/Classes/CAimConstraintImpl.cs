@@ -17,15 +17,15 @@ internal partial class CAimConstraintImpl : CBaseConstraintImpl, CAimConstraint 
   public CAimConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AimOffsetOffset = new(() => Schema.GetOffset(0x6C67AB6C43737FEA), LazyThreadSafetyMode.None);
+  private static readonly nint _AimOffsetOffset = Schema.GetOffset(0x6C67AB6C43737FEA);
 
   public ref Quaternion AimOffset {
-    get => ref _Handle.AsRef<Quaternion>(_AimOffsetOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_AimOffsetOffset);
   }
-  private static readonly Lazy<nint> _UpTypeOffset = new(() => Schema.GetOffset(0x6C67AB6C038EA2BC), LazyThreadSafetyMode.None);
+  private static readonly nint _UpTypeOffset = Schema.GetOffset(0x6C67AB6C038EA2BC);
 
   public ref uint UpType {
-    get => ref _Handle.AsRef<uint>(_UpTypeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_UpTypeOffset);
   }
 
 

@@ -17,43 +17,43 @@ internal partial class CBasePlayerWeaponImpl : CEconEntityImpl, CBasePlayerWeapo
   public CBasePlayerWeaponImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NextPrimaryAttackTickOffset = new(() => Schema.GetOffset(0x4174B75E11BA24E3), LazyThreadSafetyMode.None);
+  private static readonly nint _NextPrimaryAttackTickOffset = Schema.GetOffset(0x4174B75E11BA24E3);
 
   public GameTick_t NextPrimaryAttackTick {
-    get => new GameTick_tImpl(_Handle + _NextPrimaryAttackTickOffset.Value);
+    get => new GameTick_tImpl(_Handle + _NextPrimaryAttackTickOffset);
   }
-  private static readonly Lazy<nint> _NextPrimaryAttackTickRatioOffset = new(() => Schema.GetOffset(0x4174B75E0D9A9E18), LazyThreadSafetyMode.None);
+  private static readonly nint _NextPrimaryAttackTickRatioOffset = Schema.GetOffset(0x4174B75E0D9A9E18);
 
   public ref float NextPrimaryAttackTickRatio {
-    get => ref _Handle.AsRef<float>(_NextPrimaryAttackTickRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_NextPrimaryAttackTickRatioOffset);
   }
-  private static readonly Lazy<nint> _NextSecondaryAttackTickOffset = new(() => Schema.GetOffset(0x4174B75EDE66C257), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSecondaryAttackTickOffset = Schema.GetOffset(0x4174B75EDE66C257);
 
   public GameTick_t NextSecondaryAttackTick {
-    get => new GameTick_tImpl(_Handle + _NextSecondaryAttackTickOffset.Value);
+    get => new GameTick_tImpl(_Handle + _NextSecondaryAttackTickOffset);
   }
-  private static readonly Lazy<nint> _NextSecondaryAttackTickRatioOffset = new(() => Schema.GetOffset(0x4174B75EF3E6AF88), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSecondaryAttackTickRatioOffset = Schema.GetOffset(0x4174B75EF3E6AF88);
 
   public ref float NextSecondaryAttackTickRatio {
-    get => ref _Handle.AsRef<float>(_NextSecondaryAttackTickRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_NextSecondaryAttackTickRatioOffset);
   }
-  private static readonly Lazy<nint> _Clip1Offset = new(() => Schema.GetOffset(0x4174B75ED0250969), LazyThreadSafetyMode.None);
+  private static readonly nint _Clip1Offset = Schema.GetOffset(0x4174B75ED0250969);
 
   public ref int Clip1 {
-    get => ref _Handle.AsRef<int>(_Clip1Offset.Value);
+    get => ref _Handle.AsRef<int>(_Clip1Offset);
   }
-  private static readonly Lazy<nint> _Clip2Offset = new(() => Schema.GetOffset(0x4174B75ECD2504B0), LazyThreadSafetyMode.None);
+  private static readonly nint _Clip2Offset = Schema.GetOffset(0x4174B75ECD2504B0);
 
   public ref int Clip2 {
-    get => ref _Handle.AsRef<int>(_Clip2Offset.Value);
+    get => ref _Handle.AsRef<int>(_Clip2Offset);
   }
   public ISchemaFixedArray<int> ReserveAmmo {
     get => new SchemaFixedArray<int>(_Handle, 0x4174B75EB3FEBB0B, 2, 4, 4);
   }
-  private static readonly Lazy<nint> _OnPlayerUseOffset = new(() => Schema.GetOffset(0x4174B75E611C9A14), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerUseOffset = Schema.GetOffset(0x4174B75E611C9A14);
 
   public CEntityIOOutput OnPlayerUse {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerUseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerUseOffset);
   }
 
   public void NextPrimaryAttackTickUpdated() {

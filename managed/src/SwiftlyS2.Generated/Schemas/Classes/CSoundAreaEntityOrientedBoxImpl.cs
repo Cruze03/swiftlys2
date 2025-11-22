@@ -17,15 +17,15 @@ internal partial class CSoundAreaEntityOrientedBoxImpl : CSoundAreaEntityBaseImp
   public CSoundAreaEntityOrientedBoxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x5D327060F4B0AA63), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x5D327060F4B0AA63);
 
   public ref Vector Min {
-    get => ref _Handle.AsRef<Vector>(_MinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x5D327060EAC4225D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x5D327060EAC4225D);
 
   public ref Vector Max {
-    get => ref _Handle.AsRef<Vector>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxOffset);
   }
 
   public void MinUpdated() {

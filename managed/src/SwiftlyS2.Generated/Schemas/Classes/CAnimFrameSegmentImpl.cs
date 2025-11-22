@@ -17,25 +17,25 @@ internal partial class CAnimFrameSegmentImpl : SchemaClass, CAnimFrameSegment {
   public CAnimFrameSegmentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UniqueFrameIndexOffset = new(() => Schema.GetOffset(0x1D6E27D17D02E339), LazyThreadSafetyMode.None);
+  private static readonly nint _UniqueFrameIndexOffset = Schema.GetOffset(0x1D6E27D17D02E339);
 
   public ref int UniqueFrameIndex {
-    get => ref _Handle.AsRef<int>(_UniqueFrameIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_UniqueFrameIndexOffset);
   }
-  private static readonly Lazy<nint> _LocalElementMasksOffset = new(() => Schema.GetOffset(0x1D6E27D16981357D), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalElementMasksOffset = Schema.GetOffset(0x1D6E27D16981357D);
 
   public ref uint LocalElementMasks {
-    get => ref _Handle.AsRef<uint>(_LocalElementMasksOffset.Value);
+    get => ref _Handle.AsRef<uint>(_LocalElementMasksOffset);
   }
-  private static readonly Lazy<nint> _LocalChannelOffset = new(() => Schema.GetOffset(0x1D6E27D10BCF9E77), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalChannelOffset = Schema.GetOffset(0x1D6E27D10BCF9E77);
 
   public ref int LocalChannel {
-    get => ref _Handle.AsRef<int>(_LocalChannelOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalChannelOffset);
   }
-  private static readonly Lazy<nint> _ContainerOffset = new(() => Schema.GetOffset(0x1D6E27D13F54D498), LazyThreadSafetyMode.None);
+  private static readonly nint _ContainerOffset = Schema.GetOffset(0x1D6E27D13F54D498);
 
   public ref CUtlBinaryBlock Container {
-    get => ref _Handle.AsRef<CUtlBinaryBlock>(_ContainerOffset.Value);
+    get => ref _Handle.AsRef<CUtlBinaryBlock>(_ContainerOffset);
   }
 
 

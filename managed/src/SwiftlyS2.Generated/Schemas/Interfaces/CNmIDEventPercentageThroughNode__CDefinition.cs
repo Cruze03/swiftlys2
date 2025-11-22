@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmIDEventPercentageThroughNode__CDefinition : CNmBoolValueNode__CDefinition, ISchemaClass<CNmIDEventPercentageThroughNode__CDefinition> {
 
   static CNmIDEventPercentageThroughNode__CDefinition ISchemaClass<CNmIDEventPercentageThroughNode__CDefinition>.From(nint handle) => new CNmIDEventPercentageThroughNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmIDEventPercentageThroughNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmIDEventPercentageThroughNode__CDefinition>.Size => 32;
   static string? ISchemaClass<CNmIDEventPercentageThroughNode__CDefinition>.ClassName => null;
 
   

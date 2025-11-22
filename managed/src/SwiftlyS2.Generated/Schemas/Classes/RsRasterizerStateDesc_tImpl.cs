@@ -17,40 +17,40 @@ internal partial class RsRasterizerStateDesc_tImpl : SchemaClass, RsRasterizerSt
   public RsRasterizerStateDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FillModeOffset = new(() => Schema.GetOffset(0x9C50E9DEFBCF0B4F), LazyThreadSafetyMode.None);
+  private static readonly nint _FillModeOffset = Schema.GetOffset(0x9C50E9DEFBCF0B4F);
 
   public ref RsFillMode_t FillMode {
-    get => ref _Handle.AsRef<RsFillMode_t>(_FillModeOffset.Value);
+    get => ref _Handle.AsRef<RsFillMode_t>(_FillModeOffset);
   }
-  private static readonly Lazy<nint> _CullModeOffset = new(() => Schema.GetOffset(0x9C50E9DE9B5ACDB6), LazyThreadSafetyMode.None);
+  private static readonly nint _CullModeOffset = Schema.GetOffset(0x9C50E9DE9B5ACDB6);
 
   public ref RsCullMode_t CullMode {
-    get => ref _Handle.AsRef<RsCullMode_t>(_CullModeOffset.Value);
+    get => ref _Handle.AsRef<RsCullMode_t>(_CullModeOffset);
   }
-  private static readonly Lazy<nint> _DepthClipEnableOffset = new(() => Schema.GetOffset(0x9C50E9DED003B21B), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthClipEnableOffset = Schema.GetOffset(0x9C50E9DED003B21B);
 
   public ref bool DepthClipEnable {
-    get => ref _Handle.AsRef<bool>(_DepthClipEnableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DepthClipEnableOffset);
   }
-  private static readonly Lazy<nint> _MultisampleEnableOffset = new(() => Schema.GetOffset(0x9C50E9DEA3D615E7), LazyThreadSafetyMode.None);
+  private static readonly nint _MultisampleEnableOffset = Schema.GetOffset(0x9C50E9DEA3D615E7);
 
   public ref bool MultisampleEnable {
-    get => ref _Handle.AsRef<bool>(_MultisampleEnableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MultisampleEnableOffset);
   }
-  private static readonly Lazy<nint> _DepthBiasOffset = new(() => Schema.GetOffset(0x9C50E9DE7042005B), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthBiasOffset = Schema.GetOffset(0x9C50E9DE7042005B);
 
   public ref int DepthBias {
-    get => ref _Handle.AsRef<int>(_DepthBiasOffset.Value);
+    get => ref _Handle.AsRef<int>(_DepthBiasOffset);
   }
-  private static readonly Lazy<nint> _DepthBiasClampOffset = new(() => Schema.GetOffset(0x9C50E9DEA541A904), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthBiasClampOffset = Schema.GetOffset(0x9C50E9DEA541A904);
 
   public ref float DepthBiasClamp {
-    get => ref _Handle.AsRef<float>(_DepthBiasClampOffset.Value);
+    get => ref _Handle.AsRef<float>(_DepthBiasClampOffset);
   }
-  private static readonly Lazy<nint> _SlopeScaledDepthBiasOffset = new(() => Schema.GetOffset(0x9C50E9DE4E34B6FC), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeScaledDepthBiasOffset = Schema.GetOffset(0x9C50E9DE4E34B6FC);
 
   public ref float SlopeScaledDepthBias {
-    get => ref _Handle.AsRef<float>(_SlopeScaledDepthBiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_SlopeScaledDepthBiasOffset);
   }
 
 

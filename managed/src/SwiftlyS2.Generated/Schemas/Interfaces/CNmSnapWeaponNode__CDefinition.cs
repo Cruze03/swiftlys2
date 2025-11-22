@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmSnapWeaponNode__CDefinition : CNmPassthroughNode__CDefinition, ISchemaClass<CNmSnapWeaponNode__CDefinition> {
 
   static CNmSnapWeaponNode__CDefinition ISchemaClass<CNmSnapWeaponNode__CDefinition>.From(nint handle) => new CNmSnapWeaponNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmSnapWeaponNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmSnapWeaponNode__CDefinition>.Size => 32;
   static string? ISchemaClass<CNmSnapWeaponNode__CDefinition>.ClassName => null;
 
   

@@ -17,25 +17,25 @@ internal partial class MaterialOverride_tImpl : BaseSceneObjectOverride_tImpl, M
   public MaterialOverride_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SubSceneObjectOffset = new(() => Schema.GetOffset(0xFB7BFECB55C3CCBC), LazyThreadSafetyMode.None);
+  private static readonly nint _SubSceneObjectOffset = Schema.GetOffset(0xFB7BFECB55C3CCBC);
 
   public ref uint SubSceneObject {
-    get => ref _Handle.AsRef<uint>(_SubSceneObjectOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SubSceneObjectOffset);
   }
-  private static readonly Lazy<nint> _DrawCallIndexOffset = new(() => Schema.GetOffset(0xFB7BFECBFA5614D5), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawCallIndexOffset = Schema.GetOffset(0xFB7BFECBFA5614D5);
 
   public ref uint DrawCallIndex {
-    get => ref _Handle.AsRef<uint>(_DrawCallIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_DrawCallIndexOffset);
   }
-  private static readonly Lazy<nint> _MaterialOffset = new(() => Schema.GetOffset(0xFB7BFECB972B1076), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOffset = Schema.GetOffset(0xFB7BFECB972B1076);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset);
   }
-  private static readonly Lazy<nint> _LinearTintColorOffset = new(() => Schema.GetOffset(0xFB7BFECB6901D28C), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearTintColorOffset = Schema.GetOffset(0xFB7BFECB6901D28C);
 
   public ref Vector LinearTintColor {
-    get => ref _Handle.AsRef<Vector>(_LinearTintColorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearTintColorOffset);
   }
 
 

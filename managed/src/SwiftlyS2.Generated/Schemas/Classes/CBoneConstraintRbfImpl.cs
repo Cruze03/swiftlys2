@@ -17,15 +17,15 @@ internal partial class CBoneConstraintRbfImpl : CBoneConstraintBaseImpl, CBoneCo
   public CBoneConstraintRbfImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputBonesOffset = new(() => Schema.GetOffset(0x45CB33BF83336B6E), LazyThreadSafetyMode.None);
+  private static readonly nint _InputBonesOffset = Schema.GetOffset(0x45CB33BF83336B6E);
 
   public ref CUtlVector<SchemaUntypedField> InputBones {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_InputBonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_InputBonesOffset);
   }
-  private static readonly Lazy<nint> _OutputBonesOffset = new(() => Schema.GetOffset(0x45CB33BF84D3A41B), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputBonesOffset = Schema.GetOffset(0x45CB33BF84D3A41B);
 
   public ref CUtlVector<SchemaUntypedField> OutputBones {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_OutputBonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_OutputBonesOffset);
   }
 
 

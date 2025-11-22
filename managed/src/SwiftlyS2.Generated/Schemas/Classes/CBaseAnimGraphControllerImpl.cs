@@ -17,115 +17,115 @@ internal partial class CBaseAnimGraphControllerImpl : CSkeletonAnimationControll
   public CBaseAnimGraphControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnimGraphNetworkedVarsOffset = new(() => Schema.GetOffset(0xFA1FB81EA83A7C39), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimGraphNetworkedVarsOffset = Schema.GetOffset(0xFA1FB81EA83A7C39);
 
   public CAnimGraphNetworkedVariables AnimGraphNetworkedVars {
-    get => new CAnimGraphNetworkedVariablesImpl(_Handle + _AnimGraphNetworkedVarsOffset.Value);
+    get => new CAnimGraphNetworkedVariablesImpl(_Handle + _AnimGraphNetworkedVarsOffset);
   }
-  private static readonly Lazy<nint> _SequenceFinishedOffset = new(() => Schema.GetOffset(0xFA1FB81E5DB8EB16), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceFinishedOffset = Schema.GetOffset(0xFA1FB81E5DB8EB16);
 
   public ref bool SequenceFinished {
-    get => ref _Handle.AsRef<bool>(_SequenceFinishedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SequenceFinishedOffset);
   }
-  private static readonly Lazy<nint> _SoundSyncTimeOffset = new(() => Schema.GetOffset(0xFA1FB81EE52B5EB4), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundSyncTimeOffset = Schema.GetOffset(0xFA1FB81EE52B5EB4);
 
   public ref float SoundSyncTime {
-    get => ref _Handle.AsRef<float>(_SoundSyncTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SoundSyncTimeOffset);
   }
-  private static readonly Lazy<nint> _ActiveIKChainMaskOffset = new(() => Schema.GetOffset(0xFA1FB81E070EB774), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveIKChainMaskOffset = Schema.GetOffset(0xFA1FB81E070EB774);
 
   public ref uint ActiveIKChainMask {
-    get => ref _Handle.AsRef<uint>(_ActiveIKChainMaskOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ActiveIKChainMaskOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0xFA1FB81EE0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0xFA1FB81EE0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _SeqStartTimeOffset = new(() => Schema.GetOffset(0xFA1FB81E9120356F), LazyThreadSafetyMode.None);
+  private static readonly nint _SeqStartTimeOffset = Schema.GetOffset(0xFA1FB81E9120356F);
 
   public GameTime_t SeqStartTime {
-    get => new GameTime_tImpl(_Handle + _SeqStartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _SeqStartTimeOffset);
   }
-  private static readonly Lazy<nint> _SeqFixedCycleOffset = new(() => Schema.GetOffset(0xFA1FB81E77103EAE), LazyThreadSafetyMode.None);
+  private static readonly nint _SeqFixedCycleOffset = Schema.GetOffset(0xFA1FB81E77103EAE);
 
   public ref float SeqFixedCycle {
-    get => ref _Handle.AsRef<float>(_SeqFixedCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_SeqFixedCycleOffset);
   }
-  private static readonly Lazy<nint> _AnimLoopModeOffset = new(() => Schema.GetOffset(0xFA1FB81E9C9688D9), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimLoopModeOffset = Schema.GetOffset(0xFA1FB81E9C9688D9);
 
   public ref AnimLoopMode_t AnimLoopMode {
-    get => ref _Handle.AsRef<AnimLoopMode_t>(_AnimLoopModeOffset.Value);
+    get => ref _Handle.AsRef<AnimLoopMode_t>(_AnimLoopModeOffset);
   }
-  private static readonly Lazy<nint> _PlaybackRateOffset = new(() => Schema.GetOffset(0xFA1FB81EC396F9D8), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackRateOffset = Schema.GetOffset(0xFA1FB81EC396F9D8);
 
   public ref CNetworkedQuantizedFloat PlaybackRate {
-    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_PlaybackRateOffset.Value);
+    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_PlaybackRateOffset);
   }
-  private static readonly Lazy<nint> _NotifyStateOffset = new(() => Schema.GetOffset(0xFA1FB81EEEDBFC3D), LazyThreadSafetyMode.None);
+  private static readonly nint _NotifyStateOffset = Schema.GetOffset(0xFA1FB81EEEDBFC3D);
 
   public ref SequenceFinishNotifyState_t NotifyState {
-    get => ref _Handle.AsRef<SequenceFinishNotifyState_t>(_NotifyStateOffset.Value);
+    get => ref _Handle.AsRef<SequenceFinishNotifyState_t>(_NotifyStateOffset);
   }
-  private static readonly Lazy<nint> _NetworkedAnimationInputsChangedOffset = new(() => Schema.GetOffset(0xFA1FB81E97092075), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkedAnimationInputsChangedOffset = Schema.GetOffset(0xFA1FB81E97092075);
 
   public ref bool NetworkedAnimationInputsChanged {
-    get => ref _Handle.AsRef<bool>(_NetworkedAnimationInputsChangedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NetworkedAnimationInputsChangedOffset);
   }
-  private static readonly Lazy<nint> _NetworkedSequenceChangedOffset = new(() => Schema.GetOffset(0xFA1FB81E9A05208F), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkedSequenceChangedOffset = Schema.GetOffset(0xFA1FB81E9A05208F);
 
   public ref bool NetworkedSequenceChanged {
-    get => ref _Handle.AsRef<bool>(_NetworkedSequenceChangedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NetworkedSequenceChangedOffset);
   }
-  private static readonly Lazy<nint> _LastUpdateSkippedOffset = new(() => Schema.GetOffset(0xFA1FB81E53472D94), LazyThreadSafetyMode.None);
+  private static readonly nint _LastUpdateSkippedOffset = Schema.GetOffset(0xFA1FB81E53472D94);
 
   public ref bool LastUpdateSkipped {
-    get => ref _Handle.AsRef<bool>(_LastUpdateSkippedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LastUpdateSkippedOffset);
   }
-  private static readonly Lazy<nint> _PrevAnimUpdateTimeOffset = new(() => Schema.GetOffset(0xFA1FB81E724643D3), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevAnimUpdateTimeOffset = Schema.GetOffset(0xFA1FB81E724643D3);
 
   public GameTime_t PrevAnimUpdateTime {
-    get => new GameTime_tImpl(_Handle + _PrevAnimUpdateTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _PrevAnimUpdateTimeOffset);
   }
-  private static readonly Lazy<nint> _GraphDefinitionAG2Offset = new(() => Schema.GetOffset(0xFA1FB81EBE14922A), LazyThreadSafetyMode.None);
+  private static readonly nint _GraphDefinitionAG2Offset = Schema.GetOffset(0xFA1FB81EBE14922A);
 
   public ref CStrongHandle<InfoForResourceTypeCNmGraphDefinition> GraphDefinitionAG2 {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmGraphDefinition>>(_GraphDefinitionAG2Offset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmGraphDefinition>>(_GraphDefinitionAG2Offset);
   }
-  private static readonly Lazy<nint> _IsUsingAG2Offset = new(() => Schema.GetOffset(0xFA1FB81EB54DDF17), LazyThreadSafetyMode.None);
+  private static readonly nint _IsUsingAG2Offset = Schema.GetOffset(0xFA1FB81EB54DDF17);
 
   public ref bool IsUsingAG2 {
-    get => ref _Handle.AsRef<bool>(_IsUsingAG2Offset.Value);
+    get => ref _Handle.AsRef<bool>(_IsUsingAG2Offset);
   }
-  private static readonly Lazy<nint> _SerializedPoseRecipeAG2Offset = new(() => Schema.GetOffset(0xFA1FB81E61B92D46), LazyThreadSafetyMode.None);
+  private static readonly nint _SerializedPoseRecipeAG2Offset = Schema.GetOffset(0xFA1FB81E61B92D46);
 
   public ref CUtlVector<byte> SerializedPoseRecipeAG2 {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_SerializedPoseRecipeAG2Offset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_SerializedPoseRecipeAG2Offset);
   }
-  private static readonly Lazy<nint> _SerializePoseRecipeSizeAG2Offset = new(() => Schema.GetOffset(0xFA1FB81E0121F373), LazyThreadSafetyMode.None);
+  private static readonly nint _SerializePoseRecipeSizeAG2Offset = Schema.GetOffset(0xFA1FB81E0121F373);
 
   public ref int SerializePoseRecipeSizeAG2 {
-    get => ref _Handle.AsRef<int>(_SerializePoseRecipeSizeAG2Offset.Value);
+    get => ref _Handle.AsRef<int>(_SerializePoseRecipeSizeAG2Offset);
   }
-  private static readonly Lazy<nint> _SerializePoseRecipeVersionAG2Offset = new(() => Schema.GetOffset(0xFA1FB81EC099725C), LazyThreadSafetyMode.None);
+  private static readonly nint _SerializePoseRecipeVersionAG2Offset = Schema.GetOffset(0xFA1FB81EC099725C);
 
   public ref int SerializePoseRecipeVersionAG2 {
-    get => ref _Handle.AsRef<int>(_SerializePoseRecipeVersionAG2Offset.Value);
+    get => ref _Handle.AsRef<int>(_SerializePoseRecipeVersionAG2Offset);
   }
-  private static readonly Lazy<nint> _GraphCreationFlagsAG2Offset = new(() => Schema.GetOffset(0xFA1FB81EA3781101), LazyThreadSafetyMode.None);
+  private static readonly nint _GraphCreationFlagsAG2Offset = Schema.GetOffset(0xFA1FB81EA3781101);
 
   public ref byte GraphCreationFlagsAG2 {
-    get => ref _Handle.AsRef<byte>(_GraphCreationFlagsAG2Offset.Value);
+    get => ref _Handle.AsRef<byte>(_GraphCreationFlagsAG2Offset);
   }
-  private static readonly Lazy<nint> _ServerGraphDefReloadCountAG2Offset = new(() => Schema.GetOffset(0xFA1FB81E6A8D1A13), LazyThreadSafetyMode.None);
+  private static readonly nint _ServerGraphDefReloadCountAG2Offset = Schema.GetOffset(0xFA1FB81E6A8D1A13);
 
   public ref int ServerGraphDefReloadCountAG2 {
-    get => ref _Handle.AsRef<int>(_ServerGraphDefReloadCountAG2Offset.Value);
+    get => ref _Handle.AsRef<int>(_ServerGraphDefReloadCountAG2Offset);
   }
-  private static readonly Lazy<nint> _ServerSerializationContextIterationOffset = new(() => Schema.GetOffset(0xFA1FB81ED9F8A6D4), LazyThreadSafetyMode.None);
+  private static readonly nint _ServerSerializationContextIterationOffset = Schema.GetOffset(0xFA1FB81ED9F8A6D4);
 
   public ref int ServerSerializationContextIteration {
-    get => ref _Handle.AsRef<int>(_ServerSerializationContextIterationOffset.Value);
+    get => ref _Handle.AsRef<int>(_ServerSerializationContextIterationOffset);
   }
 
   public void AnimGraphNetworkedVarsUpdated() {

@@ -17,30 +17,30 @@ internal partial class RagdollCreationParams_tImpl : SchemaClass, RagdollCreatio
   public RagdollCreationParams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceOffset = new(() => Schema.GetOffset(0xAF0FCC44E530B0A8), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceOffset = Schema.GetOffset(0xAF0FCC44E530B0A8);
 
   public ref Vector Force {
-    get => ref _Handle.AsRef<Vector>(_ForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForceOffset);
   }
-  private static readonly Lazy<nint> _ForceBoneOffset = new(() => Schema.GetOffset(0xAF0FCC44DDAC019E), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceBoneOffset = Schema.GetOffset(0xAF0FCC44DDAC019E);
 
   public ref int ForceBone {
-    get => ref _Handle.AsRef<int>(_ForceBoneOffset.Value);
+    get => ref _Handle.AsRef<int>(_ForceBoneOffset);
   }
-  private static readonly Lazy<nint> _ForceCurrentWorldTransformOffset = new(() => Schema.GetOffset(0xAF0FCC443FC20379), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceCurrentWorldTransformOffset = Schema.GetOffset(0xAF0FCC443FC20379);
 
   public ref bool ForceCurrentWorldTransform {
-    get => ref _Handle.AsRef<bool>(_ForceCurrentWorldTransformOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceCurrentWorldTransformOffset);
   }
-  private static readonly Lazy<nint> _UseLRURetirementOffset = new(() => Schema.GetOffset(0xAF0FCC444DCF62FA), LazyThreadSafetyMode.None);
+  private static readonly nint _UseLRURetirementOffset = Schema.GetOffset(0xAF0FCC444DCF62FA);
 
   public ref bool UseLRURetirement {
-    get => ref _Handle.AsRef<bool>(_UseLRURetirementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseLRURetirementOffset);
   }
-  private static readonly Lazy<nint> _HealthToGrantOffset = new(() => Schema.GetOffset(0xAF0FCC4414E28C5C), LazyThreadSafetyMode.None);
+  private static readonly nint _HealthToGrantOffset = Schema.GetOffset(0xAF0FCC4414E28C5C);
 
   public ref int HealthToGrant {
-    get => ref _Handle.AsRef<int>(_HealthToGrantOffset.Value);
+    get => ref _Handle.AsRef<int>(_HealthToGrantOffset);
   }
 
 

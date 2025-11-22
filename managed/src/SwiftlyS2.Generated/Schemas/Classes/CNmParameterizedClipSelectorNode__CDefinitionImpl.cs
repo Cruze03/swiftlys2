@@ -17,30 +17,30 @@ internal partial class CNmParameterizedClipSelectorNode__CDefinitionImpl : CNmCl
   public CNmParameterizedClipSelectorNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OptionNodeIndicesOffset = new(() => Schema.GetOffset(0xF7011439DA97B15D), LazyThreadSafetyMode.None);
+  private static readonly nint _OptionNodeIndicesOffset = Schema.GetOffset(0xF7011439DA97B15D);
 
   public SchemaUntypedField OptionNodeIndices {
-    get => new SchemaUntypedField(_Handle + _OptionNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OptionNodeIndicesOffset);
   }
-  private static readonly Lazy<nint> _OptionWeightsOffset = new(() => Schema.GetOffset(0xF701143931D94DB5), LazyThreadSafetyMode.None);
+  private static readonly nint _OptionWeightsOffset = Schema.GetOffset(0xF701143931D94DB5);
 
   public SchemaUntypedField OptionWeights {
-    get => new SchemaUntypedField(_Handle + _OptionWeightsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OptionWeightsOffset);
   }
-  private static readonly Lazy<nint> _ParameterNodeIdxOffset = new(() => Schema.GetOffset(0xF701143966C6F2AB), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterNodeIdxOffset = Schema.GetOffset(0xF701143966C6F2AB);
 
   public ref short ParameterNodeIdx {
-    get => ref _Handle.AsRef<short>(_ParameterNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ParameterNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _IgnoreInvalidOptionsOffset = new(() => Schema.GetOffset(0xF7011439507C679C), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreInvalidOptionsOffset = Schema.GetOffset(0xF7011439507C679C);
 
   public ref bool IgnoreInvalidOptions {
-    get => ref _Handle.AsRef<bool>(_IgnoreInvalidOptionsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreInvalidOptionsOffset);
   }
-  private static readonly Lazy<nint> _HasWeightsSetOffset = new(() => Schema.GetOffset(0xF7011439EA6127CC), LazyThreadSafetyMode.None);
+  private static readonly nint _HasWeightsSetOffset = Schema.GetOffset(0xF7011439EA6127CC);
 
   public ref bool HasWeightsSet {
-    get => ref _Handle.AsRef<bool>(_HasWeightsSetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasWeightsSetOffset);
   }
 
 

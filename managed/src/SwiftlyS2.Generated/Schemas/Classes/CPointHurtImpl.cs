@@ -17,39 +17,39 @@ internal partial class CPointHurtImpl : CPointEntityImpl, CPointHurt {
   public CPointHurtImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0x4FEAE151C56D69C), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0x4FEAE151C56D69C);
 
   public ref int Damage {
-    get => ref _Handle.AsRef<int>(_DamageOffset.Value);
+    get => ref _Handle.AsRef<int>(_DamageOffset);
   }
-  private static readonly Lazy<nint> _BitsDamageTypeOffset = new(() => Schema.GetOffset(0x4FEAE15EEAC35FC), LazyThreadSafetyMode.None);
+  private static readonly nint _BitsDamageTypeOffset = Schema.GetOffset(0x4FEAE15EEAC35FC);
 
   public ref DamageTypes_t BitsDamageType {
-    get => ref _Handle.AsRef<DamageTypes_t>(_BitsDamageTypeOffset.Value);
+    get => ref _Handle.AsRef<DamageTypes_t>(_BitsDamageTypeOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x4FEAE155ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x4FEAE155ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _DelayOffset = new(() => Schema.GetOffset(0x4FEAE157D68FD6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayOffset = Schema.GetOffset(0x4FEAE157D68FD6E);
 
   public ref float Delay {
-    get => ref _Handle.AsRef<float>(_DelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayOffset);
   }
-  private static readonly Lazy<nint> _StrTargetOffset = new(() => Schema.GetOffset(0x4FEAE15B8F64879), LazyThreadSafetyMode.None);
+  private static readonly nint _StrTargetOffset = Schema.GetOffset(0x4FEAE15B8F64879);
 
   public string StrTarget {
     get {
-      var ptr = _Handle.Read<nint>(_StrTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _ActivatorOffset = new(() => Schema.GetOffset(0x4FEAE159C480B5A), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatorOffset = Schema.GetOffset(0x4FEAE159C480B5A);
 
   public ref CHandle<CBaseEntity> Activator {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset);
   }
 
 

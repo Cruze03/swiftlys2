@@ -17,10 +17,10 @@ internal partial class CScriptTriggerOnceImpl : CTriggerOnceImpl, CScriptTrigger
   public CScriptTriggerOnceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExtentOffset = new(() => Schema.GetOffset(0x9714EBBA7AB1ED15), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtentOffset = Schema.GetOffset(0x9714EBBA7AB1ED15);
 
   public ref Vector Extent {
-    get => ref _Handle.AsRef<Vector>(_ExtentOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ExtentOffset);
   }
 
 

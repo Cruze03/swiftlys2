@@ -17,29 +17,29 @@ internal partial class PermModelExtPart_tImpl : SchemaClass, PermModelExtPart_t 
   public PermModelExtPart_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformOffset = new(() => Schema.GetOffset(0xCA30851D6EC5209B), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformOffset = Schema.GetOffset(0xCA30851D6EC5209B);
 
   public ref CTransform Transform {
-    get => ref _Handle.AsRef<CTransform>(_TransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TransformOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xCA30851DCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xCA30851DCAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0xCA30851D0AABB9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0xCA30851D0AABB9D1);
 
   public ref int Parent {
-    get => ref _Handle.AsRef<int>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _RefModelOffset = new(() => Schema.GetOffset(0xCA30851D63E6E3DF), LazyThreadSafetyMode.None);
+  private static readonly nint _RefModelOffset = Schema.GetOffset(0xCA30851D63E6E3DF);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> RefModel {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_RefModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_RefModelOffset);
   }
 
 

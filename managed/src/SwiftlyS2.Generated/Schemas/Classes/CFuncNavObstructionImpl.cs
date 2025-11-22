@@ -17,15 +17,15 @@ internal partial class CFuncNavObstructionImpl : CBaseModelEntityImpl, CFuncNavO
   public CFuncNavObstructionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xCF9A1E413A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xCF9A1E413A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _UseAsyncObstacleUpdateOffset = new(() => Schema.GetOffset(0xCF9A1E41094FA698), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAsyncObstacleUpdateOffset = Schema.GetOffset(0xCF9A1E41094FA698);
 
   public ref bool UseAsyncObstacleUpdate {
-    get => ref _Handle.AsRef<bool>(_UseAsyncObstacleUpdateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAsyncObstacleUpdateOffset);
   }
 
 

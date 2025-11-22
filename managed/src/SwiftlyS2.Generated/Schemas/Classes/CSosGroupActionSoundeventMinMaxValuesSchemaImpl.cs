@@ -17,71 +17,71 @@ internal partial class CSosGroupActionSoundeventMinMaxValuesSchemaImpl : CSosGro
   public CSosGroupActionSoundeventMinMaxValuesSchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrQueryPublicFieldNameOffset = new(() => Schema.GetOffset(0xDC3C5E1C40839714), LazyThreadSafetyMode.None);
+  private static readonly nint _StrQueryPublicFieldNameOffset = Schema.GetOffset(0xDC3C5E1C40839714);
 
   public string StrQueryPublicFieldName {
     get {
-      var ptr = _Handle.Read<nint>(_StrQueryPublicFieldNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrQueryPublicFieldNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrQueryPublicFieldNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrQueryPublicFieldNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrDelayPublicFieldNameOffset = new(() => Schema.GetOffset(0xDC3C5E1CC2E1170D), LazyThreadSafetyMode.None);
+  private static readonly nint _StrDelayPublicFieldNameOffset = Schema.GetOffset(0xDC3C5E1CC2E1170D);
 
   public string StrDelayPublicFieldName {
     get {
-      var ptr = _Handle.Read<nint>(_StrDelayPublicFieldNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrDelayPublicFieldNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrDelayPublicFieldNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrDelayPublicFieldNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ExcludeStoppedSoundsOffset = new(() => Schema.GetOffset(0xDC3C5E1C1BDF6FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeStoppedSoundsOffset = Schema.GetOffset(0xDC3C5E1C1BDF6FB6);
 
   public ref bool ExcludeStoppedSounds {
-    get => ref _Handle.AsRef<bool>(_ExcludeStoppedSoundsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludeStoppedSoundsOffset);
   }
-  private static readonly Lazy<nint> _ExcludeDelayedSoundsOffset = new(() => Schema.GetOffset(0xDC3C5E1CA849B37D), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeDelayedSoundsOffset = Schema.GetOffset(0xDC3C5E1CA849B37D);
 
   public ref bool ExcludeDelayedSounds {
-    get => ref _Handle.AsRef<bool>(_ExcludeDelayedSoundsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludeDelayedSoundsOffset);
   }
-  private static readonly Lazy<nint> _ExcludeSoundsBelowThresholdOffset = new(() => Schema.GetOffset(0xDC3C5E1CBEF10829), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeSoundsBelowThresholdOffset = Schema.GetOffset(0xDC3C5E1CBEF10829);
 
   public ref bool ExcludeSoundsBelowThreshold {
-    get => ref _Handle.AsRef<bool>(_ExcludeSoundsBelowThresholdOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludeSoundsBelowThresholdOffset);
   }
-  private static readonly Lazy<nint> _ExcludeSoundsMinThresholdValueOffset = new(() => Schema.GetOffset(0xDC3C5E1CBAF64DF9), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeSoundsMinThresholdValueOffset = Schema.GetOffset(0xDC3C5E1CBAF64DF9);
 
   public ref float ExcludeSoundsMinThresholdValue {
-    get => ref _Handle.AsRef<float>(_ExcludeSoundsMinThresholdValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExcludeSoundsMinThresholdValueOffset);
   }
-  private static readonly Lazy<nint> _ExcludSoundsAboveThresholdOffset = new(() => Schema.GetOffset(0xDC3C5E1CBD2BDEAE), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludSoundsAboveThresholdOffset = Schema.GetOffset(0xDC3C5E1CBD2BDEAE);
 
   public ref bool ExcludSoundsAboveThreshold {
-    get => ref _Handle.AsRef<bool>(_ExcludSoundsAboveThresholdOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludSoundsAboveThresholdOffset);
   }
-  private static readonly Lazy<nint> _ExcludeSoundsMaxThresholdValueOffset = new(() => Schema.GetOffset(0xDC3C5E1C67D717C7), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeSoundsMaxThresholdValueOffset = Schema.GetOffset(0xDC3C5E1C67D717C7);
 
   public ref float ExcludeSoundsMaxThresholdValue {
-    get => ref _Handle.AsRef<float>(_ExcludeSoundsMaxThresholdValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExcludeSoundsMaxThresholdValueOffset);
   }
-  private static readonly Lazy<nint> _StrMinValueNameOffset = new(() => Schema.GetOffset(0xDC3C5E1CCF654B06), LazyThreadSafetyMode.None);
+  private static readonly nint _StrMinValueNameOffset = Schema.GetOffset(0xDC3C5E1CCF654B06);
 
   public string StrMinValueName {
     get {
-      var ptr = _Handle.Read<nint>(_StrMinValueNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrMinValueNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrMinValueNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrMinValueNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrMaxValueNameOffset = new(() => Schema.GetOffset(0xDC3C5E1CEF3A2D5C), LazyThreadSafetyMode.None);
+  private static readonly nint _StrMaxValueNameOffset = Schema.GetOffset(0xDC3C5E1CEF3A2D5C);
 
   public string StrMaxValueName {
     get {
-      var ptr = _Handle.Read<nint>(_StrMaxValueNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrMaxValueNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrMaxValueNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrMaxValueNameOffset, value);
   } 
 
 

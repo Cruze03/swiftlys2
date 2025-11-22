@@ -17,10 +17,10 @@ internal partial class CBodyComponentBaseAnimGraphImpl : CBodyComponentSkeletonI
   public CBodyComponentBaseAnimGraphImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnimationControllerOffset = new(() => Schema.GetOffset(0xD004A34F552AD749), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationControllerOffset = Schema.GetOffset(0xD004A34F552AD749);
 
   public CBaseAnimGraphController AnimationController {
-    get => new CBaseAnimGraphControllerImpl(_Handle + _AnimationControllerOffset.Value);
+    get => new CBaseAnimGraphControllerImpl(_Handle + _AnimationControllerOffset);
   }
 
   public void AnimationControllerUpdated() {

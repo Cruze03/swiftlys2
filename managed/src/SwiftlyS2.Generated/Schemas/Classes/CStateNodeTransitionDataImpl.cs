@@ -17,30 +17,30 @@ internal partial class CStateNodeTransitionDataImpl : SchemaClass, CStateNodeTra
   public CStateNodeTransitionDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurveOffset = new(() => Schema.GetOffset(0xFC9FD460BFFA0B34), LazyThreadSafetyMode.None);
+  private static readonly nint _CurveOffset = Schema.GetOffset(0xFC9FD460BFFA0B34);
 
   public CBlendCurve Curve {
-    get => new CBlendCurveImpl(_Handle + _CurveOffset.Value);
+    get => new CBlendCurveImpl(_Handle + _CurveOffset);
   }
-  private static readonly Lazy<nint> _BlendDurationOffset = new(() => Schema.GetOffset(0xFC9FD460BC9B1228), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendDurationOffset = Schema.GetOffset(0xFC9FD460BC9B1228);
 
   public SchemaUntypedField BlendDuration {
-    get => new SchemaUntypedField(_Handle + _BlendDurationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BlendDurationOffset);
   }
-  private static readonly Lazy<nint> _ResetCycleValueOffset = new(() => Schema.GetOffset(0xFC9FD4609897AC3F), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetCycleValueOffset = Schema.GetOffset(0xFC9FD4609897AC3F);
 
   public SchemaUntypedField ResetCycleValue {
-    get => new SchemaUntypedField(_Handle + _ResetCycleValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ResetCycleValueOffset);
   }
-  private static readonly Lazy<nint> _ResetOffset = new(() => Schema.GetOffset(0xFC9FD460F99F9AA0), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetOffset = Schema.GetOffset(0xFC9FD460F99F9AA0);
 
   public SchemaUntypedField Reset {
-    get => new SchemaUntypedField(_Handle + _ResetOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ResetOffset);
   }
-  private static readonly Lazy<nint> _ResetCycleOptionOffset = new(() => Schema.GetOffset(0xFC9FD460A597A1E3), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetCycleOptionOffset = Schema.GetOffset(0xFC9FD460A597A1E3);
 
   public SchemaUntypedField ResetCycleOption {
-    get => new SchemaUntypedField(_Handle + _ResetCycleOptionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ResetCycleOptionOffset);
   }
 
 

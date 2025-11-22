@@ -17,20 +17,20 @@ internal partial class CRevertSavedImpl : CModelPointEntityImpl, CRevertSaved {
   public CRevertSavedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoadTimeOffset = new(() => Schema.GetOffset(0x8E0EAC0F9925A540), LazyThreadSafetyMode.None);
+  private static readonly nint _LoadTimeOffset = Schema.GetOffset(0x8E0EAC0F9925A540);
 
   public ref float LoadTime {
-    get => ref _Handle.AsRef<float>(_LoadTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LoadTimeOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x8E0EAC0F9879A98D), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x8E0EAC0F9879A98D);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _HoldTimeOffset = new(() => Schema.GetOffset(0x8E0EAC0F105A1BF1), LazyThreadSafetyMode.None);
+  private static readonly nint _HoldTimeOffset = Schema.GetOffset(0x8E0EAC0F105A1BF1);
 
   public ref float HoldTime {
-    get => ref _Handle.AsRef<float>(_HoldTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_HoldTimeOffset);
   }
 
 

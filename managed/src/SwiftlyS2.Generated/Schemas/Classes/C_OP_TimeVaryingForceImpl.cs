@@ -17,25 +17,25 @@ internal partial class C_OP_TimeVaryingForceImpl : CParticleFunctionForceImpl, C
   public C_OP_TimeVaryingForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartLerpTimeOffset = new(() => Schema.GetOffset(0xAC89FC47C1D0DC21), LazyThreadSafetyMode.None);
+  private static readonly nint _StartLerpTimeOffset = Schema.GetOffset(0xAC89FC47C1D0DC21);
 
   public ref float StartLerpTime {
-    get => ref _Handle.AsRef<float>(_StartLerpTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartLerpTimeOffset);
   }
-  private static readonly Lazy<nint> _StartingForceOffset = new(() => Schema.GetOffset(0xAC89FC478FA47818), LazyThreadSafetyMode.None);
+  private static readonly nint _StartingForceOffset = Schema.GetOffset(0xAC89FC478FA47818);
 
   public ref Vector StartingForce {
-    get => ref _Handle.AsRef<Vector>(_StartingForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartingForceOffset);
   }
-  private static readonly Lazy<nint> _EndLerpTimeOffset = new(() => Schema.GetOffset(0xAC89FC47AA182894), LazyThreadSafetyMode.None);
+  private static readonly nint _EndLerpTimeOffset = Schema.GetOffset(0xAC89FC47AA182894);
 
   public ref float EndLerpTime {
-    get => ref _Handle.AsRef<float>(_EndLerpTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndLerpTimeOffset);
   }
-  private static readonly Lazy<nint> _EndingForceOffset = new(() => Schema.GetOffset(0xAC89FC47CEB5307D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndingForceOffset = Schema.GetOffset(0xAC89FC47CEB5307D);
 
   public ref Vector EndingForce {
-    get => ref _Handle.AsRef<Vector>(_EndingForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EndingForceOffset);
   }
 
 

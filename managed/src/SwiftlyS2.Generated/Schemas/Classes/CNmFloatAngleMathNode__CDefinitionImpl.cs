@@ -17,15 +17,15 @@ internal partial class CNmFloatAngleMathNode__CDefinitionImpl : CNmFloatValueNod
   public CNmFloatAngleMathNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x464A924095E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x464A924095E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _OperationOffset = new(() => Schema.GetOffset(0x464A9240AEA59026), LazyThreadSafetyMode.None);
+  private static readonly nint _OperationOffset = Schema.GetOffset(0x464A9240AEA59026);
 
   public ref CNmFloatAngleMathNode__Operation_t Operation {
-    get => ref _Handle.AsRef<CNmFloatAngleMathNode__Operation_t>(_OperationOffset.Value);
+    get => ref _Handle.AsRef<CNmFloatAngleMathNode__Operation_t>(_OperationOffset);
   }
 
 

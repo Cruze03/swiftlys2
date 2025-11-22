@@ -17,45 +17,45 @@ internal partial class CNmLayerBlendNode__LayerDefinition_tImpl : SchemaClass, C
   public CNmLayerBlendNode__LayerDefinition_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputNodeIdxOffset = new(() => Schema.GetOffset(0xB5F2C492B0A177F6), LazyThreadSafetyMode.None);
+  private static readonly nint _InputNodeIdxOffset = Schema.GetOffset(0xB5F2C492B0A177F6);
 
   public ref short InputNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _WeightValueNodeIdxOffset = new(() => Schema.GetOffset(0xB5F2C4924E4CD159), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightValueNodeIdxOffset = Schema.GetOffset(0xB5F2C4924E4CD159);
 
   public ref short WeightValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_WeightValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_WeightValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _BoneMaskValueNodeIdxOffset = new(() => Schema.GetOffset(0xB5F2C49284E70B17), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneMaskValueNodeIdxOffset = Schema.GetOffset(0xB5F2C49284E70B17);
 
   public ref short BoneMaskValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_BoneMaskValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_BoneMaskValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _RootMotionWeightValueNodeIdxOffset = new(() => Schema.GetOffset(0xB5F2C492C355D4CF), LazyThreadSafetyMode.None);
+  private static readonly nint _RootMotionWeightValueNodeIdxOffset = Schema.GetOffset(0xB5F2C492C355D4CF);
 
   public ref short RootMotionWeightValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_RootMotionWeightValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_RootMotionWeightValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _IsSynchronizedOffset = new(() => Schema.GetOffset(0xB5F2C492DCF1E06B), LazyThreadSafetyMode.None);
+  private static readonly nint _IsSynchronizedOffset = Schema.GetOffset(0xB5F2C492DCF1E06B);
 
   public ref bool IsSynchronized {
-    get => ref _Handle.AsRef<bool>(_IsSynchronizedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsSynchronizedOffset);
   }
-  private static readonly Lazy<nint> _IgnoreEventsOffset = new(() => Schema.GetOffset(0xB5F2C4920E574CA6), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreEventsOffset = Schema.GetOffset(0xB5F2C4920E574CA6);
 
   public ref bool IgnoreEvents {
-    get => ref _Handle.AsRef<bool>(_IgnoreEventsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreEventsOffset);
   }
-  private static readonly Lazy<nint> _IsStateMachineLayerOffset = new(() => Schema.GetOffset(0xB5F2C492EE48C9D0), LazyThreadSafetyMode.None);
+  private static readonly nint _IsStateMachineLayerOffset = Schema.GetOffset(0xB5F2C492EE48C9D0);
 
   public ref bool IsStateMachineLayer {
-    get => ref _Handle.AsRef<bool>(_IsStateMachineLayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsStateMachineLayerOffset);
   }
-  private static readonly Lazy<nint> _BlendModeOffset = new(() => Schema.GetOffset(0xB5F2C4928D5006AB), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendModeOffset = Schema.GetOffset(0xB5F2C4928D5006AB);
 
   public ref NmPoseBlendMode_t BlendMode {
-    get => ref _Handle.AsRef<NmPoseBlendMode_t>(_BlendModeOffset.Value);
+    get => ref _Handle.AsRef<NmPoseBlendMode_t>(_BlendModeOffset);
   }
 
 

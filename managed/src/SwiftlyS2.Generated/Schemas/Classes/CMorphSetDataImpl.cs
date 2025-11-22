@@ -17,45 +17,45 @@ internal partial class CMorphSetDataImpl : SchemaClass, CMorphSetData {
   public CMorphSetDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0xE777C2D4119108BB), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0xE777C2D4119108BB);
 
   public ref int Width {
-    get => ref _Handle.AsRef<int>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0xE777C2D4CAB61C56), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0xE777C2D4CAB61C56);
 
   public ref int Height {
-    get => ref _Handle.AsRef<int>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _BundleTypesOffset = new(() => Schema.GetOffset(0xE777C2D4B233045A), LazyThreadSafetyMode.None);
+  private static readonly nint _BundleTypesOffset = Schema.GetOffset(0xE777C2D4B233045A);
 
   public ref CUtlVector<MorphBundleType_t> BundleTypes {
-    get => ref _Handle.AsRef<CUtlVector<MorphBundleType_t>>(_BundleTypesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MorphBundleType_t>>(_BundleTypesOffset);
   }
-  private static readonly Lazy<nint> _MorphDatasOffset = new(() => Schema.GetOffset(0xE777C2D4C1280FA2), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphDatasOffset = Schema.GetOffset(0xE777C2D4C1280FA2);
 
   public ref CUtlVector<CMorphData> MorphDatas {
-    get => ref _Handle.AsRef<CUtlVector<CMorphData>>(_MorphDatasOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CMorphData>>(_MorphDatasOffset);
   }
-  private static readonly Lazy<nint> _TextureAtlasOffset = new(() => Schema.GetOffset(0xE777C2D4B63CAC4D), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureAtlasOffset = Schema.GetOffset(0xE777C2D4B63CAC4D);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> TextureAtlas {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureAtlasOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureAtlasOffset);
   }
-  private static readonly Lazy<nint> _FlexDescOffset = new(() => Schema.GetOffset(0xE777C2D4D73F3393), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexDescOffset = Schema.GetOffset(0xE777C2D4D73F3393);
 
   public ref CUtlVector<CFlexDesc> FlexDesc {
-    get => ref _Handle.AsRef<CUtlVector<CFlexDesc>>(_FlexDescOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CFlexDesc>>(_FlexDescOffset);
   }
-  private static readonly Lazy<nint> _FlexControllersOffset = new(() => Schema.GetOffset(0xE777C2D4ABE5EBBB), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllersOffset = Schema.GetOffset(0xE777C2D4ABE5EBBB);
 
   public ref CUtlVector<CFlexController> FlexControllers {
-    get => ref _Handle.AsRef<CUtlVector<CFlexController>>(_FlexControllersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CFlexController>>(_FlexControllersOffset);
   }
-  private static readonly Lazy<nint> _FlexRulesOffset = new(() => Schema.GetOffset(0xE777C2D47FE50585), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexRulesOffset = Schema.GetOffset(0xE777C2D47FE50585);
 
   public ref CUtlVector<CFlexRule> FlexRules {
-    get => ref _Handle.AsRef<CUtlVector<CFlexRule>>(_FlexRulesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CFlexRule>>(_FlexRulesOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class CLogicActiveAutosaveImpl : CLogicAutosaveImpl, CLogicActi
   public CLogicActiveAutosaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TriggerHitPointsOffset = new(() => Schema.GetOffset(0x9BBDEF887D8FAE5B), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerHitPointsOffset = Schema.GetOffset(0x9BBDEF887D8FAE5B);
 
   public ref int TriggerHitPoints {
-    get => ref _Handle.AsRef<int>(_TriggerHitPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_TriggerHitPointsOffset);
   }
-  private static readonly Lazy<nint> _TimeToTriggerOffset = new(() => Schema.GetOffset(0x9BBDEF880C3F780D), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToTriggerOffset = Schema.GetOffset(0x9BBDEF880C3F780D);
 
   public ref float TimeToTrigger {
-    get => ref _Handle.AsRef<float>(_TimeToTriggerOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeToTriggerOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x9BBDEF8867FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x9BBDEF8867FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _DangerousTimeOffset = new(() => Schema.GetOffset(0x9BBDEF8819BC5644), LazyThreadSafetyMode.None);
+  private static readonly nint _DangerousTimeOffset = Schema.GetOffset(0x9BBDEF8819BC5644);
 
   public ref float DangerousTime {
-    get => ref _Handle.AsRef<float>(_DangerousTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_DangerousTimeOffset);
   }
 
 

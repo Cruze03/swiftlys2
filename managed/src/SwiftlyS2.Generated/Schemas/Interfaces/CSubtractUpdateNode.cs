@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CSubtractUpdateNode : CBinaryUpdateNode, ISchemaClass<CSubtractUpdateNode> {
 
   static CSubtractUpdateNode ISchemaClass<CSubtractUpdateNode>.From(nint handle) => new CSubtractUpdateNodeImpl(handle);
-  static int ISchemaClass<CSubtractUpdateNode>.Size => 152;
+  static int ISchemaClass<CSubtractUpdateNode>.Size => 160;
   static string? ISchemaClass<CSubtractUpdateNode>.ClassName => null;
 
   

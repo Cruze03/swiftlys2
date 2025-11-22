@@ -17,10 +17,10 @@ internal partial class CAnimGraphSettingsManagerImpl : SchemaClass, CAnimGraphSe
   public CAnimGraphSettingsManagerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SettingsGroupsOffset = new(() => Schema.GetOffset(0x53B994DB178D6408), LazyThreadSafetyMode.None);
+  private static readonly nint _SettingsGroupsOffset = Schema.GetOffset(0x53B994DB178D6408);
 
   public ref CUtlVector<SchemaUntypedField> SettingsGroups {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_SettingsGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_SettingsGroupsOffset);
   }
 
 

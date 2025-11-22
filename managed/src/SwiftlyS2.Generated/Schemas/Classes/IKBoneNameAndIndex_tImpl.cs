@@ -17,14 +17,14 @@ internal partial class IKBoneNameAndIndex_tImpl : SchemaClass, IKBoneNameAndInde
   public IKBoneNameAndIndex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xEDEB678CAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xEDEB678CAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
 
 

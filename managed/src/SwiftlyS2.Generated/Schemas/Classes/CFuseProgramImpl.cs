@@ -17,25 +17,25 @@ internal partial class CFuseProgramImpl : SchemaClass, CFuseProgram {
   public CFuseProgramImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ProgramBufferOffset = new(() => Schema.GetOffset(0x81E69119349962E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ProgramBufferOffset = Schema.GetOffset(0x81E69119349962E1);
 
   public ref CUtlVector<byte> ProgramBuffer {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_ProgramBufferOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_ProgramBufferOffset);
   }
-  private static readonly Lazy<nint> _VariablesReadOffset = new(() => Schema.GetOffset(0x81E691194C160BEA), LazyThreadSafetyMode.None);
+  private static readonly nint _VariablesReadOffset = Schema.GetOffset(0x81E691194C160BEA);
 
   public ref CUtlVector<FuseVariableIndex_t> VariablesRead {
-    get => ref _Handle.AsRef<CUtlVector<FuseVariableIndex_t>>(_VariablesReadOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<FuseVariableIndex_t>>(_VariablesReadOffset);
   }
-  private static readonly Lazy<nint> _VariablesWrittenOffset = new(() => Schema.GetOffset(0x81E69119E9491C49), LazyThreadSafetyMode.None);
+  private static readonly nint _VariablesWrittenOffset = Schema.GetOffset(0x81E69119E9491C49);
 
   public ref CUtlVector<FuseVariableIndex_t> VariablesWritten {
-    get => ref _Handle.AsRef<CUtlVector<FuseVariableIndex_t>>(_VariablesWrittenOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<FuseVariableIndex_t>>(_VariablesWrittenOffset);
   }
-  private static readonly Lazy<nint> _MaxTempVarsUsedOffset = new(() => Schema.GetOffset(0x81E69119981A1518), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTempVarsUsedOffset = Schema.GetOffset(0x81E69119981A1518);
 
   public ref int MaxTempVarsUsed {
-    get => ref _Handle.AsRef<int>(_MaxTempVarsUsedOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxTempVarsUsedOffset);
   }
 
 

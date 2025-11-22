@@ -17,19 +17,19 @@ internal partial class CGameTextImpl : CRulePointEntityImpl, CGameText {
   public CGameTextImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MessageOffset = new(() => Schema.GetOffset(0x8AF55797CC5243DC), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageOffset = Schema.GetOffset(0x8AF55797CC5243DC);
 
   public string Message {
     get {
-      var ptr = _Handle.Read<nint>(_MessageOffset.Value);
+      var ptr = _Handle.Read<nint>(_MessageOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MessageOffset.Value, value);
+    set => Schema.SetString(_Handle, _MessageOffset, value);
   } 
-  private static readonly Lazy<nint> _TextParmsOffset = new(() => Schema.GetOffset(0x8AF5579715FCA35D), LazyThreadSafetyMode.None);
+  private static readonly nint _TextParmsOffset = Schema.GetOffset(0x8AF5579715FCA35D);
 
   public hudtextparms_t TextParms {
-    get => new hudtextparms_tImpl(_Handle + _TextParmsOffset.Value);
+    get => new hudtextparms_tImpl(_Handle + _TextParmsOffset);
   }
 
 

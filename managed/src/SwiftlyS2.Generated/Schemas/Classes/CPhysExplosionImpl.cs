@@ -17,59 +17,59 @@ internal partial class CPhysExplosionImpl : CPointEntityImpl, CPhysExplosion {
   public CPhysExplosionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExplodeOnSpawnOffset = new(() => Schema.GetOffset(0xACEBD741D4BEFD5A), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplodeOnSpawnOffset = Schema.GetOffset(0xACEBD741D4BEFD5A);
 
   public ref bool ExplodeOnSpawn {
-    get => ref _Handle.AsRef<bool>(_ExplodeOnSpawnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExplodeOnSpawnOffset);
   }
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0xACEBD741ED0A1D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0xACEBD741ED0A1D8B);
 
   public ref float Magnitude {
-    get => ref _Handle.AsRef<float>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0xACEBD741DC60E53E), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0xACEBD741DC60E53E);
 
   public ref float Damage {
-    get => ref _Handle.AsRef<float>(_DamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamageOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xACEBD741A921CA53), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xACEBD741A921CA53);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _TargetEntityNameOffset = new(() => Schema.GetOffset(0xACEBD741F88EC878), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntityNameOffset = Schema.GetOffset(0xACEBD741F88EC878);
 
   public string TargetEntityName {
     get {
-      var ptr = _Handle.Read<nint>(_TargetEntityNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetEntityNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetEntityNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetEntityNameOffset, value);
   } 
-  private static readonly Lazy<nint> _InnerRadiusOffset = new(() => Schema.GetOffset(0xACEBD74132121407), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerRadiusOffset = Schema.GetOffset(0xACEBD74132121407);
 
   public ref float InnerRadius {
-    get => ref _Handle.AsRef<float>(_InnerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerRadiusOffset);
   }
-  private static readonly Lazy<nint> _PushScaleOffset = new(() => Schema.GetOffset(0xACEBD741BC279223), LazyThreadSafetyMode.None);
+  private static readonly nint _PushScaleOffset = Schema.GetOffset(0xACEBD741BC279223);
 
   public ref float PushScale {
-    get => ref _Handle.AsRef<float>(_PushScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PushScaleOffset);
   }
-  private static readonly Lazy<nint> _ConvertToDebrisWhenPossibleOffset = new(() => Schema.GetOffset(0xACEBD7416AD4D155), LazyThreadSafetyMode.None);
+  private static readonly nint _ConvertToDebrisWhenPossibleOffset = Schema.GetOffset(0xACEBD7416AD4D155);
 
   public ref bool ConvertToDebrisWhenPossible {
-    get => ref _Handle.AsRef<bool>(_ConvertToDebrisWhenPossibleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ConvertToDebrisWhenPossibleOffset);
   }
-  private static readonly Lazy<nint> _AffectInvulnerableEntsOffset = new(() => Schema.GetOffset(0xACEBD74196CF6FA5), LazyThreadSafetyMode.None);
+  private static readonly nint _AffectInvulnerableEntsOffset = Schema.GetOffset(0xACEBD74196CF6FA5);
 
   public ref bool AffectInvulnerableEnts {
-    get => ref _Handle.AsRef<bool>(_AffectInvulnerableEntsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AffectInvulnerableEntsOffset);
   }
-  private static readonly Lazy<nint> _OnPushedPlayerOffset = new(() => Schema.GetOffset(0xACEBD74165C28180), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPushedPlayerOffset = Schema.GetOffset(0xACEBD74165C28180);
 
   public CEntityIOOutput OnPushedPlayer {
-    get => new CEntityIOOutputImpl(_Handle + _OnPushedPlayerOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPushedPlayerOffset);
   }
 
 

@@ -17,38 +17,38 @@ internal partial class FeNodeBase_tImpl : SchemaClass, FeNodeBase_t {
   public FeNodeBase_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0x74CA29BECD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0x74CA29BECD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
   public ISchemaFixedArray<ushort> Dummy {
     get => new SchemaFixedArray<ushort>(_Handle, 0x74CA29BECD8BAE5F, 3, 2, 2);
   }
-  private static readonly Lazy<nint> _NodeX0Offset = new(() => Schema.GetOffset(0x74CA29BE81C7FEB9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeX0Offset = Schema.GetOffset(0x74CA29BE81C7FEB9);
 
   public ref ushort NodeX0 {
-    get => ref _Handle.AsRef<ushort>(_NodeX0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeX0Offset);
   }
-  private static readonly Lazy<nint> _NodeX1Offset = new(() => Schema.GetOffset(0x74CA29BE80C7FD26), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeX1Offset = Schema.GetOffset(0x74CA29BE80C7FD26);
 
   public ref ushort NodeX1 {
-    get => ref _Handle.AsRef<ushort>(_NodeX1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeX1Offset);
   }
-  private static readonly Lazy<nint> _NodeY0Offset = new(() => Schema.GetOffset(0x74CA29BE7BC5B6B0), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeY0Offset = Schema.GetOffset(0x74CA29BE7BC5B6B0);
 
   public ref ushort NodeY0 {
-    get => ref _Handle.AsRef<ushort>(_NodeY0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeY0Offset);
   }
-  private static readonly Lazy<nint> _NodeY1Offset = new(() => Schema.GetOffset(0x74CA29BE7CC5B843), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeY1Offset = Schema.GetOffset(0x74CA29BE7CC5B843);
 
   public ref ushort NodeY1 {
-    get => ref _Handle.AsRef<ushort>(_NodeY1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeY1Offset);
   }
-  private static readonly Lazy<nint> _AdjustOffset = new(() => Schema.GetOffset(0x74CA29BE0F6C0983), LazyThreadSafetyMode.None);
+  private static readonly nint _AdjustOffset = Schema.GetOffset(0x74CA29BE0F6C0983);
 
   public SchemaUntypedField Adjust {
-    get => new SchemaUntypedField(_Handle + _AdjustOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AdjustOffset);
   }
 
 

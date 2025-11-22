@@ -17,54 +17,54 @@ internal partial class ModelEmbeddedMesh_tImpl : SchemaClass, ModelEmbeddedMesh_
   public ModelEmbeddedMesh_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x9EB0DD6ECAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x9EB0DD6ECAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _MeshIndexOffset = new(() => Schema.GetOffset(0x9EB0DD6E07C0EC64), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshIndexOffset = Schema.GetOffset(0x9EB0DD6E07C0EC64);
 
   public ref int MeshIndex {
-    get => ref _Handle.AsRef<int>(_MeshIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_MeshIndexOffset);
   }
-  private static readonly Lazy<nint> _DataBlockOffset = new(() => Schema.GetOffset(0x9EB0DD6E3D4FDE56), LazyThreadSafetyMode.None);
+  private static readonly nint _DataBlockOffset = Schema.GetOffset(0x9EB0DD6E3D4FDE56);
 
   public ref int DataBlock {
-    get => ref _Handle.AsRef<int>(_DataBlockOffset.Value);
+    get => ref _Handle.AsRef<int>(_DataBlockOffset);
   }
-  private static readonly Lazy<nint> _MorphBlockOffset = new(() => Schema.GetOffset(0x9EB0DD6E73C9235E), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphBlockOffset = Schema.GetOffset(0x9EB0DD6E73C9235E);
 
   public ref int MorphBlock {
-    get => ref _Handle.AsRef<int>(_MorphBlockOffset.Value);
+    get => ref _Handle.AsRef<int>(_MorphBlockOffset);
   }
-  private static readonly Lazy<nint> _VertexBuffersOffset = new(() => Schema.GetOffset(0x9EB0DD6E967BB5EA), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexBuffersOffset = Schema.GetOffset(0x9EB0DD6E967BB5EA);
 
   public ref CUtlVector<ModelMeshBufferData_t> VertexBuffers {
-    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_VertexBuffersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_VertexBuffersOffset);
   }
-  private static readonly Lazy<nint> _IndexBuffersOffset = new(() => Schema.GetOffset(0x9EB0DD6EF9221876), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexBuffersOffset = Schema.GetOffset(0x9EB0DD6EF9221876);
 
   public ref CUtlVector<ModelMeshBufferData_t> IndexBuffers {
-    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_IndexBuffersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_IndexBuffersOffset);
   }
-  private static readonly Lazy<nint> _ToolsBuffersOffset = new(() => Schema.GetOffset(0x9EB0DD6ED56473DF), LazyThreadSafetyMode.None);
+  private static readonly nint _ToolsBuffersOffset = Schema.GetOffset(0x9EB0DD6ED56473DF);
 
   public ref CUtlVector<ModelMeshBufferData_t> ToolsBuffers {
-    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_ToolsBuffersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ModelMeshBufferData_t>>(_ToolsBuffersOffset);
   }
-  private static readonly Lazy<nint> _VBIBBlockOffset = new(() => Schema.GetOffset(0x9EB0DD6EF5E4DCB7), LazyThreadSafetyMode.None);
+  private static readonly nint _VBIBBlockOffset = Schema.GetOffset(0x9EB0DD6EF5E4DCB7);
 
   public ref int VBIBBlock {
-    get => ref _Handle.AsRef<int>(_VBIBBlockOffset.Value);
+    get => ref _Handle.AsRef<int>(_VBIBBlockOffset);
   }
-  private static readonly Lazy<nint> _ToolsVBBlockOffset = new(() => Schema.GetOffset(0x9EB0DD6EB4D00411), LazyThreadSafetyMode.None);
+  private static readonly nint _ToolsVBBlockOffset = Schema.GetOffset(0x9EB0DD6EB4D00411);
 
   public ref int ToolsVBBlock {
-    get => ref _Handle.AsRef<int>(_ToolsVBBlockOffset.Value);
+    get => ref _Handle.AsRef<int>(_ToolsVBBlockOffset);
   }
 
 

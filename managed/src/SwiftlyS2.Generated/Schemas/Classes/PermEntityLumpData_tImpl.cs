@@ -17,24 +17,24 @@ internal partial class PermEntityLumpData_tImpl : SchemaClass, PermEntityLumpDat
   public PermEntityLumpData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x47DA25F14D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x47DA25F14D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _ChildLumpsOffset = new(() => Schema.GetOffset(0x47DA25F1AFDAF56C), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildLumpsOffset = Schema.GetOffset(0x47DA25F1AFDAF56C);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>> ChildLumps {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>>>(_ChildLumpsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>>>(_ChildLumpsOffset);
   }
-  private static readonly Lazy<nint> _EntityKeyValuesOffset = new(() => Schema.GetOffset(0x47DA25F1DBD62937), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityKeyValuesOffset = Schema.GetOffset(0x47DA25F1DBD62937);
 
   public ref CUtlLeanVector<EntityKeyValueData_t, int> EntityKeyValues {
-    get => ref _Handle.AsRef<CUtlLeanVector<EntityKeyValueData_t, int>>(_EntityKeyValuesOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<EntityKeyValueData_t, int>>(_EntityKeyValuesOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class PointCameraSettings_tImpl : SchemaClass, PointCameraSetti
   public PointCameraSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NearBlurryDistanceOffset = new(() => Schema.GetOffset(0x4BE8175CEB0CA47E), LazyThreadSafetyMode.None);
+  private static readonly nint _NearBlurryDistanceOffset = Schema.GetOffset(0x4BE8175CEB0CA47E);
 
   public ref float NearBlurryDistance {
-    get => ref _Handle.AsRef<float>(_NearBlurryDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_NearBlurryDistanceOffset);
   }
-  private static readonly Lazy<nint> _NearCrispDistanceOffset = new(() => Schema.GetOffset(0x4BE8175CF0C9A8C7), LazyThreadSafetyMode.None);
+  private static readonly nint _NearCrispDistanceOffset = Schema.GetOffset(0x4BE8175CF0C9A8C7);
 
   public ref float NearCrispDistance {
-    get => ref _Handle.AsRef<float>(_NearCrispDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_NearCrispDistanceOffset);
   }
-  private static readonly Lazy<nint> _FarCrispDistanceOffset = new(() => Schema.GetOffset(0x4BE8175CE95AEE28), LazyThreadSafetyMode.None);
+  private static readonly nint _FarCrispDistanceOffset = Schema.GetOffset(0x4BE8175CE95AEE28);
 
   public ref float FarCrispDistance {
-    get => ref _Handle.AsRef<float>(_FarCrispDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_FarCrispDistanceOffset);
   }
-  private static readonly Lazy<nint> _FarBlurryDistanceOffset = new(() => Schema.GetOffset(0x4BE8175CF8892257), LazyThreadSafetyMode.None);
+  private static readonly nint _FarBlurryDistanceOffset = Schema.GetOffset(0x4BE8175CF8892257);
 
   public ref float FarBlurryDistance {
-    get => ref _Handle.AsRef<float>(_FarBlurryDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_FarBlurryDistanceOffset);
   }
 
 

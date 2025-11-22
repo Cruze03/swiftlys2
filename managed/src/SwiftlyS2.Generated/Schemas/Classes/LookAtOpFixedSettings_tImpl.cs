@@ -17,60 +17,60 @@ internal partial class LookAtOpFixedSettings_tImpl : SchemaClass, LookAtOpFixedS
   public LookAtOpFixedSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttachmentOffset = new(() => Schema.GetOffset(0xF114BD602C5CA308), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentOffset = Schema.GetOffset(0xF114BD602C5CA308);
 
   public CAnimAttachment Attachment {
-    get => new CAnimAttachmentImpl(_Handle + _AttachmentOffset.Value);
+    get => new CAnimAttachmentImpl(_Handle + _AttachmentOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0xF114BD6015440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0xF114BD6015440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _BonesOffset = new(() => Schema.GetOffset(0xF114BD600FDA60D4), LazyThreadSafetyMode.None);
+  private static readonly nint _BonesOffset = Schema.GetOffset(0xF114BD600FDA60D4);
 
   public ref CUtlVector<LookAtBone_t> Bones {
-    get => ref _Handle.AsRef<CUtlVector<LookAtBone_t>>(_BonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<LookAtBone_t>>(_BonesOffset);
   }
-  private static readonly Lazy<nint> _YawLimitOffset = new(() => Schema.GetOffset(0xF114BD60C8DE6E19), LazyThreadSafetyMode.None);
+  private static readonly nint _YawLimitOffset = Schema.GetOffset(0xF114BD60C8DE6E19);
 
   public ref float YawLimit {
-    get => ref _Handle.AsRef<float>(_YawLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_YawLimitOffset);
   }
-  private static readonly Lazy<nint> _PitchLimitOffset = new(() => Schema.GetOffset(0xF114BD60A68363C6), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchLimitOffset = Schema.GetOffset(0xF114BD60A68363C6);
 
   public ref float PitchLimit {
-    get => ref _Handle.AsRef<float>(_PitchLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchLimitOffset);
   }
-  private static readonly Lazy<nint> _HysteresisInnerAngleOffset = new(() => Schema.GetOffset(0xF114BD6097B2D677), LazyThreadSafetyMode.None);
+  private static readonly nint _HysteresisInnerAngleOffset = Schema.GetOffset(0xF114BD6097B2D677);
 
   public ref float HysteresisInnerAngle {
-    get => ref _Handle.AsRef<float>(_HysteresisInnerAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_HysteresisInnerAngleOffset);
   }
-  private static readonly Lazy<nint> _HysteresisOuterAngleOffset = new(() => Schema.GetOffset(0xF114BD60F67403AE), LazyThreadSafetyMode.None);
+  private static readonly nint _HysteresisOuterAngleOffset = Schema.GetOffset(0xF114BD60F67403AE);
 
   public ref float HysteresisOuterAngle {
-    get => ref _Handle.AsRef<float>(_HysteresisOuterAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_HysteresisOuterAngleOffset);
   }
-  private static readonly Lazy<nint> _RotateYawForwardOffset = new(() => Schema.GetOffset(0xF114BD6058C8E372), LazyThreadSafetyMode.None);
+  private static readonly nint _RotateYawForwardOffset = Schema.GetOffset(0xF114BD6058C8E372);
 
   public ref bool RotateYawForward {
-    get => ref _Handle.AsRef<bool>(_RotateYawForwardOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RotateYawForwardOffset);
   }
-  private static readonly Lazy<nint> _MaintainUpDirectionOffset = new(() => Schema.GetOffset(0xF114BD601F5BE57E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaintainUpDirectionOffset = Schema.GetOffset(0xF114BD601F5BE57E);
 
   public ref bool MaintainUpDirection {
-    get => ref _Handle.AsRef<bool>(_MaintainUpDirectionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MaintainUpDirectionOffset);
   }
-  private static readonly Lazy<nint> _TargetIsPositionOffset = new(() => Schema.GetOffset(0xF114BD6014C34163), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetIsPositionOffset = Schema.GetOffset(0xF114BD6014C34163);
 
   public ref bool TargetIsPosition {
-    get => ref _Handle.AsRef<bool>(_TargetIsPositionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TargetIsPositionOffset);
   }
-  private static readonly Lazy<nint> _UseHysteresisOffset = new(() => Schema.GetOffset(0xF114BD60A1B392FB), LazyThreadSafetyMode.None);
+  private static readonly nint _UseHysteresisOffset = Schema.GetOffset(0xF114BD60A1B392FB);
 
   public ref bool UseHysteresis {
-    get => ref _Handle.AsRef<bool>(_UseHysteresisOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseHysteresisOffset);
   }
 
 

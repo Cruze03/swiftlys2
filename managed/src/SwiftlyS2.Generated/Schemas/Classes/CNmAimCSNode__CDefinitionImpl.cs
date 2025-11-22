@@ -17,30 +17,30 @@ internal partial class CNmAimCSNode__CDefinitionImpl : CNmPassthroughNode__CDefi
   public CNmAimCSNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VerticalAngleNodeIdxOffset = new(() => Schema.GetOffset(0xE1CD14C20A1F17AD), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticalAngleNodeIdxOffset = Schema.GetOffset(0xE1CD14C20A1F17AD);
 
   public ref short VerticalAngleNodeIdx {
-    get => ref _Handle.AsRef<short>(_VerticalAngleNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_VerticalAngleNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _HorizontalAngleNodeIdxOffset = new(() => Schema.GetOffset(0xE1CD14C28E2FD3DB), LazyThreadSafetyMode.None);
+  private static readonly nint _HorizontalAngleNodeIdxOffset = Schema.GetOffset(0xE1CD14C28E2FD3DB);
 
   public ref short HorizontalAngleNodeIdx {
-    get => ref _Handle.AsRef<short>(_HorizontalAngleNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_HorizontalAngleNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _WeaponCategoryNodeIdxOffset = new(() => Schema.GetOffset(0xE1CD14C216D198E4), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponCategoryNodeIdxOffset = Schema.GetOffset(0xE1CD14C216D198E4);
 
   public ref short WeaponCategoryNodeIdx {
-    get => ref _Handle.AsRef<short>(_WeaponCategoryNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_WeaponCategoryNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EnabledNodeIdxOffset = new(() => Schema.GetOffset(0xE1CD14C2F7CDF5E9), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledNodeIdxOffset = Schema.GetOffset(0xE1CD14C2F7CDF5E9);
 
   public ref short EnabledNodeIdx {
-    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeSecondsOffset = new(() => Schema.GetOffset(0xE1CD14C26D3A08FC), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeSecondsOffset = Schema.GetOffset(0xE1CD14C26D3A08FC);
 
   public ref float BlendTimeSeconds {
-    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset);
   }
 
 

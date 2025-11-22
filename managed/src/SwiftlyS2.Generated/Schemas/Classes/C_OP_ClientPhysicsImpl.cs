@@ -17,74 +17,74 @@ internal partial class C_OP_ClientPhysicsImpl : CParticleFunctionRendererImpl, C
   public C_OP_ClientPhysicsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrPhysicsTypeOffset = new(() => Schema.GetOffset(0xD58F5C47820348D9), LazyThreadSafetyMode.None);
+  private static readonly nint _StrPhysicsTypeOffset = Schema.GetOffset(0xD58F5C47820348D9);
 
   public string StrPhysicsType {
     get {
-      var ptr = _Handle.Read<nint>(_StrPhysicsTypeOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrPhysicsTypeOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrPhysicsTypeOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrPhysicsTypeOffset, value);
   } 
-  private static readonly Lazy<nint> _StartAsleepOffset = new(() => Schema.GetOffset(0xD58F5C4789BA22DD), LazyThreadSafetyMode.None);
+  private static readonly nint _StartAsleepOffset = Schema.GetOffset(0xD58F5C4789BA22DD);
 
   public ref bool StartAsleep {
-    get => ref _Handle.AsRef<bool>(_StartAsleepOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartAsleepOffset);
   }
-  private static readonly Lazy<nint> _PlayerWakeRadiusOffset = new(() => Schema.GetOffset(0xD58F5C47E624F15C), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerWakeRadiusOffset = Schema.GetOffset(0xD58F5C47E624F15C);
 
   public CParticleCollectionFloatInput PlayerWakeRadius {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _PlayerWakeRadiusOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _PlayerWakeRadiusOffset);
   }
-  private static readonly Lazy<nint> _VehicleWakeRadiusOffset = new(() => Schema.GetOffset(0xD58F5C4733A7C27B), LazyThreadSafetyMode.None);
+  private static readonly nint _VehicleWakeRadiusOffset = Schema.GetOffset(0xD58F5C4733A7C27B);
 
   public CParticleCollectionFloatInput VehicleWakeRadius {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _VehicleWakeRadiusOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _VehicleWakeRadiusOffset);
   }
-  private static readonly Lazy<nint> _UseHighQualitySimulationOffset = new(() => Schema.GetOffset(0xD58F5C47B0E917EA), LazyThreadSafetyMode.None);
+  private static readonly nint _UseHighQualitySimulationOffset = Schema.GetOffset(0xD58F5C47B0E917EA);
 
   public ref bool UseHighQualitySimulation {
-    get => ref _Handle.AsRef<bool>(_UseHighQualitySimulationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseHighQualitySimulationOffset);
   }
-  private static readonly Lazy<nint> _MaxParticleCountOffset = new(() => Schema.GetOffset(0xD58F5C47FD3F82B6), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxParticleCountOffset = Schema.GetOffset(0xD58F5C47FD3F82B6);
 
   public ref int MaxParticleCount {
-    get => ref _Handle.AsRef<int>(_MaxParticleCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxParticleCountOffset);
   }
-  private static readonly Lazy<nint> _RespectExclusionVolumesOffset = new(() => Schema.GetOffset(0xD58F5C47BF981E2A), LazyThreadSafetyMode.None);
+  private static readonly nint _RespectExclusionVolumesOffset = Schema.GetOffset(0xD58F5C47BF981E2A);
 
   public ref bool RespectExclusionVolumes {
-    get => ref _Handle.AsRef<bool>(_RespectExclusionVolumesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RespectExclusionVolumesOffset);
   }
-  private static readonly Lazy<nint> _KillParticlesOffset = new(() => Schema.GetOffset(0xD58F5C47D2FD5948), LazyThreadSafetyMode.None);
+  private static readonly nint _KillParticlesOffset = Schema.GetOffset(0xD58F5C47D2FD5948);
 
   public ref bool KillParticles {
-    get => ref _Handle.AsRef<bool>(_KillParticlesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_KillParticlesOffset);
   }
-  private static readonly Lazy<nint> _DeleteSimOffset = new(() => Schema.GetOffset(0xD58F5C478F438761), LazyThreadSafetyMode.None);
+  private static readonly nint _DeleteSimOffset = Schema.GetOffset(0xD58F5C478F438761);
 
   public ref bool DeleteSim {
-    get => ref _Handle.AsRef<bool>(_DeleteSimOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DeleteSimOffset);
   }
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0xD58F5C470D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0xD58F5C470D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _ForcedSimIdOffset = new(() => Schema.GetOffset(0xD58F5C47998B388E), LazyThreadSafetyMode.None);
+  private static readonly nint _ForcedSimIdOffset = Schema.GetOffset(0xD58F5C47998B388E);
 
   public ref int ForcedSimId {
-    get => ref _Handle.AsRef<int>(_ForcedSimIdOffset.Value);
+    get => ref _Handle.AsRef<int>(_ForcedSimIdOffset);
   }
-  private static readonly Lazy<nint> _ColorBlendTypeOffset = new(() => Schema.GetOffset(0xD58F5C47DBC6EFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorBlendTypeOffset = Schema.GetOffset(0xD58F5C47DBC6EFCF);
 
   public ref ParticleColorBlendType_t ColorBlendType {
-    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset);
   }
-  private static readonly Lazy<nint> _ForcedStatusEffectsOffset = new(() => Schema.GetOffset(0xD58F5C4712A659B8), LazyThreadSafetyMode.None);
+  private static readonly nint _ForcedStatusEffectsOffset = Schema.GetOffset(0xD58F5C4712A659B8);
 
   public ref ParticleAttrBoxFlags_t ForcedStatusEffects {
-    get => ref _Handle.AsRef<ParticleAttrBoxFlags_t>(_ForcedStatusEffectsOffset.Value);
+    get => ref _Handle.AsRef<ParticleAttrBoxFlags_t>(_ForcedStatusEffectsOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class sky3dparams_tImpl : SchemaClass, sky3dparams_t {
   public sky3dparams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x49687CC482971C71), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x49687CC482971C71);
 
   public ref short Scale {
-    get => ref _Handle.AsRef<short>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<short>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _OriginOffset = new(() => Schema.GetOffset(0x49687CC4D97F9A4F), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginOffset = Schema.GetOffset(0x49687CC4D97F9A4F);
 
   public ref Vector Origin {
-    get => ref _Handle.AsRef<Vector>(_OriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginOffset);
   }
-  private static readonly Lazy<nint> _Clip3DSkyBoxNearToWorldFarOffset = new(() => Schema.GetOffset(0x49687CC482943804), LazyThreadSafetyMode.None);
+  private static readonly nint _Clip3DSkyBoxNearToWorldFarOffset = Schema.GetOffset(0x49687CC482943804);
 
   public ref bool Clip3DSkyBoxNearToWorldFar {
-    get => ref _Handle.AsRef<bool>(_Clip3DSkyBoxNearToWorldFarOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Clip3DSkyBoxNearToWorldFarOffset);
   }
-  private static readonly Lazy<nint> _Clip3DSkyBoxNearToWorldFarOffsetOffset = new(() => Schema.GetOffset(0x49687CC49D6E9441), LazyThreadSafetyMode.None);
+  private static readonly nint _Clip3DSkyBoxNearToWorldFarOffsetOffset = Schema.GetOffset(0x49687CC49D6E9441);
 
   public ref float Clip3DSkyBoxNearToWorldFarOffset {
-    get => ref _Handle.AsRef<float>(_Clip3DSkyBoxNearToWorldFarOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_Clip3DSkyBoxNearToWorldFarOffsetOffset);
   }
-  private static readonly Lazy<nint> _FogOffset = new(() => Schema.GetOffset(0x49687CC4A1F3723F), LazyThreadSafetyMode.None);
+  private static readonly nint _FogOffset = Schema.GetOffset(0x49687CC4A1F3723F);
 
   public fogparams_t Fog {
-    get => new fogparams_tImpl(_Handle + _FogOffset.Value);
+    get => new fogparams_tImpl(_Handle + _FogOffset);
   }
-  private static readonly Lazy<nint> _WorldGroupIDOffset = new(() => Schema.GetOffset(0x49687CC49414E3F3), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldGroupIDOffset = Schema.GetOffset(0x49687CC49414E3F3);
 
   public ref uint WorldGroupID {
-    get => ref _Handle.AsRef<uint>(_WorldGroupIDOffset.Value);
+    get => ref _Handle.AsRef<uint>(_WorldGroupIDOffset);
   }
 
   public void ScaleUpdated() {

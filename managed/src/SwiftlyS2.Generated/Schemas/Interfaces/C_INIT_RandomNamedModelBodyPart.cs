@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_INIT_RandomNamedModelBodyPart : C_INIT_RandomNamedModelElement, ISchemaClass<C_INIT_RandomNamedModelBodyPart> {
 
   static C_INIT_RandomNamedModelBodyPart ISchemaClass<C_INIT_RandomNamedModelBodyPart>.From(nint handle) => new C_INIT_RandomNamedModelBodyPartImpl(handle);
-  static int ISchemaClass<C_INIT_RandomNamedModelBodyPart>.Size => 504;
+  static int ISchemaClass<C_INIT_RandomNamedModelBodyPart>.Size => 512;
   static string? ISchemaClass<C_INIT_RandomNamedModelBodyPart>.ClassName => null;
 
 

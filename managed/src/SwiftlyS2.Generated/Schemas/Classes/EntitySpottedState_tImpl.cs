@@ -17,10 +17,10 @@ internal partial class EntitySpottedState_tImpl : SchemaClass, EntitySpottedStat
   public EntitySpottedState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpottedOffset = new(() => Schema.GetOffset(0x6E33B0176DE4F1CA), LazyThreadSafetyMode.None);
+  private static readonly nint _SpottedOffset = Schema.GetOffset(0x6E33B0176DE4F1CA);
 
   public ref bool Spotted {
-    get => ref _Handle.AsRef<bool>(_SpottedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SpottedOffset);
   }
   public ISchemaFixedArray<uint> SpottedByMask {
     get => new SchemaFixedArray<uint>(_Handle, 0x6E33B0170BD77207, 2, 4, 4);

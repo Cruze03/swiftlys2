@@ -17,25 +17,25 @@ internal partial class CBasePropImpl : CBaseAnimGraphImpl, CBaseProp {
   public CBasePropImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelOverrodeBlockLOSOffset = new(() => Schema.GetOffset(0x14D39FA24CF7EDF1), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOverrodeBlockLOSOffset = Schema.GetOffset(0x14D39FA24CF7EDF1);
 
   public ref bool ModelOverrodeBlockLOS {
-    get => ref _Handle.AsRef<bool>(_ModelOverrodeBlockLOSOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ModelOverrodeBlockLOSOffset);
   }
-  private static readonly Lazy<nint> _ShapeTypeOffset = new(() => Schema.GetOffset(0x14D39FA23BE42771), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeTypeOffset = Schema.GetOffset(0x14D39FA23BE42771);
 
   public ref int ShapeType {
-    get => ref _Handle.AsRef<int>(_ShapeTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ShapeTypeOffset);
   }
-  private static readonly Lazy<nint> _ConformToCollisionBoundsOffset = new(() => Schema.GetOffset(0x14D39FA2A98E60A1), LazyThreadSafetyMode.None);
+  private static readonly nint _ConformToCollisionBoundsOffset = Schema.GetOffset(0x14D39FA2A98E60A1);
 
   public ref bool ConformToCollisionBounds {
-    get => ref _Handle.AsRef<bool>(_ConformToCollisionBoundsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ConformToCollisionBoundsOffset);
   }
-  private static readonly Lazy<nint> _MPreferredCatchTransformOffset = new(() => Schema.GetOffset(0x14D39FA2CC626070), LazyThreadSafetyMode.None);
+  private static readonly nint _MPreferredCatchTransformOffset = Schema.GetOffset(0x14D39FA2CC626070);
 
   public ref CTransform MPreferredCatchTransform {
-    get => ref _Handle.AsRef<CTransform>(_MPreferredCatchTransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_MPreferredCatchTransformOffset);
   }
 
 

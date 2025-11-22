@@ -17,65 +17,65 @@ internal partial class AggregateMeshInfo_tImpl : SchemaClass, AggregateMeshInfo_
   public AggregateMeshInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VisClusterMemberOffsetOffset = new(() => Schema.GetOffset(0x609E946C6C3F158), LazyThreadSafetyMode.None);
+  private static readonly nint _VisClusterMemberOffsetOffset = Schema.GetOffset(0x609E946C6C3F158);
 
   public ref uint VisClusterMemberOffset {
-    get => ref _Handle.AsRef<uint>(_VisClusterMemberOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VisClusterMemberOffsetOffset);
   }
-  private static readonly Lazy<nint> _VisClusterMemberCountOffset = new(() => Schema.GetOffset(0x609E946C42DC1CA), LazyThreadSafetyMode.None);
+  private static readonly nint _VisClusterMemberCountOffset = Schema.GetOffset(0x609E946C42DC1CA);
 
   public ref byte VisClusterMemberCount {
-    get => ref _Handle.AsRef<byte>(_VisClusterMemberCountOffset.Value);
+    get => ref _Handle.AsRef<byte>(_VisClusterMemberCountOffset);
   }
-  private static readonly Lazy<nint> _HasTransformOffset = new(() => Schema.GetOffset(0x609E9467D1E0F35), LazyThreadSafetyMode.None);
+  private static readonly nint _HasTransformOffset = Schema.GetOffset(0x609E9467D1E0F35);
 
   public ref bool HasTransform {
-    get => ref _Handle.AsRef<bool>(_HasTransformOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasTransformOffset);
   }
-  private static readonly Lazy<nint> _LODGroupMaskOffset = new(() => Schema.GetOffset(0x609E94672482103), LazyThreadSafetyMode.None);
+  private static readonly nint _LODGroupMaskOffset = Schema.GetOffset(0x609E94672482103);
 
   public ref byte LODGroupMask {
-    get => ref _Handle.AsRef<byte>(_LODGroupMaskOffset.Value);
+    get => ref _Handle.AsRef<byte>(_LODGroupMaskOffset);
   }
-  private static readonly Lazy<nint> _DrawCallIndexOffset = new(() => Schema.GetOffset(0x609E946FA5614D5), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawCallIndexOffset = Schema.GetOffset(0x609E946FA5614D5);
 
   public ref short DrawCallIndex {
-    get => ref _Handle.AsRef<short>(_DrawCallIndexOffset.Value);
+    get => ref _Handle.AsRef<short>(_DrawCallIndexOffset);
   }
-  private static readonly Lazy<nint> _LODSetupIndexOffset = new(() => Schema.GetOffset(0x609E946FDC9C6B7), LazyThreadSafetyMode.None);
+  private static readonly nint _LODSetupIndexOffset = Schema.GetOffset(0x609E946FDC9C6B7);
 
   public ref short LODSetupIndex {
-    get => ref _Handle.AsRef<short>(_LODSetupIndexOffset.Value);
+    get => ref _Handle.AsRef<short>(_LODSetupIndexOffset);
   }
-  private static readonly Lazy<nint> _TintColorOffset = new(() => Schema.GetOffset(0x609E94650AFF21F), LazyThreadSafetyMode.None);
+  private static readonly nint _TintColorOffset = Schema.GetOffset(0x609E94650AFF21F);
 
   public ref Color TintColor {
-    get => ref _Handle.AsRef<Color>(_TintColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintColorOffset);
   }
-  private static readonly Lazy<nint> _ObjectFlagsOffset = new(() => Schema.GetOffset(0x609E946E93821F5), LazyThreadSafetyMode.None);
+  private static readonly nint _ObjectFlagsOffset = Schema.GetOffset(0x609E946E93821F5);
 
   public ref ObjectTypeFlags_t ObjectFlags {
-    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_ObjectFlagsOffset.Value);
+    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_ObjectFlagsOffset);
   }
-  private static readonly Lazy<nint> _LightProbeVolumePrecomputedHandshakeOffset = new(() => Schema.GetOffset(0x609E946C6233022), LazyThreadSafetyMode.None);
+  private static readonly nint _LightProbeVolumePrecomputedHandshakeOffset = Schema.GetOffset(0x609E946C6233022);
 
   public ref int LightProbeVolumePrecomputedHandshake {
-    get => ref _Handle.AsRef<int>(_LightProbeVolumePrecomputedHandshakeOffset.Value);
+    get => ref _Handle.AsRef<int>(_LightProbeVolumePrecomputedHandshakeOffset);
   }
-  private static readonly Lazy<nint> _InstanceStreamOffsetOffset = new(() => Schema.GetOffset(0x609E946DD604379), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceStreamOffsetOffset = Schema.GetOffset(0x609E946DD604379);
 
   public ref uint InstanceStreamOffset {
-    get => ref _Handle.AsRef<uint>(_InstanceStreamOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_InstanceStreamOffsetOffset);
   }
-  private static readonly Lazy<nint> _VertexAlbedoStreamOffsetOffset = new(() => Schema.GetOffset(0x609E94644E636B9), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexAlbedoStreamOffsetOffset = Schema.GetOffset(0x609E94644E636B9);
 
   public ref uint VertexAlbedoStreamOffset {
-    get => ref _Handle.AsRef<uint>(_VertexAlbedoStreamOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VertexAlbedoStreamOffsetOffset);
   }
-  private static readonly Lazy<nint> _InstanceStreamsOffset = new(() => Schema.GetOffset(0x609E94630D081BB), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceStreamsOffset = Schema.GetOffset(0x609E94630D081BB);
 
   public ref AggregateInstanceStream_t InstanceStreams {
-    get => ref _Handle.AsRef<AggregateInstanceStream_t>(_InstanceStreamsOffset.Value);
+    get => ref _Handle.AsRef<AggregateInstanceStream_t>(_InstanceStreamsOffset);
   }
 
 

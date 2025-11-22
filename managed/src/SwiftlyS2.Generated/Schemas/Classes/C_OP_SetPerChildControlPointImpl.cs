@@ -17,45 +17,45 @@ internal partial class C_OP_SetPerChildControlPointImpl : CParticleFunctionOpera
   public C_OP_SetPerChildControlPointImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0xC456E2B9E3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0xC456E2B9E3F3C965);
 
   public ref int ChildGroupID {
-    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _FirstControlPointOffset = new(() => Schema.GetOffset(0xC456E2B972117650), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstControlPointOffset = Schema.GetOffset(0xC456E2B972117650);
 
   public ref int FirstControlPoint {
-    get => ref _Handle.AsRef<int>(_FirstControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_FirstControlPointOffset);
   }
-  private static readonly Lazy<nint> _NumControlPointsOffset = new(() => Schema.GetOffset(0xC456E2B9551EBC4F), LazyThreadSafetyMode.None);
+  private static readonly nint _NumControlPointsOffset = Schema.GetOffset(0xC456E2B9551EBC4F);
 
   public ref int NumControlPoints {
-    get => ref _Handle.AsRef<int>(_NumControlPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumControlPointsOffset);
   }
-  private static readonly Lazy<nint> _ParticleIncrementOffset = new(() => Schema.GetOffset(0xC456E2B973AF63D0), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleIncrementOffset = Schema.GetOffset(0xC456E2B973AF63D0);
 
   public CParticleCollectionFloatInput ParticleIncrement {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticleIncrementOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticleIncrementOffset);
   }
-  private static readonly Lazy<nint> _FirstSourcePointOffset = new(() => Schema.GetOffset(0xC456E2B99D7DC18E), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstSourcePointOffset = Schema.GetOffset(0xC456E2B99D7DC18E);
 
   public CParticleCollectionFloatInput FirstSourcePoint {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _FirstSourcePointOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _FirstSourcePointOffset);
   }
-  private static readonly Lazy<nint> _SetOrientationOffset = new(() => Schema.GetOffset(0xC456E2B9E1390E37), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOrientationOffset = Schema.GetOffset(0xC456E2B9E1390E37);
 
   public ref bool SetOrientation {
-    get => ref _Handle.AsRef<bool>(_SetOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOrientationOffset);
   }
-  private static readonly Lazy<nint> _OrientationFieldOffset = new(() => Schema.GetOffset(0xC456E2B9FFE45E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationFieldOffset = Schema.GetOffset(0xC456E2B9FFE45E9F);
 
   public ParticleAttributeIndex_t OrientationField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OrientationFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OrientationFieldOffset);
   }
-  private static readonly Lazy<nint> _NumBasedOnParticleCountOffset = new(() => Schema.GetOffset(0xC456E2B9401CC5D0), LazyThreadSafetyMode.None);
+  private static readonly nint _NumBasedOnParticleCountOffset = Schema.GetOffset(0xC456E2B9401CC5D0);
 
   public ref bool NumBasedOnParticleCount {
-    get => ref _Handle.AsRef<bool>(_NumBasedOnParticleCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NumBasedOnParticleCountOffset);
   }
 
 

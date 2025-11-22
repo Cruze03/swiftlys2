@@ -17,10 +17,10 @@ internal partial class CNavVolumeSphericalShellImpl : CNavVolumeSphereImpl, CNav
   public CNavVolumeSphericalShellImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusInnerOffset = new(() => Schema.GetOffset(0x8AC7FC7A5D85234F), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusInnerOffset = Schema.GetOffset(0x8AC7FC7A5D85234F);
 
   public ref float RadiusInner {
-    get => ref _Handle.AsRef<float>(_RadiusInnerOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusInnerOffset);
   }
 
 

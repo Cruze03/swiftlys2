@@ -17,15 +17,15 @@ internal partial class C_INIT_InheritVelocityImpl : CParticleFunctionInitializer
   public C_INIT_InheritVelocityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x227ECF463F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x227ECF463F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _VelocityScaleOffset = new(() => Schema.GetOffset(0x227ECF46E161DDAA), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityScaleOffset = Schema.GetOffset(0x227ECF46E161DDAA);
 
   public ref float VelocityScale {
-    get => ref _Handle.AsRef<float>(_VelocityScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_VelocityScaleOffset);
   }
 
 

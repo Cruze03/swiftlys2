@@ -17,30 +17,30 @@ internal partial class CTriggerBrushImpl : CBaseModelEntityImpl, CTriggerBrush {
   public CTriggerBrushImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnStartTouchOffset = new(() => Schema.GetOffset(0xD9D3DFB2B4E38193), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartTouchOffset = Schema.GetOffset(0xD9D3DFB2B4E38193);
 
   public CEntityIOOutput OnStartTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset);
   }
-  private static readonly Lazy<nint> _OnEndTouchOffset = new(() => Schema.GetOffset(0xD9D3DFB25D181B48), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEndTouchOffset = Schema.GetOffset(0xD9D3DFB25D181B48);
 
   public CEntityIOOutput OnEndTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchOffset);
   }
-  private static readonly Lazy<nint> _OnUseOffset = new(() => Schema.GetOffset(0xD9D3DFB2C3D50673), LazyThreadSafetyMode.None);
+  private static readonly nint _OnUseOffset = Schema.GetOffset(0xD9D3DFB2C3D50673);
 
   public CEntityIOOutput OnUse {
-    get => new CEntityIOOutputImpl(_Handle + _OnUseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnUseOffset);
   }
-  private static readonly Lazy<nint> _InputFilterOffset = new(() => Schema.GetOffset(0xD9D3DFB2D5B46E3A), LazyThreadSafetyMode.None);
+  private static readonly nint _InputFilterOffset = Schema.GetOffset(0xD9D3DFB2D5B46E3A);
 
   public ref int InputFilter {
-    get => ref _Handle.AsRef<int>(_InputFilterOffset.Value);
+    get => ref _Handle.AsRef<int>(_InputFilterOffset);
   }
-  private static readonly Lazy<nint> _DontMessageParentOffset = new(() => Schema.GetOffset(0xD9D3DFB2EE2AF166), LazyThreadSafetyMode.None);
+  private static readonly nint _DontMessageParentOffset = Schema.GetOffset(0xD9D3DFB2EE2AF166);
 
   public ref int DontMessageParent {
-    get => ref _Handle.AsRef<int>(_DontMessageParentOffset.Value);
+    get => ref _Handle.AsRef<int>(_DontMessageParentOffset);
   }
 
 

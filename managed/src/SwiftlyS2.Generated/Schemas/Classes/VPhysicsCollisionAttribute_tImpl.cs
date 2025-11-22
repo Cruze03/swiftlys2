@@ -17,45 +17,45 @@ internal partial class VPhysicsCollisionAttribute_tImpl : SchemaClass, VPhysicsC
   public VPhysicsCollisionAttribute_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InteractsAsOffset = new(() => Schema.GetOffset(0x7E9FC931062B2708), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractsAsOffset = Schema.GetOffset(0x7E9FC931062B2708);
 
   public ref ulong InteractsAs {
-    get => ref _Handle.AsRef<ulong>(_InteractsAsOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_InteractsAsOffset);
   }
-  private static readonly Lazy<nint> _InteractsWithOffset = new(() => Schema.GetOffset(0x7E9FC93139179720), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractsWithOffset = Schema.GetOffset(0x7E9FC93139179720);
 
   public ref ulong InteractsWith {
-    get => ref _Handle.AsRef<ulong>(_InteractsWithOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_InteractsWithOffset);
   }
-  private static readonly Lazy<nint> _InteractsExcludeOffset = new(() => Schema.GetOffset(0x7E9FC9314D765732), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractsExcludeOffset = Schema.GetOffset(0x7E9FC9314D765732);
 
   public ref ulong InteractsExclude {
-    get => ref _Handle.AsRef<ulong>(_InteractsExcludeOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_InteractsExcludeOffset);
   }
-  private static readonly Lazy<nint> _EntityIdOffset = new(() => Schema.GetOffset(0x7E9FC9312E71588B), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityIdOffset = Schema.GetOffset(0x7E9FC9312E71588B);
 
   public ref uint EntityId {
-    get => ref _Handle.AsRef<uint>(_EntityIdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_EntityIdOffset);
   }
-  private static readonly Lazy<nint> _OwnerIdOffset = new(() => Schema.GetOffset(0x7E9FC931DD9F9E45), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerIdOffset = Schema.GetOffset(0x7E9FC931DD9F9E45);
 
   public ref uint OwnerId {
-    get => ref _Handle.AsRef<uint>(_OwnerIdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OwnerIdOffset);
   }
-  private static readonly Lazy<nint> _HierarchyIdOffset = new(() => Schema.GetOffset(0x7E9FC931E2479899), LazyThreadSafetyMode.None);
+  private static readonly nint _HierarchyIdOffset = Schema.GetOffset(0x7E9FC931E2479899);
 
   public ref ushort HierarchyId {
-    get => ref _Handle.AsRef<ushort>(_HierarchyIdOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_HierarchyIdOffset);
   }
-  private static readonly Lazy<nint> _CollisionGroupOffset = new(() => Schema.GetOffset(0x7E9FC9310AC0C752), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupOffset = Schema.GetOffset(0x7E9FC9310AC0C752);
 
   public ref byte CollisionGroup {
-    get => ref _Handle.AsRef<byte>(_CollisionGroupOffset.Value);
+    get => ref _Handle.AsRef<byte>(_CollisionGroupOffset);
   }
-  private static readonly Lazy<nint> _CollisionFunctionMaskOffset = new(() => Schema.GetOffset(0x7E9FC931FC7E6DAF), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionFunctionMaskOffset = Schema.GetOffset(0x7E9FC931FC7E6DAF);
 
   public ref byte CollisionFunctionMask {
-    get => ref _Handle.AsRef<byte>(_CollisionFunctionMaskOffset.Value);
+    get => ref _Handle.AsRef<byte>(_CollisionFunctionMaskOffset);
   }
 
   public void InteractsAsUpdated() {

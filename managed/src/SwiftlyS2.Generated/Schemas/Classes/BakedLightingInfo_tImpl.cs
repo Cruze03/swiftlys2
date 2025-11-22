@@ -17,60 +17,60 @@ internal partial class BakedLightingInfo_tImpl : SchemaClass, BakedLightingInfo_
   public BakedLightingInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LightmapVersionNumberOffset = new(() => Schema.GetOffset(0x6909F4EF909450E0), LazyThreadSafetyMode.None);
+  private static readonly nint _LightmapVersionNumberOffset = Schema.GetOffset(0x6909F4EF909450E0);
 
   public ref uint LightmapVersionNumber {
-    get => ref _Handle.AsRef<uint>(_LightmapVersionNumberOffset.Value);
+    get => ref _Handle.AsRef<uint>(_LightmapVersionNumberOffset);
   }
-  private static readonly Lazy<nint> _LightmapGameVersionNumberOffset = new(() => Schema.GetOffset(0x6909F4EFC1181112), LazyThreadSafetyMode.None);
+  private static readonly nint _LightmapGameVersionNumberOffset = Schema.GetOffset(0x6909F4EFC1181112);
 
   public ref uint LightmapGameVersionNumber {
-    get => ref _Handle.AsRef<uint>(_LightmapGameVersionNumberOffset.Value);
+    get => ref _Handle.AsRef<uint>(_LightmapGameVersionNumberOffset);
   }
-  private static readonly Lazy<nint> _LightmapUvScaleOffset = new(() => Schema.GetOffset(0x6909F4EF36320516), LazyThreadSafetyMode.None);
+  private static readonly nint _LightmapUvScaleOffset = Schema.GetOffset(0x6909F4EF36320516);
 
   public ref Vector2D LightmapUvScale {
-    get => ref _Handle.AsRef<Vector2D>(_LightmapUvScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_LightmapUvScaleOffset);
   }
-  private static readonly Lazy<nint> _HasLightmapsOffset = new(() => Schema.GetOffset(0x6909F4EF86932F1E), LazyThreadSafetyMode.None);
+  private static readonly nint _HasLightmapsOffset = Schema.GetOffset(0x6909F4EF86932F1E);
 
   public ref bool HasLightmaps {
-    get => ref _Handle.AsRef<bool>(_HasLightmapsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasLightmapsOffset);
   }
-  private static readonly Lazy<nint> _BakedShadowsGamma20Offset = new(() => Schema.GetOffset(0x6909F4EF2FA903D4), LazyThreadSafetyMode.None);
+  private static readonly nint _BakedShadowsGamma20Offset = Schema.GetOffset(0x6909F4EF2FA903D4);
 
   public ref bool BakedShadowsGamma20 {
-    get => ref _Handle.AsRef<bool>(_BakedShadowsGamma20Offset.Value);
+    get => ref _Handle.AsRef<bool>(_BakedShadowsGamma20Offset);
   }
-  private static readonly Lazy<nint> _CompressionEnabledOffset = new(() => Schema.GetOffset(0x6909F4EF0082912E), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressionEnabledOffset = Schema.GetOffset(0x6909F4EF0082912E);
 
   public ref bool CompressionEnabled {
-    get => ref _Handle.AsRef<bool>(_CompressionEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CompressionEnabledOffset);
   }
-  private static readonly Lazy<nint> _SHLightmapsOffset = new(() => Schema.GetOffset(0x6909F4EF04697DAD), LazyThreadSafetyMode.None);
+  private static readonly nint _SHLightmapsOffset = Schema.GetOffset(0x6909F4EF04697DAD);
 
   public ref bool SHLightmaps {
-    get => ref _Handle.AsRef<bool>(_SHLightmapsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SHLightmapsOffset);
   }
-  private static readonly Lazy<nint> _ChartPackIterationsOffset = new(() => Schema.GetOffset(0x6909F4EF7CF370A6), LazyThreadSafetyMode.None);
+  private static readonly nint _ChartPackIterationsOffset = Schema.GetOffset(0x6909F4EF7CF370A6);
 
   public ref byte ChartPackIterations {
-    get => ref _Handle.AsRef<byte>(_ChartPackIterationsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ChartPackIterationsOffset);
   }
-  private static readonly Lazy<nint> _VradQualityOffset = new(() => Schema.GetOffset(0x6909F4EFDFCA05D9), LazyThreadSafetyMode.None);
+  private static readonly nint _VradQualityOffset = Schema.GetOffset(0x6909F4EFDFCA05D9);
 
   public ref byte VradQuality {
-    get => ref _Handle.AsRef<byte>(_VradQualityOffset.Value);
+    get => ref _Handle.AsRef<byte>(_VradQualityOffset);
   }
-  private static readonly Lazy<nint> _LightMapsOffset = new(() => Schema.GetOffset(0x6909F4EF6F2EFF94), LazyThreadSafetyMode.None);
+  private static readonly nint _LightMapsOffset = Schema.GetOffset(0x6909F4EF6F2EFF94);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>> LightMaps {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>>(_LightMapsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>>(_LightMapsOffset);
   }
-  private static readonly Lazy<nint> _BakedShadowsOffset = new(() => Schema.GetOffset(0x6909F4EFE8C9B481), LazyThreadSafetyMode.None);
+  private static readonly nint _BakedShadowsOffset = Schema.GetOffset(0x6909F4EFE8C9B481);
 
   public ref CUtlVector<BakedLightingInfo_t__BakedShadowAssignment_t> BakedShadows {
-    get => ref _Handle.AsRef<CUtlVector<BakedLightingInfo_t__BakedShadowAssignment_t>>(_BakedShadowsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<BakedLightingInfo_t__BakedShadowAssignment_t>>(_BakedShadowsOffset);
   }
 
 

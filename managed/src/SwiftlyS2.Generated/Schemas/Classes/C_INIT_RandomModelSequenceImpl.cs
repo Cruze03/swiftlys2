@@ -17,28 +17,28 @@ internal partial class C_INIT_RandomModelSequenceImpl : CParticleFunctionInitial
   public C_INIT_RandomModelSequenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActivityNameOffset = new(() => Schema.GetOffset(0x2F450DC3BF0C5087), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivityNameOffset = Schema.GetOffset(0x2F450DC3BF0C5087);
 
   public string ActivityName {
     get {
-      var ptr = _Handle + _ActivityNameOffset.Value;
+      var ptr = _Handle + _ActivityNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _ActivityNameOffset.Value, value, 256);
+    set => Schema.SetFixedString(_Handle, _ActivityNameOffset, value, 256);
   } 
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0x2F450DC3A270F66B), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0x2F450DC3A270F66B);
 
   public string SequenceName {
     get {
-      var ptr = _Handle + _SequenceNameOffset.Value;
+      var ptr = _Handle + _SequenceNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _SequenceNameOffset.Value, value, 256);
+    set => Schema.SetFixedString(_Handle, _SequenceNameOffset, value, 256);
   } 
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0x2F450DC3E100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0x2F450DC3E100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
 
 

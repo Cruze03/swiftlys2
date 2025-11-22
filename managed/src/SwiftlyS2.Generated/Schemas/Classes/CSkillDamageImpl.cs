@@ -17,20 +17,20 @@ internal partial class CSkillDamageImpl : SchemaClass, CSkillDamage {
   public CSkillDamageImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0x6A323D82DC60E53E), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0x6A323D82DC60E53E);
 
   public CSkillFloat Damage {
-    get => new CSkillFloatImpl(_Handle + _DamageOffset.Value);
+    get => new CSkillFloatImpl(_Handle + _DamageOffset);
   }
-  private static readonly Lazy<nint> _NPCDamageScalarVsNPCOffset = new(() => Schema.GetOffset(0x6A323D82FD135437), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCDamageScalarVsNPCOffset = Schema.GetOffset(0x6A323D82FD135437);
 
   public ref float NPCDamageScalarVsNPC {
-    get => ref _Handle.AsRef<float>(_NPCDamageScalarVsNPCOffset.Value);
+    get => ref _Handle.AsRef<float>(_NPCDamageScalarVsNPCOffset);
   }
-  private static readonly Lazy<nint> _PhysicsForceDamageOffset = new(() => Schema.GetOffset(0x6A323D8219E7630E), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysicsForceDamageOffset = Schema.GetOffset(0x6A323D8219E7630E);
 
   public ref float PhysicsForceDamage {
-    get => ref _Handle.AsRef<float>(_PhysicsForceDamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_PhysicsForceDamageOffset);
   }
 
 

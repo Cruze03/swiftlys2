@@ -17,15 +17,15 @@ internal partial class CDestructiblePartsSystemDataImpl : SchemaClass, CDestruct
   public CDestructiblePartsSystemDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PartsDataByHitGroupOffset = new(() => Schema.GetOffset(0xABDCB98361E96220), LazyThreadSafetyMode.None);
+  private static readonly nint _PartsDataByHitGroupOffset = Schema.GetOffset(0xABDCB98361E96220);
 
   public SchemaUntypedField PartsDataByHitGroup {
-    get => new SchemaUntypedField(_Handle + _PartsDataByHitGroupOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PartsDataByHitGroupOffset);
   }
-  private static readonly Lazy<nint> _MinMaxNumberHitGroupsToDestroyWhenGibbingOffset = new(() => Schema.GetOffset(0xABDCB9834CA810D8), LazyThreadSafetyMode.None);
+  private static readonly nint _MinMaxNumberHitGroupsToDestroyWhenGibbingOffset = Schema.GetOffset(0xABDCB9834CA810D8);
 
   public CRangeInt MinMaxNumberHitGroupsToDestroyWhenGibbing {
-    get => new CRangeIntImpl(_Handle + _MinMaxNumberHitGroupsToDestroyWhenGibbingOffset.Value);
+    get => new CRangeIntImpl(_Handle + _MinMaxNumberHitGroupsToDestroyWhenGibbingOffset);
   }
 
 

@@ -17,45 +17,45 @@ internal partial class CAnimationGroupImpl : SchemaClass, CAnimationGroup {
   public CAnimationGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x338D4483CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x338D4483CE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x338D44834D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x338D44834D8F5786);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _LocalHAnimArray_HandleOffset = new(() => Schema.GetOffset(0x338D44834059130D), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalHAnimArray_HandleOffset = Schema.GetOffset(0x338D44834059130D);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCAnimData>> LocalHAnimArray_Handle {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimData>>>(_LocalHAnimArray_HandleOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimData>>>(_LocalHAnimArray_HandleOffset);
   }
-  private static readonly Lazy<nint> _IncludedGroupArray_HandleOffset = new(() => Schema.GetOffset(0x338D4483029BD190), LazyThreadSafetyMode.None);
+  private static readonly nint _IncludedGroupArray_HandleOffset = Schema.GetOffset(0x338D4483029BD190);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>> IncludedGroupArray_Handle {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>>>(_IncludedGroupArray_HandleOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>>>(_IncludedGroupArray_HandleOffset);
   }
-  private static readonly Lazy<nint> _DirectHSeqGroup_HandleOffset = new(() => Schema.GetOffset(0x338D44836F0E7A99), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectHSeqGroup_HandleOffset = Schema.GetOffset(0x338D44836F0E7A99);
 
   public ref CStrongHandle<InfoForResourceTypeCSequenceGroupData> DirectHSeqGroup_Handle {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCSequenceGroupData>>(_DirectHSeqGroup_HandleOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCSequenceGroupData>>(_DirectHSeqGroup_HandleOffset);
   }
-  private static readonly Lazy<nint> _DecodeKeyOffset = new(() => Schema.GetOffset(0x338D4483923D44D6), LazyThreadSafetyMode.None);
+  private static readonly nint _DecodeKeyOffset = Schema.GetOffset(0x338D4483923D44D6);
 
   public CAnimKeyData DecodeKey {
-    get => new CAnimKeyDataImpl(_Handle + _DecodeKeyOffset.Value);
+    get => new CAnimKeyDataImpl(_Handle + _DecodeKeyOffset);
   }
-  private static readonly Lazy<nint> _ScriptsOffset = new(() => Schema.GetOffset(0x338D4483F1FF2218), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptsOffset = Schema.GetOffset(0x338D4483F1FF2218);
 
   public ref CUtlVector<CBufferString> Scripts {
-    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_ScriptsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_ScriptsOffset);
   }
-  private static readonly Lazy<nint> _AdditionalExtRefsOffset = new(() => Schema.GetOffset(0x338D448349CEFD51), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditionalExtRefsOffset = Schema.GetOffset(0x338D448349CEFD51);
 
   public ref CUtlVector<SchemaUntypedField> AdditionalExtRefs {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AdditionalExtRefsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AdditionalExtRefsOffset);
   }
 
 

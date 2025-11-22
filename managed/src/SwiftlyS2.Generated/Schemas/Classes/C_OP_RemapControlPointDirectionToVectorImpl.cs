@@ -17,20 +17,20 @@ internal partial class C_OP_RemapControlPointDirectionToVectorImpl : CParticleFu
   public C_OP_RemapControlPointDirectionToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xB5467A62E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xB5467A62E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xB5467A62B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xB5467A62B731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xB5467A623F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xB5467A623F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
 
 

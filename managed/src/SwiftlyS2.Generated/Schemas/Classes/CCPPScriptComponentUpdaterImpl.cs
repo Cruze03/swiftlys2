@@ -17,10 +17,10 @@ internal partial class CCPPScriptComponentUpdaterImpl : CAnimComponentUpdaterImp
   public CCPPScriptComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScriptsToRunOffset = new(() => Schema.GetOffset(0x4785DAC8378F3E0F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptsToRunOffset = Schema.GetOffset(0x4785DAC8378F3E0F);
 
   public ref CUtlVector<CGlobalSymbol> ScriptsToRun {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_ScriptsToRunOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_ScriptsToRunOffset);
   }
 
 

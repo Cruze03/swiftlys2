@@ -17,90 +17,90 @@ internal partial class CCompressorGroupImpl : SchemaClass, CCompressorGroup {
   public CCompressorGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TotalElementCountOffset = new(() => Schema.GetOffset(0x8D9A46F69E4F56A2), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalElementCountOffset = Schema.GetOffset(0x8D9A46F69E4F56A2);
 
   public ref int TotalElementCount {
-    get => ref _Handle.AsRef<int>(_TotalElementCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_TotalElementCountOffset);
   }
-  private static readonly Lazy<nint> _ChannelClassOffset = new(() => Schema.GetOffset(0x8D9A46F68F5E9AD5), LazyThreadSafetyMode.None);
+  private static readonly nint _ChannelClassOffset = Schema.GetOffset(0x8D9A46F68F5E9AD5);
 
   public ref CUtlVector<CString> ChannelClass {
-    get => ref _Handle.AsRef<CUtlVector<CString>>(_ChannelClassOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CString>>(_ChannelClassOffset);
   }
-  private static readonly Lazy<nint> _VariableNameOffset = new(() => Schema.GetOffset(0x8D9A46F6369599AB), LazyThreadSafetyMode.None);
+  private static readonly nint _VariableNameOffset = Schema.GetOffset(0x8D9A46F6369599AB);
 
   public ref CUtlVector<CString> VariableName {
-    get => ref _Handle.AsRef<CUtlVector<CString>>(_VariableNameOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CString>>(_VariableNameOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x8D9A46F618853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x8D9A46F618853D59);
 
   public ref CUtlVector<fieldtype_t> Type {
-    get => ref _Handle.AsRef<CUtlVector<fieldtype_t>>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<fieldtype_t>>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x8D9A46F6CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x8D9A46F6CE6E9C28);
 
   public ref CUtlVector<int> Flags {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _GroupingOffset = new(() => Schema.GetOffset(0x8D9A46F64308F10D), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupingOffset = Schema.GetOffset(0x8D9A46F64308F10D);
 
   public ref CUtlVector<CUtlString> Grouping {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_GroupingOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_GroupingOffset);
   }
-  private static readonly Lazy<nint> _CompressorIndexOffset = new(() => Schema.GetOffset(0x8D9A46F67B4BF604), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressorIndexOffset = Schema.GetOffset(0x8D9A46F67B4BF604);
 
   public ref CUtlVector<int> CompressorIndex {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_CompressorIndexOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_CompressorIndexOffset);
   }
-  private static readonly Lazy<nint> _ElementNamesOffset = new(() => Schema.GetOffset(0x8D9A46F6D5BFAA00), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementNamesOffset = Schema.GetOffset(0x8D9A46F6D5BFAA00);
 
   public ref CUtlVector<CUtlVector<CString>> ElementNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlVector<CString>>>(_ElementNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlVector<CString>>>(_ElementNamesOffset);
   }
-  private static readonly Lazy<nint> _ElementUniqueIDOffset = new(() => Schema.GetOffset(0x8D9A46F64C95C12D), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementUniqueIDOffset = Schema.GetOffset(0x8D9A46F64C95C12D);
 
   public ref CUtlVector<CUtlVector<int>> ElementUniqueID {
-    get => ref _Handle.AsRef<CUtlVector<CUtlVector<int>>>(_ElementUniqueIDOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlVector<int>>>(_ElementUniqueIDOffset);
   }
-  private static readonly Lazy<nint> _ElementMaskOffset = new(() => Schema.GetOffset(0x8D9A46F67BBE1B07), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementMaskOffset = Schema.GetOffset(0x8D9A46F67BBE1B07);
 
   public ref CUtlVector<uint> ElementMask {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_ElementMaskOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_ElementMaskOffset);
   }
-  private static readonly Lazy<nint> _VectorCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F61A8B6EBF), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorCompressorOffset = Schema.GetOffset(0x8D9A46F61A8B6EBF);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> VectorCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_VectorCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_VectorCompressorOffset);
   }
-  private static readonly Lazy<nint> _QuaternionCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F6D4D751D4), LazyThreadSafetyMode.None);
+  private static readonly nint _QuaternionCompressorOffset = Schema.GetOffset(0x8D9A46F6D4D751D4);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> QuaternionCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_QuaternionCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_QuaternionCompressorOffset);
   }
-  private static readonly Lazy<nint> _IntCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F654D409FB), LazyThreadSafetyMode.None);
+  private static readonly nint _IntCompressorOffset = Schema.GetOffset(0x8D9A46F654D409FB);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> IntCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_IntCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_IntCompressorOffset);
   }
-  private static readonly Lazy<nint> _BoolCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F6359E7C24), LazyThreadSafetyMode.None);
+  private static readonly nint _BoolCompressorOffset = Schema.GetOffset(0x8D9A46F6359E7C24);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> BoolCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_BoolCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_BoolCompressorOffset);
   }
-  private static readonly Lazy<nint> _ColorCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F6088C2B29), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorCompressorOffset = Schema.GetOffset(0x8D9A46F6088C2B29);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> ColorCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_ColorCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_ColorCompressorOffset);
   }
-  private static readonly Lazy<nint> _Vector2DCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F633C3F00D), LazyThreadSafetyMode.None);
+  private static readonly nint _Vector2DCompressorOffset = Schema.GetOffset(0x8D9A46F633C3F00D);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> Vector2DCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_Vector2DCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_Vector2DCompressorOffset);
   }
-  private static readonly Lazy<nint> _Vector4DCompressorOffset = new(() => Schema.GetOffset(0x8D9A46F6E178618F), LazyThreadSafetyMode.None);
+  private static readonly nint _Vector4DCompressorOffset = Schema.GetOffset(0x8D9A46F6E178618F);
 
   public ref CUtlVector<PointerTo<SchemaUntypedField>> Vector4DCompressor {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_Vector4DCompressorOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SchemaUntypedField>>>(_Vector4DCompressorOffset);
   }
 
 

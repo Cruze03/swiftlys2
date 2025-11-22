@@ -17,15 +17,15 @@ internal partial class CTriggerDetectBulletFireImpl : CBaseTriggerImpl, CTrigger
   public CTriggerDetectBulletFireImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlayerFireOnlyOffset = new(() => Schema.GetOffset(0x93930A3D56D51CFE), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerFireOnlyOffset = Schema.GetOffset(0x93930A3D56D51CFE);
 
   public ref bool PlayerFireOnly {
-    get => ref _Handle.AsRef<bool>(_PlayerFireOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayerFireOnlyOffset);
   }
-  private static readonly Lazy<nint> _OnDetectedBulletFireOffset = new(() => Schema.GetOffset(0x93930A3D11D6C936), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDetectedBulletFireOffset = Schema.GetOffset(0x93930A3D11D6C936);
 
   public CEntityIOOutput OnDetectedBulletFire {
-    get => new CEntityIOOutputImpl(_Handle + _OnDetectedBulletFireOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDetectedBulletFireOffset);
   }
 
 

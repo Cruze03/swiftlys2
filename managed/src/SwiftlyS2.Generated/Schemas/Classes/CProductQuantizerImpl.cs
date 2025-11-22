@@ -17,15 +17,15 @@ internal partial class CProductQuantizerImpl : SchemaClass, CProductQuantizer {
   public CProductQuantizerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SubQuantizersOffset = new(() => Schema.GetOffset(0x5B1A8128593CF0B5), LazyThreadSafetyMode.None);
+  private static readonly nint _SubQuantizersOffset = Schema.GetOffset(0x5B1A8128593CF0B5);
 
   public ref CUtlVector<CVectorQuantizer> SubQuantizers {
-    get => ref _Handle.AsRef<CUtlVector<CVectorQuantizer>>(_SubQuantizersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CVectorQuantizer>>(_SubQuantizersOffset);
   }
-  private static readonly Lazy<nint> _DimensionsOffset = new(() => Schema.GetOffset(0x5B1A81282D8795AC), LazyThreadSafetyMode.None);
+  private static readonly nint _DimensionsOffset = Schema.GetOffset(0x5B1A81282D8795AC);
 
   public ref int Dimensions {
-    get => ref _Handle.AsRef<int>(_DimensionsOffset.Value);
+    get => ref _Handle.AsRef<int>(_DimensionsOffset);
   }
 
 

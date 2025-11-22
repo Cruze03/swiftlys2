@@ -17,35 +17,35 @@ internal partial class C_OP_SetControlPointFieldToScalarExpressionImpl : CPartic
   public C_OP_SetControlPointFieldToScalarExpressionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExpressionOffset = new(() => Schema.GetOffset(0x6A8A3411160B2427), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpressionOffset = Schema.GetOffset(0x6A8A3411160B2427);
 
   public ref ScalarExpressionType_t Expression {
-    get => ref _Handle.AsRef<ScalarExpressionType_t>(_ExpressionOffset.Value);
+    get => ref _Handle.AsRef<ScalarExpressionType_t>(_ExpressionOffset);
   }
-  private static readonly Lazy<nint> _Input1Offset = new(() => Schema.GetOffset(0x6A8A3411E9DA2E24), LazyThreadSafetyMode.None);
+  private static readonly nint _Input1Offset = Schema.GetOffset(0x6A8A3411E9DA2E24);
 
   public CParticleCollectionFloatInput Input1 {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _Input1Offset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _Input1Offset);
   }
-  private static readonly Lazy<nint> _Input2Offset = new(() => Schema.GetOffset(0x6A8A3411ECDA32DD), LazyThreadSafetyMode.None);
+  private static readonly nint _Input2Offset = Schema.GetOffset(0x6A8A3411ECDA32DD);
 
   public CParticleCollectionFloatInput Input2 {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _Input2Offset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _Input2Offset);
   }
-  private static readonly Lazy<nint> _OutputRemapOffset = new(() => Schema.GetOffset(0x6A8A34111239396F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRemapOffset = Schema.GetOffset(0x6A8A34111239396F);
 
   public CParticleRemapFloatInput OutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset);
   }
-  private static readonly Lazy<nint> _OutputCPOffset = new(() => Schema.GetOffset(0x6A8A341150DF5703), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputCPOffset = Schema.GetOffset(0x6A8A341150DF5703);
 
   public ref int OutputCP {
-    get => ref _Handle.AsRef<int>(_OutputCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputCPOffset);
   }
-  private static readonly Lazy<nint> _OutVectorFieldOffset = new(() => Schema.GetOffset(0x6A8A3411F9041E74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutVectorFieldOffset = Schema.GetOffset(0x6A8A3411F9041E74);
 
   public ref int OutVectorField {
-    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset);
   }
 
 

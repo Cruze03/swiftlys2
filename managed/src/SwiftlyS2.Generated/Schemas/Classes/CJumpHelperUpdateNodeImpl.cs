@@ -17,43 +17,43 @@ internal partial class CJumpHelperUpdateNodeImpl : CSequenceUpdateNodeImpl, CJum
   public CJumpHelperUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetParamOffset = new(() => Schema.GetOffset(0xB5EA3127D85B45EB), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetParamOffset = Schema.GetOffset(0xB5EA3127D85B45EB);
 
   public CAnimParamHandle TargetParam {
-    get => new CAnimParamHandleImpl(_Handle + _TargetParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetParamOffset);
   }
-  private static readonly Lazy<nint> _OriginalJumpMovementOffset = new(() => Schema.GetOffset(0xB5EA31277E064DE5), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalJumpMovementOffset = Schema.GetOffset(0xB5EA31277E064DE5);
 
   public ref Vector OriginalJumpMovement {
-    get => ref _Handle.AsRef<Vector>(_OriginalJumpMovementOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalJumpMovementOffset);
   }
-  private static readonly Lazy<nint> _OriginalJumpDurationOffset = new(() => Schema.GetOffset(0xB5EA3127DC8F3370), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalJumpDurationOffset = Schema.GetOffset(0xB5EA3127DC8F3370);
 
   public ref float OriginalJumpDuration {
-    get => ref _Handle.AsRef<float>(_OriginalJumpDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_OriginalJumpDurationOffset);
   }
-  private static readonly Lazy<nint> _JumpStartCycleOffset = new(() => Schema.GetOffset(0xB5EA31275B46CD7D), LazyThreadSafetyMode.None);
+  private static readonly nint _JumpStartCycleOffset = Schema.GetOffset(0xB5EA31275B46CD7D);
 
   public ref float JumpStartCycle {
-    get => ref _Handle.AsRef<float>(_JumpStartCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_JumpStartCycleOffset);
   }
-  private static readonly Lazy<nint> _JumpEndCycleOffset = new(() => Schema.GetOffset(0xB5EA3127FDF5C656), LazyThreadSafetyMode.None);
+  private static readonly nint _JumpEndCycleOffset = Schema.GetOffset(0xB5EA3127FDF5C656);
 
   public ref float JumpEndCycle {
-    get => ref _Handle.AsRef<float>(_JumpEndCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_JumpEndCycleOffset);
   }
-  private static readonly Lazy<nint> _CorrectionMethodOffset = new(() => Schema.GetOffset(0xB5EA31271E19BA51), LazyThreadSafetyMode.None);
+  private static readonly nint _CorrectionMethodOffset = Schema.GetOffset(0xB5EA31271E19BA51);
 
   public ref JumpCorrectionMethod CorrectionMethod {
-    get => ref _Handle.AsRef<JumpCorrectionMethod>(_CorrectionMethodOffset.Value);
+    get => ref _Handle.AsRef<JumpCorrectionMethod>(_CorrectionMethodOffset);
   }
   public ISchemaFixedArray<bool> TranslationAxis {
     get => new SchemaFixedArray<bool>(_Handle, 0xB5EA3127F062387D, 3, 1, 1);
   }
-  private static readonly Lazy<nint> _ScaleSpeedOffset = new(() => Schema.GetOffset(0xB5EA31272776330C), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleSpeedOffset = Schema.GetOffset(0xB5EA31272776330C);
 
   public ref bool ScaleSpeed {
-    get => ref _Handle.AsRef<bool>(_ScaleSpeedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ScaleSpeedOffset);
   }
 
 

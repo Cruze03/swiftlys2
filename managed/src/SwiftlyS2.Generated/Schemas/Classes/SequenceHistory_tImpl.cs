@@ -17,35 +17,35 @@ internal partial class SequenceHistory_tImpl : SchemaClass, SequenceHistory_t {
   public SequenceHistory_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x8B1B0C2BE0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x8B1B0C2BE0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _SeqStartTimeOffset = new(() => Schema.GetOffset(0x8B1B0C2B9120356F), LazyThreadSafetyMode.None);
+  private static readonly nint _SeqStartTimeOffset = Schema.GetOffset(0x8B1B0C2B9120356F);
 
   public GameTime_t SeqStartTime {
-    get => new GameTime_tImpl(_Handle + _SeqStartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _SeqStartTimeOffset);
   }
-  private static readonly Lazy<nint> _SeqFixedCycleOffset = new(() => Schema.GetOffset(0x8B1B0C2B77103EAE), LazyThreadSafetyMode.None);
+  private static readonly nint _SeqFixedCycleOffset = Schema.GetOffset(0x8B1B0C2B77103EAE);
 
   public ref float SeqFixedCycle {
-    get => ref _Handle.AsRef<float>(_SeqFixedCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_SeqFixedCycleOffset);
   }
-  private static readonly Lazy<nint> _SeqLoopModeOffset = new(() => Schema.GetOffset(0x8B1B0C2BB011340D), LazyThreadSafetyMode.None);
+  private static readonly nint _SeqLoopModeOffset = Schema.GetOffset(0x8B1B0C2BB011340D);
 
   public ref AnimLoopMode_t SeqLoopMode {
-    get => ref _Handle.AsRef<AnimLoopMode_t>(_SeqLoopModeOffset.Value);
+    get => ref _Handle.AsRef<AnimLoopMode_t>(_SeqLoopModeOffset);
   }
-  private static readonly Lazy<nint> _PlaybackRateOffset = new(() => Schema.GetOffset(0x8B1B0C2BC396F9D8), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackRateOffset = Schema.GetOffset(0x8B1B0C2BC396F9D8);
 
   public ref float PlaybackRate {
-    get => ref _Handle.AsRef<float>(_PlaybackRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaybackRateOffset);
   }
-  private static readonly Lazy<nint> _CyclesPerSecondOffset = new(() => Schema.GetOffset(0x8B1B0C2B44417193), LazyThreadSafetyMode.None);
+  private static readonly nint _CyclesPerSecondOffset = Schema.GetOffset(0x8B1B0C2B44417193);
 
   public ref float CyclesPerSecond {
-    get => ref _Handle.AsRef<float>(_CyclesPerSecondOffset.Value);
+    get => ref _Handle.AsRef<float>(_CyclesPerSecondOffset);
   }
 
 

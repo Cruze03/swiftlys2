@@ -17,70 +17,70 @@ internal partial class CTimerEntityImpl : CLogicalEntityImpl, CTimerEntity {
   public CTimerEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnTimerOffset = new(() => Schema.GetOffset(0xE96486ECF7551DA1), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTimerOffset = Schema.GetOffset(0xE96486ECF7551DA1);
 
   public CEntityIOOutput OnTimer {
-    get => new CEntityIOOutputImpl(_Handle + _OnTimerOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTimerOffset);
   }
-  private static readonly Lazy<nint> _OnTimerHighOffset = new(() => Schema.GetOffset(0xE96486ECEAFE5EC1), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTimerHighOffset = Schema.GetOffset(0xE96486ECEAFE5EC1);
 
   public CEntityIOOutput OnTimerHigh {
-    get => new CEntityIOOutputImpl(_Handle + _OnTimerHighOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTimerHighOffset);
   }
-  private static readonly Lazy<nint> _OnTimerLowOffset = new(() => Schema.GetOffset(0xE96486EC60BA6A4D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTimerLowOffset = Schema.GetOffset(0xE96486EC60BA6A4D);
 
   public CEntityIOOutput OnTimerLow {
-    get => new CEntityIOOutputImpl(_Handle + _OnTimerLowOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTimerLowOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xE96486EC51B3CEAC), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xE96486EC51B3CEAC);
 
   public ref int Disabled {
-    get => ref _Handle.AsRef<int>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<int>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _InitialDelayOffset = new(() => Schema.GetOffset(0xE96486ECE025AE70), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialDelayOffset = Schema.GetOffset(0xE96486ECE025AE70);
 
   public ref float InitialDelay {
-    get => ref _Handle.AsRef<float>(_InitialDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_InitialDelayOffset);
   }
-  private static readonly Lazy<nint> _RefireTimeOffset = new(() => Schema.GetOffset(0xE96486ECEABAD29B), LazyThreadSafetyMode.None);
+  private static readonly nint _RefireTimeOffset = Schema.GetOffset(0xE96486ECEABAD29B);
 
   public ref float RefireTime {
-    get => ref _Handle.AsRef<float>(_RefireTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RefireTimeOffset);
   }
-  private static readonly Lazy<nint> _UpDownStateOffset = new(() => Schema.GetOffset(0xE96486EC42D72911), LazyThreadSafetyMode.None);
+  private static readonly nint _UpDownStateOffset = Schema.GetOffset(0xE96486EC42D72911);
 
   public ref bool UpDownState {
-    get => ref _Handle.AsRef<bool>(_UpDownStateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UpDownStateOffset);
   }
-  private static readonly Lazy<nint> _UseRandomTimeOffset = new(() => Schema.GetOffset(0xE96486ECEBBE5799), LazyThreadSafetyMode.None);
+  private static readonly nint _UseRandomTimeOffset = Schema.GetOffset(0xE96486ECEBBE5799);
 
   public ref int UseRandomTime {
-    get => ref _Handle.AsRef<int>(_UseRandomTimeOffset.Value);
+    get => ref _Handle.AsRef<int>(_UseRandomTimeOffset);
   }
-  private static readonly Lazy<nint> _PauseAfterFiringOffset = new(() => Schema.GetOffset(0xE96486EC767C1C9E), LazyThreadSafetyMode.None);
+  private static readonly nint _PauseAfterFiringOffset = Schema.GetOffset(0xE96486EC767C1C9E);
 
   public ref bool PauseAfterFiring {
-    get => ref _Handle.AsRef<bool>(_PauseAfterFiringOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PauseAfterFiringOffset);
   }
-  private static readonly Lazy<nint> _LowerRandomBoundOffset = new(() => Schema.GetOffset(0xE96486EC88350771), LazyThreadSafetyMode.None);
+  private static readonly nint _LowerRandomBoundOffset = Schema.GetOffset(0xE96486EC88350771);
 
   public ref float LowerRandomBound {
-    get => ref _Handle.AsRef<float>(_LowerRandomBoundOffset.Value);
+    get => ref _Handle.AsRef<float>(_LowerRandomBoundOffset);
   }
-  private static readonly Lazy<nint> _UpperRandomBoundOffset = new(() => Schema.GetOffset(0xE96486ECB238933E), LazyThreadSafetyMode.None);
+  private static readonly nint _UpperRandomBoundOffset = Schema.GetOffset(0xE96486ECB238933E);
 
   public ref float UpperRandomBound {
-    get => ref _Handle.AsRef<float>(_UpperRandomBoundOffset.Value);
+    get => ref _Handle.AsRef<float>(_UpperRandomBoundOffset);
   }
-  private static readonly Lazy<nint> _RemainingTimeOffset = new(() => Schema.GetOffset(0xE96486EC88B29520), LazyThreadSafetyMode.None);
+  private static readonly nint _RemainingTimeOffset = Schema.GetOffset(0xE96486EC88B29520);
 
   public ref float RemainingTime {
-    get => ref _Handle.AsRef<float>(_RemainingTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RemainingTimeOffset);
   }
-  private static readonly Lazy<nint> _PausedOffset = new(() => Schema.GetOffset(0xE96486EC6E4C592B), LazyThreadSafetyMode.None);
+  private static readonly nint _PausedOffset = Schema.GetOffset(0xE96486EC6E4C592B);
 
   public ref bool Paused {
-    get => ref _Handle.AsRef<bool>(_PausedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PausedOffset);
   }
 
 

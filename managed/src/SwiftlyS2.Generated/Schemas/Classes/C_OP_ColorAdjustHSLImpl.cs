@@ -17,20 +17,20 @@ internal partial class C_OP_ColorAdjustHSLImpl : CParticleFunctionOperatorImpl, 
   public C_OP_ColorAdjustHSLImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HueAdjustOffset = new(() => Schema.GetOffset(0x34348E726B20DB80), LazyThreadSafetyMode.None);
+  private static readonly nint _HueAdjustOffset = Schema.GetOffset(0x34348E726B20DB80);
 
   public CPerParticleFloatInput HueAdjust {
-    get => new CPerParticleFloatInputImpl(_Handle + _HueAdjustOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _HueAdjustOffset);
   }
-  private static readonly Lazy<nint> _SaturationAdjustOffset = new(() => Schema.GetOffset(0x34348E72D0C582F4), LazyThreadSafetyMode.None);
+  private static readonly nint _SaturationAdjustOffset = Schema.GetOffset(0x34348E72D0C582F4);
 
   public CPerParticleFloatInput SaturationAdjust {
-    get => new CPerParticleFloatInputImpl(_Handle + _SaturationAdjustOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SaturationAdjustOffset);
   }
-  private static readonly Lazy<nint> _LightnessAdjustOffset = new(() => Schema.GetOffset(0x34348E72DC0100D5), LazyThreadSafetyMode.None);
+  private static readonly nint _LightnessAdjustOffset = Schema.GetOffset(0x34348E72DC0100D5);
 
   public CPerParticleFloatInput LightnessAdjust {
-    get => new CPerParticleFloatInputImpl(_Handle + _LightnessAdjustOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _LightnessAdjustOffset);
   }
 
 

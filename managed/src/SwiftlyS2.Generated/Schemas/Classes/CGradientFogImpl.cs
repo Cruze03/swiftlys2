@@ -17,85 +17,85 @@ internal partial class CGradientFogImpl : CBaseEntityImpl, CGradientFog {
   public CGradientFogImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GradientFogTextureOffset = new(() => Schema.GetOffset(0x978D360E547F825C), LazyThreadSafetyMode.None);
+  private static readonly nint _GradientFogTextureOffset = Schema.GetOffset(0x978D360E547F825C);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> GradientFogTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_GradientFogTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_GradientFogTextureOffset);
   }
-  private static readonly Lazy<nint> _FogStartDistanceOffset = new(() => Schema.GetOffset(0x978D360E4B5A1DBC), LazyThreadSafetyMode.None);
+  private static readonly nint _FogStartDistanceOffset = Schema.GetOffset(0x978D360E4B5A1DBC);
 
   public ref float FogStartDistance {
-    get => ref _Handle.AsRef<float>(_FogStartDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogStartDistanceOffset);
   }
-  private static readonly Lazy<nint> _FogEndDistanceOffset = new(() => Schema.GetOffset(0x978D360E27F71D5D), LazyThreadSafetyMode.None);
+  private static readonly nint _FogEndDistanceOffset = Schema.GetOffset(0x978D360E27F71D5D);
 
   public ref float FogEndDistance {
-    get => ref _Handle.AsRef<float>(_FogEndDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogEndDistanceOffset);
   }
-  private static readonly Lazy<nint> _HeightFogEnabledOffset = new(() => Schema.GetOffset(0x978D360EFB7ED9F7), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightFogEnabledOffset = Schema.GetOffset(0x978D360EFB7ED9F7);
 
   public ref bool HeightFogEnabled {
-    get => ref _Handle.AsRef<bool>(_HeightFogEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HeightFogEnabledOffset);
   }
-  private static readonly Lazy<nint> _FogStartHeightOffset = new(() => Schema.GetOffset(0x978D360E34EA384C), LazyThreadSafetyMode.None);
+  private static readonly nint _FogStartHeightOffset = Schema.GetOffset(0x978D360E34EA384C);
 
   public ref float FogStartHeight {
-    get => ref _Handle.AsRef<float>(_FogStartHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogStartHeightOffset);
   }
-  private static readonly Lazy<nint> _FogEndHeightOffset = new(() => Schema.GetOffset(0x978D360E6644141D), LazyThreadSafetyMode.None);
+  private static readonly nint _FogEndHeightOffset = Schema.GetOffset(0x978D360E6644141D);
 
   public ref float FogEndHeight {
-    get => ref _Handle.AsRef<float>(_FogEndHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogEndHeightOffset);
   }
-  private static readonly Lazy<nint> _FarZOffset = new(() => Schema.GetOffset(0x978D360E38F5E41A), LazyThreadSafetyMode.None);
+  private static readonly nint _FarZOffset = Schema.GetOffset(0x978D360E38F5E41A);
 
   public ref float FarZ {
-    get => ref _Handle.AsRef<float>(_FarZOffset.Value);
+    get => ref _Handle.AsRef<float>(_FarZOffset);
   }
-  private static readonly Lazy<nint> _FogMaxOpacityOffset = new(() => Schema.GetOffset(0x978D360E7BF7FD56), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMaxOpacityOffset = Schema.GetOffset(0x978D360E7BF7FD56);
 
   public ref float FogMaxOpacity {
-    get => ref _Handle.AsRef<float>(_FogMaxOpacityOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMaxOpacityOffset);
   }
-  private static readonly Lazy<nint> _FogFalloffExponentOffset = new(() => Schema.GetOffset(0x978D360E2068A39A), LazyThreadSafetyMode.None);
+  private static readonly nint _FogFalloffExponentOffset = Schema.GetOffset(0x978D360E2068A39A);
 
   public ref float FogFalloffExponent {
-    get => ref _Handle.AsRef<float>(_FogFalloffExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogFalloffExponentOffset);
   }
-  private static readonly Lazy<nint> _FogVerticalExponentOffset = new(() => Schema.GetOffset(0x978D360EBBE3E0C4), LazyThreadSafetyMode.None);
+  private static readonly nint _FogVerticalExponentOffset = Schema.GetOffset(0x978D360EBBE3E0C4);
 
   public ref float FogVerticalExponent {
-    get => ref _Handle.AsRef<float>(_FogVerticalExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogVerticalExponentOffset);
   }
-  private static readonly Lazy<nint> _FogColorOffset = new(() => Schema.GetOffset(0x978D360E200EEE0E), LazyThreadSafetyMode.None);
+  private static readonly nint _FogColorOffset = Schema.GetOffset(0x978D360E200EEE0E);
 
   public ref Color FogColor {
-    get => ref _Handle.AsRef<Color>(_FogColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_FogColorOffset);
   }
-  private static readonly Lazy<nint> _FogStrengthOffset = new(() => Schema.GetOffset(0x978D360E2DCA8F14), LazyThreadSafetyMode.None);
+  private static readonly nint _FogStrengthOffset = Schema.GetOffset(0x978D360E2DCA8F14);
 
   public ref float FogStrength {
-    get => ref _Handle.AsRef<float>(_FogStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogStrengthOffset);
   }
-  private static readonly Lazy<nint> _FadeTimeOffset = new(() => Schema.GetOffset(0x978D360E00BEDB08), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeTimeOffset = Schema.GetOffset(0x978D360E00BEDB08);
 
   public ref float FadeTime {
-    get => ref _Handle.AsRef<float>(_FadeTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeTimeOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x978D360E61ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x978D360E61ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _IsEnabledOffset = new(() => Schema.GetOffset(0x978D360E5360D70E), LazyThreadSafetyMode.None);
+  private static readonly nint _IsEnabledOffset = Schema.GetOffset(0x978D360E5360D70E);
 
   public ref bool IsEnabled {
-    get => ref _Handle.AsRef<bool>(_IsEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsEnabledOffset);
   }
-  private static readonly Lazy<nint> _GradientFogNeedsTexturesOffset = new(() => Schema.GetOffset(0x978D360E55F47008), LazyThreadSafetyMode.None);
+  private static readonly nint _GradientFogNeedsTexturesOffset = Schema.GetOffset(0x978D360E55F47008);
 
   public ref bool GradientFogNeedsTextures {
-    get => ref _Handle.AsRef<bool>(_GradientFogNeedsTexturesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GradientFogNeedsTexturesOffset);
   }
 
   public void GradientFogTextureUpdated() {

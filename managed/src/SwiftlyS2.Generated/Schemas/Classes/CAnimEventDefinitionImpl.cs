@@ -17,40 +17,40 @@ internal partial class CAnimEventDefinitionImpl : SchemaClass, CAnimEventDefinit
   public CAnimEventDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrameOffset = new(() => Schema.GetOffset(0x27C8C8BC494AFF02), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameOffset = Schema.GetOffset(0x27C8C8BC494AFF02);
 
   public ref int Frame {
-    get => ref _Handle.AsRef<int>(_FrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_FrameOffset);
   }
-  private static readonly Lazy<nint> _EndFrameOffset = new(() => Schema.GetOffset(0x27C8C8BCEA91BD07), LazyThreadSafetyMode.None);
+  private static readonly nint _EndFrameOffset = Schema.GetOffset(0x27C8C8BCEA91BD07);
 
   public ref int EndFrame {
-    get => ref _Handle.AsRef<int>(_EndFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndFrameOffset);
   }
-  private static readonly Lazy<nint> _CycleOffset = new(() => Schema.GetOffset(0x27C8C8BC0C77829F), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleOffset = Schema.GetOffset(0x27C8C8BC0C77829F);
 
   public ref float Cycle {
-    get => ref _Handle.AsRef<float>(_CycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x27C8C8BCBC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x27C8C8BCBC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _EventDataOffset = new(() => Schema.GetOffset(0x27C8C8BC03E547A7), LazyThreadSafetyMode.None);
+  private static readonly nint _EventDataOffset = Schema.GetOffset(0x27C8C8BC03E547A7);
 
   public SchemaUntypedField EventData {
-    get => new SchemaUntypedField(_Handle + _EventDataOffset.Value);
+    get => new SchemaUntypedField(_Handle + _EventDataOffset);
   }
-  private static readonly Lazy<nint> _LegacyOptionsOffset = new(() => Schema.GetOffset(0x27C8C8BCD613D4A1), LazyThreadSafetyMode.None);
+  private static readonly nint _LegacyOptionsOffset = Schema.GetOffset(0x27C8C8BCD613D4A1);
 
   public ref CBufferString LegacyOptions {
-    get => ref _Handle.AsRef<CBufferString>(_LegacyOptionsOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_LegacyOptionsOffset);
   }
-  private static readonly Lazy<nint> _EventNameOffset = new(() => Schema.GetOffset(0x27C8C8BC464F847D), LazyThreadSafetyMode.None);
+  private static readonly nint _EventNameOffset = Schema.GetOffset(0x27C8C8BC464F847D);
 
   public ref CGlobalSymbol EventName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_EventNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_EventNameOffset);
   }
 
 

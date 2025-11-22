@@ -17,41 +17,41 @@ internal partial class CSosGroupActionSoundeventPrioritySchemaImpl : CSosGroupAc
   public CSosGroupActionSoundeventPrioritySchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PriorityValueOffset = new(() => Schema.GetOffset(0x1E84D860257F7BF6), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityValueOffset = Schema.GetOffset(0x1E84D860257F7BF6);
 
   public string PriorityValue {
     get {
-      var ptr = _Handle.Read<nint>(_PriorityValueOffset.Value);
+      var ptr = _Handle.Read<nint>(_PriorityValueOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PriorityValueOffset.Value, value);
+    set => Schema.SetString(_Handle, _PriorityValueOffset, value);
   } 
-  private static readonly Lazy<nint> _PriorityVolumeScalarOffset = new(() => Schema.GetOffset(0x1E84D860F21824AF), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityVolumeScalarOffset = Schema.GetOffset(0x1E84D860F21824AF);
 
   public string PriorityVolumeScalar {
     get {
-      var ptr = _Handle.Read<nint>(_PriorityVolumeScalarOffset.Value);
+      var ptr = _Handle.Read<nint>(_PriorityVolumeScalarOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PriorityVolumeScalarOffset.Value, value);
+    set => Schema.SetString(_Handle, _PriorityVolumeScalarOffset, value);
   } 
-  private static readonly Lazy<nint> _PriorityContributeButDontReadOffset = new(() => Schema.GetOffset(0x1E84D8608078C7B6), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityContributeButDontReadOffset = Schema.GetOffset(0x1E84D8608078C7B6);
 
   public string PriorityContributeButDontRead {
     get {
-      var ptr = _Handle.Read<nint>(_PriorityContributeButDontReadOffset.Value);
+      var ptr = _Handle.Read<nint>(_PriorityContributeButDontReadOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PriorityContributeButDontReadOffset.Value, value);
+    set => Schema.SetString(_Handle, _PriorityContributeButDontReadOffset, value);
   } 
-  private static readonly Lazy<nint> _PriorityReadButDontContributeOffset = new(() => Schema.GetOffset(0x1E84D860112DDB84), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityReadButDontContributeOffset = Schema.GetOffset(0x1E84D860112DDB84);
 
   public string PriorityReadButDontContribute {
     get {
-      var ptr = _Handle.Read<nint>(_PriorityReadButDontContributeOffset.Value);
+      var ptr = _Handle.Read<nint>(_PriorityReadButDontContributeOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PriorityReadButDontContributeOffset.Value, value);
+    set => Schema.SetString(_Handle, _PriorityReadButDontContributeOffset, value);
   } 
 
 

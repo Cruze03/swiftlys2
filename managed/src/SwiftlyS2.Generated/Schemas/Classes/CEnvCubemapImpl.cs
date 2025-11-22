@@ -17,95 +17,95 @@ internal partial class CEnvCubemapImpl : CBaseEntityImpl, CEnvCubemap {
   public CEnvCubemapImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Entity_hCubemapTextureOffset = new(() => Schema.GetOffset(0xD6FB78464906C709), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_hCubemapTextureOffset = Schema.GetOffset(0xD6FB78464906C709);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Entity_hCubemapTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hCubemapTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_Entity_hCubemapTextureOffset);
   }
-  private static readonly Lazy<nint> _Entity_bCustomCubemapTextureOffset = new(() => Schema.GetOffset(0xD6FB78461E6DC6A4), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bCustomCubemapTextureOffset = Schema.GetOffset(0xD6FB78461E6DC6A4);
 
   public ref bool Entity_bCustomCubemapTexture {
-    get => ref _Handle.AsRef<bool>(_Entity_bCustomCubemapTextureOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bCustomCubemapTextureOffset);
   }
-  private static readonly Lazy<nint> _Entity_flInfluenceRadiusOffset = new(() => Schema.GetOffset(0xD6FB7846C7454EDE), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_flInfluenceRadiusOffset = Schema.GetOffset(0xD6FB7846C7454EDE);
 
   public ref float Entity_flInfluenceRadius {
-    get => ref _Handle.AsRef<float>(_Entity_flInfluenceRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_Entity_flInfluenceRadiusOffset);
   }
-  private static readonly Lazy<nint> _Entity_vBoxProjectMinsOffset = new(() => Schema.GetOffset(0xD6FB7846DFB51948), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_vBoxProjectMinsOffset = Schema.GetOffset(0xD6FB7846DFB51948);
 
   public ref Vector Entity_vBoxProjectMins {
-    get => ref _Handle.AsRef<Vector>(_Entity_vBoxProjectMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_Entity_vBoxProjectMinsOffset);
   }
-  private static readonly Lazy<nint> _Entity_vBoxProjectMaxsOffset = new(() => Schema.GetOffset(0xD6FB7846712D3052), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_vBoxProjectMaxsOffset = Schema.GetOffset(0xD6FB7846712D3052);
 
   public ref Vector Entity_vBoxProjectMaxs {
-    get => ref _Handle.AsRef<Vector>(_Entity_vBoxProjectMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_Entity_vBoxProjectMaxsOffset);
   }
-  private static readonly Lazy<nint> _Entity_bMoveableOffset = new(() => Schema.GetOffset(0xD6FB784654059592), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bMoveableOffset = Schema.GetOffset(0xD6FB784654059592);
 
   public ref bool Entity_bMoveable {
-    get => ref _Handle.AsRef<bool>(_Entity_bMoveableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bMoveableOffset);
   }
-  private static readonly Lazy<nint> _Entity_nHandshakeOffset = new(() => Schema.GetOffset(0xD6FB7846069A2774), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nHandshakeOffset = Schema.GetOffset(0xD6FB7846069A2774);
 
   public ref int Entity_nHandshake {
-    get => ref _Handle.AsRef<int>(_Entity_nHandshakeOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nHandshakeOffset);
   }
-  private static readonly Lazy<nint> _Entity_nEnvCubeMapArrayIndexOffset = new(() => Schema.GetOffset(0xD6FB784621687DA4), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nEnvCubeMapArrayIndexOffset = Schema.GetOffset(0xD6FB784621687DA4);
 
   public ref int Entity_nEnvCubeMapArrayIndex {
-    get => ref _Handle.AsRef<int>(_Entity_nEnvCubeMapArrayIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nEnvCubeMapArrayIndexOffset);
   }
-  private static readonly Lazy<nint> _Entity_nPriorityOffset = new(() => Schema.GetOffset(0xD6FB7846BAACBFAB), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_nPriorityOffset = Schema.GetOffset(0xD6FB7846BAACBFAB);
 
   public ref int Entity_nPriority {
-    get => ref _Handle.AsRef<int>(_Entity_nPriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_Entity_nPriorityOffset);
   }
-  private static readonly Lazy<nint> _Entity_flEdgeFadeDistOffset = new(() => Schema.GetOffset(0xD6FB7846B6CBA4FE), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_flEdgeFadeDistOffset = Schema.GetOffset(0xD6FB7846B6CBA4FE);
 
   public ref float Entity_flEdgeFadeDist {
-    get => ref _Handle.AsRef<float>(_Entity_flEdgeFadeDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_Entity_flEdgeFadeDistOffset);
   }
-  private static readonly Lazy<nint> _Entity_vEdgeFadeDistsOffset = new(() => Schema.GetOffset(0xD6FB7846B07D9139), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_vEdgeFadeDistsOffset = Schema.GetOffset(0xD6FB7846B07D9139);
 
   public ref Vector Entity_vEdgeFadeDists {
-    get => ref _Handle.AsRef<Vector>(_Entity_vEdgeFadeDistsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_Entity_vEdgeFadeDistsOffset);
   }
-  private static readonly Lazy<nint> _Entity_flDiffuseScaleOffset = new(() => Schema.GetOffset(0xD6FB7846A14F91F9), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_flDiffuseScaleOffset = Schema.GetOffset(0xD6FB7846A14F91F9);
 
   public ref float Entity_flDiffuseScale {
-    get => ref _Handle.AsRef<float>(_Entity_flDiffuseScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_Entity_flDiffuseScaleOffset);
   }
-  private static readonly Lazy<nint> _Entity_bStartDisabledOffset = new(() => Schema.GetOffset(0xD6FB7846D04F520D), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bStartDisabledOffset = Schema.GetOffset(0xD6FB7846D04F520D);
 
   public ref bool Entity_bStartDisabled {
-    get => ref _Handle.AsRef<bool>(_Entity_bStartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bStartDisabledOffset);
   }
-  private static readonly Lazy<nint> _Entity_bDefaultEnvMapOffset = new(() => Schema.GetOffset(0xD6FB784626B7497F), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bDefaultEnvMapOffset = Schema.GetOffset(0xD6FB784626B7497F);
 
   public ref bool Entity_bDefaultEnvMap {
-    get => ref _Handle.AsRef<bool>(_Entity_bDefaultEnvMapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bDefaultEnvMapOffset);
   }
-  private static readonly Lazy<nint> _Entity_bDefaultSpecEnvMapOffset = new(() => Schema.GetOffset(0xD6FB7846D2CEAC08), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bDefaultSpecEnvMapOffset = Schema.GetOffset(0xD6FB7846D2CEAC08);
 
   public ref bool Entity_bDefaultSpecEnvMap {
-    get => ref _Handle.AsRef<bool>(_Entity_bDefaultSpecEnvMapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bDefaultSpecEnvMapOffset);
   }
-  private static readonly Lazy<nint> _Entity_bIndoorCubeMapOffset = new(() => Schema.GetOffset(0xD6FB7846F5F722D5), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bIndoorCubeMapOffset = Schema.GetOffset(0xD6FB7846F5F722D5);
 
   public ref bool Entity_bIndoorCubeMap {
-    get => ref _Handle.AsRef<bool>(_Entity_bIndoorCubeMapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bIndoorCubeMapOffset);
   }
-  private static readonly Lazy<nint> _Entity_bCopyDiffuseFromDefaultCubemapOffset = new(() => Schema.GetOffset(0xD6FB7846DF047EA2), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bCopyDiffuseFromDefaultCubemapOffset = Schema.GetOffset(0xD6FB7846DF047EA2);
 
   public ref bool Entity_bCopyDiffuseFromDefaultCubemap {
-    get => ref _Handle.AsRef<bool>(_Entity_bCopyDiffuseFromDefaultCubemapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bCopyDiffuseFromDefaultCubemapOffset);
   }
-  private static readonly Lazy<nint> _Entity_bEnabledOffset = new(() => Schema.GetOffset(0xD6FB7846453FD9DC), LazyThreadSafetyMode.None);
+  private static readonly nint _Entity_bEnabledOffset = Schema.GetOffset(0xD6FB7846453FD9DC);
 
   public ref bool Entity_bEnabled {
-    get => ref _Handle.AsRef<bool>(_Entity_bEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Entity_bEnabledOffset);
   }
 
   public void Entity_hCubemapTextureUpdated() {

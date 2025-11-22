@@ -17,39 +17,39 @@ internal partial class CConstraintTargetImpl : SchemaClass, CConstraintTarget {
   public CConstraintTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x8A562794DB445327), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x8A562794DB445327);
 
   public ref Quaternion Offset {
-    get => ref _Handle.AsRef<Quaternion>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _Offset1Offset = new(() => Schema.GetOffset(0x8A562794FE159136), LazyThreadSafetyMode.None);
+  private static readonly nint _Offset1Offset = Schema.GetOffset(0x8A562794FE159136);
 
   public ref Vector Offset1 {
-    get => ref _Handle.AsRef<Vector>(_Offset1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Offset1Offset);
   }
-  private static readonly Lazy<nint> _BoneHashOffset = new(() => Schema.GetOffset(0x8A562794D4010F03), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneHashOffset = Schema.GetOffset(0x8A562794D4010F03);
 
   public ref uint BoneHash {
-    get => ref _Handle.AsRef<uint>(_BoneHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BoneHashOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x8A56279463D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x8A56279463D22D49);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x8A5627947B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x8A5627947B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _IsAttachmentOffset = new(() => Schema.GetOffset(0x8A562794794BF658), LazyThreadSafetyMode.None);
+  private static readonly nint _IsAttachmentOffset = Schema.GetOffset(0x8A562794794BF658);
 
   public ref bool IsAttachment {
-    get => ref _Handle.AsRef<bool>(_IsAttachmentOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsAttachmentOffset);
   }
 
 

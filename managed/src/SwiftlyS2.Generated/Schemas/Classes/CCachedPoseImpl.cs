@@ -17,25 +17,25 @@ internal partial class CCachedPoseImpl : SchemaClass, CCachedPose {
   public CCachedPoseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformsOffset = new(() => Schema.GetOffset(0x4B6C235988C82C58), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformsOffset = Schema.GetOffset(0x4B6C235988C82C58);
 
   public ref CUtlVector<CTransform> Transforms {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_TransformsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_TransformsOffset);
   }
-  private static readonly Lazy<nint> _MorphWeightsOffset = new(() => Schema.GetOffset(0x4B6C23596B6689BE), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphWeightsOffset = Schema.GetOffset(0x4B6C23596B6689BE);
 
   public ref CUtlVector<float> MorphWeights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_MorphWeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_MorphWeightsOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x4B6C2359E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x4B6C2359E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _CycleOffset = new(() => Schema.GetOffset(0x4B6C23590C77829F), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleOffset = Schema.GetOffset(0x4B6C23590C77829F);
 
   public ref float Cycle {
-    get => ref _Handle.AsRef<float>(_CycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleOffset);
   }
 
 

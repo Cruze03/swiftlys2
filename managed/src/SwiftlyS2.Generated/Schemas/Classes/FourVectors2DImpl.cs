@@ -17,15 +17,15 @@ internal partial class FourVectors2DImpl : SchemaClass, FourVectors2D {
   public FourVectors2DImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XOffset = new(() => Schema.GetOffset(0x7A817FA5FD0C5087), LazyThreadSafetyMode.None);
+  private static readonly nint _XOffset = Schema.GetOffset(0x7A817FA5FD0C5087);
 
   public ref fltx4 X {
-    get => ref _Handle.AsRef<fltx4>(_XOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_XOffset);
   }
-  private static readonly Lazy<nint> _YOffset = new(() => Schema.GetOffset(0x7A817FA5FC0C4EF4), LazyThreadSafetyMode.None);
+  private static readonly nint _YOffset = Schema.GetOffset(0x7A817FA5FC0C4EF4);
 
   public ref fltx4 Y {
-    get => ref _Handle.AsRef<fltx4>(_YOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_YOffset);
   }
 
 

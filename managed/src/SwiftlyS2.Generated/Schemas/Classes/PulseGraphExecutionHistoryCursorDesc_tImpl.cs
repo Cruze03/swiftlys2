@@ -17,30 +17,30 @@ internal partial class PulseGraphExecutionHistoryCursorDesc_tImpl : SchemaClass,
   public PulseGraphExecutionHistoryCursorDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AncestorCursorIDsOffset = new(() => Schema.GetOffset(0xC94C4C1C39FD1094), LazyThreadSafetyMode.None);
+  private static readonly nint _AncestorCursorIDsOffset = Schema.GetOffset(0xC94C4C1C39FD1094);
 
   public ref CUtlVector<PulseCursorID_t> AncestorCursorIDs {
-    get => ref _Handle.AsRef<CUtlVector<PulseCursorID_t>>(_AncestorCursorIDsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PulseCursorID_t>>(_AncestorCursorIDsOffset);
   }
-  private static readonly Lazy<nint> _SpawnNodeIDOffset = new(() => Schema.GetOffset(0xC94C4C1C95FE4E15), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnNodeIDOffset = Schema.GetOffset(0xC94C4C1C95FE4E15);
 
   public PulseDocNodeID_t SpawnNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _SpawnNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _SpawnNodeIDOffset);
   }
-  private static readonly Lazy<nint> _RetiredAtNodeIDOffset = new(() => Schema.GetOffset(0xC94C4C1C7FD10E42), LazyThreadSafetyMode.None);
+  private static readonly nint _RetiredAtNodeIDOffset = Schema.GetOffset(0xC94C4C1C7FD10E42);
 
   public PulseDocNodeID_t RetiredAtNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _RetiredAtNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _RetiredAtNodeIDOffset);
   }
-  private static readonly Lazy<nint> _LastReferencedOffset = new(() => Schema.GetOffset(0xC94C4C1C22F5B0C8), LazyThreadSafetyMode.None);
+  private static readonly nint _LastReferencedOffset = Schema.GetOffset(0xC94C4C1C22F5B0C8);
 
   public ref float LastReferenced {
-    get => ref _Handle.AsRef<float>(_LastReferencedOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastReferencedOffset);
   }
-  private static readonly Lazy<nint> _LastValidEntryIdxOffset = new(() => Schema.GetOffset(0xC94C4C1CBFAF995E), LazyThreadSafetyMode.None);
+  private static readonly nint _LastValidEntryIdxOffset = Schema.GetOffset(0xC94C4C1CBFAF995E);
 
   public ref int LastValidEntryIdx {
-    get => ref _Handle.AsRef<int>(_LastValidEntryIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastValidEntryIdxOffset);
   }
 
 

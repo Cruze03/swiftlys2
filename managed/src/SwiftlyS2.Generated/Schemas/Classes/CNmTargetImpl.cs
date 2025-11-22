@@ -17,35 +17,35 @@ internal partial class CNmTargetImpl : SchemaClass, CNmTarget {
   public CNmTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformOffset = new(() => Schema.GetOffset(0xA3F5A45E3A9A393B), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformOffset = Schema.GetOffset(0xA3F5A45E3A9A393B);
 
   public ref CTransform Transform {
-    get => ref _Handle.AsRef<CTransform>(_TransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TransformOffset);
   }
-  private static readonly Lazy<nint> _BoneIDOffset = new(() => Schema.GetOffset(0xA3F5A45E88DFA0E2), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIDOffset = Schema.GetOffset(0xA3F5A45E88DFA0E2);
 
   public ref CGlobalSymbol BoneID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_BoneIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_BoneIDOffset);
   }
-  private static readonly Lazy<nint> _IsBoneTargetOffset = new(() => Schema.GetOffset(0xA3F5A45E3C414BA2), LazyThreadSafetyMode.None);
+  private static readonly nint _IsBoneTargetOffset = Schema.GetOffset(0xA3F5A45E3C414BA2);
 
   public ref bool IsBoneTarget {
-    get => ref _Handle.AsRef<bool>(_IsBoneTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsBoneTargetOffset);
   }
-  private static readonly Lazy<nint> _IsUsingBoneSpaceOffsetsOffset = new(() => Schema.GetOffset(0xA3F5A45EA6050C83), LazyThreadSafetyMode.None);
+  private static readonly nint _IsUsingBoneSpaceOffsetsOffset = Schema.GetOffset(0xA3F5A45EA6050C83);
 
   public ref bool IsUsingBoneSpaceOffsets {
-    get => ref _Handle.AsRef<bool>(_IsUsingBoneSpaceOffsetsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsUsingBoneSpaceOffsetsOffset);
   }
-  private static readonly Lazy<nint> _HasOffsetsOffset = new(() => Schema.GetOffset(0xA3F5A45ED8AA05D9), LazyThreadSafetyMode.None);
+  private static readonly nint _HasOffsetsOffset = Schema.GetOffset(0xA3F5A45ED8AA05D9);
 
   public ref bool HasOffsets {
-    get => ref _Handle.AsRef<bool>(_HasOffsetsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasOffsetsOffset);
   }
-  private static readonly Lazy<nint> _IsSetOffset = new(() => Schema.GetOffset(0xA3F5A45E4307E3B3), LazyThreadSafetyMode.None);
+  private static readonly nint _IsSetOffset = Schema.GetOffset(0xA3F5A45E4307E3B3);
 
   public ref bool IsSet {
-    get => ref _Handle.AsRef<bool>(_IsSetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsSetOffset);
   }
 
 

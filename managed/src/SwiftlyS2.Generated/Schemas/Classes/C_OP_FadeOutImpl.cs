@@ -17,35 +17,35 @@ internal partial class C_OP_FadeOutImpl : CParticleFunctionOperatorImpl, C_OP_Fa
   public C_OP_FadeOutImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeOutTimeMinOffset = new(() => Schema.GetOffset(0xDB3026B50D900CF6), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutTimeMinOffset = Schema.GetOffset(0xDB3026B50D900CF6);
 
   public ref float FadeOutTimeMin {
-    get => ref _Handle.AsRef<float>(_FadeOutTimeMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutTimeMinOffset);
   }
-  private static readonly Lazy<nint> _FadeOutTimeMaxOffset = new(() => Schema.GetOffset(0xDB3026B5FFA37EA4), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutTimeMaxOffset = Schema.GetOffset(0xDB3026B5FFA37EA4);
 
   public ref float FadeOutTimeMax {
-    get => ref _Handle.AsRef<float>(_FadeOutTimeMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutTimeMaxOffset);
   }
-  private static readonly Lazy<nint> _FadeOutTimeExpOffset = new(() => Schema.GetOffset(0xDB3026B596AB9995), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutTimeExpOffset = Schema.GetOffset(0xDB3026B596AB9995);
 
   public ref float FadeOutTimeExp {
-    get => ref _Handle.AsRef<float>(_FadeOutTimeExpOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutTimeExpOffset);
   }
-  private static readonly Lazy<nint> _FadeBiasOffset = new(() => Schema.GetOffset(0xDB3026B5D35FA840), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeBiasOffset = Schema.GetOffset(0xDB3026B5D35FA840);
 
   public ref float FadeBias {
-    get => ref _Handle.AsRef<float>(_FadeBiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeBiasOffset);
   }
-  private static readonly Lazy<nint> _ProportionalOffset = new(() => Schema.GetOffset(0xDB3026B5891F328A), LazyThreadSafetyMode.None);
+  private static readonly nint _ProportionalOffset = Schema.GetOffset(0xDB3026B5891F328A);
 
   public ref bool Proportional {
-    get => ref _Handle.AsRef<bool>(_ProportionalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProportionalOffset);
   }
-  private static readonly Lazy<nint> _EaseInAndOutOffset = new(() => Schema.GetOffset(0xDB3026B5D14612BF), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseInAndOutOffset = Schema.GetOffset(0xDB3026B5D14612BF);
 
   public ref bool EaseInAndOut {
-    get => ref _Handle.AsRef<bool>(_EaseInAndOutOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EaseInAndOutOffset);
   }
 
 

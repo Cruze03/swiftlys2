@@ -17,85 +17,85 @@ internal partial class C_OP_GameDecalRendererImpl : CParticleFunctionRendererImp
   public C_OP_GameDecalRendererImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DecalGroupNameOffset = new(() => Schema.GetOffset(0x42DAAA6713ADF275), LazyThreadSafetyMode.None);
+  private static readonly nint _DecalGroupNameOffset = Schema.GetOffset(0x42DAAA6713ADF275);
 
   public ref CGlobalSymbol DecalGroupName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_DecalGroupNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_DecalGroupNameOffset);
   }
-  private static readonly Lazy<nint> _EventTypeOffset = new(() => Schema.GetOffset(0x42DAAA67E1F9AA93), LazyThreadSafetyMode.None);
+  private static readonly nint _EventTypeOffset = Schema.GetOffset(0x42DAAA67E1F9AA93);
 
   public ref EventTypeSelection_t EventType {
-    get => ref _Handle.AsRef<EventTypeSelection_t>(_EventTypeOffset.Value);
+    get => ref _Handle.AsRef<EventTypeSelection_t>(_EventTypeOffset);
   }
-  private static readonly Lazy<nint> _InteractionMaskOffset = new(() => Schema.GetOffset(0x42DAAA6776E7F97B), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractionMaskOffset = Schema.GetOffset(0x42DAAA6776E7F97B);
 
   public ref ParticleCollisionMask_t InteractionMask {
-    get => ref _Handle.AsRef<ParticleCollisionMask_t>(_InteractionMaskOffset.Value);
+    get => ref _Handle.AsRef<ParticleCollisionMask_t>(_InteractionMaskOffset);
   }
-  private static readonly Lazy<nint> _CollisionGroupOffset = new(() => Schema.GetOffset(0x42DAAA670AC0C752), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupOffset = Schema.GetOffset(0x42DAAA670AC0C752);
 
   public ref ParticleCollisionGroup_t CollisionGroup {
-    get => ref _Handle.AsRef<ParticleCollisionGroup_t>(_CollisionGroupOffset.Value);
+    get => ref _Handle.AsRef<ParticleCollisionGroup_t>(_CollisionGroupOffset);
   }
-  private static readonly Lazy<nint> _StartPosOffset = new(() => Schema.GetOffset(0x42DAAA6726654BFF), LazyThreadSafetyMode.None);
+  private static readonly nint _StartPosOffset = Schema.GetOffset(0x42DAAA6726654BFF);
 
   public CPerParticleVecInput StartPos {
-    get => new CPerParticleVecInputImpl(_Handle + _StartPosOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _StartPosOffset);
   }
-  private static readonly Lazy<nint> _EndPosOffset = new(() => Schema.GetOffset(0x42DAAA678DD24760), LazyThreadSafetyMode.None);
+  private static readonly nint _EndPosOffset = Schema.GetOffset(0x42DAAA678DD24760);
 
   public CPerParticleVecInput EndPos {
-    get => new CPerParticleVecInputImpl(_Handle + _EndPosOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _EndPosOffset);
   }
-  private static readonly Lazy<nint> _TraceBloatOffset = new(() => Schema.GetOffset(0x42DAAA674BE375F2), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceBloatOffset = Schema.GetOffset(0x42DAAA674BE375F2);
 
   public CPerParticleFloatInput TraceBloat {
-    get => new CPerParticleFloatInputImpl(_Handle + _TraceBloatOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _TraceBloatOffset);
   }
-  private static readonly Lazy<nint> _DecalSizeOffset = new(() => Schema.GetOffset(0x42DAAA6788E12609), LazyThreadSafetyMode.None);
+  private static readonly nint _DecalSizeOffset = Schema.GetOffset(0x42DAAA6788E12609);
 
   public CPerParticleFloatInput DecalSize {
-    get => new CPerParticleFloatInputImpl(_Handle + _DecalSizeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _DecalSizeOffset);
   }
-  private static readonly Lazy<nint> _DecalGroupIndexOffset = new(() => Schema.GetOffset(0x42DAAA6784206313), LazyThreadSafetyMode.None);
+  private static readonly nint _DecalGroupIndexOffset = Schema.GetOffset(0x42DAAA6784206313);
 
   public CPerParticleFloatInput DecalGroupIndex {
-    get => new CPerParticleFloatInputImpl(_Handle + _DecalGroupIndexOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _DecalGroupIndexOffset);
   }
-  private static readonly Lazy<nint> _DecalRotationOffset = new(() => Schema.GetOffset(0x42DAAA6788A29A9E), LazyThreadSafetyMode.None);
+  private static readonly nint _DecalRotationOffset = Schema.GetOffset(0x42DAAA6788A29A9E);
 
   public CPerParticleFloatInput DecalRotation {
-    get => new CPerParticleFloatInputImpl(_Handle + _DecalRotationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _DecalRotationOffset);
   }
-  private static readonly Lazy<nint> _ModulationColorOffset = new(() => Schema.GetOffset(0x42DAAA67C39DA78E), LazyThreadSafetyMode.None);
+  private static readonly nint _ModulationColorOffset = Schema.GetOffset(0x42DAAA67C39DA78E);
 
   public CPerParticleVecInput ModulationColor {
-    get => new CPerParticleVecInputImpl(_Handle + _ModulationColorOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _ModulationColorOffset);
   }
-  private static readonly Lazy<nint> _UseGameDefaultDecalSizeOffset = new(() => Schema.GetOffset(0x42DAAA6749D51905), LazyThreadSafetyMode.None);
+  private static readonly nint _UseGameDefaultDecalSizeOffset = Schema.GetOffset(0x42DAAA6749D51905);
 
   public ref bool UseGameDefaultDecalSize {
-    get => ref _Handle.AsRef<bool>(_UseGameDefaultDecalSizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseGameDefaultDecalSizeOffset);
   }
-  private static readonly Lazy<nint> _RandomDecalRotationOffset = new(() => Schema.GetOffset(0x42DAAA673B9BD1F1), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomDecalRotationOffset = Schema.GetOffset(0x42DAAA673B9BD1F1);
 
   public ref bool RandomDecalRotation {
-    get => ref _Handle.AsRef<bool>(_RandomDecalRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomDecalRotationOffset);
   }
-  private static readonly Lazy<nint> _RandomlySelectDecalInGroupOffset = new(() => Schema.GetOffset(0x42DAAA670519A84C), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomlySelectDecalInGroupOffset = Schema.GetOffset(0x42DAAA670519A84C);
 
   public ref bool RandomlySelectDecalInGroup {
-    get => ref _Handle.AsRef<bool>(_RandomlySelectDecalInGroupOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomlySelectDecalInGroupOffset);
   }
-  private static readonly Lazy<nint> _NoDecalsOnOwnerOffset = new(() => Schema.GetOffset(0x42DAAA672B2ECEB4), LazyThreadSafetyMode.None);
+  private static readonly nint _NoDecalsOnOwnerOffset = Schema.GetOffset(0x42DAAA672B2ECEB4);
 
   public ref bool NoDecalsOnOwner {
-    get => ref _Handle.AsRef<bool>(_NoDecalsOnOwnerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NoDecalsOnOwnerOffset);
   }
-  private static readonly Lazy<nint> _VisualizeTracesOffset = new(() => Schema.GetOffset(0x42DAAA67ED707633), LazyThreadSafetyMode.None);
+  private static readonly nint _VisualizeTracesOffset = Schema.GetOffset(0x42DAAA67ED707633);
 
   public ref bool VisualizeTraces {
-    get => ref _Handle.AsRef<bool>(_VisualizeTracesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_VisualizeTracesOffset);
   }
 
 

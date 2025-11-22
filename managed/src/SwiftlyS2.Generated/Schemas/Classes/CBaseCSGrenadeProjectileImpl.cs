@@ -17,85 +17,85 @@ internal partial class CBaseCSGrenadeProjectileImpl : CBaseGrenadeImpl, CBaseCSG
   public CBaseCSGrenadeProjectileImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InitialPositionOffset = new(() => Schema.GetOffset(0xC09C67027E9CA9C4), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialPositionOffset = Schema.GetOffset(0xC09C67027E9CA9C4);
 
   public ref Vector InitialPosition {
-    get => ref _Handle.AsRef<Vector>(_InitialPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InitialPositionOffset);
   }
-  private static readonly Lazy<nint> _InitialVelocityOffset = new(() => Schema.GetOffset(0xC09C67027C20BD90), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialVelocityOffset = Schema.GetOffset(0xC09C67027C20BD90);
 
   public ref Vector InitialVelocity {
-    get => ref _Handle.AsRef<Vector>(_InitialVelocityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InitialVelocityOffset);
   }
-  private static readonly Lazy<nint> _BouncesOffset = new(() => Schema.GetOffset(0xC09C67026B81EBCE), LazyThreadSafetyMode.None);
+  private static readonly nint _BouncesOffset = Schema.GetOffset(0xC09C67026B81EBCE);
 
   public ref int Bounces {
-    get => ref _Handle.AsRef<int>(_BouncesOffset.Value);
+    get => ref _Handle.AsRef<int>(_BouncesOffset);
   }
-  private static readonly Lazy<nint> _ExplodeEffectIndexOffset = new(() => Schema.GetOffset(0xC09C6702178B5975), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplodeEffectIndexOffset = Schema.GetOffset(0xC09C6702178B5975);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> ExplodeEffectIndex {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ExplodeEffectIndexOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ExplodeEffectIndexOffset);
   }
-  private static readonly Lazy<nint> _ExplodeEffectTickBeginOffset = new(() => Schema.GetOffset(0xC09C67022F04F603), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplodeEffectTickBeginOffset = Schema.GetOffset(0xC09C67022F04F603);
 
   public ref int ExplodeEffectTickBegin {
-    get => ref _Handle.AsRef<int>(_ExplodeEffectTickBeginOffset.Value);
+    get => ref _Handle.AsRef<int>(_ExplodeEffectTickBeginOffset);
   }
-  private static readonly Lazy<nint> _ExplodeEffectOriginOffset = new(() => Schema.GetOffset(0xC09C6702AA7B4525), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplodeEffectOriginOffset = Schema.GetOffset(0xC09C6702AA7B4525);
 
   public ref Vector ExplodeEffectOrigin {
-    get => ref _Handle.AsRef<Vector>(_ExplodeEffectOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ExplodeEffectOriginOffset);
   }
-  private static readonly Lazy<nint> _SpawnTimeOffset = new(() => Schema.GetOffset(0xC09C67029596A16B), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnTimeOffset = Schema.GetOffset(0xC09C67029596A16B);
 
   public GameTime_t SpawnTime {
-    get => new GameTime_tImpl(_Handle + _SpawnTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _SpawnTimeOffset);
   }
-  private static readonly Lazy<nint> _OGSExtraFlagsOffset = new(() => Schema.GetOffset(0xC09C670221F95684), LazyThreadSafetyMode.None);
+  private static readonly nint _OGSExtraFlagsOffset = Schema.GetOffset(0xC09C670221F95684);
 
   public ref byte OGSExtraFlags {
-    get => ref _Handle.AsRef<byte>(_OGSExtraFlagsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_OGSExtraFlagsOffset);
   }
-  private static readonly Lazy<nint> _DetonationRecordedOffset = new(() => Schema.GetOffset(0xC09C67024164A13C), LazyThreadSafetyMode.None);
+  private static readonly nint _DetonationRecordedOffset = Schema.GetOffset(0xC09C67024164A13C);
 
   public ref bool DetonationRecorded {
-    get => ref _Handle.AsRef<bool>(_DetonationRecordedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DetonationRecordedOffset);
   }
-  private static readonly Lazy<nint> _ItemIndexOffset = new(() => Schema.GetOffset(0xC09C67025D8A6E7E), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemIndexOffset = Schema.GetOffset(0xC09C67025D8A6E7E);
 
   public ref ushort ItemIndex {
-    get => ref _Handle.AsRef<ushort>(_ItemIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ItemIndexOffset);
   }
-  private static readonly Lazy<nint> _OriginalSpawnLocationOffset = new(() => Schema.GetOffset(0xC09C67025E59F382), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnLocationOffset = Schema.GetOffset(0xC09C67025E59F382);
 
   public ref Vector OriginalSpawnLocation {
-    get => ref _Handle.AsRef<Vector>(_OriginalSpawnLocationOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalSpawnLocationOffset);
   }
-  private static readonly Lazy<nint> _LastBounceSoundTimeOffset = new(() => Schema.GetOffset(0xC09C670206AF4AB7), LazyThreadSafetyMode.None);
+  private static readonly nint _LastBounceSoundTimeOffset = Schema.GetOffset(0xC09C670206AF4AB7);
 
   public GameTime_t LastBounceSoundTime {
-    get => new GameTime_tImpl(_Handle + _LastBounceSoundTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastBounceSoundTimeOffset);
   }
-  private static readonly Lazy<nint> _GrenadeSpinOffset = new(() => Schema.GetOffset(0xC09C67025A836591), LazyThreadSafetyMode.None);
+  private static readonly nint _GrenadeSpinOffset = Schema.GetOffset(0xC09C67025A836591);
 
   public SchemaUntypedField GrenadeSpin {
-    get => new SchemaUntypedField(_Handle + _GrenadeSpinOffset.Value);
+    get => new SchemaUntypedField(_Handle + _GrenadeSpinOffset);
   }
-  private static readonly Lazy<nint> _LastHitSurfaceNormalOffset = new(() => Schema.GetOffset(0xC09C6702FAEF57FA), LazyThreadSafetyMode.None);
+  private static readonly nint _LastHitSurfaceNormalOffset = Schema.GetOffset(0xC09C6702FAEF57FA);
 
   public ref Vector LastHitSurfaceNormal {
-    get => ref _Handle.AsRef<Vector>(_LastHitSurfaceNormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LastHitSurfaceNormalOffset);
   }
-  private static readonly Lazy<nint> _TicksAtZeroVelocityOffset = new(() => Schema.GetOffset(0xC09C6702A4946C6D), LazyThreadSafetyMode.None);
+  private static readonly nint _TicksAtZeroVelocityOffset = Schema.GetOffset(0xC09C6702A4946C6D);
 
   public ref int TicksAtZeroVelocity {
-    get => ref _Handle.AsRef<int>(_TicksAtZeroVelocityOffset.Value);
+    get => ref _Handle.AsRef<int>(_TicksAtZeroVelocityOffset);
   }
-  private static readonly Lazy<nint> _HasEverHitEnemyOffset = new(() => Schema.GetOffset(0xC09C670259285A50), LazyThreadSafetyMode.None);
+  private static readonly nint _HasEverHitEnemyOffset = Schema.GetOffset(0xC09C670259285A50);
 
   public ref bool HasEverHitEnemy {
-    get => ref _Handle.AsRef<bool>(_HasEverHitEnemyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasEverHitEnemyOffset);
   }
 
   public void InitialPositionUpdated() {

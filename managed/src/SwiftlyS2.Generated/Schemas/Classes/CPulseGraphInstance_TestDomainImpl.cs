@@ -17,50 +17,50 @@ internal partial class CPulseGraphInstance_TestDomainImpl : CBasePulseGraphInsta
   public CPulseGraphInstance_TestDomainImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsRunningUnitTestsOffset = new(() => Schema.GetOffset(0x1731648B356A8543), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRunningUnitTestsOffset = Schema.GetOffset(0x1731648B356A8543);
 
   public ref bool IsRunningUnitTests {
-    get => ref _Handle.AsRef<bool>(_IsRunningUnitTestsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRunningUnitTestsOffset);
   }
-  private static readonly Lazy<nint> _ExplicitTimeSteppingOffset = new(() => Schema.GetOffset(0x1731648BBDBCBA9A), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplicitTimeSteppingOffset = Schema.GetOffset(0x1731648BBDBCBA9A);
 
   public ref bool ExplicitTimeStepping {
-    get => ref _Handle.AsRef<bool>(_ExplicitTimeSteppingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExplicitTimeSteppingOffset);
   }
-  private static readonly Lazy<nint> _ExpectingToDestroyWithYieldedCursorsOffset = new(() => Schema.GetOffset(0x1731648B8134CF7A), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpectingToDestroyWithYieldedCursorsOffset = Schema.GetOffset(0x1731648B8134CF7A);
 
   public ref bool ExpectingToDestroyWithYieldedCursors {
-    get => ref _Handle.AsRef<bool>(_ExpectingToDestroyWithYieldedCursorsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExpectingToDestroyWithYieldedCursorsOffset);
   }
-  private static readonly Lazy<nint> _QuietTracepointsOffset = new(() => Schema.GetOffset(0x1731648B8C15006B), LazyThreadSafetyMode.None);
+  private static readonly nint _QuietTracepointsOffset = Schema.GetOffset(0x1731648B8C15006B);
 
   public ref bool QuietTracepoints {
-    get => ref _Handle.AsRef<bool>(_QuietTracepointsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_QuietTracepointsOffset);
   }
-  private static readonly Lazy<nint> _ExpectingCursorTerminatedDueToMaxInstructionsOffset = new(() => Schema.GetOffset(0x1731648BF984A235), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpectingCursorTerminatedDueToMaxInstructionsOffset = Schema.GetOffset(0x1731648BF984A235);
 
   public ref bool ExpectingCursorTerminatedDueToMaxInstructions {
-    get => ref _Handle.AsRef<bool>(_ExpectingCursorTerminatedDueToMaxInstructionsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExpectingCursorTerminatedDueToMaxInstructionsOffset);
   }
-  private static readonly Lazy<nint> _CursorsTerminatedDueToMaxInstructionsOffset = new(() => Schema.GetOffset(0x1731648B8061C3CB), LazyThreadSafetyMode.None);
+  private static readonly nint _CursorsTerminatedDueToMaxInstructionsOffset = Schema.GetOffset(0x1731648B8061C3CB);
 
   public ref int CursorsTerminatedDueToMaxInstructions {
-    get => ref _Handle.AsRef<int>(_CursorsTerminatedDueToMaxInstructionsOffset.Value);
+    get => ref _Handle.AsRef<int>(_CursorsTerminatedDueToMaxInstructionsOffset);
   }
-  private static readonly Lazy<nint> _NextValidateIndexOffset = new(() => Schema.GetOffset(0x1731648B5AE2F20E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextValidateIndexOffset = Schema.GetOffset(0x1731648B5AE2F20E);
 
   public ref int NextValidateIndex {
-    get => ref _Handle.AsRef<int>(_NextValidateIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_NextValidateIndexOffset);
   }
-  private static readonly Lazy<nint> _TracepointsOffset = new(() => Schema.GetOffset(0x1731648B04FCE4C9), LazyThreadSafetyMode.None);
+  private static readonly nint _TracepointsOffset = Schema.GetOffset(0x1731648B04FCE4C9);
 
   public ref CUtlVector<CUtlString> Tracepoints {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_TracepointsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_TracepointsOffset);
   }
-  private static readonly Lazy<nint> _TestYesOrNoPathOffset = new(() => Schema.GetOffset(0x1731648B1322BA21), LazyThreadSafetyMode.None);
+  private static readonly nint _TestYesOrNoPathOffset = Schema.GetOffset(0x1731648B1322BA21);
 
   public ref bool TestYesOrNoPath {
-    get => ref _Handle.AsRef<bool>(_TestYesOrNoPathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TestYesOrNoPathOffset);
   }
 
 

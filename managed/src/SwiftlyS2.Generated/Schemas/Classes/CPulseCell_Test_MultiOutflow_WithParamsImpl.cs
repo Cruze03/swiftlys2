@@ -17,15 +17,15 @@ internal partial class CPulseCell_Test_MultiOutflow_WithParamsImpl : CPulseCell_
   public CPulseCell_Test_MultiOutflow_WithParamsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Out1Offset = new(() => Schema.GetOffset(0x99BFB89905F293AA), LazyThreadSafetyMode.None);
+  private static readonly nint _Out1Offset = Schema.GetOffset(0x99BFB89905F293AA);
 
   public SignatureOutflow_Continue Out1 {
-    get => new SignatureOutflow_ContinueImpl(_Handle + _Out1Offset.Value);
+    get => new SignatureOutflow_ContinueImpl(_Handle + _Out1Offset);
   }
-  private static readonly Lazy<nint> _Out2Offset = new(() => Schema.GetOffset(0x99BFB89904F29217), LazyThreadSafetyMode.None);
+  private static readonly nint _Out2Offset = Schema.GetOffset(0x99BFB89904F29217);
 
   public SignatureOutflow_Continue Out2 {
-    get => new SignatureOutflow_ContinueImpl(_Handle + _Out2Offset.Value);
+    get => new SignatureOutflow_ContinueImpl(_Handle + _Out2Offset);
   }
 
 

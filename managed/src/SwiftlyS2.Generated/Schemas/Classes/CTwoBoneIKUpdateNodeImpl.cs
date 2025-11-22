@@ -17,10 +17,10 @@ internal partial class CTwoBoneIKUpdateNodeImpl : CUnaryUpdateNodeImpl, CTwoBone
   public CTwoBoneIKUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpFixedDataOffset = new(() => Schema.GetOffset(0x419F07E36960AF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedDataOffset = Schema.GetOffset(0x419F07E36960AF8C);
 
   public TwoBoneIKSettings_t OpFixedData {
-    get => new TwoBoneIKSettings_tImpl(_Handle + _OpFixedDataOffset.Value);
+    get => new TwoBoneIKSettings_tImpl(_Handle + _OpFixedDataOffset);
   }
 
 

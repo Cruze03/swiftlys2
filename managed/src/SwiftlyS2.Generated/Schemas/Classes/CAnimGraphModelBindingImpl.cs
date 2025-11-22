@@ -17,19 +17,19 @@ internal partial class CAnimGraphModelBindingImpl : SchemaClass, CAnimGraphModel
   public CAnimGraphModelBindingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0xC0F296335D35B6E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0xC0F296335D35B6E1);
 
   public string ModelName {
     get {
-      var ptr = _Handle.Read<nint>(_ModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModelNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SharedDataOffset = new(() => Schema.GetOffset(0xC0F29633D0085FE6), LazyThreadSafetyMode.None);
+  private static readonly nint _SharedDataOffset = Schema.GetOffset(0xC0F29633D0085FE6);
 
   public SchemaUntypedField SharedData {
-    get => new SchemaUntypedField(_Handle + _SharedDataOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SharedDataOffset);
   }
 
 

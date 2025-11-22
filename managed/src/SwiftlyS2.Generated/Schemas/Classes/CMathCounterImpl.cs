@@ -17,60 +17,60 @@ internal partial class CMathCounterImpl : CLogicalEntityImpl, CMathCounter {
   public CMathCounterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x516742BC3B1A5649), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x516742BC3B1A5649);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x516742BC2D06B887), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x516742BC2D06B887);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
-  private static readonly Lazy<nint> _HitMinOffset = new(() => Schema.GetOffset(0x516742BC563A161E), LazyThreadSafetyMode.None);
+  private static readonly nint _HitMinOffset = Schema.GetOffset(0x516742BC563A161E);
 
   public ref bool HitMin {
-    get => ref _Handle.AsRef<bool>(_HitMinOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HitMinOffset);
   }
-  private static readonly Lazy<nint> _HitMaxOffset = new(() => Schema.GetOffset(0x516742BC6826AABC), LazyThreadSafetyMode.None);
+  private static readonly nint _HitMaxOffset = Schema.GetOffset(0x516742BC6826AABC);
 
   public ref bool HitMax {
-    get => ref _Handle.AsRef<bool>(_HitMaxOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HitMaxOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x516742BC3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x516742BC3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _OutValueOffset = new(() => Schema.GetOffset(0x516742BCB5358CB4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutValueOffset = Schema.GetOffset(0x516742BCB5358CB4);
 
   public SchemaUntypedField OutValue {
-    get => new SchemaUntypedField(_Handle + _OutValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OutValueOffset);
   }
-  private static readonly Lazy<nint> _OnGetValueOffset = new(() => Schema.GetOffset(0x516742BC4246EF45), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGetValueOffset = Schema.GetOffset(0x516742BC4246EF45);
 
   public SchemaUntypedField OnGetValue {
-    get => new SchemaUntypedField(_Handle + _OnGetValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnGetValueOffset);
   }
-  private static readonly Lazy<nint> _OnHitMinOffset = new(() => Schema.GetOffset(0x516742BCFBD89E37), LazyThreadSafetyMode.None);
+  private static readonly nint _OnHitMinOffset = Schema.GetOffset(0x516742BCFBD89E37);
 
   public CEntityIOOutput OnHitMin {
-    get => new CEntityIOOutputImpl(_Handle + _OnHitMinOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnHitMinOffset);
   }
-  private static readonly Lazy<nint> _OnHitMaxOffset = new(() => Schema.GetOffset(0x516742BC09EC3BF9), LazyThreadSafetyMode.None);
+  private static readonly nint _OnHitMaxOffset = Schema.GetOffset(0x516742BC09EC3BF9);
 
   public CEntityIOOutput OnHitMax {
-    get => new CEntityIOOutputImpl(_Handle + _OnHitMaxOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnHitMaxOffset);
   }
-  private static readonly Lazy<nint> _OnChangedFromMinOffset = new(() => Schema.GetOffset(0x516742BC0DDBD960), LazyThreadSafetyMode.None);
+  private static readonly nint _OnChangedFromMinOffset = Schema.GetOffset(0x516742BC0DDBD960);
 
   public CEntityIOOutput OnChangedFromMin {
-    get => new CEntityIOOutputImpl(_Handle + _OnChangedFromMinOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnChangedFromMinOffset);
   }
-  private static readonly Lazy<nint> _OnChangedFromMaxOffset = new(() => Schema.GetOffset(0x516742BC23C8744A), LazyThreadSafetyMode.None);
+  private static readonly nint _OnChangedFromMaxOffset = Schema.GetOffset(0x516742BC23C8744A);
 
   public CEntityIOOutput OnChangedFromMax {
-    get => new CEntityIOOutputImpl(_Handle + _OnChangedFromMaxOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnChangedFromMaxOffset);
   }
 
 

@@ -17,55 +17,55 @@ internal partial class HullFlags_tImpl : SchemaClass, HullFlags_t {
   public HullFlags_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Hull_HumanOffset = new(() => Schema.GetOffset(0x6601A7BA756C6ED0), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_HumanOffset = Schema.GetOffset(0x6601A7BA756C6ED0);
 
   public ref bool Hull_Human {
-    get => ref _Handle.AsRef<bool>(_Hull_HumanOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_HumanOffset);
   }
-  private static readonly Lazy<nint> _Hull_SmallCenteredOffset = new(() => Schema.GetOffset(0x6601A7BAA57EDD5E), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_SmallCenteredOffset = Schema.GetOffset(0x6601A7BAA57EDD5E);
 
   public ref bool Hull_SmallCentered {
-    get => ref _Handle.AsRef<bool>(_Hull_SmallCenteredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_SmallCenteredOffset);
   }
-  private static readonly Lazy<nint> _Hull_WideHumanOffset = new(() => Schema.GetOffset(0x6601A7BAEA8B5AFD), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_WideHumanOffset = Schema.GetOffset(0x6601A7BAEA8B5AFD);
 
   public ref bool Hull_WideHuman {
-    get => ref _Handle.AsRef<bool>(_Hull_WideHumanOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_WideHumanOffset);
   }
-  private static readonly Lazy<nint> _Hull_TinyOffset = new(() => Schema.GetOffset(0x6601A7BA637634AD), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_TinyOffset = Schema.GetOffset(0x6601A7BA637634AD);
 
   public ref bool Hull_Tiny {
-    get => ref _Handle.AsRef<bool>(_Hull_TinyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_TinyOffset);
   }
-  private static readonly Lazy<nint> _Hull_MediumOffset = new(() => Schema.GetOffset(0x6601A7BADB23BDB4), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_MediumOffset = Schema.GetOffset(0x6601A7BADB23BDB4);
 
   public ref bool Hull_Medium {
-    get => ref _Handle.AsRef<bool>(_Hull_MediumOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_MediumOffset);
   }
-  private static readonly Lazy<nint> _Hull_TinyCenteredOffset = new(() => Schema.GetOffset(0x6601A7BA139ED50D), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_TinyCenteredOffset = Schema.GetOffset(0x6601A7BA139ED50D);
 
   public ref bool Hull_TinyCentered {
-    get => ref _Handle.AsRef<bool>(_Hull_TinyCenteredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_TinyCenteredOffset);
   }
-  private static readonly Lazy<nint> _Hull_LargeOffset = new(() => Schema.GetOffset(0x6601A7BA11910E06), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_LargeOffset = Schema.GetOffset(0x6601A7BA11910E06);
 
   public ref bool Hull_Large {
-    get => ref _Handle.AsRef<bool>(_Hull_LargeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_LargeOffset);
   }
-  private static readonly Lazy<nint> _Hull_LargeCenteredOffset = new(() => Schema.GetOffset(0x6601A7BAEE04D78A), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_LargeCenteredOffset = Schema.GetOffset(0x6601A7BAEE04D78A);
 
   public ref bool Hull_LargeCentered {
-    get => ref _Handle.AsRef<bool>(_Hull_LargeCenteredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_LargeCenteredOffset);
   }
-  private static readonly Lazy<nint> _Hull_MediumTallOffset = new(() => Schema.GetOffset(0x6601A7BA332567D3), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_MediumTallOffset = Schema.GetOffset(0x6601A7BA332567D3);
 
   public ref bool Hull_MediumTall {
-    get => ref _Handle.AsRef<bool>(_Hull_MediumTallOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_MediumTallOffset);
   }
-  private static readonly Lazy<nint> _Hull_SmallOffset = new(() => Schema.GetOffset(0x6601A7BA86608A2A), LazyThreadSafetyMode.None);
+  private static readonly nint _Hull_SmallOffset = Schema.GetOffset(0x6601A7BA86608A2A);
 
   public ref bool Hull_Small {
-    get => ref _Handle.AsRef<bool>(_Hull_SmallOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Hull_SmallOffset);
   }
 
 

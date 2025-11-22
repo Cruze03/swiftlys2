@@ -17,37 +17,37 @@ internal partial class CFootstepLandedAnimTagImpl : CAnimTagBaseImpl, CFootstepL
   public CFootstepLandedAnimTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootstepTypeOffset = new(() => Schema.GetOffset(0xD5058C6793F974DB), LazyThreadSafetyMode.None);
+  private static readonly nint _FootstepTypeOffset = Schema.GetOffset(0xD5058C6793F974DB);
 
   public ref FootstepLandedFootSoundType_t FootstepType {
-    get => ref _Handle.AsRef<FootstepLandedFootSoundType_t>(_FootstepTypeOffset.Value);
+    get => ref _Handle.AsRef<FootstepLandedFootSoundType_t>(_FootstepTypeOffset);
   }
-  private static readonly Lazy<nint> _OverrideSoundNameOffset = new(() => Schema.GetOffset(0xD5058C67FEE552B7), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideSoundNameOffset = Schema.GetOffset(0xD5058C67FEE552B7);
 
   public string OverrideSoundName {
     get {
-      var ptr = _Handle.Read<nint>(_OverrideSoundNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OverrideSoundNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OverrideSoundNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OverrideSoundNameOffset, value);
   } 
-  private static readonly Lazy<nint> _DebugAnimSourceStringOffset = new(() => Schema.GetOffset(0xD5058C676912A1B9), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugAnimSourceStringOffset = Schema.GetOffset(0xD5058C676912A1B9);
 
   public string DebugAnimSourceString {
     get {
-      var ptr = _Handle.Read<nint>(_DebugAnimSourceStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_DebugAnimSourceStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DebugAnimSourceStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _DebugAnimSourceStringOffset, value);
   } 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0xD5058C6707D0902C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0xD5058C6707D0902C);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
 
 

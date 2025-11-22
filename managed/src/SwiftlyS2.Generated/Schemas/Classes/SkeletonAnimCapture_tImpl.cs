@@ -17,63 +17,63 @@ internal partial class SkeletonAnimCapture_tImpl : SchemaClass, SkeletonAnimCapt
   public SkeletonAnimCapture_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntIndexOffset = new(() => Schema.GetOffset(0x79FB6D7C5558C54A), LazyThreadSafetyMode.None);
+  private static readonly nint _EntIndexOffset = Schema.GetOffset(0x79FB6D7C5558C54A);
 
   public ref uint EntIndex {
-    get => ref _Handle.AsRef<uint>(_EntIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_EntIndexOffset);
   }
-  private static readonly Lazy<nint> _EntParentOffset = new(() => Schema.GetOffset(0x79FB6D7C7D9203A6), LazyThreadSafetyMode.None);
+  private static readonly nint _EntParentOffset = Schema.GetOffset(0x79FB6D7C7D9203A6);
 
   public ref uint EntParent {
-    get => ref _Handle.AsRef<uint>(_EntParentOffset.Value);
+    get => ref _Handle.AsRef<uint>(_EntParentOffset);
   }
-  private static readonly Lazy<nint> _ImportedCollisionOffset = new(() => Schema.GetOffset(0x79FB6D7C5A900B2F), LazyThreadSafetyMode.None);
+  private static readonly nint _ImportedCollisionOffset = Schema.GetOffset(0x79FB6D7C5A900B2F);
 
   public ref CUtlVector<uint> ImportedCollision {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_ImportedCollisionOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_ImportedCollisionOffset);
   }
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0x79FB6D7CD7A1D881), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0x79FB6D7CD7A1D881);
 
   public string ModelName {
     get {
-      var ptr = _Handle.Read<nint>(_ModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModelNameOffset, value);
   } 
-  private static readonly Lazy<nint> _CaptureNameOffset = new(() => Schema.GetOffset(0x79FB6D7CB508C2DA), LazyThreadSafetyMode.None);
+  private static readonly nint _CaptureNameOffset = Schema.GetOffset(0x79FB6D7CB508C2DA);
 
   public string CaptureName {
     get {
-      var ptr = _Handle.Read<nint>(_CaptureNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_CaptureNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CaptureNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _CaptureNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ModelBindPoseOffset = new(() => Schema.GetOffset(0x79FB6D7C9960EBF8), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelBindPoseOffset = Schema.GetOffset(0x79FB6D7C9960EBF8);
 
   public ref CUtlVector<SkeletonAnimCapture_t__Bone_t> ModelBindPose {
-    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Bone_t>>(_ModelBindPoseOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Bone_t>>(_ModelBindPoseOffset);
   }
-  private static readonly Lazy<nint> _FeModelInitPoseOffset = new(() => Schema.GetOffset(0x79FB6D7C0F3CC12E), LazyThreadSafetyMode.None);
+  private static readonly nint _FeModelInitPoseOffset = Schema.GetOffset(0x79FB6D7C0F3CC12E);
 
   public ref CUtlVector<SkeletonAnimCapture_t__Bone_t> FeModelInitPose {
-    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Bone_t>>(_FeModelInitPoseOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Bone_t>>(_FeModelInitPoseOffset);
   }
-  private static readonly Lazy<nint> _FlexControllersOffset = new(() => Schema.GetOffset(0x79FB6D7C024CF17F), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllersOffset = Schema.GetOffset(0x79FB6D7C024CF17F);
 
   public ref int FlexControllers {
-    get => ref _Handle.AsRef<int>(_FlexControllersOffset.Value);
+    get => ref _Handle.AsRef<int>(_FlexControllersOffset);
   }
-  private static readonly Lazy<nint> _PredictedOffset = new(() => Schema.GetOffset(0x79FB6D7C419B6D9B), LazyThreadSafetyMode.None);
+  private static readonly nint _PredictedOffset = Schema.GetOffset(0x79FB6D7C419B6D9B);
 
   public ref bool Predicted {
-    get => ref _Handle.AsRef<bool>(_PredictedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PredictedOffset);
   }
-  private static readonly Lazy<nint> _FramesOffset = new(() => Schema.GetOffset(0x79FB6D7CEA11EACF), LazyThreadSafetyMode.None);
+  private static readonly nint _FramesOffset = Schema.GetOffset(0x79FB6D7CEA11EACF);
 
   public ref CUtlVector<SkeletonAnimCapture_t__Frame_t> Frames {
-    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Frame_t>>(_FramesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Frame_t>>(_FramesOffset);
   }
 
 

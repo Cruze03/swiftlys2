@@ -17,25 +17,25 @@ internal partial class CAnimationGraphVisualizerPieImpl : CAnimationGraphVisuali
   public CAnimationGraphVisualizerPieImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WsCenterOffset = new(() => Schema.GetOffset(0x152844C290A3905E), LazyThreadSafetyMode.None);
+  private static readonly nint _WsCenterOffset = Schema.GetOffset(0x152844C290A3905E);
 
   public ref Vector WsCenter {
-    get => ref _Handle.AsRef<Vector>(_WsCenterOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsCenterOffset);
   }
-  private static readonly Lazy<nint> _WsStartOffset = new(() => Schema.GetOffset(0x152844C2EFF42149), LazyThreadSafetyMode.None);
+  private static readonly nint _WsStartOffset = Schema.GetOffset(0x152844C2EFF42149);
 
   public ref Vector WsStart {
-    get => ref _Handle.AsRef<Vector>(_WsStartOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsStartOffset);
   }
-  private static readonly Lazy<nint> _WsEndOffset = new(() => Schema.GetOffset(0x152844C280C1EC98), LazyThreadSafetyMode.None);
+  private static readonly nint _WsEndOffset = Schema.GetOffset(0x152844C280C1EC98);
 
   public ref Vector WsEnd {
-    get => ref _Handle.AsRef<Vector>(_WsEndOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsEndOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x152844C2D7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x152844C2D7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
 
 

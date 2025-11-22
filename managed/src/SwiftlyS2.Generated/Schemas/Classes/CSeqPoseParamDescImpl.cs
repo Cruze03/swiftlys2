@@ -17,30 +17,30 @@ internal partial class CSeqPoseParamDescImpl : SchemaClass, CSeqPoseParamDesc {
   public CSeqPoseParamDescImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x9276634463D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x9276634463D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _StartOffset = new(() => Schema.GetOffset(0x9276634405A20B85), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOffset = Schema.GetOffset(0x9276634405A20B85);
 
   public ref float Start {
-    get => ref _Handle.AsRef<float>(_StartOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartOffset);
   }
-  private static readonly Lazy<nint> _EndOffset = new(() => Schema.GetOffset(0x927663449616A27C), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffset = Schema.GetOffset(0x927663449616A27C);
 
   public ref float End {
-    get => ref _Handle.AsRef<float>(_EndOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndOffset);
   }
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0x92766344DE666C85), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0x92766344DE666C85);
 
   public ref float Loop {
-    get => ref _Handle.AsRef<float>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<float>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _LoopingOffset = new(() => Schema.GetOffset(0x9276634425449B0D), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopingOffset = Schema.GetOffset(0x9276634425449B0D);
 
   public ref bool Looping {
-    get => ref _Handle.AsRef<bool>(_LoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopingOffset);
   }
 
 

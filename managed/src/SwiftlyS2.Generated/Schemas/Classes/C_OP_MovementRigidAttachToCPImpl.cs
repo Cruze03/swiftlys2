@@ -17,35 +17,35 @@ internal partial class C_OP_MovementRigidAttachToCPImpl : CParticleFunctionOpera
   public C_OP_MovementRigidAttachToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x3D3A79B83F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x3D3A79B83F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _ScaleControlPointOffset = new(() => Schema.GetOffset(0x3D3A79B8B0577A70), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleControlPointOffset = Schema.GetOffset(0x3D3A79B8B0577A70);
 
   public ref int ScaleControlPoint {
-    get => ref _Handle.AsRef<int>(_ScaleControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleControlPointOffset);
   }
-  private static readonly Lazy<nint> _ScaleCPFieldOffset = new(() => Schema.GetOffset(0x3D3A79B8B4A19A82), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleCPFieldOffset = Schema.GetOffset(0x3D3A79B8B4A19A82);
 
   public ref int ScaleCPField {
-    get => ref _Handle.AsRef<int>(_ScaleCPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleCPFieldOffset);
   }
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0x3D3A79B8AE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0x3D3A79B8AE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x3D3A79B8E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x3D3A79B8E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OffsetLocalOffset = new(() => Schema.GetOffset(0x3D3A79B8F07D31C1), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetLocalOffset = Schema.GetOffset(0x3D3A79B8F07D31C1);
 
   public ref bool OffsetLocal {
-    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset);
   }
 
 

@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBaseFlex : CBaseAnimGraph, ISchemaClass<CBaseFlex> {
 
   static CBaseFlex ISchemaClass<CBaseFlex>.From(nint handle) => new CBaseFlexImpl(handle);
-  static int ISchemaClass<CBaseFlex>.Size => 3632;
+  static int ISchemaClass<CBaseFlex>.Size => 2848;
   static string? ISchemaClass<CBaseFlex>.ClassName => "baseflex";
 
   

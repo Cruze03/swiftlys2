@@ -17,64 +17,64 @@ internal partial class C_INIT_InitFromCPSnapshotImpl : CParticleFunctionInitiali
   public C_INIT_InitFromCPSnapshotImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x772EF71B3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x772EF71B3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _StrSnapshotSubsetOffset = new(() => Schema.GetOffset(0x772EF71BBD8A8E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _StrSnapshotSubsetOffset = Schema.GetOffset(0x772EF71BBD8A8E5E);
 
   public string StrSnapshotSubset {
     get {
-      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset, value);
   } 
-  private static readonly Lazy<nint> _AttributeToReadOffset = new(() => Schema.GetOffset(0x772EF71BE0F61F9E), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeToReadOffset = Schema.GetOffset(0x772EF71BE0F61F9E);
 
   public ParticleAttributeIndex_t AttributeToRead {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToReadOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToReadOffset);
   }
-  private static readonly Lazy<nint> _AttributeToWriteOffset = new(() => Schema.GetOffset(0x772EF71B389A3CC1), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeToWriteOffset = Schema.GetOffset(0x772EF71B389A3CC1);
 
   public ParticleAttributeIndex_t AttributeToWrite {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToWriteOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToWriteOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceCPOffset = new(() => Schema.GetOffset(0x772EF71BC8E9CB31), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceCPOffset = Schema.GetOffset(0x772EF71BC8E9CB31);
 
   public ref int LocalSpaceCP {
-    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset);
   }
-  private static readonly Lazy<nint> _RandomOffset = new(() => Schema.GetOffset(0x772EF71BD13B9DC2), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomOffset = Schema.GetOffset(0x772EF71BD13B9DC2);
 
   public ref bool Random {
-    get => ref _Handle.AsRef<bool>(_RandomOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomOffset);
   }
-  private static readonly Lazy<nint> _ReverseOffset = new(() => Schema.GetOffset(0x772EF71BEA4E22E5), LazyThreadSafetyMode.None);
+  private static readonly nint _ReverseOffset = Schema.GetOffset(0x772EF71BEA4E22E5);
 
   public ref bool Reverse {
-    get => ref _Handle.AsRef<bool>(_ReverseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReverseOffset);
   }
-  private static readonly Lazy<nint> _SnapShotIncrementOffset = new(() => Schema.GetOffset(0x772EF71BC1AED602), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapShotIncrementOffset = Schema.GetOffset(0x772EF71BC1AED602);
 
   public CParticleCollectionFloatInput SnapShotIncrement {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _SnapShotIncrementOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _SnapShotIncrementOffset);
   }
-  private static readonly Lazy<nint> _ManualSnapshotIndexOffset = new(() => Schema.GetOffset(0x772EF71BA02E904D), LazyThreadSafetyMode.None);
+  private static readonly nint _ManualSnapshotIndexOffset = Schema.GetOffset(0x772EF71BA02E904D);
 
   public CPerParticleFloatInput ManualSnapshotIndex {
-    get => new CPerParticleFloatInputImpl(_Handle + _ManualSnapshotIndexOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ManualSnapshotIndexOffset);
   }
-  private static readonly Lazy<nint> _RandomSeedOffset = new(() => Schema.GetOffset(0x772EF71B6388F067), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomSeedOffset = Schema.GetOffset(0x772EF71B6388F067);
 
   public ref int RandomSeed {
-    get => ref _Handle.AsRef<int>(_RandomSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_RandomSeedOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceAnglesOffset = new(() => Schema.GetOffset(0x772EF71BF571F352), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceAnglesOffset = Schema.GetOffset(0x772EF71BF571F352);
 
   public ref bool LocalSpaceAngles {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceAnglesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceAnglesOffset);
   }
 
 

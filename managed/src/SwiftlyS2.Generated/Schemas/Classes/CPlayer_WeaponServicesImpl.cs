@@ -17,28 +17,28 @@ internal partial class CPlayer_WeaponServicesImpl : CPlayerPawnComponentImpl, CP
   public CPlayer_WeaponServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MyWeaponsOffset = new(() => Schema.GetOffset(0x634D22804C8A13A6), LazyThreadSafetyMode.None);
+  private static readonly nint _MyWeaponsOffset = Schema.GetOffset(0x634D22804C8A13A6);
 
   public ref CUtlVector<CHandle<CBasePlayerWeapon>> MyWeapons {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBasePlayerWeapon>>>(_MyWeaponsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBasePlayerWeapon>>>(_MyWeaponsOffset);
   }
-  private static readonly Lazy<nint> _ActiveWeaponOffset = new(() => Schema.GetOffset(0x634D2280940131C5), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveWeaponOffset = Schema.GetOffset(0x634D2280940131C5);
 
   public ref CHandle<CBasePlayerWeapon> ActiveWeapon {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_ActiveWeaponOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_ActiveWeaponOffset);
   }
-  private static readonly Lazy<nint> _LastWeaponOffset = new(() => Schema.GetOffset(0x634D2280EA5C9547), LazyThreadSafetyMode.None);
+  private static readonly nint _LastWeaponOffset = Schema.GetOffset(0x634D2280EA5C9547);
 
   public ref CHandle<CBasePlayerWeapon> LastWeapon {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_LastWeaponOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_LastWeaponOffset);
   }
   public ISchemaFixedArray<ushort> Ammo {
     get => new SchemaFixedArray<ushort>(_Handle, 0x634D22800D59E6CA, 32, 2, 2);
   }
-  private static readonly Lazy<nint> _PreventWeaponPickupOffset = new(() => Schema.GetOffset(0x634D228093894029), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventWeaponPickupOffset = Schema.GetOffset(0x634D228093894029);
 
   public ref bool PreventWeaponPickup {
-    get => ref _Handle.AsRef<bool>(_PreventWeaponPickupOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventWeaponPickupOffset);
   }
 
   public void MyWeaponsUpdated() {

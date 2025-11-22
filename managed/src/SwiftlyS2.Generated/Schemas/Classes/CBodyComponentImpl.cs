@@ -17,18 +17,18 @@ internal partial class CBodyComponentImpl : CEntityComponentImpl, CBodyComponent
   public CBodyComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SceneNodeOffset = new(() => Schema.GetOffset(0x4EF2C865D7D13495), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneNodeOffset = Schema.GetOffset(0x4EF2C865D7D13495);
 
   public CGameSceneNode? SceneNode {
     get {
-      var ptr = _Handle.Read<nint>(_SceneNodeOffset.Value);
+      var ptr = _Handle.Read<nint>(_SceneNodeOffset);
       return ptr.IsValidPtr() ? new CGameSceneNodeImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> ___m_pChainEntityOffset = new(() => Schema.GetOffset(0x4EF2C865F63F0E7D), LazyThreadSafetyMode.None);
+  private static readonly nint ___m_pChainEntityOffset = Schema.GetOffset(0x4EF2C865F63F0E7D);
 
   public ref CNetworkVarChainer __m_pChainEntity {
-    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset.Value);
+    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset);
   }
 
 

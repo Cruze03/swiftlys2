@@ -17,15 +17,15 @@ internal partial class FollowAttachmentDataImpl : SchemaClass, FollowAttachmentD
   public FollowAttachmentDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0x7E37AD4D6AFA4155), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0x7E37AD4D6AFA4155);
 
   public ref int BoneIndex {
-    get => ref _Handle.AsRef<int>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _AttachmentHandleOffset = new(() => Schema.GetOffset(0x7E37AD4DA203035E), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentHandleOffset = Schema.GetOffset(0x7E37AD4DA203035E);
 
   public AttachmentHandle_t AttachmentHandle {
-    get => new AttachmentHandle_tImpl(_Handle + _AttachmentHandleOffset.Value);
+    get => new AttachmentHandle_tImpl(_Handle + _AttachmentHandleOffset);
   }
 
 

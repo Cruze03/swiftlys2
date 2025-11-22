@@ -17,25 +17,25 @@ internal partial class constraint_axislimit_tImpl : SchemaClass, constraint_axis
   public constraint_axislimit_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinRotationOffset = new(() => Schema.GetOffset(0x610A06522A8C970B), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRotationOffset = Schema.GetOffset(0x610A06522A8C970B);
 
   public ref float MinRotation {
-    get => ref _Handle.AsRef<float>(_MinRotationOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinRotationOffset);
   }
-  private static readonly Lazy<nint> _MaxRotationOffset = new(() => Schema.GetOffset(0x610A0652FEB73D49), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRotationOffset = Schema.GetOffset(0x610A0652FEB73D49);
 
   public ref float MaxRotation {
-    get => ref _Handle.AsRef<float>(_MaxRotationOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRotationOffset);
   }
-  private static readonly Lazy<nint> _MotorTargetAngSpeedOffset = new(() => Schema.GetOffset(0x610A0652C783A98E), LazyThreadSafetyMode.None);
+  private static readonly nint _MotorTargetAngSpeedOffset = Schema.GetOffset(0x610A0652C783A98E);
 
   public ref float MotorTargetAngSpeed {
-    get => ref _Handle.AsRef<float>(_MotorTargetAngSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_MotorTargetAngSpeedOffset);
   }
-  private static readonly Lazy<nint> _MotorMaxTorqueOffset = new(() => Schema.GetOffset(0x610A0652808C4A00), LazyThreadSafetyMode.None);
+  private static readonly nint _MotorMaxTorqueOffset = Schema.GetOffset(0x610A0652808C4A00);
 
   public ref float MotorMaxTorque {
-    get => ref _Handle.AsRef<float>(_MotorMaxTorqueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MotorMaxTorqueOffset);
   }
 
 

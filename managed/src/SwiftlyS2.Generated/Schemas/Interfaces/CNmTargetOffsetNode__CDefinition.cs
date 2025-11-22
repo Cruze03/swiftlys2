@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmTargetOffsetNode__CDefinition : CNmTargetValueNode__CDefinition, ISchemaClass<CNmTargetOffsetNode__CDefinition> {
 
   static CNmTargetOffsetNode__CDefinition ISchemaClass<CNmTargetOffsetNode__CDefinition>.From(nint handle) => new CNmTargetOffsetNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmTargetOffsetNode__CDefinition>.Size => 48;
+  static int ISchemaClass<CNmTargetOffsetNode__CDefinition>.Size => 64;
   static string? ISchemaClass<CNmTargetOffsetNode__CDefinition>.ClassName => null;
 
   

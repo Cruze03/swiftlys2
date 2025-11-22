@@ -17,25 +17,25 @@ internal partial class CMotionMetricEvaluatorImpl : SchemaClass, CMotionMetricEv
   public CMotionMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MeansOffset = new(() => Schema.GetOffset(0x1C07D08DAB070085), LazyThreadSafetyMode.None);
+  private static readonly nint _MeansOffset = Schema.GetOffset(0x1C07D08DAB070085);
 
   public ref CUtlVector<float> Means {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_MeansOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_MeansOffset);
   }
-  private static readonly Lazy<nint> _StandardDeviationsOffset = new(() => Schema.GetOffset(0x1C07D08D9114EB60), LazyThreadSafetyMode.None);
+  private static readonly nint _StandardDeviationsOffset = Schema.GetOffset(0x1C07D08D9114EB60);
 
   public ref CUtlVector<float> StandardDeviations {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_StandardDeviationsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_StandardDeviationsOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x1C07D08D7B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x1C07D08D7B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _DimensionStartIndexOffset = new(() => Schema.GetOffset(0x1C07D08D3448F2E3), LazyThreadSafetyMode.None);
+  private static readonly nint _DimensionStartIndexOffset = Schema.GetOffset(0x1C07D08D3448F2E3);
 
   public ref int DimensionStartIndex {
-    get => ref _Handle.AsRef<int>(_DimensionStartIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_DimensionStartIndexOffset);
   }
 
 

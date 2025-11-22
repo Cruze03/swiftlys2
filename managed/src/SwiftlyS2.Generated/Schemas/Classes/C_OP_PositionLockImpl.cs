@@ -17,80 +17,80 @@ internal partial class C_OP_PositionLockImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_PositionLockImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xCE90EAD5B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xCE90EAD5B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _StartTime_minOffset = new(() => Schema.GetOffset(0xCE90EAD55AC75BFB), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTime_minOffset = Schema.GetOffset(0xCE90EAD55AC75BFB);
 
   public ref float StartTime_min {
-    get => ref _Handle.AsRef<float>(_StartTime_minOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTime_minOffset);
   }
-  private static readonly Lazy<nint> _StartTime_maxOffset = new(() => Schema.GetOffset(0xCE90EAD550B23185), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTime_maxOffset = Schema.GetOffset(0xCE90EAD550B23185);
 
   public ref float StartTime_max {
-    get => ref _Handle.AsRef<float>(_StartTime_maxOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTime_maxOffset);
   }
-  private static readonly Lazy<nint> _StartTime_expOffset = new(() => Schema.GetOffset(0xCE90EAD5E9B22DE4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTime_expOffset = Schema.GetOffset(0xCE90EAD5E9B22DE4);
 
   public ref float StartTime_exp {
-    get => ref _Handle.AsRef<float>(_StartTime_expOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTime_expOffset);
   }
-  private static readonly Lazy<nint> _EndTime_minOffset = new(() => Schema.GetOffset(0xCE90EAD57B891932), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTime_minOffset = Schema.GetOffset(0xCE90EAD57B891932);
 
   public ref float EndTime_min {
-    get => ref _Handle.AsRef<float>(_EndTime_minOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTime_minOffset);
   }
-  private static readonly Lazy<nint> _EndTime_maxOffset = new(() => Schema.GetOffset(0xCE90EAD58575A138), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTime_maxOffset = Schema.GetOffset(0xCE90EAD58575A138);
 
   public ref float EndTime_max {
-    get => ref _Handle.AsRef<float>(_EndTime_maxOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTime_maxOffset);
   }
-  private static readonly Lazy<nint> _EndTime_expOffset = new(() => Schema.GetOffset(0xCE90EAD51CA4CB99), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTime_expOffset = Schema.GetOffset(0xCE90EAD51CA4CB99);
 
   public ref float EndTime_exp {
-    get => ref _Handle.AsRef<float>(_EndTime_expOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTime_expOffset);
   }
-  private static readonly Lazy<nint> _RangeOffset = new(() => Schema.GetOffset(0xCE90EAD53FC92844), LazyThreadSafetyMode.None);
+  private static readonly nint _RangeOffset = Schema.GetOffset(0xCE90EAD53FC92844);
 
   public ref float Range {
-    get => ref _Handle.AsRef<float>(_RangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RangeOffset);
   }
-  private static readonly Lazy<nint> _RangeBiasOffset = new(() => Schema.GetOffset(0xCE90EAD56BC1F129), LazyThreadSafetyMode.None);
+  private static readonly nint _RangeBiasOffset = Schema.GetOffset(0xCE90EAD56BC1F129);
 
   public CParticleCollectionFloatInput RangeBias {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RangeBiasOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RangeBiasOffset);
   }
-  private static readonly Lazy<nint> _JumpThresholdOffset = new(() => Schema.GetOffset(0xCE90EAD5B6BB1AD6), LazyThreadSafetyMode.None);
+  private static readonly nint _JumpThresholdOffset = Schema.GetOffset(0xCE90EAD5B6BB1AD6);
 
   public ref float JumpThreshold {
-    get => ref _Handle.AsRef<float>(_JumpThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_JumpThresholdOffset);
   }
-  private static readonly Lazy<nint> _PrevPosScaleOffset = new(() => Schema.GetOffset(0xCE90EAD546CED122), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevPosScaleOffset = Schema.GetOffset(0xCE90EAD546CED122);
 
   public ref float PrevPosScale {
-    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset);
   }
-  private static readonly Lazy<nint> _LockRotOffset = new(() => Schema.GetOffset(0xCE90EAD5549B459B), LazyThreadSafetyMode.None);
+  private static readonly nint _LockRotOffset = Schema.GetOffset(0xCE90EAD5549B459B);
 
   public ref bool LockRot {
-    get => ref _Handle.AsRef<bool>(_LockRotOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockRotOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xCE90EAD55F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xCE90EAD55F596B51);
 
   public CParticleCollectionVecInput Scale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xCE90EAD5E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xCE90EAD5E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputPrevOffset = new(() => Schema.GetOffset(0xCE90EAD568D9463B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputPrevOffset = Schema.GetOffset(0xCE90EAD568D9463B);
 
   public ParticleAttributeIndex_t FieldOutputPrev {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputPrevOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputPrevOffset);
   }
 
 

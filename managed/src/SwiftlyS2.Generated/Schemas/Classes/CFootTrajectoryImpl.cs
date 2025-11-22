@@ -17,20 +17,20 @@ internal partial class CFootTrajectoryImpl : SchemaClass, CFootTrajectory {
   public CFootTrajectoryImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x193297AFFE159136), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x193297AFFE159136);
 
   public ref Vector Offset {
-    get => ref _Handle.AsRef<Vector>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _RotationOffsetOffset = new(() => Schema.GetOffset(0x193297AFF811C66E), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOffsetOffset = Schema.GetOffset(0x193297AFF811C66E);
 
   public ref float RotationOffset {
-    get => ref _Handle.AsRef<float>(_RotationOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotationOffsetOffset);
   }
-  private static readonly Lazy<nint> _ProgressionOffset = new(() => Schema.GetOffset(0x193297AF4C9E1656), LazyThreadSafetyMode.None);
+  private static readonly nint _ProgressionOffset = Schema.GetOffset(0x193297AF4C9E1656);
 
   public ref float Progression {
-    get => ref _Handle.AsRef<float>(_ProgressionOffset.Value);
+    get => ref _Handle.AsRef<float>(_ProgressionOffset);
   }
 
 

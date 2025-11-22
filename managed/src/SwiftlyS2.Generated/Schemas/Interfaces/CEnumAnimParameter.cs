@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnumAnimParameter : CConcreteAnimParameter, ISchemaClass<CEnumAnimParameter> {
 
   static CEnumAnimParameter ISchemaClass<CEnumAnimParameter>.From(nint handle) => new CEnumAnimParameterImpl(handle);
-  static int ISchemaClass<CEnumAnimParameter>.Size => 208;
+  static int ISchemaClass<CEnumAnimParameter>.Size => 216;
   static string? ISchemaClass<CEnumAnimParameter>.ClassName => null;
 
   

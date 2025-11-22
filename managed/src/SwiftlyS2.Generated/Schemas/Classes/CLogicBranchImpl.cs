@@ -17,25 +17,25 @@ internal partial class CLogicBranchImpl : CLogicalEntityImpl, CLogicBranch {
   public CLogicBranchImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InValueOffset = new(() => Schema.GetOffset(0x5B700E1052400A1F), LazyThreadSafetyMode.None);
+  private static readonly nint _InValueOffset = Schema.GetOffset(0x5B700E1052400A1F);
 
   public ref bool InValue {
-    get => ref _Handle.AsRef<bool>(_InValueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InValueOffset);
   }
-  private static readonly Lazy<nint> _ListenersOffset = new(() => Schema.GetOffset(0x5B700E10E4AECE86), LazyThreadSafetyMode.None);
+  private static readonly nint _ListenersOffset = Schema.GetOffset(0x5B700E10E4AECE86);
 
   public ref CUtlVector<CHandle<CBaseEntity>> Listeners {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_ListenersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_ListenersOffset);
   }
-  private static readonly Lazy<nint> _OnTrueOffset = new(() => Schema.GetOffset(0x5B700E106EAE5D88), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTrueOffset = Schema.GetOffset(0x5B700E106EAE5D88);
 
   public CEntityIOOutput OnTrue {
-    get => new CEntityIOOutputImpl(_Handle + _OnTrueOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTrueOffset);
   }
-  private static readonly Lazy<nint> _OnFalseOffset = new(() => Schema.GetOffset(0x5B700E104973AF03), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFalseOffset = Schema.GetOffset(0x5B700E104973AF03);
 
   public CEntityIOOutput OnFalse {
-    get => new CEntityIOOutputImpl(_Handle + _OnFalseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnFalseOffset);
   }
 
 

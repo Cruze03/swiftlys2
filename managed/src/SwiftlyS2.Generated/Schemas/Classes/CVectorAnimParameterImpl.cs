@@ -17,20 +17,20 @@ internal partial class CVectorAnimParameterImpl : CConcreteAnimParameterImpl, CV
   public CVectorAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x74346C8BBBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x74346C8BBBE0341F);
 
   public ref Vector DefaultValue {
-    get => ref _Handle.AsRef<Vector>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _InterpolateOffset = new(() => Schema.GetOffset(0x74346C8BF6607650), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolateOffset = Schema.GetOffset(0x74346C8BF6607650);
 
   public ref bool Interpolate {
-    get => ref _Handle.AsRef<bool>(_InterpolateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterpolateOffset);
   }
-  private static readonly Lazy<nint> _VectorTypeOffset = new(() => Schema.GetOffset(0x74346C8BF251F9D2), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorTypeOffset = Schema.GetOffset(0x74346C8BF251F9D2);
 
   public ref AnimParamVectorType_t VectorType {
-    get => ref _Handle.AsRef<AnimParamVectorType_t>(_VectorTypeOffset.Value);
+    get => ref _Handle.AsRef<AnimParamVectorType_t>(_VectorTypeOffset);
   }
 
 

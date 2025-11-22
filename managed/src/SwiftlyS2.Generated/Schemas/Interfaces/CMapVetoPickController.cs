@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CMapVetoPickController : CBaseEntity, ISchemaClass<CMapVetoPickController> {
 
   static CMapVetoPickController ISchemaClass<CMapVetoPickController>.From(nint handle) => new CMapVetoPickControllerImpl(handle);
-  static int ISchemaClass<CMapVetoPickController>.Size => 4608;
+  static int ISchemaClass<CMapVetoPickController>.Size => 3864;
   static string? ISchemaClass<CMapVetoPickController>.ClassName => "mapvetopick_controller";
 
   

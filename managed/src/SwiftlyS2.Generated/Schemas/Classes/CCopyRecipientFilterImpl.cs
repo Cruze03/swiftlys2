@@ -17,20 +17,20 @@ internal partial class CCopyRecipientFilterImpl : SchemaClass, CCopyRecipientFil
   public CCopyRecipientFilterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xB27F546C36B92FAC), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xB27F546C36B92FAC);
 
   public ref int Flags {
-    get => ref _Handle.AsRef<int>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<int>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _RecipientsOffset = new(() => Schema.GetOffset(0xB27F546CDF6522D1), LazyThreadSafetyMode.None);
+  private static readonly nint _RecipientsOffset = Schema.GetOffset(0xB27F546CDF6522D1);
 
   public ref CUtlVector<uint> Recipients {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_RecipientsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_RecipientsOffset);
   }
-  private static readonly Lazy<nint> _SlotPlayerExcludedDueToPredictionOffset = new(() => Schema.GetOffset(0xB27F546CA4F2B69C), LazyThreadSafetyMode.None);
+  private static readonly nint _SlotPlayerExcludedDueToPredictionOffset = Schema.GetOffset(0xB27F546CA4F2B69C);
 
   public ref uint SlotPlayerExcludedDueToPrediction {
-    get => ref _Handle.AsRef<uint>(_SlotPlayerExcludedDueToPredictionOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SlotPlayerExcludedDueToPredictionOffset);
   }
 
 

@@ -17,50 +17,50 @@ internal partial class SkeletonAnimCapture_t__Frame_tImpl : SchemaClass, Skeleto
   public SkeletonAnimCapture_t__Frame_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimeOffset = new(() => Schema.GetOffset(0x413CC2EEC957229E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffset = Schema.GetOffset(0x413CC2EEC957229E);
 
   public ref float Time {
-    get => ref _Handle.AsRef<float>(_TimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffset);
   }
-  private static readonly Lazy<nint> _StampOffset = new(() => Schema.GetOffset(0x413CC2EE11943004), LazyThreadSafetyMode.None);
+  private static readonly nint _StampOffset = Schema.GetOffset(0x413CC2EE11943004);
 
   public SkeletonAnimCapture_t__FrameStamp_t Stamp {
-    get => new SkeletonAnimCapture_t__FrameStamp_tImpl(_Handle + _StampOffset.Value);
+    get => new SkeletonAnimCapture_t__FrameStamp_tImpl(_Handle + _StampOffset);
   }
-  private static readonly Lazy<nint> _TransformOffset = new(() => Schema.GetOffset(0x413CC2EE6EC5209B), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformOffset = Schema.GetOffset(0x413CC2EE6EC5209B);
 
   public ref CTransform Transform {
-    get => ref _Handle.AsRef<CTransform>(_TransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TransformOffset);
   }
-  private static readonly Lazy<nint> _TeleportOffset = new(() => Schema.GetOffset(0x413CC2EEE663C11E), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportOffset = Schema.GetOffset(0x413CC2EEE663C11E);
 
   public ref bool Teleport {
-    get => ref _Handle.AsRef<bool>(_TeleportOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TeleportOffset);
   }
-  private static readonly Lazy<nint> _CompositeBonesOffset = new(() => Schema.GetOffset(0x413CC2EE5F49062B), LazyThreadSafetyMode.None);
+  private static readonly nint _CompositeBonesOffset = Schema.GetOffset(0x413CC2EE5F49062B);
 
   public ref CUtlVector<CTransform> CompositeBones {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_CompositeBonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_CompositeBonesOffset);
   }
-  private static readonly Lazy<nint> _SimStateBonesOffset = new(() => Schema.GetOffset(0x413CC2EE5DAE9398), LazyThreadSafetyMode.None);
+  private static readonly nint _SimStateBonesOffset = Schema.GetOffset(0x413CC2EE5DAE9398);
 
   public ref CUtlVector<CTransform> SimStateBones {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_SimStateBonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_SimStateBonesOffset);
   }
-  private static readonly Lazy<nint> _FeModelAnimsOffset = new(() => Schema.GetOffset(0x413CC2EE62EC797D), LazyThreadSafetyMode.None);
+  private static readonly nint _FeModelAnimsOffset = Schema.GetOffset(0x413CC2EE62EC797D);
 
   public ref CUtlVector<CTransform> FeModelAnims {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_FeModelAnimsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_FeModelAnimsOffset);
   }
-  private static readonly Lazy<nint> _FeModelPosOffset = new(() => Schema.GetOffset(0x413CC2EECA74E7F5), LazyThreadSafetyMode.None);
+  private static readonly nint _FeModelPosOffset = Schema.GetOffset(0x413CC2EECA74E7F5);
 
   public ref CUtlVector<Vector> FeModelPos {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_FeModelPosOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_FeModelPosOffset);
   }
-  private static readonly Lazy<nint> _FlexControllerWeightsOffset = new(() => Schema.GetOffset(0x413CC2EECA3D8033), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllerWeightsOffset = Schema.GetOffset(0x413CC2EECA3D8033);
 
   public ref CUtlVector<float> FlexControllerWeights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexControllerWeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexControllerWeightsOffset);
   }
 
 

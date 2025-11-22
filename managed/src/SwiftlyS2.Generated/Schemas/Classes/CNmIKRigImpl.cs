@@ -17,20 +17,20 @@ internal partial class CNmIKRigImpl : SchemaClass, CNmIKRig {
   public CNmIKRigImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SkeletonOffset = new(() => Schema.GetOffset(0x9C509BCFE77F030E), LazyThreadSafetyMode.None);
+  private static readonly nint _SkeletonOffset = Schema.GetOffset(0x9C509BCFE77F030E);
 
   public ref CStrongHandle<InfoForResourceTypeCNmSkeleton> Skeleton {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmSkeleton>>(_SkeletonOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmSkeleton>>(_SkeletonOffset);
   }
-  private static readonly Lazy<nint> _BodiesOffset = new(() => Schema.GetOffset(0x9C509BCF24483A49), LazyThreadSafetyMode.None);
+  private static readonly nint _BodiesOffset = Schema.GetOffset(0x9C509BCF24483A49);
 
   public ref CUtlVector<CNmIKBody> Bodies {
-    get => ref _Handle.AsRef<CUtlVector<CNmIKBody>>(_BodiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CNmIKBody>>(_BodiesOffset);
   }
-  private static readonly Lazy<nint> _JointsOffset = new(() => Schema.GetOffset(0x9C509BCF364EA4AC), LazyThreadSafetyMode.None);
+  private static readonly nint _JointsOffset = Schema.GetOffset(0x9C509BCF364EA4AC);
 
   public ref CUtlVector<CNmIKJoint> Joints {
-    get => ref _Handle.AsRef<CUtlVector<CNmIKJoint>>(_JointsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CNmIKJoint>>(_JointsOffset);
   }
 
 

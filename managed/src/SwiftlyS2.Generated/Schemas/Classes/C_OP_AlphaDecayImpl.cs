@@ -17,10 +17,10 @@ internal partial class C_OP_AlphaDecayImpl : CParticleFunctionOperatorImpl, C_OP
   public C_OP_AlphaDecayImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinAlphaOffset = new(() => Schema.GetOffset(0x26EE2FFBEC24C4FF), LazyThreadSafetyMode.None);
+  private static readonly nint _MinAlphaOffset = Schema.GetOffset(0x26EE2FFBEC24C4FF);
 
   public ref float MinAlpha {
-    get => ref _Handle.AsRef<float>(_MinAlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinAlphaOffset);
   }
 
 

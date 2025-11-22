@@ -17,20 +17,20 @@ internal partial class CPulseCell_ExampleCriteria__Criteria_tImpl : SchemaClass,
   public CPulseCell_ExampleCriteria__Criteria_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FloatValue1Offset = new(() => Schema.GetOffset(0x9C86EC19138B644B), LazyThreadSafetyMode.None);
+  private static readonly nint _FloatValue1Offset = Schema.GetOffset(0x9C86EC19138B644B);
 
   public ref float FloatValue1 {
-    get => ref _Handle.AsRef<float>(_FloatValue1Offset.Value);
+    get => ref _Handle.AsRef<float>(_FloatValue1Offset);
   }
-  private static readonly Lazy<nint> _FloatValue2Offset = new(() => Schema.GetOffset(0x9C86EC19148B65DE), LazyThreadSafetyMode.None);
+  private static readonly nint _FloatValue2Offset = Schema.GetOffset(0x9C86EC19148B65DE);
 
   public ref float FloatValue2 {
-    get => ref _Handle.AsRef<float>(_FloatValue2Offset.Value);
+    get => ref _Handle.AsRef<float>(_FloatValue2Offset);
   }
-  private static readonly Lazy<nint> _MyBoolOffset = new(() => Schema.GetOffset(0x9C86EC19BAFBA8C7), LazyThreadSafetyMode.None);
+  private static readonly nint _MyBoolOffset = Schema.GetOffset(0x9C86EC19BAFBA8C7);
 
   public ref bool MyBool {
-    get => ref _Handle.AsRef<bool>(_MyBoolOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MyBoolOffset);
   }
 
 

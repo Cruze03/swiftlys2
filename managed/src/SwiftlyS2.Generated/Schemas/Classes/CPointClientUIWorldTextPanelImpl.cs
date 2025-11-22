@@ -17,14 +17,14 @@ internal partial class CPointClientUIWorldTextPanelImpl : CPointClientUIWorldPan
   public CPointClientUIWorldTextPanelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MessageTextOffset = new(() => Schema.GetOffset(0x9F10465EBA6E5D73), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageTextOffset = Schema.GetOffset(0x9F10465EBA6E5D73);
 
   public string MessageText {
     get {
-      var ptr = _Handle + _MessageTextOffset.Value;
+      var ptr = _Handle + _MessageTextOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _MessageTextOffset.Value, value, 512);
+    set => Schema.SetFixedString(_Handle, _MessageTextOffset, value, 512);
   } 
 
   public void MessageTextUpdated() {

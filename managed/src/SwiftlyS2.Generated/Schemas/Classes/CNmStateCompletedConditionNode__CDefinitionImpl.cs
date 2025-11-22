@@ -17,20 +17,20 @@ internal partial class CNmStateCompletedConditionNode__CDefinitionImpl : CNmBool
   public CNmStateCompletedConditionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x4C5A15CA63F0228C), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x4C5A15CA63F0228C);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TransitionDurationOverrideNodeIdxOffset = new(() => Schema.GetOffset(0x4C5A15CACD97BBA1), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionDurationOverrideNodeIdxOffset = Schema.GetOffset(0x4C5A15CACD97BBA1);
 
   public ref short TransitionDurationOverrideNodeIdx {
-    get => ref _Handle.AsRef<short>(_TransitionDurationOverrideNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TransitionDurationOverrideNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TransitionDurationSecondsOffset = new(() => Schema.GetOffset(0x4C5A15CAD5E92B1D), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionDurationSecondsOffset = Schema.GetOffset(0x4C5A15CAD5E92B1D);
 
   public ref float TransitionDurationSeconds {
-    get => ref _Handle.AsRef<float>(_TransitionDurationSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_TransitionDurationSecondsOffset);
   }
 
 

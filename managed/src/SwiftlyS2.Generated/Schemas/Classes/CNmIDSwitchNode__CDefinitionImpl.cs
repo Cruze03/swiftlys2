@@ -17,30 +17,30 @@ internal partial class CNmIDSwitchNode__CDefinitionImpl : CNmIDValueNode__CDefin
   public CNmIDSwitchNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SwitchValueNodeIdxOffset = new(() => Schema.GetOffset(0x24752DA7FBD7561), LazyThreadSafetyMode.None);
+  private static readonly nint _SwitchValueNodeIdxOffset = Schema.GetOffset(0x24752DA7FBD7561);
 
   public ref short SwitchValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_SwitchValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SwitchValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TrueValueNodeIdxOffset = new(() => Schema.GetOffset(0x24752DAFDE74365), LazyThreadSafetyMode.None);
+  private static readonly nint _TrueValueNodeIdxOffset = Schema.GetOffset(0x24752DAFDE74365);
 
   public ref short TrueValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_TrueValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TrueValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _FalseValueNodeIdxOffset = new(() => Schema.GetOffset(0x24752DA8DBA2C78), LazyThreadSafetyMode.None);
+  private static readonly nint _FalseValueNodeIdxOffset = Schema.GetOffset(0x24752DA8DBA2C78);
 
   public ref short FalseValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_FalseValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_FalseValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _FalseValueOffset = new(() => Schema.GetOffset(0x24752DAD3506AE9), LazyThreadSafetyMode.None);
+  private static readonly nint _FalseValueOffset = Schema.GetOffset(0x24752DAD3506AE9);
 
   public ref CGlobalSymbol FalseValue {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_FalseValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_FalseValueOffset);
   }
-  private static readonly Lazy<nint> _TrueValueOffset = new(() => Schema.GetOffset(0x24752DAF134112A), LazyThreadSafetyMode.None);
+  private static readonly nint _TrueValueOffset = Schema.GetOffset(0x24752DAF134112A);
 
   public ref CGlobalSymbol TrueValue {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_TrueValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_TrueValueOffset);
   }
 
 

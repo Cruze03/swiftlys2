@@ -17,24 +17,24 @@ internal partial class CFootMotionImpl : SchemaClass, CFootMotion {
   public CFootMotionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StridesOffset = new(() => Schema.GetOffset(0xA4A598B8AE9C97F1), LazyThreadSafetyMode.None);
+  private static readonly nint _StridesOffset = Schema.GetOffset(0xA4A598B8AE9C97F1);
 
   public ref CUtlVector<CFootStride> Strides {
-    get => ref _Handle.AsRef<CUtlVector<CFootStride>>(_StridesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CFootStride>>(_StridesOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xA4A598B84D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xA4A598B84D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _AdditiveOffset = new(() => Schema.GetOffset(0xA4A598B80FA86105), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditiveOffset = Schema.GetOffset(0xA4A598B80FA86105);
 
   public ref bool Additive {
-    get => ref _Handle.AsRef<bool>(_AdditiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AdditiveOffset);
   }
 
 

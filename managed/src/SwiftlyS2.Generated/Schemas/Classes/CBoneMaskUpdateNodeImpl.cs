@@ -17,40 +17,40 @@ internal partial class CBoneMaskUpdateNodeImpl : CBinaryUpdateNodeImpl, CBoneMas
   public CBoneMaskUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WeightListIndexOffset = new(() => Schema.GetOffset(0x213CBA4D30288377), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightListIndexOffset = Schema.GetOffset(0x213CBA4D30288377);
 
   public ref int WeightListIndex {
-    get => ref _Handle.AsRef<int>(_WeightListIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_WeightListIndexOffset);
   }
-  private static readonly Lazy<nint> _RootMotionBlendOffset = new(() => Schema.GetOffset(0x213CBA4DAF24631C), LazyThreadSafetyMode.None);
+  private static readonly nint _RootMotionBlendOffset = Schema.GetOffset(0x213CBA4DAF24631C);
 
   public ref float RootMotionBlend {
-    get => ref _Handle.AsRef<float>(_RootMotionBlendOffset.Value);
+    get => ref _Handle.AsRef<float>(_RootMotionBlendOffset);
   }
-  private static readonly Lazy<nint> _BlendSpaceOffset = new(() => Schema.GetOffset(0x213CBA4D9DCBC41E), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendSpaceOffset = Schema.GetOffset(0x213CBA4D9DCBC41E);
 
   public ref BoneMaskBlendSpace BlendSpace {
-    get => ref _Handle.AsRef<BoneMaskBlendSpace>(_BlendSpaceOffset.Value);
+    get => ref _Handle.AsRef<BoneMaskBlendSpace>(_BlendSpaceOffset);
   }
-  private static readonly Lazy<nint> _FootMotionTimingOffset = new(() => Schema.GetOffset(0x213CBA4DBB17F13D), LazyThreadSafetyMode.None);
+  private static readonly nint _FootMotionTimingOffset = Schema.GetOffset(0x213CBA4DBB17F13D);
 
   public ref BinaryNodeChildOption FootMotionTiming {
-    get => ref _Handle.AsRef<BinaryNodeChildOption>(_FootMotionTimingOffset.Value);
+    get => ref _Handle.AsRef<BinaryNodeChildOption>(_FootMotionTimingOffset);
   }
-  private static readonly Lazy<nint> _UseBlendScaleOffset = new(() => Schema.GetOffset(0x213CBA4DF5B40057), LazyThreadSafetyMode.None);
+  private static readonly nint _UseBlendScaleOffset = Schema.GetOffset(0x213CBA4DF5B40057);
 
   public ref bool UseBlendScale {
-    get => ref _Handle.AsRef<bool>(_UseBlendScaleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseBlendScaleOffset);
   }
-  private static readonly Lazy<nint> _BlendValueSourceOffset = new(() => Schema.GetOffset(0x213CBA4D7AB7C374), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendValueSourceOffset = Schema.GetOffset(0x213CBA4D7AB7C374);
 
   public ref AnimValueSource BlendValueSource {
-    get => ref _Handle.AsRef<AnimValueSource>(_BlendValueSourceOffset.Value);
+    get => ref _Handle.AsRef<AnimValueSource>(_BlendValueSourceOffset);
   }
-  private static readonly Lazy<nint> _BlendParameterOffset = new(() => Schema.GetOffset(0x213CBA4D40990659), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendParameterOffset = Schema.GetOffset(0x213CBA4D40990659);
 
   public CAnimParamHandle BlendParameter {
-    get => new CAnimParamHandleImpl(_Handle + _BlendParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _BlendParameterOffset);
   }
 
 

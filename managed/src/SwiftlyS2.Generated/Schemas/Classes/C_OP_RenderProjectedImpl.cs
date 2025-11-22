@@ -17,95 +17,95 @@ internal partial class C_OP_RenderProjectedImpl : CParticleFunctionRendererImpl,
   public C_OP_RenderProjectedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ProjectCharacterOffset = new(() => Schema.GetOffset(0xA370F307B21A6149), LazyThreadSafetyMode.None);
+  private static readonly nint _ProjectCharacterOffset = Schema.GetOffset(0xA370F307B21A6149);
 
   public ref bool ProjectCharacter {
-    get => ref _Handle.AsRef<bool>(_ProjectCharacterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProjectCharacterOffset);
   }
-  private static readonly Lazy<nint> _ProjectWorldOffset = new(() => Schema.GetOffset(0xA370F307078C32D2), LazyThreadSafetyMode.None);
+  private static readonly nint _ProjectWorldOffset = Schema.GetOffset(0xA370F307078C32D2);
 
   public ref bool ProjectWorld {
-    get => ref _Handle.AsRef<bool>(_ProjectWorldOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProjectWorldOffset);
   }
-  private static readonly Lazy<nint> _ProjectWaterOffset = new(() => Schema.GetOffset(0xA370F3077E2B6E09), LazyThreadSafetyMode.None);
+  private static readonly nint _ProjectWaterOffset = Schema.GetOffset(0xA370F3077E2B6E09);
 
   public ref bool ProjectWater {
-    get => ref _Handle.AsRef<bool>(_ProjectWaterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProjectWaterOffset);
   }
-  private static readonly Lazy<nint> _FlipHorizontalOffset = new(() => Schema.GetOffset(0xA370F307B0A49AFA), LazyThreadSafetyMode.None);
+  private static readonly nint _FlipHorizontalOffset = Schema.GetOffset(0xA370F307B0A49AFA);
 
   public ref bool FlipHorizontal {
-    get => ref _Handle.AsRef<bool>(_FlipHorizontalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FlipHorizontalOffset);
   }
-  private static readonly Lazy<nint> _EnableProjectedDepthControlsOffset = new(() => Schema.GetOffset(0xA370F307B614A221), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableProjectedDepthControlsOffset = Schema.GetOffset(0xA370F307B614A221);
 
   public ref bool EnableProjectedDepthControls {
-    get => ref _Handle.AsRef<bool>(_EnableProjectedDepthControlsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableProjectedDepthControlsOffset);
   }
-  private static readonly Lazy<nint> _MinProjectionDepthOffset = new(() => Schema.GetOffset(0xA370F3076A7B1FB1), LazyThreadSafetyMode.None);
+  private static readonly nint _MinProjectionDepthOffset = Schema.GetOffset(0xA370F3076A7B1FB1);
 
   public ref float MinProjectionDepth {
-    get => ref _Handle.AsRef<float>(_MinProjectionDepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinProjectionDepthOffset);
   }
-  private static readonly Lazy<nint> _MaxProjectionDepthOffset = new(() => Schema.GetOffset(0xA370F3078C7219DB), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxProjectionDepthOffset = Schema.GetOffset(0xA370F3078C7219DB);
 
   public ref float MaxProjectionDepth {
-    get => ref _Handle.AsRef<float>(_MaxProjectionDepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxProjectionDepthOffset);
   }
-  private static readonly Lazy<nint> _ProjectedMaterialsOffset = new(() => Schema.GetOffset(0xA370F30718968FAF), LazyThreadSafetyMode.None);
+  private static readonly nint _ProjectedMaterialsOffset = Schema.GetOffset(0xA370F30718968FAF);
 
   public ref CUtlVector<RenderProjectedMaterial_t> ProjectedMaterials {
-    get => ref _Handle.AsRef<CUtlVector<RenderProjectedMaterial_t>>(_ProjectedMaterialsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RenderProjectedMaterial_t>>(_ProjectedMaterialsOffset);
   }
-  private static readonly Lazy<nint> _MaterialSelectionOffset = new(() => Schema.GetOffset(0xA370F3075A88A590), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialSelectionOffset = Schema.GetOffset(0xA370F3075A88A590);
 
   public CPerParticleFloatInput MaterialSelection {
-    get => new CPerParticleFloatInputImpl(_Handle + _MaterialSelectionOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MaterialSelectionOffset);
   }
-  private static readonly Lazy<nint> _AnimationTimeScaleOffset = new(() => Schema.GetOffset(0xA370F3071CD3BFF4), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationTimeScaleOffset = Schema.GetOffset(0xA370F3071CD3BFF4);
 
   public ref float AnimationTimeScale {
-    get => ref _Handle.AsRef<float>(_AnimationTimeScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnimationTimeScaleOffset);
   }
-  private static readonly Lazy<nint> _OrientToNormalOffset = new(() => Schema.GetOffset(0xA370F307FAC0D30A), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientToNormalOffset = Schema.GetOffset(0xA370F307FAC0D30A);
 
   public ref bool OrientToNormal {
-    get => ref _Handle.AsRef<bool>(_OrientToNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientToNormalOffset);
   }
-  private static readonly Lazy<nint> _MaterialVarsOffset = new(() => Schema.GetOffset(0xA370F307FA861D66), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialVarsOffset = Schema.GetOffset(0xA370F307FA861D66);
 
   public ref CUtlVector<MaterialVariable_t> MaterialVars {
-    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0xA370F307A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0xA370F307A7A20159);
 
   public CParticleCollectionFloatInput RadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _AlphaScaleOffset = new(() => Schema.GetOffset(0xA370F307EC6D3C25), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaScaleOffset = Schema.GetOffset(0xA370F307EC6D3C25);
 
   public CParticleCollectionFloatInput AlphaScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _AlphaScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _AlphaScaleOffset);
   }
-  private static readonly Lazy<nint> _RollScaleOffset = new(() => Schema.GetOffset(0xA370F307F2113F72), LazyThreadSafetyMode.None);
+  private static readonly nint _RollScaleOffset = Schema.GetOffset(0xA370F307F2113F72);
 
   public CParticleCollectionFloatInput RollScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RollScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RollScaleOffset);
   }
-  private static readonly Lazy<nint> _Alpha2FieldOffset = new(() => Schema.GetOffset(0xA370F307F60EADC1), LazyThreadSafetyMode.None);
+  private static readonly nint _Alpha2FieldOffset = Schema.GetOffset(0xA370F307F60EADC1);
 
   public ParticleAttributeIndex_t Alpha2Field {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _Alpha2FieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _Alpha2FieldOffset);
   }
-  private static readonly Lazy<nint> _ColorScaleOffset = new(() => Schema.GetOffset(0xA370F3079F9BB8BA), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorScaleOffset = Schema.GetOffset(0xA370F3079F9BB8BA);
 
   public CParticleCollectionVecInput ColorScale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset);
   }
-  private static readonly Lazy<nint> _ColorBlendTypeOffset = new(() => Schema.GetOffset(0xA370F307DBC6EFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorBlendTypeOffset = Schema.GetOffset(0xA370F307DBC6EFCF);
 
   public ref ParticleColorBlendType_t ColorBlendType {
-    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset);
   }
 
 

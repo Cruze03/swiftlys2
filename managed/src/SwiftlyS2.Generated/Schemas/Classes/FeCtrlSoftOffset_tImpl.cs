@@ -17,25 +17,25 @@ internal partial class FeCtrlSoftOffset_tImpl : SchemaClass, FeCtrlSoftOffset_t 
   public FeCtrlSoftOffset_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CtrlParentOffset = new(() => Schema.GetOffset(0xCA94FF2955049230), LazyThreadSafetyMode.None);
+  private static readonly nint _CtrlParentOffset = Schema.GetOffset(0xCA94FF2955049230);
 
   public ref ushort CtrlParent {
-    get => ref _Handle.AsRef<ushort>(_CtrlParentOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CtrlParentOffset);
   }
-  private static readonly Lazy<nint> _CtrlChildOffset = new(() => Schema.GetOffset(0xCA94FF295BE48066), LazyThreadSafetyMode.None);
+  private static readonly nint _CtrlChildOffset = Schema.GetOffset(0xCA94FF295BE48066);
 
   public ref ushort CtrlChild {
-    get => ref _Handle.AsRef<ushort>(_CtrlChildOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CtrlChildOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xCA94FF29B2913856), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xCA94FF29B2913856);
 
   public ref Vector Offset {
-    get => ref _Handle.AsRef<Vector>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _AlphaOffset = new(() => Schema.GetOffset(0xCA94FF29684C8871), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaOffset = Schema.GetOffset(0xCA94FF29684C8871);
 
   public ref float Alpha {
-    get => ref _Handle.AsRef<float>(_AlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlphaOffset);
   }
 
 

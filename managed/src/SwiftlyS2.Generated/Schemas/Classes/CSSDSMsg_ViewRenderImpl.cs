@@ -17,19 +17,19 @@ internal partial class CSSDSMsg_ViewRenderImpl : SchemaClass, CSSDSMsg_ViewRende
   public CSSDSMsg_ViewRenderImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ViewIdOffset = new(() => Schema.GetOffset(0x2CD48EEEE976CB25), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewIdOffset = Schema.GetOffset(0x2CD48EEEE976CB25);
 
   public SceneViewId_t ViewId {
-    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset.Value);
+    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset);
   }
-  private static readonly Lazy<nint> _ViewNameOffset = new(() => Schema.GetOffset(0x2CD48EEEBA5BBDBB), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewNameOffset = Schema.GetOffset(0x2CD48EEEBA5BBDBB);
 
   public string ViewName {
     get {
-      var ptr = _Handle.Read<nint>(_ViewNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ViewNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ViewNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ViewNameOffset, value);
   } 
 
 

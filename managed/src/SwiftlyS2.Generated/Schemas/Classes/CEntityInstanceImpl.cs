@@ -17,28 +17,28 @@ internal partial class CEntityInstanceImpl : SchemaClass, CEntityInstance {
   public CEntityInstanceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PrivateVScriptsOffset = new(() => Schema.GetOffset(0xB6DD442EB087F3B2), LazyThreadSafetyMode.None);
+  private static readonly nint _PrivateVScriptsOffset = Schema.GetOffset(0xB6DD442EB087F3B2);
 
   public string PrivateVScripts {
     get {
-      var ptr = _Handle.Read<nint>(_PrivateVScriptsOffset.Value);
+      var ptr = _Handle.Read<nint>(_PrivateVScriptsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PrivateVScriptsOffset.Value, value);
+    set => Schema.SetString(_Handle, _PrivateVScriptsOffset, value);
   } 
-  private static readonly Lazy<nint> _EntityOffset = new(() => Schema.GetOffset(0xB6DD442EA8A45978), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityOffset = Schema.GetOffset(0xB6DD442EA8A45978);
 
   public CEntityIdentity? Entity {
     get {
-      var ptr = _Handle.Read<nint>(_EntityOffset.Value);
+      var ptr = _Handle.Read<nint>(_EntityOffset);
       return ptr.IsValidPtr() ? new CEntityIdentityImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _CScriptComponentOffset = new(() => Schema.GetOffset(0xB6DD442E3F4202B4), LazyThreadSafetyMode.None);
+  private static readonly nint _CScriptComponentOffset = Schema.GetOffset(0xB6DD442E3F4202B4);
 
   public CScriptComponent? CScriptComponent {
     get {
-      var ptr = _Handle.Read<nint>(_CScriptComponentOffset.Value);
+      var ptr = _Handle.Read<nint>(_CScriptComponentOffset);
       return ptr.IsValidPtr() ? new CScriptComponentImpl(ptr) : null;
     }
   }

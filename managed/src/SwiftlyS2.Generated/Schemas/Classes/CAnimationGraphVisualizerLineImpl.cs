@@ -17,20 +17,20 @@ internal partial class CAnimationGraphVisualizerLineImpl : CAnimationGraphVisual
   public CAnimationGraphVisualizerLineImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WsPositionStartOffset = new(() => Schema.GetOffset(0x688831B2D941E214), LazyThreadSafetyMode.None);
+  private static readonly nint _WsPositionStartOffset = Schema.GetOffset(0x688831B2D941E214);
 
   public ref Vector WsPositionStart {
-    get => ref _Handle.AsRef<Vector>(_WsPositionStartOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsPositionStartOffset);
   }
-  private static readonly Lazy<nint> _WsPositionEndOffset = new(() => Schema.GetOffset(0x688831B26EB28B6D), LazyThreadSafetyMode.None);
+  private static readonly nint _WsPositionEndOffset = Schema.GetOffset(0x688831B26EB28B6D);
 
   public ref Vector WsPositionEnd {
-    get => ref _Handle.AsRef<Vector>(_WsPositionEndOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsPositionEndOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x688831B2D7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x688831B2D7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
 
 

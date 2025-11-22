@@ -17,10 +17,10 @@ internal partial class CFootFallAnimTagImpl : CAnimTagBaseImpl, CFootFallAnimTag
   public CFootFallAnimTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootOffset = new(() => Schema.GetOffset(0xC142B61EEB2B8B39), LazyThreadSafetyMode.None);
+  private static readonly nint _FootOffset = Schema.GetOffset(0xC142B61EEB2B8B39);
 
   public ref FootFallTagFoot_t Foot {
-    get => ref _Handle.AsRef<FootFallTagFoot_t>(_FootOffset.Value);
+    get => ref _Handle.AsRef<FootFallTagFoot_t>(_FootOffset);
   }
 
 

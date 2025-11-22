@@ -17,143 +17,143 @@ internal partial class CRagdollPropImpl : CBaseAnimGraphImpl, CRagdollProp {
   public CRagdollPropImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RagdollOffset = new(() => Schema.GetOffset(0x9505BA78F62C6568), LazyThreadSafetyMode.None);
+  private static readonly nint _RagdollOffset = Schema.GetOffset(0x9505BA78F62C6568);
 
   public ragdoll_t Ragdoll {
-    get => new ragdoll_tImpl(_Handle + _RagdollOffset.Value);
+    get => new ragdoll_tImpl(_Handle + _RagdollOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x9505BA7861ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x9505BA7861ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _RagEnabledOffset = new(() => Schema.GetOffset(0x9505BA78CD1FB84A), LazyThreadSafetyMode.None);
+  private static readonly nint _RagEnabledOffset = Schema.GetOffset(0x9505BA78CD1FB84A);
 
   public ref CUtlVector<bool> RagEnabled {
-    get => ref _Handle.AsRef<CUtlVector<bool>>(_RagEnabledOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<bool>>(_RagEnabledOffset);
   }
-  private static readonly Lazy<nint> _RagPosOffset = new(() => Schema.GetOffset(0x9505BA7897C85315), LazyThreadSafetyMode.None);
+  private static readonly nint _RagPosOffset = Schema.GetOffset(0x9505BA7897C85315);
 
   public ref CUtlVector<Vector> RagPos {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagPosOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagPosOffset);
   }
-  private static readonly Lazy<nint> _RagAnglesOffset = new(() => Schema.GetOffset(0x9505BA78FD4E530D), LazyThreadSafetyMode.None);
+  private static readonly nint _RagAnglesOffset = Schema.GetOffset(0x9505BA78FD4E530D);
 
   public ref CUtlVector<QAngle> RagAngles {
-    get => ref _Handle.AsRef<CUtlVector<QAngle>>(_RagAnglesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<QAngle>>(_RagAnglesOffset);
   }
-  private static readonly Lazy<nint> _LastUpdateTickCountOffset = new(() => Schema.GetOffset(0x9505BA785A98C204), LazyThreadSafetyMode.None);
+  private static readonly nint _LastUpdateTickCountOffset = Schema.GetOffset(0x9505BA785A98C204);
 
   public ref uint LastUpdateTickCount {
-    get => ref _Handle.AsRef<uint>(_LastUpdateTickCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_LastUpdateTickCountOffset);
   }
-  private static readonly Lazy<nint> _AllAsleepOffset = new(() => Schema.GetOffset(0x9505BA783DE13402), LazyThreadSafetyMode.None);
+  private static readonly nint _AllAsleepOffset = Schema.GetOffset(0x9505BA783DE13402);
 
   public ref bool AllAsleep {
-    get => ref _Handle.AsRef<bool>(_AllAsleepOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllAsleepOffset);
   }
-  private static readonly Lazy<nint> _FirstCollisionAfterLaunchOffset = new(() => Schema.GetOffset(0x9505BA78C9D93EAC), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstCollisionAfterLaunchOffset = Schema.GetOffset(0x9505BA78C9D93EAC);
 
   public ref bool FirstCollisionAfterLaunch {
-    get => ref _Handle.AsRef<bool>(_FirstCollisionAfterLaunchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FirstCollisionAfterLaunchOffset);
   }
-  private static readonly Lazy<nint> _DamageEntityOffset = new(() => Schema.GetOffset(0x9505BA784C4C28C5), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageEntityOffset = Schema.GetOffset(0x9505BA784C4C28C5);
 
   public ref CHandle<CBaseEntity> DamageEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_DamageEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_DamageEntityOffset);
   }
-  private static readonly Lazy<nint> _KillerOffset = new(() => Schema.GetOffset(0x9505BA780F088B1C), LazyThreadSafetyMode.None);
+  private static readonly nint _KillerOffset = Schema.GetOffset(0x9505BA780F088B1C);
 
   public ref CHandle<CBaseEntity> Killer {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_KillerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_KillerOffset);
   }
-  private static readonly Lazy<nint> _PhysicsAttackerOffset = new(() => Schema.GetOffset(0x9505BA787A5EB877), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysicsAttackerOffset = Schema.GetOffset(0x9505BA787A5EB877);
 
   public ref CHandle<CBasePlayerPawn> PhysicsAttacker {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_PhysicsAttackerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_PhysicsAttackerOffset);
   }
-  private static readonly Lazy<nint> _LastPhysicsInfluenceTimeOffset = new(() => Schema.GetOffset(0x9505BA785B5C0E32), LazyThreadSafetyMode.None);
+  private static readonly nint _LastPhysicsInfluenceTimeOffset = Schema.GetOffset(0x9505BA785B5C0E32);
 
   public GameTime_t LastPhysicsInfluenceTime {
-    get => new GameTime_tImpl(_Handle + _LastPhysicsInfluenceTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastPhysicsInfluenceTimeOffset);
   }
-  private static readonly Lazy<nint> _FadeOutStartTimeOffset = new(() => Schema.GetOffset(0x9505BA78A63078C0), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutStartTimeOffset = Schema.GetOffset(0x9505BA78A63078C0);
 
   public GameTime_t FadeOutStartTime {
-    get => new GameTime_tImpl(_Handle + _FadeOutStartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FadeOutStartTimeOffset);
   }
-  private static readonly Lazy<nint> _FadeTimeOffset = new(() => Schema.GetOffset(0x9505BA7800BEDB08), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeTimeOffset = Schema.GetOffset(0x9505BA7800BEDB08);
 
   public ref float FadeTime {
-    get => ref _Handle.AsRef<float>(_FadeTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeTimeOffset);
   }
-  private static readonly Lazy<nint> _LastOriginOffset = new(() => Schema.GetOffset(0x9505BA78F13D764B), LazyThreadSafetyMode.None);
+  private static readonly nint _LastOriginOffset = Schema.GetOffset(0x9505BA78F13D764B);
 
   public ref Vector LastOrigin {
-    get => ref _Handle.AsRef<Vector>(_LastOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LastOriginOffset);
   }
-  private static readonly Lazy<nint> _AwakeTimeOffset = new(() => Schema.GetOffset(0x9505BA78D471FE9B), LazyThreadSafetyMode.None);
+  private static readonly nint _AwakeTimeOffset = Schema.GetOffset(0x9505BA78D471FE9B);
 
   public GameTime_t AwakeTime {
-    get => new GameTime_tImpl(_Handle + _AwakeTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _AwakeTimeOffset);
   }
-  private static readonly Lazy<nint> _LastOriginChangeTimeOffset = new(() => Schema.GetOffset(0x9505BA78B66C9A18), LazyThreadSafetyMode.None);
+  private static readonly nint _LastOriginChangeTimeOffset = Schema.GetOffset(0x9505BA78B66C9A18);
 
   public GameTime_t LastOriginChangeTime {
-    get => new GameTime_tImpl(_Handle + _LastOriginChangeTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastOriginChangeTimeOffset);
   }
-  private static readonly Lazy<nint> _StrOriginClassNameOffset = new(() => Schema.GetOffset(0x9505BA7809148529), LazyThreadSafetyMode.None);
+  private static readonly nint _StrOriginClassNameOffset = Schema.GetOffset(0x9505BA7809148529);
 
   public string StrOriginClassName {
     get {
-      var ptr = _Handle.Read<nint>(_StrOriginClassNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrOriginClassNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrOriginClassNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrOriginClassNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrSourceClassNameOffset = new(() => Schema.GetOffset(0x9505BA78F3FD1A0C), LazyThreadSafetyMode.None);
+  private static readonly nint _StrSourceClassNameOffset = Schema.GetOffset(0x9505BA78F3FD1A0C);
 
   public string StrSourceClassName {
     get {
-      var ptr = _Handle.Read<nint>(_StrSourceClassNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrSourceClassNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrSourceClassNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrSourceClassNameOffset, value);
   } 
-  private static readonly Lazy<nint> _HasBeenPhysgunnedOffset = new(() => Schema.GetOffset(0x9505BA785058D154), LazyThreadSafetyMode.None);
+  private static readonly nint _HasBeenPhysgunnedOffset = Schema.GetOffset(0x9505BA785058D154);
 
   public ref bool HasBeenPhysgunned {
-    get => ref _Handle.AsRef<bool>(_HasBeenPhysgunnedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasBeenPhysgunnedOffset);
   }
-  private static readonly Lazy<nint> _AllowStretchOffset = new(() => Schema.GetOffset(0x9505BA78F6CDF40F), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowStretchOffset = Schema.GetOffset(0x9505BA78F6CDF40F);
 
   public ref bool AllowStretch {
-    get => ref _Handle.AsRef<bool>(_AllowStretchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowStretchOffset);
   }
-  private static readonly Lazy<nint> _BlendWeightOffset = new(() => Schema.GetOffset(0x9505BA78E5D6B9CE), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendWeightOffset = Schema.GetOffset(0x9505BA78E5D6B9CE);
 
   public ref float BlendWeight {
-    get => ref _Handle.AsRef<float>(_BlendWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendWeightOffset);
   }
-  private static readonly Lazy<nint> _DefaultFadeScaleOffset = new(() => Schema.GetOffset(0x9505BA784DA9700C), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultFadeScaleOffset = Schema.GetOffset(0x9505BA784DA9700C);
 
   public ref float DefaultFadeScale {
-    get => ref _Handle.AsRef<float>(_DefaultFadeScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultFadeScaleOffset);
   }
-  private static readonly Lazy<nint> _RagdollMinsOffset = new(() => Schema.GetOffset(0x9505BA78CD1755B5), LazyThreadSafetyMode.None);
+  private static readonly nint _RagdollMinsOffset = Schema.GetOffset(0x9505BA78CD1755B5);
 
   public ref CUtlVector<Vector> RagdollMins {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagdollMinsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagdollMinsOffset);
   }
-  private static readonly Lazy<nint> _RagdollMaxsOffset = new(() => Schema.GetOffset(0x9505BA7833F9714F), LazyThreadSafetyMode.None);
+  private static readonly nint _RagdollMaxsOffset = Schema.GetOffset(0x9505BA7833F9714F);
 
   public ref CUtlVector<Vector> RagdollMaxs {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagdollMaxsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_RagdollMaxsOffset);
   }
-  private static readonly Lazy<nint> _ShouldDeleteActivationRecordOffset = new(() => Schema.GetOffset(0x9505BA7838134064), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDeleteActivationRecordOffset = Schema.GetOffset(0x9505BA7838134064);
 
   public ref bool ShouldDeleteActivationRecord {
-    get => ref _Handle.AsRef<bool>(_ShouldDeleteActivationRecordOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDeleteActivationRecordOffset);
   }
 
   public void RagEnabledUpdated() {

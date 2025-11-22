@@ -17,49 +17,49 @@ internal partial class C_INIT_RtEnvCullImpl : CParticleFunctionInitializerImpl, 
   public C_INIT_RtEnvCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TestDirOffset = new(() => Schema.GetOffset(0xEA96DD4FC17166B4), LazyThreadSafetyMode.None);
+  private static readonly nint _TestDirOffset = Schema.GetOffset(0xEA96DD4FC17166B4);
 
   public ref Vector TestDir {
-    get => ref _Handle.AsRef<Vector>(_TestDirOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TestDirOffset);
   }
-  private static readonly Lazy<nint> _TestNormalOffset = new(() => Schema.GetOffset(0xEA96DD4FD4AC77F2), LazyThreadSafetyMode.None);
+  private static readonly nint _TestNormalOffset = Schema.GetOffset(0xEA96DD4FD4AC77F2);
 
   public ref Vector TestNormal {
-    get => ref _Handle.AsRef<Vector>(_TestNormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TestNormalOffset);
   }
-  private static readonly Lazy<nint> _UseVelocityOffset = new(() => Schema.GetOffset(0xEA96DD4F5E806BAF), LazyThreadSafetyMode.None);
+  private static readonly nint _UseVelocityOffset = Schema.GetOffset(0xEA96DD4F5E806BAF);
 
   public ref bool UseVelocity {
-    get => ref _Handle.AsRef<bool>(_UseVelocityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseVelocityOffset);
   }
-  private static readonly Lazy<nint> _CullOnMissOffset = new(() => Schema.GetOffset(0xEA96DD4F5E118398), LazyThreadSafetyMode.None);
+  private static readonly nint _CullOnMissOffset = Schema.GetOffset(0xEA96DD4F5E118398);
 
   public ref bool CullOnMiss {
-    get => ref _Handle.AsRef<bool>(_CullOnMissOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CullOnMissOffset);
   }
-  private static readonly Lazy<nint> _LifeAdjustOffset = new(() => Schema.GetOffset(0xEA96DD4FA38568F0), LazyThreadSafetyMode.None);
+  private static readonly nint _LifeAdjustOffset = Schema.GetOffset(0xEA96DD4FA38568F0);
 
   public ref bool LifeAdjust {
-    get => ref _Handle.AsRef<bool>(_LifeAdjustOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LifeAdjustOffset);
   }
-  private static readonly Lazy<nint> _RtEnvNameOffset = new(() => Schema.GetOffset(0xEA96DD4FC32A9775), LazyThreadSafetyMode.None);
+  private static readonly nint _RtEnvNameOffset = Schema.GetOffset(0xEA96DD4FC32A9775);
 
   public string RtEnvName {
     get {
-      var ptr = _Handle + _RtEnvNameOffset.Value;
+      var ptr = _Handle + _RtEnvNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _RtEnvNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _RtEnvNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _RTEnvCPOffset = new(() => Schema.GetOffset(0xEA96DD4F01881731), LazyThreadSafetyMode.None);
+  private static readonly nint _RTEnvCPOffset = Schema.GetOffset(0xEA96DD4F01881731);
 
   public ref int RTEnvCP {
-    get => ref _Handle.AsRef<int>(_RTEnvCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_RTEnvCPOffset);
   }
-  private static readonly Lazy<nint> _ComponentOffset = new(() => Schema.GetOffset(0xEA96DD4FBFD0952C), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentOffset = Schema.GetOffset(0xEA96DD4FBFD0952C);
 
   public ref int Component {
-    get => ref _Handle.AsRef<int>(_ComponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ComponentOffset);
   }
 
 

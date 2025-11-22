@@ -17,30 +17,30 @@ internal partial class FeSphereRigid_tImpl : SchemaClass, FeSphereRigid_t {
   public FeSphereRigid_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SphereOffset = new(() => Schema.GetOffset(0xA76DA0A39E2AC48C), LazyThreadSafetyMode.None);
+  private static readonly nint _SphereOffset = Schema.GetOffset(0xA76DA0A39E2AC48C);
 
   public ref fltx4 Sphere {
-    get => ref _Handle.AsRef<fltx4>(_SphereOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_SphereOffset);
   }
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0xA76DA0A3CD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0xA76DA0A3CD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _CollisionMaskOffset = new(() => Schema.GetOffset(0xA76DA0A30ED3454F), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionMaskOffset = Schema.GetOffset(0xA76DA0A30ED3454F);
 
   public ref ushort CollisionMask {
-    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset);
   }
-  private static readonly Lazy<nint> _VertexMapIndexOffset = new(() => Schema.GetOffset(0xA76DA0A37B332E39), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexMapIndexOffset = Schema.GetOffset(0xA76DA0A37B332E39);
 
   public ref ushort VertexMapIndex {
-    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xA76DA0A3B8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xA76DA0A3B8D52E48);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
 
 

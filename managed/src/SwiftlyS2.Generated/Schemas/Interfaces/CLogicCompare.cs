@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicCompare : CLogicalEntity, ISchemaClass<CLogicCompare> {
 
   static CLogicCompare ISchemaClass<CLogicCompare>.From(nint handle) => new CLogicCompareImpl(handle);
-  static int ISchemaClass<CLogicCompare>.Size => 2176;
+  static int ISchemaClass<CLogicCompare>.Size => 1432;
   static string? ISchemaClass<CLogicCompare>.ClassName => "logic_compare";
 
   

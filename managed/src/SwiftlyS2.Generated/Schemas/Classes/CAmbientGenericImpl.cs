@@ -17,63 +17,63 @@ internal partial class CAmbientGenericImpl : CPointEntityImpl, CAmbientGeneric {
   public CAmbientGenericImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xD45BE96FA921CA53), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xD45BE96FA921CA53);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _MaxRadiusOffset = new(() => Schema.GetOffset(0xD45BE96F89E61C15), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRadiusOffset = Schema.GetOffset(0xD45BE96F89E61C15);
 
   public ref float MaxRadius {
-    get => ref _Handle.AsRef<float>(_MaxRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRadiusOffset);
   }
-  private static readonly Lazy<nint> _SoundLevelOffset = new(() => Schema.GetOffset(0xD45BE96FB69D19BB), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundLevelOffset = Schema.GetOffset(0xD45BE96FB69D19BB);
 
   public ref soundlevel_t SoundLevel {
-    get => ref _Handle.AsRef<soundlevel_t>(_SoundLevelOffset.Value);
+    get => ref _Handle.AsRef<soundlevel_t>(_SoundLevelOffset);
   }
-  private static readonly Lazy<nint> _DpvOffset = new(() => Schema.GetOffset(0xD45BE96FD7C5AFFD), LazyThreadSafetyMode.None);
+  private static readonly nint _DpvOffset = Schema.GetOffset(0xD45BE96FD7C5AFFD);
 
   public dynpitchvol_t Dpv {
-    get => new dynpitchvol_tImpl(_Handle + _DpvOffset.Value);
+    get => new dynpitchvol_tImpl(_Handle + _DpvOffset);
   }
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0xD45BE96FC4EB465B), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0xD45BE96FC4EB465B);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _LoopingOffset = new(() => Schema.GetOffset(0xD45BE96F4FEBC8C1), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopingOffset = Schema.GetOffset(0xD45BE96F4FEBC8C1);
 
   public ref bool Looping {
-    get => ref _Handle.AsRef<bool>(_LoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopingOffset);
   }
-  private static readonly Lazy<nint> _SoundOffset = new(() => Schema.GetOffset(0xD45BE96F5FF1867C), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundOffset = Schema.GetOffset(0xD45BE96F5FF1867C);
 
   public string Sound {
     get {
-      var ptr = _Handle.Read<nint>(_SoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundOffset, value);
   } 
-  private static readonly Lazy<nint> _SourceEntNameOffset = new(() => Schema.GetOffset(0xD45BE96F2FABBF97), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceEntNameOffset = Schema.GetOffset(0xD45BE96F2FABBF97);
 
   public string SourceEntName {
     get {
-      var ptr = _Handle.Read<nint>(_SourceEntNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceEntNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceEntNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceEntNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SoundSourceOffset = new(() => Schema.GetOffset(0xD45BE96FA2036C43), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundSourceOffset = Schema.GetOffset(0xD45BE96FA2036C43);
 
   public ref CHandle<CBaseEntity> SoundSource {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SoundSourceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SoundSourceOffset);
   }
-  private static readonly Lazy<nint> _SoundSourceEntIndexOffset = new(() => Schema.GetOffset(0xD45BE96F5C1CB026), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundSourceEntIndexOffset = Schema.GetOffset(0xD45BE96F5C1CB026);
 
   public ref uint SoundSourceEntIndex {
-    get => ref _Handle.AsRef<uint>(_SoundSourceEntIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SoundSourceEntIndexOffset);
   }
 
 

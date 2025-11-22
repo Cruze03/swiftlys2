@@ -17,30 +17,30 @@ internal partial class CNmFloatComparisonNode__CDefinitionImpl : CNmBoolValueNod
   public CNmFloatComparisonNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x48A96E9A95E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x48A96E9A95E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ComparandValueNodeIdxOffset = new(() => Schema.GetOffset(0x48A96E9AF7CFFAF6), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparandValueNodeIdxOffset = Schema.GetOffset(0x48A96E9AF7CFFAF6);
 
   public ref short ComparandValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_ComparandValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ComparandValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ComparisonOffset = new(() => Schema.GetOffset(0x48A96E9A897F8DE4), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparisonOffset = Schema.GetOffset(0x48A96E9A897F8DE4);
 
   public ref CNmFloatComparisonNode__Comparison_t Comparison {
-    get => ref _Handle.AsRef<CNmFloatComparisonNode__Comparison_t>(_ComparisonOffset.Value);
+    get => ref _Handle.AsRef<CNmFloatComparisonNode__Comparison_t>(_ComparisonOffset);
   }
-  private static readonly Lazy<nint> _EpsilonOffset = new(() => Schema.GetOffset(0x48A96E9A34090A67), LazyThreadSafetyMode.None);
+  private static readonly nint _EpsilonOffset = Schema.GetOffset(0x48A96E9A34090A67);
 
   public ref float Epsilon {
-    get => ref _Handle.AsRef<float>(_EpsilonOffset.Value);
+    get => ref _Handle.AsRef<float>(_EpsilonOffset);
   }
-  private static readonly Lazy<nint> _ComparisonValueOffset = new(() => Schema.GetOffset(0x48A96E9A4C176B7F), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparisonValueOffset = Schema.GetOffset(0x48A96E9A4C176B7F);
 
   public ref float ComparisonValue {
-    get => ref _Handle.AsRef<float>(_ComparisonValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComparisonValueOffset);
   }
 
 

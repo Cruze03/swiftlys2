@@ -17,95 +17,95 @@ internal partial class CEnvVolumetricFogVolumeImpl : CBaseEntityImpl, CEnvVolume
   public CEnvVolumetricFogVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0x5EDE5CBD8334208F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0x5EDE5CBD8334208F);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _BoxMinsOffset = new(() => Schema.GetOffset(0x5EDE5CBDD8201373), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxMinsOffset = Schema.GetOffset(0x5EDE5CBDD8201373);
 
   public ref Vector BoxMins {
-    get => ref _Handle.AsRef<Vector>(_BoxMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoxMinsOffset);
   }
-  private static readonly Lazy<nint> _BoxMaxsOffset = new(() => Schema.GetOffset(0x5EDE5CBD817A3B31), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxMaxsOffset = Schema.GetOffset(0x5EDE5CBD817A3B31);
 
   public ref Vector BoxMaxs {
-    get => ref _Handle.AsRef<Vector>(_BoxMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoxMaxsOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x5EDE5CBD61ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x5EDE5CBD61ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _IndirectUseLPVsOffset = new(() => Schema.GetOffset(0x5EDE5CBDF6508E3D), LazyThreadSafetyMode.None);
+  private static readonly nint _IndirectUseLPVsOffset = Schema.GetOffset(0x5EDE5CBDF6508E3D);
 
   public ref bool IndirectUseLPVs {
-    get => ref _Handle.AsRef<bool>(_IndirectUseLPVsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IndirectUseLPVsOffset);
   }
-  private static readonly Lazy<nint> _StrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD8F67AF1A), LazyThreadSafetyMode.None);
+  private static readonly nint _StrengthOffset = Schema.GetOffset(0x5EDE5CBD8F67AF1A);
 
   public ref float Strength {
-    get => ref _Handle.AsRef<float>(_StrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_StrengthOffset);
   }
-  private static readonly Lazy<nint> _FalloffShapeOffset = new(() => Schema.GetOffset(0x5EDE5CBD413F21CA), LazyThreadSafetyMode.None);
+  private static readonly nint _FalloffShapeOffset = Schema.GetOffset(0x5EDE5CBD413F21CA);
 
   public ref int FalloffShape {
-    get => ref _Handle.AsRef<int>(_FalloffShapeOffset.Value);
+    get => ref _Handle.AsRef<int>(_FalloffShapeOffset);
   }
-  private static readonly Lazy<nint> _FalloffExponentOffset = new(() => Schema.GetOffset(0x5EDE5CBDE4B7D948), LazyThreadSafetyMode.None);
+  private static readonly nint _FalloffExponentOffset = Schema.GetOffset(0x5EDE5CBDE4B7D948);
 
   public ref float FalloffExponent {
-    get => ref _Handle.AsRef<float>(_FalloffExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_FalloffExponentOffset);
   }
-  private static readonly Lazy<nint> _HeightFogDepthOffset = new(() => Schema.GetOffset(0x5EDE5CBDE7A4BA15), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightFogDepthOffset = Schema.GetOffset(0x5EDE5CBDE7A4BA15);
 
   public ref float HeightFogDepth {
-    get => ref _Handle.AsRef<float>(_HeightFogDepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightFogDepthOffset);
   }
-  private static readonly Lazy<nint> _HeightFogEdgeWidthOffset = new(() => Schema.GetOffset(0x5EDE5CBD4605AE81), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightFogEdgeWidthOffset = Schema.GetOffset(0x5EDE5CBD4605AE81);
 
   public ref float HeightFogEdgeWidth {
-    get => ref _Handle.AsRef<float>(_HeightFogEdgeWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightFogEdgeWidthOffset);
   }
-  private static readonly Lazy<nint> _IndirectLightStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD1CE20160), LazyThreadSafetyMode.None);
+  private static readonly nint _IndirectLightStrengthOffset = Schema.GetOffset(0x5EDE5CBD1CE20160);
 
   public ref float IndirectLightStrength {
-    get => ref _Handle.AsRef<float>(_IndirectLightStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_IndirectLightStrengthOffset);
   }
-  private static readonly Lazy<nint> _SunLightStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBDDE47D3A2), LazyThreadSafetyMode.None);
+  private static readonly nint _SunLightStrengthOffset = Schema.GetOffset(0x5EDE5CBDDE47D3A2);
 
   public ref float SunLightStrength {
-    get => ref _Handle.AsRef<float>(_SunLightStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SunLightStrengthOffset);
   }
-  private static readonly Lazy<nint> _NoiseStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD556ED5D0), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseStrengthOffset = Schema.GetOffset(0x5EDE5CBD556ED5D0);
 
   public ref float NoiseStrength {
-    get => ref _Handle.AsRef<float>(_NoiseStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseStrengthOffset);
   }
-  private static readonly Lazy<nint> _TintColorOffset = new(() => Schema.GetOffset(0x5EDE5CBDAF2613F3), LazyThreadSafetyMode.None);
+  private static readonly nint _TintColorOffset = Schema.GetOffset(0x5EDE5CBDAF2613F3);
 
   public ref Color TintColor {
-    get => ref _Handle.AsRef<Color>(_TintColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintColorOffset);
   }
-  private static readonly Lazy<nint> _OverrideTintColorOffset = new(() => Schema.GetOffset(0x5EDE5CBDF384934B), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideTintColorOffset = Schema.GetOffset(0x5EDE5CBDF384934B);
 
   public ref bool OverrideTintColor {
-    get => ref _Handle.AsRef<bool>(_OverrideTintColorOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OverrideTintColorOffset);
   }
-  private static readonly Lazy<nint> _OverrideIndirectLightStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD9AA2A58C), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideIndirectLightStrengthOffset = Schema.GetOffset(0x5EDE5CBD9AA2A58C);
 
   public ref bool OverrideIndirectLightStrength {
-    get => ref _Handle.AsRef<bool>(_OverrideIndirectLightStrengthOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OverrideIndirectLightStrengthOffset);
   }
-  private static readonly Lazy<nint> _OverrideSunLightStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD892B7A46), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideSunLightStrengthOffset = Schema.GetOffset(0x5EDE5CBD892B7A46);
 
   public ref bool OverrideSunLightStrength {
-    get => ref _Handle.AsRef<bool>(_OverrideSunLightStrengthOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OverrideSunLightStrengthOffset);
   }
-  private static readonly Lazy<nint> _OverrideNoiseStrengthOffset = new(() => Schema.GetOffset(0x5EDE5CBD47655E8C), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideNoiseStrengthOffset = Schema.GetOffset(0x5EDE5CBD47655E8C);
 
   public ref bool OverrideNoiseStrength {
-    get => ref _Handle.AsRef<bool>(_OverrideNoiseStrengthOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OverrideNoiseStrengthOffset);
   }
 
   public void ActiveUpdated() {

@@ -17,15 +17,15 @@ internal partial class C_OP_FadeInSimpleImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_FadeInSimpleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeInTimeOffset = new(() => Schema.GetOffset(0x31D1B5A1F0255B3), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInTimeOffset = Schema.GetOffset(0x31D1B5A1F0255B3);
 
   public ref float FadeInTime {
-    get => ref _Handle.AsRef<float>(_FadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x31D1B5AE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x31D1B5AE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
 
 

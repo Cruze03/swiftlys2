@@ -17,10 +17,10 @@ internal partial class CFuncTankTrainImpl : CFuncTrackTrainImpl, CFuncTankTrain 
   public CFuncTankTrainImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnDeathOffset = new(() => Schema.GetOffset(0xF7897E7E6F756BD2), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDeathOffset = Schema.GetOffset(0xF7897E7E6F756BD2);
 
   public CEntityIOOutput OnDeath {
-    get => new CEntityIOOutputImpl(_Handle + _OnDeathOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDeathOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class C_OP_ShapeMatchingConstraintImpl : CParticleFunctionConst
   public C_OP_ShapeMatchingConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ShapeRestorationTimeOffset = new(() => Schema.GetOffset(0x4FF42FB6A86E05A9), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeRestorationTimeOffset = Schema.GetOffset(0x4FF42FB6A86E05A9);
 
   public ref float ShapeRestorationTime {
-    get => ref _Handle.AsRef<float>(_ShapeRestorationTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_ShapeRestorationTimeOffset);
   }
 
 

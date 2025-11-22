@@ -17,20 +17,20 @@ internal partial class CAudioPhonemeTagImpl : SchemaClass, CAudioPhonemeTag {
   public CAudioPhonemeTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xBE68CF3E67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xBE68CF3E67FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0xBE68CF3E2041DF9D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0xBE68CF3E2041DF9D);
 
   public ref float EndTime {
-    get => ref _Handle.AsRef<float>(_EndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTimeOffset);
   }
-  private static readonly Lazy<nint> _PhonemeCodeOffset = new(() => Schema.GetOffset(0xBE68CF3EBFB1B4C4), LazyThreadSafetyMode.None);
+  private static readonly nint _PhonemeCodeOffset = Schema.GetOffset(0xBE68CF3EBFB1B4C4);
 
   public ref int PhonemeCode {
-    get => ref _Handle.AsRef<int>(_PhonemeCodeOffset.Value);
+    get => ref _Handle.AsRef<int>(_PhonemeCodeOffset);
   }
 
 

@@ -17,75 +17,75 @@ internal partial class PostProcessingBloomParameters_tImpl : SchemaClass, PostPr
   public PostProcessingBloomParameters_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BlendModeOffset = new(() => Schema.GetOffset(0x30F41F3C8D5006AB), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendModeOffset = Schema.GetOffset(0x30F41F3C8D5006AB);
 
   public ref BloomBlendMode_t BlendMode {
-    get => ref _Handle.AsRef<BloomBlendMode_t>(_BlendModeOffset.Value);
+    get => ref _Handle.AsRef<BloomBlendMode_t>(_BlendModeOffset);
   }
-  private static readonly Lazy<nint> _BloomStrengthOffset = new(() => Schema.GetOffset(0x30F41F3C398A137F), LazyThreadSafetyMode.None);
+  private static readonly nint _BloomStrengthOffset = Schema.GetOffset(0x30F41F3C398A137F);
 
   public ref float BloomStrength {
-    get => ref _Handle.AsRef<float>(_BloomStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_BloomStrengthOffset);
   }
-  private static readonly Lazy<nint> _ScreenBloomStrengthOffset = new(() => Schema.GetOffset(0x30F41F3CE8A0AA33), LazyThreadSafetyMode.None);
+  private static readonly nint _ScreenBloomStrengthOffset = Schema.GetOffset(0x30F41F3CE8A0AA33);
 
   public ref float ScreenBloomStrength {
-    get => ref _Handle.AsRef<float>(_ScreenBloomStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScreenBloomStrengthOffset);
   }
-  private static readonly Lazy<nint> _BlurBloomStrengthOffset = new(() => Schema.GetOffset(0x30F41F3CF8D07238), LazyThreadSafetyMode.None);
+  private static readonly nint _BlurBloomStrengthOffset = Schema.GetOffset(0x30F41F3CF8D07238);
 
   public ref float BlurBloomStrength {
-    get => ref _Handle.AsRef<float>(_BlurBloomStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlurBloomStrengthOffset);
   }
-  private static readonly Lazy<nint> _BloomThresholdOffset = new(() => Schema.GetOffset(0x30F41F3C06FD7D91), LazyThreadSafetyMode.None);
+  private static readonly nint _BloomThresholdOffset = Schema.GetOffset(0x30F41F3C06FD7D91);
 
   public ref float BloomThreshold {
-    get => ref _Handle.AsRef<float>(_BloomThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_BloomThresholdOffset);
   }
-  private static readonly Lazy<nint> _BloomThresholdWidthOffset = new(() => Schema.GetOffset(0x30F41F3CF71B95FB), LazyThreadSafetyMode.None);
+  private static readonly nint _BloomThresholdWidthOffset = Schema.GetOffset(0x30F41F3CF71B95FB);
 
   public ref float BloomThresholdWidth {
-    get => ref _Handle.AsRef<float>(_BloomThresholdWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_BloomThresholdWidthOffset);
   }
-  private static readonly Lazy<nint> _SkyboxBloomStrengthOffset = new(() => Schema.GetOffset(0x30F41F3C99229415), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyboxBloomStrengthOffset = Schema.GetOffset(0x30F41F3C99229415);
 
   public ref float SkyboxBloomStrength {
-    get => ref _Handle.AsRef<float>(_SkyboxBloomStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SkyboxBloomStrengthOffset);
   }
-  private static readonly Lazy<nint> _BloomStartValueOffset = new(() => Schema.GetOffset(0x30F41F3C214727D7), LazyThreadSafetyMode.None);
+  private static readonly nint _BloomStartValueOffset = Schema.GetOffset(0x30F41F3C214727D7);
 
   public ref float BloomStartValue {
-    get => ref _Handle.AsRef<float>(_BloomStartValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_BloomStartValueOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomStrengthOffset = new(() => Schema.GetOffset(0x30F41F3C347885E6), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomStrengthOffset = Schema.GetOffset(0x30F41F3C347885E6);
 
   public ref float ComputeBloomStrength {
-    get => ref _Handle.AsRef<float>(_ComputeBloomStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomStrengthOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomThresholdOffset = new(() => Schema.GetOffset(0x30F41F3C37939E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomThresholdOffset = Schema.GetOffset(0x30F41F3C37939E0E);
 
   public ref float ComputeBloomThreshold {
-    get => ref _Handle.AsRef<float>(_ComputeBloomThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomThresholdOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomRadiusOffset = new(() => Schema.GetOffset(0x30F41F3C6AD33551), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomRadiusOffset = Schema.GetOffset(0x30F41F3C6AD33551);
 
   public ref float ComputeBloomRadius {
-    get => ref _Handle.AsRef<float>(_ComputeBloomRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomRadiusOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomEffectsScaleOffset = new(() => Schema.GetOffset(0x30F41F3C7863A30F), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomEffectsScaleOffset = Schema.GetOffset(0x30F41F3C7863A30F);
 
   public ref float ComputeBloomEffectsScale {
-    get => ref _Handle.AsRef<float>(_ComputeBloomEffectsScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomEffectsScaleOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomLensDirtStrengthOffset = new(() => Schema.GetOffset(0x30F41F3C7236C0F3), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomLensDirtStrengthOffset = Schema.GetOffset(0x30F41F3C7236C0F3);
 
   public ref float ComputeBloomLensDirtStrength {
-    get => ref _Handle.AsRef<float>(_ComputeBloomLensDirtStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomLensDirtStrengthOffset);
   }
-  private static readonly Lazy<nint> _ComputeBloomLensDirtBlackLevelOffset = new(() => Schema.GetOffset(0x30F41F3CB4FB5025), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeBloomLensDirtBlackLevelOffset = Schema.GetOffset(0x30F41F3CB4FB5025);
 
   public ref float ComputeBloomLensDirtBlackLevel {
-    get => ref _Handle.AsRef<float>(_ComputeBloomLensDirtBlackLevelOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComputeBloomLensDirtBlackLevelOffset);
   }
   public ISchemaFixedArray<float> BlurWeight {
     get => new SchemaFixedArray<float>(_Handle, 0x30F41F3CAF5FB432, 5, 4, 4);

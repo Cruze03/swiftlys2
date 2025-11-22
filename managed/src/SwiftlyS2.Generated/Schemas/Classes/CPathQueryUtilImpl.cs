@@ -17,30 +17,30 @@ internal partial class CPathQueryUtilImpl : SchemaClass, CPathQueryUtil {
   public CPathQueryUtilImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PathToEntityTransformOffset = new(() => Schema.GetOffset(0x52D1B6431A6FA220), LazyThreadSafetyMode.None);
+  private static readonly nint _PathToEntityTransformOffset = Schema.GetOffset(0x52D1B6431A6FA220);
 
   public ref CTransform PathToEntityTransform {
-    get => ref _Handle.AsRef<CTransform>(_PathToEntityTransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_PathToEntityTransformOffset);
   }
-  private static readonly Lazy<nint> _PathSamplePositionsOffset = new(() => Schema.GetOffset(0x52D1B643099F5ECC), LazyThreadSafetyMode.None);
+  private static readonly nint _PathSamplePositionsOffset = Schema.GetOffset(0x52D1B643099F5ECC);
 
   public ref CUtlVector<Vector> PathSamplePositions {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_PathSamplePositionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_PathSamplePositionsOffset);
   }
-  private static readonly Lazy<nint> _PathSampleParametersOffset = new(() => Schema.GetOffset(0x52D1B6431D6E0D08), LazyThreadSafetyMode.None);
+  private static readonly nint _PathSampleParametersOffset = Schema.GetOffset(0x52D1B6431D6E0D08);
 
   public ref CUtlVector<float> PathSampleParameters {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_PathSampleParametersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_PathSampleParametersOffset);
   }
-  private static readonly Lazy<nint> _PathSampleDistancesOffset = new(() => Schema.GetOffset(0x52D1B6435680B274), LazyThreadSafetyMode.None);
+  private static readonly nint _PathSampleDistancesOffset = Schema.GetOffset(0x52D1B6435680B274);
 
   public ref CUtlVector<float> PathSampleDistances {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_PathSampleDistancesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_PathSampleDistancesOffset);
   }
-  private static readonly Lazy<nint> _IsClosedLoopOffset = new(() => Schema.GetOffset(0x52D1B6430806319B), LazyThreadSafetyMode.None);
+  private static readonly nint _IsClosedLoopOffset = Schema.GetOffset(0x52D1B6430806319B);
 
   public ref bool IsClosedLoop {
-    get => ref _Handle.AsRef<bool>(_IsClosedLoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsClosedLoopOffset);
   }
 
 

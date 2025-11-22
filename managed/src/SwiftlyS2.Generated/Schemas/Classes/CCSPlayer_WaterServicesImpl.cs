@@ -17,35 +17,35 @@ internal partial class CCSPlayer_WaterServicesImpl : CPlayer_WaterServicesImpl, 
   public CCSPlayer_WaterServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NextDrownDamageTimeOffset = new(() => Schema.GetOffset(0x81EE3221161B7836), LazyThreadSafetyMode.None);
+  private static readonly nint _NextDrownDamageTimeOffset = Schema.GetOffset(0x81EE3221161B7836);
 
   public GameTime_t NextDrownDamageTime {
-    get => new GameTime_tImpl(_Handle + _NextDrownDamageTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextDrownDamageTimeOffset);
   }
-  private static readonly Lazy<nint> _DrownDmgRateOffset = new(() => Schema.GetOffset(0x81EE3221DB1DC111), LazyThreadSafetyMode.None);
+  private static readonly nint _DrownDmgRateOffset = Schema.GetOffset(0x81EE3221DB1DC111);
 
   public ref int DrownDmgRate {
-    get => ref _Handle.AsRef<int>(_DrownDmgRateOffset.Value);
+    get => ref _Handle.AsRef<int>(_DrownDmgRateOffset);
   }
-  private static readonly Lazy<nint> _AirFinishedTimeOffset = new(() => Schema.GetOffset(0x81EE3221F32CD208), LazyThreadSafetyMode.None);
+  private static readonly nint _AirFinishedTimeOffset = Schema.GetOffset(0x81EE3221F32CD208);
 
   public GameTime_t AirFinishedTime {
-    get => new GameTime_tImpl(_Handle + _AirFinishedTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _AirFinishedTimeOffset);
   }
-  private static readonly Lazy<nint> _WaterJumpTimeOffset = new(() => Schema.GetOffset(0x81EE3221E7A7489F), LazyThreadSafetyMode.None);
+  private static readonly nint _WaterJumpTimeOffset = Schema.GetOffset(0x81EE3221E7A7489F);
 
   public ref float WaterJumpTime {
-    get => ref _Handle.AsRef<float>(_WaterJumpTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_WaterJumpTimeOffset);
   }
-  private static readonly Lazy<nint> _WaterJumpVelOffset = new(() => Schema.GetOffset(0x81EE3221B3333137), LazyThreadSafetyMode.None);
+  private static readonly nint _WaterJumpVelOffset = Schema.GetOffset(0x81EE3221B3333137);
 
   public ref Vector WaterJumpVel {
-    get => ref _Handle.AsRef<Vector>(_WaterJumpVelOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WaterJumpVelOffset);
   }
-  private static readonly Lazy<nint> _SwimSoundTimeOffset = new(() => Schema.GetOffset(0x81EE32218B6E62D7), LazyThreadSafetyMode.None);
+  private static readonly nint _SwimSoundTimeOffset = Schema.GetOffset(0x81EE32218B6E62D7);
 
   public ref float SwimSoundTime {
-    get => ref _Handle.AsRef<float>(_SwimSoundTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SwimSoundTimeOffset);
   }
 
 

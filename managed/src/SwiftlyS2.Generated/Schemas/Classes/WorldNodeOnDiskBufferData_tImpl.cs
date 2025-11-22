@@ -17,25 +17,25 @@ internal partial class WorldNodeOnDiskBufferData_tImpl : SchemaClass, WorldNodeO
   public WorldNodeOnDiskBufferData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ElementCountOffset = new(() => Schema.GetOffset(0xC4F557DA51A2EF12), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementCountOffset = Schema.GetOffset(0xC4F557DA51A2EF12);
 
   public ref int ElementCount {
-    get => ref _Handle.AsRef<int>(_ElementCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_ElementCountOffset);
   }
-  private static readonly Lazy<nint> _ElementSizeInBytesOffset = new(() => Schema.GetOffset(0xC4F557DAF602975C), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementSizeInBytesOffset = Schema.GetOffset(0xC4F557DAF602975C);
 
   public ref int ElementSizeInBytes {
-    get => ref _Handle.AsRef<int>(_ElementSizeInBytesOffset.Value);
+    get => ref _Handle.AsRef<int>(_ElementSizeInBytesOffset);
   }
-  private static readonly Lazy<nint> _InputLayoutFieldsOffset = new(() => Schema.GetOffset(0xC4F557DAFDECA2D8), LazyThreadSafetyMode.None);
+  private static readonly nint _InputLayoutFieldsOffset = Schema.GetOffset(0xC4F557DAFDECA2D8);
 
   public ref CUtlVector<RenderInputLayoutField_t> InputLayoutFields {
-    get => ref _Handle.AsRef<CUtlVector<RenderInputLayoutField_t>>(_InputLayoutFieldsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RenderInputLayoutField_t>>(_InputLayoutFieldsOffset);
   }
-  private static readonly Lazy<nint> _DataOffset = new(() => Schema.GetOffset(0xC4F557DA27938BB7), LazyThreadSafetyMode.None);
+  private static readonly nint _DataOffset = Schema.GetOffset(0xC4F557DA27938BB7);
 
   public ref CUtlVector<byte> Data {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_DataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_DataOffset);
   }
 
 

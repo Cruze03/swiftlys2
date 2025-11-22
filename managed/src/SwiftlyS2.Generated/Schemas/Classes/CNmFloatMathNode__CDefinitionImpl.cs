@@ -17,35 +17,35 @@ internal partial class CNmFloatMathNode__CDefinitionImpl : CNmFloatValueNode__CD
   public CNmFloatMathNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxAOffset = new(() => Schema.GetOffset(0x8A1F4F076332ED92), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxAOffset = Schema.GetOffset(0x8A1F4F076332ED92);
 
   public ref short InputValueNodeIdxA {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxAOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxAOffset);
   }
-  private static readonly Lazy<nint> _InputValueNodeIdxBOffset = new(() => Schema.GetOffset(0x8A1F4F076232EBFF), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxBOffset = Schema.GetOffset(0x8A1F4F076232EBFF);
 
   public ref short InputValueNodeIdxB {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxBOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxBOffset);
   }
-  private static readonly Lazy<nint> _ReturnAbsoluteResultOffset = new(() => Schema.GetOffset(0x8A1F4F07065EA6EB), LazyThreadSafetyMode.None);
+  private static readonly nint _ReturnAbsoluteResultOffset = Schema.GetOffset(0x8A1F4F07065EA6EB);
 
   public ref bool ReturnAbsoluteResult {
-    get => ref _Handle.AsRef<bool>(_ReturnAbsoluteResultOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReturnAbsoluteResultOffset);
   }
-  private static readonly Lazy<nint> _ReturnNegatedResultOffset = new(() => Schema.GetOffset(0x8A1F4F07535A6CA2), LazyThreadSafetyMode.None);
+  private static readonly nint _ReturnNegatedResultOffset = Schema.GetOffset(0x8A1F4F07535A6CA2);
 
   public ref bool ReturnNegatedResult {
-    get => ref _Handle.AsRef<bool>(_ReturnNegatedResultOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReturnNegatedResultOffset);
   }
-  private static readonly Lazy<nint> _OperatorOffset = new(() => Schema.GetOffset(0x8A1F4F078ABE049D), LazyThreadSafetyMode.None);
+  private static readonly nint _OperatorOffset = Schema.GetOffset(0x8A1F4F078ABE049D);
 
   public ref CNmFloatMathNode__Operator_t Operator {
-    get => ref _Handle.AsRef<CNmFloatMathNode__Operator_t>(_OperatorOffset.Value);
+    get => ref _Handle.AsRef<CNmFloatMathNode__Operator_t>(_OperatorOffset);
   }
-  private static readonly Lazy<nint> _ValueBOffset = new(() => Schema.GetOffset(0x8A1F4F074AD872B2), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueBOffset = Schema.GetOffset(0x8A1F4F074AD872B2);
 
   public ref float ValueB {
-    get => ref _Handle.AsRef<float>(_ValueBOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueBOffset);
   }
 
 

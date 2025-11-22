@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmLayerBlendNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmLayerBlendNode__CDefinition> {
 
   static CNmLayerBlendNode__CDefinition ISchemaClass<CNmLayerBlendNode__CDefinition>.From(nint handle) => new CNmLayerBlendNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmLayerBlendNode__CDefinition>.Size => 64;
+  static int ISchemaClass<CNmLayerBlendNode__CDefinition>.Size => 72;
   static string? ISchemaClass<CNmLayerBlendNode__CDefinition>.ClassName => null;
 
   

@@ -17,50 +17,50 @@ internal partial class C_OP_RenderScreenShakeImpl : CParticleFunctionRendererImp
   public C_OP_RenderScreenShakeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DurationScaleOffset = new(() => Schema.GetOffset(0x37508849776D4203), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationScaleOffset = Schema.GetOffset(0x37508849776D4203);
 
   public ref float DurationScale {
-    get => ref _Handle.AsRef<float>(_DurationScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationScaleOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x37508849A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x37508849A7A20159);
 
   public ref float RadiusScale {
-    get => ref _Handle.AsRef<float>(_RadiusScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _FrequencyScaleOffset = new(() => Schema.GetOffset(0x375088494B5C34F7), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyScaleOffset = Schema.GetOffset(0x375088494B5C34F7);
 
   public ref float FrequencyScale {
-    get => ref _Handle.AsRef<float>(_FrequencyScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyScaleOffset);
   }
-  private static readonly Lazy<nint> _AmplitudeScaleOffset = new(() => Schema.GetOffset(0x37508849BF90DF5A), LazyThreadSafetyMode.None);
+  private static readonly nint _AmplitudeScaleOffset = Schema.GetOffset(0x37508849BF90DF5A);
 
   public ref float AmplitudeScale {
-    get => ref _Handle.AsRef<float>(_AmplitudeScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AmplitudeScaleOffset);
   }
-  private static readonly Lazy<nint> _RadiusFieldOffset = new(() => Schema.GetOffset(0x375088494B15FC11), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusFieldOffset = Schema.GetOffset(0x375088494B15FC11);
 
   public ParticleAttributeIndex_t RadiusField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _RadiusFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _RadiusFieldOffset);
   }
-  private static readonly Lazy<nint> _DurationFieldOffset = new(() => Schema.GetOffset(0x37508849B21EDAAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationFieldOffset = Schema.GetOffset(0x37508849B21EDAAB);
 
   public ParticleAttributeIndex_t DurationField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _DurationFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _DurationFieldOffset);
   }
-  private static readonly Lazy<nint> _FrequencyFieldOffset = new(() => Schema.GetOffset(0x37508849DDA055AF), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyFieldOffset = Schema.GetOffset(0x37508849DDA055AF);
 
   public ParticleAttributeIndex_t FrequencyField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FrequencyFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FrequencyFieldOffset);
   }
-  private static readonly Lazy<nint> _AmplitudeFieldOffset = new(() => Schema.GetOffset(0x37508849F8F54FD2), LazyThreadSafetyMode.None);
+  private static readonly nint _AmplitudeFieldOffset = Schema.GetOffset(0x37508849F8F54FD2);
 
   public ParticleAttributeIndex_t AmplitudeField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AmplitudeFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AmplitudeFieldOffset);
   }
-  private static readonly Lazy<nint> _FilterCPOffset = new(() => Schema.GetOffset(0x375088499304E130), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterCPOffset = Schema.GetOffset(0x375088499304E130);
 
   public ref int FilterCP {
-    get => ref _Handle.AsRef<int>(_FilterCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_FilterCPOffset);
   }
 
 

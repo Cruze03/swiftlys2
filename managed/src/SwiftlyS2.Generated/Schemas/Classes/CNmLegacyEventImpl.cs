@@ -17,19 +17,19 @@ internal partial class CNmLegacyEventImpl : CNmEventImpl, CNmLegacyEvent {
   public CNmLegacyEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnimEventClassNameOffset = new(() => Schema.GetOffset(0x78C36574C276DA33), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimEventClassNameOffset = Schema.GetOffset(0x78C36574C276DA33);
 
   public string AnimEventClassName {
     get {
-      var ptr = _Handle.Read<nint>(_AnimEventClassNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AnimEventClassNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AnimEventClassNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AnimEventClassNameOffset, value);
   } 
-  private static readonly Lazy<nint> _KVOffset = new(() => Schema.GetOffset(0x78C36574F70B8074), LazyThreadSafetyMode.None);
+  private static readonly nint _KVOffset = Schema.GetOffset(0x78C36574F70B8074);
 
   public SchemaUntypedField KV {
-    get => new SchemaUntypedField(_Handle + _KVOffset.Value);
+    get => new SchemaUntypedField(_Handle + _KVOffset);
   }
 
 

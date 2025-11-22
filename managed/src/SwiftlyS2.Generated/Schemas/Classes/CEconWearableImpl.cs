@@ -17,15 +17,15 @@ internal partial class CEconWearableImpl : CEconEntityImpl, CEconWearable {
   public CEconWearableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceSkinOffset = new(() => Schema.GetOffset(0x491C03F4E5817B39), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceSkinOffset = Schema.GetOffset(0x491C03F4E5817B39);
 
   public ref int ForceSkin {
-    get => ref _Handle.AsRef<int>(_ForceSkinOffset.Value);
+    get => ref _Handle.AsRef<int>(_ForceSkinOffset);
   }
-  private static readonly Lazy<nint> _AlwaysAllowOffset = new(() => Schema.GetOffset(0x491C03F4AD06B805), LazyThreadSafetyMode.None);
+  private static readonly nint _AlwaysAllowOffset = Schema.GetOffset(0x491C03F4AD06B805);
 
   public ref bool AlwaysAllow {
-    get => ref _Handle.AsRef<bool>(_AlwaysAllowOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AlwaysAllowOffset);
   }
 
 

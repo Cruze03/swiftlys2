@@ -17,24 +17,24 @@ internal partial class CAnimationGraphVisualizerTextImpl : CAnimationGraphVisual
   public CAnimationGraphVisualizerTextImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WsPositionOffset = new(() => Schema.GetOffset(0x123E08CFCA77AB88), LazyThreadSafetyMode.None);
+  private static readonly nint _WsPositionOffset = Schema.GetOffset(0x123E08CFCA77AB88);
 
   public ref Vector WsPosition {
-    get => ref _Handle.AsRef<Vector>(_WsPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsPositionOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x123E08CFD7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x123E08CFD7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
-  private static readonly Lazy<nint> _TextOffset = new(() => Schema.GetOffset(0x123E08CFFB9532BE), LazyThreadSafetyMode.None);
+  private static readonly nint _TextOffset = Schema.GetOffset(0x123E08CFFB9532BE);
 
   public string Text {
     get {
-      var ptr = _Handle.Read<nint>(_TextOffset.Value);
+      var ptr = _Handle.Read<nint>(_TextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TextOffset.Value, value);
+    set => Schema.SetString(_Handle, _TextOffset, value);
   } 
 
 

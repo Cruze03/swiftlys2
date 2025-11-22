@@ -17,30 +17,30 @@ internal partial class CMotionGraphGroupImpl : SchemaClass, CMotionGraphGroup {
   public CMotionGraphGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SearchDBOffset = new(() => Schema.GetOffset(0x34D64AAF5662226F), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchDBOffset = Schema.GetOffset(0x34D64AAF5662226F);
 
   public CMotionSearchDB SearchDB {
-    get => new CMotionSearchDBImpl(_Handle + _SearchDBOffset.Value);
+    get => new CMotionSearchDBImpl(_Handle + _SearchDBOffset);
   }
-  private static readonly Lazy<nint> _MotionGraphsOffset = new(() => Schema.GetOffset(0x34D64AAFE9CB46D2), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionGraphsOffset = Schema.GetOffset(0x34D64AAFE9CB46D2);
 
   public ref CUtlVector<SchemaUntypedField> MotionGraphs {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MotionGraphsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MotionGraphsOffset);
   }
-  private static readonly Lazy<nint> _MotionGraphConfigsOffset = new(() => Schema.GetOffset(0x34D64AAF8D9A544C), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionGraphConfigsOffset = Schema.GetOffset(0x34D64AAF8D9A544C);
 
   public ref CUtlVector<CMotionGraphConfig> MotionGraphConfigs {
-    get => ref _Handle.AsRef<CUtlVector<CMotionGraphConfig>>(_MotionGraphConfigsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CMotionGraphConfig>>(_MotionGraphConfigsOffset);
   }
-  private static readonly Lazy<nint> _SampleToConfigOffset = new(() => Schema.GetOffset(0x34D64AAF85EC9B7C), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleToConfigOffset = Schema.GetOffset(0x34D64AAF85EC9B7C);
 
   public ref CUtlVector<int> SampleToConfig {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_SampleToConfigOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_SampleToConfigOffset);
   }
-  private static readonly Lazy<nint> _IsActiveScriptOffset = new(() => Schema.GetOffset(0x34D64AAFF2DBEC2A), LazyThreadSafetyMode.None);
+  private static readonly nint _IsActiveScriptOffset = Schema.GetOffset(0x34D64AAFF2DBEC2A);
 
   public AnimScriptHandle IsActiveScript {
-    get => new AnimScriptHandleImpl(_Handle + _IsActiveScriptOffset.Value);
+    get => new AnimScriptHandleImpl(_Handle + _IsActiveScriptOffset);
   }
 
 

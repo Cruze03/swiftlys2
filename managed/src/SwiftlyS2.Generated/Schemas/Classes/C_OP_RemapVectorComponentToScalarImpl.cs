@@ -17,20 +17,20 @@ internal partial class C_OP_RemapVectorComponentToScalarImpl : CParticleFunction
   public C_OP_RemapVectorComponentToScalarImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0x39413771AE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0x39413771AE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x39413771E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x39413771E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _ComponentOffset = new(() => Schema.GetOffset(0x39413771BFD0952C), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentOffset = Schema.GetOffset(0x39413771BFD0952C);
 
   public ref int Component {
-    get => ref _Handle.AsRef<int>(_ComponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ComponentOffset);
   }
 
 

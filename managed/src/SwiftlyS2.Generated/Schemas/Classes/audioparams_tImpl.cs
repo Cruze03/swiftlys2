@@ -20,25 +20,25 @@ internal partial class audioparams_tImpl : SchemaClass, audioparams_t {
   public ISchemaFixedArray<Vector> LocalSound {
     get => new SchemaFixedArray<Vector>(_Handle, 0x6D349E3CCE184A47, 8, 12, 4);
   }
-  private static readonly Lazy<nint> _SoundscapeIndexOffset = new(() => Schema.GetOffset(0x6D349E3C046FCFEE), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundscapeIndexOffset = Schema.GetOffset(0x6D349E3C046FCFEE);
 
   public ref int SoundscapeIndex {
-    get => ref _Handle.AsRef<int>(_SoundscapeIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_SoundscapeIndexOffset);
   }
-  private static readonly Lazy<nint> _LocalBitsOffset = new(() => Schema.GetOffset(0x6D349E3C1DE85B60), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBitsOffset = Schema.GetOffset(0x6D349E3C1DE85B60);
 
   public ref byte LocalBits {
-    get => ref _Handle.AsRef<byte>(_LocalBitsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_LocalBitsOffset);
   }
-  private static readonly Lazy<nint> _SoundscapeEntityListIndexOffset = new(() => Schema.GetOffset(0x6D349E3CA4E4FB9B), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundscapeEntityListIndexOffset = Schema.GetOffset(0x6D349E3CA4E4FB9B);
 
   public ref int SoundscapeEntityListIndex {
-    get => ref _Handle.AsRef<int>(_SoundscapeEntityListIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_SoundscapeEntityListIndexOffset);
   }
-  private static readonly Lazy<nint> _SoundEventHashOffset = new(() => Schema.GetOffset(0x6D349E3C335E17CC), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundEventHashOffset = Schema.GetOffset(0x6D349E3C335E17CC);
 
   public ref uint SoundEventHash {
-    get => ref _Handle.AsRef<uint>(_SoundEventHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SoundEventHashOffset);
   }
 
   public void LocalSoundUpdated() {

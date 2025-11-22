@@ -17,15 +17,15 @@ internal partial class WeaponPurchaseCount_tImpl : SchemaClass, WeaponPurchaseCo
   public WeaponPurchaseCount_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ItemDefIndexOffset = new(() => Schema.GetOffset(0xF7F0C6E61BF10FB7), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemDefIndexOffset = Schema.GetOffset(0xF7F0C6E61BF10FB7);
 
   public ref ushort ItemDefIndex {
-    get => ref _Handle.AsRef<ushort>(_ItemDefIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ItemDefIndexOffset);
   }
-  private static readonly Lazy<nint> _CountOffset = new(() => Schema.GetOffset(0xF7F0C6E67D31AC08), LazyThreadSafetyMode.None);
+  private static readonly nint _CountOffset = Schema.GetOffset(0xF7F0C6E67D31AC08);
 
   public ref ushort Count {
-    get => ref _Handle.AsRef<ushort>(_CountOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CountOffset);
   }
 
   public void ItemDefIndexUpdated() {

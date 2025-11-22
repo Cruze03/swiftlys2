@@ -17,25 +17,25 @@ internal partial class CNmTransitionEventConditionNode__CDefinitionImpl : CNmBoo
   public CNmTransitionEventConditionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RequireRuleIDOffset = new(() => Schema.GetOffset(0x874AC07F75BFD237), LazyThreadSafetyMode.None);
+  private static readonly nint _RequireRuleIDOffset = Schema.GetOffset(0x874AC07F75BFD237);
 
   public ref CGlobalSymbol RequireRuleID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_RequireRuleIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_RequireRuleIDOffset);
   }
-  private static readonly Lazy<nint> _EventConditionRulesOffset = new(() => Schema.GetOffset(0x874AC07FA904315F), LazyThreadSafetyMode.None);
+  private static readonly nint _EventConditionRulesOffset = Schema.GetOffset(0x874AC07FA904315F);
 
   public CNmBitFlags EventConditionRules {
-    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset);
   }
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x874AC07F63F0228C), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x874AC07F63F0228C);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _RuleConditionOffset = new(() => Schema.GetOffset(0x874AC07FE5B98074), LazyThreadSafetyMode.None);
+  private static readonly nint _RuleConditionOffset = Schema.GetOffset(0x874AC07FE5B98074);
 
   public ref NmTransitionRuleCondition_t RuleCondition {
-    get => ref _Handle.AsRef<NmTransitionRuleCondition_t>(_RuleConditionOffset.Value);
+    get => ref _Handle.AsRef<NmTransitionRuleCondition_t>(_RuleConditionOffset);
   }
 
 

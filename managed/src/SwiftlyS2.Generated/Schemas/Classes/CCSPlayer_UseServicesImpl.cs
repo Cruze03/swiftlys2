@@ -17,20 +17,20 @@ internal partial class CCSPlayer_UseServicesImpl : CPlayer_UseServicesImpl, CCSP
   public CCSPlayer_UseServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LastKnownUseEntityOffset = new(() => Schema.GetOffset(0xE5F718912806F946), LazyThreadSafetyMode.None);
+  private static readonly nint _LastKnownUseEntityOffset = Schema.GetOffset(0xE5F718912806F946);
 
   public ref CHandle<CBaseEntity> LastKnownUseEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LastKnownUseEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LastKnownUseEntityOffset);
   }
-  private static readonly Lazy<nint> _LastUseTimeStampOffset = new(() => Schema.GetOffset(0xE5F7189104BF376E), LazyThreadSafetyMode.None);
+  private static readonly nint _LastUseTimeStampOffset = Schema.GetOffset(0xE5F7189104BF376E);
 
   public GameTime_t LastUseTimeStamp {
-    get => new GameTime_tImpl(_Handle + _LastUseTimeStampOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastUseTimeStampOffset);
   }
-  private static readonly Lazy<nint> _TimeLastUsedWindowOffset = new(() => Schema.GetOffset(0xE5F7189165762AEB), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeLastUsedWindowOffset = Schema.GetOffset(0xE5F7189165762AEB);
 
   public GameTime_t TimeLastUsedWindow {
-    get => new GameTime_tImpl(_Handle + _TimeLastUsedWindowOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeLastUsedWindowOffset);
   }
 
 

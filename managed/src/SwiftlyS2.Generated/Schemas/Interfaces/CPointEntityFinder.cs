@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPointEntityFinder : CBaseEntity, ISchemaClass<CPointEntityFinder> {
 
   static CPointEntityFinder ISchemaClass<CPointEntityFinder>.From(nint handle) => new CPointEntityFinderImpl(handle);
-  static int ISchemaClass<CPointEntityFinder>.Size => 2088;
+  static int ISchemaClass<CPointEntityFinder>.Size => 1344;
   static string? ISchemaClass<CPointEntityFinder>.ClassName => "point_entity_finder";
 
   

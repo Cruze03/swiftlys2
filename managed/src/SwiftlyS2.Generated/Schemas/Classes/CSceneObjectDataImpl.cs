@@ -17,35 +17,35 @@ internal partial class CSceneObjectDataImpl : SchemaClass, CSceneObjectData {
   public CSceneObjectDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinBoundsOffset = new(() => Schema.GetOffset(0x628AC6A9114799FE), LazyThreadSafetyMode.None);
+  private static readonly nint _MinBoundsOffset = Schema.GetOffset(0x628AC6A9114799FE);
 
   public ref Vector MinBounds {
-    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset);
   }
-  private static readonly Lazy<nint> _MaxBoundsOffset = new(() => Schema.GetOffset(0x628AC6A9C0B4CE60), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxBoundsOffset = Schema.GetOffset(0x628AC6A9C0B4CE60);
 
   public ref Vector MaxBounds {
-    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset);
   }
-  private static readonly Lazy<nint> _DrawCallsOffset = new(() => Schema.GetOffset(0x628AC6A9CA953770), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawCallsOffset = Schema.GetOffset(0x628AC6A9CA953770);
 
   public ref CUtlLeanVector<CMaterialDrawDescriptor, int> DrawCalls {
-    get => ref _Handle.AsRef<CUtlLeanVector<CMaterialDrawDescriptor, int>>(_DrawCallsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CMaterialDrawDescriptor, int>>(_DrawCallsOffset);
   }
-  private static readonly Lazy<nint> _DrawBoundsOffset = new(() => Schema.GetOffset(0x628AC6A96CBBD6CE), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawBoundsOffset = Schema.GetOffset(0x628AC6A96CBBD6CE);
 
   public ref CUtlLeanVector<AABB_t, int> DrawBounds {
-    get => ref _Handle.AsRef<CUtlLeanVector<AABB_t, int>>(_DrawBoundsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<AABB_t, int>>(_DrawBoundsOffset);
   }
-  private static readonly Lazy<nint> _MeshletsOffset = new(() => Schema.GetOffset(0x628AC6A928865C36), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshletsOffset = Schema.GetOffset(0x628AC6A928865C36);
 
   public ref CUtlLeanVector<CMeshletDescriptor, int> Meshlets {
-    get => ref _Handle.AsRef<CUtlLeanVector<CMeshletDescriptor, int>>(_MeshletsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CMeshletDescriptor, int>>(_MeshletsOffset);
   }
-  private static readonly Lazy<nint> _TintColorOffset = new(() => Schema.GetOffset(0x628AC6A950AFF21F), LazyThreadSafetyMode.None);
+  private static readonly nint _TintColorOffset = Schema.GetOffset(0x628AC6A950AFF21F);
 
   public ref Vector4D TintColor {
-    get => ref _Handle.AsRef<Vector4D>(_TintColorOffset.Value);
+    get => ref _Handle.AsRef<Vector4D>(_TintColorOffset);
   }
 
 

@@ -17,20 +17,20 @@ internal partial class CNmIDComparisonNode__CDefinitionImpl : CNmBoolValueNode__
   public CNmIDComparisonNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0xE0D928B595E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0xE0D928B595E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ComparisonOffset = new(() => Schema.GetOffset(0xE0D928B5897F8DE4), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparisonOffset = Schema.GetOffset(0xE0D928B5897F8DE4);
 
   public ref CNmIDComparisonNode__Comparison_t Comparison {
-    get => ref _Handle.AsRef<CNmIDComparisonNode__Comparison_t>(_ComparisonOffset.Value);
+    get => ref _Handle.AsRef<CNmIDComparisonNode__Comparison_t>(_ComparisonOffset);
   }
-  private static readonly Lazy<nint> _ComparisionIDsOffset = new(() => Schema.GetOffset(0xE0D928B5E68D53FD), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparisionIDsOffset = Schema.GetOffset(0xE0D928B5E68D53FD);
 
   public SchemaUntypedField ComparisionIDs {
-    get => new SchemaUntypedField(_Handle + _ComparisionIDsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ComparisionIDsOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class SkeletonAnimCapture_t__Camera_tImpl : SchemaClass, Skelet
   public SkeletonAnimCapture_t__Camera_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TmCameraOffset = new(() => Schema.GetOffset(0xEBD053249D7ED559), LazyThreadSafetyMode.None);
+  private static readonly nint _TmCameraOffset = Schema.GetOffset(0xEBD053249D7ED559);
 
   public ref CTransform TmCamera {
-    get => ref _Handle.AsRef<CTransform>(_TmCameraOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TmCameraOffset);
   }
-  private static readonly Lazy<nint> _TimeOffset = new(() => Schema.GetOffset(0xEBD05324C957229E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffset = Schema.GetOffset(0xEBD05324C957229E);
 
   public ref float Time {
-    get => ref _Handle.AsRef<float>(_TimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffset);
   }
 
 

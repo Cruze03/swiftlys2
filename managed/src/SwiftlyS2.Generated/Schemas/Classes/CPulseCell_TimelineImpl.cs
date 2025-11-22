@@ -17,25 +17,25 @@ internal partial class CPulseCell_TimelineImpl : CPulseCell_BaseYieldingInflowIm
   public CPulseCell_TimelineImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimelineEventsOffset = new(() => Schema.GetOffset(0xF1185F93C91CDDC3), LazyThreadSafetyMode.None);
+  private static readonly nint _TimelineEventsOffset = Schema.GetOffset(0xF1185F93C91CDDC3);
 
   public ref CUtlVector<CPulseCell_Timeline__TimelineEvent_t> TimelineEvents {
-    get => ref _Handle.AsRef<CUtlVector<CPulseCell_Timeline__TimelineEvent_t>>(_TimelineEventsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CPulseCell_Timeline__TimelineEvent_t>>(_TimelineEventsOffset);
   }
-  private static readonly Lazy<nint> _WaitForChildOutflowsOffset = new(() => Schema.GetOffset(0xF1185F933F8E29C6), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitForChildOutflowsOffset = Schema.GetOffset(0xF1185F933F8E29C6);
 
   public ref bool WaitForChildOutflows {
-    get => ref _Handle.AsRef<bool>(_WaitForChildOutflowsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitForChildOutflowsOffset);
   }
-  private static readonly Lazy<nint> _OnFinishedOffset = new(() => Schema.GetOffset(0xF1185F938D903E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFinishedOffset = Schema.GetOffset(0xF1185F938D903E5E);
 
   public CPulse_ResumePoint OnFinished {
-    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0xF1185F93F02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0xF1185F93F02162DB);
 
   public CPulse_ResumePoint OnCanceled {
-    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset);
   }
 
 

@@ -29,20 +29,20 @@ internal partial class RenderHairStrandInfo_tImpl : SchemaClass, RenderHairStran
   public ISchemaFixedArray<ushort> PackedBaseUv {
     get => new SchemaFixedArray<ushort>(_Handle, 0x9037AEC6D5457D8B, 2, 2, 2);
   }
-  private static readonly Lazy<nint> _PackedSurfaceNormalOsOffset = new(() => Schema.GetOffset(0x9037AEC605444631), LazyThreadSafetyMode.None);
+  private static readonly nint _PackedSurfaceNormalOsOffset = Schema.GetOffset(0x9037AEC605444631);
 
   public ref uint PackedSurfaceNormalOs {
-    get => ref _Handle.AsRef<uint>(_PackedSurfaceNormalOsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PackedSurfaceNormalOsOffset);
   }
-  private static readonly Lazy<nint> _PackedSurfaceTangentOsOffset = new(() => Schema.GetOffset(0x9037AEC6FD9896F7), LazyThreadSafetyMode.None);
+  private static readonly nint _PackedSurfaceTangentOsOffset = Schema.GetOffset(0x9037AEC6FD9896F7);
 
   public ref uint PackedSurfaceTangentOs {
-    get => ref _Handle.AsRef<uint>(_PackedSurfaceTangentOsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PackedSurfaceTangentOsOffset);
   }
-  private static readonly Lazy<nint> _DataOffset_SegmentsOffset = new(() => Schema.GetOffset(0x9037AEC6BB31BC1D), LazyThreadSafetyMode.None);
+  private static readonly nint _DataOffset_SegmentsOffset = Schema.GetOffset(0x9037AEC6BB31BC1D);
 
   public ref uint DataOffset_Segments {
-    get => ref _Handle.AsRef<uint>(_DataOffset_SegmentsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_DataOffset_SegmentsOffset);
   }
 
 

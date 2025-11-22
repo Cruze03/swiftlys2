@@ -17,20 +17,20 @@ internal partial class VMixEnvelopeDesc_tImpl : SchemaClass, VMixEnvelopeDesc_t 
   public VMixEnvelopeDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttackTimeMSOffset = new(() => Schema.GetOffset(0xEF93602BD4A28216), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTimeMSOffset = Schema.GetOffset(0xEF93602BD4A28216);
 
   public ref float AttackTimeMS {
-    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset);
   }
-  private static readonly Lazy<nint> _HoldTimeMSOffset = new(() => Schema.GetOffset(0xEF93602B028BA44F), LazyThreadSafetyMode.None);
+  private static readonly nint _HoldTimeMSOffset = Schema.GetOffset(0xEF93602B028BA44F);
 
   public ref float HoldTimeMS {
-    get => ref _Handle.AsRef<float>(_HoldTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_HoldTimeMSOffset);
   }
-  private static readonly Lazy<nint> _ReleaseTimeMSOffset = new(() => Schema.GetOffset(0xEF93602BEBB62791), LazyThreadSafetyMode.None);
+  private static readonly nint _ReleaseTimeMSOffset = Schema.GetOffset(0xEF93602BEBB62791);
 
   public ref float ReleaseTimeMS {
-    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset);
   }
 
 

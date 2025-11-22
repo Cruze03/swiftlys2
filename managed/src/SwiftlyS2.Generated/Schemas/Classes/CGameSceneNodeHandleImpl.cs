@@ -17,15 +17,15 @@ internal partial class CGameSceneNodeHandleImpl : SchemaClass, CGameSceneNodeHan
   public CGameSceneNodeHandleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0x9A961FAF6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0x9A961FAF6D89572);
 
   public ref CHandle<CEntityInstance> Owner {
-    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x9A961FA4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x9A961FA4D8F5786);
 
   public ref CUtlStringToken Name {
-    get => ref _Handle.AsRef<CUtlStringToken>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_NameOffset);
   }
 
   public void OwnerUpdated() {

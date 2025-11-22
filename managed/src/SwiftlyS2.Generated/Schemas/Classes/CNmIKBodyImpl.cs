@@ -17,25 +17,25 @@ internal partial class CNmIKBodyImpl : SchemaClass, CNmIKBody {
   public CNmIKBodyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MassOffset = new(() => Schema.GetOffset(0x2162051FCD83D263), LazyThreadSafetyMode.None);
+  private static readonly nint _MassOffset = Schema.GetOffset(0x2162051FCD83D263);
 
   public ref float Mass {
-    get => ref _Handle.AsRef<float>(_MassOffset.Value);
+    get => ref _Handle.AsRef<float>(_MassOffset);
   }
-  private static readonly Lazy<nint> _LocalMassCenterOffset = new(() => Schema.GetOffset(0x2162051FAFDB4EDD), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalMassCenterOffset = Schema.GetOffset(0x2162051FAFDB4EDD);
 
   public ref Vector LocalMassCenter {
-    get => ref _Handle.AsRef<Vector>(_LocalMassCenterOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LocalMassCenterOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x2162051F0A9FA917), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x2162051F0A9FA917);
 
   public ref Vector Radius {
-    get => ref _Handle.AsRef<Vector>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _ResistanceOffset = new(() => Schema.GetOffset(0x2162051FE15D484E), LazyThreadSafetyMode.None);
+  private static readonly nint _ResistanceOffset = Schema.GetOffset(0x2162051FE15D484E);
 
   public ref float Resistance {
-    get => ref _Handle.AsRef<float>(_ResistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_ResistanceOffset);
   }
 
 

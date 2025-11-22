@@ -17,25 +17,25 @@ internal partial class FeTwistConstraint_tImpl : SchemaClass, FeTwistConstraint_
   public FeTwistConstraint_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOrientOffset = new(() => Schema.GetOffset(0x4BD7707B59026ED8), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOrientOffset = Schema.GetOffset(0x4BD7707B59026ED8);
 
   public ref ushort NodeOrient {
-    get => ref _Handle.AsRef<ushort>(_NodeOrientOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOrientOffset);
   }
-  private static readonly Lazy<nint> _NodeEndOffset = new(() => Schema.GetOffset(0x4BD7707B8A00317E), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeEndOffset = Schema.GetOffset(0x4BD7707B8A00317E);
 
   public ref ushort NodeEnd {
-    get => ref _Handle.AsRef<ushort>(_NodeEndOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeEndOffset);
   }
-  private static readonly Lazy<nint> _TwistRelaxOffset = new(() => Schema.GetOffset(0x4BD7707B9E4510FC), LazyThreadSafetyMode.None);
+  private static readonly nint _TwistRelaxOffset = Schema.GetOffset(0x4BD7707B9E4510FC);
 
   public ref float TwistRelax {
-    get => ref _Handle.AsRef<float>(_TwistRelaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_TwistRelaxOffset);
   }
-  private static readonly Lazy<nint> _SwingRelaxOffset = new(() => Schema.GetOffset(0x4BD7707BE4722697), LazyThreadSafetyMode.None);
+  private static readonly nint _SwingRelaxOffset = Schema.GetOffset(0x4BD7707BE4722697);
 
   public ref float SwingRelax {
-    get => ref _Handle.AsRef<float>(_SwingRelaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_SwingRelaxOffset);
   }
 
 

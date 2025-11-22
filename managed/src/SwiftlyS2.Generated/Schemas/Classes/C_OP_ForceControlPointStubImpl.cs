@@ -17,10 +17,10 @@ internal partial class C_OP_ForceControlPointStubImpl : CParticleFunctionPreEmis
   public C_OP_ForceControlPointStubImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0xE0FD255D5EDF730), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0xE0FD255D5EDF730);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
 
 

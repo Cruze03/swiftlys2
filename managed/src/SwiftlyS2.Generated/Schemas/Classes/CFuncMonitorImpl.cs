@@ -17,58 +17,58 @@ internal partial class CFuncMonitorImpl : CFuncBrushImpl, CFuncMonitor {
   public CFuncMonitorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetCameraOffset = new(() => Schema.GetOffset(0x17F9564ADE5A6027), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetCameraOffset = Schema.GetOffset(0x17F9564ADE5A6027);
 
   public string TargetCamera {
     get {
-      var ptr = _Handle.Read<nint>(_TargetCameraOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetCameraOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetCameraOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetCameraOffset, value);
   } 
-  private static readonly Lazy<nint> _ResolutionEnumOffset = new(() => Schema.GetOffset(0x17F9564A7A397BAA), LazyThreadSafetyMode.None);
+  private static readonly nint _ResolutionEnumOffset = Schema.GetOffset(0x17F9564A7A397BAA);
 
   public ref int ResolutionEnum {
-    get => ref _Handle.AsRef<int>(_ResolutionEnumOffset.Value);
+    get => ref _Handle.AsRef<int>(_ResolutionEnumOffset);
   }
-  private static readonly Lazy<nint> _RenderShadowsOffset = new(() => Schema.GetOffset(0x17F9564AB664410E), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderShadowsOffset = Schema.GetOffset(0x17F9564AB664410E);
 
   public ref bool RenderShadows {
-    get => ref _Handle.AsRef<bool>(_RenderShadowsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RenderShadowsOffset);
   }
-  private static readonly Lazy<nint> _UseUniqueColorTargetOffset = new(() => Schema.GetOffset(0x17F9564A53B28E5B), LazyThreadSafetyMode.None);
+  private static readonly nint _UseUniqueColorTargetOffset = Schema.GetOffset(0x17F9564A53B28E5B);
 
   public ref bool UseUniqueColorTarget {
-    get => ref _Handle.AsRef<bool>(_UseUniqueColorTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseUniqueColorTargetOffset);
   }
-  private static readonly Lazy<nint> _BrushModelNameOffset = new(() => Schema.GetOffset(0x17F9564A85323213), LazyThreadSafetyMode.None);
+  private static readonly nint _BrushModelNameOffset = Schema.GetOffset(0x17F9564A85323213);
 
   public string BrushModelName {
     get {
-      var ptr = _Handle.Read<nint>(_BrushModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BrushModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BrushModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BrushModelNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetCamera1Offset = new(() => Schema.GetOffset(0x17F9564ACC7D5969), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetCamera1Offset = Schema.GetOffset(0x17F9564ACC7D5969);
 
   public ref CHandle<CBaseEntity> TargetCamera1 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetCamera1Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetCamera1Offset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x17F9564A6154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x17F9564A6154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _Draw3DSkyboxOffset = new(() => Schema.GetOffset(0x17F9564AA37E21FE), LazyThreadSafetyMode.None);
+  private static readonly nint _Draw3DSkyboxOffset = Schema.GetOffset(0x17F9564AA37E21FE);
 
   public ref bool Draw3DSkybox {
-    get => ref _Handle.AsRef<bool>(_Draw3DSkyboxOffset.Value);
+    get => ref _Handle.AsRef<bool>(_Draw3DSkyboxOffset);
   }
-  private static readonly Lazy<nint> _StartEnabledOffset = new(() => Schema.GetOffset(0x17F9564A500D5C24), LazyThreadSafetyMode.None);
+  private static readonly nint _StartEnabledOffset = Schema.GetOffset(0x17F9564A500D5C24);
 
   public ref bool StartEnabled {
-    get => ref _Handle.AsRef<bool>(_StartEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartEnabledOffset);
   }
 
   public void TargetCameraUpdated() {

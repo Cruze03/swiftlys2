@@ -17,55 +17,55 @@ internal partial class CChoiceUpdateNodeImpl : CAnimUpdateNodeBaseImpl, CChoiceU
   public CChoiceUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildrenOffset = new(() => Schema.GetOffset(0x1CF0A6AC7415FA72), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildrenOffset = Schema.GetOffset(0x1CF0A6AC7415FA72);
 
   public ref CUtlVector<CAnimUpdateNodeRef> Children {
-    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset);
   }
-  private static readonly Lazy<nint> _WeightsOffset = new(() => Schema.GetOffset(0x1CF0A6AC77B2F91E), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightsOffset = Schema.GetOffset(0x1CF0A6AC77B2F91E);
 
   public ref CUtlVector<float> Weights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset);
   }
-  private static readonly Lazy<nint> _BlendTimesOffset = new(() => Schema.GetOffset(0x1CF0A6AC12AD0366), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimesOffset = Schema.GetOffset(0x1CF0A6AC12AD0366);
 
   public ref CUtlVector<float> BlendTimes {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_BlendTimesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_BlendTimesOffset);
   }
-  private static readonly Lazy<nint> _ChoiceMethodOffset = new(() => Schema.GetOffset(0x1CF0A6AC4E106F5B), LazyThreadSafetyMode.None);
+  private static readonly nint _ChoiceMethodOffset = Schema.GetOffset(0x1CF0A6AC4E106F5B);
 
   public ref ChoiceMethod ChoiceMethod {
-    get => ref _Handle.AsRef<ChoiceMethod>(_ChoiceMethodOffset.Value);
+    get => ref _Handle.AsRef<ChoiceMethod>(_ChoiceMethodOffset);
   }
-  private static readonly Lazy<nint> _ChoiceChangeMethodOffset = new(() => Schema.GetOffset(0x1CF0A6AC265F1E7F), LazyThreadSafetyMode.None);
+  private static readonly nint _ChoiceChangeMethodOffset = Schema.GetOffset(0x1CF0A6AC265F1E7F);
 
   public ref ChoiceChangeMethod ChoiceChangeMethod {
-    get => ref _Handle.AsRef<ChoiceChangeMethod>(_ChoiceChangeMethodOffset.Value);
+    get => ref _Handle.AsRef<ChoiceChangeMethod>(_ChoiceChangeMethodOffset);
   }
-  private static readonly Lazy<nint> _BlendMethodOffset = new(() => Schema.GetOffset(0x1CF0A6ACFF929529), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendMethodOffset = Schema.GetOffset(0x1CF0A6ACFF929529);
 
   public ref ChoiceBlendMethod BlendMethod {
-    get => ref _Handle.AsRef<ChoiceBlendMethod>(_BlendMethodOffset.Value);
+    get => ref _Handle.AsRef<ChoiceBlendMethod>(_BlendMethodOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeOffset = new(() => Schema.GetOffset(0x1CF0A6AC73D026B1), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeOffset = Schema.GetOffset(0x1CF0A6AC73D026B1);
 
   public ref float BlendTime {
-    get => ref _Handle.AsRef<float>(_BlendTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeOffset);
   }
-  private static readonly Lazy<nint> _CrossFadeOffset = new(() => Schema.GetOffset(0x1CF0A6AC64BEC665), LazyThreadSafetyMode.None);
+  private static readonly nint _CrossFadeOffset = Schema.GetOffset(0x1CF0A6AC64BEC665);
 
   public ref bool CrossFade {
-    get => ref _Handle.AsRef<bool>(_CrossFadeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CrossFadeOffset);
   }
-  private static readonly Lazy<nint> _ResetChosenOffset = new(() => Schema.GetOffset(0x1CF0A6AC2FFC43FA), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChosenOffset = Schema.GetOffset(0x1CF0A6AC2FFC43FA);
 
   public ref bool ResetChosen {
-    get => ref _Handle.AsRef<bool>(_ResetChosenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChosenOffset);
   }
-  private static readonly Lazy<nint> _DontResetSameSelectionOffset = new(() => Schema.GetOffset(0x1CF0A6ACB9EC0773), LazyThreadSafetyMode.None);
+  private static readonly nint _DontResetSameSelectionOffset = Schema.GetOffset(0x1CF0A6ACB9EC0773);
 
   public ref bool DontResetSameSelection {
-    get => ref _Handle.AsRef<bool>(_DontResetSameSelectionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DontResetSameSelectionOffset);
   }
 
 

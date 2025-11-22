@@ -17,35 +17,35 @@ internal partial class CAudioMorphDataImpl : SchemaClass, CAudioMorphData {
   public CAudioMorphDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimesOffset = new(() => Schema.GetOffset(0xA13726EA86A55CD5), LazyThreadSafetyMode.None);
+  private static readonly nint _TimesOffset = Schema.GetOffset(0xA13726EA86A55CD5);
 
   public ref CUtlVector<float> Times {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_TimesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_TimesOffset);
   }
-  private static readonly Lazy<nint> _NameHashCodesOffset = new(() => Schema.GetOffset(0xA13726EAC13918BC), LazyThreadSafetyMode.None);
+  private static readonly nint _NameHashCodesOffset = Schema.GetOffset(0xA13726EAC13918BC);
 
   public ref CUtlVector<uint> NameHashCodes {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_NameHashCodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_NameHashCodesOffset);
   }
-  private static readonly Lazy<nint> _NameStringsOffset = new(() => Schema.GetOffset(0xA13726EA23776A0C), LazyThreadSafetyMode.None);
+  private static readonly nint _NameStringsOffset = Schema.GetOffset(0xA13726EA23776A0C);
 
   public ref CUtlVector<CUtlString> NameStrings {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_NameStringsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_NameStringsOffset);
   }
-  private static readonly Lazy<nint> _SamplesOffset = new(() => Schema.GetOffset(0xA13726EA364CA9DC), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplesOffset = Schema.GetOffset(0xA13726EA364CA9DC);
 
   public ref CUtlVector<CUtlVector<float>> Samples {
-    get => ref _Handle.AsRef<CUtlVector<CUtlVector<float>>>(_SamplesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlVector<float>>>(_SamplesOffset);
   }
-  private static readonly Lazy<nint> _EaseInOffset = new(() => Schema.GetOffset(0xA13726EA4514C026), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseInOffset = Schema.GetOffset(0xA13726EA4514C026);
 
   public ref float EaseIn {
-    get => ref _Handle.AsRef<float>(_EaseInOffset.Value);
+    get => ref _Handle.AsRef<float>(_EaseInOffset);
   }
-  private static readonly Lazy<nint> _EaseOutOffset = new(() => Schema.GetOffset(0xA13726EA46B49C07), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseOutOffset = Schema.GetOffset(0xA13726EA46B49C07);
 
   public ref float EaseOut {
-    get => ref _Handle.AsRef<float>(_EaseOutOffset.Value);
+    get => ref _Handle.AsRef<float>(_EaseOutOffset);
   }
 
 

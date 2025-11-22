@@ -17,30 +17,30 @@ internal partial class C_OP_SpringToVectorConstraintImpl : CParticleFunctionCons
   public C_OP_SpringToVectorConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RestLengthOffset = new(() => Schema.GetOffset(0xF442244193AC4079), LazyThreadSafetyMode.None);
+  private static readonly nint _RestLengthOffset = Schema.GetOffset(0xF442244193AC4079);
 
   public CPerParticleFloatInput RestLength {
-    get => new CPerParticleFloatInputImpl(_Handle + _RestLengthOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RestLengthOffset);
   }
-  private static readonly Lazy<nint> _MinDistanceOffset = new(() => Schema.GetOffset(0xF442244192BCAD06), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistanceOffset = Schema.GetOffset(0xF442244192BCAD06);
 
   public CPerParticleFloatInput MinDistance {
-    get => new CPerParticleFloatInputImpl(_Handle + _MinDistanceOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MinDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0xF442244198893360), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0xF442244198893360);
 
   public CPerParticleFloatInput MaxDistance {
-    get => new CPerParticleFloatInputImpl(_Handle + _MaxDistanceOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _RestingLengthOffset = new(() => Schema.GetOffset(0xF4422441BB988EAF), LazyThreadSafetyMode.None);
+  private static readonly nint _RestingLengthOffset = Schema.GetOffset(0xF4422441BB988EAF);
 
   public CPerParticleFloatInput RestingLength {
-    get => new CPerParticleFloatInputImpl(_Handle + _RestingLengthOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RestingLengthOffset);
   }
-  private static readonly Lazy<nint> _AnchorVectorOffset = new(() => Schema.GetOffset(0xF442244180D613F3), LazyThreadSafetyMode.None);
+  private static readonly nint _AnchorVectorOffset = Schema.GetOffset(0xF442244180D613F3);
 
   public CPerParticleVecInput AnchorVector {
-    get => new CPerParticleVecInputImpl(_Handle + _AnchorVectorOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _AnchorVectorOffset);
   }
 
 

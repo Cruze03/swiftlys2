@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNavVolumeSphere : CNavVolume, ISchemaClass<CNavVolumeSphere> {
 
   static CNavVolumeSphere ISchemaClass<CNavVolumeSphere>.From(nint handle) => new CNavVolumeSphereImpl(handle);
-  static int ISchemaClass<CNavVolumeSphere>.Size => 104;
+  static int ISchemaClass<CNavVolumeSphere>.Size => 136;
   static string? ISchemaClass<CNavVolumeSphere>.ClassName => null;
 
   

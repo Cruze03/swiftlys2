@@ -17,15 +17,15 @@ internal partial class CSequenceUpdateNodeBaseImpl : CLeafUpdateNodeImpl, CSeque
   public CSequenceUpdateNodeBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlaybackSpeedOffset = new(() => Schema.GetOffset(0x6FCA4DDB1AFA7387), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackSpeedOffset = Schema.GetOffset(0x6FCA4DDB1AFA7387);
 
   public ref float PlaybackSpeed {
-    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset);
   }
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0x6FCA4DDBC668A4CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0x6FCA4DDBC668A4CB);
 
   public ref bool Loop {
-    get => ref _Handle.AsRef<bool>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopOffset);
   }
 
 

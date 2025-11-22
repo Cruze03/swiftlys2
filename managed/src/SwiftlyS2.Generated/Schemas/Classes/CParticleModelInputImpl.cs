@@ -17,20 +17,20 @@ internal partial class CParticleModelInputImpl : CParticleInputImpl, CParticleMo
   public CParticleModelInputImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0xC8FF4F3F18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0xC8FF4F3F18853D59);
 
   public ref ParticleModelType_t Type {
-    get => ref _Handle.AsRef<ParticleModelType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleModelType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _NamedValueOffset = new(() => Schema.GetOffset(0xC8FF4F3FE0618727), LazyThreadSafetyMode.None);
+  private static readonly nint _NamedValueOffset = Schema.GetOffset(0xC8FF4F3FE0618727);
 
   public SchemaUntypedField NamedValue {
-    get => new SchemaUntypedField(_Handle + _NamedValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NamedValueOffset);
   }
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0xC8FF4F3F0D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0xC8FF4F3F0D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
 
 

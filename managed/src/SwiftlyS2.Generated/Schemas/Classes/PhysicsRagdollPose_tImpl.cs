@@ -17,20 +17,20 @@ internal partial class PhysicsRagdollPose_tImpl : SchemaClass, PhysicsRagdollPos
   public PhysicsRagdollPose_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformsOffset = new(() => Schema.GetOffset(0x54A98BF4852CD38), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformsOffset = Schema.GetOffset(0x54A98BF4852CD38);
 
   public ref CUtlVector<CTransform> Transforms {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_TransformsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_TransformsOffset);
   }
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0x54A98BFF6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0x54A98BFF6D89572);
 
   public ref CHandle<CBaseEntity> Owner {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _SetFromDebugHistoryOffset = new(() => Schema.GetOffset(0x54A98BF136013F6), LazyThreadSafetyMode.None);
+  private static readonly nint _SetFromDebugHistoryOffset = Schema.GetOffset(0x54A98BF136013F6);
 
   public ref bool SetFromDebugHistory {
-    get => ref _Handle.AsRef<bool>(_SetFromDebugHistoryOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetFromDebugHistoryOffset);
   }
 
   public void TransformsUpdated() {

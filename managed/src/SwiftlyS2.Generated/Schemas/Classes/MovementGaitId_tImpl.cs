@@ -17,10 +17,10 @@ internal partial class MovementGaitId_tImpl : SchemaClass, MovementGaitId_t {
   public MovementGaitId_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0xD64B37F7C4A0BD8F), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0xD64B37F7C4A0BD8F);
 
   public ref CGlobalSymbol Id {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_IdOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_IdOffset);
   }
 
 

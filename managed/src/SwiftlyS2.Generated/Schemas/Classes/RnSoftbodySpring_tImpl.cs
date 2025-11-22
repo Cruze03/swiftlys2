@@ -20,10 +20,10 @@ internal partial class RnSoftbodySpring_tImpl : SchemaClass, RnSoftbodySpring_t 
   public ISchemaFixedArray<ushort> Particle {
     get => new SchemaFixedArray<ushort>(_Handle, 0xAB4E9C9B863A8E83, 2, 2, 2);
   }
-  private static readonly Lazy<nint> _LengthOffset = new(() => Schema.GetOffset(0xAB4E9C9BFF9776DF), LazyThreadSafetyMode.None);
+  private static readonly nint _LengthOffset = Schema.GetOffset(0xAB4E9C9BFF9776DF);
 
   public ref float Length {
-    get => ref _Handle.AsRef<float>(_LengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LengthOffset);
   }
 
 

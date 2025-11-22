@@ -17,15 +17,15 @@ internal partial class CPulseCell_PickBestOutflowSelectorImpl : CPulseCell_BaseF
   public CPulseCell_PickBestOutflowSelectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CheckTypeOffset = new(() => Schema.GetOffset(0x7239DF04A94C6E6B), LazyThreadSafetyMode.None);
+  private static readonly nint _CheckTypeOffset = Schema.GetOffset(0x7239DF04A94C6E6B);
 
   public ref PulseBestOutflowRules_t CheckType {
-    get => ref _Handle.AsRef<PulseBestOutflowRules_t>(_CheckTypeOffset.Value);
+    get => ref _Handle.AsRef<PulseBestOutflowRules_t>(_CheckTypeOffset);
   }
-  private static readonly Lazy<nint> _OutflowListOffset = new(() => Schema.GetOffset(0x7239DF041461E743), LazyThreadSafetyMode.None);
+  private static readonly nint _OutflowListOffset = Schema.GetOffset(0x7239DF041461E743);
 
   public PulseSelectorOutflowList_t OutflowList {
-    get => new PulseSelectorOutflowList_tImpl(_Handle + _OutflowListOffset.Value);
+    get => new PulseSelectorOutflowList_tImpl(_Handle + _OutflowListOffset);
   }
 
 

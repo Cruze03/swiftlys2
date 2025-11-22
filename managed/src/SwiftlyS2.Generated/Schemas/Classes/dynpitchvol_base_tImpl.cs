@@ -17,130 +17,130 @@ internal partial class dynpitchvol_base_tImpl : SchemaClass, dynpitchvol_base_t 
   public dynpitchvol_base_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PresetOffset = new(() => Schema.GetOffset(0x43D191DAF510291E), LazyThreadSafetyMode.None);
+  private static readonly nint _PresetOffset = Schema.GetOffset(0x43D191DAF510291E);
 
   public ref int Preset {
-    get => ref _Handle.AsRef<int>(_PresetOffset.Value);
+    get => ref _Handle.AsRef<int>(_PresetOffset);
   }
-  private static readonly Lazy<nint> _PitchrunOffset = new(() => Schema.GetOffset(0x43D191DA742593BE), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchrunOffset = Schema.GetOffset(0x43D191DA742593BE);
 
   public ref int Pitchrun {
-    get => ref _Handle.AsRef<int>(_PitchrunOffset.Value);
+    get => ref _Handle.AsRef<int>(_PitchrunOffset);
   }
-  private static readonly Lazy<nint> _PitchstartOffset = new(() => Schema.GetOffset(0x43D191DA4CEFD303), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchstartOffset = Schema.GetOffset(0x43D191DA4CEFD303);
 
   public ref int Pitchstart {
-    get => ref _Handle.AsRef<int>(_PitchstartOffset.Value);
+    get => ref _Handle.AsRef<int>(_PitchstartOffset);
   }
-  private static readonly Lazy<nint> _SpinupOffset = new(() => Schema.GetOffset(0x43D191DAD188EC9C), LazyThreadSafetyMode.None);
+  private static readonly nint _SpinupOffset = Schema.GetOffset(0x43D191DAD188EC9C);
 
   public ref int Spinup {
-    get => ref _Handle.AsRef<int>(_SpinupOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpinupOffset);
   }
-  private static readonly Lazy<nint> _SpindownOffset = new(() => Schema.GetOffset(0x43D191DA2231BF89), LazyThreadSafetyMode.None);
+  private static readonly nint _SpindownOffset = Schema.GetOffset(0x43D191DA2231BF89);
 
   public ref int Spindown {
-    get => ref _Handle.AsRef<int>(_SpindownOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpindownOffset);
   }
-  private static readonly Lazy<nint> _VolrunOffset = new(() => Schema.GetOffset(0x43D191DA3F973C1B), LazyThreadSafetyMode.None);
+  private static readonly nint _VolrunOffset = Schema.GetOffset(0x43D191DA3F973C1B);
 
   public ref int Volrun {
-    get => ref _Handle.AsRef<int>(_VolrunOffset.Value);
+    get => ref _Handle.AsRef<int>(_VolrunOffset);
   }
-  private static readonly Lazy<nint> _VolstartOffset = new(() => Schema.GetOffset(0x43D191DAF69D02A2), LazyThreadSafetyMode.None);
+  private static readonly nint _VolstartOffset = Schema.GetOffset(0x43D191DAF69D02A2);
 
   public ref int Volstart {
-    get => ref _Handle.AsRef<int>(_VolstartOffset.Value);
+    get => ref _Handle.AsRef<int>(_VolstartOffset);
   }
-  private static readonly Lazy<nint> _FadeinOffset = new(() => Schema.GetOffset(0x43D191DAAE01FB20), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeinOffset = Schema.GetOffset(0x43D191DAAE01FB20);
 
   public ref int Fadein {
-    get => ref _Handle.AsRef<int>(_FadeinOffset.Value);
+    get => ref _Handle.AsRef<int>(_FadeinOffset);
   }
-  private static readonly Lazy<nint> _FadeoutOffset = new(() => Schema.GetOffset(0x43D191DA20407665), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeoutOffset = Schema.GetOffset(0x43D191DA20407665);
 
   public ref int Fadeout {
-    get => ref _Handle.AsRef<int>(_FadeoutOffset.Value);
+    get => ref _Handle.AsRef<int>(_FadeoutOffset);
   }
-  private static readonly Lazy<nint> _LfotypeOffset = new(() => Schema.GetOffset(0x43D191DAF7F77640), LazyThreadSafetyMode.None);
+  private static readonly nint _LfotypeOffset = Schema.GetOffset(0x43D191DAF7F77640);
 
   public ref int Lfotype {
-    get => ref _Handle.AsRef<int>(_LfotypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_LfotypeOffset);
   }
-  private static readonly Lazy<nint> _LforateOffset = new(() => Schema.GetOffset(0x43D191DA51C3D86A), LazyThreadSafetyMode.None);
+  private static readonly nint _LforateOffset = Schema.GetOffset(0x43D191DA51C3D86A);
 
   public ref int Lforate {
-    get => ref _Handle.AsRef<int>(_LforateOffset.Value);
+    get => ref _Handle.AsRef<int>(_LforateOffset);
   }
-  private static readonly Lazy<nint> _LfomodpitchOffset = new(() => Schema.GetOffset(0x43D191DAA31EEA52), LazyThreadSafetyMode.None);
+  private static readonly nint _LfomodpitchOffset = Schema.GetOffset(0x43D191DAA31EEA52);
 
   public ref int Lfomodpitch {
-    get => ref _Handle.AsRef<int>(_LfomodpitchOffset.Value);
+    get => ref _Handle.AsRef<int>(_LfomodpitchOffset);
   }
-  private static readonly Lazy<nint> _LfomodvolOffset = new(() => Schema.GetOffset(0x43D191DA23BDFF5D), LazyThreadSafetyMode.None);
+  private static readonly nint _LfomodvolOffset = Schema.GetOffset(0x43D191DA23BDFF5D);
 
   public ref int Lfomodvol {
-    get => ref _Handle.AsRef<int>(_LfomodvolOffset.Value);
+    get => ref _Handle.AsRef<int>(_LfomodvolOffset);
   }
-  private static readonly Lazy<nint> _CspinupOffset = new(() => Schema.GetOffset(0x43D191DAB6785957), LazyThreadSafetyMode.None);
+  private static readonly nint _CspinupOffset = Schema.GetOffset(0x43D191DAB6785957);
 
   public ref int Cspinup {
-    get => ref _Handle.AsRef<int>(_CspinupOffset.Value);
+    get => ref _Handle.AsRef<int>(_CspinupOffset);
   }
-  private static readonly Lazy<nint> _CspincountOffset = new(() => Schema.GetOffset(0x43D191DAEF206411), LazyThreadSafetyMode.None);
+  private static readonly nint _CspincountOffset = Schema.GetOffset(0x43D191DAEF206411);
 
   public ref int Cspincount {
-    get => ref _Handle.AsRef<int>(_CspincountOffset.Value);
+    get => ref _Handle.AsRef<int>(_CspincountOffset);
   }
-  private static readonly Lazy<nint> _PitchOffset = new(() => Schema.GetOffset(0x43D191DABD324AB1), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchOffset = Schema.GetOffset(0x43D191DABD324AB1);
 
   public ref int Pitch {
-    get => ref _Handle.AsRef<int>(_PitchOffset.Value);
+    get => ref _Handle.AsRef<int>(_PitchOffset);
   }
-  private static readonly Lazy<nint> _SpinupsavOffset = new(() => Schema.GetOffset(0x43D191DA49CF0B06), LazyThreadSafetyMode.None);
+  private static readonly nint _SpinupsavOffset = Schema.GetOffset(0x43D191DA49CF0B06);
 
   public ref int Spinupsav {
-    get => ref _Handle.AsRef<int>(_SpinupsavOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpinupsavOffset);
   }
-  private static readonly Lazy<nint> _SpindownsavOffset = new(() => Schema.GetOffset(0x43D191DA495B8411), LazyThreadSafetyMode.None);
+  private static readonly nint _SpindownsavOffset = Schema.GetOffset(0x43D191DA495B8411);
 
   public ref int Spindownsav {
-    get => ref _Handle.AsRef<int>(_SpindownsavOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpindownsavOffset);
   }
-  private static readonly Lazy<nint> _PitchfracOffset = new(() => Schema.GetOffset(0x43D191DAB47FB19D), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchfracOffset = Schema.GetOffset(0x43D191DAB47FB19D);
 
   public ref int Pitchfrac {
-    get => ref _Handle.AsRef<int>(_PitchfracOffset.Value);
+    get => ref _Handle.AsRef<int>(_PitchfracOffset);
   }
-  private static readonly Lazy<nint> _VolOffset = new(() => Schema.GetOffset(0x43D191DA9821809A), LazyThreadSafetyMode.None);
+  private static readonly nint _VolOffset = Schema.GetOffset(0x43D191DA9821809A);
 
   public ref int Vol {
-    get => ref _Handle.AsRef<int>(_VolOffset.Value);
+    get => ref _Handle.AsRef<int>(_VolOffset);
   }
-  private static readonly Lazy<nint> _FadeinsavOffset = new(() => Schema.GetOffset(0x43D191DAB42E3AEA), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeinsavOffset = Schema.GetOffset(0x43D191DAB42E3AEA);
 
   public ref int Fadeinsav {
-    get => ref _Handle.AsRef<int>(_FadeinsavOffset.Value);
+    get => ref _Handle.AsRef<int>(_FadeinsavOffset);
   }
-  private static readonly Lazy<nint> _FadeoutsavOffset = new(() => Schema.GetOffset(0x43D191DA6D891B1D), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeoutsavOffset = Schema.GetOffset(0x43D191DA6D891B1D);
 
   public ref int Fadeoutsav {
-    get => ref _Handle.AsRef<int>(_FadeoutsavOffset.Value);
+    get => ref _Handle.AsRef<int>(_FadeoutsavOffset);
   }
-  private static readonly Lazy<nint> _VolfracOffset = new(() => Schema.GetOffset(0x43D191DAB7D22B7E), LazyThreadSafetyMode.None);
+  private static readonly nint _VolfracOffset = Schema.GetOffset(0x43D191DAB7D22B7E);
 
   public ref int Volfrac {
-    get => ref _Handle.AsRef<int>(_VolfracOffset.Value);
+    get => ref _Handle.AsRef<int>(_VolfracOffset);
   }
-  private static readonly Lazy<nint> _LfofracOffset = new(() => Schema.GetOffset(0x43D191DAC4C70DD8), LazyThreadSafetyMode.None);
+  private static readonly nint _LfofracOffset = Schema.GetOffset(0x43D191DAC4C70DD8);
 
   public ref int Lfofrac {
-    get => ref _Handle.AsRef<int>(_LfofracOffset.Value);
+    get => ref _Handle.AsRef<int>(_LfofracOffset);
   }
-  private static readonly Lazy<nint> _LfomultOffset = new(() => Schema.GetOffset(0x43D191DAE90F60A6), LazyThreadSafetyMode.None);
+  private static readonly nint _LfomultOffset = Schema.GetOffset(0x43D191DAE90F60A6);
 
   public ref int Lfomult {
-    get => ref _Handle.AsRef<int>(_LfomultOffset.Value);
+    get => ref _Handle.AsRef<int>(_LfomultOffset);
   }
 
 

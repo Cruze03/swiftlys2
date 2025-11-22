@@ -17,45 +17,45 @@ internal partial class CItemImpl : CBaseAnimGraphImpl, CItem {
   public CItemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnPlayerTouchOffset = new(() => Schema.GetOffset(0x20C89FC926AD34F8), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerTouchOffset = Schema.GetOffset(0x20C89FC926AD34F8);
 
   public CEntityIOOutput OnPlayerTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerTouchOffset);
   }
-  private static readonly Lazy<nint> _OnPlayerPickupOffset = new(() => Schema.GetOffset(0x20C89FC9DE81BF25), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerPickupOffset = Schema.GetOffset(0x20C89FC9DE81BF25);
 
   public CEntityIOOutput OnPlayerPickup {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerPickupOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerPickupOffset);
   }
-  private static readonly Lazy<nint> _ActivateWhenAtRestOffset = new(() => Schema.GetOffset(0x20C89FC982B8CCFF), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivateWhenAtRestOffset = Schema.GetOffset(0x20C89FC982B8CCFF);
 
   public ref bool ActivateWhenAtRest {
-    get => ref _Handle.AsRef<bool>(_ActivateWhenAtRestOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActivateWhenAtRestOffset);
   }
-  private static readonly Lazy<nint> _OnCacheInteractionOffset = new(() => Schema.GetOffset(0x20C89FC9FB2A1C2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCacheInteractionOffset = Schema.GetOffset(0x20C89FC9FB2A1C2A);
 
   public CEntityIOOutput OnCacheInteraction {
-    get => new CEntityIOOutputImpl(_Handle + _OnCacheInteractionOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCacheInteractionOffset);
   }
-  private static readonly Lazy<nint> _OnGlovePulledOffset = new(() => Schema.GetOffset(0x20C89FC928CF9923), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGlovePulledOffset = Schema.GetOffset(0x20C89FC928CF9923);
 
   public CEntityIOOutput OnGlovePulled {
-    get => new CEntityIOOutputImpl(_Handle + _OnGlovePulledOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnGlovePulledOffset);
   }
-  private static readonly Lazy<nint> _OriginalSpawnOriginOffset = new(() => Schema.GetOffset(0x20C89FC9B6F410AF), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnOriginOffset = Schema.GetOffset(0x20C89FC9B6F410AF);
 
   public ref Vector OriginalSpawnOrigin {
-    get => ref _Handle.AsRef<Vector>(_OriginalSpawnOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalSpawnOriginOffset);
   }
-  private static readonly Lazy<nint> _OriginalSpawnAnglesOffset = new(() => Schema.GetOffset(0x20C89FC9F7A16BD1), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnAnglesOffset = Schema.GetOffset(0x20C89FC9F7A16BD1);
 
   public ref QAngle OriginalSpawnAngles {
-    get => ref _Handle.AsRef<QAngle>(_OriginalSpawnAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_OriginalSpawnAnglesOffset);
   }
-  private static readonly Lazy<nint> _PhysStartAsleepOffset = new(() => Schema.GetOffset(0x20C89FC94BB7E9FD), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysStartAsleepOffset = Schema.GetOffset(0x20C89FC94BB7E9FD);
 
   public ref bool PhysStartAsleep {
-    get => ref _Handle.AsRef<bool>(_PhysStartAsleepOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PhysStartAsleepOffset);
   }
 
 

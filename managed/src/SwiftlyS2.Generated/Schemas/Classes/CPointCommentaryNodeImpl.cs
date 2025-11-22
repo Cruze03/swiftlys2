@@ -17,183 +17,183 @@ internal partial class CPointCommentaryNodeImpl : CBaseAnimGraphImpl, CPointComm
   public CPointCommentaryNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PreCommandsOffset = new(() => Schema.GetOffset(0x1EE820D5A9BA18C4), LazyThreadSafetyMode.None);
+  private static readonly nint _PreCommandsOffset = Schema.GetOffset(0x1EE820D5A9BA18C4);
 
   public string PreCommands {
     get {
-      var ptr = _Handle.Read<nint>(_PreCommandsOffset.Value);
+      var ptr = _Handle.Read<nint>(_PreCommandsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PreCommandsOffset.Value, value);
+    set => Schema.SetString(_Handle, _PreCommandsOffset, value);
   } 
-  private static readonly Lazy<nint> _PostCommandsOffset = new(() => Schema.GetOffset(0x1EE820D52B9BBDED), LazyThreadSafetyMode.None);
+  private static readonly nint _PostCommandsOffset = Schema.GetOffset(0x1EE820D52B9BBDED);
 
   public string PostCommands {
     get {
-      var ptr = _Handle.Read<nint>(_PostCommandsOffset.Value);
+      var ptr = _Handle.Read<nint>(_PostCommandsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PostCommandsOffset.Value, value);
+    set => Schema.SetString(_Handle, _PostCommandsOffset, value);
   } 
-  private static readonly Lazy<nint> _CommentaryFileOffset = new(() => Schema.GetOffset(0x1EE820D5996CE112), LazyThreadSafetyMode.None);
+  private static readonly nint _CommentaryFileOffset = Schema.GetOffset(0x1EE820D5996CE112);
 
   public string CommentaryFile {
     get {
-      var ptr = _Handle.Read<nint>(_CommentaryFileOffset.Value);
+      var ptr = _Handle.Read<nint>(_CommentaryFileOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CommentaryFileOffset.Value, value);
+    set => Schema.SetString(_Handle, _CommentaryFileOffset, value);
   } 
-  private static readonly Lazy<nint> _ViewTargetOffset = new(() => Schema.GetOffset(0x1EE820D57F25C3A9), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewTargetOffset = Schema.GetOffset(0x1EE820D57F25C3A9);
 
   public string ViewTarget {
     get {
-      var ptr = _Handle.Read<nint>(_ViewTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_ViewTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ViewTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _ViewTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _ViewTarget1Offset = new(() => Schema.GetOffset(0x1EE820D5367DC4F3), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewTarget1Offset = Schema.GetOffset(0x1EE820D5367DC4F3);
 
   public ref CHandle<CBaseEntity> ViewTarget1 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewTarget1Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewTarget1Offset);
   }
-  private static readonly Lazy<nint> _ViewTargetAnglesOffset = new(() => Schema.GetOffset(0x1EE820D57036CBB3), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewTargetAnglesOffset = Schema.GetOffset(0x1EE820D57036CBB3);
 
   public ref CHandle<CBaseEntity> ViewTargetAngles {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewTargetAnglesOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewTargetAnglesOffset);
   }
-  private static readonly Lazy<nint> _ViewPositionOffset = new(() => Schema.GetOffset(0x1EE820D5F077F9E3), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewPositionOffset = Schema.GetOffset(0x1EE820D5F077F9E3);
 
   public string ViewPosition {
     get {
-      var ptr = _Handle.Read<nint>(_ViewPositionOffset.Value);
+      var ptr = _Handle.Read<nint>(_ViewPositionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ViewPositionOffset.Value, value);
+    set => Schema.SetString(_Handle, _ViewPositionOffset, value);
   } 
-  private static readonly Lazy<nint> _ViewPosition2Offset = new(() => Schema.GetOffset(0x1EE820D50C900ACD), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewPosition2Offset = Schema.GetOffset(0x1EE820D50C900ACD);
 
   public ref CHandle<CBaseEntity> ViewPosition2 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewPosition2Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewPosition2Offset);
   }
-  private static readonly Lazy<nint> _ViewPositionMoverOffset = new(() => Schema.GetOffset(0x1EE820D596E47DAA), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewPositionMoverOffset = Schema.GetOffset(0x1EE820D596E47DAA);
 
   public ref CHandle<CBaseEntity> ViewPositionMover {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewPositionMoverOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewPositionMoverOffset);
   }
-  private static readonly Lazy<nint> _PreventMovementOffset = new(() => Schema.GetOffset(0x1EE820D50513BCD8), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventMovementOffset = Schema.GetOffset(0x1EE820D50513BCD8);
 
   public ref bool PreventMovement {
-    get => ref _Handle.AsRef<bool>(_PreventMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventMovementOffset);
   }
-  private static readonly Lazy<nint> _UnderCrosshairOffset = new(() => Schema.GetOffset(0x1EE820D53DF2740B), LazyThreadSafetyMode.None);
+  private static readonly nint _UnderCrosshairOffset = Schema.GetOffset(0x1EE820D53DF2740B);
 
   public ref bool UnderCrosshair {
-    get => ref _Handle.AsRef<bool>(_UnderCrosshairOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UnderCrosshairOffset);
   }
-  private static readonly Lazy<nint> _UnstoppableOffset = new(() => Schema.GetOffset(0x1EE820D532F081DA), LazyThreadSafetyMode.None);
+  private static readonly nint _UnstoppableOffset = Schema.GetOffset(0x1EE820D532F081DA);
 
   public ref bool Unstoppable {
-    get => ref _Handle.AsRef<bool>(_UnstoppableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UnstoppableOffset);
   }
-  private static readonly Lazy<nint> _FinishedTimeOffset = new(() => Schema.GetOffset(0x1EE820D5E2616940), LazyThreadSafetyMode.None);
+  private static readonly nint _FinishedTimeOffset = Schema.GetOffset(0x1EE820D5E2616940);
 
   public GameTime_t FinishedTime {
-    get => new GameTime_tImpl(_Handle + _FinishedTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FinishedTimeOffset);
   }
-  private static readonly Lazy<nint> _FinishOriginOffset = new(() => Schema.GetOffset(0x1EE820D5343348F4), LazyThreadSafetyMode.None);
+  private static readonly nint _FinishOriginOffset = Schema.GetOffset(0x1EE820D5343348F4);
 
   public ref Vector FinishOrigin {
-    get => ref _Handle.AsRef<Vector>(_FinishOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FinishOriginOffset);
   }
-  private static readonly Lazy<nint> _OriginalAnglesOffset = new(() => Schema.GetOffset(0x1EE820D53F12AD96), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalAnglesOffset = Schema.GetOffset(0x1EE820D53F12AD96);
 
   public ref QAngle OriginalAngles {
-    get => ref _Handle.AsRef<QAngle>(_OriginalAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_OriginalAnglesOffset);
   }
-  private static readonly Lazy<nint> _FinishAnglesOffset = new(() => Schema.GetOffset(0x1EE820D58F00F976), LazyThreadSafetyMode.None);
+  private static readonly nint _FinishAnglesOffset = Schema.GetOffset(0x1EE820D58F00F976);
 
   public ref QAngle FinishAngles {
-    get => ref _Handle.AsRef<QAngle>(_FinishAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_FinishAnglesOffset);
   }
-  private static readonly Lazy<nint> _PreventChangesWhileMovingOffset = new(() => Schema.GetOffset(0x1EE820D532F652B1), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventChangesWhileMovingOffset = Schema.GetOffset(0x1EE820D532F652B1);
 
   public ref bool PreventChangesWhileMoving {
-    get => ref _Handle.AsRef<bool>(_PreventChangesWhileMovingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventChangesWhileMovingOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x1EE820D53A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x1EE820D53A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _TeleportOriginOffset = new(() => Schema.GetOffset(0x1EE820D52953C748), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportOriginOffset = Schema.GetOffset(0x1EE820D52953C748);
 
   public ref Vector TeleportOrigin {
-    get => ref _Handle.AsRef<Vector>(_TeleportOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TeleportOriginOffset);
   }
-  private static readonly Lazy<nint> _AbortedPlaybackAtOffset = new(() => Schema.GetOffset(0x1EE820D5A444B332), LazyThreadSafetyMode.None);
+  private static readonly nint _AbortedPlaybackAtOffset = Schema.GetOffset(0x1EE820D5A444B332);
 
   public GameTime_t AbortedPlaybackAt {
-    get => new GameTime_tImpl(_Handle + _AbortedPlaybackAtOffset.Value);
+    get => new GameTime_tImpl(_Handle + _AbortedPlaybackAtOffset);
   }
-  private static readonly Lazy<nint> _OnCommentaryStartedOffset = new(() => Schema.GetOffset(0x1EE820D50D986100), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCommentaryStartedOffset = Schema.GetOffset(0x1EE820D50D986100);
 
   public CEntityIOOutput OnCommentaryStarted {
-    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryStartedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryStartedOffset);
   }
-  private static readonly Lazy<nint> _OnCommentaryStoppedOffset = new(() => Schema.GetOffset(0x1EE820D5C05AD020), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCommentaryStoppedOffset = Schema.GetOffset(0x1EE820D5C05AD020);
 
   public CEntityIOOutput OnCommentaryStopped {
-    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryStoppedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryStoppedOffset);
   }
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0x1EE820D58334208F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0x1EE820D58334208F);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x1EE820D567FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x1EE820D567FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _StartTimeInCommentaryOffset = new(() => Schema.GetOffset(0x1EE820D50E5851F2), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeInCommentaryOffset = Schema.GetOffset(0x1EE820D50E5851F2);
 
   public ref float StartTimeInCommentary {
-    get => ref _Handle.AsRef<float>(_StartTimeInCommentaryOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeInCommentaryOffset);
   }
-  private static readonly Lazy<nint> _TitleOffset = new(() => Schema.GetOffset(0x1EE820D53337D6B1), LazyThreadSafetyMode.None);
+  private static readonly nint _TitleOffset = Schema.GetOffset(0x1EE820D53337D6B1);
 
   public string Title {
     get {
-      var ptr = _Handle.Read<nint>(_TitleOffset.Value);
+      var ptr = _Handle.Read<nint>(_TitleOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TitleOffset.Value, value);
+    set => Schema.SetString(_Handle, _TitleOffset, value);
   } 
-  private static readonly Lazy<nint> _SpeakersOffset = new(() => Schema.GetOffset(0x1EE820D5874211AB), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeakersOffset = Schema.GetOffset(0x1EE820D5874211AB);
 
   public string Speakers {
     get {
-      var ptr = _Handle.Read<nint>(_SpeakersOffset.Value);
+      var ptr = _Handle.Read<nint>(_SpeakersOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SpeakersOffset.Value, value);
+    set => Schema.SetString(_Handle, _SpeakersOffset, value);
   } 
-  private static readonly Lazy<nint> _NodeNumberOffset = new(() => Schema.GetOffset(0x1EE820D57BCFC491), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeNumberOffset = Schema.GetOffset(0x1EE820D57BCFC491);
 
   public ref int NodeNumber {
-    get => ref _Handle.AsRef<int>(_NodeNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_NodeNumberOffset);
   }
-  private static readonly Lazy<nint> _NodeNumberMaxOffset = new(() => Schema.GetOffset(0x1EE820D5BFDF2335), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeNumberMaxOffset = Schema.GetOffset(0x1EE820D5BFDF2335);
 
   public ref int NodeNumberMax {
-    get => ref _Handle.AsRef<int>(_NodeNumberMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_NodeNumberMaxOffset);
   }
-  private static readonly Lazy<nint> _ListenedToOffset = new(() => Schema.GetOffset(0x1EE820D545A4FC32), LazyThreadSafetyMode.None);
+  private static readonly nint _ListenedToOffset = Schema.GetOffset(0x1EE820D545A4FC32);
 
   public ref bool ListenedTo {
-    get => ref _Handle.AsRef<bool>(_ListenedToOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ListenedToOffset);
   }
 
   public void CommentaryFileUpdated() {

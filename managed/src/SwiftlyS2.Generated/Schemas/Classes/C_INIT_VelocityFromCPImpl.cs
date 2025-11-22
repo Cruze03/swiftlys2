@@ -17,25 +17,25 @@ internal partial class C_INIT_VelocityFromCPImpl : CParticleFunctionInitializerI
   public C_INIT_VelocityFromCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VelocityInputOffset = new(() => Schema.GetOffset(0x1788D69A30C18956), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityInputOffset = Schema.GetOffset(0x1788D69A30C18956);
 
   public CParticleCollectionVecInput VelocityInput {
-    get => new CParticleCollectionVecInputImpl(_Handle + _VelocityInputOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _VelocityInputOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0x1788D69A3A9ED669), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0x1788D69A3A9ED669);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _VelocityScaleOffset = new(() => Schema.GetOffset(0x1788D69AE161DDAA), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityScaleOffset = Schema.GetOffset(0x1788D69AE161DDAA);
 
   public ref float VelocityScale {
-    get => ref _Handle.AsRef<float>(_VelocityScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_VelocityScaleOffset);
   }
-  private static readonly Lazy<nint> _DirectionOnlyOffset = new(() => Schema.GetOffset(0x1788D69A7F403B2C), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectionOnlyOffset = Schema.GetOffset(0x1788D69A7F403B2C);
 
   public ref bool DirectionOnly {
-    get => ref _Handle.AsRef<bool>(_DirectionOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DirectionOnlyOffset);
   }
 
 

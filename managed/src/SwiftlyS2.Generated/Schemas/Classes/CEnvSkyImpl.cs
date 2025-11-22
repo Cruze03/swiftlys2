@@ -17,65 +17,65 @@ internal partial class CEnvSkyImpl : CBaseModelEntityImpl, CEnvSky {
   public CEnvSkyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SkyMaterialOffset = new(() => Schema.GetOffset(0x34E51BE6C887319D), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyMaterialOffset = Schema.GetOffset(0x34E51BE6C887319D);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> SkyMaterial {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_SkyMaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_SkyMaterialOffset);
   }
-  private static readonly Lazy<nint> _SkyMaterialLightingOnlyOffset = new(() => Schema.GetOffset(0x34E51BE6E01C512B), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyMaterialLightingOnlyOffset = Schema.GetOffset(0x34E51BE6E01C512B);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> SkyMaterialLightingOnly {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_SkyMaterialLightingOnlyOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_SkyMaterialLightingOnlyOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x34E51BE661ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x34E51BE661ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _TintColorOffset = new(() => Schema.GetOffset(0x34E51BE650AFF21F), LazyThreadSafetyMode.None);
+  private static readonly nint _TintColorOffset = Schema.GetOffset(0x34E51BE650AFF21F);
 
   public ref Color TintColor {
-    get => ref _Handle.AsRef<Color>(_TintColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintColorOffset);
   }
-  private static readonly Lazy<nint> _TintColorLightingOnlyOffset = new(() => Schema.GetOffset(0x34E51BE6D8D1D8C9), LazyThreadSafetyMode.None);
+  private static readonly nint _TintColorLightingOnlyOffset = Schema.GetOffset(0x34E51BE6D8D1D8C9);
 
   public ref Color TintColorLightingOnly {
-    get => ref _Handle.AsRef<Color>(_TintColorLightingOnlyOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintColorLightingOnlyOffset);
   }
-  private static readonly Lazy<nint> _BrightnessScaleOffset = new(() => Schema.GetOffset(0x34E51BE65EFC3AAE), LazyThreadSafetyMode.None);
+  private static readonly nint _BrightnessScaleOffset = Schema.GetOffset(0x34E51BE65EFC3AAE);
 
   public ref float BrightnessScale {
-    get => ref _Handle.AsRef<float>(_BrightnessScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_BrightnessScaleOffset);
   }
-  private static readonly Lazy<nint> _FogTypeOffset = new(() => Schema.GetOffset(0x34E51BE6381735D3), LazyThreadSafetyMode.None);
+  private static readonly nint _FogTypeOffset = Schema.GetOffset(0x34E51BE6381735D3);
 
   public ref int FogType {
-    get => ref _Handle.AsRef<int>(_FogTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_FogTypeOffset);
   }
-  private static readonly Lazy<nint> _FogMinStartOffset = new(() => Schema.GetOffset(0x34E51BE62D8BACA9), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMinStartOffset = Schema.GetOffset(0x34E51BE62D8BACA9);
 
   public ref float FogMinStart {
-    get => ref _Handle.AsRef<float>(_FogMinStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMinStartOffset);
   }
-  private static readonly Lazy<nint> _FogMinEndOffset = new(() => Schema.GetOffset(0x34E51BE69BF661F8), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMinEndOffset = Schema.GetOffset(0x34E51BE69BF661F8);
 
   public ref float FogMinEnd {
-    get => ref _Handle.AsRef<float>(_FogMinEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMinEndOffset);
   }
-  private static readonly Lazy<nint> _FogMaxStartOffset = new(() => Schema.GetOffset(0x34E51BE6DACCD72F), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMaxStartOffset = Schema.GetOffset(0x34E51BE6DACCD72F);
 
   public ref float FogMaxStart {
-    get => ref _Handle.AsRef<float>(_FogMaxStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMaxStartOffset);
   }
-  private static readonly Lazy<nint> _FogMaxEndOffset = new(() => Schema.GetOffset(0x34E51BE61D0E34BA), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMaxEndOffset = Schema.GetOffset(0x34E51BE61D0E34BA);
 
   public ref float FogMaxEnd {
-    get => ref _Handle.AsRef<float>(_FogMaxEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMaxEndOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x34E51BE66154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x34E51BE66154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
 
   public void SkyMaterialUpdated() {

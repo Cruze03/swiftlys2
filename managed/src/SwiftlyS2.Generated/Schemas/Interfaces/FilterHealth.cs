@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface FilterHealth : CBaseFilter, ISchemaClass<FilterHealth> {
 
   static FilterHealth ISchemaClass<FilterHealth>.From(nint handle) => new FilterHealthImpl(handle);
-  static int ISchemaClass<FilterHealth>.Size => 2112;
+  static int ISchemaClass<FilterHealth>.Size => 1368;
   static string? ISchemaClass<FilterHealth>.ClassName => "filter_health";
 
   

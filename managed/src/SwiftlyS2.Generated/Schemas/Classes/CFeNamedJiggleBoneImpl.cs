@@ -17,29 +17,29 @@ internal partial class CFeNamedJiggleBoneImpl : SchemaClass, CFeNamedJiggleBone 
   public CFeNamedJiggleBoneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrParentBoneOffset = new(() => Schema.GetOffset(0x51055B3A22DD827E), LazyThreadSafetyMode.None);
+  private static readonly nint _StrParentBoneOffset = Schema.GetOffset(0x51055B3A22DD827E);
 
   public string StrParentBone {
     get {
-      var ptr = _Handle.Read<nint>(_StrParentBoneOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrParentBoneOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrParentBoneOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrParentBoneOffset, value);
   } 
-  private static readonly Lazy<nint> _TransformOffset = new(() => Schema.GetOffset(0x51055B3A3A9A393B), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformOffset = Schema.GetOffset(0x51055B3A3A9A393B);
 
   public ref CTransform Transform {
-    get => ref _Handle.AsRef<CTransform>(_TransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TransformOffset);
   }
-  private static readonly Lazy<nint> _JiggleParentOffset = new(() => Schema.GetOffset(0x51055B3A8AABF3B9), LazyThreadSafetyMode.None);
+  private static readonly nint _JiggleParentOffset = Schema.GetOffset(0x51055B3A8AABF3B9);
 
   public ref uint JiggleParent {
-    get => ref _Handle.AsRef<uint>(_JiggleParentOffset.Value);
+    get => ref _Handle.AsRef<uint>(_JiggleParentOffset);
   }
-  private static readonly Lazy<nint> _JiggleBoneOffset = new(() => Schema.GetOffset(0x51055B3A6038C557), LazyThreadSafetyMode.None);
+  private static readonly nint _JiggleBoneOffset = Schema.GetOffset(0x51055B3A6038C557);
 
   public CFeJiggleBone JiggleBone {
-    get => new CFeJiggleBoneImpl(_Handle + _JiggleBoneOffset.Value);
+    get => new CFeJiggleBoneImpl(_Handle + _JiggleBoneOffset);
   }
 
 

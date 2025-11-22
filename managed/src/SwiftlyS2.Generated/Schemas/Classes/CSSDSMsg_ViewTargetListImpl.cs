@@ -17,24 +17,24 @@ internal partial class CSSDSMsg_ViewTargetListImpl : SchemaClass, CSSDSMsg_ViewT
   public CSSDSMsg_ViewTargetListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ViewIdOffset = new(() => Schema.GetOffset(0xD53B3083E976CB25), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewIdOffset = Schema.GetOffset(0xD53B3083E976CB25);
 
   public SceneViewId_t ViewId {
-    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset.Value);
+    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset);
   }
-  private static readonly Lazy<nint> _ViewNameOffset = new(() => Schema.GetOffset(0xD53B3083BA5BBDBB), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewNameOffset = Schema.GetOffset(0xD53B3083BA5BBDBB);
 
   public string ViewName {
     get {
-      var ptr = _Handle.Read<nint>(_ViewNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ViewNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ViewNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ViewNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetsOffset = new(() => Schema.GetOffset(0xD53B30832FF8E661), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetsOffset = Schema.GetOffset(0xD53B30832FF8E661);
 
   public ref CUtlVector<CSSDSMsg_ViewTarget> Targets {
-    get => ref _Handle.AsRef<CUtlVector<CSSDSMsg_ViewTarget>>(_TargetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSSDSMsg_ViewTarget>>(_TargetsOffset);
   }
 
 

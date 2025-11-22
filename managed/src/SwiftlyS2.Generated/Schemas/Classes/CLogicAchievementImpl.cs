@@ -17,24 +17,24 @@ internal partial class CLogicAchievementImpl : CLogicalEntityImpl, CLogicAchieve
   public CLogicAchievementImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xE8C4579F3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xE8C4579F3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _AchievementEventIDOffset = new(() => Schema.GetOffset(0xE8C4579F12AB7E15), LazyThreadSafetyMode.None);
+  private static readonly nint _AchievementEventIDOffset = Schema.GetOffset(0xE8C4579F12AB7E15);
 
   public string AchievementEventID {
     get {
-      var ptr = _Handle.Read<nint>(_AchievementEventIDOffset.Value);
+      var ptr = _Handle.Read<nint>(_AchievementEventIDOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AchievementEventIDOffset.Value, value);
+    set => Schema.SetString(_Handle, _AchievementEventIDOffset, value);
   } 
-  private static readonly Lazy<nint> _OnFiredOffset = new(() => Schema.GetOffset(0xE8C4579F84825730), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFiredOffset = Schema.GetOffset(0xE8C4579F84825730);
 
   public CEntityIOOutput OnFired {
-    get => new CEntityIOOutputImpl(_Handle + _OnFiredOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnFiredOffset);
   }
 
 

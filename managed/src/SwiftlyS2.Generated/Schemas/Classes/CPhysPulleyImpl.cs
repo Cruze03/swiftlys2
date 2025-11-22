@@ -17,23 +17,23 @@ internal partial class CPhysPulleyImpl : CPhysConstraintImpl, CPhysPulley {
   public CPhysPulleyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Position2Offset = new(() => Schema.GetOffset(0xDCB3A22333568F48), LazyThreadSafetyMode.None);
+  private static readonly nint _Position2Offset = Schema.GetOffset(0xDCB3A22333568F48);
 
   public ref Vector Position2 {
-    get => ref _Handle.AsRef<Vector>(_Position2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Position2Offset);
   }
   public ISchemaFixedArray<Vector> Offset {
     get => new SchemaFixedArray<Vector>(_Handle, 0xDCB3A223F836806A, 2, 12, 4);
   }
-  private static readonly Lazy<nint> _AddLengthOffset = new(() => Schema.GetOffset(0xDCB3A223A30AA6D8), LazyThreadSafetyMode.None);
+  private static readonly nint _AddLengthOffset = Schema.GetOffset(0xDCB3A223A30AA6D8);
 
   public ref float AddLength {
-    get => ref _Handle.AsRef<float>(_AddLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_AddLengthOffset);
   }
-  private static readonly Lazy<nint> _GearRatioOffset = new(() => Schema.GetOffset(0xDCB3A223DF6EB135), LazyThreadSafetyMode.None);
+  private static readonly nint _GearRatioOffset = Schema.GetOffset(0xDCB3A223DF6EB135);
 
   public ref float GearRatio {
-    get => ref _Handle.AsRef<float>(_GearRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_GearRatioOffset);
   }
 
 

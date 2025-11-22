@@ -17,35 +17,35 @@ internal partial class CPulse_CallInfoImpl : SchemaClass, CPulse_CallInfo {
   public CPulse_CallInfoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PortNameOffset = new(() => Schema.GetOffset(0x6ADF88D807237B65), LazyThreadSafetyMode.None);
+  private static readonly nint _PortNameOffset = Schema.GetOffset(0x6ADF88D807237B65);
 
   public SchemaUntypedField PortName {
-    get => new SchemaUntypedField(_Handle + _PortNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PortNameOffset);
   }
-  private static readonly Lazy<nint> _EditorNodeIDOffset = new(() => Schema.GetOffset(0x6ADF88D88D964CBD), LazyThreadSafetyMode.None);
+  private static readonly nint _EditorNodeIDOffset = Schema.GetOffset(0x6ADF88D88D964CBD);
 
   public PulseDocNodeID_t EditorNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _EditorNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _EditorNodeIDOffset);
   }
-  private static readonly Lazy<nint> _RegisterMapOffset = new(() => Schema.GetOffset(0x6ADF88D87BD4CE96), LazyThreadSafetyMode.None);
+  private static readonly nint _RegisterMapOffset = Schema.GetOffset(0x6ADF88D87BD4CE96);
 
   public PulseRegisterMap_t RegisterMap {
-    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset.Value);
+    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset);
   }
-  private static readonly Lazy<nint> _CallMethodIDOffset = new(() => Schema.GetOffset(0x6ADF88D805714471), LazyThreadSafetyMode.None);
+  private static readonly nint _CallMethodIDOffset = Schema.GetOffset(0x6ADF88D805714471);
 
   public PulseDocNodeID_t CallMethodID {
-    get => new PulseDocNodeID_tImpl(_Handle + _CallMethodIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _CallMethodIDOffset);
   }
-  private static readonly Lazy<nint> _SrcChunkOffset = new(() => Schema.GetOffset(0x6ADF88D8313F814A), LazyThreadSafetyMode.None);
+  private static readonly nint _SrcChunkOffset = Schema.GetOffset(0x6ADF88D8313F814A);
 
   public PulseRuntimeChunkIndex_t SrcChunk {
-    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _SrcChunkOffset.Value);
+    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _SrcChunkOffset);
   }
-  private static readonly Lazy<nint> _SrcInstructionOffset = new(() => Schema.GetOffset(0x6ADF88D899E09AE7), LazyThreadSafetyMode.None);
+  private static readonly nint _SrcInstructionOffset = Schema.GetOffset(0x6ADF88D899E09AE7);
 
   public ref int SrcInstruction {
-    get => ref _Handle.AsRef<int>(_SrcInstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_SrcInstructionOffset);
   }
 
 

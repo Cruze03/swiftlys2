@@ -17,127 +17,127 @@ internal partial class CSchemaSystemInternalRegistrationImpl : SchemaClass, CSch
   public CSchemaSystemInternalRegistrationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Vector2DOffset = new(() => Schema.GetOffset(0xDDD6CA303570333C), LazyThreadSafetyMode.None);
+  private static readonly nint _Vector2DOffset = Schema.GetOffset(0xDDD6CA303570333C);
 
   public ref Vector2D Vector2D {
-    get => ref _Handle.AsRef<Vector2D>(_Vector2DOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_Vector2DOffset);
   }
-  private static readonly Lazy<nint> _VectorOffset = new(() => Schema.GetOffset(0xDDD6CA30FE2AA082), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorOffset = Schema.GetOffset(0xDDD6CA30FE2AA082);
 
   public ref Vector Vector {
-    get => ref _Handle.AsRef<Vector>(_VectorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_VectorOffset);
   }
-  private static readonly Lazy<nint> _VectorWSOffset = new(() => Schema.GetOffset(0xDDD6CA303CCB2914), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorWSOffset = Schema.GetOffset(0xDDD6CA303CCB2914);
 
   public ref Vector VectorWS {
-    get => ref _Handle.AsRef<Vector>(_VectorWSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_VectorWSOffset);
   }
-  private static readonly Lazy<nint> _VectorAlignedOffset = new(() => Schema.GetOffset(0xDDD6CA3076A2F792), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorAlignedOffset = Schema.GetOffset(0xDDD6CA3076A2F792);
 
   public ref Vector VectorAligned {
-    get => ref _Handle.AsRef<Vector>(_VectorAlignedOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_VectorAlignedOffset);
   }
-  private static readonly Lazy<nint> _QuaternionOffset = new(() => Schema.GetOffset(0xDDD6CA308FFA070D), LazyThreadSafetyMode.None);
+  private static readonly nint _QuaternionOffset = Schema.GetOffset(0xDDD6CA308FFA070D);
 
   public ref Quaternion Quaternion {
-    get => ref _Handle.AsRef<Quaternion>(_QuaternionOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_QuaternionOffset);
   }
-  private static readonly Lazy<nint> _QAngleOffset = new(() => Schema.GetOffset(0xDDD6CA30D3989847), LazyThreadSafetyMode.None);
+  private static readonly nint _QAngleOffset = Schema.GetOffset(0xDDD6CA30D3989847);
 
   public ref QAngle QAngle {
-    get => ref _Handle.AsRef<QAngle>(_QAngleOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_QAngleOffset);
   }
-  private static readonly Lazy<nint> _RotationVectorOffset = new(() => Schema.GetOffset(0xDDD6CA30D5A2443C), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationVectorOffset = Schema.GetOffset(0xDDD6CA30D5A2443C);
 
   public SchemaUntypedField RotationVector {
-    get => new SchemaUntypedField(_Handle + _RotationVectorOffset.Value);
+    get => new SchemaUntypedField(_Handle + _RotationVectorOffset);
   }
-  private static readonly Lazy<nint> _RadianEulerOffset = new(() => Schema.GetOffset(0xDDD6CA30E6A91A09), LazyThreadSafetyMode.None);
+  private static readonly nint _RadianEulerOffset = Schema.GetOffset(0xDDD6CA30E6A91A09);
 
   public ref RadianEuler RadianEuler {
-    get => ref _Handle.AsRef<RadianEuler>(_RadianEulerOffset.Value);
+    get => ref _Handle.AsRef<RadianEuler>(_RadianEulerOffset);
   }
-  private static readonly Lazy<nint> _DegreeEulerOffset = new(() => Schema.GetOffset(0xDDD6CA30FCD6D92E), LazyThreadSafetyMode.None);
+  private static readonly nint _DegreeEulerOffset = Schema.GetOffset(0xDDD6CA30FCD6D92E);
 
   public SchemaUntypedField DegreeEuler {
-    get => new SchemaUntypedField(_Handle + _DegreeEulerOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DegreeEulerOffset);
   }
-  private static readonly Lazy<nint> _QuaternionStorageOffset = new(() => Schema.GetOffset(0xDDD6CA303C6C2D0E), LazyThreadSafetyMode.None);
+  private static readonly nint _QuaternionStorageOffset = Schema.GetOffset(0xDDD6CA303C6C2D0E);
 
   public SchemaUntypedField QuaternionStorage {
-    get => new SchemaUntypedField(_Handle + _QuaternionStorageOffset.Value);
+    get => new SchemaUntypedField(_Handle + _QuaternionStorageOffset);
   }
-  private static readonly Lazy<nint> _Matrix3x4_tOffset = new(() => Schema.GetOffset(0xDDD6CA30EC15D3EA), LazyThreadSafetyMode.None);
+  private static readonly nint _Matrix3x4_tOffset = Schema.GetOffset(0xDDD6CA30EC15D3EA);
 
   public ref matrix3x4_t Matrix3x4_t {
-    get => ref _Handle.AsRef<matrix3x4_t>(_Matrix3x4_tOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_Matrix3x4_tOffset);
   }
-  private static readonly Lazy<nint> _Matrix3x4a_tOffset = new(() => Schema.GetOffset(0xDDD6CA30E298503B), LazyThreadSafetyMode.None);
+  private static readonly nint _Matrix3x4a_tOffset = Schema.GetOffset(0xDDD6CA30E298503B);
 
   public ref matrix3x4_t Matrix3x4a_t {
-    get => ref _Handle.AsRef<matrix3x4_t>(_Matrix3x4a_tOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_Matrix3x4a_tOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0xDDD6CA30D7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0xDDD6CA30D7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
-  private static readonly Lazy<nint> _Vector4DOffset = new(() => Schema.GetOffset(0xDDD6CA30197F11B2), LazyThreadSafetyMode.None);
+  private static readonly nint _Vector4DOffset = Schema.GetOffset(0xDDD6CA30197F11B2);
 
   public ref Vector4D Vector4D {
-    get => ref _Handle.AsRef<Vector4D>(_Vector4DOffset.Value);
+    get => ref _Handle.AsRef<Vector4D>(_Vector4DOffset);
   }
-  private static readonly Lazy<nint> _CTransformOffset = new(() => Schema.GetOffset(0xDDD6CA3045C7677A), LazyThreadSafetyMode.None);
+  private static readonly nint _CTransformOffset = Schema.GetOffset(0xDDD6CA3045C7677A);
 
   public ref CTransform CTransform {
-    get => ref _Handle.AsRef<CTransform>(_CTransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_CTransformOffset);
   }
-  private static readonly Lazy<nint> _KeyValuesOffset = new(() => Schema.GetOffset(0xDDD6CA3011F5FBEC), LazyThreadSafetyMode.None);
+  private static readonly nint _KeyValuesOffset = Schema.GetOffset(0xDDD6CA3011F5FBEC);
 
   public SchemaUntypedField? KeyValues {
     get {
-      var ptr = _Handle.Read<nint>(_KeyValuesOffset.Value);
+      var ptr = _Handle.Read<nint>(_KeyValuesOffset);
       return ptr.IsValidPtr() ? new SchemaUntypedField(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _CUtlBinaryBlockOffset = new(() => Schema.GetOffset(0xDDD6CA307F63D33D), LazyThreadSafetyMode.None);
+  private static readonly nint _CUtlBinaryBlockOffset = Schema.GetOffset(0xDDD6CA307F63D33D);
 
   public ref CUtlBinaryBlock CUtlBinaryBlock {
-    get => ref _Handle.AsRef<CUtlBinaryBlock>(_CUtlBinaryBlockOffset.Value);
+    get => ref _Handle.AsRef<CUtlBinaryBlock>(_CUtlBinaryBlockOffset);
   }
-  private static readonly Lazy<nint> _CUtlStringOffset = new(() => Schema.GetOffset(0xDDD6CA3041577950), LazyThreadSafetyMode.None);
+  private static readonly nint _CUtlStringOffset = Schema.GetOffset(0xDDD6CA3041577950);
 
   public string CUtlString {
     get {
-      var ptr = _Handle.Read<nint>(_CUtlStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_CUtlStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CUtlStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _CUtlStringOffset, value);
   } 
-  private static readonly Lazy<nint> _CUtlSymbolOffset = new(() => Schema.GetOffset(0xDDD6CA30EA008FA9), LazyThreadSafetyMode.None);
+  private static readonly nint _CUtlSymbolOffset = Schema.GetOffset(0xDDD6CA30EA008FA9);
 
   public SchemaUntypedField CUtlSymbol {
-    get => new SchemaUntypedField(_Handle + _CUtlSymbolOffset.Value);
+    get => new SchemaUntypedField(_Handle + _CUtlSymbolOffset);
   }
-  private static readonly Lazy<nint> _StringTokenOffset = new(() => Schema.GetOffset(0xDDD6CA3049D8C20D), LazyThreadSafetyMode.None);
+  private static readonly nint _StringTokenOffset = Schema.GetOffset(0xDDD6CA3049D8C20D);
 
   public ref CUtlStringToken StringToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_StringTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_StringTokenOffset);
   }
-  private static readonly Lazy<nint> _StringTokenWithStorageOffset = new(() => Schema.GetOffset(0xDDD6CA30A8DD475A), LazyThreadSafetyMode.None);
+  private static readonly nint _StringTokenWithStorageOffset = Schema.GetOffset(0xDDD6CA30A8DD475A);
 
   public SchemaUntypedField StringTokenWithStorage {
-    get => new SchemaUntypedField(_Handle + _StringTokenWithStorageOffset.Value);
+    get => new SchemaUntypedField(_Handle + _StringTokenWithStorageOffset);
   }
-  private static readonly Lazy<nint> _ResourceTypesOffset = new(() => Schema.GetOffset(0xDDD6CA30410F830A), LazyThreadSafetyMode.None);
+  private static readonly nint _ResourceTypesOffset = Schema.GetOffset(0xDDD6CA30410F830A);
 
   public SchemaUntypedField ResourceTypes {
-    get => new SchemaUntypedField(_Handle + _ResourceTypesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ResourceTypesOffset);
   }
-  private static readonly Lazy<nint> _KV3Offset = new(() => Schema.GetOffset(0xDDD6CA302E1AEFC5), LazyThreadSafetyMode.None);
+  private static readonly nint _KV3Offset = Schema.GetOffset(0xDDD6CA302E1AEFC5);
 
   public SchemaUntypedField KV3 {
-    get => new SchemaUntypedField(_Handle + _KV3Offset.Value);
+    get => new SchemaUntypedField(_Handle + _KV3Offset);
   }
 
 

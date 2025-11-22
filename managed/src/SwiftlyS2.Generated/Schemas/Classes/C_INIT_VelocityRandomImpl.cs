@@ -17,40 +17,40 @@ internal partial class C_INIT_VelocityRandomImpl : CParticleFunctionInitializerI
   public C_INIT_VelocityRandomImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xFCCBA9E3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xFCCBA9E3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _SpeedMinOffset = new(() => Schema.GetOffset(0xFCCBA9EB989E1F8), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMinOffset = Schema.GetOffset(0xFCCBA9EB989E1F8);
 
   public CPerParticleFloatInput SpeedMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset);
   }
-  private static readonly Lazy<nint> _SpeedMaxOffset = new(() => Schema.GetOffset(0xFCCBA9ECF9D8C52), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMaxOffset = Schema.GetOffset(0xFCCBA9ECF9D8C52);
 
   public CPerParticleFloatInput SpeedMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordinateSystemSpeedMinOffset = new(() => Schema.GetOffset(0xFCCBA9EA4A0F1AE), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordinateSystemSpeedMinOffset = Schema.GetOffset(0xFCCBA9EA4A0F1AE);
 
   public CPerParticleVecInput LocalCoordinateSystemSpeedMin {
-    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMinOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMinOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordinateSystemSpeedMaxOffset = new(() => Schema.GetOffset(0xFCCBA9E968D53EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordinateSystemSpeedMaxOffset = Schema.GetOffset(0xFCCBA9E968D53EC);
 
   public CPerParticleVecInput LocalCoordinateSystemSpeedMax {
-    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMaxOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _IgnoreDTOffset = new(() => Schema.GetOffset(0xFCCBA9E530C3863), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreDTOffset = Schema.GetOffset(0xFCCBA9E530C3863);
 
   public ref bool IgnoreDT {
-    get => ref _Handle.AsRef<bool>(_IgnoreDTOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreDTOffset);
   }
-  private static readonly Lazy<nint> _RandomnessParametersOffset = new(() => Schema.GetOffset(0xFCCBA9E7EDF50AD), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomnessParametersOffset = Schema.GetOffset(0xFCCBA9E7EDF50AD);
 
   public CRandomNumberGeneratorParameters RandomnessParameters {
-    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset.Value);
+    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset);
   }
 
 

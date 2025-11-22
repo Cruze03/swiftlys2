@@ -17,30 +17,30 @@ internal partial class CPulseCell_Test_MultiOutflow_WithParams_YieldingImpl : CP
   public CPulseCell_Test_MultiOutflow_WithParams_YieldingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Out1Offset = new(() => Schema.GetOffset(0xB412A25905F293AA), LazyThreadSafetyMode.None);
+  private static readonly nint _Out1Offset = Schema.GetOffset(0xB412A25905F293AA);
 
   public SignatureOutflow_Continue Out1 {
-    get => new SignatureOutflow_ContinueImpl(_Handle + _Out1Offset.Value);
+    get => new SignatureOutflow_ContinueImpl(_Handle + _Out1Offset);
   }
-  private static readonly Lazy<nint> _AsyncChild1Offset = new(() => Schema.GetOffset(0xB412A2592CEBF78A), LazyThreadSafetyMode.None);
+  private static readonly nint _AsyncChild1Offset = Schema.GetOffset(0xB412A2592CEBF78A);
 
   public SignatureOutflow_Continue AsyncChild1 {
-    get => new SignatureOutflow_ContinueImpl(_Handle + _AsyncChild1Offset.Value);
+    get => new SignatureOutflow_ContinueImpl(_Handle + _AsyncChild1Offset);
   }
-  private static readonly Lazy<nint> _AsyncChild2Offset = new(() => Schema.GetOffset(0xB412A2592BEBF5F7), LazyThreadSafetyMode.None);
+  private static readonly nint _AsyncChild2Offset = Schema.GetOffset(0xB412A2592BEBF5F7);
 
   public SignatureOutflow_Continue AsyncChild2 {
-    get => new SignatureOutflow_ContinueImpl(_Handle + _AsyncChild2Offset.Value);
+    get => new SignatureOutflow_ContinueImpl(_Handle + _AsyncChild2Offset);
   }
-  private static readonly Lazy<nint> _YieldResume1Offset = new(() => Schema.GetOffset(0xB412A2596063DFA8), LazyThreadSafetyMode.None);
+  private static readonly nint _YieldResume1Offset = Schema.GetOffset(0xB412A2596063DFA8);
 
   public SignatureOutflow_Resume YieldResume1 {
-    get => new SignatureOutflow_ResumeImpl(_Handle + _YieldResume1Offset.Value);
+    get => new SignatureOutflow_ResumeImpl(_Handle + _YieldResume1Offset);
   }
-  private static readonly Lazy<nint> _YieldResume2Offset = new(() => Schema.GetOffset(0xB412A2596363E461), LazyThreadSafetyMode.None);
+  private static readonly nint _YieldResume2Offset = Schema.GetOffset(0xB412A2596363E461);
 
   public SignatureOutflow_Resume YieldResume2 {
-    get => new SignatureOutflow_ResumeImpl(_Handle + _YieldResume2Offset.Value);
+    get => new SignatureOutflow_ResumeImpl(_Handle + _YieldResume2Offset);
   }
 
 

@@ -17,30 +17,30 @@ internal partial class ragdoll_tImpl : SchemaClass, ragdoll_t {
   public ragdoll_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ListOffset = new(() => Schema.GetOffset(0xC7E89F530CFB5881), LazyThreadSafetyMode.None);
+  private static readonly nint _ListOffset = Schema.GetOffset(0xC7E89F530CFB5881);
 
   public ref CUtlVector<ragdollelement_t> List {
-    get => ref _Handle.AsRef<CUtlVector<ragdollelement_t>>(_ListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ragdollelement_t>>(_ListOffset);
   }
-  private static readonly Lazy<nint> _HierarchyJointsOffset = new(() => Schema.GetOffset(0xC7E89F534421F4B5), LazyThreadSafetyMode.None);
+  private static readonly nint _HierarchyJointsOffset = Schema.GetOffset(0xC7E89F534421F4B5);
 
   public ref CUtlVector<ragdollhierarchyjoint_t> HierarchyJoints {
-    get => ref _Handle.AsRef<CUtlVector<ragdollhierarchyjoint_t>>(_HierarchyJointsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ragdollhierarchyjoint_t>>(_HierarchyJointsOffset);
   }
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0xC7E89F534FEF9075), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0xC7E89F534FEF9075);
 
   public ref CUtlVector<int> BoneIndex {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _AllowStretchOffset = new(() => Schema.GetOffset(0xC7E89F5350E37D6F), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowStretchOffset = Schema.GetOffset(0xC7E89F5350E37D6F);
 
   public ref bool AllowStretch {
-    get => ref _Handle.AsRef<bool>(_AllowStretchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowStretchOffset);
   }
-  private static readonly Lazy<nint> _UnusedOffset = new(() => Schema.GetOffset(0xC7E89F5385CF281B), LazyThreadSafetyMode.None);
+  private static readonly nint _UnusedOffset = Schema.GetOffset(0xC7E89F5385CF281B);
 
   public ref bool Unused {
-    get => ref _Handle.AsRef<bool>(_UnusedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UnusedOffset);
   }
 
 

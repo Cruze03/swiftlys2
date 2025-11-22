@@ -17,40 +17,40 @@ internal partial class ParticleNode_tImpl : SchemaClass, ParticleNode_t {
   public ParticleNode_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntityOffset = new(() => Schema.GetOffset(0xBECF421C6EBADCB0), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityOffset = Schema.GetOffset(0xBECF421C6EBADCB0);
 
   public ref CHandle<CBaseEntity> Entity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityOffset);
   }
-  private static readonly Lazy<nint> _IndexOffset = new(() => Schema.GetOffset(0xBECF421C8F270140), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexOffset = Schema.GetOffset(0xBECF421C8F270140);
 
   public ParticleIndex_t Index {
-    get => new ParticleIndex_tImpl(_Handle + _IndexOffset.Value);
+    get => new ParticleIndex_tImpl(_Handle + _IndexOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xBECF421C67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xBECF421C67FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _GrowthDurationOffset = new(() => Schema.GetOffset(0xBECF421CF0D91F70), LazyThreadSafetyMode.None);
+  private static readonly nint _GrowthDurationOffset = Schema.GetOffset(0xBECF421CF0D91F70);
 
   public ref float GrowthDuration {
-    get => ref _Handle.AsRef<float>(_GrowthDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_GrowthDurationOffset);
   }
-  private static readonly Lazy<nint> _GrowthOriginOffset = new(() => Schema.GetOffset(0xBECF421C4A651090), LazyThreadSafetyMode.None);
+  private static readonly nint _GrowthOriginOffset = Schema.GetOffset(0xBECF421C4A651090);
 
   public ref Vector GrowthOrigin {
-    get => ref _Handle.AsRef<Vector>(_GrowthOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_GrowthOriginOffset);
   }
-  private static readonly Lazy<nint> _EndcapTimeOffset = new(() => Schema.GetOffset(0xBECF421CCF1342BD), LazyThreadSafetyMode.None);
+  private static readonly nint _EndcapTimeOffset = Schema.GetOffset(0xBECF421CCF1342BD);
 
   public ref float EndcapTime {
-    get => ref _Handle.AsRef<float>(_EndcapTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndcapTimeOffset);
   }
-  private static readonly Lazy<nint> _MarkedForDeleteOffset = new(() => Schema.GetOffset(0xBECF421C6C9EC48F), LazyThreadSafetyMode.None);
+  private static readonly nint _MarkedForDeleteOffset = Schema.GetOffset(0xBECF421C6C9EC48F);
 
   public ref bool MarkedForDelete {
-    get => ref _Handle.AsRef<bool>(_MarkedForDeleteOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MarkedForDeleteOffset);
   }
 
 

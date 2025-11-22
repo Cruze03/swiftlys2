@@ -17,40 +17,40 @@ internal partial class CMarkupVolumeTaggedImpl : CMarkupVolumeImpl, CMarkupVolum
   public CMarkupVolumeTaggedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GroupNamesOffset = new(() => Schema.GetOffset(0x4113340CB853197C), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupNamesOffset = Schema.GetOffset(0x4113340CB853197C);
 
   public ref CUtlVector<CGlobalSymbol> GroupNames {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_GroupNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_GroupNamesOffset);
   }
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0x4113340C31C5D020), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0x4113340C31C5D020);
 
   public ref CUtlVector<CGlobalSymbol> Tags {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_TagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_TagsOffset);
   }
-  private static readonly Lazy<nint> _IsGroupOffset = new(() => Schema.GetOffset(0x4113340CB68D3FDC), LazyThreadSafetyMode.None);
+  private static readonly nint _IsGroupOffset = Schema.GetOffset(0x4113340CB68D3FDC);
 
   public ref bool IsGroup {
-    get => ref _Handle.AsRef<bool>(_IsGroupOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsGroupOffset);
   }
-  private static readonly Lazy<nint> _GroupByPrefabOffset = new(() => Schema.GetOffset(0x4113340CBCD6E7A7), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupByPrefabOffset = Schema.GetOffset(0x4113340CBCD6E7A7);
 
   public ref bool GroupByPrefab {
-    get => ref _Handle.AsRef<bool>(_GroupByPrefabOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GroupByPrefabOffset);
   }
-  private static readonly Lazy<nint> _GroupByVolumeOffset = new(() => Schema.GetOffset(0x4113340CFE19F503), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupByVolumeOffset = Schema.GetOffset(0x4113340CFE19F503);
 
   public ref bool GroupByVolume {
-    get => ref _Handle.AsRef<bool>(_GroupByVolumeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GroupByVolumeOffset);
   }
-  private static readonly Lazy<nint> _GroupOtherGroupsOffset = new(() => Schema.GetOffset(0x4113340CE6C708E6), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupOtherGroupsOffset = Schema.GetOffset(0x4113340CE6C708E6);
 
   public ref bool GroupOtherGroups {
-    get => ref _Handle.AsRef<bool>(_GroupOtherGroupsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GroupOtherGroupsOffset);
   }
-  private static readonly Lazy<nint> _IsInGroupOffset = new(() => Schema.GetOffset(0x4113340C19D5C241), LazyThreadSafetyMode.None);
+  private static readonly nint _IsInGroupOffset = Schema.GetOffset(0x4113340C19D5C241);
 
   public ref bool IsInGroup {
-    get => ref _Handle.AsRef<bool>(_IsInGroupOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsInGroupOffset);
   }
 
 

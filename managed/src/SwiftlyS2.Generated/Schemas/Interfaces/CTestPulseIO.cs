@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTestPulseIO : CLogicalEntity, ISchemaClass<CTestPulseIO> {
 
   static CTestPulseIO ISchemaClass<CTestPulseIO>.From(nint handle) => new CTestPulseIOImpl(handle);
-  static int ISchemaClass<CTestPulseIO>.Size => 2296;
+  static int ISchemaClass<CTestPulseIO>.Size => 1552;
   static string? ISchemaClass<CTestPulseIO>.ClassName => "test_io_combinations";
 
   

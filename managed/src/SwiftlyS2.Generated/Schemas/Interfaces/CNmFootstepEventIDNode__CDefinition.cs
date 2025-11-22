@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmFootstepEventIDNode__CDefinition : CNmIDValueNode__CDefinition, ISchemaClass<CNmFootstepEventIDNode__CDefinition> {
 
   static CNmFootstepEventIDNode__CDefinition ISchemaClass<CNmFootstepEventIDNode__CDefinition>.From(nint handle) => new CNmFootstepEventIDNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmFootstepEventIDNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmFootstepEventIDNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmFootstepEventIDNode__CDefinition>.ClassName => null;
 
   

@@ -17,15 +17,15 @@ internal partial class CMovementStatsPropertyImpl : SchemaClass, CMovementStatsP
   public CMovementStatsPropertyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseCounterOffset = new(() => Schema.GetOffset(0xDE38DFFB6294198C), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCounterOffset = Schema.GetOffset(0xDE38DFFB6294198C);
 
   public ref int UseCounter {
-    get => ref _Handle.AsRef<int>(_UseCounterOffset.Value);
+    get => ref _Handle.AsRef<int>(_UseCounterOffset);
   }
-  private static readonly Lazy<nint> _EmaMovementDirectionOffset = new(() => Schema.GetOffset(0xDE38DFFB3878FC8C), LazyThreadSafetyMode.None);
+  private static readonly nint _EmaMovementDirectionOffset = Schema.GetOffset(0xDE38DFFB3878FC8C);
 
   public CVectorExponentialMovingAverage EmaMovementDirection {
-    get => new CVectorExponentialMovingAverageImpl(_Handle + _EmaMovementDirectionOffset.Value);
+    get => new CVectorExponentialMovingAverageImpl(_Handle + _EmaMovementDirectionOffset);
   }
 
 

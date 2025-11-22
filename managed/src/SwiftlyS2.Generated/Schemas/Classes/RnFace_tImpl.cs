@@ -17,10 +17,10 @@ internal partial class RnFace_tImpl : SchemaClass, RnFace_t {
   public RnFace_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EdgeOffset = new(() => Schema.GetOffset(0xE71D75B3E2949FC8), LazyThreadSafetyMode.None);
+  private static readonly nint _EdgeOffset = Schema.GetOffset(0xE71D75B3E2949FC8);
 
   public ref byte Edge {
-    get => ref _Handle.AsRef<byte>(_EdgeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_EdgeOffset);
   }
 
 

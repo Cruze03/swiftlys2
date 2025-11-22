@@ -17,20 +17,20 @@ internal partial class CPulse_DomainValueImpl : SchemaClass, CPulse_DomainValue 
   public CPulse_DomainValueImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x8F29D60118853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x8F29D60118853D59);
 
   public ref PulseDomainValueType_t Type {
-    get => ref _Handle.AsRef<PulseDomainValueType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<PulseDomainValueType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x8F29D601DCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x8F29D601DCB0894A);
 
   public ref CGlobalSymbol Value {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_ValueOffset);
   }
-  private static readonly Lazy<nint> _RequiredRuntimeTypeOffset = new(() => Schema.GetOffset(0x8F29D6013355393C), LazyThreadSafetyMode.None);
+  private static readonly nint _RequiredRuntimeTypeOffset = Schema.GetOffset(0x8F29D6013355393C);
 
   public SchemaUntypedField RequiredRuntimeType {
-    get => new SchemaUntypedField(_Handle + _RequiredRuntimeTypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _RequiredRuntimeTypeOffset);
   }
 
 

@@ -17,45 +17,45 @@ internal partial class RnBlendVertex_tImpl : SchemaClass, RnBlendVertex_t {
   public RnBlendVertex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Weight0Offset = new(() => Schema.GetOffset(0xE168A4F195C99E6F), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight0Offset = Schema.GetOffset(0xE168A4F195C99E6F);
 
   public ref ushort Weight0 {
-    get => ref _Handle.AsRef<ushort>(_Weight0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Weight0Offset);
   }
-  private static readonly Lazy<nint> _Index0Offset = new(() => Schema.GetOffset(0xE168A4F1CD32A2F5), LazyThreadSafetyMode.None);
+  private static readonly nint _Index0Offset = Schema.GetOffset(0xE168A4F1CD32A2F5);
 
   public ref ushort Index0 {
-    get => ref _Handle.AsRef<ushort>(_Index0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Index0Offset);
   }
-  private static readonly Lazy<nint> _Weight1Offset = new(() => Schema.GetOffset(0xE168A4F194C99CDC), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight1Offset = Schema.GetOffset(0xE168A4F194C99CDC);
 
   public ref ushort Weight1 {
-    get => ref _Handle.AsRef<ushort>(_Weight1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Weight1Offset);
   }
-  private static readonly Lazy<nint> _Index1Offset = new(() => Schema.GetOffset(0xE168A4F1CC32A162), LazyThreadSafetyMode.None);
+  private static readonly nint _Index1Offset = Schema.GetOffset(0xE168A4F1CC32A162);
 
   public ref ushort Index1 {
-    get => ref _Handle.AsRef<ushort>(_Index1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Index1Offset);
   }
-  private static readonly Lazy<nint> _Weight2Offset = new(() => Schema.GetOffset(0xE168A4F197C9A195), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight2Offset = Schema.GetOffset(0xE168A4F197C9A195);
 
   public ref ushort Weight2 {
-    get => ref _Handle.AsRef<ushort>(_Weight2Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Weight2Offset);
   }
-  private static readonly Lazy<nint> _Index2Offset = new(() => Schema.GetOffset(0xE168A4F1CB329FCF), LazyThreadSafetyMode.None);
+  private static readonly nint _Index2Offset = Schema.GetOffset(0xE168A4F1CB329FCF);
 
   public ref ushort Index2 {
-    get => ref _Handle.AsRef<ushort>(_Index2Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_Index2Offset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xE168A4F1CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xE168A4F1CE6E9C28);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _TargetIndexOffset = new(() => Schema.GetOffset(0xE168A4F1F1A91080), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetIndexOffset = Schema.GetOffset(0xE168A4F1F1A91080);
 
   public ref ushort TargetIndex {
-    get => ref _Handle.AsRef<ushort>(_TargetIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_TargetIndexOffset);
   }
 
 

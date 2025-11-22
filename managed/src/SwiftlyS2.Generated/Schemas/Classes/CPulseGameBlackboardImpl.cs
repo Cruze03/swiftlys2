@@ -17,23 +17,23 @@ internal partial class CPulseGameBlackboardImpl : CBaseEntityImpl, CPulseGameBla
   public CPulseGameBlackboardImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrGraphNameOffset = new(() => Schema.GetOffset(0xF9A17A20C99E48AF), LazyThreadSafetyMode.None);
+  private static readonly nint _StrGraphNameOffset = Schema.GetOffset(0xF9A17A20C99E48AF);
 
   public string StrGraphName {
     get {
-      var ptr = _Handle.Read<nint>(_StrGraphNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrGraphNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrGraphNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrGraphNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrStateBlobOffset = new(() => Schema.GetOffset(0xF9A17A2046708C2A), LazyThreadSafetyMode.None);
+  private static readonly nint _StrStateBlobOffset = Schema.GetOffset(0xF9A17A2046708C2A);
 
   public string StrStateBlob {
     get {
-      var ptr = _Handle.Read<nint>(_StrStateBlobOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrStateBlobOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrStateBlobOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrStateBlobOffset, value);
   } 
 
   public void StrGraphNameUpdated() {

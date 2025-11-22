@@ -17,25 +17,25 @@ internal partial class C_OP_RemapCPVelocityToVectorImpl : CParticleFunctionOpera
   public C_OP_RemapCPVelocityToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0xAD6CE1DC0D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0xAD6CE1DC0D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xAD6CE1DCE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xAD6CE1DCE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xAD6CE1DCB731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xAD6CE1DCB731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0xAD6CE1DC48BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0xAD6CE1DC48BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
 
 

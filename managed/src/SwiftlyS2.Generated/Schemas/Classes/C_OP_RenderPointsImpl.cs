@@ -17,10 +17,10 @@ internal partial class C_OP_RenderPointsImpl : CParticleFunctionRendererImpl, C_
   public C_OP_RenderPointsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaterialOffset = new(() => Schema.GetOffset(0x9B246DAE888CE42E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOffset = Schema.GetOffset(0x9B246DAE888CE42E);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset);
   }
 
 

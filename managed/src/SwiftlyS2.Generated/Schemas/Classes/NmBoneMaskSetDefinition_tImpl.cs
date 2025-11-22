@@ -17,20 +17,20 @@ internal partial class NmBoneMaskSetDefinition_tImpl : SchemaClass, NmBoneMaskSe
   public NmBoneMaskSetDefinition_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IDOffset = new(() => Schema.GetOffset(0xEA12116095066900), LazyThreadSafetyMode.None);
+  private static readonly nint _IDOffset = Schema.GetOffset(0xEA12116095066900);
 
   public ref CGlobalSymbol ID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset);
   }
-  private static readonly Lazy<nint> _PrimaryWeightListOffset = new(() => Schema.GetOffset(0xEA1211603AF7FF49), LazyThreadSafetyMode.None);
+  private static readonly nint _PrimaryWeightListOffset = Schema.GetOffset(0xEA1211603AF7FF49);
 
   public CNmBoneWeightList PrimaryWeightList {
-    get => new CNmBoneWeightListImpl(_Handle + _PrimaryWeightListOffset.Value);
+    get => new CNmBoneWeightListImpl(_Handle + _PrimaryWeightListOffset);
   }
-  private static readonly Lazy<nint> _SecondaryWeightListsOffset = new(() => Schema.GetOffset(0xEA12116021DB2776), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondaryWeightListsOffset = Schema.GetOffset(0xEA12116021DB2776);
 
   public ref CUtlLeanVector<CNmBoneWeightList, int> SecondaryWeightLists {
-    get => ref _Handle.AsRef<CUtlLeanVector<CNmBoneWeightList, int>>(_SecondaryWeightListsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CNmBoneWeightList, int>>(_SecondaryWeightListsOffset);
   }
 
 

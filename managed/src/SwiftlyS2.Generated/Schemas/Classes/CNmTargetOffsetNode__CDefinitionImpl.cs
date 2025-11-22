@@ -17,25 +17,25 @@ internal partial class CNmTargetOffsetNode__CDefinitionImpl : CNmTargetValueNode
   public CNmTargetOffsetNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x33F484EF95E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x33F484EF95E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _IsBoneSpaceOffsetOffset = new(() => Schema.GetOffset(0x33F484EF7B33F588), LazyThreadSafetyMode.None);
+  private static readonly nint _IsBoneSpaceOffsetOffset = Schema.GetOffset(0x33F484EF7B33F588);
 
   public ref bool IsBoneSpaceOffset {
-    get => ref _Handle.AsRef<bool>(_IsBoneSpaceOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsBoneSpaceOffsetOffset);
   }
-  private static readonly Lazy<nint> _RotationOffsetOffset = new(() => Schema.GetOffset(0x33F484EFD70314A4), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOffsetOffset = Schema.GetOffset(0x33F484EFD70314A4);
 
   public ref Quaternion RotationOffset {
-    get => ref _Handle.AsRef<Quaternion>(_RotationOffsetOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_RotationOffsetOffset);
   }
-  private static readonly Lazy<nint> _TranslationOffsetOffset = new(() => Schema.GetOffset(0x33F484EF1ABA9777), LazyThreadSafetyMode.None);
+  private static readonly nint _TranslationOffsetOffset = Schema.GetOffset(0x33F484EF1ABA9777);
 
   public ref Vector TranslationOffset {
-    get => ref _Handle.AsRef<Vector>(_TranslationOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TranslationOffsetOffset);
   }
 
 

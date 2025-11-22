@@ -17,35 +17,35 @@ internal partial class CAimMatrixUpdateNodeImpl : CUnaryUpdateNodeImpl, CAimMatr
   public CAimMatrixUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpFixedSettingsOffset = new(() => Schema.GetOffset(0xB3687A53E533AB09), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedSettingsOffset = Schema.GetOffset(0xB3687A53E533AB09);
 
   public AimMatrixOpFixedSettings_t OpFixedSettings {
-    get => new AimMatrixOpFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset.Value);
+    get => new AimMatrixOpFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0xB3687A53FA08A9E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0xB3687A53FA08A9E8);
 
   public ref AnimVectorSource Target {
-    get => ref _Handle.AsRef<AnimVectorSource>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<AnimVectorSource>(_TargetOffset);
   }
-  private static readonly Lazy<nint> _ParamIndexOffset = new(() => Schema.GetOffset(0xB3687A5361990A86), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamIndexOffset = Schema.GetOffset(0xB3687A5361990A86);
 
   public CAnimParamHandle ParamIndex {
-    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0xB3687A53E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0xB3687A53E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _ResetChildOffset = new(() => Schema.GetOffset(0xB3687A5365CC88B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChildOffset = Schema.GetOffset(0xB3687A5365CC88B6);
 
   public ref bool ResetChild {
-    get => ref _Handle.AsRef<bool>(_ResetChildOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChildOffset);
   }
-  private static readonly Lazy<nint> _LockWhenWaningOffset = new(() => Schema.GetOffset(0xB3687A53EED48004), LazyThreadSafetyMode.None);
+  private static readonly nint _LockWhenWaningOffset = Schema.GetOffset(0xB3687A53EED48004);
 
   public ref bool LockWhenWaning {
-    get => ref _Handle.AsRef<bool>(_LockWhenWaningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockWhenWaningOffset);
   }
 
 

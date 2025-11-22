@@ -17,25 +17,25 @@ internal partial class CLogicNPCCounterAABBImpl : CLogicNPCCounterImpl, CLogicNP
   public CLogicNPCCounterAABBImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DistanceOuterMinsOffset = new(() => Schema.GetOffset(0x264C2C4B185EC6F4), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOuterMinsOffset = Schema.GetOffset(0x264C2C4B185EC6F4);
 
   public ref Vector DistanceOuterMins {
-    get => ref _Handle.AsRef<Vector>(_DistanceOuterMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceOuterMinsOffset);
   }
-  private static readonly Lazy<nint> _DistanceOuterMaxsOffset = new(() => Schema.GetOffset(0x264C2C4B99738B36), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOuterMaxsOffset = Schema.GetOffset(0x264C2C4B99738B36);
 
   public ref Vector DistanceOuterMaxs {
-    get => ref _Handle.AsRef<Vector>(_DistanceOuterMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceOuterMaxsOffset);
   }
-  private static readonly Lazy<nint> _OuterMinsOffset = new(() => Schema.GetOffset(0x264C2C4B30928F3D), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterMinsOffset = Schema.GetOffset(0x264C2C4B30928F3D);
 
   public ref Vector OuterMins {
-    get => ref _Handle.AsRef<Vector>(_OuterMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OuterMinsOffset);
   }
-  private static readonly Lazy<nint> _OuterMaxsOffset = new(() => Schema.GetOffset(0x264C2C4BC9A77947), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterMaxsOffset = Schema.GetOffset(0x264C2C4BC9A77947);
 
   public ref Vector OuterMaxs {
-    get => ref _Handle.AsRef<Vector>(_OuterMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OuterMaxsOffset);
   }
 
 

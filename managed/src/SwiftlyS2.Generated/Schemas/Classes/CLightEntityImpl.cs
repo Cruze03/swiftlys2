@@ -17,11 +17,11 @@ internal partial class CLightEntityImpl : CBaseModelEntityImpl, CLightEntity {
   public CLightEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CLightComponentOffset = new(() => Schema.GetOffset(0xA3C95F05104F0185), LazyThreadSafetyMode.None);
+  private static readonly nint _CLightComponentOffset = Schema.GetOffset(0xA3C95F05104F0185);
 
   public CLightComponent? CLightComponent {
     get {
-      var ptr = _Handle.Read<nint>(_CLightComponentOffset.Value);
+      var ptr = _Handle.Read<nint>(_CLightComponentOffset);
       return ptr.IsValidPtr() ? new CLightComponentImpl(ptr) : null;
     }
   }

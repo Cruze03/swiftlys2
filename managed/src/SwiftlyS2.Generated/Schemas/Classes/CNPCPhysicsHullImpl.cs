@@ -17,45 +17,45 @@ internal partial class CNPCPhysicsHullImpl : SchemaClass, CNPCPhysicsHull {
   public CNPCPhysicsHullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x6C27881963D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x6C27881963D22D49);
 
   public ref CGlobalSymbol Name {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x6C27881921B39888), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x6C27881921B39888);
 
   public ref NPCPhysicsHullType_t Type {
-    get => ref _Handle.AsRef<NPCPhysicsHullType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<NPCPhysicsHullType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _CapsuleHeightOffset = new(() => Schema.GetOffset(0x6C278819043CF691), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleHeightOffset = Schema.GetOffset(0x6C278819043CF691);
 
   public ref float CapsuleHeight {
-    get => ref _Handle.AsRef<float>(_CapsuleHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_CapsuleHeightOffset);
   }
-  private static readonly Lazy<nint> _CapsuleRadiusOffset = new(() => Schema.GetOffset(0x6C278819A1A593D0), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleRadiusOffset = Schema.GetOffset(0x6C278819A1A593D0);
 
   public ref float CapsuleRadius {
-    get => ref _Handle.AsRef<float>(_CapsuleRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_CapsuleRadiusOffset);
   }
-  private static readonly Lazy<nint> _CapsuleCenter1Offset = new(() => Schema.GetOffset(0x6C278819A5E81978), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleCenter1Offset = Schema.GetOffset(0x6C278819A5E81978);
 
   public ref Vector CapsuleCenter1 {
-    get => ref _Handle.AsRef<Vector>(_CapsuleCenter1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_CapsuleCenter1Offset);
   }
-  private static readonly Lazy<nint> _CapsuleCenter2Offset = new(() => Schema.GetOffset(0x6C278819A8E81E31), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleCenter2Offset = Schema.GetOffset(0x6C278819A8E81E31);
 
   public ref Vector CapsuleCenter2 {
-    get => ref _Handle.AsRef<Vector>(_CapsuleCenter2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_CapsuleCenter2Offset);
   }
-  private static readonly Lazy<nint> _GroundBoxHeightOffset = new(() => Schema.GetOffset(0x6C2788195B2D099E), LazyThreadSafetyMode.None);
+  private static readonly nint _GroundBoxHeightOffset = Schema.GetOffset(0x6C2788195B2D099E);
 
   public ref float GroundBoxHeight {
-    get => ref _Handle.AsRef<float>(_GroundBoxHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_GroundBoxHeightOffset);
   }
-  private static readonly Lazy<nint> _GroundBoxWidthOffset = new(() => Schema.GetOffset(0x6C2788194A30F5E3), LazyThreadSafetyMode.None);
+  private static readonly nint _GroundBoxWidthOffset = Schema.GetOffset(0x6C2788194A30F5E3);
 
   public ref float GroundBoxWidth {
-    get => ref _Handle.AsRef<float>(_GroundBoxWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_GroundBoxWidthOffset);
   }
 
 

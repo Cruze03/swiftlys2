@@ -17,20 +17,20 @@ internal partial class C_INIT_DistanceCullImpl : CParticleFunctionInitializerImp
   public C_INIT_DistanceCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0x78EE30C90D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0x78EE30C90D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x78EE30C900DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x78EE30C900DC4A68);
 
   public CParticleCollectionFloatInput Distance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset);
   }
-  private static readonly Lazy<nint> _CullInsideOffset = new(() => Schema.GetOffset(0x78EE30C9293E00AD), LazyThreadSafetyMode.None);
+  private static readonly nint _CullInsideOffset = Schema.GetOffset(0x78EE30C9293E00AD);
 
   public ref bool CullInside {
-    get => ref _Handle.AsRef<bool>(_CullInsideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CullInsideOffset);
   }
 
 

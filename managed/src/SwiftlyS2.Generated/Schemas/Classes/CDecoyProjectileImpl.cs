@@ -17,25 +17,25 @@ internal partial class CDecoyProjectileImpl : CBaseCSGrenadeProjectileImpl, CDec
   public CDecoyProjectileImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DecoyShotTickOffset = new(() => Schema.GetOffset(0x69629121C4EFED0A), LazyThreadSafetyMode.None);
+  private static readonly nint _DecoyShotTickOffset = Schema.GetOffset(0x69629121C4EFED0A);
 
   public ref int DecoyShotTick {
-    get => ref _Handle.AsRef<int>(_DecoyShotTickOffset.Value);
+    get => ref _Handle.AsRef<int>(_DecoyShotTickOffset);
   }
-  private static readonly Lazy<nint> _ShotsRemainingOffset = new(() => Schema.GetOffset(0x6962912188CAE2A2), LazyThreadSafetyMode.None);
+  private static readonly nint _ShotsRemainingOffset = Schema.GetOffset(0x6962912188CAE2A2);
 
   public ref int ShotsRemaining {
-    get => ref _Handle.AsRef<int>(_ShotsRemainingOffset.Value);
+    get => ref _Handle.AsRef<int>(_ShotsRemainingOffset);
   }
-  private static readonly Lazy<nint> _ExpireTimeOffset = new(() => Schema.GetOffset(0x696291216D61853F), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpireTimeOffset = Schema.GetOffset(0x696291216D61853F);
 
   public GameTime_t ExpireTime {
-    get => new GameTime_tImpl(_Handle + _ExpireTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _ExpireTimeOffset);
   }
-  private static readonly Lazy<nint> _DecoyWeaponDefIndexOffset = new(() => Schema.GetOffset(0x69629121A9377E6A), LazyThreadSafetyMode.None);
+  private static readonly nint _DecoyWeaponDefIndexOffset = Schema.GetOffset(0x69629121A9377E6A);
 
   public ref ushort DecoyWeaponDefIndex {
-    get => ref _Handle.AsRef<ushort>(_DecoyWeaponDefIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_DecoyWeaponDefIndexOffset);
   }
 
   public void DecoyShotTickUpdated() {

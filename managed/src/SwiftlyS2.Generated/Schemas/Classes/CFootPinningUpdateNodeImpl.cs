@@ -17,25 +17,25 @@ internal partial class CFootPinningUpdateNodeImpl : CUnaryUpdateNodeImpl, CFootP
   public CFootPinningUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PoseOpFixedDataOffset = new(() => Schema.GetOffset(0x9D0C68166EC45627), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseOpFixedDataOffset = Schema.GetOffset(0x9D0C68166EC45627);
 
   public FootPinningPoseOpFixedData_t PoseOpFixedData {
-    get => new FootPinningPoseOpFixedData_tImpl(_Handle + _PoseOpFixedDataOffset.Value);
+    get => new FootPinningPoseOpFixedData_tImpl(_Handle + _PoseOpFixedDataOffset);
   }
-  private static readonly Lazy<nint> _TimingSourceOffset = new(() => Schema.GetOffset(0x9D0C68164D5A2DD7), LazyThreadSafetyMode.None);
+  private static readonly nint _TimingSourceOffset = Schema.GetOffset(0x9D0C68164D5A2DD7);
 
   public ref FootPinningTimingSource TimingSource {
-    get => ref _Handle.AsRef<FootPinningTimingSource>(_TimingSourceOffset.Value);
+    get => ref _Handle.AsRef<FootPinningTimingSource>(_TimingSourceOffset);
   }
-  private static readonly Lazy<nint> _ParamsOffset = new(() => Schema.GetOffset(0x9D0C6816640EA8F3), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamsOffset = Schema.GetOffset(0x9D0C6816640EA8F3);
 
   public ref CUtlVector<CAnimParamHandle> Params {
-    get => ref _Handle.AsRef<CUtlVector<CAnimParamHandle>>(_ParamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimParamHandle>>(_ParamsOffset);
   }
-  private static readonly Lazy<nint> _ResetChildOffset = new(() => Schema.GetOffset(0x9D0C681665CC88B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChildOffset = Schema.GetOffset(0x9D0C681665CC88B6);
 
   public ref bool ResetChild {
-    get => ref _Handle.AsRef<bool>(_ResetChildOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChildOffset);
   }
 
 

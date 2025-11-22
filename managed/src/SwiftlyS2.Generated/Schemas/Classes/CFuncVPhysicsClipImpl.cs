@@ -17,10 +17,10 @@ internal partial class CFuncVPhysicsClipImpl : CBaseModelEntityImpl, CFuncVPhysi
   public CFuncVPhysicsClipImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xE695DCD93A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xE695DCD93A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
 
 

@@ -17,87 +17,87 @@ internal partial class CSoundEventEntityImpl : CBaseEntityImpl, CSoundEventEntit
   public CSoundEventEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartOnSpawnOffset = new(() => Schema.GetOffset(0x85BC270CDB2E6401), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOnSpawnOffset = Schema.GetOffset(0x85BC270CDB2E6401);
 
   public ref bool StartOnSpawn {
-    get => ref _Handle.AsRef<bool>(_StartOnSpawnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartOnSpawnOffset);
   }
-  private static readonly Lazy<nint> _ToLocalPlayerOffset = new(() => Schema.GetOffset(0x85BC270CE46A0E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _ToLocalPlayerOffset = Schema.GetOffset(0x85BC270CE46A0E6E);
 
   public ref bool ToLocalPlayer {
-    get => ref _Handle.AsRef<bool>(_ToLocalPlayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ToLocalPlayerOffset);
   }
-  private static readonly Lazy<nint> _StopOnNewOffset = new(() => Schema.GetOffset(0x85BC270C87CBD5EE), LazyThreadSafetyMode.None);
+  private static readonly nint _StopOnNewOffset = Schema.GetOffset(0x85BC270C87CBD5EE);
 
   public ref bool StopOnNew {
-    get => ref _Handle.AsRef<bool>(_StopOnNewOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StopOnNewOffset);
   }
-  private static readonly Lazy<nint> _SaveRestoreOffset = new(() => Schema.GetOffset(0x85BC270C329D644A), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveRestoreOffset = Schema.GetOffset(0x85BC270C329D644A);
 
   public ref bool SaveRestore {
-    get => ref _Handle.AsRef<bool>(_SaveRestoreOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SaveRestoreOffset);
   }
-  private static readonly Lazy<nint> _SavedIsPlayingOffset = new(() => Schema.GetOffset(0x85BC270CE283DF5A), LazyThreadSafetyMode.None);
+  private static readonly nint _SavedIsPlayingOffset = Schema.GetOffset(0x85BC270CE283DF5A);
 
   public ref bool SavedIsPlaying {
-    get => ref _Handle.AsRef<bool>(_SavedIsPlayingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SavedIsPlayingOffset);
   }
-  private static readonly Lazy<nint> _SavedElapsedTimeOffset = new(() => Schema.GetOffset(0x85BC270C581DEF93), LazyThreadSafetyMode.None);
+  private static readonly nint _SavedElapsedTimeOffset = Schema.GetOffset(0x85BC270C581DEF93);
 
   public ref float SavedElapsedTime {
-    get => ref _Handle.AsRef<float>(_SavedElapsedTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SavedElapsedTimeOffset);
   }
-  private static readonly Lazy<nint> _SourceEntityNameOffset = new(() => Schema.GetOffset(0x85BC270C6C1387C0), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceEntityNameOffset = Schema.GetOffset(0x85BC270C6C1387C0);
 
   public string SourceEntityName {
     get {
-      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceEntityNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceEntityNameOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachmentNameOffset = new(() => Schema.GetOffset(0x85BC270C667A37F3), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentNameOffset = Schema.GetOffset(0x85BC270C667A37F3);
 
   public string AttachmentName {
     get {
-      var ptr = _Handle.Read<nint>(_AttachmentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttachmentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttachmentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttachmentNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OnGUIDChangedOffset = new(() => Schema.GetOffset(0x85BC270C2173B7A3), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGUIDChangedOffset = Schema.GetOffset(0x85BC270C2173B7A3);
 
   public SchemaUntypedField OnGUIDChanged {
-    get => new SchemaUntypedField(_Handle + _OnGUIDChangedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnGUIDChangedOffset);
   }
-  private static readonly Lazy<nint> _OnSoundFinishedOffset = new(() => Schema.GetOffset(0x85BC270C35E97239), LazyThreadSafetyMode.None);
+  private static readonly nint _OnSoundFinishedOffset = Schema.GetOffset(0x85BC270C35E97239);
 
   public CEntityIOOutput OnSoundFinished {
-    get => new CEntityIOOutputImpl(_Handle + _OnSoundFinishedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnSoundFinishedOffset);
   }
-  private static readonly Lazy<nint> _ClientCullRadiusOffset = new(() => Schema.GetOffset(0x85BC270CEC099542), LazyThreadSafetyMode.None);
+  private static readonly nint _ClientCullRadiusOffset = Schema.GetOffset(0x85BC270CEC099542);
 
   public ref float ClientCullRadius {
-    get => ref _Handle.AsRef<float>(_ClientCullRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_ClientCullRadiusOffset);
   }
-  private static readonly Lazy<nint> _SoundNameOffset = new(() => Schema.GetOffset(0x85BC270CB17EB157), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundNameOffset = Schema.GetOffset(0x85BC270CB17EB157);
 
   public string SoundName {
     get {
-      var ptr = _Handle.Read<nint>(_SoundNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SourceOffset = new(() => Schema.GetOffset(0x85BC270C33D3CD82), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOffset = Schema.GetOffset(0x85BC270C33D3CD82);
 
   public ref CHandle<CEntityInstance> Source {
-    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset);
   }
-  private static readonly Lazy<nint> _EntityIndexSelectionOffset = new(() => Schema.GetOffset(0x85BC270CD23B423C), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityIndexSelectionOffset = Schema.GetOffset(0x85BC270CD23B423C);
 
   public ref int EntityIndexSelection {
-    get => ref _Handle.AsRef<int>(_EntityIndexSelectionOffset.Value);
+    get => ref _Handle.AsRef<int>(_EntityIndexSelectionOffset);
   }
 
 

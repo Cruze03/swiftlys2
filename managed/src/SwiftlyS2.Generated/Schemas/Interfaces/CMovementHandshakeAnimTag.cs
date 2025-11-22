@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CMovementHandshakeAnimTag : CHandshakeAnimTagBase, ISchemaClass<CMovementHandshakeAnimTag> {
 
   static CMovementHandshakeAnimTag ISchemaClass<CMovementHandshakeAnimTag>.From(nint handle) => new CMovementHandshakeAnimTagImpl(handle);
-  static int ISchemaClass<CMovementHandshakeAnimTag>.Size => 80;
+  static int ISchemaClass<CMovementHandshakeAnimTag>.Size => 88;
   static string? ISchemaClass<CMovementHandshakeAnimTag>.ClassName => null;
 
 

@@ -17,34 +17,34 @@ internal partial class CConstraintSlaveImpl : SchemaClass, CConstraintSlave {
   public CConstraintSlaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BaseOrientationOffset = new(() => Schema.GetOffset(0xE0E093BC46E6EA75), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseOrientationOffset = Schema.GetOffset(0xE0E093BC46E6EA75);
 
   public ref Quaternion BaseOrientation {
-    get => ref _Handle.AsRef<Quaternion>(_BaseOrientationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_BaseOrientationOffset);
   }
-  private static readonly Lazy<nint> _BasePositionOffset = new(() => Schema.GetOffset(0xE0E093BCC510D587), LazyThreadSafetyMode.None);
+  private static readonly nint _BasePositionOffset = Schema.GetOffset(0xE0E093BCC510D587);
 
   public ref Vector BasePosition {
-    get => ref _Handle.AsRef<Vector>(_BasePositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BasePositionOffset);
   }
-  private static readonly Lazy<nint> _BoneHashOffset = new(() => Schema.GetOffset(0xE0E093BCD4010F03), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneHashOffset = Schema.GetOffset(0xE0E093BCD4010F03);
 
   public ref uint BoneHash {
-    get => ref _Handle.AsRef<uint>(_BoneHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BoneHashOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0xE0E093BC7B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0xE0E093BC7B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xE0E093BC63D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xE0E093BC63D22D49);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
 
 

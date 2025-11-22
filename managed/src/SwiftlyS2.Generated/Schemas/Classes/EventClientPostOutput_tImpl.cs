@@ -17,30 +17,30 @@ internal partial class EventClientPostOutput_tImpl : SchemaClass, EventClientPos
   public EventClientPostOutput_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopStateOffset = new(() => Schema.GetOffset(0x98578A18F928A2EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopStateOffset = Schema.GetOffset(0x98578A18F928A2EC);
 
   public EngineLoopState_t LoopState {
-    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset.Value);
+    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset);
   }
-  private static readonly Lazy<nint> _RenderTimeOffset = new(() => Schema.GetOffset(0x98578A183C2AE65A), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderTimeOffset = Schema.GetOffset(0x98578A183C2AE65A);
 
   public ref double RenderTime {
-    get => ref _Handle.AsRef<double>(_RenderTimeOffset.Value);
+    get => ref _Handle.AsRef<double>(_RenderTimeOffset);
   }
-  private static readonly Lazy<nint> _RenderFrameTimeOffset = new(() => Schema.GetOffset(0x98578A18F2FB2D81), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderFrameTimeOffset = Schema.GetOffset(0x98578A18F2FB2D81);
 
   public ref float RenderFrameTime {
-    get => ref _Handle.AsRef<float>(_RenderFrameTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RenderFrameTimeOffset);
   }
-  private static readonly Lazy<nint> _RenderFrameTimeUnboundedOffset = new(() => Schema.GetOffset(0x98578A18735692FF), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderFrameTimeUnboundedOffset = Schema.GetOffset(0x98578A18735692FF);
 
   public ref float RenderFrameTimeUnbounded {
-    get => ref _Handle.AsRef<float>(_RenderFrameTimeUnboundedOffset.Value);
+    get => ref _Handle.AsRef<float>(_RenderFrameTimeUnboundedOffset);
   }
-  private static readonly Lazy<nint> _RenderOnlyOffset = new(() => Schema.GetOffset(0x98578A18E274559F), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderOnlyOffset = Schema.GetOffset(0x98578A18E274559F);
 
   public ref bool RenderOnly {
-    get => ref _Handle.AsRef<bool>(_RenderOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RenderOnlyOffset);
   }
 
 

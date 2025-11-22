@@ -17,45 +17,45 @@ internal partial class C_OP_TurbulenceForceImpl : CParticleFunctionForceImpl, C_
   public C_OP_TurbulenceForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NoiseCoordScale0Offset = new(() => Schema.GetOffset(0xCAE57FA75C19EC96), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseCoordScale0Offset = Schema.GetOffset(0xCAE57FA75C19EC96);
 
   public ref float NoiseCoordScale0 {
-    get => ref _Handle.AsRef<float>(_NoiseCoordScale0Offset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseCoordScale0Offset);
   }
-  private static readonly Lazy<nint> _NoiseCoordScale1Offset = new(() => Schema.GetOffset(0xCAE57FA75D19EE29), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseCoordScale1Offset = Schema.GetOffset(0xCAE57FA75D19EE29);
 
   public ref float NoiseCoordScale1 {
-    get => ref _Handle.AsRef<float>(_NoiseCoordScale1Offset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseCoordScale1Offset);
   }
-  private static readonly Lazy<nint> _NoiseCoordScale2Offset = new(() => Schema.GetOffset(0xCAE57FA75A19E970), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseCoordScale2Offset = Schema.GetOffset(0xCAE57FA75A19E970);
 
   public ref float NoiseCoordScale2 {
-    get => ref _Handle.AsRef<float>(_NoiseCoordScale2Offset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseCoordScale2Offset);
   }
-  private static readonly Lazy<nint> _NoiseCoordScale3Offset = new(() => Schema.GetOffset(0xCAE57FA75B19EB03), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseCoordScale3Offset = Schema.GetOffset(0xCAE57FA75B19EB03);
 
   public ref float NoiseCoordScale3 {
-    get => ref _Handle.AsRef<float>(_NoiseCoordScale3Offset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseCoordScale3Offset);
   }
-  private static readonly Lazy<nint> _NoiseAmount0Offset = new(() => Schema.GetOffset(0xCAE57FA767BF95F7), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseAmount0Offset = Schema.GetOffset(0xCAE57FA767BF95F7);
 
   public ref Vector NoiseAmount0 {
-    get => ref _Handle.AsRef<Vector>(_NoiseAmount0Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_NoiseAmount0Offset);
   }
-  private static readonly Lazy<nint> _NoiseAmount1Offset = new(() => Schema.GetOffset(0xCAE57FA766BF9464), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseAmount1Offset = Schema.GetOffset(0xCAE57FA766BF9464);
 
   public ref Vector NoiseAmount1 {
-    get => ref _Handle.AsRef<Vector>(_NoiseAmount1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_NoiseAmount1Offset);
   }
-  private static readonly Lazy<nint> _NoiseAmount2Offset = new(() => Schema.GetOffset(0xCAE57FA769BF991D), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseAmount2Offset = Schema.GetOffset(0xCAE57FA769BF991D);
 
   public ref Vector NoiseAmount2 {
-    get => ref _Handle.AsRef<Vector>(_NoiseAmount2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_NoiseAmount2Offset);
   }
-  private static readonly Lazy<nint> _NoiseAmount3Offset = new(() => Schema.GetOffset(0xCAE57FA768BF978A), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseAmount3Offset = Schema.GetOffset(0xCAE57FA768BF978A);
 
   public ref Vector NoiseAmount3 {
-    get => ref _Handle.AsRef<Vector>(_NoiseAmount3Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_NoiseAmount3Offset);
   }
 
 

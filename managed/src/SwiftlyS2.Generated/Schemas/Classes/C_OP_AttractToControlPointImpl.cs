@@ -17,35 +17,35 @@ internal partial class C_OP_AttractToControlPointImpl : CParticleFunctionForceIm
   public C_OP_AttractToControlPointImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ComponentScaleOffset = new(() => Schema.GetOffset(0xBD30C24AB17954E2), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentScaleOffset = Schema.GetOffset(0xBD30C24AB17954E2);
 
   public ref Vector ComponentScale {
-    get => ref _Handle.AsRef<Vector>(_ComponentScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ComponentScaleOffset);
   }
-  private static readonly Lazy<nint> _ForceAmountOffset = new(() => Schema.GetOffset(0xBD30C24A70831A84), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceAmountOffset = Schema.GetOffset(0xBD30C24A70831A84);
 
   public CPerParticleFloatInput ForceAmount {
-    get => new CPerParticleFloatInputImpl(_Handle + _ForceAmountOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ForceAmountOffset);
   }
-  private static readonly Lazy<nint> _FalloffPowerOffset = new(() => Schema.GetOffset(0xBD30C24AE3163382), LazyThreadSafetyMode.None);
+  private static readonly nint _FalloffPowerOffset = Schema.GetOffset(0xBD30C24AE3163382);
 
   public ref float FalloffPower {
-    get => ref _Handle.AsRef<float>(_FalloffPowerOffset.Value);
+    get => ref _Handle.AsRef<float>(_FalloffPowerOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xBD30C24AB3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xBD30C24AB3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _ForceAmountMinOffset = new(() => Schema.GetOffset(0xBD30C24AEBB56458), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceAmountMinOffset = Schema.GetOffset(0xBD30C24AEBB56458);
 
   public CPerParticleFloatInput ForceAmountMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _ForceAmountMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ForceAmountMinOffset);
   }
-  private static readonly Lazy<nint> _ApplyMinForceOffset = new(() => Schema.GetOffset(0xBD30C24AF72AC3CC), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyMinForceOffset = Schema.GetOffset(0xBD30C24AF72AC3CC);
 
   public ref bool ApplyMinForce {
-    get => ref _Handle.AsRef<bool>(_ApplyMinForceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyMinForceOffset);
   }
 
 

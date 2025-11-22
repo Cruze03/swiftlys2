@@ -17,84 +17,84 @@ internal partial class CAnimDemoCaptureSettingsImpl : SchemaClass, CAnimDemoCapt
   public CAnimDemoCaptureSettingsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ErrorRangeSplineRotationOffset = new(() => Schema.GetOffset(0xD4FC71974DBFEF49), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeSplineRotationOffset = Schema.GetOffset(0xD4FC71974DBFEF49);
 
   public ref Vector2D ErrorRangeSplineRotation {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineRotationOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineRotationOffset);
   }
-  private static readonly Lazy<nint> _ErrorRangeSplineTranslationOffset = new(() => Schema.GetOffset(0xD4FC71972D53C5DE), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeSplineTranslationOffset = Schema.GetOffset(0xD4FC71972D53C5DE);
 
   public ref Vector2D ErrorRangeSplineTranslation {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineTranslationOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineTranslationOffset);
   }
-  private static readonly Lazy<nint> _ErrorRangeSplineScaleOffset = new(() => Schema.GetOffset(0xD4FC7197E6E421C7), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeSplineScaleOffset = Schema.GetOffset(0xD4FC7197E6E421C7);
 
   public ref Vector2D ErrorRangeSplineScale {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeSplineScaleOffset);
   }
-  private static readonly Lazy<nint> _IkRotation_MaxSplineErrorOffset = new(() => Schema.GetOffset(0xD4FC71971DA8FCB5), LazyThreadSafetyMode.None);
+  private static readonly nint _IkRotation_MaxSplineErrorOffset = Schema.GetOffset(0xD4FC71971DA8FCB5);
 
   public ref float IkRotation_MaxSplineError {
-    get => ref _Handle.AsRef<float>(_IkRotation_MaxSplineErrorOffset.Value);
+    get => ref _Handle.AsRef<float>(_IkRotation_MaxSplineErrorOffset);
   }
-  private static readonly Lazy<nint> _IkTranslation_MaxSplineErrorOffset = new(() => Schema.GetOffset(0xD4FC719732DF1990), LazyThreadSafetyMode.None);
+  private static readonly nint _IkTranslation_MaxSplineErrorOffset = Schema.GetOffset(0xD4FC719732DF1990);
 
   public ref float IkTranslation_MaxSplineError {
-    get => ref _Handle.AsRef<float>(_IkTranslation_MaxSplineErrorOffset.Value);
+    get => ref _Handle.AsRef<float>(_IkTranslation_MaxSplineErrorOffset);
   }
-  private static readonly Lazy<nint> _ErrorRangeQuantizationRotationOffset = new(() => Schema.GetOffset(0xD4FC7197D6AADA59), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeQuantizationRotationOffset = Schema.GetOffset(0xD4FC7197D6AADA59);
 
   public ref Vector2D ErrorRangeQuantizationRotation {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationRotationOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationRotationOffset);
   }
-  private static readonly Lazy<nint> _ErrorRangeQuantizationTranslationOffset = new(() => Schema.GetOffset(0xD4FC71975BCCF6AE), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeQuantizationTranslationOffset = Schema.GetOffset(0xD4FC71975BCCF6AE);
 
   public ref Vector2D ErrorRangeQuantizationTranslation {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationTranslationOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationTranslationOffset);
   }
-  private static readonly Lazy<nint> _ErrorRangeQuantizationScaleOffset = new(() => Schema.GetOffset(0xD4FC7197E7487A37), LazyThreadSafetyMode.None);
+  private static readonly nint _ErrorRangeQuantizationScaleOffset = Schema.GetOffset(0xD4FC7197E7487A37);
 
   public ref Vector2D ErrorRangeQuantizationScale {
-    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ErrorRangeQuantizationScaleOffset);
   }
-  private static readonly Lazy<nint> _IkRotation_MaxQuantizationErrorOffset = new(() => Schema.GetOffset(0xD4FC71973F1ED56D), LazyThreadSafetyMode.None);
+  private static readonly nint _IkRotation_MaxQuantizationErrorOffset = Schema.GetOffset(0xD4FC71973F1ED56D);
 
   public ref float IkRotation_MaxQuantizationError {
-    get => ref _Handle.AsRef<float>(_IkRotation_MaxQuantizationErrorOffset.Value);
+    get => ref _Handle.AsRef<float>(_IkRotation_MaxQuantizationErrorOffset);
   }
-  private static readonly Lazy<nint> _IkTranslation_MaxQuantizationErrorOffset = new(() => Schema.GetOffset(0xD4FC7197BF5570E8), LazyThreadSafetyMode.None);
+  private static readonly nint _IkTranslation_MaxQuantizationErrorOffset = Schema.GetOffset(0xD4FC7197BF5570E8);
 
   public ref float IkTranslation_MaxQuantizationError {
-    get => ref _Handle.AsRef<float>(_IkTranslation_MaxQuantizationErrorOffset.Value);
+    get => ref _Handle.AsRef<float>(_IkTranslation_MaxQuantizationErrorOffset);
   }
-  private static readonly Lazy<nint> _BaseSequenceOffset = new(() => Schema.GetOffset(0xD4FC719704AABA45), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseSequenceOffset = Schema.GetOffset(0xD4FC719704AABA45);
 
   public string BaseSequence {
     get {
-      var ptr = _Handle.Read<nint>(_BaseSequenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_BaseSequenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BaseSequenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _BaseSequenceOffset, value);
   } 
-  private static readonly Lazy<nint> _BaseSequenceFrameOffset = new(() => Schema.GetOffset(0xD4FC71972BAAA932), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseSequenceFrameOffset = Schema.GetOffset(0xD4FC71972BAAA932);
 
   public ref int BaseSequenceFrame {
-    get => ref _Handle.AsRef<int>(_BaseSequenceFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_BaseSequenceFrameOffset);
   }
-  private static readonly Lazy<nint> _BoneSelectionModeOffset = new(() => Schema.GetOffset(0xD4FC71971C4BEF04), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneSelectionModeOffset = Schema.GetOffset(0xD4FC71971C4BEF04);
 
   public ref EDemoBoneSelectionMode BoneSelectionMode {
-    get => ref _Handle.AsRef<EDemoBoneSelectionMode>(_BoneSelectionModeOffset.Value);
+    get => ref _Handle.AsRef<EDemoBoneSelectionMode>(_BoneSelectionModeOffset);
   }
-  private static readonly Lazy<nint> _BonesOffset = new(() => Schema.GetOffset(0xD4FC71970FDA60D4), LazyThreadSafetyMode.None);
+  private static readonly nint _BonesOffset = Schema.GetOffset(0xD4FC71970FDA60D4);
 
   public ref CUtlVector<BoneDemoCaptureSettings_t> Bones {
-    get => ref _Handle.AsRef<CUtlVector<BoneDemoCaptureSettings_t>>(_BonesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<BoneDemoCaptureSettings_t>>(_BonesOffset);
   }
-  private static readonly Lazy<nint> _IkChainsOffset = new(() => Schema.GetOffset(0xD4FC7197A467D4E7), LazyThreadSafetyMode.None);
+  private static readonly nint _IkChainsOffset = Schema.GetOffset(0xD4FC7197A467D4E7);
 
   public ref CUtlVector<IKDemoCaptureSettings_t> IkChains {
-    get => ref _Handle.AsRef<CUtlVector<IKDemoCaptureSettings_t>>(_IkChainsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<IKDemoCaptureSettings_t>>(_IkChainsOffset);
   }
 
 

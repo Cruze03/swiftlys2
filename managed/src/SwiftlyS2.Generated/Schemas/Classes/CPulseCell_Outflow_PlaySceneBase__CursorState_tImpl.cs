@@ -17,15 +17,15 @@ internal partial class CPulseCell_Outflow_PlaySceneBase__CursorState_tImpl : Sch
   public CPulseCell_Outflow_PlaySceneBase__CursorState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SceneInstanceOffset = new(() => Schema.GetOffset(0x16AE3F0C967C210), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneInstanceOffset = Schema.GetOffset(0x16AE3F0C967C210);
 
   public ref CHandle<CBaseEntity> SceneInstance {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SceneInstanceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SceneInstanceOffset);
   }
-  private static readonly Lazy<nint> _MainActorOffset = new(() => Schema.GetOffset(0x16AE3F0CCB20D99), LazyThreadSafetyMode.None);
+  private static readonly nint _MainActorOffset = Schema.GetOffset(0x16AE3F0CCB20D99);
 
   public ref CHandle<CBaseEntity> MainActor {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MainActorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MainActorOffset);
   }
 
 

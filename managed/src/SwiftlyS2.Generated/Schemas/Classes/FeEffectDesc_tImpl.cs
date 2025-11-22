@@ -17,29 +17,29 @@ internal partial class FeEffectDesc_tImpl : SchemaClass, FeEffectDesc_t {
   public FeEffectDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x3462F54326980769), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x3462F54326980769);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameHashOffset = new(() => Schema.GetOffset(0x3462F543BA4B2BDE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameHashOffset = Schema.GetOffset(0x3462F543BA4B2BDE);
 
   public ref uint NameHash {
-    get => ref _Handle.AsRef<uint>(_NameHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NameHashOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x3462F543EEF036F9), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x3462F543EEF036F9);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _ParamsOffset = new(() => Schema.GetOffset(0x3462F543900020D3), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamsOffset = Schema.GetOffset(0x3462F543900020D3);
 
   public SchemaUntypedField Params {
-    get => new SchemaUntypedField(_Handle + _ParamsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParamsOffset);
   }
 
 

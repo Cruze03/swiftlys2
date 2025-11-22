@@ -20,25 +20,25 @@ internal partial class FeRodConstraint_tImpl : SchemaClass, FeRodConstraint_t {
   public ISchemaFixedArray<ushort> Node {
     get => new SchemaFixedArray<ushort>(_Handle, 0xC672146DCD6694B9, 2, 2, 2);
   }
-  private static readonly Lazy<nint> _MaxDistOffset = new(() => Schema.GetOffset(0xC672146DC9FFDD57), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistOffset = Schema.GetOffset(0xC672146DC9FFDD57);
 
   public ref float MaxDist {
-    get => ref _Handle.AsRef<float>(_MaxDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistOffset);
   }
-  private static readonly Lazy<nint> _MinDistOffset = new(() => Schema.GetOffset(0xC672146D2C1C02AD), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistOffset = Schema.GetOffset(0xC672146D2C1C02AD);
 
   public ref float MinDist {
-    get => ref _Handle.AsRef<float>(_MinDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinDistOffset);
   }
-  private static readonly Lazy<nint> _Weight0Offset = new(() => Schema.GetOffset(0xC672146D65561D21), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight0Offset = Schema.GetOffset(0xC672146D65561D21);
 
   public ref float Weight0 {
-    get => ref _Handle.AsRef<float>(_Weight0Offset.Value);
+    get => ref _Handle.AsRef<float>(_Weight0Offset);
   }
-  private static readonly Lazy<nint> _RelaxationFactorOffset = new(() => Schema.GetOffset(0xC672146D357F3BFF), LazyThreadSafetyMode.None);
+  private static readonly nint _RelaxationFactorOffset = Schema.GetOffset(0xC672146D357F3BFF);
 
   public ref float RelaxationFactor {
-    get => ref _Handle.AsRef<float>(_RelaxationFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_RelaxationFactorOffset);
   }
 
 

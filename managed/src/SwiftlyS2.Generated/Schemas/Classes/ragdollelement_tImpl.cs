@@ -17,25 +17,25 @@ internal partial class ragdollelement_tImpl : SchemaClass, ragdollelement_t {
   public ragdollelement_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OriginParentSpaceOffset = new(() => Schema.GetOffset(0x6DFDA0AB476AA8AB), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginParentSpaceOffset = Schema.GetOffset(0x6DFDA0AB476AA8AB);
 
   public ref Vector OriginParentSpace {
-    get => ref _Handle.AsRef<Vector>(_OriginParentSpaceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginParentSpaceOffset);
   }
-  private static readonly Lazy<nint> _ParentIndexOffset = new(() => Schema.GetOffset(0x6DFDA0ABFE49C863), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentIndexOffset = Schema.GetOffset(0x6DFDA0ABFE49C863);
 
   public ref int ParentIndex {
-    get => ref _Handle.AsRef<int>(_ParentIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentIndexOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x6DFDA0AB5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x6DFDA0AB5ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0x6DFDA0ABCAB61C56), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0x6DFDA0ABCAB61C56);
 
   public ref int Height {
-    get => ref _Handle.AsRef<int>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeightOffset);
   }
 
 

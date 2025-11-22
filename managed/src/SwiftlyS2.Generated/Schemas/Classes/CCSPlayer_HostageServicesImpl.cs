@@ -17,15 +17,15 @@ internal partial class CCSPlayer_HostageServicesImpl : CPlayerPawnComponentImpl,
   public CCSPlayer_HostageServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CarriedHostageOffset = new(() => Schema.GetOffset(0x1742920F695FDF3C), LazyThreadSafetyMode.None);
+  private static readonly nint _CarriedHostageOffset = Schema.GetOffset(0x1742920F695FDF3C);
 
   public ref CHandle<CBaseEntity> CarriedHostage {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CarriedHostageOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CarriedHostageOffset);
   }
-  private static readonly Lazy<nint> _CarriedHostagePropOffset = new(() => Schema.GetOffset(0x1742920F7270EB65), LazyThreadSafetyMode.None);
+  private static readonly nint _CarriedHostagePropOffset = Schema.GetOffset(0x1742920F7270EB65);
 
   public ref CHandle<CBaseEntity> CarriedHostageProp {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CarriedHostagePropOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CarriedHostagePropOffset);
   }
 
   public void CarriedHostageUpdated() {

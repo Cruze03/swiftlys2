@@ -17,35 +17,35 @@ internal partial class lerpdata_tImpl : SchemaClass, lerpdata_t {
   public lerpdata_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntOffset = new(() => Schema.GetOffset(0x70C58DAB8BBDB334), LazyThreadSafetyMode.None);
+  private static readonly nint _EntOffset = Schema.GetOffset(0x70C58DAB8BBDB334);
 
   public ref CHandle<CBaseEntity> Ent {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntOffset);
   }
-  private static readonly Lazy<nint> _MoveTypeOffset = new(() => Schema.GetOffset(0x70C58DAB90BCCC1C), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveTypeOffset = Schema.GetOffset(0x70C58DAB90BCCC1C);
 
   public ref MoveType_t MoveType {
-    get => ref _Handle.AsRef<MoveType_t>(_MoveTypeOffset.Value);
+    get => ref _Handle.AsRef<MoveType_t>(_MoveTypeOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x70C58DAB67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x70C58DAB67FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _StartOriginOffset = new(() => Schema.GetOffset(0x70C58DAB7C574331), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOriginOffset = Schema.GetOffset(0x70C58DAB7C574331);
 
   public ref Vector StartOrigin {
-    get => ref _Handle.AsRef<Vector>(_StartOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartOriginOffset);
   }
-  private static readonly Lazy<nint> _StartRotOffset = new(() => Schema.GetOffset(0x70C58DAB6246A06D), LazyThreadSafetyMode.None);
+  private static readonly nint _StartRotOffset = Schema.GetOffset(0x70C58DAB6246A06D);
 
   public ref Quaternion StartRot {
-    get => ref _Handle.AsRef<Quaternion>(_StartRotOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_StartRotOffset);
   }
-  private static readonly Lazy<nint> _FXIndexOffset = new(() => Schema.GetOffset(0x70C58DAB1E8452FD), LazyThreadSafetyMode.None);
+  private static readonly nint _FXIndexOffset = Schema.GetOffset(0x70C58DAB1E8452FD);
 
   public ParticleIndex_t FXIndex {
-    get => new ParticleIndex_tImpl(_Handle + _FXIndexOffset.Value);
+    get => new ParticleIndex_tImpl(_Handle + _FXIndexOffset);
   }
 
 

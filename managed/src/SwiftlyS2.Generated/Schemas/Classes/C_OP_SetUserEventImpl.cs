@@ -17,30 +17,30 @@ internal partial class C_OP_SetUserEventImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_SetUserEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputOffset = new(() => Schema.GetOffset(0x9A6F6FB81D4B7FFD), LazyThreadSafetyMode.None);
+  private static readonly nint _InputOffset = Schema.GetOffset(0x9A6F6FB81D4B7FFD);
 
   public CPerParticleFloatInput Input {
-    get => new CPerParticleFloatInputImpl(_Handle + _InputOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InputOffset);
   }
-  private static readonly Lazy<nint> _RisingEdgeOffset = new(() => Schema.GetOffset(0x9A6F6FB8DCFBDCF4), LazyThreadSafetyMode.None);
+  private static readonly nint _RisingEdgeOffset = Schema.GetOffset(0x9A6F6FB8DCFBDCF4);
 
   public CPerParticleFloatInput RisingEdge {
-    get => new CPerParticleFloatInputImpl(_Handle + _RisingEdgeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RisingEdgeOffset);
   }
-  private static readonly Lazy<nint> _RisingEventTypeOffset = new(() => Schema.GetOffset(0x9A6F6FB83790928D), LazyThreadSafetyMode.None);
+  private static readonly nint _RisingEventTypeOffset = Schema.GetOffset(0x9A6F6FB83790928D);
 
   public ref EventTypeSelection_t RisingEventType {
-    get => ref _Handle.AsRef<EventTypeSelection_t>(_RisingEventTypeOffset.Value);
+    get => ref _Handle.AsRef<EventTypeSelection_t>(_RisingEventTypeOffset);
   }
-  private static readonly Lazy<nint> _FallingEdgeOffset = new(() => Schema.GetOffset(0x9A6F6FB8CBE5115B), LazyThreadSafetyMode.None);
+  private static readonly nint _FallingEdgeOffset = Schema.GetOffset(0x9A6F6FB8CBE5115B);
 
   public CPerParticleFloatInput FallingEdge {
-    get => new CPerParticleFloatInputImpl(_Handle + _FallingEdgeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _FallingEdgeOffset);
   }
-  private static readonly Lazy<nint> _FallingEventTypeOffset = new(() => Schema.GetOffset(0x9A6F6FB8C79ED114), LazyThreadSafetyMode.None);
+  private static readonly nint _FallingEventTypeOffset = Schema.GetOffset(0x9A6F6FB8C79ED114);
 
   public ref EventTypeSelection_t FallingEventType {
-    get => ref _Handle.AsRef<EventTypeSelection_t>(_FallingEventTypeOffset.Value);
+    get => ref _Handle.AsRef<EventTypeSelection_t>(_FallingEventTypeOffset);
   }
 
 

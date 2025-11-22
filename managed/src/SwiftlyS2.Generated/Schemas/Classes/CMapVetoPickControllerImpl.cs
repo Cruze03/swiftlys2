@@ -17,35 +17,35 @@ internal partial class CMapVetoPickControllerImpl : CBaseEntityImpl, CMapVetoPic
   public CMapVetoPickControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlayedIntroVcdOffset = new(() => Schema.GetOffset(0xD5DDD68DA8EE58C9), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayedIntroVcdOffset = Schema.GetOffset(0xD5DDD68DA8EE58C9);
 
   public ref bool PlayedIntroVcd {
-    get => ref _Handle.AsRef<bool>(_PlayedIntroVcdOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayedIntroVcdOffset);
   }
-  private static readonly Lazy<nint> _NeedToPlayFiveSecondsRemainingOffset = new(() => Schema.GetOffset(0xD5DDD68D94B61BAD), LazyThreadSafetyMode.None);
+  private static readonly nint _NeedToPlayFiveSecondsRemainingOffset = Schema.GetOffset(0xD5DDD68D94B61BAD);
 
   public ref bool NeedToPlayFiveSecondsRemaining {
-    get => ref _Handle.AsRef<bool>(_NeedToPlayFiveSecondsRemainingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NeedToPlayFiveSecondsRemainingOffset);
   }
-  private static readonly Lazy<nint> _DblPreMatchDraftSequenceTimeOffset = new(() => Schema.GetOffset(0xD5DDD68DB69AE022), LazyThreadSafetyMode.None);
+  private static readonly nint _DblPreMatchDraftSequenceTimeOffset = Schema.GetOffset(0xD5DDD68DB69AE022);
 
   public ref double DblPreMatchDraftSequenceTime {
-    get => ref _Handle.AsRef<double>(_DblPreMatchDraftSequenceTimeOffset.Value);
+    get => ref _Handle.AsRef<double>(_DblPreMatchDraftSequenceTimeOffset);
   }
-  private static readonly Lazy<nint> _PreMatchDraftStateChangedOffset = new(() => Schema.GetOffset(0xD5DDD68D114D7C7D), LazyThreadSafetyMode.None);
+  private static readonly nint _PreMatchDraftStateChangedOffset = Schema.GetOffset(0xD5DDD68D114D7C7D);
 
   public ref bool PreMatchDraftStateChanged {
-    get => ref _Handle.AsRef<bool>(_PreMatchDraftStateChangedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreMatchDraftStateChangedOffset);
   }
-  private static readonly Lazy<nint> _DraftTypeOffset = new(() => Schema.GetOffset(0xD5DDD68D6BFCF590), LazyThreadSafetyMode.None);
+  private static readonly nint _DraftTypeOffset = Schema.GetOffset(0xD5DDD68D6BFCF590);
 
   public ref int DraftType {
-    get => ref _Handle.AsRef<int>(_DraftTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_DraftTypeOffset);
   }
-  private static readonly Lazy<nint> _TeamWinningCoinTossOffset = new(() => Schema.GetOffset(0xD5DDD68D45B5B5A2), LazyThreadSafetyMode.None);
+  private static readonly nint _TeamWinningCoinTossOffset = Schema.GetOffset(0xD5DDD68D45B5B5A2);
 
   public ref int TeamWinningCoinToss {
-    get => ref _Handle.AsRef<int>(_TeamWinningCoinTossOffset.Value);
+    get => ref _Handle.AsRef<int>(_TeamWinningCoinTossOffset);
   }
   public ISchemaFixedArray<int> TeamWithFirstChoice {
     get => new SchemaFixedArray<int>(_Handle, 0xD5DDD68D8887D005, 64, 4, 4);
@@ -77,45 +77,45 @@ internal partial class CMapVetoPickControllerImpl : CBaseEntityImpl, CMapVetoPic
   public ISchemaFixedArray<int> StartingSide0 {
     get => new SchemaFixedArray<int>(_Handle, 0xD5DDD68DDAE5D5BA, 64, 4, 4);
   }
-  private static readonly Lazy<nint> _CurrentPhaseOffset = new(() => Schema.GetOffset(0xD5DDD68DA6D9FE15), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentPhaseOffset = Schema.GetOffset(0xD5DDD68DA6D9FE15);
 
   public ref int CurrentPhase {
-    get => ref _Handle.AsRef<int>(_CurrentPhaseOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentPhaseOffset);
   }
-  private static readonly Lazy<nint> _PhaseStartTickOffset = new(() => Schema.GetOffset(0xD5DDD68DD6F24225), LazyThreadSafetyMode.None);
+  private static readonly nint _PhaseStartTickOffset = Schema.GetOffset(0xD5DDD68DD6F24225);
 
   public ref int PhaseStartTick {
-    get => ref _Handle.AsRef<int>(_PhaseStartTickOffset.Value);
+    get => ref _Handle.AsRef<int>(_PhaseStartTickOffset);
   }
-  private static readonly Lazy<nint> _PhaseDurationTicksOffset = new(() => Schema.GetOffset(0xD5DDD68D77B8F176), LazyThreadSafetyMode.None);
+  private static readonly nint _PhaseDurationTicksOffset = Schema.GetOffset(0xD5DDD68D77B8F176);
 
   public ref int PhaseDurationTicks {
-    get => ref _Handle.AsRef<int>(_PhaseDurationTicksOffset.Value);
+    get => ref _Handle.AsRef<int>(_PhaseDurationTicksOffset);
   }
-  private static readonly Lazy<nint> _OnMapVetoedOffset = new(() => Schema.GetOffset(0xD5DDD68D6C16E77B), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMapVetoedOffset = Schema.GetOffset(0xD5DDD68D6C16E77B);
 
   public SchemaUntypedField OnMapVetoed {
-    get => new SchemaUntypedField(_Handle + _OnMapVetoedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMapVetoedOffset);
   }
-  private static readonly Lazy<nint> _OnMapPickedOffset = new(() => Schema.GetOffset(0xD5DDD68DF50BA186), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMapPickedOffset = Schema.GetOffset(0xD5DDD68DF50BA186);
 
   public SchemaUntypedField OnMapPicked {
-    get => new SchemaUntypedField(_Handle + _OnMapPickedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMapPickedOffset);
   }
-  private static readonly Lazy<nint> _OnSidesPickedOffset = new(() => Schema.GetOffset(0xD5DDD68DC852D128), LazyThreadSafetyMode.None);
+  private static readonly nint _OnSidesPickedOffset = Schema.GetOffset(0xD5DDD68DC852D128);
 
   public SchemaUntypedField OnSidesPicked {
-    get => new SchemaUntypedField(_Handle + _OnSidesPickedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnSidesPickedOffset);
   }
-  private static readonly Lazy<nint> _OnNewPhaseStartedOffset = new(() => Schema.GetOffset(0xD5DDD68D40B650EE), LazyThreadSafetyMode.None);
+  private static readonly nint _OnNewPhaseStartedOffset = Schema.GetOffset(0xD5DDD68D40B650EE);
 
   public SchemaUntypedField OnNewPhaseStarted {
-    get => new SchemaUntypedField(_Handle + _OnNewPhaseStartedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnNewPhaseStartedOffset);
   }
-  private static readonly Lazy<nint> _OnLevelTransitionOffset = new(() => Schema.GetOffset(0xD5DDD68D2AEE71AD), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLevelTransitionOffset = Schema.GetOffset(0xD5DDD68D2AEE71AD);
 
   public SchemaUntypedField OnLevelTransition {
-    get => new SchemaUntypedField(_Handle + _OnLevelTransitionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnLevelTransitionOffset);
   }
 
   public void DraftTypeUpdated() {

@@ -17,29 +17,29 @@ internal partial class CMorphConstraintImpl : CBaseConstraintImpl, CMorphConstra
   public CMorphConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetMorphOffset = new(() => Schema.GetOffset(0xC24859C39FF7D337), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetMorphOffset = Schema.GetOffset(0xC24859C39FF7D337);
 
   public string TargetMorph {
     get {
-      var ptr = _Handle.Read<nint>(_TargetMorphOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetMorphOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetMorphOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetMorphOffset, value);
   } 
-  private static readonly Lazy<nint> _SlaveChannelOffset = new(() => Schema.GetOffset(0xC24859C3A439DE4F), LazyThreadSafetyMode.None);
+  private static readonly nint _SlaveChannelOffset = Schema.GetOffset(0xC24859C3A439DE4F);
 
   public ref int SlaveChannel {
-    get => ref _Handle.AsRef<int>(_SlaveChannelOffset.Value);
+    get => ref _Handle.AsRef<int>(_SlaveChannelOffset);
   }
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0xC24859C33B1A5649), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0xC24859C33B1A5649);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0xC24859C32D06B887), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0xC24859C32D06B887);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
 
 

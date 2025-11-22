@@ -17,20 +17,20 @@ internal partial class CNmGraphEventConditionNode__CDefinitionImpl : CNmBoolValu
   public CNmGraphEventConditionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x8806734863F0228C), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x8806734863F0228C);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EventConditionRulesOffset = new(() => Schema.GetOffset(0x88067348A904315F), LazyThreadSafetyMode.None);
+  private static readonly nint _EventConditionRulesOffset = Schema.GetOffset(0x88067348A904315F);
 
   public CNmBitFlags EventConditionRules {
-    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset);
   }
-  private static readonly Lazy<nint> _ConditionsOffset = new(() => Schema.GetOffset(0x88067348EDDF6757), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionsOffset = Schema.GetOffset(0x88067348EDDF6757);
 
   public SchemaUntypedField Conditions {
-    get => new SchemaUntypedField(_Handle + _ConditionsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConditionsOffset);
   }
 
 

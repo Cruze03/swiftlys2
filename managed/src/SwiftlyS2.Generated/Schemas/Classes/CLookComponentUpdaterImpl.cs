@@ -17,50 +17,50 @@ internal partial class CLookComponentUpdaterImpl : CAnimComponentUpdaterImpl, CL
   public CLookComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LookHeadingOffset = new(() => Schema.GetOffset(0xA3C6996DE7EA9C52), LazyThreadSafetyMode.None);
+  private static readonly nint _LookHeadingOffset = Schema.GetOffset(0xA3C6996DE7EA9C52);
 
   public CAnimParamHandle LookHeading {
-    get => new CAnimParamHandleImpl(_Handle + _LookHeadingOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookHeadingOffset);
   }
-  private static readonly Lazy<nint> _LookHeadingNormalizedOffset = new(() => Schema.GetOffset(0xA3C6996D305E6B07), LazyThreadSafetyMode.None);
+  private static readonly nint _LookHeadingNormalizedOffset = Schema.GetOffset(0xA3C6996D305E6B07);
 
   public CAnimParamHandle LookHeadingNormalized {
-    get => new CAnimParamHandleImpl(_Handle + _LookHeadingNormalizedOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookHeadingNormalizedOffset);
   }
-  private static readonly Lazy<nint> _LookHeadingVelocityOffset = new(() => Schema.GetOffset(0xA3C6996DF9527FD9), LazyThreadSafetyMode.None);
+  private static readonly nint _LookHeadingVelocityOffset = Schema.GetOffset(0xA3C6996DF9527FD9);
 
   public CAnimParamHandle LookHeadingVelocity {
-    get => new CAnimParamHandleImpl(_Handle + _LookHeadingVelocityOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookHeadingVelocityOffset);
   }
-  private static readonly Lazy<nint> _LookPitchOffset = new(() => Schema.GetOffset(0xA3C6996D3D4C7812), LazyThreadSafetyMode.None);
+  private static readonly nint _LookPitchOffset = Schema.GetOffset(0xA3C6996D3D4C7812);
 
   public CAnimParamHandle LookPitch {
-    get => new CAnimParamHandleImpl(_Handle + _LookPitchOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookPitchOffset);
   }
-  private static readonly Lazy<nint> _LookDistanceOffset = new(() => Schema.GetOffset(0xA3C6996DD4722447), LazyThreadSafetyMode.None);
+  private static readonly nint _LookDistanceOffset = Schema.GetOffset(0xA3C6996DD4722447);
 
   public CAnimParamHandle LookDistance {
-    get => new CAnimParamHandleImpl(_Handle + _LookDistanceOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookDistanceOffset);
   }
-  private static readonly Lazy<nint> _LookDirectionOffset = new(() => Schema.GetOffset(0xA3C6996DAF5526AD), LazyThreadSafetyMode.None);
+  private static readonly nint _LookDirectionOffset = Schema.GetOffset(0xA3C6996DAF5526AD);
 
   public CAnimParamHandle LookDirection {
-    get => new CAnimParamHandleImpl(_Handle + _LookDirectionOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookDirectionOffset);
   }
-  private static readonly Lazy<nint> _LookTargetOffset = new(() => Schema.GetOffset(0xA3C6996D3361F745), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTargetOffset = Schema.GetOffset(0xA3C6996D3361F745);
 
   public CAnimParamHandle LookTarget {
-    get => new CAnimParamHandleImpl(_Handle + _LookTargetOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookTargetOffset);
   }
-  private static readonly Lazy<nint> _LookTargetWorldSpaceOffset = new(() => Schema.GetOffset(0xA3C6996DD1AC545F), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTargetWorldSpaceOffset = Schema.GetOffset(0xA3C6996DD1AC545F);
 
   public CAnimParamHandle LookTargetWorldSpace {
-    get => new CAnimParamHandleImpl(_Handle + _LookTargetWorldSpaceOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _LookTargetWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _NetworkLookTargetOffset = new(() => Schema.GetOffset(0xA3C6996D39F2F527), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkLookTargetOffset = Schema.GetOffset(0xA3C6996D39F2F527);
 
   public ref bool NetworkLookTarget {
-    get => ref _Handle.AsRef<bool>(_NetworkLookTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NetworkLookTargetOffset);
   }
 
 

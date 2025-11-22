@@ -17,30 +17,30 @@ internal partial class FeSimdSpringIntegrator_tImpl : SchemaClass, FeSimdSpringI
   public FeSimdSpringIntegrator_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0xF9413B96CD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0xF9413B96CD6694B9);
 
   public SchemaUntypedField Node {
-    get => new SchemaUntypedField(_Handle + _NodeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NodeOffset);
   }
-  private static readonly Lazy<nint> _SpringRestLengthOffset = new(() => Schema.GetOffset(0xF9413B9628C609E8), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringRestLengthOffset = Schema.GetOffset(0xF9413B9628C609E8);
 
   public ref fltx4 SpringRestLength {
-    get => ref _Handle.AsRef<fltx4>(_SpringRestLengthOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_SpringRestLengthOffset);
   }
-  private static readonly Lazy<nint> _SpringConstantOffset = new(() => Schema.GetOffset(0xF9413B969346E79E), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringConstantOffset = Schema.GetOffset(0xF9413B969346E79E);
 
   public ref fltx4 SpringConstant {
-    get => ref _Handle.AsRef<fltx4>(_SpringConstantOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_SpringConstantOffset);
   }
-  private static readonly Lazy<nint> _SpringDampingOffset = new(() => Schema.GetOffset(0xF9413B9620E775D0), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringDampingOffset = Schema.GetOffset(0xF9413B9620E775D0);
 
   public ref fltx4 SpringDamping {
-    get => ref _Handle.AsRef<fltx4>(_SpringDampingOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_SpringDampingOffset);
   }
-  private static readonly Lazy<nint> _NodeWeight0Offset = new(() => Schema.GetOffset(0xF9413B966E62FEA1), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeWeight0Offset = Schema.GetOffset(0xF9413B966E62FEA1);
 
   public ref fltx4 NodeWeight0 {
-    get => ref _Handle.AsRef<fltx4>(_NodeWeight0Offset.Value);
+    get => ref _Handle.AsRef<fltx4>(_NodeWeight0Offset);
   }
 
 

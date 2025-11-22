@@ -17,30 +17,30 @@ internal partial class C_INIT_InheritFromParentParticlesImpl : CParticleFunction
   public C_INIT_InheritFromParentParticlesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xF97C3548B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xF97C3548B731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xF97C3548E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xF97C3548E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _IncrementOffset = new(() => Schema.GetOffset(0xF97C35482359F182), LazyThreadSafetyMode.None);
+  private static readonly nint _IncrementOffset = Schema.GetOffset(0xF97C35482359F182);
 
   public ref int Increment {
-    get => ref _Handle.AsRef<int>(_IncrementOffset.Value);
+    get => ref _Handle.AsRef<int>(_IncrementOffset);
   }
-  private static readonly Lazy<nint> _RandomDistributionOffset = new(() => Schema.GetOffset(0xF97C3548830F6B38), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomDistributionOffset = Schema.GetOffset(0xF97C3548830F6B38);
 
   public ref bool RandomDistribution {
-    get => ref _Handle.AsRef<bool>(_RandomDistributionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomDistributionOffset);
   }
-  private static readonly Lazy<nint> _RandomSeedOffset = new(() => Schema.GetOffset(0xF97C35486388F067), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomSeedOffset = Schema.GetOffset(0xF97C35486388F067);
 
   public ref int RandomSeed {
-    get => ref _Handle.AsRef<int>(_RandomSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_RandomSeedOffset);
   }
 
 

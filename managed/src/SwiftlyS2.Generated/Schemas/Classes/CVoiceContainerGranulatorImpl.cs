@@ -17,35 +17,35 @@ internal partial class CVoiceContainerGranulatorImpl : CVoiceContainerBaseImpl, 
   public CVoiceContainerGranulatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GrainLengthOffset = new(() => Schema.GetOffset(0x30F273589D2BE672), LazyThreadSafetyMode.None);
+  private static readonly nint _GrainLengthOffset = Schema.GetOffset(0x30F273589D2BE672);
 
   public ref float GrainLength {
-    get => ref _Handle.AsRef<float>(_GrainLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_GrainLengthOffset);
   }
-  private static readonly Lazy<nint> _GrainCrossfadeAmountOffset = new(() => Schema.GetOffset(0x30F27358AE31A7DC), LazyThreadSafetyMode.None);
+  private static readonly nint _GrainCrossfadeAmountOffset = Schema.GetOffset(0x30F27358AE31A7DC);
 
   public ref float GrainCrossfadeAmount {
-    get => ref _Handle.AsRef<float>(_GrainCrossfadeAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_GrainCrossfadeAmountOffset);
   }
-  private static readonly Lazy<nint> _StartJitterOffset = new(() => Schema.GetOffset(0x30F27358FBAD6833), LazyThreadSafetyMode.None);
+  private static readonly nint _StartJitterOffset = Schema.GetOffset(0x30F27358FBAD6833);
 
   public ref float StartJitter {
-    get => ref _Handle.AsRef<float>(_StartJitterOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartJitterOffset);
   }
-  private static readonly Lazy<nint> _PlaybackJitterOffset = new(() => Schema.GetOffset(0x30F273583904EEB8), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackJitterOffset = Schema.GetOffset(0x30F273583904EEB8);
 
   public ref float PlaybackJitter {
-    get => ref _Handle.AsRef<float>(_PlaybackJitterOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaybackJitterOffset);
   }
-  private static readonly Lazy<nint> _ShouldWraparoundOffset = new(() => Schema.GetOffset(0x30F273585F9E45A3), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldWraparoundOffset = Schema.GetOffset(0x30F273585F9E45A3);
 
   public ref bool ShouldWraparound {
-    get => ref _Handle.AsRef<bool>(_ShouldWraparoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldWraparoundOffset);
   }
-  private static readonly Lazy<nint> _SourceAudioOffset = new(() => Schema.GetOffset(0x30F27358E5E00DE2), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceAudioOffset = Schema.GetOffset(0x30F27358E5E00DE2);
 
   public ref CStrongHandle<InfoForResourceTypeCVoiceContainerBase> SourceAudio {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>(_SourceAudioOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>(_SourceAudioOffset);
   }
 
 

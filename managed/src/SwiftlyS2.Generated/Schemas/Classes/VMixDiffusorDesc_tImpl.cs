@@ -17,25 +17,25 @@ internal partial class VMixDiffusorDesc_tImpl : SchemaClass, VMixDiffusorDesc_t 
   public VMixDiffusorDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SizeOffset = new(() => Schema.GetOffset(0xC24C1D694CF0EBC6), LazyThreadSafetyMode.None);
+  private static readonly nint _SizeOffset = Schema.GetOffset(0xC24C1D694CF0EBC6);
 
   public ref float Size {
-    get => ref _Handle.AsRef<float>(_SizeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SizeOffset);
   }
-  private static readonly Lazy<nint> _ComplexityOffset = new(() => Schema.GetOffset(0xC24C1D69F222266B), LazyThreadSafetyMode.None);
+  private static readonly nint _ComplexityOffset = Schema.GetOffset(0xC24C1D69F222266B);
 
   public ref float Complexity {
-    get => ref _Handle.AsRef<float>(_ComplexityOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComplexityOffset);
   }
-  private static readonly Lazy<nint> _FeedbackOffset = new(() => Schema.GetOffset(0xC24C1D69CD5446D4), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackOffset = Schema.GetOffset(0xC24C1D69CD5446D4);
 
   public ref float Feedback {
-    get => ref _Handle.AsRef<float>(_FeedbackOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackOffset);
   }
-  private static readonly Lazy<nint> _OutputGainOffset = new(() => Schema.GetOffset(0xC24C1D6973DB9445), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputGainOffset = Schema.GetOffset(0xC24C1D6973DB9445);
 
   public ref float OutputGain {
-    get => ref _Handle.AsRef<float>(_OutputGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputGainOffset);
   }
 
 

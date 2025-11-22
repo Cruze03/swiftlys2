@@ -17,15 +17,15 @@ internal partial class CPulseCell_WaitForCursorsWithTagImpl : CPulseCell_WaitFor
   public CPulseCell_WaitForCursorsWithTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TagSelfWhenCompleteOffset = new(() => Schema.GetOffset(0x550BA6FDA17E8F0E), LazyThreadSafetyMode.None);
+  private static readonly nint _TagSelfWhenCompleteOffset = Schema.GetOffset(0x550BA6FDA17E8F0E);
 
   public ref bool TagSelfWhenComplete {
-    get => ref _Handle.AsRef<bool>(_TagSelfWhenCompleteOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TagSelfWhenCompleteOffset);
   }
-  private static readonly Lazy<nint> _DesiredKillPriorityOffset = new(() => Schema.GetOffset(0x550BA6FD341BA991), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredKillPriorityOffset = Schema.GetOffset(0x550BA6FD341BA991);
 
   public ref PulseCursorCancelPriority_t DesiredKillPriority {
-    get => ref _Handle.AsRef<PulseCursorCancelPriority_t>(_DesiredKillPriorityOffset.Value);
+    get => ref _Handle.AsRef<PulseCursorCancelPriority_t>(_DesiredKillPriorityOffset);
   }
 
 

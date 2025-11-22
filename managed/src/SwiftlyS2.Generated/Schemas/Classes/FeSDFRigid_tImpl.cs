@@ -17,60 +17,60 @@ internal partial class FeSDFRigid_tImpl : SchemaClass, FeSDFRigid_t {
   public FeSDFRigid_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LocalMinOffset = new(() => Schema.GetOffset(0xAA90A717B4EB2F0), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalMinOffset = Schema.GetOffset(0xAA90A717B4EB2F0);
 
   public ref Vector LocalMin {
-    get => ref _Handle.AsRef<Vector>(_LocalMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LocalMinOffset);
   }
-  private static readonly Lazy<nint> _LocalMaxOffset = new(() => Schema.GetOffset(0xAA90A71713B1B7A), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalMaxOffset = Schema.GetOffset(0xAA90A71713B1B7A);
 
   public ref Vector LocalMax {
-    get => ref _Handle.AsRef<Vector>(_LocalMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LocalMaxOffset);
   }
-  private static readonly Lazy<nint> _BouncinessOffset = new(() => Schema.GetOffset(0xAA90A7157FAD924), LazyThreadSafetyMode.None);
+  private static readonly nint _BouncinessOffset = Schema.GetOffset(0xAA90A7157FAD924);
 
   public ref float Bounciness {
-    get => ref _Handle.AsRef<float>(_BouncinessOffset.Value);
+    get => ref _Handle.AsRef<float>(_BouncinessOffset);
   }
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0xAA90A71CD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0xAA90A71CD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _CollisionMaskOffset = new(() => Schema.GetOffset(0xAA90A710ED3454F), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionMaskOffset = Schema.GetOffset(0xAA90A710ED3454F);
 
   public ref ushort CollisionMask {
-    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset);
   }
-  private static readonly Lazy<nint> _VertexMapIndexOffset = new(() => Schema.GetOffset(0xAA90A717B332E39), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexMapIndexOffset = Schema.GetOffset(0xAA90A717B332E39);
 
   public ref ushort VertexMapIndex {
-    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xAA90A71B8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xAA90A71B8D52E48);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _DistancesOffset = new(() => Schema.GetOffset(0xAA90A7122002443), LazyThreadSafetyMode.None);
+  private static readonly nint _DistancesOffset = Schema.GetOffset(0xAA90A7122002443);
 
   public ref CUtlVector<float> Distances {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_DistancesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_DistancesOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0xAA90A71119108BB), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0xAA90A71119108BB);
 
   public ref int Width {
-    get => ref _Handle.AsRef<int>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0xAA90A71CAB61C56), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0xAA90A71CAB61C56);
 
   public ref int Height {
-    get => ref _Handle.AsRef<int>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _DepthOffset = new(() => Schema.GetOffset(0xAA90A71B725DB96), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthOffset = Schema.GetOffset(0xAA90A71B725DB96);
 
   public ref int Depth {
-    get => ref _Handle.AsRef<int>(_DepthOffset.Value);
+    get => ref _Handle.AsRef<int>(_DepthOffset);
   }
 
 

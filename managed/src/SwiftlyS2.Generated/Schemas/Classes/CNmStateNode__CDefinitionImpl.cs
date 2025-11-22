@@ -17,60 +17,60 @@ internal partial class CNmStateNode__CDefinitionImpl : CNmPoseNode__CDefinitionI
   public CNmStateNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildNodeIdxOffset = new(() => Schema.GetOffset(0x1C1728105C29A73C), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildNodeIdxOffset = Schema.GetOffset(0x1C1728105C29A73C);
 
   public ref short ChildNodeIdx {
-    get => ref _Handle.AsRef<short>(_ChildNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ChildNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EntryEventsOffset = new(() => Schema.GetOffset(0x1C172810211A7856), LazyThreadSafetyMode.None);
+  private static readonly nint _EntryEventsOffset = Schema.GetOffset(0x1C172810211A7856);
 
   public SchemaUntypedField EntryEvents {
-    get => new SchemaUntypedField(_Handle + _EntryEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _EntryEventsOffset);
   }
-  private static readonly Lazy<nint> _ExecuteEventsOffset = new(() => Schema.GetOffset(0x1C1728103BF4FF69), LazyThreadSafetyMode.None);
+  private static readonly nint _ExecuteEventsOffset = Schema.GetOffset(0x1C1728103BF4FF69);
 
   public SchemaUntypedField ExecuteEvents {
-    get => new SchemaUntypedField(_Handle + _ExecuteEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ExecuteEventsOffset);
   }
-  private static readonly Lazy<nint> _ExitEventsOffset = new(() => Schema.GetOffset(0x1C17281096F711C4), LazyThreadSafetyMode.None);
+  private static readonly nint _ExitEventsOffset = Schema.GetOffset(0x1C17281096F711C4);
 
   public SchemaUntypedField ExitEvents {
-    get => new SchemaUntypedField(_Handle + _ExitEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ExitEventsOffset);
   }
-  private static readonly Lazy<nint> _TimedRemainingEventsOffset = new(() => Schema.GetOffset(0x1C172810DFC9D945), LazyThreadSafetyMode.None);
+  private static readonly nint _TimedRemainingEventsOffset = Schema.GetOffset(0x1C172810DFC9D945);
 
   public SchemaUntypedField TimedRemainingEvents {
-    get => new SchemaUntypedField(_Handle + _TimedRemainingEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TimedRemainingEventsOffset);
   }
-  private static readonly Lazy<nint> _TimedElapsedEventsOffset = new(() => Schema.GetOffset(0x1C172810E054F8B9), LazyThreadSafetyMode.None);
+  private static readonly nint _TimedElapsedEventsOffset = Schema.GetOffset(0x1C172810E054F8B9);
 
   public SchemaUntypedField TimedElapsedEvents {
-    get => new SchemaUntypedField(_Handle + _TimedElapsedEventsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TimedElapsedEventsOffset);
   }
-  private static readonly Lazy<nint> _LayerWeightNodeIdxOffset = new(() => Schema.GetOffset(0x1C17281069611331), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerWeightNodeIdxOffset = Schema.GetOffset(0x1C17281069611331);
 
   public ref short LayerWeightNodeIdx {
-    get => ref _Handle.AsRef<short>(_LayerWeightNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_LayerWeightNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _LayerRootMotionWeightNodeIdxOffset = new(() => Schema.GetOffset(0x1C17281040566E47), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerRootMotionWeightNodeIdxOffset = Schema.GetOffset(0x1C17281040566E47);
 
   public ref short LayerRootMotionWeightNodeIdx {
-    get => ref _Handle.AsRef<short>(_LayerRootMotionWeightNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_LayerRootMotionWeightNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _LayerBoneMaskNodeIdxOffset = new(() => Schema.GetOffset(0x1C1728101BA67627), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerBoneMaskNodeIdxOffset = Schema.GetOffset(0x1C1728101BA67627);
 
   public ref short LayerBoneMaskNodeIdx {
-    get => ref _Handle.AsRef<short>(_LayerBoneMaskNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_LayerBoneMaskNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _IsOffStateOffset = new(() => Schema.GetOffset(0x1C172810291F238F), LazyThreadSafetyMode.None);
+  private static readonly nint _IsOffStateOffset = Schema.GetOffset(0x1C172810291F238F);
 
   public ref bool IsOffState {
-    get => ref _Handle.AsRef<bool>(_IsOffStateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsOffStateOffset);
   }
-  private static readonly Lazy<nint> _UseActualElapsedTimeInStateForTimedEventsOffset = new(() => Schema.GetOffset(0x1C1728106B790DFA), LazyThreadSafetyMode.None);
+  private static readonly nint _UseActualElapsedTimeInStateForTimedEventsOffset = Schema.GetOffset(0x1C1728106B790DFA);
 
   public ref bool UseActualElapsedTimeInStateForTimedEvents {
-    get => ref _Handle.AsRef<bool>(_UseActualElapsedTimeInStateForTimedEventsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseActualElapsedTimeInStateForTimedEventsOffset);
   }
 
 

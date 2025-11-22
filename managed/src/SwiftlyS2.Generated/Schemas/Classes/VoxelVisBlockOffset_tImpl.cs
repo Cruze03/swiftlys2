@@ -17,15 +17,15 @@ internal partial class VoxelVisBlockOffset_tImpl : SchemaClass, VoxelVisBlockOff
   public VoxelVisBlockOffset_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x17D2B49827734C8E), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x17D2B49827734C8E);
 
   public ref uint Offset {
-    get => ref _Handle.AsRef<uint>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _ElementCountOffset = new(() => Schema.GetOffset(0x17D2B49851A2EF12), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementCountOffset = Schema.GetOffset(0x17D2B49851A2EF12);
 
   public ref uint ElementCount {
-    get => ref _Handle.AsRef<uint>(_ElementCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ElementCountOffset);
   }
 
 

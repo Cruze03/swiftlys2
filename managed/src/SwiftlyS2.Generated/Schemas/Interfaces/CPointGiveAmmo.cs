@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPointGiveAmmo : CPointEntity, ISchemaClass<CPointGiveAmmo> {
 
   static CPointGiveAmmo ISchemaClass<CPointGiveAmmo>.From(nint handle) => new CPointGiveAmmoImpl(handle);
-  static int ISchemaClass<CPointGiveAmmo>.Size => 2016;
+  static int ISchemaClass<CPointGiveAmmo>.Size => 1272;
   static string? ISchemaClass<CPointGiveAmmo>.ClassName => "point_give_ammo";
 
   

@@ -17,44 +17,44 @@ internal partial class C_OP_RtEnvCullImpl : CParticleFunctionOperatorImpl, C_OP_
   public C_OP_RtEnvCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TestDirOffset = new(() => Schema.GetOffset(0x72531BAEC17166B4), LazyThreadSafetyMode.None);
+  private static readonly nint _TestDirOffset = Schema.GetOffset(0x72531BAEC17166B4);
 
   public ref Vector TestDir {
-    get => ref _Handle.AsRef<Vector>(_TestDirOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TestDirOffset);
   }
-  private static readonly Lazy<nint> _TestNormalOffset = new(() => Schema.GetOffset(0x72531BAED4AC77F2), LazyThreadSafetyMode.None);
+  private static readonly nint _TestNormalOffset = Schema.GetOffset(0x72531BAED4AC77F2);
 
   public ref Vector TestNormal {
-    get => ref _Handle.AsRef<Vector>(_TestNormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TestNormalOffset);
   }
-  private static readonly Lazy<nint> _CullOnMissOffset = new(() => Schema.GetOffset(0x72531BAE5E118398), LazyThreadSafetyMode.None);
+  private static readonly nint _CullOnMissOffset = Schema.GetOffset(0x72531BAE5E118398);
 
   public ref bool CullOnMiss {
-    get => ref _Handle.AsRef<bool>(_CullOnMissOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CullOnMissOffset);
   }
-  private static readonly Lazy<nint> _StickInsteadOfCullOffset = new(() => Schema.GetOffset(0x72531BAE343222A2), LazyThreadSafetyMode.None);
+  private static readonly nint _StickInsteadOfCullOffset = Schema.GetOffset(0x72531BAE343222A2);
 
   public ref bool StickInsteadOfCull {
-    get => ref _Handle.AsRef<bool>(_StickInsteadOfCullOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StickInsteadOfCullOffset);
   }
-  private static readonly Lazy<nint> _RtEnvNameOffset = new(() => Schema.GetOffset(0x72531BAEC32A9775), LazyThreadSafetyMode.None);
+  private static readonly nint _RtEnvNameOffset = Schema.GetOffset(0x72531BAEC32A9775);
 
   public string RtEnvName {
     get {
-      var ptr = _Handle + _RtEnvNameOffset.Value;
+      var ptr = _Handle + _RtEnvNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _RtEnvNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _RtEnvNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _RTEnvCPOffset = new(() => Schema.GetOffset(0x72531BAE01881731), LazyThreadSafetyMode.None);
+  private static readonly nint _RTEnvCPOffset = Schema.GetOffset(0x72531BAE01881731);
 
   public ref int RTEnvCP {
-    get => ref _Handle.AsRef<int>(_RTEnvCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_RTEnvCPOffset);
   }
-  private static readonly Lazy<nint> _ComponentOffset = new(() => Schema.GetOffset(0x72531BAEBFD0952C), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentOffset = Schema.GetOffset(0x72531BAEBFD0952C);
 
   public ref int Component {
-    get => ref _Handle.AsRef<int>(_ComponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ComponentOffset);
   }
 
 

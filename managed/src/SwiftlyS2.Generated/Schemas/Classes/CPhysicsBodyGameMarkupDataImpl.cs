@@ -17,10 +17,10 @@ internal partial class CPhysicsBodyGameMarkupDataImpl : SchemaClass, CPhysicsBod
   public CPhysicsBodyGameMarkupDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PhysicsBodyMarkupByBoneNameOffset = new(() => Schema.GetOffset(0x29262AE188A1FE22), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysicsBodyMarkupByBoneNameOffset = Schema.GetOffset(0x29262AE188A1FE22);
 
   public SchemaUntypedField PhysicsBodyMarkupByBoneName {
-    get => new SchemaUntypedField(_Handle + _PhysicsBodyMarkupByBoneNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PhysicsBodyMarkupByBoneNameOffset);
   }
 
 

@@ -20,25 +20,25 @@ internal partial class CMotionGraphConfigImpl : SchemaClass, CMotionGraphConfig 
   public ISchemaFixedArray<float> ParamValues {
     get => new SchemaFixedArray<float>(_Handle, 0x851F6EEA365BD3F8, 4, 4, 4);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x851F6EEABC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x851F6EEABC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _MotionIndexOffset = new(() => Schema.GetOffset(0x851F6EEABF50B8E1), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionIndexOffset = Schema.GetOffset(0x851F6EEABF50B8E1);
 
   public MotionIndex MotionIndex {
-    get => new MotionIndexImpl(_Handle + _MotionIndexOffset.Value);
+    get => new MotionIndexImpl(_Handle + _MotionIndexOffset);
   }
-  private static readonly Lazy<nint> _SampleStartOffset = new(() => Schema.GetOffset(0x851F6EEA43384B19), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleStartOffset = Schema.GetOffset(0x851F6EEA43384B19);
 
   public ref int SampleStart {
-    get => ref _Handle.AsRef<int>(_SampleStartOffset.Value);
+    get => ref _Handle.AsRef<int>(_SampleStartOffset);
   }
-  private static readonly Lazy<nint> _SampleCountOffset = new(() => Schema.GetOffset(0x851F6EEA2DEF676A), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleCountOffset = Schema.GetOffset(0x851F6EEA2DEF676A);
 
   public ref int SampleCount {
-    get => ref _Handle.AsRef<int>(_SampleCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_SampleCountOffset);
   }
 
 

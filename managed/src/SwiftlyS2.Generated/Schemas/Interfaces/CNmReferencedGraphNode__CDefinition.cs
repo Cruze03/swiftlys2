@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmReferencedGraphNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmReferencedGraphNode__CDefinition> {
 
   static CNmReferencedGraphNode__CDefinition ISchemaClass<CNmReferencedGraphNode__CDefinition>.From(nint handle) => new CNmReferencedGraphNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmReferencedGraphNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmReferencedGraphNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmReferencedGraphNode__CDefinition>.ClassName => null;
 
   

@@ -17,62 +17,62 @@ internal partial class CLogicMeasureMovementImpl : CLogicalEntityImpl, CLogicMea
   public CLogicMeasureMovementImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrMeasureTargetOffset = new(() => Schema.GetOffset(0x11EA274585646A89), LazyThreadSafetyMode.None);
+  private static readonly nint _StrMeasureTargetOffset = Schema.GetOffset(0x11EA274585646A89);
 
   public string StrMeasureTarget {
     get {
-      var ptr = _Handle.Read<nint>(_StrMeasureTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrMeasureTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrMeasureTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrMeasureTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _StrMeasureReferenceOffset = new(() => Schema.GetOffset(0x11EA2745CF4AF1BD), LazyThreadSafetyMode.None);
+  private static readonly nint _StrMeasureReferenceOffset = Schema.GetOffset(0x11EA2745CF4AF1BD);
 
   public string StrMeasureReference {
     get {
-      var ptr = _Handle.Read<nint>(_StrMeasureReferenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrMeasureReferenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrMeasureReferenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrMeasureReferenceOffset, value);
   } 
-  private static readonly Lazy<nint> _StrTargetReferenceOffset = new(() => Schema.GetOffset(0x11EA27453E928D56), LazyThreadSafetyMode.None);
+  private static readonly nint _StrTargetReferenceOffset = Schema.GetOffset(0x11EA27453E928D56);
 
   public string StrTargetReference {
     get {
-      var ptr = _Handle.Read<nint>(_StrTargetReferenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrTargetReferenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrTargetReferenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrTargetReferenceOffset, value);
   } 
-  private static readonly Lazy<nint> _MeasureTargetOffset = new(() => Schema.GetOffset(0x11EA2745F81BC1A8), LazyThreadSafetyMode.None);
+  private static readonly nint _MeasureTargetOffset = Schema.GetOffset(0x11EA2745F81BC1A8);
 
   public ref CHandle<CBaseEntity> MeasureTarget {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureTargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureTargetOffset);
   }
-  private static readonly Lazy<nint> _MeasureReferenceOffset = new(() => Schema.GetOffset(0x11EA274567F65D7A), LazyThreadSafetyMode.None);
+  private static readonly nint _MeasureReferenceOffset = Schema.GetOffset(0x11EA274567F65D7A);
 
   public ref CHandle<CBaseEntity> MeasureReference {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureReferenceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureReferenceOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0x11EA2745CE35901A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0x11EA2745CE35901A);
 
   public ref CHandle<CBaseEntity> Target {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset);
   }
-  private static readonly Lazy<nint> _TargetReferenceOffset = new(() => Schema.GetOffset(0x11EA2745EB33504F), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetReferenceOffset = Schema.GetOffset(0x11EA2745EB33504F);
 
   public ref CHandle<CBaseEntity> TargetReference {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetReferenceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetReferenceOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x11EA2745B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x11EA2745B731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _MeasureTypeOffset = new(() => Schema.GetOffset(0x11EA274593190C1B), LazyThreadSafetyMode.None);
+  private static readonly nint _MeasureTypeOffset = Schema.GetOffset(0x11EA274593190C1B);
 
   public ref int MeasureType {
-    get => ref _Handle.AsRef<int>(_MeasureTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_MeasureTypeOffset);
   }
 
 

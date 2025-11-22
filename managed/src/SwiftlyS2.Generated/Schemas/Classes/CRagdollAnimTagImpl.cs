@@ -17,10 +17,10 @@ internal partial class CRagdollAnimTagImpl : CAnimTagBaseImpl, CRagdollAnimTag {
   public CRagdollAnimTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ProfileNameOffset = new(() => Schema.GetOffset(0xC5917190285D878D), LazyThreadSafetyMode.None);
+  private static readonly nint _ProfileNameOffset = Schema.GetOffset(0xC5917190285D878D);
 
   public ref CGlobalSymbol ProfileName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_ProfileNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_ProfileNameOffset);
   }
 
 

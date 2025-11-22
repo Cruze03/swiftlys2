@@ -17,21 +17,21 @@ internal partial class CSoundContainerReferenceImpl : SchemaClass, CSoundContain
   public CSoundContainerReferenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseReferenceOffset = new(() => Schema.GetOffset(0x4663CCA145BCD5C9), LazyThreadSafetyMode.None);
+  private static readonly nint _UseReferenceOffset = Schema.GetOffset(0x4663CCA145BCD5C9);
 
   public ref bool UseReference {
-    get => ref _Handle.AsRef<bool>(_UseReferenceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseReferenceOffset);
   }
-  private static readonly Lazy<nint> _SoundOffset = new(() => Schema.GetOffset(0x4663CCA14E1C4FB4), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundOffset = Schema.GetOffset(0x4663CCA14E1C4FB4);
 
   public ref CStrongHandle<InfoForResourceTypeCVoiceContainerBase> Sound {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>(_SoundOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCVoiceContainerBase>>(_SoundOffset);
   }
-  private static readonly Lazy<nint> _Sound1Offset = new(() => Schema.GetOffset(0x4663CCA13D8D58B6), LazyThreadSafetyMode.None);
+  private static readonly nint _Sound1Offset = Schema.GetOffset(0x4663CCA13D8D58B6);
 
   public CVoiceContainerBase? Sound1 {
     get {
-      var ptr = _Handle.Read<nint>(_Sound1Offset.Value);
+      var ptr = _Handle.Read<nint>(_Sound1Offset);
       return ptr.IsValidPtr() ? new CVoiceContainerBaseImpl(ptr) : null;
     }
   }

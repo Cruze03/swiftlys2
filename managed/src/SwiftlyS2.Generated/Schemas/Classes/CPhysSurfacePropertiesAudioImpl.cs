@@ -17,45 +17,45 @@ internal partial class CPhysSurfacePropertiesAudioImpl : SchemaClass, CPhysSurfa
   public CPhysSurfacePropertiesAudioImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ReflectivityOffset = new(() => Schema.GetOffset(0x7FD94D2E904671F3), LazyThreadSafetyMode.None);
+  private static readonly nint _ReflectivityOffset = Schema.GetOffset(0x7FD94D2E904671F3);
 
   public ref float Reflectivity {
-    get => ref _Handle.AsRef<float>(_ReflectivityOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReflectivityOffset);
   }
-  private static readonly Lazy<nint> _HardnessFactorOffset = new(() => Schema.GetOffset(0x7FD94D2E376CBD68), LazyThreadSafetyMode.None);
+  private static readonly nint _HardnessFactorOffset = Schema.GetOffset(0x7FD94D2E376CBD68);
 
   public ref float HardnessFactor {
-    get => ref _Handle.AsRef<float>(_HardnessFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_HardnessFactorOffset);
   }
-  private static readonly Lazy<nint> _RoughnessFactorOffset = new(() => Schema.GetOffset(0x7FD94D2E8F4C4316), LazyThreadSafetyMode.None);
+  private static readonly nint _RoughnessFactorOffset = Schema.GetOffset(0x7FD94D2E8F4C4316);
 
   public ref float RoughnessFactor {
-    get => ref _Handle.AsRef<float>(_RoughnessFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_RoughnessFactorOffset);
   }
-  private static readonly Lazy<nint> _RoughThresholdOffset = new(() => Schema.GetOffset(0x7FD94D2EEB458AD9), LazyThreadSafetyMode.None);
+  private static readonly nint _RoughThresholdOffset = Schema.GetOffset(0x7FD94D2EEB458AD9);
 
   public ref float RoughThreshold {
-    get => ref _Handle.AsRef<float>(_RoughThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_RoughThresholdOffset);
   }
-  private static readonly Lazy<nint> _HardThresholdOffset = new(() => Schema.GetOffset(0x7FD94D2EEE4B563F), LazyThreadSafetyMode.None);
+  private static readonly nint _HardThresholdOffset = Schema.GetOffset(0x7FD94D2EEE4B563F);
 
   public ref float HardThreshold {
-    get => ref _Handle.AsRef<float>(_HardThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_HardThresholdOffset);
   }
-  private static readonly Lazy<nint> _HardVelocityThresholdOffset = new(() => Schema.GetOffset(0x7FD94D2E296B6B62), LazyThreadSafetyMode.None);
+  private static readonly nint _HardVelocityThresholdOffset = Schema.GetOffset(0x7FD94D2E296B6B62);
 
   public ref float HardVelocityThreshold {
-    get => ref _Handle.AsRef<float>(_HardVelocityThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_HardVelocityThresholdOffset);
   }
-  private static readonly Lazy<nint> _StaticImpactVolumeOffset = new(() => Schema.GetOffset(0x7FD94D2E04124001), LazyThreadSafetyMode.None);
+  private static readonly nint _StaticImpactVolumeOffset = Schema.GetOffset(0x7FD94D2E04124001);
 
   public ref float StaticImpactVolume {
-    get => ref _Handle.AsRef<float>(_StaticImpactVolumeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StaticImpactVolumeOffset);
   }
-  private static readonly Lazy<nint> _OcclusionFactorOffset = new(() => Schema.GetOffset(0x7FD94D2E2D764853), LazyThreadSafetyMode.None);
+  private static readonly nint _OcclusionFactorOffset = Schema.GetOffset(0x7FD94D2E2D764853);
 
   public ref float OcclusionFactor {
-    get => ref _Handle.AsRef<float>(_OcclusionFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_OcclusionFactorOffset);
   }
 
 

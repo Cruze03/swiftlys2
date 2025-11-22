@@ -17,30 +17,30 @@ internal partial class CNmIKEffectorImpl : SchemaClass, CNmIKEffector {
   public CNmIKEffectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BodyIndexOffset = new(() => Schema.GetOffset(0xA45D61F2B50B497), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyIndexOffset = Schema.GetOffset(0xA45D61F2B50B497);
 
   public ref int BodyIndex {
-    get => ref _Handle.AsRef<int>(_BodyIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BodyIndexOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0xA45D61F6154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0xA45D61F6154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionOffset = new(() => Schema.GetOffset(0xA45D61FF028CBBF), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionOffset = Schema.GetOffset(0xA45D61FF028CBBF);
 
   public ref Vector TargetPosition {
-    get => ref _Handle.AsRef<Vector>(_TargetPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TargetPositionOffset);
   }
-  private static readonly Lazy<nint> _TargetOrientationOffset = new(() => Schema.GetOffset(0xA45D61FED14ED41), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOrientationOffset = Schema.GetOffset(0xA45D61FED14ED41);
 
   public ref Quaternion TargetOrientation {
-    get => ref _Handle.AsRef<Quaternion>(_TargetOrientationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_TargetOrientationOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0xA45D61F7B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0xA45D61F7B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
 
 

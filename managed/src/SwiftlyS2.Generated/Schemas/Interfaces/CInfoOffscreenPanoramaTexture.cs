@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CInfoOffscreenPanoramaTexture : CPointEntity, ISchemaClass<CInfoOffscreenPanoramaTexture> {
 
   static CInfoOffscreenPanoramaTexture ISchemaClass<CInfoOffscreenPanoramaTexture>.From(nint handle) => new CInfoOffscreenPanoramaTextureImpl(handle);
-  static int ISchemaClass<CInfoOffscreenPanoramaTexture>.Size => 2128;
+  static int ISchemaClass<CInfoOffscreenPanoramaTexture>.Size => 1384;
   static string? ISchemaClass<CInfoOffscreenPanoramaTexture>.ClassName => "info_offscreen_panorama_texture";
 
   

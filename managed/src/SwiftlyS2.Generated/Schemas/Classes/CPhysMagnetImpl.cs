@@ -17,65 +17,65 @@ internal partial class CPhysMagnetImpl : CBaseAnimGraphImpl, CPhysMagnet {
   public CPhysMagnetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnMagnetAttachOffset = new(() => Schema.GetOffset(0x5772891055B6907B), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMagnetAttachOffset = Schema.GetOffset(0x5772891055B6907B);
 
   public CEntityIOOutput OnMagnetAttach {
-    get => new CEntityIOOutputImpl(_Handle + _OnMagnetAttachOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMagnetAttachOffset);
   }
-  private static readonly Lazy<nint> _OnMagnetDetachOffset = new(() => Schema.GetOffset(0x57728910FA716045), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMagnetDetachOffset = Schema.GetOffset(0x57728910FA716045);
 
   public CEntityIOOutput OnMagnetDetach {
-    get => new CEntityIOOutputImpl(_Handle + _OnMagnetDetachOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMagnetDetachOffset);
   }
-  private static readonly Lazy<nint> _MassScaleOffset = new(() => Schema.GetOffset(0x5772891001B9E905), LazyThreadSafetyMode.None);
+  private static readonly nint _MassScaleOffset = Schema.GetOffset(0x5772891001B9E905);
 
   public ref float MassScale {
-    get => ref _Handle.AsRef<float>(_MassScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MassScaleOffset);
   }
-  private static readonly Lazy<nint> _ForceLimitOffset = new(() => Schema.GetOffset(0x57728910BA45B8F7), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceLimitOffset = Schema.GetOffset(0x57728910BA45B8F7);
 
   public ref float ForceLimit {
-    get => ref _Handle.AsRef<float>(_ForceLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceLimitOffset);
   }
-  private static readonly Lazy<nint> _TorqueLimitOffset = new(() => Schema.GetOffset(0x577289106D51FE3E), LazyThreadSafetyMode.None);
+  private static readonly nint _TorqueLimitOffset = Schema.GetOffset(0x577289106D51FE3E);
 
   public ref float TorqueLimit {
-    get => ref _Handle.AsRef<float>(_TorqueLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_TorqueLimitOffset);
   }
-  private static readonly Lazy<nint> _MagnettedEntitiesOffset = new(() => Schema.GetOffset(0x57728910E39284F3), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnettedEntitiesOffset = Schema.GetOffset(0x57728910E39284F3);
 
   public ref CUtlVector<magnetted_objects_t> MagnettedEntities {
-    get => ref _Handle.AsRef<CUtlVector<magnetted_objects_t>>(_MagnettedEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<magnetted_objects_t>>(_MagnettedEntitiesOffset);
   }
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0x577289108334208F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0x577289108334208F);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _HasHitSomethingOffset = new(() => Schema.GetOffset(0x577289109E7903E0), LazyThreadSafetyMode.None);
+  private static readonly nint _HasHitSomethingOffset = Schema.GetOffset(0x577289109E7903E0);
 
   public ref bool HasHitSomething {
-    get => ref _Handle.AsRef<bool>(_HasHitSomethingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasHitSomethingOffset);
   }
-  private static readonly Lazy<nint> _TotalMassOffset = new(() => Schema.GetOffset(0x57728910A3F382DB), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalMassOffset = Schema.GetOffset(0x57728910A3F382DB);
 
   public ref float TotalMass {
-    get => ref _Handle.AsRef<float>(_TotalMassOffset.Value);
+    get => ref _Handle.AsRef<float>(_TotalMassOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x577289105ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x577289105ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _NextSuckTimeOffset = new(() => Schema.GetOffset(0x577289102E3592CD), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSuckTimeOffset = Schema.GetOffset(0x577289102E3592CD);
 
   public GameTime_t NextSuckTime {
-    get => new GameTime_tImpl(_Handle + _NextSuckTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextSuckTimeOffset);
   }
-  private static readonly Lazy<nint> _MaxObjectsAttachedOffset = new(() => Schema.GetOffset(0x57728910326F6EB6), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxObjectsAttachedOffset = Schema.GetOffset(0x57728910326F6EB6);
 
   public ref int MaxObjectsAttached {
-    get => ref _Handle.AsRef<int>(_MaxObjectsAttachedOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxObjectsAttachedOffset);
   }
 
 

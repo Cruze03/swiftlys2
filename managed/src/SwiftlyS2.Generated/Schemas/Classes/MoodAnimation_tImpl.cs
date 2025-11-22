@@ -17,15 +17,15 @@ internal partial class MoodAnimation_tImpl : SchemaClass, MoodAnimation_t {
   public MoodAnimation_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x8982458763D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x8982458763D22D49);
 
   public SchemaUntypedField Name {
-    get => new SchemaUntypedField(_Handle + _NameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NameOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x898245877B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x898245877B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
 
 

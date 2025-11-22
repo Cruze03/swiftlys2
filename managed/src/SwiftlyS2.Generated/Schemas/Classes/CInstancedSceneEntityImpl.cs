@@ -17,40 +17,40 @@ internal partial class CInstancedSceneEntityImpl : CSceneEntityImpl, CInstancedS
   public CInstancedSceneEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0x2D9E341EF6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0x2D9E341EF6D89572);
 
   public ref CHandle<CBaseEntity> Owner {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _HadOwnerOffset = new(() => Schema.GetOffset(0x2D9E341EB77772CD), LazyThreadSafetyMode.None);
+  private static readonly nint _HadOwnerOffset = Schema.GetOffset(0x2D9E341EB77772CD);
 
   public ref bool HadOwner {
-    get => ref _Handle.AsRef<bool>(_HadOwnerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HadOwnerOffset);
   }
-  private static readonly Lazy<nint> _PostSpeakDelayOffset = new(() => Schema.GetOffset(0x2D9E341E56890308), LazyThreadSafetyMode.None);
+  private static readonly nint _PostSpeakDelayOffset = Schema.GetOffset(0x2D9E341E56890308);
 
   public ref float PostSpeakDelay {
-    get => ref _Handle.AsRef<float>(_PostSpeakDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_PostSpeakDelayOffset);
   }
-  private static readonly Lazy<nint> _PreDelayOffset = new(() => Schema.GetOffset(0x2D9E341E0C9072B7), LazyThreadSafetyMode.None);
+  private static readonly nint _PreDelayOffset = Schema.GetOffset(0x2D9E341E0C9072B7);
 
   public ref float PreDelay {
-    get => ref _Handle.AsRef<float>(_PreDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_PreDelayOffset);
   }
-  private static readonly Lazy<nint> _IsBackgroundOffset = new(() => Schema.GetOffset(0x2D9E341E380A60AD), LazyThreadSafetyMode.None);
+  private static readonly nint _IsBackgroundOffset = Schema.GetOffset(0x2D9E341E380A60AD);
 
   public ref bool IsBackground {
-    get => ref _Handle.AsRef<bool>(_IsBackgroundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsBackgroundOffset);
   }
-  private static readonly Lazy<nint> _RemoveOnCompletionOffset = new(() => Schema.GetOffset(0x2D9E341E06E2CBD6), LazyThreadSafetyMode.None);
+  private static readonly nint _RemoveOnCompletionOffset = Schema.GetOffset(0x2D9E341E06E2CBD6);
 
   public ref bool RemoveOnCompletion {
-    get => ref _Handle.AsRef<bool>(_RemoveOnCompletionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RemoveOnCompletionOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0x2D9E341ECE35901A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0x2D9E341ECE35901A);
 
   public ref CHandle<CBaseEntity> Target {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class CRegionSVMImpl : SchemaClass, CRegionSVM {
   public CRegionSVMImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlanesOffset = new(() => Schema.GetOffset(0xFC5717CAF831F452), LazyThreadSafetyMode.None);
+  private static readonly nint _PlanesOffset = Schema.GetOffset(0xFC5717CAF831F452);
 
   public ref CUtlVector<RnPlane_t> Planes {
-    get => ref _Handle.AsRef<CUtlVector<RnPlane_t>>(_PlanesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnPlane_t>>(_PlanesOffset);
   }
-  private static readonly Lazy<nint> _NodesOffset = new(() => Schema.GetOffset(0xFC5717CAEBA045DA), LazyThreadSafetyMode.None);
+  private static readonly nint _NodesOffset = Schema.GetOffset(0xFC5717CAEBA045DA);
 
   public ref CUtlVector<uint> Nodes {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_NodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_NodesOffset);
   }
 
 

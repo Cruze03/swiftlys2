@@ -17,10 +17,10 @@ internal partial class CNmGraphNode__CDefinitionImpl : SchemaClass, CNmGraphNode
   public CNmGraphNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeIdxOffset = new(() => Schema.GetOffset(0x97FBD3EF124AB5CC), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeIdxOffset = Schema.GetOffset(0x97FBD3EF124AB5CC);
 
   public ref short NodeIdx {
-    get => ref _Handle.AsRef<short>(_NodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_NodeIdxOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class RnMeshDesc_tImpl : RnShapeDesc_tImpl, RnMeshDesc_t {
   public RnMeshDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MeshOffset = new(() => Schema.GetOffset(0xB236F002DEAFA33C), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshOffset = Schema.GetOffset(0xB236F002DEAFA33C);
 
   public RnMesh_t Mesh {
-    get => new RnMesh_tImpl(_Handle + _MeshOffset.Value);
+    get => new RnMesh_tImpl(_Handle + _MeshOffset);
   }
 
 

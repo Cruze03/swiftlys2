@@ -17,15 +17,15 @@ internal partial class FeWeightedNode_tImpl : SchemaClass, FeWeightedNode_t {
   public FeWeightedNode_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0x7CA6E056CD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0x7CA6E056CD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x7CA6E0564C8D62A5), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x7CA6E0564C8D62A5);
 
   public ref ushort Weight {
-    get => ref _Handle.AsRef<ushort>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_WeightOffset);
   }
 
 

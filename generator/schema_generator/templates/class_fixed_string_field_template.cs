@@ -1,9 +1,9 @@
-  private static readonly Lazy<nint> _$NAME$Offset = new(() => Schema.GetOffset($HASH$), LazyThreadSafetyMode.None);
+  private static readonly nint _$NAME$Offset = Schema.GetOffset($HASH$);
 
   public string $NAME$ {
     get {
-      var ptr = _Handle + _$NAME$Offset.Value;
+      var ptr = _Handle + _$NAME$Offset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _$NAME$Offset.Value, value, $ELEMENT_COUNT$);
+    set => Schema.SetFixedString(_Handle, _$NAME$Offset, value, $ELEMENT_COUNT$);
   } 

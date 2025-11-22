@@ -17,15 +17,15 @@ internal partial class CSosGroupActionTimeBlockLimitSchemaImpl : CSosGroupAction
   public CSosGroupActionTimeBlockLimitSchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxCountOffset = new(() => Schema.GetOffset(0x79E8A1AC64BED864), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCountOffset = Schema.GetOffset(0x79E8A1AC64BED864);
 
   public ref int MaxCount {
-    get => ref _Handle.AsRef<int>(_MaxCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCountOffset);
   }
-  private static readonly Lazy<nint> _MaxDurationOffset = new(() => Schema.GetOffset(0x79E8A1AC39BAF9F3), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDurationOffset = Schema.GetOffset(0x79E8A1AC39BAF9F3);
 
   public ref float MaxDuration {
-    get => ref _Handle.AsRef<float>(_MaxDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDurationOffset);
   }
 
 

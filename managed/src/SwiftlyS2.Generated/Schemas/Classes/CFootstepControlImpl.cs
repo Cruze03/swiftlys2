@@ -17,23 +17,23 @@ internal partial class CFootstepControlImpl : CBaseTriggerImpl, CFootstepControl
   public CFootstepControlImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceOffset = new(() => Schema.GetOffset(0x85B34315D0835C78), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOffset = Schema.GetOffset(0x85B34315D0835C78);
 
   public string Source {
     get {
-      var ptr = _Handle.Read<nint>(_SourceOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceOffset, value);
   } 
-  private static readonly Lazy<nint> _DestinationOffset = new(() => Schema.GetOffset(0x85B343156E5C12DF), LazyThreadSafetyMode.None);
+  private static readonly nint _DestinationOffset = Schema.GetOffset(0x85B343156E5C12DF);
 
   public string Destination {
     get {
-      var ptr = _Handle.Read<nint>(_DestinationOffset.Value);
+      var ptr = _Handle.Read<nint>(_DestinationOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DestinationOffset.Value, value);
+    set => Schema.SetString(_Handle, _DestinationOffset, value);
   } 
 
   public void SourceUpdated() {

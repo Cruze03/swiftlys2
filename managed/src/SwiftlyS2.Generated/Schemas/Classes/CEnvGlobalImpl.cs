@@ -17,34 +17,34 @@ internal partial class CEnvGlobalImpl : CLogicalEntityImpl, CEnvGlobal {
   public CEnvGlobalImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutCounterOffset = new(() => Schema.GetOffset(0xC5E41E3E69415251), LazyThreadSafetyMode.None);
+  private static readonly nint _OutCounterOffset = Schema.GetOffset(0xC5E41E3E69415251);
 
   public SchemaUntypedField OutCounter {
-    get => new SchemaUntypedField(_Handle + _OutCounterOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OutCounterOffset);
   }
-  private static readonly Lazy<nint> _GlobalstateOffset = new(() => Schema.GetOffset(0xC5E41E3E77A86653), LazyThreadSafetyMode.None);
+  private static readonly nint _GlobalstateOffset = Schema.GetOffset(0xC5E41E3E77A86653);
 
   public string Globalstate {
     get {
-      var ptr = _Handle.Read<nint>(_GlobalstateOffset.Value);
+      var ptr = _Handle.Read<nint>(_GlobalstateOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GlobalstateOffset.Value, value);
+    set => Schema.SetString(_Handle, _GlobalstateOffset, value);
   } 
-  private static readonly Lazy<nint> _TriggermodeOffset = new(() => Schema.GetOffset(0xC5E41E3E845DF22C), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggermodeOffset = Schema.GetOffset(0xC5E41E3E845DF22C);
 
   public ref int Triggermode {
-    get => ref _Handle.AsRef<int>(_TriggermodeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TriggermodeOffset);
   }
-  private static readonly Lazy<nint> _InitialstateOffset = new(() => Schema.GetOffset(0xC5E41E3E1E997294), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialstateOffset = Schema.GetOffset(0xC5E41E3E1E997294);
 
   public ref int Initialstate {
-    get => ref _Handle.AsRef<int>(_InitialstateOffset.Value);
+    get => ref _Handle.AsRef<int>(_InitialstateOffset);
   }
-  private static readonly Lazy<nint> _CounterOffset = new(() => Schema.GetOffset(0xC5E41E3EA311A543), LazyThreadSafetyMode.None);
+  private static readonly nint _CounterOffset = Schema.GetOffset(0xC5E41E3EA311A543);
 
   public ref int Counter {
-    get => ref _Handle.AsRef<int>(_CounterOffset.Value);
+    get => ref _Handle.AsRef<int>(_CounterOffset);
   }
 
 

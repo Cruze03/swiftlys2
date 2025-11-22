@@ -17,45 +17,45 @@ internal partial class VMixAutoFilterDesc_tImpl : SchemaClass, VMixAutoFilterDes
   public VMixAutoFilterDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnvelopeAmountOffset = new(() => Schema.GetOffset(0xCE0A02A0EB3F257), LazyThreadSafetyMode.None);
+  private static readonly nint _EnvelopeAmountOffset = Schema.GetOffset(0xCE0A02A0EB3F257);
 
   public ref float EnvelopeAmount {
-    get => ref _Handle.AsRef<float>(_EnvelopeAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_EnvelopeAmountOffset);
   }
-  private static readonly Lazy<nint> _AttackTimeMSOffset = new(() => Schema.GetOffset(0xCE0A02AD4A28216), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTimeMSOffset = Schema.GetOffset(0xCE0A02AD4A28216);
 
   public ref float AttackTimeMS {
-    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset);
   }
-  private static readonly Lazy<nint> _ReleaseTimeMSOffset = new(() => Schema.GetOffset(0xCE0A02AEBB62791), LazyThreadSafetyMode.None);
+  private static readonly nint _ReleaseTimeMSOffset = Schema.GetOffset(0xCE0A02AEBB62791);
 
   public ref float ReleaseTimeMS {
-    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset);
   }
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0xCE0A02A634A7917), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0xCE0A02A634A7917);
 
   public VMixFilterDesc_t Filter {
-    get => new VMixFilterDesc_tImpl(_Handle + _FilterOffset.Value);
+    get => new VMixFilterDesc_tImpl(_Handle + _FilterOffset);
   }
-  private static readonly Lazy<nint> _LFOAmountOffset = new(() => Schema.GetOffset(0xCE0A02ACA44783A), LazyThreadSafetyMode.None);
+  private static readonly nint _LFOAmountOffset = Schema.GetOffset(0xCE0A02ACA44783A);
 
   public ref float LFOAmount {
-    get => ref _Handle.AsRef<float>(_LFOAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_LFOAmountOffset);
   }
-  private static readonly Lazy<nint> _LFORateOffset = new(() => Schema.GetOffset(0xCE0A02A6E717CE4), LazyThreadSafetyMode.None);
+  private static readonly nint _LFORateOffset = Schema.GetOffset(0xCE0A02A6E717CE4);
 
   public ref float LFORate {
-    get => ref _Handle.AsRef<float>(_LFORateOffset.Value);
+    get => ref _Handle.AsRef<float>(_LFORateOffset);
   }
-  private static readonly Lazy<nint> _PhaseOffset = new(() => Schema.GetOffset(0xCE0A02A3C22A9CA), LazyThreadSafetyMode.None);
+  private static readonly nint _PhaseOffset = Schema.GetOffset(0xCE0A02A3C22A9CA);
 
   public ref float Phase {
-    get => ref _Handle.AsRef<float>(_PhaseOffset.Value);
+    get => ref _Handle.AsRef<float>(_PhaseOffset);
   }
-  private static readonly Lazy<nint> _LFOShapeOffset = new(() => Schema.GetOffset(0xCE0A02AD7FB3149), LazyThreadSafetyMode.None);
+  private static readonly nint _LFOShapeOffset = Schema.GetOffset(0xCE0A02AD7FB3149);
 
   public ref VMixLFOShape_t LFOShape {
-    get => ref _Handle.AsRef<VMixLFOShape_t>(_LFOShapeOffset.Value);
+    get => ref _Handle.AsRef<VMixLFOShape_t>(_LFOShapeOffset);
   }
 
 

@@ -20,25 +20,25 @@ internal partial class FeTaperedCapsuleRigid_tImpl : SchemaClass, FeTaperedCapsu
   public ISchemaFixedArray<fltx4> Sphere {
     get => new SchemaFixedArray<fltx4>(_Handle, 0x4B2017EE9E2AC48C, 2, 16, 16);
   }
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0x4B2017EECD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0x4B2017EECD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _CollisionMaskOffset = new(() => Schema.GetOffset(0x4B2017EE0ED3454F), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionMaskOffset = Schema.GetOffset(0x4B2017EE0ED3454F);
 
   public ref ushort CollisionMask {
-    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset);
   }
-  private static readonly Lazy<nint> _VertexMapIndexOffset = new(() => Schema.GetOffset(0x4B2017EE7B332E39), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexMapIndexOffset = Schema.GetOffset(0x4B2017EE7B332E39);
 
   public ref ushort VertexMapIndex {
-    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x4B2017EEB8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x4B2017EEB8D52E48);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
 
 

@@ -17,20 +17,20 @@ internal partial class FilterHealthImpl : CBaseFilterImpl, FilterHealth {
   public FilterHealthImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AdrenalineActiveOffset = new(() => Schema.GetOffset(0x4DD06C81671CFB30), LazyThreadSafetyMode.None);
+  private static readonly nint _AdrenalineActiveOffset = Schema.GetOffset(0x4DD06C81671CFB30);
 
   public ref bool AdrenalineActive {
-    get => ref _Handle.AsRef<bool>(_AdrenalineActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AdrenalineActiveOffset);
   }
-  private static readonly Lazy<nint> _HealthMinOffset = new(() => Schema.GetOffset(0x4DD06C8117D5C166), LazyThreadSafetyMode.None);
+  private static readonly nint _HealthMinOffset = Schema.GetOffset(0x4DD06C8117D5C166);
 
   public ref int HealthMin {
-    get => ref _Handle.AsRef<int>(_HealthMinOffset.Value);
+    get => ref _Handle.AsRef<int>(_HealthMinOffset);
   }
-  private static readonly Lazy<nint> _HealthMaxOffset = new(() => Schema.GetOffset(0x4DD06C8129E96574), LazyThreadSafetyMode.None);
+  private static readonly nint _HealthMaxOffset = Schema.GetOffset(0x4DD06C8129E96574);
 
   public ref int HealthMax {
-    get => ref _Handle.AsRef<int>(_HealthMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_HealthMaxOffset);
   }
 
 

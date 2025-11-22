@@ -17,20 +17,20 @@ internal partial class CAnimFrameBlockAnimImpl : SchemaClass, CAnimFrameBlockAni
   public CAnimFrameBlockAnimImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartFrameOffset = new(() => Schema.GetOffset(0x6318445C9134F088), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFrameOffset = Schema.GetOffset(0x6318445C9134F088);
 
   public ref int StartFrame {
-    get => ref _Handle.AsRef<int>(_StartFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartFrameOffset);
   }
-  private static readonly Lazy<nint> _EndFrameOffset = new(() => Schema.GetOffset(0x6318445CEA91BD07), LazyThreadSafetyMode.None);
+  private static readonly nint _EndFrameOffset = Schema.GetOffset(0x6318445CEA91BD07);
 
   public ref int EndFrame {
-    get => ref _Handle.AsRef<int>(_EndFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndFrameOffset);
   }
-  private static readonly Lazy<nint> _SegmentIndexArrayOffset = new(() => Schema.GetOffset(0x6318445C1A46EA6B), LazyThreadSafetyMode.None);
+  private static readonly nint _SegmentIndexArrayOffset = Schema.GetOffset(0x6318445C1A46EA6B);
 
   public ref CUtlVector<int> SegmentIndexArray {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_SegmentIndexArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_SegmentIndexArrayOffset);
   }
 
 

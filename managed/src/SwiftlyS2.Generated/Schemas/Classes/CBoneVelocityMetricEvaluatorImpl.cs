@@ -17,10 +17,10 @@ internal partial class CBoneVelocityMetricEvaluatorImpl : CMotionMetricEvaluator
   public CBoneVelocityMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0x90D313709F407B79), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0x90D313709F407B79);
 
   public ref int BoneIndex {
-    get => ref _Handle.AsRef<int>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIndexOffset);
   }
 
 

@@ -17,30 +17,30 @@ internal partial class C_OP_LerpVectorImpl : CParticleFunctionOperatorImpl, C_OP
   public C_OP_LerpVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x870E8457E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x870E8457E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputOffset = new(() => Schema.GetOffset(0x870E845708B7FF64), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputOffset = Schema.GetOffset(0x870E845708B7FF64);
 
   public ref Vector Output {
-    get => ref _Handle.AsRef<Vector>(_OutputOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x870E845767FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x870E845767FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0x870E84572041DF9D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0x870E84572041DF9D);
 
   public ref float EndTime {
-    get => ref _Handle.AsRef<float>(_EndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTimeOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x870E8457FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x870E8457FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
 
 

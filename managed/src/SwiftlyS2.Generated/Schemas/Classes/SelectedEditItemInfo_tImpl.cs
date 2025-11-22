@@ -17,10 +17,10 @@ internal partial class SelectedEditItemInfo_tImpl : SchemaClass, SelectedEditIte
   public SelectedEditItemInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EditItemsOffset = new(() => Schema.GetOffset(0xDF4D8E78F11EB01B), LazyThreadSafetyMode.None);
+  private static readonly nint _EditItemsOffset = Schema.GetOffset(0xDF4D8E78F11EB01B);
 
   public ref CUtlVector<SosEditItemInfo_t> EditItems {
-    get => ref _Handle.AsRef<CUtlVector<SosEditItemInfo_t>>(_EditItemsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SosEditItemInfo_t>>(_EditItemsOffset);
   }
 
 

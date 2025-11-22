@@ -17,30 +17,30 @@ internal partial class C_OP_OscillateScalarSimpleImpl : CParticleFunctionOperato
   public C_OP_OscillateScalarSimpleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RateOffset = new(() => Schema.GetOffset(0xDD611E3FEC3280E7), LazyThreadSafetyMode.None);
+  private static readonly nint _RateOffset = Schema.GetOffset(0xDD611E3FEC3280E7);
 
   public ref float Rate {
-    get => ref _Handle.AsRef<float>(_RateOffset.Value);
+    get => ref _Handle.AsRef<float>(_RateOffset);
   }
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0xDD611E3FBCCAA981), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0xDD611E3FBCCAA981);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _FieldOffset = new(() => Schema.GetOffset(0xDD611E3FC257B93B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOffset = Schema.GetOffset(0xDD611E3FC257B93B);
 
   public ParticleAttributeIndex_t Field {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset);
   }
-  private static readonly Lazy<nint> _OscMultOffset = new(() => Schema.GetOffset(0xDD611E3F16278E94), LazyThreadSafetyMode.None);
+  private static readonly nint _OscMultOffset = Schema.GetOffset(0xDD611E3F16278E94);
 
   public ref float OscMult {
-    get => ref _Handle.AsRef<float>(_OscMultOffset.Value);
+    get => ref _Handle.AsRef<float>(_OscMultOffset);
   }
-  private static readonly Lazy<nint> _OscAddOffset = new(() => Schema.GetOffset(0xDD611E3F7B38A63D), LazyThreadSafetyMode.None);
+  private static readonly nint _OscAddOffset = Schema.GetOffset(0xDD611E3F7B38A63D);
 
   public ref float OscAdd {
-    get => ref _Handle.AsRef<float>(_OscAddOffset.Value);
+    get => ref _Handle.AsRef<float>(_OscAddOffset);
   }
 
 

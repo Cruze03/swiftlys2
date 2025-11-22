@@ -17,80 +17,80 @@ internal partial class PostProcessingTonemapParameters_tImpl : SchemaClass, Post
   public PostProcessingTonemapParameters_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExposureBiasOffset = new(() => Schema.GetOffset(0x62C7E951BBF57613), LazyThreadSafetyMode.None);
+  private static readonly nint _ExposureBiasOffset = Schema.GetOffset(0x62C7E951BBF57613);
 
   public ref float ExposureBias {
-    get => ref _Handle.AsRef<float>(_ExposureBiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExposureBiasOffset);
   }
-  private static readonly Lazy<nint> _ShoulderStrengthOffset = new(() => Schema.GetOffset(0x62C7E951F177A3EE), LazyThreadSafetyMode.None);
+  private static readonly nint _ShoulderStrengthOffset = Schema.GetOffset(0x62C7E951F177A3EE);
 
   public ref float ShoulderStrength {
-    get => ref _Handle.AsRef<float>(_ShoulderStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ShoulderStrengthOffset);
   }
-  private static readonly Lazy<nint> _LinearStrengthOffset = new(() => Schema.GetOffset(0x62C7E95172E93F83), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearStrengthOffset = Schema.GetOffset(0x62C7E95172E93F83);
 
   public ref float LinearStrength {
-    get => ref _Handle.AsRef<float>(_LinearStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearStrengthOffset);
   }
-  private static readonly Lazy<nint> _LinearAngleOffset = new(() => Schema.GetOffset(0x62C7E951C16B14B1), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearAngleOffset = Schema.GetOffset(0x62C7E951C16B14B1);
 
   public ref float LinearAngle {
-    get => ref _Handle.AsRef<float>(_LinearAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearAngleOffset);
   }
-  private static readonly Lazy<nint> _ToeStrengthOffset = new(() => Schema.GetOffset(0x62C7E95168B1B908), LazyThreadSafetyMode.None);
+  private static readonly nint _ToeStrengthOffset = Schema.GetOffset(0x62C7E95168B1B908);
 
   public ref float ToeStrength {
-    get => ref _Handle.AsRef<float>(_ToeStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ToeStrengthOffset);
   }
-  private static readonly Lazy<nint> _ToeNumOffset = new(() => Schema.GetOffset(0x62C7E951DCB0097B), LazyThreadSafetyMode.None);
+  private static readonly nint _ToeNumOffset = Schema.GetOffset(0x62C7E951DCB0097B);
 
   public ref float ToeNum {
-    get => ref _Handle.AsRef<float>(_ToeNumOffset.Value);
+    get => ref _Handle.AsRef<float>(_ToeNumOffset);
   }
-  private static readonly Lazy<nint> _ToeDenomOffset = new(() => Schema.GetOffset(0x62C7E951FFD477EC), LazyThreadSafetyMode.None);
+  private static readonly nint _ToeDenomOffset = Schema.GetOffset(0x62C7E951FFD477EC);
 
   public ref float ToeDenom {
-    get => ref _Handle.AsRef<float>(_ToeDenomOffset.Value);
+    get => ref _Handle.AsRef<float>(_ToeDenomOffset);
   }
-  private static readonly Lazy<nint> _WhitePointOffset = new(() => Schema.GetOffset(0x62C7E9518901AA8E), LazyThreadSafetyMode.None);
+  private static readonly nint _WhitePointOffset = Schema.GetOffset(0x62C7E9518901AA8E);
 
   public ref float WhitePoint {
-    get => ref _Handle.AsRef<float>(_WhitePointOffset.Value);
+    get => ref _Handle.AsRef<float>(_WhitePointOffset);
   }
-  private static readonly Lazy<nint> _LuminanceSourceOffset = new(() => Schema.GetOffset(0x62C7E9517B15A366), LazyThreadSafetyMode.None);
+  private static readonly nint _LuminanceSourceOffset = Schema.GetOffset(0x62C7E9517B15A366);
 
   public ref float LuminanceSource {
-    get => ref _Handle.AsRef<float>(_LuminanceSourceOffset.Value);
+    get => ref _Handle.AsRef<float>(_LuminanceSourceOffset);
   }
-  private static readonly Lazy<nint> _ExposureBiasShadowsOffset = new(() => Schema.GetOffset(0x62C7E951958A1C90), LazyThreadSafetyMode.None);
+  private static readonly nint _ExposureBiasShadowsOffset = Schema.GetOffset(0x62C7E951958A1C90);
 
   public ref float ExposureBiasShadows {
-    get => ref _Handle.AsRef<float>(_ExposureBiasShadowsOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExposureBiasShadowsOffset);
   }
-  private static readonly Lazy<nint> _ExposureBiasHighlightsOffset = new(() => Schema.GetOffset(0x62C7E95105E519FE), LazyThreadSafetyMode.None);
+  private static readonly nint _ExposureBiasHighlightsOffset = Schema.GetOffset(0x62C7E95105E519FE);
 
   public ref float ExposureBiasHighlights {
-    get => ref _Handle.AsRef<float>(_ExposureBiasHighlightsOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExposureBiasHighlightsOffset);
   }
-  private static readonly Lazy<nint> _MinShadowLumOffset = new(() => Schema.GetOffset(0x62C7E9511E2BE58D), LazyThreadSafetyMode.None);
+  private static readonly nint _MinShadowLumOffset = Schema.GetOffset(0x62C7E9511E2BE58D);
 
   public ref float MinShadowLum {
-    get => ref _Handle.AsRef<float>(_MinShadowLumOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinShadowLumOffset);
   }
-  private static readonly Lazy<nint> _MaxShadowLumOffset = new(() => Schema.GetOffset(0x62C7E951269F61AB), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxShadowLumOffset = Schema.GetOffset(0x62C7E951269F61AB);
 
   public ref float MaxShadowLum {
-    get => ref _Handle.AsRef<float>(_MaxShadowLumOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxShadowLumOffset);
   }
-  private static readonly Lazy<nint> _MinHighlightLumOffset = new(() => Schema.GetOffset(0x62C7E951A9EADF4F), LazyThreadSafetyMode.None);
+  private static readonly nint _MinHighlightLumOffset = Schema.GetOffset(0x62C7E951A9EADF4F);
 
   public ref float MinHighlightLum {
-    get => ref _Handle.AsRef<float>(_MinHighlightLumOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinHighlightLumOffset);
   }
-  private static readonly Lazy<nint> _MaxHighlightLumOffset = new(() => Schema.GetOffset(0x62C7E9516352B9A5), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxHighlightLumOffset = Schema.GetOffset(0x62C7E9516352B9A5);
 
   public ref float MaxHighlightLum {
-    get => ref _Handle.AsRef<float>(_MaxHighlightLumOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxHighlightLumOffset);
   }
 
 

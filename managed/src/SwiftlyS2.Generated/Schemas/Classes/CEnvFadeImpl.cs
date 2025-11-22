@@ -17,25 +17,25 @@ internal partial class CEnvFadeImpl : CLogicalEntityImpl, CEnvFade {
   public CEnvFadeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeColorOffset = new(() => Schema.GetOffset(0xEFBFC063C1517BF2), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeColorOffset = Schema.GetOffset(0xEFBFC063C1517BF2);
 
   public ref Color FadeColor {
-    get => ref _Handle.AsRef<Color>(_FadeColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_FadeColorOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0xEFBFC0639879A98D), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0xEFBFC0639879A98D);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _HoldDurationOffset = new(() => Schema.GetOffset(0xEFBFC0631D577A68), LazyThreadSafetyMode.None);
+  private static readonly nint _HoldDurationOffset = Schema.GetOffset(0xEFBFC0631D577A68);
 
   public ref float HoldDuration {
-    get => ref _Handle.AsRef<float>(_HoldDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_HoldDurationOffset);
   }
-  private static readonly Lazy<nint> _OnBeginFadeOffset = new(() => Schema.GetOffset(0xEFBFC0633308BA63), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBeginFadeOffset = Schema.GetOffset(0xEFBFC0633308BA63);
 
   public CEntityIOOutput OnBeginFade {
-    get => new CEntityIOOutputImpl(_Handle + _OnBeginFadeOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBeginFadeOffset);
   }
 
   public void FadeColorUpdated() {

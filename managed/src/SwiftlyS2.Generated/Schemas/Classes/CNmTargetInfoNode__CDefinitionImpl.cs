@@ -17,20 +17,20 @@ internal partial class CNmTargetInfoNode__CDefinitionImpl : CNmFloatValueNode__C
   public CNmTargetInfoNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x2288EABA95E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x2288EABA95E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InfoTypeOffset = new(() => Schema.GetOffset(0x2288EABACE6BA20D), LazyThreadSafetyMode.None);
+  private static readonly nint _InfoTypeOffset = Schema.GetOffset(0x2288EABACE6BA20D);
 
   public ref CNmTargetInfoNode__Info_t InfoType {
-    get => ref _Handle.AsRef<CNmTargetInfoNode__Info_t>(_InfoTypeOffset.Value);
+    get => ref _Handle.AsRef<CNmTargetInfoNode__Info_t>(_InfoTypeOffset);
   }
-  private static readonly Lazy<nint> _IsWorldSpaceTargetOffset = new(() => Schema.GetOffset(0x2288EABAB81D53F2), LazyThreadSafetyMode.None);
+  private static readonly nint _IsWorldSpaceTargetOffset = Schema.GetOffset(0x2288EABAB81D53F2);
 
   public ref bool IsWorldSpaceTarget {
-    get => ref _Handle.AsRef<bool>(_IsWorldSpaceTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsWorldSpaceTargetOffset);
   }
 
 

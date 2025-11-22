@@ -17,70 +17,70 @@ internal partial class shard_model_desc_tImpl : SchemaClass, shard_model_desc_t 
   public shard_model_desc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelIDOffset = new(() => Schema.GetOffset(0x89B25B20B2007E9B), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelIDOffset = Schema.GetOffset(0x89B25B20B2007E9B);
 
   public ref int ModelID {
-    get => ref _Handle.AsRef<int>(_ModelIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ModelIDOffset);
   }
-  private static readonly Lazy<nint> _MaterialBaseOffset = new(() => Schema.GetOffset(0x89B25B201F6E1593), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialBaseOffset = Schema.GetOffset(0x89B25B201F6E1593);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> MaterialBase {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialBaseOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialBaseOffset);
   }
-  private static readonly Lazy<nint> _MaterialDamageOverlayOffset = new(() => Schema.GetOffset(0x89B25B200B167839), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialDamageOverlayOffset = Schema.GetOffset(0x89B25B200B167839);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> MaterialDamageOverlay {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialDamageOverlayOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialDamageOverlayOffset);
   }
-  private static readonly Lazy<nint> _SolidOffset = new(() => Schema.GetOffset(0x89B25B20F14DA214), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidOffset = Schema.GetOffset(0x89B25B20F14DA214);
 
   public ref ShardSolid_t Solid {
-    get => ref _Handle.AsRef<ShardSolid_t>(_SolidOffset.Value);
+    get => ref _Handle.AsRef<ShardSolid_t>(_SolidOffset);
   }
-  private static readonly Lazy<nint> _PanelSizeOffset = new(() => Schema.GetOffset(0x89B25B20E61D2D9C), LazyThreadSafetyMode.None);
+  private static readonly nint _PanelSizeOffset = Schema.GetOffset(0x89B25B20E61D2D9C);
 
   public ref Vector2D PanelSize {
-    get => ref _Handle.AsRef<Vector2D>(_PanelSizeOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_PanelSizeOffset);
   }
-  private static readonly Lazy<nint> _StressPositionAOffset = new(() => Schema.GetOffset(0x89B25B20107A2271), LazyThreadSafetyMode.None);
+  private static readonly nint _StressPositionAOffset = Schema.GetOffset(0x89B25B20107A2271);
 
   public ref Vector2D StressPositionA {
-    get => ref _Handle.AsRef<Vector2D>(_StressPositionAOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_StressPositionAOffset);
   }
-  private static readonly Lazy<nint> _StressPositionBOffset = new(() => Schema.GetOffset(0x89B25B200D7A1DB8), LazyThreadSafetyMode.None);
+  private static readonly nint _StressPositionBOffset = Schema.GetOffset(0x89B25B200D7A1DB8);
 
   public ref Vector2D StressPositionB {
-    get => ref _Handle.AsRef<Vector2D>(_StressPositionBOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_StressPositionBOffset);
   }
-  private static readonly Lazy<nint> _PanelVerticesOffset = new(() => Schema.GetOffset(0x89B25B2049BB3ECE), LazyThreadSafetyMode.None);
+  private static readonly nint _PanelVerticesOffset = Schema.GetOffset(0x89B25B2049BB3ECE);
 
   public ref CUtlVector<Vector2D> PanelVertices {
-    get => ref _Handle.AsRef<CUtlVector<Vector2D>>(_PanelVerticesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector2D>>(_PanelVerticesOffset);
   }
-  private static readonly Lazy<nint> _InitialPanelVerticesOffset = new(() => Schema.GetOffset(0x89B25B2039117F58), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialPanelVerticesOffset = Schema.GetOffset(0x89B25B2039117F58);
 
   public ref CUtlVector<Vector4D> InitialPanelVertices {
-    get => ref _Handle.AsRef<CUtlVector<Vector4D>>(_InitialPanelVerticesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector4D>>(_InitialPanelVerticesOffset);
   }
-  private static readonly Lazy<nint> _GlassHalfThicknessOffset = new(() => Schema.GetOffset(0x89B25B20359D8B9E), LazyThreadSafetyMode.None);
+  private static readonly nint _GlassHalfThicknessOffset = Schema.GetOffset(0x89B25B20359D8B9E);
 
   public ref float GlassHalfThickness {
-    get => ref _Handle.AsRef<float>(_GlassHalfThicknessOffset.Value);
+    get => ref _Handle.AsRef<float>(_GlassHalfThicknessOffset);
   }
-  private static readonly Lazy<nint> _HasParentOffset = new(() => Schema.GetOffset(0x89B25B20A613E04B), LazyThreadSafetyMode.None);
+  private static readonly nint _HasParentOffset = Schema.GetOffset(0x89B25B20A613E04B);
 
   public ref bool HasParent {
-    get => ref _Handle.AsRef<bool>(_HasParentOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasParentOffset);
   }
-  private static readonly Lazy<nint> _ParentFrozenOffset = new(() => Schema.GetOffset(0x89B25B206FE526AB), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentFrozenOffset = Schema.GetOffset(0x89B25B206FE526AB);
 
   public ref bool ParentFrozen {
-    get => ref _Handle.AsRef<bool>(_ParentFrozenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ParentFrozenOffset);
   }
-  private static readonly Lazy<nint> _SurfacePropStringTokenOffset = new(() => Schema.GetOffset(0x89B25B2055336E6D), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropStringTokenOffset = Schema.GetOffset(0x89B25B2055336E6D);
 
   public ref CUtlStringToken SurfacePropStringToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_SurfacePropStringTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_SurfacePropStringTokenOffset);
   }
 
   public void ModelIDUpdated() {

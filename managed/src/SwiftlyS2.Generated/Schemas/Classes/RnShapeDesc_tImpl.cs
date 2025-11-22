@@ -17,39 +17,39 @@ internal partial class RnShapeDesc_tImpl : SchemaClass, RnShapeDesc_t {
   public RnShapeDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CollisionAttributeIndexOffset = new(() => Schema.GetOffset(0xA24D7D10C7B64DF7), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionAttributeIndexOffset = Schema.GetOffset(0xA24D7D10C7B64DF7);
 
   public ref uint CollisionAttributeIndex {
-    get => ref _Handle.AsRef<uint>(_CollisionAttributeIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_CollisionAttributeIndexOffset);
   }
-  private static readonly Lazy<nint> _SurfacePropertyIndexOffset = new(() => Schema.GetOffset(0xA24D7D106DED6187), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropertyIndexOffset = Schema.GetOffset(0xA24D7D106DED6187);
 
   public ref uint SurfacePropertyIndex {
-    get => ref _Handle.AsRef<uint>(_SurfacePropertyIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SurfacePropertyIndexOffset);
   }
-  private static readonly Lazy<nint> _UserFriendlyNameOffset = new(() => Schema.GetOffset(0xA24D7D1000D4523E), LazyThreadSafetyMode.None);
+  private static readonly nint _UserFriendlyNameOffset = Schema.GetOffset(0xA24D7D1000D4523E);
 
   public string UserFriendlyName {
     get {
-      var ptr = _Handle.Read<nint>(_UserFriendlyNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_UserFriendlyNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _UserFriendlyNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _UserFriendlyNameOffset, value);
   } 
-  private static readonly Lazy<nint> _UserFriendlyNameSealedOffset = new(() => Schema.GetOffset(0xA24D7D1076DBAE3A), LazyThreadSafetyMode.None);
+  private static readonly nint _UserFriendlyNameSealedOffset = Schema.GetOffset(0xA24D7D1076DBAE3A);
 
   public ref bool UserFriendlyNameSealed {
-    get => ref _Handle.AsRef<bool>(_UserFriendlyNameSealedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UserFriendlyNameSealedOffset);
   }
-  private static readonly Lazy<nint> _UserFriendlyNameLongOffset = new(() => Schema.GetOffset(0xA24D7D10F02591B8), LazyThreadSafetyMode.None);
+  private static readonly nint _UserFriendlyNameLongOffset = Schema.GetOffset(0xA24D7D10F02591B8);
 
   public ref bool UserFriendlyNameLong {
-    get => ref _Handle.AsRef<bool>(_UserFriendlyNameLongOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UserFriendlyNameLongOffset);
   }
-  private static readonly Lazy<nint> _ToolMaterialHashOffset = new(() => Schema.GetOffset(0xA24D7D105C3E2DDE), LazyThreadSafetyMode.None);
+  private static readonly nint _ToolMaterialHashOffset = Schema.GetOffset(0xA24D7D105C3E2DDE);
 
   public ref uint ToolMaterialHash {
-    get => ref _Handle.AsRef<uint>(_ToolMaterialHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ToolMaterialHashOffset);
   }
 
 

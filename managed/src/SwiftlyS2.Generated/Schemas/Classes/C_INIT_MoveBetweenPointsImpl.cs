@@ -17,40 +17,40 @@ internal partial class C_INIT_MoveBetweenPointsImpl : CParticleFunctionInitializ
   public C_INIT_MoveBetweenPointsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpeedMinOffset = new(() => Schema.GetOffset(0xE2F19642B52776BE), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMinOffset = Schema.GetOffset(0xE2F19642B52776BE);
 
   public CPerParticleFloatInput SpeedMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset);
   }
-  private static readonly Lazy<nint> _SpeedMaxOffset = new(() => Schema.GetOffset(0xE2F19642C7140B5C), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMaxOffset = Schema.GetOffset(0xE2F19642C7140B5C);
 
   public CPerParticleFloatInput SpeedMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _EndSpreadOffset = new(() => Schema.GetOffset(0xE2F196423D9143DB), LazyThreadSafetyMode.None);
+  private static readonly nint _EndSpreadOffset = Schema.GetOffset(0xE2F196423D9143DB);
 
   public CPerParticleFloatInput EndSpread {
-    get => new CPerParticleFloatInputImpl(_Handle + _EndSpreadOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _EndSpreadOffset);
   }
-  private static readonly Lazy<nint> _StartOffsetOffset = new(() => Schema.GetOffset(0xE2F1964269A449AA), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOffsetOffset = Schema.GetOffset(0xE2F1964269A449AA);
 
   public CPerParticleFloatInput StartOffset {
-    get => new CPerParticleFloatInputImpl(_Handle + _StartOffsetOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _StartOffsetOffset);
   }
-  private static readonly Lazy<nint> _EndOffsetOffset = new(() => Schema.GetOffset(0xE2F19642C863E027), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffsetOffset = Schema.GetOffset(0xE2F19642C863E027);
 
   public CPerParticleFloatInput EndOffset {
-    get => new CPerParticleFloatInputImpl(_Handle + _EndOffsetOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _EndOffsetOffset);
   }
-  private static readonly Lazy<nint> _EndControlPointNumberOffset = new(() => Schema.GetOffset(0xE2F19642A9FAEC22), LazyThreadSafetyMode.None);
+  private static readonly nint _EndControlPointNumberOffset = Schema.GetOffset(0xE2F19642A9FAEC22);
 
   public ref int EndControlPointNumber {
-    get => ref _Handle.AsRef<int>(_EndControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _TrailBiasOffset = new(() => Schema.GetOffset(0xE2F1964294C9A26A), LazyThreadSafetyMode.None);
+  private static readonly nint _TrailBiasOffset = Schema.GetOffset(0xE2F1964294C9A26A);
 
   public ref bool TrailBias {
-    get => ref _Handle.AsRef<bool>(_TrailBiasOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TrailBiasOffset);
   }
 
 

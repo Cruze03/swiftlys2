@@ -17,34 +17,34 @@ internal partial class FunctionInfo_tImpl : SchemaClass, FunctionInfo_t {
   public FunctionInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xFCE0933A4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xFCE0933A4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameTokenOffset = new(() => Schema.GetOffset(0xFCE0933A9293FEF3), LazyThreadSafetyMode.None);
+  private static readonly nint _NameTokenOffset = Schema.GetOffset(0xFCE0933A9293FEF3);
 
   public ref CUtlStringToken NameToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset);
   }
-  private static readonly Lazy<nint> _ParamCountOffset = new(() => Schema.GetOffset(0xFCE0933ADD5DEEAD), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamCountOffset = Schema.GetOffset(0xFCE0933ADD5DEEAD);
 
   public ref int ParamCount {
-    get => ref _Handle.AsRef<int>(_ParamCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParamCountOffset);
   }
-  private static readonly Lazy<nint> _IndexOffset = new(() => Schema.GetOffset(0xFCE0933AB73DBE67), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexOffset = Schema.GetOffset(0xFCE0933AB73DBE67);
 
   public FuseFunctionIndex_t Index {
-    get => new FuseFunctionIndex_tImpl(_Handle + _IndexOffset.Value);
+    get => new FuseFunctionIndex_tImpl(_Handle + _IndexOffset);
   }
-  private static readonly Lazy<nint> _IsPureOffset = new(() => Schema.GetOffset(0xFCE0933AA5A65B13), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPureOffset = Schema.GetOffset(0xFCE0933AA5A65B13);
 
   public ref bool IsPure {
-    get => ref _Handle.AsRef<bool>(_IsPureOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPureOffset);
   }
 
 

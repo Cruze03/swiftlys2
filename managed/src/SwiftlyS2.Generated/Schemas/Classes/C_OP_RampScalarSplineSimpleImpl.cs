@@ -17,30 +17,30 @@ internal partial class C_OP_RampScalarSplineSimpleImpl : CParticleFunctionOperat
   public C_OP_RampScalarSplineSimpleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RateOffset = new(() => Schema.GetOffset(0xA8BA5EF2EC3280E7), LazyThreadSafetyMode.None);
+  private static readonly nint _RateOffset = Schema.GetOffset(0xA8BA5EF2EC3280E7);
 
   public ref float Rate {
-    get => ref _Handle.AsRef<float>(_RateOffset.Value);
+    get => ref _Handle.AsRef<float>(_RateOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xA8BA5EF267FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xA8BA5EF267FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0xA8BA5EF22041DF9D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0xA8BA5EF22041DF9D);
 
   public ref float EndTime {
-    get => ref _Handle.AsRef<float>(_EndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTimeOffset);
   }
-  private static readonly Lazy<nint> _FieldOffset = new(() => Schema.GetOffset(0xA8BA5EF2C257B93B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOffset = Schema.GetOffset(0xA8BA5EF2C257B93B);
 
   public ParticleAttributeIndex_t Field {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset);
   }
-  private static readonly Lazy<nint> _EaseOutOffset = new(() => Schema.GetOffset(0xA8BA5EF28E58B9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseOutOffset = Schema.GetOffset(0xA8BA5EF28E58B9D1);
 
   public ref bool EaseOut {
-    get => ref _Handle.AsRef<bool>(_EaseOutOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EaseOutOffset);
   }
 
 

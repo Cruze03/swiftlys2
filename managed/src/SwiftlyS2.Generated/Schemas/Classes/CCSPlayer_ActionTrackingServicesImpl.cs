@@ -17,25 +17,25 @@ internal partial class CCSPlayer_ActionTrackingServicesImpl : CPlayerPawnCompone
   public CCSPlayer_ActionTrackingServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LastWeaponBeforeC4AutoSwitchOffset = new(() => Schema.GetOffset(0xC890019D6687BAC0), LazyThreadSafetyMode.None);
+  private static readonly nint _LastWeaponBeforeC4AutoSwitchOffset = Schema.GetOffset(0xC890019D6687BAC0);
 
   public ref CHandle<CBasePlayerWeapon> LastWeaponBeforeC4AutoSwitch {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_LastWeaponBeforeC4AutoSwitchOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_LastWeaponBeforeC4AutoSwitchOffset);
   }
-  private static readonly Lazy<nint> _IsRescuingOffset = new(() => Schema.GetOffset(0xC890019D225BDB2F), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRescuingOffset = Schema.GetOffset(0xC890019D225BDB2F);
 
   public ref bool IsRescuing {
-    get => ref _Handle.AsRef<bool>(_IsRescuingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRescuingOffset);
   }
-  private static readonly Lazy<nint> _WeaponPurchasesThisMatchOffset = new(() => Schema.GetOffset(0xC890019D43F68EE0), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponPurchasesThisMatchOffset = Schema.GetOffset(0xC890019D43F68EE0);
 
   public WeaponPurchaseTracker_t WeaponPurchasesThisMatch {
-    get => new WeaponPurchaseTracker_tImpl(_Handle + _WeaponPurchasesThisMatchOffset.Value);
+    get => new WeaponPurchaseTracker_tImpl(_Handle + _WeaponPurchasesThisMatchOffset);
   }
-  private static readonly Lazy<nint> _WeaponPurchasesThisRoundOffset = new(() => Schema.GetOffset(0xC890019D7C64F835), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponPurchasesThisRoundOffset = Schema.GetOffset(0xC890019D7C64F835);
 
   public WeaponPurchaseTracker_t WeaponPurchasesThisRound {
-    get => new WeaponPurchaseTracker_tImpl(_Handle + _WeaponPurchasesThisRoundOffset.Value);
+    get => new WeaponPurchaseTracker_tImpl(_Handle + _WeaponPurchasesThisRoundOffset);
   }
 
   public void IsRescuingUpdated() {

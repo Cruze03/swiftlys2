@@ -17,10 +17,10 @@ internal partial class EventClientSceneSystemThreadStateChange_tImpl : SchemaCla
   public EventClientSceneSystemThreadStateChange_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ThreadsActiveOffset = new(() => Schema.GetOffset(0x28053E1174AC2EF0), LazyThreadSafetyMode.None);
+  private static readonly nint _ThreadsActiveOffset = Schema.GetOffset(0x28053E1174AC2EF0);
 
   public ref bool ThreadsActive {
-    get => ref _Handle.AsRef<bool>(_ThreadsActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ThreadsActiveOffset);
   }
 
 

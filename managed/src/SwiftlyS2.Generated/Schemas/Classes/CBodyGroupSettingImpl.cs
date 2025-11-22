@@ -17,19 +17,19 @@ internal partial class CBodyGroupSettingImpl : SchemaClass, CBodyGroupSetting {
   public CBodyGroupSettingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BodyGroupNameOffset = new(() => Schema.GetOffset(0xC078388F0E290077), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupNameOffset = Schema.GetOffset(0xC078388F0E290077);
 
   public string BodyGroupName {
     get {
-      var ptr = _Handle.Read<nint>(_BodyGroupNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BodyGroupNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BodyGroupNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BodyGroupNameOffset, value);
   } 
-  private static readonly Lazy<nint> _BodyGroupOptionOffset = new(() => Schema.GetOffset(0xC078388F09FA2D31), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupOptionOffset = Schema.GetOffset(0xC078388F09FA2D31);
 
   public ref int BodyGroupOption {
-    get => ref _Handle.AsRef<int>(_BodyGroupOptionOffset.Value);
+    get => ref _Handle.AsRef<int>(_BodyGroupOptionOffset);
   }
 
 

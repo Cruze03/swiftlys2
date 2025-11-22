@@ -17,35 +17,35 @@ internal partial class CFuseSymbolTableImpl : SchemaClass, CFuseSymbolTable {
   public CFuseSymbolTableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConstantsOffset = new(() => Schema.GetOffset(0xD8A03B41460C1382), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstantsOffset = Schema.GetOffset(0xD8A03B41460C1382);
 
   public ref CUtlVector<ConstantInfo_t> Constants {
-    get => ref _Handle.AsRef<CUtlVector<ConstantInfo_t>>(_ConstantsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ConstantInfo_t>>(_ConstantsOffset);
   }
-  private static readonly Lazy<nint> _VariablesOffset = new(() => Schema.GetOffset(0xD8A03B4106AE7DE2), LazyThreadSafetyMode.None);
+  private static readonly nint _VariablesOffset = Schema.GetOffset(0xD8A03B4106AE7DE2);
 
   public ref CUtlVector<VariableInfo_t> Variables {
-    get => ref _Handle.AsRef<CUtlVector<VariableInfo_t>>(_VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<VariableInfo_t>>(_VariablesOffset);
   }
-  private static readonly Lazy<nint> _FunctionsOffset = new(() => Schema.GetOffset(0xD8A03B41F6EF246E), LazyThreadSafetyMode.None);
+  private static readonly nint _FunctionsOffset = Schema.GetOffset(0xD8A03B41F6EF246E);
 
   public ref CUtlVector<FunctionInfo_t> Functions {
-    get => ref _Handle.AsRef<CUtlVector<FunctionInfo_t>>(_FunctionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<FunctionInfo_t>>(_FunctionsOffset);
   }
-  private static readonly Lazy<nint> _ConstantMapOffset = new(() => Schema.GetOffset(0xD8A03B4198BF6E51), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstantMapOffset = Schema.GetOffset(0xD8A03B4198BF6E51);
 
   public SchemaUntypedField ConstantMap {
-    get => new SchemaUntypedField(_Handle + _ConstantMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConstantMapOffset);
   }
-  private static readonly Lazy<nint> _VariableMapOffset = new(() => Schema.GetOffset(0xD8A03B410FDE3671), LazyThreadSafetyMode.None);
+  private static readonly nint _VariableMapOffset = Schema.GetOffset(0xD8A03B410FDE3671);
 
   public SchemaUntypedField VariableMap {
-    get => new SchemaUntypedField(_Handle + _VariableMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _VariableMapOffset);
   }
-  private static readonly Lazy<nint> _FunctionMapOffset = new(() => Schema.GetOffset(0xD8A03B4147A33EC5), LazyThreadSafetyMode.None);
+  private static readonly nint _FunctionMapOffset = Schema.GetOffset(0xD8A03B4147A33EC5);
 
   public SchemaUntypedField FunctionMap {
-    get => new SchemaUntypedField(_Handle + _FunctionMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FunctionMapOffset);
   }
 
 

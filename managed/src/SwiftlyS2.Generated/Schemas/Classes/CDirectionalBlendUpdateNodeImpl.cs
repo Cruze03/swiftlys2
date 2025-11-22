@@ -17,45 +17,45 @@ internal partial class CDirectionalBlendUpdateNodeImpl : CLeafUpdateNodeImpl, CD
   public CDirectionalBlendUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequencesOffset = new(() => Schema.GetOffset(0xD7E03CEC996DA947), LazyThreadSafetyMode.None);
+  private static readonly nint _SequencesOffset = Schema.GetOffset(0xD7E03CEC996DA947);
 
   public SchemaUntypedField Sequences {
-    get => new SchemaUntypedField(_Handle + _SequencesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SequencesOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0xD7E03CEC15440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0xD7E03CEC15440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _BlendValueSourceOffset = new(() => Schema.GetOffset(0xD7E03CEC7AB7C374), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendValueSourceOffset = Schema.GetOffset(0xD7E03CEC7AB7C374);
 
   public ref AnimValueSource BlendValueSource {
-    get => ref _Handle.AsRef<AnimValueSource>(_BlendValueSourceOffset.Value);
+    get => ref _Handle.AsRef<AnimValueSource>(_BlendValueSourceOffset);
   }
-  private static readonly Lazy<nint> _ParamIndexOffset = new(() => Schema.GetOffset(0xD7E03CEC61990A86), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamIndexOffset = Schema.GetOffset(0xD7E03CEC61990A86);
 
   public CAnimParamHandle ParamIndex {
-    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset);
   }
-  private static readonly Lazy<nint> _PlaybackSpeedOffset = new(() => Schema.GetOffset(0xD7E03CEC1AFA7387), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackSpeedOffset = Schema.GetOffset(0xD7E03CEC1AFA7387);
 
   public ref float PlaybackSpeed {
-    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0xD7E03CEC3D9FF5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0xD7E03CEC3D9FF5AD);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0xD7E03CECC668A4CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0xD7E03CECC668A4CB);
 
   public ref bool Loop {
-    get => ref _Handle.AsRef<bool>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _LockBlendOnResetOffset = new(() => Schema.GetOffset(0xD7E03CEC76334223), LazyThreadSafetyMode.None);
+  private static readonly nint _LockBlendOnResetOffset = Schema.GetOffset(0xD7E03CEC76334223);
 
   public ref bool LockBlendOnReset {
-    get => ref _Handle.AsRef<bool>(_LockBlendOnResetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockBlendOnResetOffset);
   }
 
 

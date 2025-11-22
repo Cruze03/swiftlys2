@@ -17,10 +17,10 @@ internal partial class PulseRuntimeBlackboardReferenceIndex_tImpl : SchemaClass,
   public PulseRuntimeBlackboardReferenceIndex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xE01C0CE3DCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xE01C0CE3DCB0894A);
 
   public ref short Value {
-    get => ref _Handle.AsRef<short>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<short>(_ValueOffset);
   }
 
 

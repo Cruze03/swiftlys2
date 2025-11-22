@@ -17,55 +17,55 @@ internal partial class AggregateSceneObject_tImpl : SchemaClass, AggregateSceneO
   public AggregateSceneObject_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AllFlagsOffset = new(() => Schema.GetOffset(0xEF81F2D4DD9F35F7), LazyThreadSafetyMode.None);
+  private static readonly nint _AllFlagsOffset = Schema.GetOffset(0xEF81F2D4DD9F35F7);
 
   public ref ObjectTypeFlags_t AllFlags {
-    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_AllFlagsOffset.Value);
+    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_AllFlagsOffset);
   }
-  private static readonly Lazy<nint> _AnyFlagsOffset = new(() => Schema.GetOffset(0xEF81F2D456CC84B4), LazyThreadSafetyMode.None);
+  private static readonly nint _AnyFlagsOffset = Schema.GetOffset(0xEF81F2D456CC84B4);
 
   public ref ObjectTypeFlags_t AnyFlags {
-    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_AnyFlagsOffset.Value);
+    get => ref _Handle.AsRef<ObjectTypeFlags_t>(_AnyFlagsOffset);
   }
-  private static readonly Lazy<nint> _LayerOffset = new(() => Schema.GetOffset(0xEF81F2D4477C7B2A), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerOffset = Schema.GetOffset(0xEF81F2D4477C7B2A);
 
   public ref short Layer {
-    get => ref _Handle.AsRef<short>(_LayerOffset.Value);
+    get => ref _Handle.AsRef<short>(_LayerOffset);
   }
-  private static readonly Lazy<nint> _InstanceStreamOffset = new(() => Schema.GetOffset(0xEF81F2D4B5A8384A), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceStreamOffset = Schema.GetOffset(0xEF81F2D4B5A8384A);
 
   public ref short InstanceStream {
-    get => ref _Handle.AsRef<short>(_InstanceStreamOffset.Value);
+    get => ref _Handle.AsRef<short>(_InstanceStreamOffset);
   }
-  private static readonly Lazy<nint> _VertexAlbedoStreamOffset = new(() => Schema.GetOffset(0xEF81F2D42540B1EA), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexAlbedoStreamOffset = Schema.GetOffset(0xEF81F2D42540B1EA);
 
   public ref short VertexAlbedoStream {
-    get => ref _Handle.AsRef<short>(_VertexAlbedoStreamOffset.Value);
+    get => ref _Handle.AsRef<short>(_VertexAlbedoStreamOffset);
   }
-  private static readonly Lazy<nint> _AggregateMeshesOffset = new(() => Schema.GetOffset(0xEF81F2D402570BA1), LazyThreadSafetyMode.None);
+  private static readonly nint _AggregateMeshesOffset = Schema.GetOffset(0xEF81F2D402570BA1);
 
   public ref CUtlVector<AggregateMeshInfo_t> AggregateMeshes {
-    get => ref _Handle.AsRef<CUtlVector<AggregateMeshInfo_t>>(_AggregateMeshesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<AggregateMeshInfo_t>>(_AggregateMeshesOffset);
   }
-  private static readonly Lazy<nint> _LodSetupsOffset = new(() => Schema.GetOffset(0xEF81F2D4B0CE61E2), LazyThreadSafetyMode.None);
+  private static readonly nint _LodSetupsOffset = Schema.GetOffset(0xEF81F2D4B0CE61E2);
 
   public ref CUtlVector<AggregateLODSetup_t> LodSetups {
-    get => ref _Handle.AsRef<CUtlVector<AggregateLODSetup_t>>(_LodSetupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<AggregateLODSetup_t>>(_LodSetupsOffset);
   }
-  private static readonly Lazy<nint> _VisClusterMembershipOffset = new(() => Schema.GetOffset(0xEF81F2D4F2C828CD), LazyThreadSafetyMode.None);
+  private static readonly nint _VisClusterMembershipOffset = Schema.GetOffset(0xEF81F2D4F2C828CD);
 
   public ref CUtlVector<ushort> VisClusterMembership {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_VisClusterMembershipOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_VisClusterMembershipOffset);
   }
-  private static readonly Lazy<nint> _FragmentTransformsOffset = new(() => Schema.GetOffset(0xEF81F2D4192EBA20), LazyThreadSafetyMode.None);
+  private static readonly nint _FragmentTransformsOffset = Schema.GetOffset(0xEF81F2D4192EBA20);
 
   public ref CUtlVector<matrix3x4_t> FragmentTransforms {
-    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_FragmentTransformsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_FragmentTransformsOffset);
   }
-  private static readonly Lazy<nint> _RenderableModelOffset = new(() => Schema.GetOffset(0xEF81F2D42AEEFA82), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderableModelOffset = Schema.GetOffset(0xEF81F2D42AEEFA82);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> RenderableModel {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_RenderableModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_RenderableModelOffset);
   }
 
 

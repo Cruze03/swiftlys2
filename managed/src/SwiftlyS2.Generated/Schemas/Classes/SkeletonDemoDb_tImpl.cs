@@ -17,20 +17,20 @@ internal partial class SkeletonDemoDb_tImpl : SchemaClass, SkeletonDemoDb_t {
   public SkeletonDemoDb_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnimCapturesOffset = new(() => Schema.GetOffset(0xF4F5DA643E069D13), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimCapturesOffset = Schema.GetOffset(0xF4F5DA643E069D13);
 
   public ref CUtlVector<PointerTo<SkeletonAnimCapture_t>> AnimCaptures {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SkeletonAnimCapture_t>>>(_AnimCapturesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SkeletonAnimCapture_t>>>(_AnimCapturesOffset);
   }
-  private static readonly Lazy<nint> _CameraTrackOffset = new(() => Schema.GetOffset(0xF4F5DA64EFF0F8DD), LazyThreadSafetyMode.None);
+  private static readonly nint _CameraTrackOffset = Schema.GetOffset(0xF4F5DA64EFF0F8DD);
 
   public ref CUtlVector<SkeletonAnimCapture_t__Camera_t> CameraTrack {
-    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Camera_t>>(_CameraTrackOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SkeletonAnimCapture_t__Camera_t>>(_CameraTrackOffset);
   }
-  private static readonly Lazy<nint> _RecordingTimeOffset = new(() => Schema.GetOffset(0xF4F5DA64D29049CB), LazyThreadSafetyMode.None);
+  private static readonly nint _RecordingTimeOffset = Schema.GetOffset(0xF4F5DA64D29049CB);
 
   public ref float RecordingTime {
-    get => ref _Handle.AsRef<float>(_RecordingTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RecordingTimeOffset);
   }
 
 

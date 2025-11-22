@@ -17,20 +17,20 @@ internal partial class CNmBoneWeightListImpl : SchemaClass, CNmBoneWeightList {
   public CNmBoneWeightListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SkeletonNameOffset = new(() => Schema.GetOffset(0xA16307391879D68D), LazyThreadSafetyMode.None);
+  private static readonly nint _SkeletonNameOffset = Schema.GetOffset(0xA16307391879D68D);
 
   public SchemaUntypedField SkeletonName {
-    get => new SchemaUntypedField(_Handle + _SkeletonNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SkeletonNameOffset);
   }
-  private static readonly Lazy<nint> _BoneIDsOffset = new(() => Schema.GetOffset(0xA16307390909C443), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIDsOffset = Schema.GetOffset(0xA16307390909C443);
 
   public ref CUtlVector<CGlobalSymbol> BoneIDs {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_BoneIDsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_BoneIDsOffset);
   }
-  private static readonly Lazy<nint> _WeightsOffset = new(() => Schema.GetOffset(0xA163073977B2F91E), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightsOffset = Schema.GetOffset(0xA163073977B2F91E);
 
   public ref CUtlVector<float> Weights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset);
   }
 
 

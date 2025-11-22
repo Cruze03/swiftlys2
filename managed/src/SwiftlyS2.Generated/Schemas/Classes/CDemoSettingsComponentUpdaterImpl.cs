@@ -17,10 +17,10 @@ internal partial class CDemoSettingsComponentUpdaterImpl : CAnimComponentUpdater
   public CDemoSettingsComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SettingsOffset = new(() => Schema.GetOffset(0xD4FC646CB3DE33A8), LazyThreadSafetyMode.None);
+  private static readonly nint _SettingsOffset = Schema.GetOffset(0xD4FC646CB3DE33A8);
 
   public CAnimDemoCaptureSettings Settings {
-    get => new CAnimDemoCaptureSettingsImpl(_Handle + _SettingsOffset.Value);
+    get => new CAnimDemoCaptureSettingsImpl(_Handle + _SettingsOffset);
   }
 
 

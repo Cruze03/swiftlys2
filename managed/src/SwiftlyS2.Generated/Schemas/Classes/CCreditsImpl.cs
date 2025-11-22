@@ -17,20 +17,20 @@ internal partial class CCreditsImpl : CPointEntityImpl, CCredits {
   public CCreditsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnCreditsDoneOffset = new(() => Schema.GetOffset(0xF1224C0488A2DA7A), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCreditsDoneOffset = Schema.GetOffset(0xF1224C0488A2DA7A);
 
   public CEntityIOOutput OnCreditsDone {
-    get => new CEntityIOOutputImpl(_Handle + _OnCreditsDoneOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCreditsDoneOffset);
   }
-  private static readonly Lazy<nint> _RolledOutroCreditsOffset = new(() => Schema.GetOffset(0xF1224C048E1511D4), LazyThreadSafetyMode.None);
+  private static readonly nint _RolledOutroCreditsOffset = Schema.GetOffset(0xF1224C048E1511D4);
 
   public ref bool RolledOutroCredits {
-    get => ref _Handle.AsRef<bool>(_RolledOutroCreditsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RolledOutroCreditsOffset);
   }
-  private static readonly Lazy<nint> _LogoLengthOffset = new(() => Schema.GetOffset(0xF1224C04D283492C), LazyThreadSafetyMode.None);
+  private static readonly nint _LogoLengthOffset = Schema.GetOffset(0xF1224C04D283492C);
 
   public ref float LogoLength {
-    get => ref _Handle.AsRef<float>(_LogoLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LogoLengthOffset);
   }
 
 

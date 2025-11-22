@@ -17,35 +17,35 @@ internal partial class VMixUtilityDesc_tImpl : SchemaClass, VMixUtilityDesc_t {
   public VMixUtilityDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpOffset = new(() => Schema.GetOffset(0x9B3640C11384687E), LazyThreadSafetyMode.None);
+  private static readonly nint _OpOffset = Schema.GetOffset(0x9B3640C11384687E);
 
   public ref VMixChannelOperation_t Op {
-    get => ref _Handle.AsRef<VMixChannelOperation_t>(_OpOffset.Value);
+    get => ref _Handle.AsRef<VMixChannelOperation_t>(_OpOffset);
   }
-  private static readonly Lazy<nint> _InputPanOffset = new(() => Schema.GetOffset(0x9B3640C17E813E04), LazyThreadSafetyMode.None);
+  private static readonly nint _InputPanOffset = Schema.GetOffset(0x9B3640C17E813E04);
 
   public ref float InputPan {
-    get => ref _Handle.AsRef<float>(_InputPanOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputPanOffset);
   }
-  private static readonly Lazy<nint> _OutputBalanceOffset = new(() => Schema.GetOffset(0x9B3640C1730ED266), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputBalanceOffset = Schema.GetOffset(0x9B3640C1730ED266);
 
   public ref float OutputBalance {
-    get => ref _Handle.AsRef<float>(_OutputBalanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputBalanceOffset);
   }
-  private static readonly Lazy<nint> _FldbOutputGainOffset = new(() => Schema.GetOffset(0x9B3640C167F97C23), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbOutputGainOffset = Schema.GetOffset(0x9B3640C167F97C23);
 
   public ref float FldbOutputGain {
-    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset);
   }
-  private static readonly Lazy<nint> _BassMonoOffset = new(() => Schema.GetOffset(0x9B3640C1C65EDB7D), LazyThreadSafetyMode.None);
+  private static readonly nint _BassMonoOffset = Schema.GetOffset(0x9B3640C1C65EDB7D);
 
   public ref bool BassMono {
-    get => ref _Handle.AsRef<bool>(_BassMonoOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BassMonoOffset);
   }
-  private static readonly Lazy<nint> _BassFreqOffset = new(() => Schema.GetOffset(0x9B3640C13E71CC5A), LazyThreadSafetyMode.None);
+  private static readonly nint _BassFreqOffset = Schema.GetOffset(0x9B3640C13E71CC5A);
 
   public ref float BassFreq {
-    get => ref _Handle.AsRef<float>(_BassFreqOffset.Value);
+    get => ref _Handle.AsRef<float>(_BassFreqOffset);
   }
 
 

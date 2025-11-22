@@ -17,15 +17,15 @@ internal partial class CItemDefuserImpl : CItemImpl, CItemDefuser {
   public CItemDefuserImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntitySpottedStateOffset = new(() => Schema.GetOffset(0xC9362933032B547C), LazyThreadSafetyMode.None);
+  private static readonly nint _EntitySpottedStateOffset = Schema.GetOffset(0xC9362933032B547C);
 
   public EntitySpottedState_t EntitySpottedState {
-    get => new EntitySpottedState_tImpl(_Handle + _EntitySpottedStateOffset.Value);
+    get => new EntitySpottedState_tImpl(_Handle + _EntitySpottedStateOffset);
   }
-  private static readonly Lazy<nint> _SpotRulesOffset = new(() => Schema.GetOffset(0xC9362933776CCE44), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotRulesOffset = Schema.GetOffset(0xC9362933776CCE44);
 
   public ref int SpotRules {
-    get => ref _Handle.AsRef<int>(_SpotRulesOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpotRulesOffset);
   }
 
 

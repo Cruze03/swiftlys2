@@ -17,19 +17,19 @@ internal partial class CMotionNodeImpl : SchemaClass, CMotionNode {
   public CMotionNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xB29D04644D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xB29D04644D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0xB29D0464B4B6E980), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0xB29D0464B4B6E980);
 
   public AnimNodeID Id {
-    get => new AnimNodeIDImpl(_Handle + _IdOffset.Value);
+    get => new AnimNodeIDImpl(_Handle + _IdOffset);
   }
 
 

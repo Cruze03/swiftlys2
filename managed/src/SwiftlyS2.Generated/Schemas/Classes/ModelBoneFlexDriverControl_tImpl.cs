@@ -17,34 +17,34 @@ internal partial class ModelBoneFlexDriverControl_tImpl : SchemaClass, ModelBone
   public ModelBoneFlexDriverControl_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneComponentOffset = new(() => Schema.GetOffset(0x7DDCB3413C2E9E9E), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneComponentOffset = Schema.GetOffset(0x7DDCB3413C2E9E9E);
 
   public ref ModelBoneFlexComponent_t BoneComponent {
-    get => ref _Handle.AsRef<ModelBoneFlexComponent_t>(_BoneComponentOffset.Value);
+    get => ref _Handle.AsRef<ModelBoneFlexComponent_t>(_BoneComponentOffset);
   }
-  private static readonly Lazy<nint> _FlexControllerOffset = new(() => Schema.GetOffset(0x7DDCB341EDF88AAA), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllerOffset = Schema.GetOffset(0x7DDCB341EDF88AAA);
 
   public string FlexController {
     get {
-      var ptr = _Handle.Read<nint>(_FlexControllerOffset.Value);
+      var ptr = _Handle.Read<nint>(_FlexControllerOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FlexControllerOffset.Value, value);
+    set => Schema.SetString(_Handle, _FlexControllerOffset, value);
   } 
-  private static readonly Lazy<nint> _FlexControllerTokenOffset = new(() => Schema.GetOffset(0x7DDCB341996814FF), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllerTokenOffset = Schema.GetOffset(0x7DDCB341996814FF);
 
   public ref uint FlexControllerToken {
-    get => ref _Handle.AsRef<uint>(_FlexControllerTokenOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlexControllerTokenOffset);
   }
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x7DDCB3413B1A5649), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x7DDCB3413B1A5649);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x7DDCB3412D06B887), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x7DDCB3412D06B887);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
 
 

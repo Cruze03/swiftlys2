@@ -17,10 +17,10 @@ internal partial class CNmConstVectorNode__CDefinitionImpl : CNmVectorValueNode_
   public CNmConstVectorNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x78163C736B99AEEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x78163C736B99AEEA);
 
   public ref Vector Value {
-    get => ref _Handle.AsRef<Vector>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ValueOffset);
   }
 
 

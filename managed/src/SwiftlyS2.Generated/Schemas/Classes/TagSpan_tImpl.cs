@@ -17,20 +17,20 @@ internal partial class TagSpan_tImpl : SchemaClass, TagSpan_t {
   public TagSpan_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TagIndexOffset = new(() => Schema.GetOffset(0xA2611404D66997C9), LazyThreadSafetyMode.None);
+  private static readonly nint _TagIndexOffset = Schema.GetOffset(0xA2611404D66997C9);
 
   public ref int TagIndex {
-    get => ref _Handle.AsRef<int>(_TagIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_TagIndexOffset);
   }
-  private static readonly Lazy<nint> _StartCycleOffset = new(() => Schema.GetOffset(0xA26114043A764D4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartCycleOffset = Schema.GetOffset(0xA26114043A764D4F);
 
   public ref float StartCycle {
-    get => ref _Handle.AsRef<float>(_StartCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartCycleOffset);
   }
-  private static readonly Lazy<nint> _EndCycleOffset = new(() => Schema.GetOffset(0xA26114040B523694), LazyThreadSafetyMode.None);
+  private static readonly nint _EndCycleOffset = Schema.GetOffset(0xA26114040B523694);
 
   public ref float EndCycle {
-    get => ref _Handle.AsRef<float>(_EndCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndCycleOffset);
   }
 
 

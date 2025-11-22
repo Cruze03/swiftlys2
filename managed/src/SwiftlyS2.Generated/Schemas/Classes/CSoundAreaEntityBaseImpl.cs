@@ -17,24 +17,24 @@ internal partial class CSoundAreaEntityBaseImpl : CBaseEntityImpl, CSoundAreaEnt
   public CSoundAreaEntityBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x15C90E163A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x15C90E163A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _SoundAreaTypeOffset = new(() => Schema.GetOffset(0x15C90E16227612E5), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundAreaTypeOffset = Schema.GetOffset(0x15C90E16227612E5);
 
   public string SoundAreaType {
     get {
-      var ptr = _Handle.Read<nint>(_SoundAreaTypeOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundAreaTypeOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundAreaTypeOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundAreaTypeOffset, value);
   } 
-  private static readonly Lazy<nint> _PosOffset = new(() => Schema.GetOffset(0x15C90E16DE9CFC5D), LazyThreadSafetyMode.None);
+  private static readonly nint _PosOffset = Schema.GetOffset(0x15C90E16DE9CFC5D);
 
   public ref Vector Pos {
-    get => ref _Handle.AsRef<Vector>(_PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PosOffset);
   }
 
   public void DisabledUpdated() {

@@ -17,55 +17,55 @@ internal partial class C_INIT_CreateOnGridImpl : CParticleFunctionInitializerImp
   public C_INIT_CreateOnGridImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XCountOffset = new(() => Schema.GetOffset(0x2C82A08B6E80D4FA), LazyThreadSafetyMode.None);
+  private static readonly nint _XCountOffset = Schema.GetOffset(0x2C82A08B6E80D4FA);
 
   public CParticleCollectionFloatInput XCount {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _XCountOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _XCountOffset);
   }
-  private static readonly Lazy<nint> _YCountOffset = new(() => Schema.GetOffset(0x2C82A08B51D32897), LazyThreadSafetyMode.None);
+  private static readonly nint _YCountOffset = Schema.GetOffset(0x2C82A08B51D32897);
 
   public CParticleCollectionFloatInput YCount {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _YCountOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _YCountOffset);
   }
-  private static readonly Lazy<nint> _ZCountOffset = new(() => Schema.GetOffset(0x2C82A08BCCE7A908), LazyThreadSafetyMode.None);
+  private static readonly nint _ZCountOffset = Schema.GetOffset(0x2C82A08BCCE7A908);
 
   public CParticleCollectionFloatInput ZCount {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ZCountOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ZCountOffset);
   }
-  private static readonly Lazy<nint> _XSpacingOffset = new(() => Schema.GetOffset(0x2C82A08B374E0750), LazyThreadSafetyMode.None);
+  private static readonly nint _XSpacingOffset = Schema.GetOffset(0x2C82A08B374E0750);
 
   public CParticleCollectionFloatInput XSpacing {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _XSpacingOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _XSpacingOffset);
   }
-  private static readonly Lazy<nint> _YSpacingOffset = new(() => Schema.GetOffset(0x2C82A08B836B50C9), LazyThreadSafetyMode.None);
+  private static readonly nint _YSpacingOffset = Schema.GetOffset(0x2C82A08B836B50C9);
 
   public CParticleCollectionFloatInput YSpacing {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _YSpacingOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _YSpacingOffset);
   }
-  private static readonly Lazy<nint> _ZSpacingOffset = new(() => Schema.GetOffset(0x2C82A08BF78FF062), LazyThreadSafetyMode.None);
+  private static readonly nint _ZSpacingOffset = Schema.GetOffset(0x2C82A08BF78FF062);
 
   public CParticleCollectionFloatInput ZSpacing {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ZSpacingOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ZSpacingOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x2C82A08B3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x2C82A08B3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceOffset = new(() => Schema.GetOffset(0x2C82A08B62418E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceOffset = Schema.GetOffset(0x2C82A08B62418E6E);
 
   public ref bool LocalSpace {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset);
   }
-  private static readonly Lazy<nint> _CenterOffset = new(() => Schema.GetOffset(0x2C82A08B69BF05E4), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOffset = Schema.GetOffset(0x2C82A08B69BF05E4);
 
   public ref bool Center {
-    get => ref _Handle.AsRef<bool>(_CenterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CenterOffset);
   }
-  private static readonly Lazy<nint> _HollowOffset = new(() => Schema.GetOffset(0x2C82A08B22E4957E), LazyThreadSafetyMode.None);
+  private static readonly nint _HollowOffset = Schema.GetOffset(0x2C82A08B22E4957E);
 
   public ref bool Hollow {
-    get => ref _Handle.AsRef<bool>(_HollowOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HollowOffset);
   }
 
 

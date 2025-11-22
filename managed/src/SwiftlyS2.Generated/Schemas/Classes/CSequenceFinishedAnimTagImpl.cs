@@ -17,14 +17,14 @@ internal partial class CSequenceFinishedAnimTagImpl : CAnimTagBaseImpl, CSequenc
   public CSequenceFinishedAnimTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0x1B46C5202B4A24CB), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0x1B46C5202B4A24CB);
 
   public string SequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceNameOffset, value);
   } 
 
 

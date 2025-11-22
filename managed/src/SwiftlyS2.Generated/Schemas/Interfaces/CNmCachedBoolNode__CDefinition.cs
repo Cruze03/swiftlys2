@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmCachedBoolNode__CDefinition : CNmBoolValueNode__CDefinition, ISchemaClass<CNmCachedBoolNode__CDefinition> {
 
   static CNmCachedBoolNode__CDefinition ISchemaClass<CNmCachedBoolNode__CDefinition>.From(nint handle) => new CNmCachedBoolNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmCachedBoolNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmCachedBoolNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmCachedBoolNode__CDefinition>.ClassName => null;
 
   

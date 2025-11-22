@@ -17,23 +17,23 @@ internal partial class CPulseCell_Step_FollowEntityImpl : CPulseCell_BaseFlowImp
   public CPulseCell_Step_FollowEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamBoneOrAttachNameOffset = new(() => Schema.GetOffset(0x75FAF4A9B89867BB), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamBoneOrAttachNameOffset = Schema.GetOffset(0x75FAF4A9B89867BB);
 
   public string ParamBoneOrAttachName {
     get {
-      var ptr = _Handle.Read<nint>(_ParamBoneOrAttachNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParamBoneOrAttachNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParamBoneOrAttachNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParamBoneOrAttachNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ParamBoneOrAttachNameChildOffset = new(() => Schema.GetOffset(0x75FAF4A902011093), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamBoneOrAttachNameChildOffset = Schema.GetOffset(0x75FAF4A902011093);
 
   public string ParamBoneOrAttachNameChild {
     get {
-      var ptr = _Handle.Read<nint>(_ParamBoneOrAttachNameChildOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParamBoneOrAttachNameChildOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParamBoneOrAttachNameChildOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParamBoneOrAttachNameChildOffset, value);
   } 
 
 

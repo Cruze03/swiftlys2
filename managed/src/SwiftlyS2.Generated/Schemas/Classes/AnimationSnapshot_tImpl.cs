@@ -17,19 +17,19 @@ internal partial class AnimationSnapshot_tImpl : AnimationSnapshotBase_tImpl, An
   public AnimationSnapshot_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntIndexOffset = new(() => Schema.GetOffset(0xAC640D3E5558C54A), LazyThreadSafetyMode.None);
+  private static readonly nint _EntIndexOffset = Schema.GetOffset(0xAC640D3E5558C54A);
 
   public ref int EntIndex {
-    get => ref _Handle.AsRef<int>(_EntIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_EntIndexOffset);
   }
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0xAC640D3E5D35B6E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0xAC640D3E5D35B6E1);
 
   public string ModelName {
     get {
-      var ptr = _Handle.Read<nint>(_ModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModelNameOffset, value);
   } 
 
 

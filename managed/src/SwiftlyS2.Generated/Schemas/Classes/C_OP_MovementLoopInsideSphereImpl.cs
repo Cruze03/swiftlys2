@@ -17,25 +17,25 @@ internal partial class C_OP_MovementLoopInsideSphereImpl : CParticleFunctionOper
   public C_OP_MovementLoopInsideSphereImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x7C19959FEB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x7C19959FEB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x7C19959F00DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x7C19959F00DC4A68);
 
   public CParticleCollectionFloatInput Distance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x7C19959F5F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x7C19959F5F596B51);
 
   public CParticleCollectionVecInput Scale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _DistSqrAttrOffset = new(() => Schema.GetOffset(0x7C19959F767818FE), LazyThreadSafetyMode.None);
+  private static readonly nint _DistSqrAttrOffset = Schema.GetOffset(0x7C19959F767818FE);
 
   public ParticleAttributeIndex_t DistSqrAttr {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _DistSqrAttrOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _DistSqrAttrOffset);
   }
 
 

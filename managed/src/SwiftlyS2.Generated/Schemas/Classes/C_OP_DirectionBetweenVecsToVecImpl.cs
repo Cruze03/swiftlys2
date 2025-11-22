@@ -17,20 +17,20 @@ internal partial class C_OP_DirectionBetweenVecsToVecImpl : CParticleFunctionOpe
   public C_OP_DirectionBetweenVecsToVecImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x6022BA82E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x6022BA82E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _Point1Offset = new(() => Schema.GetOffset(0x6022BA8204AD2BC0), LazyThreadSafetyMode.None);
+  private static readonly nint _Point1Offset = Schema.GetOffset(0x6022BA8204AD2BC0);
 
   public CPerParticleVecInput Point1 {
-    get => new CPerParticleVecInputImpl(_Handle + _Point1Offset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _Point1Offset);
   }
-  private static readonly Lazy<nint> _Point2Offset = new(() => Schema.GetOffset(0x6022BA8207AD3079), LazyThreadSafetyMode.None);
+  private static readonly nint _Point2Offset = Schema.GetOffset(0x6022BA8207AD3079);
 
   public CPerParticleVecInput Point2 {
-    get => new CPerParticleVecInputImpl(_Handle + _Point2Offset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _Point2Offset);
   }
 
 

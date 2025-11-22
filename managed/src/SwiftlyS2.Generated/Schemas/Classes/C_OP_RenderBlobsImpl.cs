@@ -17,45 +17,45 @@ internal partial class C_OP_RenderBlobsImpl : CParticleFunctionRendererImpl, C_O
   public C_OP_RenderBlobsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CubeWidthOffset = new(() => Schema.GetOffset(0xB25239A3E172FDCC), LazyThreadSafetyMode.None);
+  private static readonly nint _CubeWidthOffset = Schema.GetOffset(0xB25239A3E172FDCC);
 
   public CParticleCollectionRendererFloatInput CubeWidth {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _CubeWidthOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _CubeWidthOffset);
   }
-  private static readonly Lazy<nint> _CutoffRadiusOffset = new(() => Schema.GetOffset(0xB25239A33B9D5B46), LazyThreadSafetyMode.None);
+  private static readonly nint _CutoffRadiusOffset = Schema.GetOffset(0xB25239A33B9D5B46);
 
   public CParticleCollectionRendererFloatInput CutoffRadius {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _CutoffRadiusOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _CutoffRadiusOffset);
   }
-  private static readonly Lazy<nint> _RenderRadiusOffset = new(() => Schema.GetOffset(0xB25239A35157484B), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderRadiusOffset = Schema.GetOffset(0xB25239A35157484B);
 
   public CParticleCollectionRendererFloatInput RenderRadius {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _RenderRadiusOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _RenderRadiusOffset);
   }
-  private static readonly Lazy<nint> _VertexCountKbOffset = new(() => Schema.GetOffset(0xB25239A36064907B), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexCountKbOffset = Schema.GetOffset(0xB25239A36064907B);
 
   public ref uint VertexCountKb {
-    get => ref _Handle.AsRef<uint>(_VertexCountKbOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VertexCountKbOffset);
   }
-  private static readonly Lazy<nint> _IndexCountKbOffset = new(() => Schema.GetOffset(0xB25239A36CDECFF7), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexCountKbOffset = Schema.GetOffset(0xB25239A36CDECFF7);
 
   public ref uint IndexCountKb {
-    get => ref _Handle.AsRef<uint>(_IndexCountKbOffset.Value);
+    get => ref _Handle.AsRef<uint>(_IndexCountKbOffset);
   }
-  private static readonly Lazy<nint> _ScaleCPOffset = new(() => Schema.GetOffset(0xB25239A3DE3CC5E6), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleCPOffset = Schema.GetOffset(0xB25239A3DE3CC5E6);
 
   public ref int ScaleCP {
-    get => ref _Handle.AsRef<int>(_ScaleCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleCPOffset);
   }
-  private static readonly Lazy<nint> _MaterialVarsOffset = new(() => Schema.GetOffset(0xB25239A3FA861D66), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialVarsOffset = Schema.GetOffset(0xB25239A3FA861D66);
 
   public ref CUtlVector<MaterialVariable_t> MaterialVars {
-    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset);
   }
-  private static readonly Lazy<nint> _MaterialOffset = new(() => Schema.GetOffset(0xB25239A3888CE42E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOffset = Schema.GetOffset(0xB25239A3888CE42E);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset);
   }
 
 

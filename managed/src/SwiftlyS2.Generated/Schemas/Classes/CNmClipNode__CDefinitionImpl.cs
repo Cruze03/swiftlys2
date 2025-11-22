@@ -17,40 +17,40 @@ internal partial class CNmClipNode__CDefinitionImpl : CNmClipReferenceNode__CDef
   public CNmClipNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlayInReverseValueNodeIdxOffset = new(() => Schema.GetOffset(0x9BA44A131BE16D82), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayInReverseValueNodeIdxOffset = Schema.GetOffset(0x9BA44A131BE16D82);
 
   public ref short PlayInReverseValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_PlayInReverseValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_PlayInReverseValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ResetTimeValueNodeIdxOffset = new(() => Schema.GetOffset(0x9BA44A13698930E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetTimeValueNodeIdxOffset = Schema.GetOffset(0x9BA44A13698930E1);
 
   public ref short ResetTimeValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_ResetTimeValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ResetTimeValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _SpeedMultiplierOffset = new(() => Schema.GetOffset(0x9BA44A135D5B304D), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMultiplierOffset = Schema.GetOffset(0x9BA44A135D5B304D);
 
   public ref float SpeedMultiplier {
-    get => ref _Handle.AsRef<float>(_SpeedMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedMultiplierOffset);
   }
-  private static readonly Lazy<nint> _StartSyncEventOffsetOffset = new(() => Schema.GetOffset(0x9BA44A138A6F2A97), LazyThreadSafetyMode.None);
+  private static readonly nint _StartSyncEventOffsetOffset = Schema.GetOffset(0x9BA44A138A6F2A97);
 
   public ref int StartSyncEventOffset {
-    get => ref _Handle.AsRef<int>(_StartSyncEventOffsetOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartSyncEventOffsetOffset);
   }
-  private static readonly Lazy<nint> _SampleRootMotionOffset = new(() => Schema.GetOffset(0x9BA44A139443A5E9), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleRootMotionOffset = Schema.GetOffset(0x9BA44A139443A5E9);
 
   public ref bool SampleRootMotion {
-    get => ref _Handle.AsRef<bool>(_SampleRootMotionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SampleRootMotionOffset);
   }
-  private static readonly Lazy<nint> _AllowLoopingOffset = new(() => Schema.GetOffset(0x9BA44A13FEB26D98), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowLoopingOffset = Schema.GetOffset(0x9BA44A13FEB26D98);
 
   public ref bool AllowLooping {
-    get => ref _Handle.AsRef<bool>(_AllowLoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowLoopingOffset);
   }
-  private static readonly Lazy<nint> _DataSlotIdxOffset = new(() => Schema.GetOffset(0x9BA44A13B1C15B68), LazyThreadSafetyMode.None);
+  private static readonly nint _DataSlotIdxOffset = Schema.GetOffset(0x9BA44A13B1C15B68);
 
   public ref short DataSlotIdx {
-    get => ref _Handle.AsRef<short>(_DataSlotIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DataSlotIdxOffset);
   }
 
 

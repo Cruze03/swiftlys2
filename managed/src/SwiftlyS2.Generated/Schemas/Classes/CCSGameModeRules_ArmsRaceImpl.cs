@@ -17,10 +17,10 @@ internal partial class CCSGameModeRules_ArmsRaceImpl : CCSGameModeRulesImpl, CCS
   public CCSGameModeRules_ArmsRaceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WeaponSequenceOffset = new(() => Schema.GetOffset(0xDFFFC2FB1426444C), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponSequenceOffset = Schema.GetOffset(0xDFFFC2FB1426444C);
 
   public ref CUtlVector<CUtlString> WeaponSequence {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_WeaponSequenceOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_WeaponSequenceOffset);
   }
 
   public void WeaponSequenceUpdated() {

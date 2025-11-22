@@ -17,44 +17,44 @@ internal partial class CPointPushImpl : CPointEntityImpl, CPointPush {
   public CPointPushImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x282695C06154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x282695C06154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x282695C0ED0A1D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x282695C0ED0A1D8B);
 
   public ref float Magnitude {
-    get => ref _Handle.AsRef<float>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x282695C05ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x282695C05ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _InnerRadiusOffset = new(() => Schema.GetOffset(0x282695C032121407), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerRadiusOffset = Schema.GetOffset(0x282695C032121407);
 
   public ref float InnerRadius {
-    get => ref _Handle.AsRef<float>(_InnerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerRadiusOffset);
   }
-  private static readonly Lazy<nint> _ConeOfInfluenceOffset = new(() => Schema.GetOffset(0x282695C02EA47D9C), LazyThreadSafetyMode.None);
+  private static readonly nint _ConeOfInfluenceOffset = Schema.GetOffset(0x282695C02EA47D9C);
 
   public ref float ConeOfInfluence {
-    get => ref _Handle.AsRef<float>(_ConeOfInfluenceOffset.Value);
+    get => ref _Handle.AsRef<float>(_ConeOfInfluenceOffset);
   }
-  private static readonly Lazy<nint> _FilterNameOffset = new(() => Schema.GetOffset(0x282695C042E1968C), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterNameOffset = Schema.GetOffset(0x282695C042E1968C);
 
   public string FilterName {
     get {
-      var ptr = _Handle.Read<nint>(_FilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0x282695C045D9E0B1), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0x282695C045D9E0B1);
 
   public ref CHandle<CBaseFilter> Filter {
-    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class EventClientProcessInput_tImpl : SchemaClass, EventClientP
   public EventClientProcessInput_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopStateOffset = new(() => Schema.GetOffset(0x406EC290F928A2EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopStateOffset = Schema.GetOffset(0x406EC290F928A2EC);
 
   public EngineLoopState_t LoopState {
-    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset.Value);
+    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset);
   }
-  private static readonly Lazy<nint> _RealTimeOffset = new(() => Schema.GetOffset(0x406EC2901168EC02), LazyThreadSafetyMode.None);
+  private static readonly nint _RealTimeOffset = Schema.GetOffset(0x406EC2901168EC02);
 
   public ref float RealTime {
-    get => ref _Handle.AsRef<float>(_RealTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RealTimeOffset);
   }
-  private static readonly Lazy<nint> _TickIntervalOffset = new(() => Schema.GetOffset(0x406EC290D279D07B), LazyThreadSafetyMode.None);
+  private static readonly nint _TickIntervalOffset = Schema.GetOffset(0x406EC290D279D07B);
 
   public ref float TickInterval {
-    get => ref _Handle.AsRef<float>(_TickIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_TickIntervalOffset);
   }
-  private static readonly Lazy<nint> _TickStartTimeOffset = new(() => Schema.GetOffset(0x406EC29068A38BE7), LazyThreadSafetyMode.None);
+  private static readonly nint _TickStartTimeOffset = Schema.GetOffset(0x406EC29068A38BE7);
 
   public ref double TickStartTime {
-    get => ref _Handle.AsRef<double>(_TickStartTimeOffset.Value);
+    get => ref _Handle.AsRef<double>(_TickStartTimeOffset);
   }
 
 

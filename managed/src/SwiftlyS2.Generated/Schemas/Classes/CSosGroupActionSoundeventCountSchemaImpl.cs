@@ -17,19 +17,19 @@ internal partial class CSosGroupActionSoundeventCountSchemaImpl : CSosGroupActio
   public CSosGroupActionSoundeventCountSchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExcludeStoppedSoundsOffset = new(() => Schema.GetOffset(0x6A0D82691BDF6FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeStoppedSoundsOffset = Schema.GetOffset(0x6A0D82691BDF6FB6);
 
   public ref bool ExcludeStoppedSounds {
-    get => ref _Handle.AsRef<bool>(_ExcludeStoppedSoundsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludeStoppedSoundsOffset);
   }
-  private static readonly Lazy<nint> _StrCountKeyNameOffset = new(() => Schema.GetOffset(0x6A0D8269463A7AA5), LazyThreadSafetyMode.None);
+  private static readonly nint _StrCountKeyNameOffset = Schema.GetOffset(0x6A0D8269463A7AA5);
 
   public string StrCountKeyName {
     get {
-      var ptr = _Handle.Read<nint>(_StrCountKeyNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrCountKeyNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrCountKeyNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrCountKeyNameOffset, value);
   } 
 
 

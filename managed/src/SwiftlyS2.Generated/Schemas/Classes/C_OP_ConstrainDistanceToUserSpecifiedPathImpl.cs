@@ -17,30 +17,30 @@ internal partial class C_OP_ConstrainDistanceToUserSpecifiedPathImpl : CParticle
   public C_OP_ConstrainDistanceToUserSpecifiedPathImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinDistanceOffset = new(() => Schema.GetOffset(0x42F2CE28F016B7AC), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistanceOffset = Schema.GetOffset(0x42F2CE28F016B7AC);
 
   public ref float MinDistance {
-    get => ref _Handle.AsRef<float>(_MinDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0x42F2CE2898893360), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0x42F2CE2898893360);
 
   public ref float MaxDistance {
-    get => ref _Handle.AsRef<float>(_MaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _TimeScaleOffset = new(() => Schema.GetOffset(0x42F2CE28B49D735C), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeScaleOffset = Schema.GetOffset(0x42F2CE28B49D735C);
 
   public ref float TimeScale {
-    get => ref _Handle.AsRef<float>(_TimeScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeScaleOffset);
   }
-  private static readonly Lazy<nint> _LoopedPathOffset = new(() => Schema.GetOffset(0x42F2CE284D64C459), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopedPathOffset = Schema.GetOffset(0x42F2CE284D64C459);
 
   public ref bool LoopedPath {
-    get => ref _Handle.AsRef<bool>(_LoopedPathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopedPathOffset);
   }
-  private static readonly Lazy<nint> _PointListOffset = new(() => Schema.GetOffset(0x42F2CE28976AB4FD), LazyThreadSafetyMode.None);
+  private static readonly nint _PointListOffset = Schema.GetOffset(0x42F2CE28976AB4FD);
 
   public ref CUtlVector<PointDefinitionWithTimeValues_t> PointList {
-    get => ref _Handle.AsRef<CUtlVector<PointDefinitionWithTimeValues_t>>(_PointListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointDefinitionWithTimeValues_t>>(_PointListOffset);
   }
 
 

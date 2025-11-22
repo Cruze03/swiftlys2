@@ -17,10 +17,10 @@ internal partial class CAnimUpdateNodeRefImpl : SchemaClass, CAnimUpdateNodeRef 
   public CAnimUpdateNodeRefImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeIndexOffset = new(() => Schema.GetOffset(0x71F7CF87E37313D3), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeIndexOffset = Schema.GetOffset(0x71F7CF87E37313D3);
 
   public ref int NodeIndex {
-    get => ref _Handle.AsRef<int>(_NodeIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_NodeIndexOffset);
   }
 
 

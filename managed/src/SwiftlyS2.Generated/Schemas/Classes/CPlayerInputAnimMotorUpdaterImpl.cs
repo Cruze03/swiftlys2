@@ -17,35 +17,35 @@ internal partial class CPlayerInputAnimMotorUpdaterImpl : CAnimMotorUpdaterBaseI
   public CPlayerInputAnimMotorUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SampleTimesOffset = new(() => Schema.GetOffset(0xA117CC02471975DF), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleTimesOffset = Schema.GetOffset(0xA117CC02471975DF);
 
   public ref CUtlVector<float> SampleTimes {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_SampleTimesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_SampleTimesOffset);
   }
-  private static readonly Lazy<nint> _SpringConstantOffset = new(() => Schema.GetOffset(0xA117CC02CE2260BE), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringConstantOffset = Schema.GetOffset(0xA117CC02CE2260BE);
 
   public ref float SpringConstant {
-    get => ref _Handle.AsRef<float>(_SpringConstantOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpringConstantOffset);
   }
-  private static readonly Lazy<nint> _AnticipationDistanceOffset = new(() => Schema.GetOffset(0xA117CC0264273401), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationDistanceOffset = Schema.GetOffset(0xA117CC0264273401);
 
   public ref float AnticipationDistance {
-    get => ref _Handle.AsRef<float>(_AnticipationDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnticipationDistanceOffset);
   }
-  private static readonly Lazy<nint> _AnticipationPosParamOffset = new(() => Schema.GetOffset(0xA117CC0286389829), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationPosParamOffset = Schema.GetOffset(0xA117CC0286389829);
 
   public CAnimParamHandle AnticipationPosParam {
-    get => new CAnimParamHandleImpl(_Handle + _AnticipationPosParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _AnticipationPosParamOffset);
   }
-  private static readonly Lazy<nint> _AnticipationHeadingParamOffset = new(() => Schema.GetOffset(0xA117CC02095DAB6D), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationHeadingParamOffset = Schema.GetOffset(0xA117CC02095DAB6D);
 
   public CAnimParamHandle AnticipationHeadingParam {
-    get => new CAnimParamHandleImpl(_Handle + _AnticipationHeadingParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _AnticipationHeadingParamOffset);
   }
-  private static readonly Lazy<nint> _UseAccelerationOffset = new(() => Schema.GetOffset(0xA117CC02254F8B08), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAccelerationOffset = Schema.GetOffset(0xA117CC02254F8B08);
 
   public ref bool UseAcceleration {
-    get => ref _Handle.AsRef<bool>(_UseAccelerationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAccelerationOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class CPlayerVisibilityImpl : CBaseEntityImpl, CPlayerVisibilit
   public CPlayerVisibilityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VisibilityStrengthOffset = new(() => Schema.GetOffset(0x695BAF9B9E8E4E), LazyThreadSafetyMode.None);
+  private static readonly nint _VisibilityStrengthOffset = Schema.GetOffset(0x695BAF9B9E8E4E);
 
   public ref float VisibilityStrength {
-    get => ref _Handle.AsRef<float>(_VisibilityStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_VisibilityStrengthOffset);
   }
-  private static readonly Lazy<nint> _FogDistanceMultiplierOffset = new(() => Schema.GetOffset(0x695BAFDB1CD031), LazyThreadSafetyMode.None);
+  private static readonly nint _FogDistanceMultiplierOffset = Schema.GetOffset(0x695BAFDB1CD031);
 
   public ref float FogDistanceMultiplier {
-    get => ref _Handle.AsRef<float>(_FogDistanceMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogDistanceMultiplierOffset);
   }
-  private static readonly Lazy<nint> _FogMaxDensityMultiplierOffset = new(() => Schema.GetOffset(0x695BAF7F993C70), LazyThreadSafetyMode.None);
+  private static readonly nint _FogMaxDensityMultiplierOffset = Schema.GetOffset(0x695BAF7F993C70);
 
   public ref float FogMaxDensityMultiplier {
-    get => ref _Handle.AsRef<float>(_FogMaxDensityMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_FogMaxDensityMultiplierOffset);
   }
-  private static readonly Lazy<nint> _FadeTimeOffset = new(() => Schema.GetOffset(0x695BAF00BEDB08), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeTimeOffset = Schema.GetOffset(0x695BAF00BEDB08);
 
   public ref float FadeTime {
-    get => ref _Handle.AsRef<float>(_FadeTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeTimeOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x695BAF61ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x695BAF61ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _IsEnabledOffset = new(() => Schema.GetOffset(0x695BAF5360D70E), LazyThreadSafetyMode.None);
+  private static readonly nint _IsEnabledOffset = Schema.GetOffset(0x695BAF5360D70E);
 
   public ref bool IsEnabled {
-    get => ref _Handle.AsRef<bool>(_IsEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsEnabledOffset);
   }
 
   public void VisibilityStrengthUpdated() {

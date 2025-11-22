@@ -17,20 +17,20 @@ internal partial class C_INIT_RandomRadiusImpl : CParticleFunctionInitializerImp
   public C_INIT_RandomRadiusImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusMinOffset = new(() => Schema.GetOffset(0xE9419C037AEB467F), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusMinOffset = Schema.GetOffset(0xE9419C037AEB467F);
 
   public ref float RadiusMin {
-    get => ref _Handle.AsRef<float>(_RadiusMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusMinOffset);
   }
-  private static readonly Lazy<nint> _RadiusMaxOffset = new(() => Schema.GetOffset(0xE9419C0388D641D1), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusMaxOffset = Schema.GetOffset(0xE9419C0388D641D1);
 
   public ref float RadiusMax {
-    get => ref _Handle.AsRef<float>(_RadiusMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusMaxOffset);
   }
-  private static readonly Lazy<nint> _RadiusRandExponentOffset = new(() => Schema.GetOffset(0xE9419C03D4637A31), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusRandExponentOffset = Schema.GetOffset(0xE9419C03D4637A31);
 
   public ref float RadiusRandExponent {
-    get => ref _Handle.AsRef<float>(_RadiusRandExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusRandExponentOffset);
   }
 
 

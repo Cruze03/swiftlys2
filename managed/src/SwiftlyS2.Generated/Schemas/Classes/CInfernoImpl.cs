@@ -29,105 +29,105 @@ internal partial class CInfernoImpl : CBaseModelEntityImpl, CInferno {
   public ISchemaFixedArray<Vector> BurnNormal {
     get => new SchemaFixedArray<Vector>(_Handle, 0xABE104C9382663DB, 64, 12, 4);
   }
-  private static readonly Lazy<nint> _FireCountOffset = new(() => Schema.GetOffset(0xABE104C9820942A0), LazyThreadSafetyMode.None);
+  private static readonly nint _FireCountOffset = Schema.GetOffset(0xABE104C9820942A0);
 
   public ref int FireCount {
-    get => ref _Handle.AsRef<int>(_FireCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_FireCountOffset);
   }
-  private static readonly Lazy<nint> _InfernoTypeOffset = new(() => Schema.GetOffset(0xABE104C903C628B8), LazyThreadSafetyMode.None);
+  private static readonly nint _InfernoTypeOffset = Schema.GetOffset(0xABE104C903C628B8);
 
   public ref int InfernoType {
-    get => ref _Handle.AsRef<int>(_InfernoTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_InfernoTypeOffset);
   }
-  private static readonly Lazy<nint> _FireEffectTickBeginOffset = new(() => Schema.GetOffset(0xABE104C989EB57F2), LazyThreadSafetyMode.None);
+  private static readonly nint _FireEffectTickBeginOffset = Schema.GetOffset(0xABE104C989EB57F2);
 
   public ref int FireEffectTickBegin {
-    get => ref _Handle.AsRef<int>(_FireEffectTickBeginOffset.Value);
+    get => ref _Handle.AsRef<int>(_FireEffectTickBeginOffset);
   }
-  private static readonly Lazy<nint> _FireLifetimeOffset = new(() => Schema.GetOffset(0xABE104C9B2E34E7E), LazyThreadSafetyMode.None);
+  private static readonly nint _FireLifetimeOffset = Schema.GetOffset(0xABE104C9B2E34E7E);
 
   public ref float FireLifetime {
-    get => ref _Handle.AsRef<float>(_FireLifetimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FireLifetimeOffset);
   }
-  private static readonly Lazy<nint> _InPostEffectTimeOffset = new(() => Schema.GetOffset(0xABE104C963E4F6B8), LazyThreadSafetyMode.None);
+  private static readonly nint _InPostEffectTimeOffset = Schema.GetOffset(0xABE104C963E4F6B8);
 
   public ref bool InPostEffectTime {
-    get => ref _Handle.AsRef<bool>(_InPostEffectTimeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InPostEffectTimeOffset);
   }
-  private static readonly Lazy<nint> _WasCreatedInSmokeOffset = new(() => Schema.GetOffset(0xABE104C95CC1EF2A), LazyThreadSafetyMode.None);
+  private static readonly nint _WasCreatedInSmokeOffset = Schema.GetOffset(0xABE104C95CC1EF2A);
 
   public ref bool WasCreatedInSmoke {
-    get => ref _Handle.AsRef<bool>(_WasCreatedInSmokeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WasCreatedInSmokeOffset);
   }
-  private static readonly Lazy<nint> _ExtentOffset = new(() => Schema.GetOffset(0xABE104C9DD2CA0B9), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtentOffset = Schema.GetOffset(0xABE104C9DD2CA0B9);
 
   public Extent Extent {
-    get => new ExtentImpl(_Handle + _ExtentOffset.Value);
+    get => new ExtentImpl(_Handle + _ExtentOffset);
   }
-  private static readonly Lazy<nint> _DamageTimerOffset = new(() => Schema.GetOffset(0xABE104C979F45751), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageTimerOffset = Schema.GetOffset(0xABE104C979F45751);
 
   public CountdownTimer DamageTimer {
-    get => new CountdownTimerImpl(_Handle + _DamageTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _DamageTimerOffset);
   }
-  private static readonly Lazy<nint> _DamageRampTimerOffset = new(() => Schema.GetOffset(0xABE104C9400054C9), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageRampTimerOffset = Schema.GetOffset(0xABE104C9400054C9);
 
   public CountdownTimer DamageRampTimer {
-    get => new CountdownTimerImpl(_Handle + _DamageRampTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _DamageRampTimerOffset);
   }
-  private static readonly Lazy<nint> _SplashVelocityOffset = new(() => Schema.GetOffset(0xABE104C963461F75), LazyThreadSafetyMode.None);
+  private static readonly nint _SplashVelocityOffset = Schema.GetOffset(0xABE104C963461F75);
 
   public ref Vector SplashVelocity {
-    get => ref _Handle.AsRef<Vector>(_SplashVelocityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SplashVelocityOffset);
   }
-  private static readonly Lazy<nint> _InitialSplashVelocityOffset = new(() => Schema.GetOffset(0xABE104C9757A42BF), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialSplashVelocityOffset = Schema.GetOffset(0xABE104C9757A42BF);
 
   public ref Vector InitialSplashVelocity {
-    get => ref _Handle.AsRef<Vector>(_InitialSplashVelocityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InitialSplashVelocityOffset);
   }
-  private static readonly Lazy<nint> _StartPosOffset = new(() => Schema.GetOffset(0xABE104C9676FC33F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartPosOffset = Schema.GetOffset(0xABE104C9676FC33F);
 
   public ref Vector StartPos {
-    get => ref _Handle.AsRef<Vector>(_StartPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartPosOffset);
   }
-  private static readonly Lazy<nint> _OriginalSpawnLocationOffset = new(() => Schema.GetOffset(0xABE104C95E59F382), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnLocationOffset = Schema.GetOffset(0xABE104C95E59F382);
 
   public ref Vector OriginalSpawnLocation {
-    get => ref _Handle.AsRef<Vector>(_OriginalSpawnLocationOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalSpawnLocationOffset);
   }
-  private static readonly Lazy<nint> _ActiveTimerOffset = new(() => Schema.GetOffset(0xABE104C946FF8D04), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveTimerOffset = Schema.GetOffset(0xABE104C946FF8D04);
 
   public IntervalTimer ActiveTimer {
-    get => new IntervalTimerImpl(_Handle + _ActiveTimerOffset.Value);
+    get => new IntervalTimerImpl(_Handle + _ActiveTimerOffset);
   }
-  private static readonly Lazy<nint> _FireSpawnOffsetOffset = new(() => Schema.GetOffset(0xABE104C90C7D268F), LazyThreadSafetyMode.None);
+  private static readonly nint _FireSpawnOffsetOffset = Schema.GetOffset(0xABE104C90C7D268F);
 
   public ref int FireSpawnOffset {
-    get => ref _Handle.AsRef<int>(_FireSpawnOffsetOffset.Value);
+    get => ref _Handle.AsRef<int>(_FireSpawnOffsetOffset);
   }
-  private static readonly Lazy<nint> _MaxFlamesOffset = new(() => Schema.GetOffset(0xABE104C972805F39), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFlamesOffset = Schema.GetOffset(0xABE104C972805F39);
 
   public ref int MaxFlames {
-    get => ref _Handle.AsRef<int>(_MaxFlamesOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxFlamesOffset);
   }
-  private static readonly Lazy<nint> _SpreadCountOffset = new(() => Schema.GetOffset(0xABE104C9F27833E1), LazyThreadSafetyMode.None);
+  private static readonly nint _SpreadCountOffset = Schema.GetOffset(0xABE104C9F27833E1);
 
   public ref int SpreadCount {
-    get => ref _Handle.AsRef<int>(_SpreadCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpreadCountOffset);
   }
-  private static readonly Lazy<nint> _BookkeepingTimerOffset = new(() => Schema.GetOffset(0xABE104C975065DCC), LazyThreadSafetyMode.None);
+  private static readonly nint _BookkeepingTimerOffset = Schema.GetOffset(0xABE104C975065DCC);
 
   public CountdownTimer BookkeepingTimer {
-    get => new CountdownTimerImpl(_Handle + _BookkeepingTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _BookkeepingTimerOffset);
   }
-  private static readonly Lazy<nint> _NextSpreadTimerOffset = new(() => Schema.GetOffset(0xABE104C93045281C), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSpreadTimerOffset = Schema.GetOffset(0xABE104C93045281C);
 
   public CountdownTimer NextSpreadTimer {
-    get => new CountdownTimerImpl(_Handle + _NextSpreadTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _NextSpreadTimerOffset);
   }
-  private static readonly Lazy<nint> _SourceItemDefIndexOffset = new(() => Schema.GetOffset(0xABE104C905A4D2E6), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceItemDefIndexOffset = Schema.GetOffset(0xABE104C905A4D2E6);
 
   public ref ushort SourceItemDefIndex {
-    get => ref _Handle.AsRef<ushort>(_SourceItemDefIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_SourceItemDefIndexOffset);
   }
 
   public void FirePositionsUpdated() {

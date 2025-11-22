@@ -17,40 +17,40 @@ internal partial class VMixDelayDesc_tImpl : SchemaClass, VMixDelayDesc_t {
   public VMixDelayDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FeedbackFilterOffset = new(() => Schema.GetOffset(0x4C891F427C227CDC), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackFilterOffset = Schema.GetOffset(0x4C891F427C227CDC);
 
   public VMixFilterDesc_t FeedbackFilter {
-    get => new VMixFilterDesc_tImpl(_Handle + _FeedbackFilterOffset.Value);
+    get => new VMixFilterDesc_tImpl(_Handle + _FeedbackFilterOffset);
   }
-  private static readonly Lazy<nint> _EnableFilterOffset = new(() => Schema.GetOffset(0x4C891F42A12F9BE8), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableFilterOffset = Schema.GetOffset(0x4C891F42A12F9BE8);
 
   public ref bool EnableFilter {
-    get => ref _Handle.AsRef<bool>(_EnableFilterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableFilterOffset);
   }
-  private static readonly Lazy<nint> _DelayOffset = new(() => Schema.GetOffset(0x4C891F427D68FD6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayOffset = Schema.GetOffset(0x4C891F427D68FD6E);
 
   public ref float Delay {
-    get => ref _Handle.AsRef<float>(_DelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayOffset);
   }
-  private static readonly Lazy<nint> _DirectGainOffset = new(() => Schema.GetOffset(0x4C891F42C6ABC039), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectGainOffset = Schema.GetOffset(0x4C891F42C6ABC039);
 
   public ref float DirectGain {
-    get => ref _Handle.AsRef<float>(_DirectGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_DirectGainOffset);
   }
-  private static readonly Lazy<nint> _DelayGainOffset = new(() => Schema.GetOffset(0x4C891F42708E6A21), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayGainOffset = Schema.GetOffset(0x4C891F42708E6A21);
 
   public ref float DelayGain {
-    get => ref _Handle.AsRef<float>(_DelayGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayGainOffset);
   }
-  private static readonly Lazy<nint> _FeedbackGainOffset = new(() => Schema.GetOffset(0x4C891F427CACF477), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackGainOffset = Schema.GetOffset(0x4C891F427CACF477);
 
   public ref float FeedbackGain {
-    get => ref _Handle.AsRef<float>(_FeedbackGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackGainOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0x4C891F42B91935E1), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0x4C891F42B91935E1);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
 
 

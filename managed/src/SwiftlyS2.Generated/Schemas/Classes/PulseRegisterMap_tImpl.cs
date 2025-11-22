@@ -17,20 +17,20 @@ internal partial class PulseRegisterMap_tImpl : SchemaClass, PulseRegisterMap_t 
   public PulseRegisterMap_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InparamsOffset = new(() => Schema.GetOffset(0x833FEA64B9B18E04), LazyThreadSafetyMode.None);
+  private static readonly nint _InparamsOffset = Schema.GetOffset(0x833FEA64B9B18E04);
 
   public SchemaUntypedField Inparams {
-    get => new SchemaUntypedField(_Handle + _InparamsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InparamsOffset);
   }
-  private static readonly Lazy<nint> _InparamsWhichCanBeMovedOffset = new(() => Schema.GetOffset(0x833FEA6405245E23), LazyThreadSafetyMode.None);
+  private static readonly nint _InparamsWhichCanBeMovedOffset = Schema.GetOffset(0x833FEA6405245E23);
 
   public SchemaUntypedField InparamsWhichCanBeMoved {
-    get => new SchemaUntypedField(_Handle + _InparamsWhichCanBeMovedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InparamsWhichCanBeMovedOffset);
   }
-  private static readonly Lazy<nint> _OutparamsOffset = new(() => Schema.GetOffset(0x833FEA64798D964D), LazyThreadSafetyMode.None);
+  private static readonly nint _OutparamsOffset = Schema.GetOffset(0x833FEA64798D964D);
 
   public SchemaUntypedField Outparams {
-    get => new SchemaUntypedField(_Handle + _OutparamsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OutparamsOffset);
   }
 
 

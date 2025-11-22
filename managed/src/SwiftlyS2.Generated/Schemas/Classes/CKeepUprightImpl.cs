@@ -17,44 +17,44 @@ internal partial class CKeepUprightImpl : CPointEntityImpl, CKeepUpright {
   public CKeepUprightImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WorldGoalAxisOffset = new(() => Schema.GetOffset(0xB65A0D30836922ED), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldGoalAxisOffset = Schema.GetOffset(0xB65A0D30836922ED);
 
   public ref Vector WorldGoalAxis {
-    get => ref _Handle.AsRef<Vector>(_WorldGoalAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WorldGoalAxisOffset);
   }
-  private static readonly Lazy<nint> _LocalTestAxisOffset = new(() => Schema.GetOffset(0xB65A0D30B678975D), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalTestAxisOffset = Schema.GetOffset(0xB65A0D30B678975D);
 
   public ref Vector LocalTestAxis {
-    get => ref _Handle.AsRef<Vector>(_LocalTestAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LocalTestAxisOffset);
   }
-  private static readonly Lazy<nint> _NameAttachOffset = new(() => Schema.GetOffset(0xB65A0D30BECAEF3F), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttachOffset = Schema.GetOffset(0xB65A0D30BECAEF3F);
 
   public string NameAttach {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttachOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttachOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttachOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttachOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachedObjectOffset = new(() => Schema.GetOffset(0xB65A0D301AE8F30A), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachedObjectOffset = Schema.GetOffset(0xB65A0D301AE8F30A);
 
   public ref CHandle<CBaseEntity> AttachedObject {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_AttachedObjectOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_AttachedObjectOffset);
   }
-  private static readonly Lazy<nint> _AngularLimitOffset = new(() => Schema.GetOffset(0xB65A0D30497B8D18), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularLimitOffset = Schema.GetOffset(0xB65A0D30497B8D18);
 
   public ref float AngularLimit {
-    get => ref _Handle.AsRef<float>(_AngularLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularLimitOffset);
   }
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0xB65A0D308334208F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0xB65A0D308334208F);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _DampAllRotationOffset = new(() => Schema.GetOffset(0xB65A0D30AAA70B9C), LazyThreadSafetyMode.None);
+  private static readonly nint _DampAllRotationOffset = Schema.GetOffset(0xB65A0D30AAA70B9C);
 
   public ref bool DampAllRotation {
-    get => ref _Handle.AsRef<bool>(_DampAllRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DampAllRotationOffset);
   }
 
 

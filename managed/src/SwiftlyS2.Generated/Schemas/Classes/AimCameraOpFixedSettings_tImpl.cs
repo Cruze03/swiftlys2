@@ -17,40 +17,40 @@ internal partial class AimCameraOpFixedSettings_tImpl : SchemaClass, AimCameraOp
   public AimCameraOpFixedSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChainIndexOffset = new(() => Schema.GetOffset(0xA3971F52A34589B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ChainIndexOffset = Schema.GetOffset(0xA3971F52A34589B6);
 
   public ref int ChainIndex {
-    get => ref _Handle.AsRef<int>(_ChainIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChainIndexOffset);
   }
-  private static readonly Lazy<nint> _CameraJointIndexOffset = new(() => Schema.GetOffset(0xA3971F52346981DA), LazyThreadSafetyMode.None);
+  private static readonly nint _CameraJointIndexOffset = Schema.GetOffset(0xA3971F52346981DA);
 
   public ref int CameraJointIndex {
-    get => ref _Handle.AsRef<int>(_CameraJointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_CameraJointIndexOffset);
   }
-  private static readonly Lazy<nint> _PelvisJointIndexOffset = new(() => Schema.GetOffset(0xA3971F52800F5FB4), LazyThreadSafetyMode.None);
+  private static readonly nint _PelvisJointIndexOffset = Schema.GetOffset(0xA3971F52800F5FB4);
 
   public ref int PelvisJointIndex {
-    get => ref _Handle.AsRef<int>(_PelvisJointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_PelvisJointIndexOffset);
   }
-  private static readonly Lazy<nint> _ClavicleLeftJointIndexOffset = new(() => Schema.GetOffset(0xA3971F5207F7ABDB), LazyThreadSafetyMode.None);
+  private static readonly nint _ClavicleLeftJointIndexOffset = Schema.GetOffset(0xA3971F5207F7ABDB);
 
   public ref int ClavicleLeftJointIndex {
-    get => ref _Handle.AsRef<int>(_ClavicleLeftJointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ClavicleLeftJointIndexOffset);
   }
-  private static readonly Lazy<nint> _ClavicleRightJointIndexOffset = new(() => Schema.GetOffset(0xA3971F522F2C40A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ClavicleRightJointIndexOffset = Schema.GetOffset(0xA3971F522F2C40A4);
 
   public ref int ClavicleRightJointIndex {
-    get => ref _Handle.AsRef<int>(_ClavicleRightJointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ClavicleRightJointIndexOffset);
   }
-  private static readonly Lazy<nint> _DepenetrationJointIndexOffset = new(() => Schema.GetOffset(0xA3971F526307286F), LazyThreadSafetyMode.None);
+  private static readonly nint _DepenetrationJointIndexOffset = Schema.GetOffset(0xA3971F526307286F);
 
   public ref int DepenetrationJointIndex {
-    get => ref _Handle.AsRef<int>(_DepenetrationJointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_DepenetrationJointIndexOffset);
   }
-  private static readonly Lazy<nint> _PropJointsOffset = new(() => Schema.GetOffset(0xA3971F5224880565), LazyThreadSafetyMode.None);
+  private static readonly nint _PropJointsOffset = Schema.GetOffset(0xA3971F5224880565);
 
   public ref CUtlVector<int> PropJoints {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_PropJointsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_PropJointsOffset);
   }
 
 

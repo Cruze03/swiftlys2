@@ -17,15 +17,15 @@ internal partial class CNmSpeedScaleBaseNode__CDefinitionImpl : CNmPassthroughNo
   public CNmSpeedScaleBaseNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x69CF028795E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x69CF028795E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DefaultInputValueOffset = new(() => Schema.GetOffset(0x69CF02875DFEC365), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultInputValueOffset = Schema.GetOffset(0x69CF02875DFEC365);
 
   public ref float DefaultInputValue {
-    get => ref _Handle.AsRef<float>(_DefaultInputValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultInputValueOffset);
   }
 
 

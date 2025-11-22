@@ -17,20 +17,20 @@ internal partial class C_INIT_Orient2DRelToCPImpl : CParticleFunctionInitializer
   public C_INIT_Orient2DRelToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x4B55AD02EB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x4B55AD02EB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x4B55AD02E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x4B55AD02E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _RotOffsetOffset = new(() => Schema.GetOffset(0x4B55AD02D1EA9CDF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotOffsetOffset = Schema.GetOffset(0x4B55AD02D1EA9CDF);
 
   public ref float RotOffset {
-    get => ref _Handle.AsRef<float>(_RotOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotOffsetOffset);
   }
 
 

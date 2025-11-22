@@ -17,10 +17,10 @@ internal partial class CBtNodeConditionImpl : CBtNodeDecoratorImpl, CBtNodeCondi
   public CBtNodeConditionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NegatedOffset = new(() => Schema.GetOffset(0xD9C2E7ED3803BF0D), LazyThreadSafetyMode.None);
+  private static readonly nint _NegatedOffset = Schema.GetOffset(0xD9C2E7ED3803BF0D);
 
   public ref bool Negated {
-    get => ref _Handle.AsRef<bool>(_NegatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NegatedOffset);
   }
 
 

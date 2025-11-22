@@ -17,25 +17,25 @@ internal partial class C_OP_RemapCrossProductOfTwoVectorsToVectorImpl : CParticl
   public C_OP_RemapCrossProductOfTwoVectorsToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputVec1Offset = new(() => Schema.GetOffset(0x4B4531D84584355A), LazyThreadSafetyMode.None);
+  private static readonly nint _InputVec1Offset = Schema.GetOffset(0x4B4531D84584355A);
 
   public CPerParticleVecInput InputVec1 {
-    get => new CPerParticleVecInputImpl(_Handle + _InputVec1Offset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _InputVec1Offset);
   }
-  private static readonly Lazy<nint> _InputVec2Offset = new(() => Schema.GetOffset(0x4B4531D8448433C7), LazyThreadSafetyMode.None);
+  private static readonly nint _InputVec2Offset = Schema.GetOffset(0x4B4531D8448433C7);
 
   public CPerParticleVecInput InputVec2 {
-    get => new CPerParticleVecInputImpl(_Handle + _InputVec2Offset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _InputVec2Offset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x4B4531D8E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x4B4531D8E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0x4B4531D848BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0x4B4531D848BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
 
 

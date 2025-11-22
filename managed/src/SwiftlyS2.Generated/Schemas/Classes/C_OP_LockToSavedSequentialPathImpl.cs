@@ -17,25 +17,25 @@ internal partial class C_OP_LockToSavedSequentialPathImpl : CParticleFunctionOpe
   public C_OP_LockToSavedSequentialPathImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeStartOffset = new(() => Schema.GetOffset(0x69BF8E0EE1A81343), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeStartOffset = Schema.GetOffset(0x69BF8E0EE1A81343);
 
   public ref float FadeStart {
-    get => ref _Handle.AsRef<float>(_FadeStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeStartOffset);
   }
-  private static readonly Lazy<nint> _FadeEndOffset = new(() => Schema.GetOffset(0x69BF8E0EBE7F4636), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeEndOffset = Schema.GetOffset(0x69BF8E0EBE7F4636);
 
   public ref float FadeEnd {
-    get => ref _Handle.AsRef<float>(_FadeEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeEndOffset);
   }
-  private static readonly Lazy<nint> _CPPairsOffset = new(() => Schema.GetOffset(0x69BF8E0EA5D36D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _CPPairsOffset = Schema.GetOffset(0x69BF8E0EA5D36D0F);
 
   public ref bool CPPairs {
-    get => ref _Handle.AsRef<bool>(_CPPairsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CPPairsOffset);
   }
-  private static readonly Lazy<nint> _PathParamsOffset = new(() => Schema.GetOffset(0x69BF8E0E3C10092C), LazyThreadSafetyMode.None);
+  private static readonly nint _PathParamsOffset = Schema.GetOffset(0x69BF8E0E3C10092C);
 
   public CPathParameters PathParams {
-    get => new CPathParametersImpl(_Handle + _PathParamsOffset.Value);
+    get => new CPathParametersImpl(_Handle + _PathParamsOffset);
   }
 
 

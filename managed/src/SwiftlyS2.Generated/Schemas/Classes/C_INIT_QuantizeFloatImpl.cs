@@ -17,15 +17,15 @@ internal partial class C_INIT_QuantizeFloatImpl : CParticleFunctionInitializerIm
   public C_INIT_QuantizeFloatImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueOffset = new(() => Schema.GetOffset(0x1A8E56B534445438), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueOffset = Schema.GetOffset(0x1A8E56B534445438);
 
   public CPerParticleFloatInput InputValue {
-    get => new CPerParticleFloatInputImpl(_Handle + _InputValueOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InputValueOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x1A8E56B5324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x1A8E56B5324F6F74);
 
   public ParticleAttributeIndex_t OutputField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset);
   }
 
 

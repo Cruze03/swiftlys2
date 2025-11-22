@@ -17,25 +17,25 @@ internal partial class CGameGibManagerImpl : CBaseEntityImpl, CGameGibManager {
   public CGameGibManagerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AllowNewGibsOffset = new(() => Schema.GetOffset(0x1068CB09FD80F507), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowNewGibsOffset = Schema.GetOffset(0x1068CB09FD80F507);
 
   public ref bool AllowNewGibs {
-    get => ref _Handle.AsRef<bool>(_AllowNewGibsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowNewGibsOffset);
   }
-  private static readonly Lazy<nint> _CurrentMaxPiecesOffset = new(() => Schema.GetOffset(0x1068CB0999B0D602), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentMaxPiecesOffset = Schema.GetOffset(0x1068CB0999B0D602);
 
   public ref int CurrentMaxPieces {
-    get => ref _Handle.AsRef<int>(_CurrentMaxPiecesOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentMaxPiecesOffset);
   }
-  private static readonly Lazy<nint> _MaxPiecesOffset = new(() => Schema.GetOffset(0x1068CB092DDFB63D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxPiecesOffset = Schema.GetOffset(0x1068CB092DDFB63D);
 
   public ref int MaxPieces {
-    get => ref _Handle.AsRef<int>(_MaxPiecesOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxPiecesOffset);
   }
-  private static readonly Lazy<nint> _LastFrameOffset = new(() => Schema.GetOffset(0x1068CB09F0B58C21), LazyThreadSafetyMode.None);
+  private static readonly nint _LastFrameOffset = Schema.GetOffset(0x1068CB09F0B58C21);
 
   public ref int LastFrame {
-    get => ref _Handle.AsRef<int>(_LastFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastFrameOffset);
   }
 
 

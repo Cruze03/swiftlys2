@@ -17,40 +17,40 @@ internal partial class C_OP_MaintainSequentialPathImpl : CParticleFunctionOperat
   public C_OP_MaintainSequentialPathImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0x3F7004B8844E396A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0x3F7004B8844E396A);
 
   public ref float MaxDistance {
-    get => ref _Handle.AsRef<float>(_MaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _NumToAssignOffset = new(() => Schema.GetOffset(0x3F7004B8F73366BD), LazyThreadSafetyMode.None);
+  private static readonly nint _NumToAssignOffset = Schema.GetOffset(0x3F7004B8F73366BD);
 
   public ref float NumToAssign {
-    get => ref _Handle.AsRef<float>(_NumToAssignOffset.Value);
+    get => ref _Handle.AsRef<float>(_NumToAssignOffset);
   }
-  private static readonly Lazy<nint> _CohesionStrengthOffset = new(() => Schema.GetOffset(0x3F7004B8A5A506EA), LazyThreadSafetyMode.None);
+  private static readonly nint _CohesionStrengthOffset = Schema.GetOffset(0x3F7004B8A5A506EA);
 
   public ref float CohesionStrength {
-    get => ref _Handle.AsRef<float>(_CohesionStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_CohesionStrengthOffset);
   }
-  private static readonly Lazy<nint> _ToleranceOffset = new(() => Schema.GetOffset(0x3F7004B88C29728E), LazyThreadSafetyMode.None);
+  private static readonly nint _ToleranceOffset = Schema.GetOffset(0x3F7004B88C29728E);
 
   public ref float Tolerance {
-    get => ref _Handle.AsRef<float>(_ToleranceOffset.Value);
+    get => ref _Handle.AsRef<float>(_ToleranceOffset);
   }
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0x3F7004B8C668A4CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0x3F7004B8C668A4CB);
 
   public ref bool Loop {
-    get => ref _Handle.AsRef<bool>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _UseParticleCountOffset = new(() => Schema.GetOffset(0x3F7004B8D4DA0515), LazyThreadSafetyMode.None);
+  private static readonly nint _UseParticleCountOffset = Schema.GetOffset(0x3F7004B8D4DA0515);
 
   public ref bool UseParticleCount {
-    get => ref _Handle.AsRef<bool>(_UseParticleCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseParticleCountOffset);
   }
-  private static readonly Lazy<nint> _PathParamsOffset = new(() => Schema.GetOffset(0x3F7004B83C10092C), LazyThreadSafetyMode.None);
+  private static readonly nint _PathParamsOffset = Schema.GetOffset(0x3F7004B83C10092C);
 
   public CPathParameters PathParams {
-    get => new CPathParametersImpl(_Handle + _PathParamsOffset.Value);
+    get => new CPathParametersImpl(_Handle + _PathParamsOffset);
   }
 
 

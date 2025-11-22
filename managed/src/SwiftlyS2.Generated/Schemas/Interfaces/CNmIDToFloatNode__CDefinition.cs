@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmIDToFloatNode__CDefinition : CNmFloatValueNode__CDefinition, ISchemaClass<CNmIDToFloatNode__CDefinition> {
 
   static CNmIDToFloatNode__CDefinition ISchemaClass<CNmIDToFloatNode__CDefinition>.From(nint handle) => new CNmIDToFloatNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmIDToFloatNode__CDefinition>.Size => 96;
+  static int ISchemaClass<CNmIDToFloatNode__CDefinition>.Size => 104;
   static string? ISchemaClass<CNmIDToFloatNode__CDefinition>.ClassName => null;
 
   

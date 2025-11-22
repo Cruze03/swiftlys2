@@ -17,45 +17,45 @@ internal partial class CPathParametersImpl : SchemaClass, CPathParameters {
   public CPathParametersImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartControlPointNumberOffset = new(() => Schema.GetOffset(0xE2D8E825CA0E0087), LazyThreadSafetyMode.None);
+  private static readonly nint _StartControlPointNumberOffset = Schema.GetOffset(0xE2D8E825CA0E0087);
 
   public ref int StartControlPointNumber {
-    get => ref _Handle.AsRef<int>(_StartControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _EndControlPointNumberOffset = new(() => Schema.GetOffset(0xE2D8E825A9FAEC22), LazyThreadSafetyMode.None);
+  private static readonly nint _EndControlPointNumberOffset = Schema.GetOffset(0xE2D8E825A9FAEC22);
 
   public ref int EndControlPointNumber {
-    get => ref _Handle.AsRef<int>(_EndControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _BulgeControlOffset = new(() => Schema.GetOffset(0xE2D8E8257C6B6E5D), LazyThreadSafetyMode.None);
+  private static readonly nint _BulgeControlOffset = Schema.GetOffset(0xE2D8E8257C6B6E5D);
 
   public ref int BulgeControl {
-    get => ref _Handle.AsRef<int>(_BulgeControlOffset.Value);
+    get => ref _Handle.AsRef<int>(_BulgeControlOffset);
   }
-  private static readonly Lazy<nint> _BulgeOffset = new(() => Schema.GetOffset(0xE2D8E825E9AF7E9A), LazyThreadSafetyMode.None);
+  private static readonly nint _BulgeOffset = Schema.GetOffset(0xE2D8E825E9AF7E9A);
 
   public ref float Bulge {
-    get => ref _Handle.AsRef<float>(_BulgeOffset.Value);
+    get => ref _Handle.AsRef<float>(_BulgeOffset);
   }
-  private static readonly Lazy<nint> _MidPointOffset = new(() => Schema.GetOffset(0xE2D8E825427785A3), LazyThreadSafetyMode.None);
+  private static readonly nint _MidPointOffset = Schema.GetOffset(0xE2D8E825427785A3);
 
   public ref float MidPoint {
-    get => ref _Handle.AsRef<float>(_MidPointOffset.Value);
+    get => ref _Handle.AsRef<float>(_MidPointOffset);
   }
-  private static readonly Lazy<nint> _StartPointOffsetOffset = new(() => Schema.GetOffset(0xE2D8E82516897120), LazyThreadSafetyMode.None);
+  private static readonly nint _StartPointOffsetOffset = Schema.GetOffset(0xE2D8E82516897120);
 
   public ref Vector StartPointOffset {
-    get => ref _Handle.AsRef<Vector>(_StartPointOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartPointOffsetOffset);
   }
-  private static readonly Lazy<nint> _MidPointOffsetOffset = new(() => Schema.GetOffset(0xE2D8E8252888EB92), LazyThreadSafetyMode.None);
+  private static readonly nint _MidPointOffsetOffset = Schema.GetOffset(0xE2D8E8252888EB92);
 
   public ref Vector MidPointOffset {
-    get => ref _Handle.AsRef<Vector>(_MidPointOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MidPointOffsetOffset);
   }
-  private static readonly Lazy<nint> _EndOffsetOffset = new(() => Schema.GetOffset(0xE2D8E8255BBD1959), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffsetOffset = Schema.GetOffset(0xE2D8E8255BBD1959);
 
   public ref Vector EndOffset {
-    get => ref _Handle.AsRef<Vector>(_EndOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EndOffsetOffset);
   }
 
 

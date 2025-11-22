@@ -17,20 +17,20 @@ internal partial class CIntAnimParameterImpl : CConcreteAnimParameterImpl, CIntA
   public CIntAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0xD1AA42D5BBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0xD1AA42D5BBE0341F);
 
   public ref int DefaultValue {
-    get => ref _Handle.AsRef<int>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _MinValueOffset = new(() => Schema.GetOffset(0xD1AA42D503F1334C), LazyThreadSafetyMode.None);
+  private static readonly nint _MinValueOffset = Schema.GetOffset(0xD1AA42D503F1334C);
 
   public ref int MinValue {
-    get => ref _Handle.AsRef<int>(_MinValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinValueOffset);
   }
-  private static readonly Lazy<nint> _MaxValueOffset = new(() => Schema.GetOffset(0xD1AA42D5857E5426), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxValueOffset = Schema.GetOffset(0xD1AA42D5857E5426);
 
   public ref int MaxValue {
-    get => ref _Handle.AsRef<int>(_MaxValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxValueOffset);
   }
 
 

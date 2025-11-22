@@ -17,25 +17,25 @@ internal partial class CSpotlightEndImpl : CBaseModelEntityImpl, CSpotlightEnd {
   public CSpotlightEndImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LightScaleOffset = new(() => Schema.GetOffset(0x49085AA3E5A1295D), LazyThreadSafetyMode.None);
+  private static readonly nint _LightScaleOffset = Schema.GetOffset(0x49085AA3E5A1295D);
 
   public ref float LightScale {
-    get => ref _Handle.AsRef<float>(_LightScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_LightScaleOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x49085AA37C5B0533), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x49085AA37C5B0533);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _SpotlightDirOffset = new(() => Schema.GetOffset(0x49085AA3EE68984A), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotlightDirOffset = Schema.GetOffset(0x49085AA3EE68984A);
 
   public ref Vector SpotlightDir {
-    get => ref _Handle.AsRef<Vector>(_SpotlightDirOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SpotlightDirOffset);
   }
-  private static readonly Lazy<nint> _SpotlightOrgOffset = new(() => Schema.GetOffset(0x49085AA34C84B367), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotlightOrgOffset = Schema.GetOffset(0x49085AA34C84B367);
 
   public ref Vector SpotlightOrg {
-    get => ref _Handle.AsRef<Vector>(_SpotlightOrgOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SpotlightOrgOffset);
   }
 
   public void LightScaleUpdated() {

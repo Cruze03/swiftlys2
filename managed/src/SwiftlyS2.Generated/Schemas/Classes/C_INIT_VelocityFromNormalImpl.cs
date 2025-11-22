@@ -17,20 +17,20 @@ internal partial class C_INIT_VelocityFromNormalImpl : CParticleFunctionInitiali
   public C_INIT_VelocityFromNormalImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpeedMinOffset = new(() => Schema.GetOffset(0x33D27066B989E1F8), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMinOffset = Schema.GetOffset(0x33D27066B989E1F8);
 
   public ref float SpeedMin {
-    get => ref _Handle.AsRef<float>(_SpeedMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedMinOffset);
   }
-  private static readonly Lazy<nint> _SpeedMaxOffset = new(() => Schema.GetOffset(0x33D27066CF9D8C52), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMaxOffset = Schema.GetOffset(0x33D27066CF9D8C52);
 
   public ref float SpeedMax {
-    get => ref _Handle.AsRef<float>(_SpeedMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _IgnoreDtOffset = new(() => Schema.GetOffset(0x33D27066330C0603), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreDtOffset = Schema.GetOffset(0x33D27066330C0603);
 
   public ref bool IgnoreDt {
-    get => ref _Handle.AsRef<bool>(_IgnoreDtOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreDtOffset);
   }
 
 

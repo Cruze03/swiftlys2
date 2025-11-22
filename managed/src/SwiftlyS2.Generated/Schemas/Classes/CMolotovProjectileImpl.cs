@@ -17,25 +17,25 @@ internal partial class CMolotovProjectileImpl : CBaseCSGrenadeProjectileImpl, CM
   public CMolotovProjectileImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsIncGrenadeOffset = new(() => Schema.GetOffset(0xA239EA8F9D1C12B7), LazyThreadSafetyMode.None);
+  private static readonly nint _IsIncGrenadeOffset = Schema.GetOffset(0xA239EA8F9D1C12B7);
 
   public ref bool IsIncGrenade {
-    get => ref _Handle.AsRef<bool>(_IsIncGrenadeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsIncGrenadeOffset);
   }
-  private static readonly Lazy<nint> _DetonatedOffset = new(() => Schema.GetOffset(0xA239EA8F97D602AF), LazyThreadSafetyMode.None);
+  private static readonly nint _DetonatedOffset = Schema.GetOffset(0xA239EA8F97D602AF);
 
   public ref bool Detonated {
-    get => ref _Handle.AsRef<bool>(_DetonatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DetonatedOffset);
   }
-  private static readonly Lazy<nint> _StillTimerOffset = new(() => Schema.GetOffset(0xA239EA8F2772246E), LazyThreadSafetyMode.None);
+  private static readonly nint _StillTimerOffset = Schema.GetOffset(0xA239EA8F2772246E);
 
   public IntervalTimer StillTimer {
-    get => new IntervalTimerImpl(_Handle + _StillTimerOffset.Value);
+    get => new IntervalTimerImpl(_Handle + _StillTimerOffset);
   }
-  private static readonly Lazy<nint> _HasBouncedOffPlayerOffset = new(() => Schema.GetOffset(0xA239EA8F2A625F7B), LazyThreadSafetyMode.None);
+  private static readonly nint _HasBouncedOffPlayerOffset = Schema.GetOffset(0xA239EA8F2A625F7B);
 
   public ref bool HasBouncedOffPlayer {
-    get => ref _Handle.AsRef<bool>(_HasBouncedOffPlayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasBouncedOffPlayerOffset);
   }
 
   public void IsIncGrenadeUpdated() {

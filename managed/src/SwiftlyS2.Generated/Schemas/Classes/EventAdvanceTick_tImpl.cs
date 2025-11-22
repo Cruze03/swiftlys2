@@ -17,25 +17,25 @@ internal partial class EventAdvanceTick_tImpl : EventSimulate_tImpl, EventAdvanc
   public EventAdvanceTick_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurrentTickOffset = new(() => Schema.GetOffset(0xB79597D53C23687B), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentTickOffset = Schema.GetOffset(0xB79597D53C23687B);
 
   public ref int CurrentTick {
-    get => ref _Handle.AsRef<int>(_CurrentTickOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentTickOffset);
   }
-  private static readonly Lazy<nint> _CurrentTickThisFrameOffset = new(() => Schema.GetOffset(0xB79597D509CE99F8), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentTickThisFrameOffset = Schema.GetOffset(0xB79597D509CE99F8);
 
   public ref int CurrentTickThisFrame {
-    get => ref _Handle.AsRef<int>(_CurrentTickThisFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentTickThisFrameOffset);
   }
-  private static readonly Lazy<nint> _TotalTicksThisFrameOffset = new(() => Schema.GetOffset(0xB79597D524EA7826), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalTicksThisFrameOffset = Schema.GetOffset(0xB79597D524EA7826);
 
   public ref int TotalTicksThisFrame {
-    get => ref _Handle.AsRef<int>(_TotalTicksThisFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_TotalTicksThisFrameOffset);
   }
-  private static readonly Lazy<nint> _TotalTicksOffset = new(() => Schema.GetOffset(0xB79597D545397B31), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalTicksOffset = Schema.GetOffset(0xB79597D545397B31);
 
   public ref int TotalTicks {
-    get => ref _Handle.AsRef<int>(_TotalTicksOffset.Value);
+    get => ref _Handle.AsRef<int>(_TotalTicksOffset);
   }
 
 

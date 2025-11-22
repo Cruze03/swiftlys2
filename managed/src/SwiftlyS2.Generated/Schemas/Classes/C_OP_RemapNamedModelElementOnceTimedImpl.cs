@@ -17,50 +17,50 @@ internal partial class C_OP_RemapNamedModelElementOnceTimedImpl : CParticleFunct
   public C_OP_RemapNamedModelElementOnceTimedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0xBD6F6D8CE100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0xBD6F6D8CE100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
-  private static readonly Lazy<nint> _InNamesOffset = new(() => Schema.GetOffset(0xBD6F6D8CC6BEF30A), LazyThreadSafetyMode.None);
+  private static readonly nint _InNamesOffset = Schema.GetOffset(0xBD6F6D8CC6BEF30A);
 
   public ref CUtlVector<CUtlString> InNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InNamesOffset);
   }
-  private static readonly Lazy<nint> _OutNamesOffset = new(() => Schema.GetOffset(0xBD6F6D8C4AEE2CFD), LazyThreadSafetyMode.None);
+  private static readonly nint _OutNamesOffset = Schema.GetOffset(0xBD6F6D8C4AEE2CFD);
 
   public ref CUtlVector<CUtlString> OutNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_OutNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_OutNamesOffset);
   }
-  private static readonly Lazy<nint> _FallbackNamesOffset = new(() => Schema.GetOffset(0xBD6F6D8C5C686169), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackNamesOffset = Schema.GetOffset(0xBD6F6D8C5C686169);
 
   public ref CUtlVector<CUtlString> FallbackNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_FallbackNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_FallbackNamesOffset);
   }
-  private static readonly Lazy<nint> _ModelFromRendererOffset = new(() => Schema.GetOffset(0xBD6F6D8CAEBA1F25), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelFromRendererOffset = Schema.GetOffset(0xBD6F6D8CAEBA1F25);
 
   public ref bool ModelFromRenderer {
-    get => ref _Handle.AsRef<bool>(_ModelFromRendererOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ModelFromRendererOffset);
   }
-  private static readonly Lazy<nint> _ProportionalOffset = new(() => Schema.GetOffset(0xBD6F6D8C891F328A), LazyThreadSafetyMode.None);
+  private static readonly nint _ProportionalOffset = Schema.GetOffset(0xBD6F6D8C891F328A);
 
   public ref bool Proportional {
-    get => ref _Handle.AsRef<bool>(_ProportionalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProportionalOffset);
   }
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0xBD6F6D8CAE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0xBD6F6D8CAE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xBD6F6D8CE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xBD6F6D8CE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _RemapTimeOffset = new(() => Schema.GetOffset(0xBD6F6D8CF436AC39), LazyThreadSafetyMode.None);
+  private static readonly nint _RemapTimeOffset = Schema.GetOffset(0xBD6F6D8CF436AC39);
 
   public ref float RemapTime {
-    get => ref _Handle.AsRef<float>(_RemapTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RemapTimeOffset);
   }
 
 

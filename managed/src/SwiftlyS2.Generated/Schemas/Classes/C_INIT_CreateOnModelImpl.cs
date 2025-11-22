@@ -17,89 +17,89 @@ internal partial class C_INIT_CreateOnModelImpl : CParticleFunctionInitializerIm
   public C_INIT_CreateOnModelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelInputOffset = new(() => Schema.GetOffset(0xD7E11944EB74120E), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelInputOffset = Schema.GetOffset(0xD7E11944EB74120E);
 
   public CParticleModelInput ModelInput {
-    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset.Value);
+    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xD7E119443A9ED669), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xD7E119443A9ED669);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _ForceInModelOffset = new(() => Schema.GetOffset(0xD7E11944A3C747AC), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceInModelOffset = Schema.GetOffset(0xD7E11944A3C747AC);
 
   public ref int ForceInModel {
-    get => ref _Handle.AsRef<int>(_ForceInModelOffset.Value);
+    get => ref _Handle.AsRef<int>(_ForceInModelOffset);
   }
-  private static readonly Lazy<nint> _ScaleToVolumeOffset = new(() => Schema.GetOffset(0xD7E11944306BC482), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleToVolumeOffset = Schema.GetOffset(0xD7E11944306BC482);
 
   public ref bool ScaleToVolume {
-    get => ref _Handle.AsRef<bool>(_ScaleToVolumeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ScaleToVolumeOffset);
   }
-  private static readonly Lazy<nint> _EvenDistributionOffset = new(() => Schema.GetOffset(0xD7E1194484932067), LazyThreadSafetyMode.None);
+  private static readonly nint _EvenDistributionOffset = Schema.GetOffset(0xD7E1194484932067);
 
   public ref bool EvenDistribution {
-    get => ref _Handle.AsRef<bool>(_EvenDistributionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EvenDistributionOffset);
   }
-  private static readonly Lazy<nint> _DesiredHitboxOffset = new(() => Schema.GetOffset(0xD7E11944FD09531B), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredHitboxOffset = Schema.GetOffset(0xD7E11944FD09531B);
 
   public CParticleCollectionFloatInput DesiredHitbox {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DesiredHitboxOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DesiredHitboxOffset);
   }
-  private static readonly Lazy<nint> _HitboxValueFromControlPointIndexOffset = new(() => Schema.GetOffset(0xD7E11944885FF607), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxValueFromControlPointIndexOffset = Schema.GetOffset(0xD7E11944885FF607);
 
   public ref int HitboxValueFromControlPointIndex {
-    get => ref _Handle.AsRef<int>(_HitboxValueFromControlPointIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_HitboxValueFromControlPointIndexOffset);
   }
-  private static readonly Lazy<nint> _HitBoxScaleOffset = new(() => Schema.GetOffset(0xD7E1194458EE3FB7), LazyThreadSafetyMode.None);
+  private static readonly nint _HitBoxScaleOffset = Schema.GetOffset(0xD7E1194458EE3FB7);
 
   public CParticleCollectionVecInput HitBoxScale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _HitBoxScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _HitBoxScaleOffset);
   }
-  private static readonly Lazy<nint> _BoneVelocityOffset = new(() => Schema.GetOffset(0xD7E11944B06BD382), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneVelocityOffset = Schema.GetOffset(0xD7E11944B06BD382);
 
   public ref float BoneVelocity {
-    get => ref _Handle.AsRef<float>(_BoneVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_BoneVelocityOffset);
   }
-  private static readonly Lazy<nint> _MaxBoneVelocityOffset = new(() => Schema.GetOffset(0xD7E1194460C6A35A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxBoneVelocityOffset = Schema.GetOffset(0xD7E1194460C6A35A);
 
   public ref float MaxBoneVelocity {
-    get => ref _Handle.AsRef<float>(_MaxBoneVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxBoneVelocityOffset);
   }
-  private static readonly Lazy<nint> _DirectionBiasOffset = new(() => Schema.GetOffset(0xD7E119445A1697CF), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectionBiasOffset = Schema.GetOffset(0xD7E119445A1697CF);
 
   public CParticleCollectionVecInput DirectionBias {
-    get => new CParticleCollectionVecInputImpl(_Handle + _DirectionBiasOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _DirectionBiasOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetNameOffset = new(() => Schema.GetOffset(0xD7E119446A21BB0E), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetNameOffset = Schema.GetOffset(0xD7E119446A21BB0E);
 
   public string HitboxSetName {
     get {
-      var ptr = _Handle + _HitboxSetNameOffset.Value;
+      var ptr = _Handle + _HitboxSetNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _LocalCoordsOffset = new(() => Schema.GetOffset(0xD7E1194430E716DE), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordsOffset = Schema.GetOffset(0xD7E1194430E716DE);
 
   public ref bool LocalCoords {
-    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset);
   }
-  private static readonly Lazy<nint> _UseBonesOffset = new(() => Schema.GetOffset(0xD7E1194410D1938B), LazyThreadSafetyMode.None);
+  private static readonly nint _UseBonesOffset = Schema.GetOffset(0xD7E1194410D1938B);
 
   public ref bool UseBones {
-    get => ref _Handle.AsRef<bool>(_UseBonesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseBonesOffset);
   }
-  private static readonly Lazy<nint> _UseMeshOffset = new(() => Schema.GetOffset(0xD7E11944ECDA3B19), LazyThreadSafetyMode.None);
+  private static readonly nint _UseMeshOffset = Schema.GetOffset(0xD7E11944ECDA3B19);
 
   public ref bool UseMesh {
-    get => ref _Handle.AsRef<bool>(_UseMeshOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseMeshOffset);
   }
-  private static readonly Lazy<nint> _ShellSizeOffset = new(() => Schema.GetOffset(0xD7E1194404D01B22), LazyThreadSafetyMode.None);
+  private static readonly nint _ShellSizeOffset = Schema.GetOffset(0xD7E1194404D01B22);
 
   public CParticleCollectionFloatInput ShellSize {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ShellSizeOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ShellSizeOffset);
   }
 
 

@@ -17,40 +17,40 @@ internal partial class CBaseFlexImpl : CBaseAnimGraphImpl, CBaseFlex {
   public CBaseFlexImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlexWeightOffset = new(() => Schema.GetOffset(0xEE4FEF48AB868EDA), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexWeightOffset = Schema.GetOffset(0xEE4FEF48AB868EDA);
 
   public ref CUtlVector<float> FlexWeight {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexWeightOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexWeightOffset);
   }
-  private static readonly Lazy<nint> _LookTargetPositionOffset = new(() => Schema.GetOffset(0xEE4FEF480DCD7B00), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTargetPositionOffset = Schema.GetOffset(0xEE4FEF480DCD7B00);
 
   public ref Vector LookTargetPosition {
-    get => ref _Handle.AsRef<Vector>(_LookTargetPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LookTargetPositionOffset);
   }
-  private static readonly Lazy<nint> _BlinktoggleOffset = new(() => Schema.GetOffset(0xEE4FEF48CA230309), LazyThreadSafetyMode.None);
+  private static readonly nint _BlinktoggleOffset = Schema.GetOffset(0xEE4FEF48CA230309);
 
   public ref bool Blinktoggle {
-    get => ref _Handle.AsRef<bool>(_BlinktoggleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BlinktoggleOffset);
   }
-  private static readonly Lazy<nint> _AllowResponsesEndTimeOffset = new(() => Schema.GetOffset(0xEE4FEF4858EB0248), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowResponsesEndTimeOffset = Schema.GetOffset(0xEE4FEF4858EB0248);
 
   public GameTime_t AllowResponsesEndTime {
-    get => new GameTime_tImpl(_Handle + _AllowResponsesEndTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _AllowResponsesEndTimeOffset);
   }
-  private static readonly Lazy<nint> _LastFlexAnimationTimeOffset = new(() => Schema.GetOffset(0xEE4FEF48D5ADEDFF), LazyThreadSafetyMode.None);
+  private static readonly nint _LastFlexAnimationTimeOffset = Schema.GetOffset(0xEE4FEF48D5ADEDFF);
 
   public GameTime_t LastFlexAnimationTime {
-    get => new GameTime_tImpl(_Handle + _LastFlexAnimationTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastFlexAnimationTimeOffset);
   }
-  private static readonly Lazy<nint> _NextSceneEventIdOffset = new(() => Schema.GetOffset(0xEE4FEF483756F461), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSceneEventIdOffset = Schema.GetOffset(0xEE4FEF483756F461);
 
   public SceneEventId_t NextSceneEventId {
-    get => new SceneEventId_tImpl(_Handle + _NextSceneEventIdOffset.Value);
+    get => new SceneEventId_tImpl(_Handle + _NextSceneEventIdOffset);
   }
-  private static readonly Lazy<nint> _UpdateLayerPrioritiesOffset = new(() => Schema.GetOffset(0xEE4FEF48446AC3B9), LazyThreadSafetyMode.None);
+  private static readonly nint _UpdateLayerPrioritiesOffset = Schema.GetOffset(0xEE4FEF48446AC3B9);
 
   public ref bool UpdateLayerPriorities {
-    get => ref _Handle.AsRef<bool>(_UpdateLayerPrioritiesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UpdateLayerPrioritiesOffset);
   }
 
   public void FlexWeightUpdated() {

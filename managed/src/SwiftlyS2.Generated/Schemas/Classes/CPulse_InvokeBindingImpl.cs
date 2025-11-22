@@ -17,30 +17,30 @@ internal partial class CPulse_InvokeBindingImpl : SchemaClass, CPulse_InvokeBind
   public CPulse_InvokeBindingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RegisterMapOffset = new(() => Schema.GetOffset(0x3632DF0D7BD4CE96), LazyThreadSafetyMode.None);
+  private static readonly nint _RegisterMapOffset = Schema.GetOffset(0x3632DF0D7BD4CE96);
 
   public PulseRegisterMap_t RegisterMap {
-    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset.Value);
+    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset);
   }
-  private static readonly Lazy<nint> _FuncNameOffset = new(() => Schema.GetOffset(0x3632DF0D1B5BC2A4), LazyThreadSafetyMode.None);
+  private static readonly nint _FuncNameOffset = Schema.GetOffset(0x3632DF0D1B5BC2A4);
 
   public SchemaUntypedField FuncName {
-    get => new SchemaUntypedField(_Handle + _FuncNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FuncNameOffset);
   }
-  private static readonly Lazy<nint> _CellIndexOffset = new(() => Schema.GetOffset(0x3632DF0DACE41A7F), LazyThreadSafetyMode.None);
+  private static readonly nint _CellIndexOffset = Schema.GetOffset(0x3632DF0DACE41A7F);
 
   public PulseRuntimeCellIndex_t CellIndex {
-    get => new PulseRuntimeCellIndex_tImpl(_Handle + _CellIndexOffset.Value);
+    get => new PulseRuntimeCellIndex_tImpl(_Handle + _CellIndexOffset);
   }
-  private static readonly Lazy<nint> _SrcChunkOffset = new(() => Schema.GetOffset(0x3632DF0D313F814A), LazyThreadSafetyMode.None);
+  private static readonly nint _SrcChunkOffset = Schema.GetOffset(0x3632DF0D313F814A);
 
   public PulseRuntimeChunkIndex_t SrcChunk {
-    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _SrcChunkOffset.Value);
+    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _SrcChunkOffset);
   }
-  private static readonly Lazy<nint> _SrcInstructionOffset = new(() => Schema.GetOffset(0x3632DF0D99E09AE7), LazyThreadSafetyMode.None);
+  private static readonly nint _SrcInstructionOffset = Schema.GetOffset(0x3632DF0D99E09AE7);
 
   public ref int SrcInstruction {
-    get => ref _Handle.AsRef<int>(_SrcInstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_SrcInstructionOffset);
   }
 
 

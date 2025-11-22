@@ -17,14 +17,14 @@ internal partial class CFuncPlatImpl : CBasePlatTrainImpl, CFuncPlat {
   public CFuncPlatImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NoiseOffset = new(() => Schema.GetOffset(0x57400D651F22B8CC), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseOffset = Schema.GetOffset(0x57400D651F22B8CC);
 
   public string Noise {
     get {
-      var ptr = _Handle.Read<nint>(_NoiseOffset.Value);
+      var ptr = _Handle.Read<nint>(_NoiseOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NoiseOffset.Value, value);
+    set => Schema.SetString(_Handle, _NoiseOffset, value);
   } 
 
 

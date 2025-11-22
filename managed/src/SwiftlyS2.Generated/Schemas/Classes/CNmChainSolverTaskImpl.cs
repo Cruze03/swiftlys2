@@ -17,70 +17,70 @@ internal partial class CNmChainSolverTaskImpl : CNmPoseTaskImpl, CNmChainSolverT
   public CNmChainSolverTaskImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EffectorBoneIdxOffset = new(() => Schema.GetOffset(0x5D675A12A9C233BE), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectorBoneIdxOffset = Schema.GetOffset(0x5D675A12A9C233BE);
 
   public ref int EffectorBoneIdx {
-    get => ref _Handle.AsRef<int>(_EffectorBoneIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_EffectorBoneIdxOffset);
   }
-  private static readonly Lazy<nint> _EffectorTargetBoneIdxOffset = new(() => Schema.GetOffset(0x5D675A123A19E0D9), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectorTargetBoneIdxOffset = Schema.GetOffset(0x5D675A123A19E0D9);
 
   public ref int EffectorTargetBoneIdx {
-    get => ref _Handle.AsRef<int>(_EffectorTargetBoneIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_EffectorTargetBoneIdxOffset);
   }
-  private static readonly Lazy<nint> _TargetTransformOffset = new(() => Schema.GetOffset(0x5D675A12B1497974), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetTransformOffset = Schema.GetOffset(0x5D675A12B1497974);
 
   public ref CTransform TargetTransform {
-    get => ref _Handle.AsRef<CTransform>(_TargetTransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TargetTransformOffset);
   }
-  private static readonly Lazy<nint> _NumBonesInChainOffset = new(() => Schema.GetOffset(0x5D675A12CAD2EB3E), LazyThreadSafetyMode.None);
+  private static readonly nint _NumBonesInChainOffset = Schema.GetOffset(0x5D675A12CAD2EB3E);
 
   public ref int NumBonesInChain {
-    get => ref _Handle.AsRef<int>(_NumBonesInChainOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumBonesInChainOffset);
   }
-  private static readonly Lazy<nint> _EffectorTargetOffset = new(() => Schema.GetOffset(0x5D675A128D86AF5C), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectorTargetOffset = Schema.GetOffset(0x5D675A128D86AF5C);
 
   public CNmTarget EffectorTarget {
-    get => new CNmTargetImpl(_Handle + _EffectorTargetOffset.Value);
+    get => new CNmTargetImpl(_Handle + _EffectorTargetOffset);
   }
-  private static readonly Lazy<nint> _BlendModeOffset = new(() => Schema.GetOffset(0x5D675A128D5006AB), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendModeOffset = Schema.GetOffset(0x5D675A128D5006AB);
 
   public ref NmIKBlendMode_t BlendMode {
-    get => ref _Handle.AsRef<NmIKBlendMode_t>(_BlendModeOffset.Value);
+    get => ref _Handle.AsRef<NmIKBlendMode_t>(_BlendModeOffset);
   }
-  private static readonly Lazy<nint> _BlendWeightOffset = new(() => Schema.GetOffset(0x5D675A12E5D6B9CE), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendWeightOffset = Schema.GetOffset(0x5D675A12E5D6B9CE);
 
   public ref float BlendWeight {
-    get => ref _Handle.AsRef<float>(_BlendWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendWeightOffset);
   }
-  private static readonly Lazy<nint> _IsTargetInWorldSpaceOffset = new(() => Schema.GetOffset(0x5D675A125F56E0C5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsTargetInWorldSpaceOffset = Schema.GetOffset(0x5D675A125F56E0C5);
 
   public ref bool IsTargetInWorldSpace {
-    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _IsRunningFromDeserializedDataOffset = new(() => Schema.GetOffset(0x5D675A124791111D), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRunningFromDeserializedDataOffset = Schema.GetOffset(0x5D675A124791111D);
 
   public ref bool IsRunningFromDeserializedData {
-    get => ref _Handle.AsRef<bool>(_IsRunningFromDeserializedDataOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRunningFromDeserializedDataOffset);
   }
-  private static readonly Lazy<nint> _DebugEffectorBoneIDOffset = new(() => Schema.GetOffset(0x5D675A12A9F0F1F3), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugEffectorBoneIDOffset = Schema.GetOffset(0x5D675A12A9F0F1F3);
 
   public ref CGlobalSymbol DebugEffectorBoneID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_DebugEffectorBoneIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_DebugEffectorBoneIDOffset);
   }
-  private static readonly Lazy<nint> _ChainStartTransformMSOffset = new(() => Schema.GetOffset(0x5D675A12E1B47AFE), LazyThreadSafetyMode.None);
+  private static readonly nint _ChainStartTransformMSOffset = Schema.GetOffset(0x5D675A12E1B47AFE);
 
   public ref CTransform ChainStartTransformMS {
-    get => ref _Handle.AsRef<CTransform>(_ChainStartTransformMSOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_ChainStartTransformMSOffset);
   }
-  private static readonly Lazy<nint> _DebugRequestedTargetTransformMSOffset = new(() => Schema.GetOffset(0x5D675A12416A1F2F), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugRequestedTargetTransformMSOffset = Schema.GetOffset(0x5D675A12416A1F2F);
 
   public ref CTransform DebugRequestedTargetTransformMS {
-    get => ref _Handle.AsRef<CTransform>(_DebugRequestedTargetTransformMSOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_DebugRequestedTargetTransformMSOffset);
   }
-  private static readonly Lazy<nint> _DebugTotalChainLengthOffset = new(() => Schema.GetOffset(0x5D675A125ED39D2F), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugTotalChainLengthOffset = Schema.GetOffset(0x5D675A125ED39D2F);
 
   public ref float DebugTotalChainLength {
-    get => ref _Handle.AsRef<float>(_DebugTotalChainLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_DebugTotalChainLengthOffset);
   }
 
 

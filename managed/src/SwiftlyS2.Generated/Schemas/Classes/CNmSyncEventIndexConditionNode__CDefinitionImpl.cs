@@ -17,20 +17,20 @@ internal partial class CNmSyncEventIndexConditionNode__CDefinitionImpl : CNmBool
   public CNmSyncEventIndexConditionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x343CD5DB63F0228C), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x343CD5DB63F0228C);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TriggerModeOffset = new(() => Schema.GetOffset(0x343CD5DB0431A60C), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerModeOffset = Schema.GetOffset(0x343CD5DB0431A60C);
 
   public ref CNmSyncEventIndexConditionNode__TriggerMode_t TriggerMode {
-    get => ref _Handle.AsRef<CNmSyncEventIndexConditionNode__TriggerMode_t>(_TriggerModeOffset.Value);
+    get => ref _Handle.AsRef<CNmSyncEventIndexConditionNode__TriggerMode_t>(_TriggerModeOffset);
   }
-  private static readonly Lazy<nint> _SyncEventIdxOffset = new(() => Schema.GetOffset(0x343CD5DBC84F66C9), LazyThreadSafetyMode.None);
+  private static readonly nint _SyncEventIdxOffset = Schema.GetOffset(0x343CD5DBC84F66C9);
 
   public ref int SyncEventIdx {
-    get => ref _Handle.AsRef<int>(_SyncEventIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_SyncEventIdxOffset);
   }
 
 

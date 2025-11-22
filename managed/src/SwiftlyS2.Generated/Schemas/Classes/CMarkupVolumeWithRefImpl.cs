@@ -17,25 +17,25 @@ internal partial class CMarkupVolumeWithRefImpl : CMarkupVolumeTaggedImpl, CMark
   public CMarkupVolumeWithRefImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseRefOffset = new(() => Schema.GetOffset(0x12AA97857F572B29), LazyThreadSafetyMode.None);
+  private static readonly nint _UseRefOffset = Schema.GetOffset(0x12AA97857F572B29);
 
   public ref bool UseRef {
-    get => ref _Handle.AsRef<bool>(_UseRefOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseRefOffset);
   }
-  private static readonly Lazy<nint> _RefPosEntitySpaceOffset = new(() => Schema.GetOffset(0x12AA978532BBDFAB), LazyThreadSafetyMode.None);
+  private static readonly nint _RefPosEntitySpaceOffset = Schema.GetOffset(0x12AA978532BBDFAB);
 
   public ref Vector RefPosEntitySpace {
-    get => ref _Handle.AsRef<Vector>(_RefPosEntitySpaceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RefPosEntitySpaceOffset);
   }
-  private static readonly Lazy<nint> _RefPosWorldSpaceOffset = new(() => Schema.GetOffset(0x12AA97856139C236), LazyThreadSafetyMode.None);
+  private static readonly nint _RefPosWorldSpaceOffset = Schema.GetOffset(0x12AA97856139C236);
 
   public ref Vector RefPosWorldSpace {
-    get => ref _Handle.AsRef<Vector>(_RefPosWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RefPosWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _RefDotOffset = new(() => Schema.GetOffset(0x12AA9785584DB957), LazyThreadSafetyMode.None);
+  private static readonly nint _RefDotOffset = Schema.GetOffset(0x12AA9785584DB957);
 
   public ref float RefDot {
-    get => ref _Handle.AsRef<float>(_RefDotOffset.Value);
+    get => ref _Handle.AsRef<float>(_RefDotOffset);
   }
 
 

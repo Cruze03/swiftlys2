@@ -17,15 +17,15 @@ internal partial class CStateActionUpdaterImpl : SchemaClass, CStateActionUpdate
   public CStateActionUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActionOffset = new(() => Schema.GetOffset(0xCA33DCAAE9CB47D5), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionOffset = Schema.GetOffset(0xCA33DCAAE9CB47D5);
 
   public SchemaUntypedField Action {
-    get => new SchemaUntypedField(_Handle + _ActionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionOffset);
   }
-  private static readonly Lazy<nint> _BehaviorOffset = new(() => Schema.GetOffset(0xCA33DCAA436DB10A), LazyThreadSafetyMode.None);
+  private static readonly nint _BehaviorOffset = Schema.GetOffset(0xCA33DCAA436DB10A);
 
   public ref StateActionBehavior Behavior {
-    get => ref _Handle.AsRef<StateActionBehavior>(_BehaviorOffset.Value);
+    get => ref _Handle.AsRef<StateActionBehavior>(_BehaviorOffset);
   }
 
 

@@ -17,24 +17,24 @@ internal partial class ConstantInfo_tImpl : SchemaClass, ConstantInfo_t {
   public ConstantInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xF4BEF78E4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xF4BEF78E4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameTokenOffset = new(() => Schema.GetOffset(0xF4BEF78E9293FEF3), LazyThreadSafetyMode.None);
+  private static readonly nint _NameTokenOffset = Schema.GetOffset(0xF4BEF78E9293FEF3);
 
   public ref CUtlStringToken NameToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_NameTokenOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xF4BEF78E8DFCB984), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xF4BEF78E8DFCB984);
 
   public ref float Value {
-    get => ref _Handle.AsRef<float>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueOffset);
   }
 
 

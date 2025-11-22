@@ -17,30 +17,30 @@ internal partial class PulseGraphExecutionHistoryEntry_tImpl : SchemaClass, Puls
   public PulseGraphExecutionHistoryEntry_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CursorIDOffset = new(() => Schema.GetOffset(0x9346B0AB0B44CBF6), LazyThreadSafetyMode.None);
+  private static readonly nint _CursorIDOffset = Schema.GetOffset(0x9346B0AB0B44CBF6);
 
   public PulseCursorID_t CursorID {
-    get => new PulseCursorID_tImpl(_Handle + _CursorIDOffset.Value);
+    get => new PulseCursorID_tImpl(_Handle + _CursorIDOffset);
   }
-  private static readonly Lazy<nint> _EditorIDOffset = new(() => Schema.GetOffset(0x9346B0AB74188E69), LazyThreadSafetyMode.None);
+  private static readonly nint _EditorIDOffset = Schema.GetOffset(0x9346B0AB74188E69);
 
   public PulseDocNodeID_t EditorID {
-    get => new PulseDocNodeID_tImpl(_Handle + _EditorIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _EditorIDOffset);
   }
-  private static readonly Lazy<nint> _ExecTimeOffset = new(() => Schema.GetOffset(0x9346B0ABFAE08483), LazyThreadSafetyMode.None);
+  private static readonly nint _ExecTimeOffset = Schema.GetOffset(0x9346B0ABFAE08483);
 
   public ref float ExecTime {
-    get => ref _Handle.AsRef<float>(_ExecTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExecTimeOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x9346B0AB5E9538F5), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x9346B0AB5E9538F5);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _TagNameOffset = new(() => Schema.GetOffset(0x9346B0ABBD7B50F8), LazyThreadSafetyMode.None);
+  private static readonly nint _TagNameOffset = Schema.GetOffset(0x9346B0ABBD7B50F8);
 
   public SchemaUntypedField TagName {
-    get => new SchemaUntypedField(_Handle + _TagNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TagNameOffset);
   }
 
 

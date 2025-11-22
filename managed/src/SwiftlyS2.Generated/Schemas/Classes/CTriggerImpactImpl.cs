@@ -17,25 +17,25 @@ internal partial class CTriggerImpactImpl : CTriggerMultipleImpl, CTriggerImpact
   public CTriggerImpactImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x2A6A2B48ED0A1D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x2A6A2B48ED0A1D8B);
 
   public ref float Magnitude {
-    get => ref _Handle.AsRef<float>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _NoiseOffset = new(() => Schema.GetOffset(0x2A6A2B48C0E47FDB), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseOffset = Schema.GetOffset(0x2A6A2B48C0E47FDB);
 
   public ref float Noise {
-    get => ref _Handle.AsRef<float>(_NoiseOffset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseOffset);
   }
-  private static readonly Lazy<nint> _ViewkickOffset = new(() => Schema.GetOffset(0x2A6A2B48C8BC3FC4), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewkickOffset = Schema.GetOffset(0x2A6A2B48C8BC3FC4);
 
   public ref float Viewkick {
-    get => ref _Handle.AsRef<float>(_ViewkickOffset.Value);
+    get => ref _Handle.AsRef<float>(_ViewkickOffset);
   }
-  private static readonly Lazy<nint> _OutputForceOffset = new(() => Schema.GetOffset(0x2A6A2B488653AFA9), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputForceOffset = Schema.GetOffset(0x2A6A2B488653AFA9);
 
   public SchemaUntypedField OutputForce {
-    get => new SchemaUntypedField(_Handle + _OutputForceOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OutputForceOffset);
   }
 
 

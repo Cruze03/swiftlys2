@@ -17,15 +17,15 @@ internal partial class StanceInfo_tImpl : SchemaClass, StanceInfo_t {
   public StanceInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PositionOffset = new(() => Schema.GetOffset(0x5DBAB98EBD6A6C9E), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionOffset = Schema.GetOffset(0x5DBAB98EBD6A6C9E);
 
   public ref Vector Position {
-    get => ref _Handle.AsRef<Vector>(_PositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PositionOffset);
   }
-  private static readonly Lazy<nint> _DirectionOffset = new(() => Schema.GetOffset(0x5DBAB98E28D81988), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectionOffset = Schema.GetOffset(0x5DBAB98E28D81988);
 
   public ref float Direction {
-    get => ref _Handle.AsRef<float>(_DirectionOffset.Value);
+    get => ref _Handle.AsRef<float>(_DirectionOffset);
   }
 
 

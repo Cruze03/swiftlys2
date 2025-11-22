@@ -17,35 +17,35 @@ internal partial class CBinaryUpdateNodeImpl : CAnimUpdateNodeBaseImpl, CBinaryU
   public CBinaryUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Child1Offset = new(() => Schema.GetOffset(0xA1CFA91E9E0C6B0A), LazyThreadSafetyMode.None);
+  private static readonly nint _Child1Offset = Schema.GetOffset(0xA1CFA91E9E0C6B0A);
 
   public CAnimUpdateNodeRef Child1 {
-    get => new CAnimUpdateNodeRefImpl(_Handle + _Child1Offset.Value);
+    get => new CAnimUpdateNodeRefImpl(_Handle + _Child1Offset);
   }
-  private static readonly Lazy<nint> _Child2Offset = new(() => Schema.GetOffset(0xA1CFA91E9D0C6977), LazyThreadSafetyMode.None);
+  private static readonly nint _Child2Offset = Schema.GetOffset(0xA1CFA91E9D0C6977);
 
   public CAnimUpdateNodeRef Child2 {
-    get => new CAnimUpdateNodeRefImpl(_Handle + _Child2Offset.Value);
+    get => new CAnimUpdateNodeRefImpl(_Handle + _Child2Offset);
   }
-  private static readonly Lazy<nint> _TimingBehaviorOffset = new(() => Schema.GetOffset(0xA1CFA91EF9A9BA01), LazyThreadSafetyMode.None);
+  private static readonly nint _TimingBehaviorOffset = Schema.GetOffset(0xA1CFA91EF9A9BA01);
 
   public ref BinaryNodeTiming TimingBehavior {
-    get => ref _Handle.AsRef<BinaryNodeTiming>(_TimingBehaviorOffset.Value);
+    get => ref _Handle.AsRef<BinaryNodeTiming>(_TimingBehaviorOffset);
   }
-  private static readonly Lazy<nint> _TimingBlendOffset = new(() => Schema.GetOffset(0xA1CFA91E884E1874), LazyThreadSafetyMode.None);
+  private static readonly nint _TimingBlendOffset = Schema.GetOffset(0xA1CFA91E884E1874);
 
   public ref float TimingBlend {
-    get => ref _Handle.AsRef<float>(_TimingBlendOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimingBlendOffset);
   }
-  private static readonly Lazy<nint> _ResetChild1Offset = new(() => Schema.GetOffset(0xA1CFA91EC7FAEC85), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChild1Offset = Schema.GetOffset(0xA1CFA91EC7FAEC85);
 
   public ref bool ResetChild1 {
-    get => ref _Handle.AsRef<bool>(_ResetChild1Offset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChild1Offset);
   }
-  private static readonly Lazy<nint> _ResetChild2Offset = new(() => Schema.GetOffset(0xA1CFA91EC4FAE7CC), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChild2Offset = Schema.GetOffset(0xA1CFA91EC4FAE7CC);
 
   public ref bool ResetChild2 {
-    get => ref _Handle.AsRef<bool>(_ResetChild2Offset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChild2Offset);
   }
 
 

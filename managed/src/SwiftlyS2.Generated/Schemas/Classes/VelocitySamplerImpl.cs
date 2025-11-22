@@ -17,20 +17,20 @@ internal partial class VelocitySamplerImpl : SchemaClass, VelocitySampler {
   public VelocitySamplerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PrevSampleOffset = new(() => Schema.GetOffset(0x5547216E1BCE7EF2), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevSampleOffset = Schema.GetOffset(0x5547216E1BCE7EF2);
 
   public ref Vector PrevSample {
-    get => ref _Handle.AsRef<Vector>(_PrevSampleOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PrevSampleOffset);
   }
-  private static readonly Lazy<nint> _PrevSampleTimeOffset = new(() => Schema.GetOffset(0x5547216E0D491EE7), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevSampleTimeOffset = Schema.GetOffset(0x5547216E0D491EE7);
 
   public GameTime_t PrevSampleTime {
-    get => new GameTime_tImpl(_Handle + _PrevSampleTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _PrevSampleTimeOffset);
   }
-  private static readonly Lazy<nint> _IdealSampleRateOffset = new(() => Schema.GetOffset(0x5547216EF1562586), LazyThreadSafetyMode.None);
+  private static readonly nint _IdealSampleRateOffset = Schema.GetOffset(0x5547216EF1562586);
 
   public ref float IdealSampleRate {
-    get => ref _Handle.AsRef<float>(_IdealSampleRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_IdealSampleRateOffset);
   }
 
 

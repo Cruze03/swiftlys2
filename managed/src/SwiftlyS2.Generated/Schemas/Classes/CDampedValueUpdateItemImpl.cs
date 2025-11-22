@@ -17,20 +17,20 @@ internal partial class CDampedValueUpdateItemImpl : SchemaClass, CDampedValueUpd
   public CDampedValueUpdateItemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0x4B11725415440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0x4B11725415440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _ParamInOffset = new(() => Schema.GetOffset(0x4B117254ED40E37B), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamInOffset = Schema.GetOffset(0x4B117254ED40E37B);
 
   public CAnimParamHandle ParamIn {
-    get => new CAnimParamHandleImpl(_Handle + _ParamInOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamInOffset);
   }
-  private static readonly Lazy<nint> _ParamOutOffset = new(() => Schema.GetOffset(0x4B117254AA5799A8), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOutOffset = Schema.GetOffset(0x4B117254AA5799A8);
 
   public CAnimParamHandle ParamOut {
-    get => new CAnimParamHandleImpl(_Handle + _ParamOutOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamOutOffset);
   }
 
 

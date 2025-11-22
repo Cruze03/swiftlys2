@@ -17,15 +17,15 @@ internal partial class CNmGraphDefinition__ExternalGraphSlot_tImpl : SchemaClass
   public CNmGraphDefinition__ExternalGraphSlot_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeIdxOffset = new(() => Schema.GetOffset(0xFF128092124AB5CC), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeIdxOffset = Schema.GetOffset(0xFF128092124AB5CC);
 
   public ref short NodeIdx {
-    get => ref _Handle.AsRef<short>(_NodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_NodeIdxOffset);
   }
-  private static readonly Lazy<nint> _SlotIDOffset = new(() => Schema.GetOffset(0xFF128092EA2BB724), LazyThreadSafetyMode.None);
+  private static readonly nint _SlotIDOffset = Schema.GetOffset(0xFF128092EA2BB724);
 
   public ref CGlobalSymbol SlotID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_SlotIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_SlotIDOffset);
   }
 
 

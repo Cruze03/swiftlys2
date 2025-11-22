@@ -17,30 +17,30 @@ internal partial class CCSPlayer_RadioServicesImpl : CPlayerPawnComponentImpl, C
   public CCSPlayer_RadioServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GotHostageTalkTimerOffset = new(() => Schema.GetOffset(0x8E7F7B35729FE1A3), LazyThreadSafetyMode.None);
+  private static readonly nint _GotHostageTalkTimerOffset = Schema.GetOffset(0x8E7F7B35729FE1A3);
 
   public GameTime_t GotHostageTalkTimer {
-    get => new GameTime_tImpl(_Handle + _GotHostageTalkTimerOffset.Value);
+    get => new GameTime_tImpl(_Handle + _GotHostageTalkTimerOffset);
   }
-  private static readonly Lazy<nint> _DefusingTalkTimerOffset = new(() => Schema.GetOffset(0x8E7F7B355AF7F835), LazyThreadSafetyMode.None);
+  private static readonly nint _DefusingTalkTimerOffset = Schema.GetOffset(0x8E7F7B355AF7F835);
 
   public GameTime_t DefusingTalkTimer {
-    get => new GameTime_tImpl(_Handle + _DefusingTalkTimerOffset.Value);
+    get => new GameTime_tImpl(_Handle + _DefusingTalkTimerOffset);
   }
-  private static readonly Lazy<nint> _C4PlantTalkTimerOffset = new(() => Schema.GetOffset(0x8E7F7B35CE58ABD4), LazyThreadSafetyMode.None);
+  private static readonly nint _C4PlantTalkTimerOffset = Schema.GetOffset(0x8E7F7B35CE58ABD4);
 
   public GameTime_t C4PlantTalkTimer {
-    get => new GameTime_tImpl(_Handle + _C4PlantTalkTimerOffset.Value);
+    get => new GameTime_tImpl(_Handle + _C4PlantTalkTimerOffset);
   }
-  private static readonly Lazy<nint> _RadioTokenSlotsOffset = new(() => Schema.GetOffset(0x8E7F7B356FB722D0), LazyThreadSafetyMode.None);
+  private static readonly nint _RadioTokenSlotsOffset = Schema.GetOffset(0x8E7F7B356FB722D0);
 
   public SchemaUntypedField RadioTokenSlots {
-    get => new SchemaUntypedField(_Handle + _RadioTokenSlotsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _RadioTokenSlotsOffset);
   }
-  private static readonly Lazy<nint> _IgnoreRadioOffset = new(() => Schema.GetOffset(0x8E7F7B3562FA7576), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreRadioOffset = Schema.GetOffset(0x8E7F7B3562FA7576);
 
   public ref bool IgnoreRadio {
-    get => ref _Handle.AsRef<bool>(_IgnoreRadioOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreRadioOffset);
   }
 
 

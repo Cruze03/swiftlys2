@@ -17,59 +17,59 @@ internal partial class CSSDSMsg_ViewTargetImpl : SchemaClass, CSSDSMsg_ViewTarge
   public CSSDSMsg_ViewTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x4F31099BCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x4F31099BCAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _TextureIdOffset = new(() => Schema.GetOffset(0x4F31099B67AB25D9), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureIdOffset = Schema.GetOffset(0x4F31099B67AB25D9);
 
   public ref ulong TextureId {
-    get => ref _Handle.AsRef<ulong>(_TextureIdOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_TextureIdOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0x4F31099B119108BB), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0x4F31099B119108BB);
 
   public ref int Width {
-    get => ref _Handle.AsRef<int>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0x4F31099BCAB61C56), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0x4F31099BCAB61C56);
 
   public ref int Height {
-    get => ref _Handle.AsRef<int>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _RequestedWidthOffset = new(() => Schema.GetOffset(0x4F31099BCCA175E9), LazyThreadSafetyMode.None);
+  private static readonly nint _RequestedWidthOffset = Schema.GetOffset(0x4F31099BCCA175E9);
 
   public ref int RequestedWidth {
-    get => ref _Handle.AsRef<int>(_RequestedWidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_RequestedWidthOffset);
   }
-  private static readonly Lazy<nint> _RequestedHeightOffset = new(() => Schema.GetOffset(0x4F31099B145278D8), LazyThreadSafetyMode.None);
+  private static readonly nint _RequestedHeightOffset = Schema.GetOffset(0x4F31099B145278D8);
 
   public ref int RequestedHeight {
-    get => ref _Handle.AsRef<int>(_RequestedHeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_RequestedHeightOffset);
   }
-  private static readonly Lazy<nint> _NumMipLevelsOffset = new(() => Schema.GetOffset(0x4F31099BD64413AC), LazyThreadSafetyMode.None);
+  private static readonly nint _NumMipLevelsOffset = Schema.GetOffset(0x4F31099BD64413AC);
 
   public ref int NumMipLevels {
-    get => ref _Handle.AsRef<int>(_NumMipLevelsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumMipLevelsOffset);
   }
-  private static readonly Lazy<nint> _DepthOffset = new(() => Schema.GetOffset(0x4F31099BB725DB96), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthOffset = Schema.GetOffset(0x4F31099BB725DB96);
 
   public ref int Depth {
-    get => ref _Handle.AsRef<int>(_DepthOffset.Value);
+    get => ref _Handle.AsRef<int>(_DepthOffset);
   }
-  private static readonly Lazy<nint> _MultisampleNumSamplesOffset = new(() => Schema.GetOffset(0x4F31099B1B468317), LazyThreadSafetyMode.None);
+  private static readonly nint _MultisampleNumSamplesOffset = Schema.GetOffset(0x4F31099B1B468317);
 
   public ref int MultisampleNumSamples {
-    get => ref _Handle.AsRef<int>(_MultisampleNumSamplesOffset.Value);
+    get => ref _Handle.AsRef<int>(_MultisampleNumSamplesOffset);
   }
-  private static readonly Lazy<nint> _FormatOffset = new(() => Schema.GetOffset(0x4F31099BA87491AE), LazyThreadSafetyMode.None);
+  private static readonly nint _FormatOffset = Schema.GetOffset(0x4F31099BA87491AE);
 
   public ref int Format {
-    get => ref _Handle.AsRef<int>(_FormatOffset.Value);
+    get => ref _Handle.AsRef<int>(_FormatOffset);
   }
 
 

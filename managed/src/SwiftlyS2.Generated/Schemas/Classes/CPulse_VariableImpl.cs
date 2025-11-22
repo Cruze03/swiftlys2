@@ -17,49 +17,49 @@ internal partial class CPulse_VariableImpl : SchemaClass, CPulse_Variable {
   public CPulse_VariableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x598DEA5CCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x598DEA5CCAE8A266);
 
   public SchemaUntypedField Name {
-    get => new SchemaUntypedField(_Handle + _NameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NameOffset);
   }
-  private static readonly Lazy<nint> _DescriptionOffset = new(() => Schema.GetOffset(0x598DEA5C678744E9), LazyThreadSafetyMode.None);
+  private static readonly nint _DescriptionOffset = Schema.GetOffset(0x598DEA5C678744E9);
 
   public string Description {
     get {
-      var ptr = _Handle.Read<nint>(_DescriptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_DescriptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DescriptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _DescriptionOffset, value);
   } 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x598DEA5C8ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x598DEA5C8ED6D5CD);
 
   public SchemaUntypedField Type {
-    get => new SchemaUntypedField(_Handle + _TypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TypeOffset);
   }
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x598DEA5CC6E9593F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x598DEA5CC6E9593F);
 
   public SchemaUntypedField DefaultValue {
-    get => new SchemaUntypedField(_Handle + _DefaultValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _KeysSourceOffset = new(() => Schema.GetOffset(0x598DEA5CE4356F4C), LazyThreadSafetyMode.None);
+  private static readonly nint _KeysSourceOffset = Schema.GetOffset(0x598DEA5CE4356F4C);
 
   public ref PulseVariableKeysSource_t KeysSource {
-    get => ref _Handle.AsRef<PulseVariableKeysSource_t>(_KeysSourceOffset.Value);
+    get => ref _Handle.AsRef<PulseVariableKeysSource_t>(_KeysSourceOffset);
   }
-  private static readonly Lazy<nint> _IsPublicBlackboardVariableOffset = new(() => Schema.GetOffset(0x598DEA5C9CD44561), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPublicBlackboardVariableOffset = Schema.GetOffset(0x598DEA5C9CD44561);
 
   public ref bool IsPublicBlackboardVariable {
-    get => ref _Handle.AsRef<bool>(_IsPublicBlackboardVariableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPublicBlackboardVariableOffset);
   }
-  private static readonly Lazy<nint> _IsObservableOffset = new(() => Schema.GetOffset(0x598DEA5C60684D58), LazyThreadSafetyMode.None);
+  private static readonly nint _IsObservableOffset = Schema.GetOffset(0x598DEA5C60684D58);
 
   public ref bool IsObservable {
-    get => ref _Handle.AsRef<bool>(_IsObservableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsObservableOffset);
   }
-  private static readonly Lazy<nint> _EditorNodeIDOffset = new(() => Schema.GetOffset(0x598DEA5C8D964CBD), LazyThreadSafetyMode.None);
+  private static readonly nint _EditorNodeIDOffset = Schema.GetOffset(0x598DEA5C8D964CBD);
 
   public PulseDocNodeID_t EditorNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _EditorNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _EditorNodeIDOffset);
   }
 
 

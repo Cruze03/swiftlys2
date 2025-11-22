@@ -17,45 +17,45 @@ internal partial class C_OP_PlanarConstraintImpl : CParticleFunctionConstraintIm
   public C_OP_PlanarConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PointOnPlaneOffset = new(() => Schema.GetOffset(0x1440B2AE4A5806BE), LazyThreadSafetyMode.None);
+  private static readonly nint _PointOnPlaneOffset = Schema.GetOffset(0x1440B2AE4A5806BE);
 
   public ref Vector PointOnPlane {
-    get => ref _Handle.AsRef<Vector>(_PointOnPlaneOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PointOnPlaneOffset);
   }
-  private static readonly Lazy<nint> _PlaneNormalOffset = new(() => Schema.GetOffset(0x1440B2AEEAA80062), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaneNormalOffset = Schema.GetOffset(0x1440B2AEEAA80062);
 
   public ref Vector PlaneNormal {
-    get => ref _Handle.AsRef<Vector>(_PlaneNormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PlaneNormalOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x1440B2AE3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x1440B2AE3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _GlobalOriginOffset = new(() => Schema.GetOffset(0x1440B2AEDF871518), LazyThreadSafetyMode.None);
+  private static readonly nint _GlobalOriginOffset = Schema.GetOffset(0x1440B2AEDF871518);
 
   public ref bool GlobalOrigin {
-    get => ref _Handle.AsRef<bool>(_GlobalOriginOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlobalOriginOffset);
   }
-  private static readonly Lazy<nint> _GlobalNormalOffset = new(() => Schema.GetOffset(0x1440B2AE266C15DD), LazyThreadSafetyMode.None);
+  private static readonly nint _GlobalNormalOffset = Schema.GetOffset(0x1440B2AE266C15DD);
 
   public ref bool GlobalNormal {
-    get => ref _Handle.AsRef<bool>(_GlobalNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlobalNormalOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x1440B2AEA7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x1440B2AEA7A20159);
 
   public CPerParticleFloatInput RadiusScale {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusScaleOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _MaximumDistanceToCPOffset = new(() => Schema.GetOffset(0x1440B2AE91B48FEA), LazyThreadSafetyMode.None);
+  private static readonly nint _MaximumDistanceToCPOffset = Schema.GetOffset(0x1440B2AE91B48FEA);
 
   public CParticleCollectionFloatInput MaximumDistanceToCP {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MaximumDistanceToCPOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MaximumDistanceToCPOffset);
   }
-  private static readonly Lazy<nint> _UseOldCodeOffset = new(() => Schema.GetOffset(0x1440B2AEB7886300), LazyThreadSafetyMode.None);
+  private static readonly nint _UseOldCodeOffset = Schema.GetOffset(0x1440B2AEB7886300);
 
   public ref bool UseOldCode {
-    get => ref _Handle.AsRef<bool>(_UseOldCodeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseOldCodeOffset);
   }
 
 

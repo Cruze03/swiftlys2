@@ -17,55 +17,55 @@ internal partial class CAnimUpdateSharedDataImpl : SchemaClass, CAnimUpdateShare
   public CAnimUpdateSharedDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodesOffset = new(() => Schema.GetOffset(0xA294DB47780F027A), LazyThreadSafetyMode.None);
+  private static readonly nint _NodesOffset = Schema.GetOffset(0xA294DB47780F027A);
 
   public ref CUtlVector<SchemaUntypedField> Nodes {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_NodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_NodesOffset);
   }
-  private static readonly Lazy<nint> _NodeIndexMapOffset = new(() => Schema.GetOffset(0xA294DB47D3B3E7A3), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeIndexMapOffset = Schema.GetOffset(0xA294DB47D3B3E7A3);
 
   public SchemaUntypedField NodeIndexMap {
-    get => new SchemaUntypedField(_Handle + _NodeIndexMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NodeIndexMapOffset);
   }
-  private static readonly Lazy<nint> _ComponentsOffset = new(() => Schema.GetOffset(0xA294DB47F87FC409), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentsOffset = Schema.GetOffset(0xA294DB47F87FC409);
 
   public ref CUtlVector<SchemaUntypedField> Components {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ComponentsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ComponentsOffset);
   }
-  private static readonly Lazy<nint> _ParamListUpdaterOffset = new(() => Schema.GetOffset(0xA294DB4784AA7F15), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamListUpdaterOffset = Schema.GetOffset(0xA294DB4784AA7F15);
 
   public SchemaUntypedField ParamListUpdater {
-    get => new SchemaUntypedField(_Handle + _ParamListUpdaterOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParamListUpdaterOffset);
   }
-  private static readonly Lazy<nint> _TagManagerUpdaterOffset = new(() => Schema.GetOffset(0xA294DB47432E460D), LazyThreadSafetyMode.None);
+  private static readonly nint _TagManagerUpdaterOffset = Schema.GetOffset(0xA294DB47432E460D);
 
   public SchemaUntypedField TagManagerUpdater {
-    get => new SchemaUntypedField(_Handle + _TagManagerUpdaterOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TagManagerUpdaterOffset);
   }
-  private static readonly Lazy<nint> _ScriptManagerOffset = new(() => Schema.GetOffset(0xA294DB47F4257D31), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptManagerOffset = Schema.GetOffset(0xA294DB47F4257D31);
 
   public SchemaUntypedField ScriptManager {
-    get => new SchemaUntypedField(_Handle + _ScriptManagerOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ScriptManagerOffset);
   }
-  private static readonly Lazy<nint> _SettingsOffset = new(() => Schema.GetOffset(0xA294DB47B3DE33A8), LazyThreadSafetyMode.None);
+  private static readonly nint _SettingsOffset = Schema.GetOffset(0xA294DB47B3DE33A8);
 
   public CAnimGraphSettingsManager Settings {
-    get => new CAnimGraphSettingsManagerImpl(_Handle + _SettingsOffset.Value);
+    get => new CAnimGraphSettingsManagerImpl(_Handle + _SettingsOffset);
   }
-  private static readonly Lazy<nint> _StaticPoseCacheOffset = new(() => Schema.GetOffset(0xA294DB475BFC0C1E), LazyThreadSafetyMode.None);
+  private static readonly nint _StaticPoseCacheOffset = Schema.GetOffset(0xA294DB475BFC0C1E);
 
   public SchemaUntypedField StaticPoseCache {
-    get => new SchemaUntypedField(_Handle + _StaticPoseCacheOffset.Value);
+    get => new SchemaUntypedField(_Handle + _StaticPoseCacheOffset);
   }
-  private static readonly Lazy<nint> _SkeletonOffset = new(() => Schema.GetOffset(0xA294DB4744BBF688), LazyThreadSafetyMode.None);
+  private static readonly nint _SkeletonOffset = Schema.GetOffset(0xA294DB4744BBF688);
 
   public SchemaUntypedField Skeleton {
-    get => new SchemaUntypedField(_Handle + _SkeletonOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SkeletonOffset);
   }
-  private static readonly Lazy<nint> _RootNodePathOffset = new(() => Schema.GetOffset(0xA294DB476893B9EE), LazyThreadSafetyMode.None);
+  private static readonly nint _RootNodePathOffset = Schema.GetOffset(0xA294DB476893B9EE);
 
   public CAnimNodePath RootNodePath {
-    get => new CAnimNodePathImpl(_Handle + _RootNodePathOffset.Value);
+    get => new CAnimNodePathImpl(_Handle + _RootNodePathOffset);
   }
 
 

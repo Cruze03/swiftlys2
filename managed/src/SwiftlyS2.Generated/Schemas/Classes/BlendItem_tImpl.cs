@@ -17,35 +17,35 @@ internal partial class BlendItem_tImpl : SchemaClass, BlendItem_t {
   public BlendItem_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0x8FC3054B46C8540), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0x8FC3054B46C8540);
 
   public ref CUtlVector<TagSpan_t> Tags {
-    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset);
   }
-  private static readonly Lazy<nint> _ChildOffset = new(() => Schema.GetOffset(0x8FC30544A0B773F), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildOffset = Schema.GetOffset(0x8FC30544A0B773F);
 
   public CAnimUpdateNodeRef Child {
-    get => new CAnimUpdateNodeRefImpl(_Handle + _ChildOffset.Value);
+    get => new CAnimUpdateNodeRefImpl(_Handle + _ChildOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x8FC3054E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x8FC3054E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _PosOffset = new(() => Schema.GetOffset(0x8FC3054DE9CFC5D), LazyThreadSafetyMode.None);
+  private static readonly nint _PosOffset = Schema.GetOffset(0x8FC3054DE9CFC5D);
 
   public ref Vector2D Pos {
-    get => ref _Handle.AsRef<Vector2D>(_PosOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_PosOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x8FC3054BC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x8FC3054BC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _UseCustomDurationOffset = new(() => Schema.GetOffset(0x8FC3054F9BF05AB), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCustomDurationOffset = Schema.GetOffset(0x8FC3054F9BF05AB);
 
   public ref bool UseCustomDuration {
-    get => ref _Handle.AsRef<bool>(_UseCustomDurationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCustomDurationOffset);
   }
 
 

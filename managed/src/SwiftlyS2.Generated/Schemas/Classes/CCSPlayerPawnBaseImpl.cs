@@ -17,83 +17,83 @@ internal partial class CCSPlayerPawnBaseImpl : CBasePlayerPawnImpl, CCSPlayerPaw
   public CCSPlayerPawnBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CTouchExpansionComponentOffset = new(() => Schema.GetOffset(0xD8F889768A159531), LazyThreadSafetyMode.None);
+  private static readonly nint _CTouchExpansionComponentOffset = Schema.GetOffset(0xD8F889768A159531);
 
   public CTouchExpansionComponent CTouchExpansionComponent {
-    get => new CTouchExpansionComponentImpl(_Handle + _CTouchExpansionComponentOffset.Value);
+    get => new CTouchExpansionComponentImpl(_Handle + _CTouchExpansionComponentOffset);
   }
-  private static readonly Lazy<nint> _PingServicesOffset = new(() => Schema.GetOffset(0xD8F889767A1487DF), LazyThreadSafetyMode.None);
+  private static readonly nint _PingServicesOffset = Schema.GetOffset(0xD8F889767A1487DF);
 
   public CCSPlayer_PingServices? PingServices {
     get {
-      var ptr = _Handle.Read<nint>(_PingServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_PingServicesOffset);
       return ptr.IsValidPtr() ? new CCSPlayer_PingServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _BlindUntilTimeOffset = new(() => Schema.GetOffset(0xD8F889765869ECC5), LazyThreadSafetyMode.None);
+  private static readonly nint _BlindUntilTimeOffset = Schema.GetOffset(0xD8F889765869ECC5);
 
   public GameTime_t BlindUntilTime {
-    get => new GameTime_tImpl(_Handle + _BlindUntilTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _BlindUntilTimeOffset);
   }
-  private static readonly Lazy<nint> _BlindStartTimeOffset = new(() => Schema.GetOffset(0xD8F88976540D0351), LazyThreadSafetyMode.None);
+  private static readonly nint _BlindStartTimeOffset = Schema.GetOffset(0xD8F88976540D0351);
 
   public GameTime_t BlindStartTime {
-    get => new GameTime_tImpl(_Handle + _BlindStartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _BlindStartTimeOffset);
   }
-  private static readonly Lazy<nint> _PlayerStateOffset = new(() => Schema.GetOffset(0xD8F889769F641BBA), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerStateOffset = Schema.GetOffset(0xD8F889769F641BBA);
 
   public ref CSPlayerState PlayerState {
-    get => ref _Handle.AsRef<CSPlayerState>(_PlayerStateOffset.Value);
+    get => ref _Handle.AsRef<CSPlayerState>(_PlayerStateOffset);
   }
-  private static readonly Lazy<nint> _RespawningOffset = new(() => Schema.GetOffset(0xD8F889769E9D7B99), LazyThreadSafetyMode.None);
+  private static readonly nint _RespawningOffset = Schema.GetOffset(0xD8F889769E9D7B99);
 
   public ref bool Respawning {
-    get => ref _Handle.AsRef<bool>(_RespawningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RespawningOffset);
   }
-  private static readonly Lazy<nint> _HasMovedSinceSpawnOffset = new(() => Schema.GetOffset(0xD8F889763D3B1C13), LazyThreadSafetyMode.None);
+  private static readonly nint _HasMovedSinceSpawnOffset = Schema.GetOffset(0xD8F889763D3B1C13);
 
   public ref bool HasMovedSinceSpawn {
-    get => ref _Handle.AsRef<bool>(_HasMovedSinceSpawnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasMovedSinceSpawnOffset);
   }
-  private static readonly Lazy<nint> _NumSpawnsOffset = new(() => Schema.GetOffset(0xD8F8897605DCE1E8), LazyThreadSafetyMode.None);
+  private static readonly nint _NumSpawnsOffset = Schema.GetOffset(0xD8F8897605DCE1E8);
 
   public ref int NumSpawns {
-    get => ref _Handle.AsRef<int>(_NumSpawnsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumSpawnsOffset);
   }
-  private static readonly Lazy<nint> _IdleTimeSinceLastActionOffset = new(() => Schema.GetOffset(0xD8F8897672DE4B20), LazyThreadSafetyMode.None);
+  private static readonly nint _IdleTimeSinceLastActionOffset = Schema.GetOffset(0xD8F8897672DE4B20);
 
   public ref float IdleTimeSinceLastAction {
-    get => ref _Handle.AsRef<float>(_IdleTimeSinceLastActionOffset.Value);
+    get => ref _Handle.AsRef<float>(_IdleTimeSinceLastActionOffset);
   }
-  private static readonly Lazy<nint> _NextRadarUpdateTimeOffset = new(() => Schema.GetOffset(0xD8F889760D6C11B8), LazyThreadSafetyMode.None);
+  private static readonly nint _NextRadarUpdateTimeOffset = Schema.GetOffset(0xD8F889760D6C11B8);
 
   public ref float NextRadarUpdateTime {
-    get => ref _Handle.AsRef<float>(_NextRadarUpdateTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_NextRadarUpdateTimeOffset);
   }
-  private static readonly Lazy<nint> _FlashDurationOffset = new(() => Schema.GetOffset(0xD8F88976E5A995FB), LazyThreadSafetyMode.None);
+  private static readonly nint _FlashDurationOffset = Schema.GetOffset(0xD8F88976E5A995FB);
 
   public ref float FlashDuration {
-    get => ref _Handle.AsRef<float>(_FlashDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_FlashDurationOffset);
   }
-  private static readonly Lazy<nint> _FlashMaxAlphaOffset = new(() => Schema.GetOffset(0xD8F889763DCF0D29), LazyThreadSafetyMode.None);
+  private static readonly nint _FlashMaxAlphaOffset = Schema.GetOffset(0xD8F889763DCF0D29);
 
   public ref float FlashMaxAlpha {
-    get => ref _Handle.AsRef<float>(_FlashMaxAlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_FlashMaxAlphaOffset);
   }
-  private static readonly Lazy<nint> _ProgressBarStartTimeOffset = new(() => Schema.GetOffset(0xD8F889768148DE8E), LazyThreadSafetyMode.None);
+  private static readonly nint _ProgressBarStartTimeOffset = Schema.GetOffset(0xD8F889768148DE8E);
 
   public ref float ProgressBarStartTime {
-    get => ref _Handle.AsRef<float>(_ProgressBarStartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_ProgressBarStartTimeOffset);
   }
-  private static readonly Lazy<nint> _ProgressBarDurationOffset = new(() => Schema.GetOffset(0xD8F88976BCF340B0), LazyThreadSafetyMode.None);
+  private static readonly nint _ProgressBarDurationOffset = Schema.GetOffset(0xD8F88976BCF340B0);
 
   public ref int ProgressBarDuration {
-    get => ref _Handle.AsRef<int>(_ProgressBarDurationOffset.Value);
+    get => ref _Handle.AsRef<int>(_ProgressBarDurationOffset);
   }
-  private static readonly Lazy<nint> _OriginalControllerOffset = new(() => Schema.GetOffset(0xD8F88976511FAE4C), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalControllerOffset = Schema.GetOffset(0xD8F88976511FAE4C);
 
   public ref CHandle<CCSPlayerController> OriginalController {
-    get => ref _Handle.AsRef<CHandle<CCSPlayerController>>(_OriginalControllerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CCSPlayerController>>(_OriginalControllerOffset);
   }
 
   public void CTouchExpansionComponentUpdated() {

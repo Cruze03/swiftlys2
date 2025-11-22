@@ -17,10 +17,10 @@ internal partial class VMixEffectChainDesc_tImpl : SchemaClass, VMixEffectChainD
   public VMixEffectChainDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CrossfadeTimeOffset = new(() => Schema.GetOffset(0x993FEE3C5C1DD52), LazyThreadSafetyMode.None);
+  private static readonly nint _CrossfadeTimeOffset = Schema.GetOffset(0x993FEE3C5C1DD52);
 
   public ref float CrossfadeTime {
-    get => ref _Handle.AsRef<float>(_CrossfadeTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_CrossfadeTimeOffset);
   }
 
 

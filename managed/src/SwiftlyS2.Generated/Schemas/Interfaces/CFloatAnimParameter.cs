@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFloatAnimParameter : CConcreteAnimParameter, ISchemaClass<CFloatAnimParameter> {
 
   static CFloatAnimParameter ISchemaClass<CFloatAnimParameter>.From(nint handle) => new CFloatAnimParameterImpl(handle);
-  static int ISchemaClass<CFloatAnimParameter>.Size => 136;
+  static int ISchemaClass<CFloatAnimParameter>.Size => 144;
   static string? ISchemaClass<CFloatAnimParameter>.ClassName => null;
 
   

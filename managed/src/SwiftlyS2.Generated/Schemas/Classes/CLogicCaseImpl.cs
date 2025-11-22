@@ -17,37 +17,37 @@ internal partial class CLogicCaseImpl : CLogicalEntityImpl, CLogicCase {
   public CLogicCaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CaseOffset = new(() => Schema.GetOffset(0x4B6BB20CBD726255), LazyThreadSafetyMode.None);
+  private static readonly nint _CaseOffset = Schema.GetOffset(0x4B6BB20CBD726255);
 
   public string Case {
     get {
-      var ptr = _Handle.Read<nint>(_CaseOffset.Value);
+      var ptr = _Handle.Read<nint>(_CaseOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CaseOffset.Value, value);
+    set => Schema.SetString(_Handle, _CaseOffset, value);
   } 
-  private static readonly Lazy<nint> _ShuffleCasesOffset = new(() => Schema.GetOffset(0x4B6BB20C3441354F), LazyThreadSafetyMode.None);
+  private static readonly nint _ShuffleCasesOffset = Schema.GetOffset(0x4B6BB20C3441354F);
 
   public ref int ShuffleCases {
-    get => ref _Handle.AsRef<int>(_ShuffleCasesOffset.Value);
+    get => ref _Handle.AsRef<int>(_ShuffleCasesOffset);
   }
-  private static readonly Lazy<nint> _LastShuffleCaseOffset = new(() => Schema.GetOffset(0x4B6BB20C053CE392), LazyThreadSafetyMode.None);
+  private static readonly nint _LastShuffleCaseOffset = Schema.GetOffset(0x4B6BB20C053CE392);
 
   public ref int LastShuffleCase {
-    get => ref _Handle.AsRef<int>(_LastShuffleCaseOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastShuffleCaseOffset);
   }
   public ISchemaFixedArray<byte> UchShuffleCaseMap {
     get => new SchemaFixedArray<byte>(_Handle, 0x4B6BB20CF9FC41AE, 32, 1, 1);
   }
-  private static readonly Lazy<nint> _OnCaseOffset = new(() => Schema.GetOffset(0x4B6BB20CF8743C7C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCaseOffset = Schema.GetOffset(0x4B6BB20CF8743C7C);
 
   public SchemaUntypedField OnCase {
-    get => new SchemaUntypedField(_Handle + _OnCaseOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnCaseOffset);
   }
-  private static readonly Lazy<nint> _OnDefaultOffset = new(() => Schema.GetOffset(0x4B6BB20C4B03C3CD), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDefaultOffset = Schema.GetOffset(0x4B6BB20C4B03C3CD);
 
   public SchemaUntypedField OnDefault {
-    get => new SchemaUntypedField(_Handle + _OnDefaultOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnDefaultOffset);
   }
 
 

@@ -17,89 +17,89 @@ internal partial class CParticleFunctionImpl : SchemaClass, CParticleFunction {
   public CParticleFunctionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpStrengthOffset = new(() => Schema.GetOffset(0x4E0CACB41DD56291), LazyThreadSafetyMode.None);
+  private static readonly nint _OpStrengthOffset = Schema.GetOffset(0x4E0CACB41DD56291);
 
   public CParticleCollectionFloatInput OpStrength {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _OpStrengthOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _OpStrengthOffset);
   }
-  private static readonly Lazy<nint> _OpEndCapStateOffset = new(() => Schema.GetOffset(0x4E0CACB45CC37252), LazyThreadSafetyMode.None);
+  private static readonly nint _OpEndCapStateOffset = Schema.GetOffset(0x4E0CACB45CC37252);
 
   public ref ParticleEndcapMode_t OpEndCapState {
-    get => ref _Handle.AsRef<ParticleEndcapMode_t>(_OpEndCapStateOffset.Value);
+    get => ref _Handle.AsRef<ParticleEndcapMode_t>(_OpEndCapStateOffset);
   }
-  private static readonly Lazy<nint> _OpStartFadeInTimeOffset = new(() => Schema.GetOffset(0x4E0CACB419F734B4), LazyThreadSafetyMode.None);
+  private static readonly nint _OpStartFadeInTimeOffset = Schema.GetOffset(0x4E0CACB419F734B4);
 
   public ref float OpStartFadeInTime {
-    get => ref _Handle.AsRef<float>(_OpStartFadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpStartFadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _OpEndFadeInTimeOffset = new(() => Schema.GetOffset(0x4E0CACB4ACF7C409), LazyThreadSafetyMode.None);
+  private static readonly nint _OpEndFadeInTimeOffset = Schema.GetOffset(0x4E0CACB4ACF7C409);
 
   public ref float OpEndFadeInTime {
-    get => ref _Handle.AsRef<float>(_OpEndFadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpEndFadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _OpStartFadeOutTimeOffset = new(() => Schema.GetOffset(0x4E0CACB4708F42B7), LazyThreadSafetyMode.None);
+  private static readonly nint _OpStartFadeOutTimeOffset = Schema.GetOffset(0x4E0CACB4708F42B7);
 
   public ref float OpStartFadeOutTime {
-    get => ref _Handle.AsRef<float>(_OpStartFadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpStartFadeOutTimeOffset);
   }
-  private static readonly Lazy<nint> _OpEndFadeOutTimeOffset = new(() => Schema.GetOffset(0x4E0CACB451633BD4), LazyThreadSafetyMode.None);
+  private static readonly nint _OpEndFadeOutTimeOffset = Schema.GetOffset(0x4E0CACB451633BD4);
 
   public ref float OpEndFadeOutTime {
-    get => ref _Handle.AsRef<float>(_OpEndFadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpEndFadeOutTimeOffset);
   }
-  private static readonly Lazy<nint> _OpFadeOscillatePeriodOffset = new(() => Schema.GetOffset(0x4E0CACB441341EE1), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFadeOscillatePeriodOffset = Schema.GetOffset(0x4E0CACB441341EE1);
 
   public ref float OpFadeOscillatePeriod {
-    get => ref _Handle.AsRef<float>(_OpFadeOscillatePeriodOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpFadeOscillatePeriodOffset);
   }
-  private static readonly Lazy<nint> _NormalizeToStopTimeOffset = new(() => Schema.GetOffset(0x4E0CACB42195F2E4), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeToStopTimeOffset = Schema.GetOffset(0x4E0CACB42195F2E4);
 
   public ref bool NormalizeToStopTime {
-    get => ref _Handle.AsRef<bool>(_NormalizeToStopTimeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeToStopTimeOffset);
   }
-  private static readonly Lazy<nint> _OpTimeOffsetMinOffset = new(() => Schema.GetOffset(0x4E0CACB4D764CFA2), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeOffsetMinOffset = Schema.GetOffset(0x4E0CACB4D764CFA2);
 
   public ref float OpTimeOffsetMin {
-    get => ref _Handle.AsRef<float>(_OpTimeOffsetMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpTimeOffsetMinOffset);
   }
-  private static readonly Lazy<nint> _OpTimeOffsetMaxOffset = new(() => Schema.GetOffset(0x4E0CACB4C1512548), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeOffsetMaxOffset = Schema.GetOffset(0x4E0CACB4C1512548);
 
   public ref float OpTimeOffsetMax {
-    get => ref _Handle.AsRef<float>(_OpTimeOffsetMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpTimeOffsetMaxOffset);
   }
-  private static readonly Lazy<nint> _OpTimeOffsetSeedOffset = new(() => Schema.GetOffset(0x4E0CACB4EB255BD9), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeOffsetSeedOffset = Schema.GetOffset(0x4E0CACB4EB255BD9);
 
   public ref int OpTimeOffsetSeed {
-    get => ref _Handle.AsRef<int>(_OpTimeOffsetSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_OpTimeOffsetSeedOffset);
   }
-  private static readonly Lazy<nint> _OpTimeScaleSeedOffset = new(() => Schema.GetOffset(0x4E0CACB43A25FF8A), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeScaleSeedOffset = Schema.GetOffset(0x4E0CACB43A25FF8A);
 
   public ref int OpTimeScaleSeed {
-    get => ref _Handle.AsRef<int>(_OpTimeScaleSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_OpTimeScaleSeedOffset);
   }
-  private static readonly Lazy<nint> _OpTimeScaleMinOffset = new(() => Schema.GetOffset(0x4E0CACB44A95534F), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeScaleMinOffset = Schema.GetOffset(0x4E0CACB44A95534F);
 
   public ref float OpTimeScaleMin {
-    get => ref _Handle.AsRef<float>(_OpTimeScaleMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpTimeScaleMinOffset);
   }
-  private static readonly Lazy<nint> _OpTimeScaleMaxOffset = new(() => Schema.GetOffset(0x4E0CACB43881AF41), LazyThreadSafetyMode.None);
+  private static readonly nint _OpTimeScaleMaxOffset = Schema.GetOffset(0x4E0CACB43881AF41);
 
   public ref float OpTimeScaleMax {
-    get => ref _Handle.AsRef<float>(_OpTimeScaleMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpTimeScaleMaxOffset);
   }
-  private static readonly Lazy<nint> _DisableOperatorOffset = new(() => Schema.GetOffset(0x4E0CACB49F141CC3), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableOperatorOffset = Schema.GetOffset(0x4E0CACB49F141CC3);
 
   public ref bool DisableOperator {
-    get => ref _Handle.AsRef<bool>(_DisableOperatorOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableOperatorOffset);
   }
-  private static readonly Lazy<nint> _NotesOffset = new(() => Schema.GetOffset(0x4E0CACB41DD3144A), LazyThreadSafetyMode.None);
+  private static readonly nint _NotesOffset = Schema.GetOffset(0x4E0CACB41DD3144A);
 
   public string Notes {
     get {
-      var ptr = _Handle.Read<nint>(_NotesOffset.Value);
+      var ptr = _Handle.Read<nint>(_NotesOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NotesOffset.Value, value);
+    set => Schema.SetString(_Handle, _NotesOffset, value);
   } 
 
 

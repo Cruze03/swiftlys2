@@ -17,15 +17,15 @@ internal partial class EntityRenderAttribute_tImpl : SchemaClass, EntityRenderAt
   public EntityRenderAttribute_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IDOffset = new(() => Schema.GetOffset(0xBC8CD39195066900), LazyThreadSafetyMode.None);
+  private static readonly nint _IDOffset = Schema.GetOffset(0xBC8CD39195066900);
 
   public ref CUtlStringToken ID {
-    get => ref _Handle.AsRef<CUtlStringToken>(_IDOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_IDOffset);
   }
-  private static readonly Lazy<nint> _ValuesOffset = new(() => Schema.GetOffset(0xBC8CD391A2E804BB), LazyThreadSafetyMode.None);
+  private static readonly nint _ValuesOffset = Schema.GetOffset(0xBC8CD391A2E804BB);
 
   public ref Vector4D Values {
-    get => ref _Handle.AsRef<Vector4D>(_ValuesOffset.Value);
+    get => ref _Handle.AsRef<Vector4D>(_ValuesOffset);
   }
 
   public void IDUpdated() {

@@ -17,30 +17,30 @@ internal partial class CNmFloatSelectorNode__CDefinitionImpl : CNmFloatValueNode
   public CNmFloatSelectorNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConditionNodeIndicesOffset = new(() => Schema.GetOffset(0xA387F8324A144D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionNodeIndicesOffset = Schema.GetOffset(0xA387F8324A144D0F);
 
   public SchemaUntypedField ConditionNodeIndices {
-    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset);
   }
-  private static readonly Lazy<nint> _ValuesOffset = new(() => Schema.GetOffset(0xA387F832FBEDDADB), LazyThreadSafetyMode.None);
+  private static readonly nint _ValuesOffset = Schema.GetOffset(0xA387F832FBEDDADB);
 
   public SchemaUntypedField Values {
-    get => new SchemaUntypedField(_Handle + _ValuesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValuesOffset);
   }
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0xA387F832700AB429), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0xA387F832700AB429);
 
   public ref float DefaultValue {
-    get => ref _Handle.AsRef<float>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _EaseTimeOffset = new(() => Schema.GetOffset(0xA387F832D0A54FCC), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseTimeOffset = Schema.GetOffset(0xA387F832D0A54FCC);
 
   public ref float EaseTime {
-    get => ref _Handle.AsRef<float>(_EaseTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EaseTimeOffset);
   }
-  private static readonly Lazy<nint> _EasingOpOffset = new(() => Schema.GetOffset(0xA387F832CF457EAF), LazyThreadSafetyMode.None);
+  private static readonly nint _EasingOpOffset = Schema.GetOffset(0xA387F832CF457EAF);
 
   public ref NmEasingOperation_t EasingOp {
-    get => ref _Handle.AsRef<NmEasingOperation_t>(_EasingOpOffset.Value);
+    get => ref _Handle.AsRef<NmEasingOperation_t>(_EasingOpOffset);
   }
 
 

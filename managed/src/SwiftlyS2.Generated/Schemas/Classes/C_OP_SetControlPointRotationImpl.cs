@@ -17,25 +17,25 @@ internal partial class C_OP_SetControlPointRotationImpl : CParticleFunctionPreEm
   public C_OP_SetControlPointRotationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RotAxisOffset = new(() => Schema.GetOffset(0x8F20B2F891872163), LazyThreadSafetyMode.None);
+  private static readonly nint _RotAxisOffset = Schema.GetOffset(0x8F20B2F891872163);
 
   public CParticleCollectionVecInput RotAxis {
-    get => new CParticleCollectionVecInputImpl(_Handle + _RotAxisOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _RotAxisOffset);
   }
-  private static readonly Lazy<nint> _RotRateOffset = new(() => Schema.GetOffset(0x8F20B2F86747B556), LazyThreadSafetyMode.None);
+  private static readonly nint _RotRateOffset = Schema.GetOffset(0x8F20B2F86747B556);
 
   public CParticleCollectionFloatInput RotRate {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RotRateOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RotRateOffset);
   }
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x8F20B2F8EB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x8F20B2F8EB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _LocalCPOffset = new(() => Schema.GetOffset(0x8F20B2F8ACAAFF8F), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCPOffset = Schema.GetOffset(0x8F20B2F8ACAAFF8F);
 
   public ref int LocalCP {
-    get => ref _Handle.AsRef<int>(_LocalCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalCPOffset);
   }
 
 

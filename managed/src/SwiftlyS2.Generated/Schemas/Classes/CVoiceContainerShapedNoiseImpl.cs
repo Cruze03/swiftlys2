@@ -17,50 +17,50 @@ internal partial class CVoiceContainerShapedNoiseImpl : CVoiceContainerBaseImpl,
   public CVoiceContainerShapedNoiseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseCurveForFrequencyOffset = new(() => Schema.GetOffset(0xC58213629099DACC), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCurveForFrequencyOffset = Schema.GetOffset(0xC58213629099DACC);
 
   public ref bool UseCurveForFrequency {
-    get => ref _Handle.AsRef<bool>(_UseCurveForFrequencyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCurveForFrequencyOffset);
   }
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0xC5821362D2C16DD7), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0xC5821362D2C16DD7);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _FrequencySweepOffset = new(() => Schema.GetOffset(0xC5821362B670CD0F), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencySweepOffset = Schema.GetOffset(0xC5821362B670CD0F);
 
   public SchemaUntypedField FrequencySweep {
-    get => new SchemaUntypedField(_Handle + _FrequencySweepOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrequencySweepOffset);
   }
-  private static readonly Lazy<nint> _UseCurveForResonanceOffset = new(() => Schema.GetOffset(0xC582136265C91FBE), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCurveForResonanceOffset = Schema.GetOffset(0xC582136265C91FBE);
 
   public ref bool UseCurveForResonance {
-    get => ref _Handle.AsRef<bool>(_UseCurveForResonanceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCurveForResonanceOffset);
   }
-  private static readonly Lazy<nint> _ResonanceOffset = new(() => Schema.GetOffset(0xC582136283BEE2DD), LazyThreadSafetyMode.None);
+  private static readonly nint _ResonanceOffset = Schema.GetOffset(0xC582136283BEE2DD);
 
   public ref float Resonance {
-    get => ref _Handle.AsRef<float>(_ResonanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_ResonanceOffset);
   }
-  private static readonly Lazy<nint> _ResonanceSweepOffset = new(() => Schema.GetOffset(0xC582136250CFD679), LazyThreadSafetyMode.None);
+  private static readonly nint _ResonanceSweepOffset = Schema.GetOffset(0xC582136250CFD679);
 
   public SchemaUntypedField ResonanceSweep {
-    get => new SchemaUntypedField(_Handle + _ResonanceSweepOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ResonanceSweepOffset);
   }
-  private static readonly Lazy<nint> _UseCurveForAmplitudeOffset = new(() => Schema.GetOffset(0xC5821362F8970DD3), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCurveForAmplitudeOffset = Schema.GetOffset(0xC5821362F8970DD3);
 
   public ref bool UseCurveForAmplitude {
-    get => ref _Handle.AsRef<bool>(_UseCurveForAmplitudeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCurveForAmplitudeOffset);
   }
-  private static readonly Lazy<nint> _GainInDecibelsOffset = new(() => Schema.GetOffset(0xC5821362528C3F88), LazyThreadSafetyMode.None);
+  private static readonly nint _GainInDecibelsOffset = Schema.GetOffset(0xC5821362528C3F88);
 
   public ref float GainInDecibels {
-    get => ref _Handle.AsRef<float>(_GainInDecibelsOffset.Value);
+    get => ref _Handle.AsRef<float>(_GainInDecibelsOffset);
   }
-  private static readonly Lazy<nint> _GainSweepOffset = new(() => Schema.GetOffset(0xC582136246A13F7A), LazyThreadSafetyMode.None);
+  private static readonly nint _GainSweepOffset = Schema.GetOffset(0xC582136246A13F7A);
 
   public SchemaUntypedField GainSweep {
-    get => new SchemaUntypedField(_Handle + _GainSweepOffset.Value);
+    get => new SchemaUntypedField(_Handle + _GainSweepOffset);
   }
 
 

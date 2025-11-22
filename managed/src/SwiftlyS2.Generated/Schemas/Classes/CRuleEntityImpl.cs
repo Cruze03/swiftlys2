@@ -17,14 +17,14 @@ internal partial class CRuleEntityImpl : CBaseModelEntityImpl, CRuleEntity {
   public CRuleEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MasterOffset = new(() => Schema.GetOffset(0x5C9BFE2FAC57FE5B), LazyThreadSafetyMode.None);
+  private static readonly nint _MasterOffset = Schema.GetOffset(0x5C9BFE2FAC57FE5B);
 
   public string Master {
     get {
-      var ptr = _Handle.Read<nint>(_MasterOffset.Value);
+      var ptr = _Handle.Read<nint>(_MasterOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MasterOffset.Value, value);
+    set => Schema.SetString(_Handle, _MasterOffset, value);
   } 
 
 

@@ -17,14 +17,14 @@ internal partial class COrnamentPropImpl : CDynamicPropImpl, COrnamentProp {
   public COrnamentPropImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InitialOwnerOffset = new(() => Schema.GetOffset(0x1B8675B7BAA055D6), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialOwnerOffset = Schema.GetOffset(0x1B8675B7BAA055D6);
 
   public string InitialOwner {
     get {
-      var ptr = _Handle.Read<nint>(_InitialOwnerOffset.Value);
+      var ptr = _Handle.Read<nint>(_InitialOwnerOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InitialOwnerOffset.Value, value);
+    set => Schema.SetString(_Handle, _InitialOwnerOffset, value);
   } 
 
 

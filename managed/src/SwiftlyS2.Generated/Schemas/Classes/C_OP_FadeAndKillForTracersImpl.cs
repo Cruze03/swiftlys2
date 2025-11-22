@@ -17,35 +17,35 @@ internal partial class C_OP_FadeAndKillForTracersImpl : CParticleFunctionOperato
   public C_OP_FadeAndKillForTracersImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartFadeInTimeOffset = new(() => Schema.GetOffset(0x776267EF39639779), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFadeInTimeOffset = Schema.GetOffset(0x776267EF39639779);
 
   public ref float StartFadeInTime {
-    get => ref _Handle.AsRef<float>(_StartFadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _EndFadeInTimeOffset = new(() => Schema.GetOffset(0x776267EF36A35C84), LazyThreadSafetyMode.None);
+  private static readonly nint _EndFadeInTimeOffset = Schema.GetOffset(0x776267EF36A35C84);
 
   public ref float EndFadeInTime {
-    get => ref _Handle.AsRef<float>(_EndFadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndFadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _StartFadeOutTimeOffset = new(() => Schema.GetOffset(0x776267EF6ABCF324), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFadeOutTimeOffset = Schema.GetOffset(0x776267EF6ABCF324);
 
   public ref float StartFadeOutTime {
-    get => ref _Handle.AsRef<float>(_StartFadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFadeOutTimeOffset);
   }
-  private static readonly Lazy<nint> _EndFadeOutTimeOffset = new(() => Schema.GetOffset(0x776267EFFE87D7E7), LazyThreadSafetyMode.None);
+  private static readonly nint _EndFadeOutTimeOffset = Schema.GetOffset(0x776267EFFE87D7E7);
 
   public ref float EndFadeOutTime {
-    get => ref _Handle.AsRef<float>(_EndFadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndFadeOutTimeOffset);
   }
-  private static readonly Lazy<nint> _StartAlphaOffset = new(() => Schema.GetOffset(0x776267EF6A7A5D0B), LazyThreadSafetyMode.None);
+  private static readonly nint _StartAlphaOffset = Schema.GetOffset(0x776267EF6A7A5D0B);
 
   public ref float StartAlpha {
-    get => ref _Handle.AsRef<float>(_StartAlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartAlphaOffset);
   }
-  private static readonly Lazy<nint> _EndAlphaOffset = new(() => Schema.GetOffset(0x776267EF7A639CC0), LazyThreadSafetyMode.None);
+  private static readonly nint _EndAlphaOffset = Schema.GetOffset(0x776267EF7A639CC0);
 
   public ref float EndAlpha {
-    get => ref _Handle.AsRef<float>(_EndAlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndAlphaOffset);
   }
 
 

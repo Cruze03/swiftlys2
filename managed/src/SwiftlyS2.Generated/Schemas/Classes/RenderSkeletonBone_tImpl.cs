@@ -17,38 +17,38 @@ internal partial class RenderSkeletonBone_tImpl : SchemaClass, RenderSkeletonBon
   public RenderSkeletonBone_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0x6A3BCC9BFDEE0E0C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0x6A3BCC9BFDEE0E0C);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ParentNameOffset = new(() => Schema.GetOffset(0x6A3BCC9BC45C5BBE), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentNameOffset = Schema.GetOffset(0x6A3BCC9BC45C5BBE);
 
   public string ParentName {
     get {
-      var ptr = _Handle.Read<nint>(_ParentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParentNameOffset, value);
   } 
-  private static readonly Lazy<nint> _InvBindPoseOffset = new(() => Schema.GetOffset(0x6A3BCC9B265CACBE), LazyThreadSafetyMode.None);
+  private static readonly nint _InvBindPoseOffset = Schema.GetOffset(0x6A3BCC9B265CACBE);
 
   public ref matrix3x4_t InvBindPose {
-    get => ref _Handle.AsRef<matrix3x4_t>(_InvBindPoseOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_InvBindPoseOffset);
   }
-  private static readonly Lazy<nint> _BboxOffset = new(() => Schema.GetOffset(0x6A3BCC9B39392A72), LazyThreadSafetyMode.None);
+  private static readonly nint _BboxOffset = Schema.GetOffset(0x6A3BCC9B39392A72);
 
   public SkeletonBoneBounds_t Bbox {
-    get => new SkeletonBoneBounds_tImpl(_Handle + _BboxOffset.Value);
+    get => new SkeletonBoneBounds_tImpl(_Handle + _BboxOffset);
   }
-  private static readonly Lazy<nint> _SphereRadiusOffset = new(() => Schema.GetOffset(0x6A3BCC9B7AF55658), LazyThreadSafetyMode.None);
+  private static readonly nint _SphereRadiusOffset = Schema.GetOffset(0x6A3BCC9B7AF55658);
 
   public ref float SphereRadius {
-    get => ref _Handle.AsRef<float>(_SphereRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_SphereRadiusOffset);
   }
 
 

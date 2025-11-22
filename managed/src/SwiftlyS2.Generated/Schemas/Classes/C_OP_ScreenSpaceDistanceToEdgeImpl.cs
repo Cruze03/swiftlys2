@@ -17,25 +17,25 @@ internal partial class C_OP_ScreenSpaceDistanceToEdgeImpl : CParticleFunctionOpe
   public C_OP_ScreenSpaceDistanceToEdgeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x5525036EE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x5525036EE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _MaxDistFromEdgeOffset = new(() => Schema.GetOffset(0x5525036E3E73EC16), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistFromEdgeOffset = Schema.GetOffset(0x5525036E3E73EC16);
 
   public CPerParticleFloatInput MaxDistFromEdge {
-    get => new CPerParticleFloatInputImpl(_Handle + _MaxDistFromEdgeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MaxDistFromEdgeOffset);
   }
-  private static readonly Lazy<nint> _OutputRemapOffset = new(() => Schema.GetOffset(0x5525036E1239396F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRemapOffset = Schema.GetOffset(0x5525036E1239396F);
 
   public CParticleRemapFloatInput OutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x5525036EFB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x5525036EFB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
 
 

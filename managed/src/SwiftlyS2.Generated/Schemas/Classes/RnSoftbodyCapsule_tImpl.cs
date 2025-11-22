@@ -20,10 +20,10 @@ internal partial class RnSoftbodyCapsule_tImpl : SchemaClass, RnSoftbodyCapsule_
   public ISchemaFixedArray<Vector> Center {
     get => new SchemaFixedArray<Vector>(_Handle, 0x896978BC82A5908, 2, 12, 4);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x896978B5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x896978B5ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
   public ISchemaFixedArray<ushort> Particle {
     get => new SchemaFixedArray<ushort>(_Handle, 0x896978B863A8E83, 2, 2, 2);

@@ -17,25 +17,25 @@ internal partial class C_OP_LerpScalarImpl : CParticleFunctionOperatorImpl, C_OP
   public C_OP_LerpScalarImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xB2C648D4E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xB2C648D4E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputOffset = new(() => Schema.GetOffset(0xB2C648D4368F96A2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputOffset = Schema.GetOffset(0xB2C648D4368F96A2);
 
   public CPerParticleFloatInput Output {
-    get => new CPerParticleFloatInputImpl(_Handle + _OutputOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OutputOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xB2C648D467FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xB2C648D467FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0xB2C648D42041DF9D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0xB2C648D42041DF9D);
 
   public ref float EndTime {
-    get => ref _Handle.AsRef<float>(_EndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTimeOffset);
   }
 
 

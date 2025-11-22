@@ -17,35 +17,35 @@ internal partial class CLogicCompareImpl : CLogicalEntityImpl, CLogicCompare {
   public CLogicCompareImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InValueOffset = new(() => Schema.GetOffset(0xCEFDBF2F414AD5ED), LazyThreadSafetyMode.None);
+  private static readonly nint _InValueOffset = Schema.GetOffset(0xCEFDBF2F414AD5ED);
 
   public ref float InValue {
-    get => ref _Handle.AsRef<float>(_InValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_InValueOffset);
   }
-  private static readonly Lazy<nint> _CompareValueOffset = new(() => Schema.GetOffset(0xCEFDBF2F42C0882F), LazyThreadSafetyMode.None);
+  private static readonly nint _CompareValueOffset = Schema.GetOffset(0xCEFDBF2F42C0882F);
 
   public ref float CompareValue {
-    get => ref _Handle.AsRef<float>(_CompareValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_CompareValueOffset);
   }
-  private static readonly Lazy<nint> _OnLessThanOffset = new(() => Schema.GetOffset(0xCEFDBF2FB6AC02FE), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLessThanOffset = Schema.GetOffset(0xCEFDBF2FB6AC02FE);
 
   public SchemaUntypedField OnLessThan {
-    get => new SchemaUntypedField(_Handle + _OnLessThanOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnLessThanOffset);
   }
-  private static readonly Lazy<nint> _OnEqualToOffset = new(() => Schema.GetOffset(0xCEFDBF2F87EEC581), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEqualToOffset = Schema.GetOffset(0xCEFDBF2F87EEC581);
 
   public SchemaUntypedField OnEqualTo {
-    get => new SchemaUntypedField(_Handle + _OnEqualToOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnEqualToOffset);
   }
-  private static readonly Lazy<nint> _OnNotEqualToOffset = new(() => Schema.GetOffset(0xCEFDBF2FDA1680D6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnNotEqualToOffset = Schema.GetOffset(0xCEFDBF2FDA1680D6);
 
   public SchemaUntypedField OnNotEqualTo {
-    get => new SchemaUntypedField(_Handle + _OnNotEqualToOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnNotEqualToOffset);
   }
-  private static readonly Lazy<nint> _OnGreaterThanOffset = new(() => Schema.GetOffset(0xCEFDBF2F50BD472D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGreaterThanOffset = Schema.GetOffset(0xCEFDBF2F50BD472D);
 
   public SchemaUntypedField OnGreaterThan {
-    get => new SchemaUntypedField(_Handle + _OnGreaterThanOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnGreaterThanOffset);
   }
 
 

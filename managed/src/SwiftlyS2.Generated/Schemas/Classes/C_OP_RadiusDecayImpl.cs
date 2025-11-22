@@ -17,10 +17,10 @@ internal partial class C_OP_RadiusDecayImpl : CParticleFunctionOperatorImpl, C_O
   public C_OP_RadiusDecayImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinRadiusOffset = new(() => Schema.GetOffset(0x119375431D07C7B7), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRadiusOffset = Schema.GetOffset(0x119375431D07C7B7);
 
   public ref float MinRadius {
-    get => ref _Handle.AsRef<float>(_MinRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinRadiusOffset);
   }
 
 

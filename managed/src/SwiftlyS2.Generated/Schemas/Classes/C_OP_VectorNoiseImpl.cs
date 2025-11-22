@@ -17,40 +17,40 @@ internal partial class C_OP_VectorNoiseImpl : CParticleFunctionOperatorImpl, C_O
   public C_OP_VectorNoiseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xEAAF071CE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xEAAF071CE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0xEAAF071C2EFED678), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0xEAAF071C2EFED678);
 
   public ref Vector OutputMin {
-    get => ref _Handle.AsRef<Vector>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0xEAAF071C451280D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0xEAAF071C451280D2);
 
   public ref Vector OutputMax {
-    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _Fl4NoiseScaleOffset = new(() => Schema.GetOffset(0xEAAF071CF340DAD9), LazyThreadSafetyMode.None);
+  private static readonly nint _Fl4NoiseScaleOffset = Schema.GetOffset(0xEAAF071CF340DAD9);
 
   public ref float Fl4NoiseScale {
-    get => ref _Handle.AsRef<float>(_Fl4NoiseScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_Fl4NoiseScaleOffset);
   }
-  private static readonly Lazy<nint> _AdditiveOffset = new(() => Schema.GetOffset(0xEAAF071C0FA86105), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditiveOffset = Schema.GetOffset(0xEAAF071C0FA86105);
 
   public ref bool Additive {
-    get => ref _Handle.AsRef<bool>(_AdditiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AdditiveOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xEAAF071C17412B2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xEAAF071C17412B2A);
 
   public ref bool Offset {
-    get => ref _Handle.AsRef<bool>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _NoiseAnimationTimeScaleOffset = new(() => Schema.GetOffset(0xEAAF071C504CBE30), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseAnimationTimeScaleOffset = Schema.GetOffset(0xEAAF071C504CBE30);
 
   public ref float NoiseAnimationTimeScale {
-    get => ref _Handle.AsRef<float>(_NoiseAnimationTimeScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_NoiseAnimationTimeScaleOffset);
   }
 
 

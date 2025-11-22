@@ -17,57 +17,57 @@ internal partial class ConstraintSoundInfoImpl : SchemaClass, ConstraintSoundInf
   public ConstraintSoundInfoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SamplerOffset = new(() => Schema.GetOffset(0x79068C49FCCD6193), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplerOffset = Schema.GetOffset(0x79068C49FCCD6193);
 
   public VelocitySampler Sampler {
-    get => new VelocitySamplerImpl(_Handle + _SamplerOffset.Value);
+    get => new VelocitySamplerImpl(_Handle + _SamplerOffset);
   }
-  private static readonly Lazy<nint> _SoundProfileOffset = new(() => Schema.GetOffset(0x79068C49D9300921), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundProfileOffset = Schema.GetOffset(0x79068C49D9300921);
 
   public SimpleConstraintSoundProfile SoundProfile {
-    get => new SimpleConstraintSoundProfileImpl(_Handle + _SoundProfileOffset.Value);
+    get => new SimpleConstraintSoundProfileImpl(_Handle + _SoundProfileOffset);
   }
-  private static readonly Lazy<nint> _ForwardAxisOffset = new(() => Schema.GetOffset(0x79068C49DC95B25F), LazyThreadSafetyMode.None);
+  private static readonly nint _ForwardAxisOffset = Schema.GetOffset(0x79068C49DC95B25F);
 
   public ref Vector ForwardAxis {
-    get => ref _Handle.AsRef<Vector>(_ForwardAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForwardAxisOffset);
   }
-  private static readonly Lazy<nint> _TravelSoundFwdOffset = new(() => Schema.GetOffset(0x79068C497A65F069), LazyThreadSafetyMode.None);
+  private static readonly nint _TravelSoundFwdOffset = Schema.GetOffset(0x79068C497A65F069);
 
   public string TravelSoundFwd {
     get {
-      var ptr = _Handle.Read<nint>(_TravelSoundFwdOffset.Value);
+      var ptr = _Handle.Read<nint>(_TravelSoundFwdOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TravelSoundFwdOffset.Value, value);
+    set => Schema.SetString(_Handle, _TravelSoundFwdOffset, value);
   } 
-  private static readonly Lazy<nint> _TravelSoundBackOffset = new(() => Schema.GetOffset(0x79068C49506B73E3), LazyThreadSafetyMode.None);
+  private static readonly nint _TravelSoundBackOffset = Schema.GetOffset(0x79068C49506B73E3);
 
   public string TravelSoundBack {
     get {
-      var ptr = _Handle.Read<nint>(_TravelSoundBackOffset.Value);
+      var ptr = _Handle.Read<nint>(_TravelSoundBackOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TravelSoundBackOffset.Value, value);
+    set => Schema.SetString(_Handle, _TravelSoundBackOffset, value);
   } 
-  private static readonly Lazy<nint> _ReversalSoundsOffset = new(() => Schema.GetOffset(0x79068C49F5164187), LazyThreadSafetyMode.None);
+  private static readonly nint _ReversalSoundsOffset = Schema.GetOffset(0x79068C49F5164187);
 
   public string ReversalSounds {
     get {
-      var ptr = _Handle.Read<nint>(_ReversalSoundsOffset.Value);
+      var ptr = _Handle.Read<nint>(_ReversalSoundsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ReversalSoundsOffset.Value, value);
+    set => Schema.SetString(_Handle, _ReversalSoundsOffset, value);
   } 
-  private static readonly Lazy<nint> _PlayTravelSoundOffset = new(() => Schema.GetOffset(0x79068C49FF3432DE), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayTravelSoundOffset = Schema.GetOffset(0x79068C49FF3432DE);
 
   public ref bool PlayTravelSound {
-    get => ref _Handle.AsRef<bool>(_PlayTravelSoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayTravelSoundOffset);
   }
-  private static readonly Lazy<nint> _PlayReversalSoundOffset = new(() => Schema.GetOffset(0x79068C4941EF4324), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayReversalSoundOffset = Schema.GetOffset(0x79068C4941EF4324);
 
   public ref bool PlayReversalSound {
-    get => ref _Handle.AsRef<bool>(_PlayReversalSoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayReversalSoundOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class CNmEventImpl : SchemaClass, CNmEvent {
   public CNmEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeSecondsOffset = new(() => Schema.GetOffset(0xF9871009C1FCF499), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeSecondsOffset = Schema.GetOffset(0xF9871009C1FCF499);
 
   public ref float StartTimeSeconds {
-    get => ref _Handle.AsRef<float>(_StartTimeSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeSecondsOffset);
   }
-  private static readonly Lazy<nint> _DurationSecondsOffset = new(() => Schema.GetOffset(0xF9871009917797C0), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationSecondsOffset = Schema.GetOffset(0xF9871009917797C0);
 
   public ref float DurationSeconds {
-    get => ref _Handle.AsRef<float>(_DurationSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationSecondsOffset);
   }
-  private static readonly Lazy<nint> _SyncIDOffset = new(() => Schema.GetOffset(0xF987100915636837), LazyThreadSafetyMode.None);
+  private static readonly nint _SyncIDOffset = Schema.GetOffset(0xF987100915636837);
 
   public ref CGlobalSymbol SyncID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_SyncIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_SyncIDOffset);
   }
-  private static readonly Lazy<nint> _ClientOnlyOffset = new(() => Schema.GetOffset(0xF9871009B39BA128), LazyThreadSafetyMode.None);
+  private static readonly nint _ClientOnlyOffset = Schema.GetOffset(0xF9871009B39BA128);
 
   public ref bool ClientOnly {
-    get => ref _Handle.AsRef<bool>(_ClientOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClientOnlyOffset);
   }
 
 

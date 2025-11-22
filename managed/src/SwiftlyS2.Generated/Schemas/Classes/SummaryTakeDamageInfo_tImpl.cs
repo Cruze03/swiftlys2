@@ -17,25 +17,25 @@ internal partial class SummaryTakeDamageInfo_tImpl : SchemaClass, SummaryTakeDam
   public SummaryTakeDamageInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SummarisedCountOffset = new(() => Schema.GetOffset(0x8A8061E2B62D7D04), LazyThreadSafetyMode.None);
+  private static readonly nint _SummarisedCountOffset = Schema.GetOffset(0x8A8061E2B62D7D04);
 
   public ref int SummarisedCount {
-    get => ref _Handle.AsRef<int>(_SummarisedCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_SummarisedCountOffset);
   }
-  private static readonly Lazy<nint> _InfoOffset = new(() => Schema.GetOffset(0x8A8061E20FB40705), LazyThreadSafetyMode.None);
+  private static readonly nint _InfoOffset = Schema.GetOffset(0x8A8061E20FB40705);
 
   public ref CTakeDamageInfo Info {
-    get => ref _Handle.AsRef<CTakeDamageInfo>(_InfoOffset.Value);
+    get => ref _Handle.AsRef<CTakeDamageInfo>(_InfoOffset);
   }
-  private static readonly Lazy<nint> _ResultOffset = new(() => Schema.GetOffset(0x8A8061E20A377624), LazyThreadSafetyMode.None);
+  private static readonly nint _ResultOffset = Schema.GetOffset(0x8A8061E20A377624);
 
   public ref CTakeDamageResult Result {
-    get => ref _Handle.AsRef<CTakeDamageResult>(_ResultOffset.Value);
+    get => ref _Handle.AsRef<CTakeDamageResult>(_ResultOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0x8A8061E295A3933A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0x8A8061E295A3933A);
 
   public ref CHandle<CBaseEntity> Target {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset);
   }
 
 

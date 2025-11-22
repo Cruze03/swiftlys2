@@ -17,30 +17,30 @@ internal partial class CRenderComponentImpl : CEntityComponentImpl, CRenderCompo
   public CRenderComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> ___m_pChainEntityOffset = new(() => Schema.GetOffset(0x8830FA5F63F0E7D), LazyThreadSafetyMode.None);
+  private static readonly nint ___m_pChainEntityOffset = Schema.GetOffset(0x8830FA5F63F0E7D);
 
   public ref CNetworkVarChainer __m_pChainEntity {
-    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset.Value);
+    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset);
   }
-  private static readonly Lazy<nint> _IsRenderingWithViewModelsOffset = new(() => Schema.GetOffset(0x8830FA5700AA428), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRenderingWithViewModelsOffset = Schema.GetOffset(0x8830FA5700AA428);
 
   public ref bool IsRenderingWithViewModels {
-    get => ref _Handle.AsRef<bool>(_IsRenderingWithViewModelsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRenderingWithViewModelsOffset);
   }
-  private static readonly Lazy<nint> _SplitscreenFlagsOffset = new(() => Schema.GetOffset(0x8830FA5CACF9032), LazyThreadSafetyMode.None);
+  private static readonly nint _SplitscreenFlagsOffset = Schema.GetOffset(0x8830FA5CACF9032);
 
   public ref uint SplitscreenFlags {
-    get => ref _Handle.AsRef<uint>(_SplitscreenFlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SplitscreenFlagsOffset);
   }
-  private static readonly Lazy<nint> _EnableRenderingOffset = new(() => Schema.GetOffset(0x8830FA50FAC7C5E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableRenderingOffset = Schema.GetOffset(0x8830FA50FAC7C5E);
 
   public ref bool EnableRendering {
-    get => ref _Handle.AsRef<bool>(_EnableRenderingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableRenderingOffset);
   }
-  private static readonly Lazy<nint> _InterpolationReadyToDrawOffset = new(() => Schema.GetOffset(0x8830FA51A075A53), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationReadyToDrawOffset = Schema.GetOffset(0x8830FA51A075A53);
 
   public ref bool InterpolationReadyToDraw {
-    get => ref _Handle.AsRef<bool>(_InterpolationReadyToDrawOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterpolationReadyToDrawOffset);
   }
 
 

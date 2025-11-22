@@ -17,82 +17,82 @@ internal partial class CHitBoxImpl : SchemaClass, CHitBox {
   public CHitBoxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x97E3DD244D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x97E3DD244D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _SurfacePropertyOffset = new(() => Schema.GetOffset(0x97E3DD241A25534C), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropertyOffset = Schema.GetOffset(0x97E3DD241A25534C);
 
   public string SurfaceProperty {
     get {
-      var ptr = _Handle.Read<nint>(_SurfacePropertyOffset.Value);
+      var ptr = _Handle.Read<nint>(_SurfacePropertyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SurfacePropertyOffset.Value, value);
+    set => Schema.SetString(_Handle, _SurfacePropertyOffset, value);
   } 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0x97E3DD247559AC1F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0x97E3DD247559AC1F);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _MinBoundsOffset = new(() => Schema.GetOffset(0x97E3DD24114799FE), LazyThreadSafetyMode.None);
+  private static readonly nint _MinBoundsOffset = Schema.GetOffset(0x97E3DD24114799FE);
 
   public ref Vector MinBounds {
-    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset);
   }
-  private static readonly Lazy<nint> _MaxBoundsOffset = new(() => Schema.GetOffset(0x97E3DD24C0B4CE60), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxBoundsOffset = Schema.GetOffset(0x97E3DD24C0B4CE60);
 
   public ref Vector MaxBounds {
-    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset);
   }
-  private static readonly Lazy<nint> _ShapeRadiusOffset = new(() => Schema.GetOffset(0x97E3DD24D8107F0E), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeRadiusOffset = Schema.GetOffset(0x97E3DD24D8107F0E);
 
   public ref float ShapeRadius {
-    get => ref _Handle.AsRef<float>(_ShapeRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_ShapeRadiusOffset);
   }
-  private static readonly Lazy<nint> _BoneNameHashOffset = new(() => Schema.GetOffset(0x97E3DD24767FF938), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameHashOffset = Schema.GetOffset(0x97E3DD24767FF938);
 
   public ref uint BoneNameHash {
-    get => ref _Handle.AsRef<uint>(_BoneNameHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BoneNameHashOffset);
   }
-  private static readonly Lazy<nint> _GroupIdOffset = new(() => Schema.GetOffset(0x97E3DD245BB08395), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupIdOffset = Schema.GetOffset(0x97E3DD245BB08395);
 
   public ref int GroupId {
-    get => ref _Handle.AsRef<int>(_GroupIdOffset.Value);
+    get => ref _Handle.AsRef<int>(_GroupIdOffset);
   }
-  private static readonly Lazy<nint> _ShapeTypeOffset = new(() => Schema.GetOffset(0x97E3DD24AE159B72), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeTypeOffset = Schema.GetOffset(0x97E3DD24AE159B72);
 
   public ref byte ShapeType {
-    get => ref _Handle.AsRef<byte>(_ShapeTypeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ShapeTypeOffset);
   }
-  private static readonly Lazy<nint> _TranslationOnlyOffset = new(() => Schema.GetOffset(0x97E3DD24B775D846), LazyThreadSafetyMode.None);
+  private static readonly nint _TranslationOnlyOffset = Schema.GetOffset(0x97E3DD24B775D846);
 
   public ref bool TranslationOnly {
-    get => ref _Handle.AsRef<bool>(_TranslationOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TranslationOnlyOffset);
   }
-  private static readonly Lazy<nint> _CRCOffset = new(() => Schema.GetOffset(0x97E3DD244E8CCEF9), LazyThreadSafetyMode.None);
+  private static readonly nint _CRCOffset = Schema.GetOffset(0x97E3DD244E8CCEF9);
 
   public ref uint CRC {
-    get => ref _Handle.AsRef<uint>(_CRCOffset.Value);
+    get => ref _Handle.AsRef<uint>(_CRCOffset);
   }
-  private static readonly Lazy<nint> _CRenderColorOffset = new(() => Schema.GetOffset(0x97E3DD24723B0259), LazyThreadSafetyMode.None);
+  private static readonly nint _CRenderColorOffset = Schema.GetOffset(0x97E3DD24723B0259);
 
   public ref Color CRenderColor {
-    get => ref _Handle.AsRef<Color>(_CRenderColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_CRenderColorOffset);
   }
-  private static readonly Lazy<nint> _HitBoxIndexOffset = new(() => Schema.GetOffset(0x97E3DD24770A3AE9), LazyThreadSafetyMode.None);
+  private static readonly nint _HitBoxIndexOffset = Schema.GetOffset(0x97E3DD24770A3AE9);
 
   public ref ushort HitBoxIndex {
-    get => ref _Handle.AsRef<ushort>(_HitBoxIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_HitBoxIndexOffset);
   }
 
 

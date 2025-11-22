@@ -17,29 +17,29 @@ internal partial class CGameMoneyImpl : CRulePointEntityImpl, CGameMoney {
   public CGameMoneyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnMoneySpentOffset = new(() => Schema.GetOffset(0xED17C684B6CD990C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMoneySpentOffset = Schema.GetOffset(0xED17C684B6CD990C);
 
   public CEntityIOOutput OnMoneySpent {
-    get => new CEntityIOOutputImpl(_Handle + _OnMoneySpentOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMoneySpentOffset);
   }
-  private static readonly Lazy<nint> _OnMoneySpentFailOffset = new(() => Schema.GetOffset(0xED17C684DB165FC0), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMoneySpentFailOffset = Schema.GetOffset(0xED17C684DB165FC0);
 
   public CEntityIOOutput OnMoneySpentFail {
-    get => new CEntityIOOutputImpl(_Handle + _OnMoneySpentFailOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMoneySpentFailOffset);
   }
-  private static readonly Lazy<nint> _MoneyOffset = new(() => Schema.GetOffset(0xED17C6845BE25D03), LazyThreadSafetyMode.None);
+  private static readonly nint _MoneyOffset = Schema.GetOffset(0xED17C6845BE25D03);
 
   public ref int Money {
-    get => ref _Handle.AsRef<int>(_MoneyOffset.Value);
+    get => ref _Handle.AsRef<int>(_MoneyOffset);
   }
-  private static readonly Lazy<nint> _StrAwardTextOffset = new(() => Schema.GetOffset(0xED17C684B48AB662), LazyThreadSafetyMode.None);
+  private static readonly nint _StrAwardTextOffset = Schema.GetOffset(0xED17C684B48AB662);
 
   public string StrAwardText {
     get {
-      var ptr = _Handle.Read<nint>(_StrAwardTextOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrAwardTextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrAwardTextOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrAwardTextOffset, value);
   } 
 
 

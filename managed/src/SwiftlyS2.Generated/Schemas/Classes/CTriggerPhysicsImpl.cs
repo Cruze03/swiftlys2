@@ -17,70 +17,70 @@ internal partial class CTriggerPhysicsImpl : CBaseTriggerImpl, CTriggerPhysics {
   public CTriggerPhysicsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GravityScaleOffset = new(() => Schema.GetOffset(0xD6C7C8D3F22682F1), LazyThreadSafetyMode.None);
+  private static readonly nint _GravityScaleOffset = Schema.GetOffset(0xD6C7C8D3F22682F1);
 
   public ref float GravityScale {
-    get => ref _Handle.AsRef<float>(_GravityScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_GravityScaleOffset);
   }
-  private static readonly Lazy<nint> _LinearLimitOffset = new(() => Schema.GetOffset(0xD6C7C8D38455E743), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearLimitOffset = Schema.GetOffset(0xD6C7C8D38455E743);
 
   public ref float LinearLimit {
-    get => ref _Handle.AsRef<float>(_LinearLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearLimitOffset);
   }
-  private static readonly Lazy<nint> _LinearDampingOffset = new(() => Schema.GetOffset(0xD6C7C8D395E4E646), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearDampingOffset = Schema.GetOffset(0xD6C7C8D395E4E646);
 
   public ref float LinearDamping {
-    get => ref _Handle.AsRef<float>(_LinearDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearDampingOffset);
   }
-  private static readonly Lazy<nint> _AngularLimitOffset = new(() => Schema.GetOffset(0xD6C7C8D3497B8D18), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularLimitOffset = Schema.GetOffset(0xD6C7C8D3497B8D18);
 
   public ref float AngularLimit {
-    get => ref _Handle.AsRef<float>(_AngularLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularLimitOffset);
   }
-  private static readonly Lazy<nint> _AngularDampingOffset = new(() => Schema.GetOffset(0xD6C7C8D36F1B9C61), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularDampingOffset = Schema.GetOffset(0xD6C7C8D36F1B9C61);
 
   public ref float AngularDamping {
-    get => ref _Handle.AsRef<float>(_AngularDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularDampingOffset);
   }
-  private static readonly Lazy<nint> _LinearForceOffset = new(() => Schema.GetOffset(0xD6C7C8D32DAF4653), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearForceOffset = Schema.GetOffset(0xD6C7C8D32DAF4653);
 
   public ref float LinearForce {
-    get => ref _Handle.AsRef<float>(_LinearForceOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearForceOffset);
   }
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0xD6C7C8D3D2C16DD7), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0xD6C7C8D3D2C16DD7);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _DampingRatioOffset = new(() => Schema.GetOffset(0xD6C7C8D3B40C859E), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingRatioOffset = Schema.GetOffset(0xD6C7C8D3B40C859E);
 
   public ref float DampingRatio {
-    get => ref _Handle.AsRef<float>(_DampingRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_DampingRatioOffset);
   }
-  private static readonly Lazy<nint> _LinearForcePointAtOffset = new(() => Schema.GetOffset(0xD6C7C8D3C27DF46E), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearForcePointAtOffset = Schema.GetOffset(0xD6C7C8D3C27DF46E);
 
   public ref Vector LinearForcePointAt {
-    get => ref _Handle.AsRef<Vector>(_LinearForcePointAtOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearForcePointAtOffset);
   }
-  private static readonly Lazy<nint> _CollapseToForcePointOffset = new(() => Schema.GetOffset(0xD6C7C8D3EB895D00), LazyThreadSafetyMode.None);
+  private static readonly nint _CollapseToForcePointOffset = Schema.GetOffset(0xD6C7C8D3EB895D00);
 
   public ref bool CollapseToForcePoint {
-    get => ref _Handle.AsRef<bool>(_CollapseToForcePointOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CollapseToForcePointOffset);
   }
-  private static readonly Lazy<nint> _LinearForcePointAtWorldOffset = new(() => Schema.GetOffset(0xD6C7C8D3C80D3782), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearForcePointAtWorldOffset = Schema.GetOffset(0xD6C7C8D3C80D3782);
 
   public ref Vector LinearForcePointAtWorld {
-    get => ref _Handle.AsRef<Vector>(_LinearForcePointAtWorldOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearForcePointAtWorldOffset);
   }
-  private static readonly Lazy<nint> _LinearForceDirectionOffset = new(() => Schema.GetOffset(0xD6C7C8D36076B2FC), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearForceDirectionOffset = Schema.GetOffset(0xD6C7C8D36076B2FC);
 
   public ref Vector LinearForceDirection {
-    get => ref _Handle.AsRef<Vector>(_LinearForceDirectionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearForceDirectionOffset);
   }
-  private static readonly Lazy<nint> _ConvertToDebrisWhenPossibleOffset = new(() => Schema.GetOffset(0xD6C7C8D36AD4D155), LazyThreadSafetyMode.None);
+  private static readonly nint _ConvertToDebrisWhenPossibleOffset = Schema.GetOffset(0xD6C7C8D36AD4D155);
 
   public ref bool ConvertToDebrisWhenPossible {
-    get => ref _Handle.AsRef<bool>(_ConvertToDebrisWhenPossibleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ConvertToDebrisWhenPossibleOffset);
   }
 
   public void GravityScaleUpdated() {

@@ -17,25 +17,25 @@ internal partial class VMixFreeverbDesc_tImpl : SchemaClass, VMixFreeverbDesc_t 
   public VMixFreeverbDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RoomSizeOffset = new(() => Schema.GetOffset(0xF9EB6BF8DEA95199), LazyThreadSafetyMode.None);
+  private static readonly nint _RoomSizeOffset = Schema.GetOffset(0xF9EB6BF8DEA95199);
 
   public ref float RoomSize {
-    get => ref _Handle.AsRef<float>(_RoomSizeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RoomSizeOffset);
   }
-  private static readonly Lazy<nint> _DampOffset = new(() => Schema.GetOffset(0xF9EB6BF851CA5395), LazyThreadSafetyMode.None);
+  private static readonly nint _DampOffset = Schema.GetOffset(0xF9EB6BF851CA5395);
 
   public ref float Damp {
-    get => ref _Handle.AsRef<float>(_DampOffset.Value);
+    get => ref _Handle.AsRef<float>(_DampOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0xF9EB6BF8B91935E1), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0xF9EB6BF8B91935E1);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _LateReflectionsOffset = new(() => Schema.GetOffset(0xF9EB6BF830A49ADF), LazyThreadSafetyMode.None);
+  private static readonly nint _LateReflectionsOffset = Schema.GetOffset(0xF9EB6BF830A49ADF);
 
   public ref float LateReflections {
-    get => ref _Handle.AsRef<float>(_LateReflectionsOffset.Value);
+    get => ref _Handle.AsRef<float>(_LateReflectionsOffset);
   }
 
 

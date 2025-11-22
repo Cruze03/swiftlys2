@@ -17,97 +17,97 @@ internal partial class VPhysXAggregateData_tImpl : SchemaClass, VPhysXAggregateD
   public VPhysXAggregateData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xB689D5A1CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xB689D5A1CE6E9C28);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _RefCounterOffset = new(() => Schema.GetOffset(0xB689D5A17E36A3B6), LazyThreadSafetyMode.None);
+  private static readonly nint _RefCounterOffset = Schema.GetOffset(0xB689D5A17E36A3B6);
 
   public ref ushort RefCounter {
-    get => ref _Handle.AsRef<ushort>(_RefCounterOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_RefCounterOffset);
   }
-  private static readonly Lazy<nint> _BonesHashOffset = new(() => Schema.GetOffset(0xB689D5A191F01C74), LazyThreadSafetyMode.None);
+  private static readonly nint _BonesHashOffset = Schema.GetOffset(0xB689D5A191F01C74);
 
   public ref CUtlVector<uint> BonesHash {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_BonesHashOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_BonesHashOffset);
   }
-  private static readonly Lazy<nint> _BoneNamesOffset = new(() => Schema.GetOffset(0xB689D5A13CC0D1ED), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNamesOffset = Schema.GetOffset(0xB689D5A13CC0D1ED);
 
   public ref CUtlVector<CUtlString> BoneNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNamesOffset);
   }
-  private static readonly Lazy<nint> _IndexNamesOffset = new(() => Schema.GetOffset(0xB689D5A15B7383D9), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexNamesOffset = Schema.GetOffset(0xB689D5A15B7383D9);
 
   public ref CUtlVector<ushort> IndexNames {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_IndexNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_IndexNamesOffset);
   }
-  private static readonly Lazy<nint> _IndexHashOffset = new(() => Schema.GetOffset(0xB689D5A1FDBDCAEB), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexHashOffset = Schema.GetOffset(0xB689D5A1FDBDCAEB);
 
   public ref CUtlVector<ushort> IndexHash {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_IndexHashOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_IndexHashOffset);
   }
-  private static readonly Lazy<nint> _BindPoseOffset = new(() => Schema.GetOffset(0xB689D5A1751196C3), LazyThreadSafetyMode.None);
+  private static readonly nint _BindPoseOffset = Schema.GetOffset(0xB689D5A1751196C3);
 
   public ref CUtlVector<matrix3x4_t> BindPose {
-    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_BindPoseOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_BindPoseOffset);
   }
-  private static readonly Lazy<nint> _PartsOffset = new(() => Schema.GetOffset(0xB689D5A1C7044545), LazyThreadSafetyMode.None);
+  private static readonly nint _PartsOffset = Schema.GetOffset(0xB689D5A1C7044545);
 
   public ref CUtlVector<VPhysXBodyPart_t> Parts {
-    get => ref _Handle.AsRef<CUtlVector<VPhysXBodyPart_t>>(_PartsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<VPhysXBodyPart_t>>(_PartsOffset);
   }
-  private static readonly Lazy<nint> _ShapeMarkupsOffset = new(() => Schema.GetOffset(0xB689D5A109755123), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeMarkupsOffset = Schema.GetOffset(0xB689D5A109755123);
 
   public ref CUtlVector<PhysShapeMarkup_t> ShapeMarkups {
-    get => ref _Handle.AsRef<CUtlVector<PhysShapeMarkup_t>>(_ShapeMarkupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PhysShapeMarkup_t>>(_ShapeMarkupsOffset);
   }
-  private static readonly Lazy<nint> _Constraints2Offset = new(() => Schema.GetOffset(0xB689D5A10539BEDB), LazyThreadSafetyMode.None);
+  private static readonly nint _Constraints2Offset = Schema.GetOffset(0xB689D5A10539BEDB);
 
   public ref CUtlVector<VPhysXConstraint2_t> Constraints2 {
-    get => ref _Handle.AsRef<CUtlVector<VPhysXConstraint2_t>>(_Constraints2Offset.Value);
+    get => ref _Handle.AsRef<CUtlVector<VPhysXConstraint2_t>>(_Constraints2Offset);
   }
-  private static readonly Lazy<nint> _JointsOffset = new(() => Schema.GetOffset(0xB689D5A15E6E8FEC), LazyThreadSafetyMode.None);
+  private static readonly nint _JointsOffset = Schema.GetOffset(0xB689D5A15E6E8FEC);
 
   public ref CUtlVector<VPhysXJoint_t> Joints {
-    get => ref _Handle.AsRef<CUtlVector<VPhysXJoint_t>>(_JointsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<VPhysXJoint_t>>(_JointsOffset);
   }
-  private static readonly Lazy<nint> _FeModelOffset = new(() => Schema.GetOffset(0xB689D5A1299418A7), LazyThreadSafetyMode.None);
+  private static readonly nint _FeModelOffset = Schema.GetOffset(0xB689D5A1299418A7);
 
   public PhysFeModelDesc_t? FeModel {
     get {
-      var ptr = _Handle.Read<nint>(_FeModelOffset.Value);
+      var ptr = _Handle.Read<nint>(_FeModelOffset);
       return ptr.IsValidPtr() ? new PhysFeModelDesc_tImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _BoneParentsOffset = new(() => Schema.GetOffset(0xB689D5A171828F04), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneParentsOffset = Schema.GetOffset(0xB689D5A171828F04);
 
   public ref CUtlVector<ushort> BoneParents {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_BoneParentsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_BoneParentsOffset);
   }
-  private static readonly Lazy<nint> _SurfacePropertyHashesOffset = new(() => Schema.GetOffset(0xB689D5A16C35E0E5), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropertyHashesOffset = Schema.GetOffset(0xB689D5A16C35E0E5);
 
   public ref CUtlVector<uint> SurfacePropertyHashes {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_SurfacePropertyHashesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_SurfacePropertyHashesOffset);
   }
-  private static readonly Lazy<nint> _CollisionAttributesOffset = new(() => Schema.GetOffset(0xB689D5A1FA66F6C2), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionAttributesOffset = Schema.GetOffset(0xB689D5A1FA66F6C2);
 
   public ref CUtlVector<VPhysXCollisionAttributes_t> CollisionAttributes {
-    get => ref _Handle.AsRef<CUtlVector<VPhysXCollisionAttributes_t>>(_CollisionAttributesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<VPhysXCollisionAttributes_t>>(_CollisionAttributesOffset);
   }
-  private static readonly Lazy<nint> _DebugPartNamesOffset = new(() => Schema.GetOffset(0xB689D5A174B4FFC7), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugPartNamesOffset = Schema.GetOffset(0xB689D5A174B4FFC7);
 
   public ref CUtlVector<CUtlString> DebugPartNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DebugPartNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DebugPartNamesOffset);
   }
-  private static readonly Lazy<nint> _EmbeddedKeyvaluesOffset = new(() => Schema.GetOffset(0xB689D5A1C004AF5C), LazyThreadSafetyMode.None);
+  private static readonly nint _EmbeddedKeyvaluesOffset = Schema.GetOffset(0xB689D5A1C004AF5C);
 
   public string EmbeddedKeyvalues {
     get {
-      var ptr = _Handle.Read<nint>(_EmbeddedKeyvaluesOffset.Value);
+      var ptr = _Handle.Read<nint>(_EmbeddedKeyvaluesOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EmbeddedKeyvaluesOffset.Value, value);
+    set => Schema.SetString(_Handle, _EmbeddedKeyvaluesOffset, value);
   } 
 
 

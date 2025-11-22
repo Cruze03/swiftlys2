@@ -17,90 +17,90 @@ internal partial class CPhysConstraintImpl : CLogicalEntityImpl, CPhysConstraint
   public CPhysConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameAttach1Offset = new(() => Schema.GetOffset(0xB17225456776530A), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttach1Offset = Schema.GetOffset(0xB17225456776530A);
 
   public string NameAttach1 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttach1Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttach1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttach1Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttach1Offset, value);
   } 
-  private static readonly Lazy<nint> _NameAttach2Offset = new(() => Schema.GetOffset(0xB172254566765177), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttach2Offset = Schema.GetOffset(0xB172254566765177);
 
   public string NameAttach2 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttach2Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttach2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttach2Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttach2Offset, value);
   } 
-  private static readonly Lazy<nint> _Attach1Offset = new(() => Schema.GetOffset(0xB1722545384EDC59), LazyThreadSafetyMode.None);
+  private static readonly nint _Attach1Offset = Schema.GetOffset(0xB1722545384EDC59);
 
   public ref CHandle<CBaseEntity> Attach1 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Attach1Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Attach1Offset);
   }
-  private static readonly Lazy<nint> _Attach2Offset = new(() => Schema.GetOffset(0xB1722545354ED7A0), LazyThreadSafetyMode.None);
+  private static readonly nint _Attach2Offset = Schema.GetOffset(0xB1722545354ED7A0);
 
   public ref CHandle<CBaseEntity> Attach2 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Attach2Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Attach2Offset);
   }
-  private static readonly Lazy<nint> _NameAttachment1Offset = new(() => Schema.GetOffset(0xB172254517A81C36), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttachment1Offset = Schema.GetOffset(0xB172254517A81C36);
 
   public string NameAttachment1 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttachment1Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttachment1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttachment1Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttachment1Offset, value);
   } 
-  private static readonly Lazy<nint> _NameAttachment2Offset = new(() => Schema.GetOffset(0xB172254516A81AA3), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttachment2Offset = Schema.GetOffset(0xB172254516A81AA3);
 
   public string NameAttachment2 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttachment2Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttachment2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttachment2Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttachment2Offset, value);
   } 
-  private static readonly Lazy<nint> _BreakSoundOffset = new(() => Schema.GetOffset(0xB17225456CFE49F7), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakSoundOffset = Schema.GetOffset(0xB17225456CFE49F7);
 
   public string BreakSound {
     get {
-      var ptr = _Handle.Read<nint>(_BreakSoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_BreakSoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BreakSoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _BreakSoundOffset, value);
   } 
-  private static readonly Lazy<nint> _ForceLimitOffset = new(() => Schema.GetOffset(0xB1722545BA45B8F7), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceLimitOffset = Schema.GetOffset(0xB1722545BA45B8F7);
 
   public ref float ForceLimit {
-    get => ref _Handle.AsRef<float>(_ForceLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceLimitOffset);
   }
-  private static readonly Lazy<nint> _TorqueLimitOffset = new(() => Schema.GetOffset(0xB17225456D51FE3E), LazyThreadSafetyMode.None);
+  private static readonly nint _TorqueLimitOffset = Schema.GetOffset(0xB17225456D51FE3E);
 
   public ref float TorqueLimit {
-    get => ref _Handle.AsRef<float>(_TorqueLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_TorqueLimitOffset);
   }
-  private static readonly Lazy<nint> _MinTeleportDistanceOffset = new(() => Schema.GetOffset(0xB172254512C704EB), LazyThreadSafetyMode.None);
+  private static readonly nint _MinTeleportDistanceOffset = Schema.GetOffset(0xB172254512C704EB);
 
   public ref float MinTeleportDistance {
-    get => ref _Handle.AsRef<float>(_MinTeleportDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinTeleportDistanceOffset);
   }
-  private static readonly Lazy<nint> _SnapObjectPositionsOffset = new(() => Schema.GetOffset(0xB172254570EDFC5A), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapObjectPositionsOffset = Schema.GetOffset(0xB172254570EDFC5A);
 
   public ref bool SnapObjectPositions {
-    get => ref _Handle.AsRef<bool>(_SnapObjectPositionsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SnapObjectPositionsOffset);
   }
-  private static readonly Lazy<nint> _TreatEntity1AsInfiniteMassOffset = new(() => Schema.GetOffset(0xB1722545216BB1E7), LazyThreadSafetyMode.None);
+  private static readonly nint _TreatEntity1AsInfiniteMassOffset = Schema.GetOffset(0xB1722545216BB1E7);
 
   public ref bool TreatEntity1AsInfiniteMass {
-    get => ref _Handle.AsRef<bool>(_TreatEntity1AsInfiniteMassOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TreatEntity1AsInfiniteMassOffset);
   }
-  private static readonly Lazy<nint> _OnBreakOffset = new(() => Schema.GetOffset(0xB172254546BFEC4F), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBreakOffset = Schema.GetOffset(0xB172254546BFEC4F);
 
   public CEntityIOOutput OnBreak {
-    get => new CEntityIOOutputImpl(_Handle + _OnBreakOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBreakOffset);
   }
 
 

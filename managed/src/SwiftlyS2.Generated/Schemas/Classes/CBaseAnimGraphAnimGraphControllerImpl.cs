@@ -17,80 +17,80 @@ internal partial class CBaseAnimGraphAnimGraphControllerImpl : CAnimGraphControl
   public CBaseAnimGraphAnimGraphControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DestructiblePartDestroyedHitGroupOffset = new(() => Schema.GetOffset(0x14CE6891659B7288), LazyThreadSafetyMode.None);
+  private static readonly nint _DestructiblePartDestroyedHitGroupOffset = Schema.GetOffset(0x14CE6891659B7288);
 
   public SchemaUntypedField DestructiblePartDestroyedHitGroup {
-    get => new SchemaUntypedField(_Handle + _DestructiblePartDestroyedHitGroupOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DestructiblePartDestroyedHitGroupOffset);
   }
-  private static readonly Lazy<nint> _DestructiblePartDestroyedPartIndexOffset = new(() => Schema.GetOffset(0x14CE68913BC00A58), LazyThreadSafetyMode.None);
+  private static readonly nint _DestructiblePartDestroyedPartIndexOffset = Schema.GetOffset(0x14CE68913BC00A58);
 
   public SchemaUntypedField DestructiblePartDestroyedPartIndex {
-    get => new SchemaUntypedField(_Handle + _DestructiblePartDestroyedPartIndexOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DestructiblePartDestroyedPartIndexOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_INVALID_DestroyedOffset = new(() => Schema.GetOffset(0x14CE68919028C031), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_INVALID_DestroyedOffset = Schema.GetOffset(0x14CE68919028C031);
 
   public SchemaUntypedField HITGROUP_INVALID_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_INVALID_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_INVALID_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_GENERIC_DestroyedOffset = new(() => Schema.GetOffset(0x14CE689176845553), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_GENERIC_DestroyedOffset = Schema.GetOffset(0x14CE689176845553);
 
   public SchemaUntypedField HITGROUP_GENERIC_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_GENERIC_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_GENERIC_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_HEAD_DestroyedOffset = new(() => Schema.GetOffset(0x14CE6891AEFB4EB4), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_HEAD_DestroyedOffset = Schema.GetOffset(0x14CE6891AEFB4EB4);
 
   public SchemaUntypedField HITGROUP_HEAD_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_HEAD_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_HEAD_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_CHEST_DestroyedOffset = new(() => Schema.GetOffset(0x14CE68917B0D9613), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_CHEST_DestroyedOffset = Schema.GetOffset(0x14CE68917B0D9613);
 
   public SchemaUntypedField HITGROUP_CHEST_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_CHEST_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_CHEST_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_STOMACH_DestroyedOffset = new(() => Schema.GetOffset(0x14CE689174D1B79B), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_STOMACH_DestroyedOffset = Schema.GetOffset(0x14CE689174D1B79B);
 
   public SchemaUntypedField HITGROUP_STOMACH_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_STOMACH_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_STOMACH_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_LEFTARM_DestroyedOffset = new(() => Schema.GetOffset(0x14CE6891FF25BE87), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_LEFTARM_DestroyedOffset = Schema.GetOffset(0x14CE6891FF25BE87);
 
   public SchemaUntypedField HITGROUP_LEFTARM_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_LEFTARM_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_LEFTARM_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_RIGHTARM_DestroyedOffset = new(() => Schema.GetOffset(0x14CE6891525B05D2), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_RIGHTARM_DestroyedOffset = Schema.GetOffset(0x14CE6891525B05D2);
 
   public SchemaUntypedField HITGROUP_RIGHTARM_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_RIGHTARM_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_RIGHTARM_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_LEFTLEG_DestroyedOffset = new(() => Schema.GetOffset(0x14CE6891C7C4CE19), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_LEFTLEG_DestroyedOffset = Schema.GetOffset(0x14CE6891C7C4CE19);
 
   public SchemaUntypedField HITGROUP_LEFTLEG_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_LEFTLEG_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_LEFTLEG_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_RIGHTLEG_DestroyedOffset = new(() => Schema.GetOffset(0x14CE68915A8CF65C), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_RIGHTLEG_DestroyedOffset = Schema.GetOffset(0x14CE68915A8CF65C);
 
   public SchemaUntypedField HITGROUP_RIGHTLEG_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_RIGHTLEG_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_RIGHTLEG_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_NECK_DestroyedOffset = new(() => Schema.GetOffset(0x14CE689195C0D851), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_NECK_DestroyedOffset = Schema.GetOffset(0x14CE689195C0D851);
 
   public SchemaUntypedField HITGROUP_NECK_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_NECK_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_NECK_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_UNUSED_DestroyedOffset = new(() => Schema.GetOffset(0x14CE689157414A54), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_UNUSED_DestroyedOffset = Schema.GetOffset(0x14CE689157414A54);
 
   public SchemaUntypedField HITGROUP_UNUSED_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_UNUSED_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_UNUSED_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_GEAR_DestroyedOffset = new(() => Schema.GetOffset(0x14CE68918C532735), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_GEAR_DestroyedOffset = Schema.GetOffset(0x14CE68918C532735);
 
   public SchemaUntypedField HITGROUP_GEAR_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_GEAR_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_GEAR_DestroyedOffset);
   }
-  private static readonly Lazy<nint> _HITGROUP_SPECIAL_DestroyedOffset = new(() => Schema.GetOffset(0x14CE68918FBDE7C1), LazyThreadSafetyMode.None);
+  private static readonly nint _HITGROUP_SPECIAL_DestroyedOffset = Schema.GetOffset(0x14CE68918FBDE7C1);
 
   public SchemaUntypedField HITGROUP_SPECIAL_Destroyed {
-    get => new SchemaUntypedField(_Handle + _HITGROUP_SPECIAL_DestroyedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HITGROUP_SPECIAL_DestroyedOffset);
   }
 
 

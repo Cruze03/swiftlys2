@@ -17,29 +17,29 @@ internal partial class CPulseCell_PlaySequenceImpl : CPulseCell_BaseYieldingInfl
   public CPulseCell_PlaySequenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0xE313765BA270F66B), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0xE313765BA270F66B);
 
   public string SequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PulseAnimEventsOffset = new(() => Schema.GetOffset(0xE313765B10F0A082), LazyThreadSafetyMode.None);
+  private static readonly nint _PulseAnimEventsOffset = Schema.GetOffset(0xE313765B10F0A082);
 
   public PulseNodeDynamicOutflows_t PulseAnimEvents {
-    get => new PulseNodeDynamicOutflows_tImpl(_Handle + _PulseAnimEventsOffset.Value);
+    get => new PulseNodeDynamicOutflows_tImpl(_Handle + _PulseAnimEventsOffset);
   }
-  private static readonly Lazy<nint> _OnFinishedOffset = new(() => Schema.GetOffset(0xE313765B8D903E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFinishedOffset = Schema.GetOffset(0xE313765B8D903E5E);
 
   public CPulse_ResumePoint OnFinished {
-    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0xE313765BF02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0xE313765BF02162DB);
 
   public CPulse_ResumePoint OnCanceled {
-    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset);
   }
 
 

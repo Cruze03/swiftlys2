@@ -17,24 +17,24 @@ internal partial class CAttributeManager__cached_attribute_float_tImpl : SchemaC
   public CAttributeManager__cached_attribute_float_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InOffset = new(() => Schema.GetOffset(0xE3C5A1BAD526F734), LazyThreadSafetyMode.None);
+  private static readonly nint _InOffset = Schema.GetOffset(0xE3C5A1BAD526F734);
 
   public ref float In {
-    get => ref _Handle.AsRef<float>(_InOffset.Value);
+    get => ref _Handle.AsRef<float>(_InOffset);
   }
-  private static readonly Lazy<nint> _AttribHookOffset = new(() => Schema.GetOffset(0xE3C5A1BACD388D67), LazyThreadSafetyMode.None);
+  private static readonly nint _AttribHookOffset = Schema.GetOffset(0xE3C5A1BACD388D67);
 
   public string AttribHook {
     get {
-      var ptr = _Handle.Read<nint>(_AttribHookOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttribHookOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttribHookOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttribHookOffset, value);
   } 
-  private static readonly Lazy<nint> _OutOffset = new(() => Schema.GetOffset(0xE3C5A1BA546B7BE1), LazyThreadSafetyMode.None);
+  private static readonly nint _OutOffset = Schema.GetOffset(0xE3C5A1BA546B7BE1);
 
   public ref float Out {
-    get => ref _Handle.AsRef<float>(_OutOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutOffset);
   }
 
 

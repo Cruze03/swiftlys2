@@ -17,40 +17,40 @@ internal partial class CAnimEncodeDifferenceImpl : SchemaClass, CAnimEncodeDiffe
   public CAnimEncodeDifferenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneArrayOffset = new(() => Schema.GetOffset(0x65474B2E80273F0C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneArrayOffset = Schema.GetOffset(0x65474B2E80273F0C);
 
   public ref CUtlVector<CAnimBoneDifference> BoneArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimBoneDifference>>(_BoneArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimBoneDifference>>(_BoneArrayOffset);
   }
-  private static readonly Lazy<nint> _MorphArrayOffset = new(() => Schema.GetOffset(0x65474B2E8C6827E6), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphArrayOffset = Schema.GetOffset(0x65474B2E8C6827E6);
 
   public ref CUtlVector<CAnimMorphDifference> MorphArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimMorphDifference>>(_MorphArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimMorphDifference>>(_MorphArrayOffset);
   }
-  private static readonly Lazy<nint> _UserArrayOffset = new(() => Schema.GetOffset(0x65474B2EFBDB0C13), LazyThreadSafetyMode.None);
+  private static readonly nint _UserArrayOffset = Schema.GetOffset(0x65474B2EFBDB0C13);
 
   public ref CUtlVector<CAnimUserDifference> UserArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimUserDifference>>(_UserArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimUserDifference>>(_UserArrayOffset);
   }
-  private static readonly Lazy<nint> _HasRotationBitArrayOffset = new(() => Schema.GetOffset(0x65474B2E6AD7DEA5), LazyThreadSafetyMode.None);
+  private static readonly nint _HasRotationBitArrayOffset = Schema.GetOffset(0x65474B2E6AD7DEA5);
 
   public ref CUtlVector<byte> HasRotationBitArray {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasRotationBitArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasRotationBitArrayOffset);
   }
-  private static readonly Lazy<nint> _HasMovementBitArrayOffset = new(() => Schema.GetOffset(0x65474B2EAD247FA6), LazyThreadSafetyMode.None);
+  private static readonly nint _HasMovementBitArrayOffset = Schema.GetOffset(0x65474B2EAD247FA6);
 
   public ref CUtlVector<byte> HasMovementBitArray {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasMovementBitArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasMovementBitArrayOffset);
   }
-  private static readonly Lazy<nint> _HasMorphBitArrayOffset = new(() => Schema.GetOffset(0x65474B2E5F84C5D3), LazyThreadSafetyMode.None);
+  private static readonly nint _HasMorphBitArrayOffset = Schema.GetOffset(0x65474B2E5F84C5D3);
 
   public ref CUtlVector<byte> HasMorphBitArray {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasMorphBitArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasMorphBitArrayOffset);
   }
-  private static readonly Lazy<nint> _HasUserBitArrayOffset = new(() => Schema.GetOffset(0x65474B2EB41ED7E0), LazyThreadSafetyMode.None);
+  private static readonly nint _HasUserBitArrayOffset = Schema.GetOffset(0x65474B2EB41ED7E0);
 
   public ref CUtlVector<byte> HasUserBitArray {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasUserBitArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_HasUserBitArrayOffset);
   }
 
 

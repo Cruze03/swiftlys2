@@ -17,10 +17,10 @@ internal partial class CNavVolumeVectorImpl : CNavVolumeImpl, CNavVolumeVector {
   public CNavVolumeVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HasBeenPreFilteredOffset = new(() => Schema.GetOffset(0x29D8C0A2454B59CD), LazyThreadSafetyMode.None);
+  private static readonly nint _HasBeenPreFilteredOffset = Schema.GetOffset(0x29D8C0A2454B59CD);
 
   public ref bool HasBeenPreFiltered {
-    get => ref _Handle.AsRef<bool>(_HasBeenPreFilteredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasBeenPreFilteredOffset);
   }
 
 

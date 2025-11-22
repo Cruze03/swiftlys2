@@ -17,15 +17,15 @@ internal partial class NavGravity_tImpl : SchemaClass, NavGravity_t {
   public NavGravity_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GravityOffset = new(() => Schema.GetOffset(0xAF45EC63A5AE4779), LazyThreadSafetyMode.None);
+  private static readonly nint _GravityOffset = Schema.GetOffset(0xAF45EC63A5AE4779);
 
   public ref Vector Gravity {
-    get => ref _Handle.AsRef<Vector>(_GravityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_GravityOffset);
   }
-  private static readonly Lazy<nint> _DefaultOffset = new(() => Schema.GetOffset(0xAF45EC6385F067BE), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultOffset = Schema.GetOffset(0xAF45EC6385F067BE);
 
   public ref bool Default {
-    get => ref _Handle.AsRef<bool>(_DefaultOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DefaultOffset);
   }
 
 

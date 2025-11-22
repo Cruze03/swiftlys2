@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CIncendiaryGrenade : CMolotovGrenade, ISchemaClass<CIncendiaryGrenade> {
 
   static CIncendiaryGrenade ISchemaClass<CIncendiaryGrenade>.From(nint handle) => new CIncendiaryGrenadeImpl(handle);
-  static int ISchemaClass<CIncendiaryGrenade>.Size => 5376;
+  static int ISchemaClass<CIncendiaryGrenade>.Size => 4624;
   static string? ISchemaClass<CIncendiaryGrenade>.ClassName => "weapon_incgrenade";
 
 

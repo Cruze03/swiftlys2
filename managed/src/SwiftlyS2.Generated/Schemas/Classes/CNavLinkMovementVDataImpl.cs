@@ -17,25 +17,25 @@ internal partial class CNavLinkMovementVDataImpl : SchemaClass, CNavLinkMovement
   public CNavLinkMovementVDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ToolsOnlyOwnerModelNameOffset = new(() => Schema.GetOffset(0xACA2D2486DD9DD04), LazyThreadSafetyMode.None);
+  private static readonly nint _ToolsOnlyOwnerModelNameOffset = Schema.GetOffset(0xACA2D2486DD9DD04);
 
   public SchemaUntypedField ToolsOnlyOwnerModelName {
-    get => new SchemaUntypedField(_Handle + _ToolsOnlyOwnerModelNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ToolsOnlyOwnerModelNameOffset);
   }
-  private static readonly Lazy<nint> _IsInterpolatedOffset = new(() => Schema.GetOffset(0xACA2D248EC811A8C), LazyThreadSafetyMode.None);
+  private static readonly nint _IsInterpolatedOffset = Schema.GetOffset(0xACA2D248EC811A8C);
 
   public ref bool IsInterpolated {
-    get => ref _Handle.AsRef<bool>(_IsInterpolatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsInterpolatedOffset);
   }
-  private static readonly Lazy<nint> _RecommendedDistanceOffset = new(() => Schema.GetOffset(0xACA2D248BA1A388E), LazyThreadSafetyMode.None);
+  private static readonly nint _RecommendedDistanceOffset = Schema.GetOffset(0xACA2D248BA1A388E);
 
   public ref uint RecommendedDistance {
-    get => ref _Handle.AsRef<uint>(_RecommendedDistanceOffset.Value);
+    get => ref _Handle.AsRef<uint>(_RecommendedDistanceOffset);
   }
-  private static readonly Lazy<nint> _AnimgraphVarsOffset = new(() => Schema.GetOffset(0xACA2D2480FD1BA32), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimgraphVarsOffset = Schema.GetOffset(0xACA2D2480FD1BA32);
 
   public ref CUtlVector<CNavLinkAnimgraphVar> AnimgraphVars {
-    get => ref _Handle.AsRef<CUtlVector<CNavLinkAnimgraphVar>>(_AnimgraphVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CNavLinkAnimgraphVar>>(_AnimgraphVarsOffset);
   }
 
 

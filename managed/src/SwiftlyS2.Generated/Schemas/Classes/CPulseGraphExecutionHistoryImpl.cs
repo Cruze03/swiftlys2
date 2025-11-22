@@ -17,34 +17,34 @@ internal partial class CPulseGraphExecutionHistoryImpl : SchemaClass, CPulseGrap
   public CPulseGraphExecutionHistoryImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InstanceIDOffset = new(() => Schema.GetOffset(0x2DC54ABB24192813), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceIDOffset = Schema.GetOffset(0x2DC54ABB24192813);
 
   public PulseGraphInstanceID_t InstanceID {
-    get => new PulseGraphInstanceID_tImpl(_Handle + _InstanceIDOffset.Value);
+    get => new PulseGraphInstanceID_tImpl(_Handle + _InstanceIDOffset);
   }
-  private static readonly Lazy<nint> _StrFileNameOffset = new(() => Schema.GetOffset(0x2DC54ABB51B717E5), LazyThreadSafetyMode.None);
+  private static readonly nint _StrFileNameOffset = Schema.GetOffset(0x2DC54ABB51B717E5);
 
   public string StrFileName {
     get {
-      var ptr = _Handle.Read<nint>(_StrFileNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrFileNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrFileNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrFileNameOffset, value);
   } 
-  private static readonly Lazy<nint> _HistoryOffset = new(() => Schema.GetOffset(0x2DC54ABBCFBC2CBF), LazyThreadSafetyMode.None);
+  private static readonly nint _HistoryOffset = Schema.GetOffset(0x2DC54ABBCFBC2CBF);
 
   public ref CUtlVector<PointerTo<PulseGraphExecutionHistoryEntry_t>> History {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<PulseGraphExecutionHistoryEntry_t>>>(_HistoryOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<PulseGraphExecutionHistoryEntry_t>>>(_HistoryOffset);
   }
-  private static readonly Lazy<nint> _MapCellDescOffset = new(() => Schema.GetOffset(0x2DC54ABB7E9FEC74), LazyThreadSafetyMode.None);
+  private static readonly nint _MapCellDescOffset = Schema.GetOffset(0x2DC54ABB7E9FEC74);
 
   public SchemaUntypedField MapCellDesc {
-    get => new SchemaUntypedField(_Handle + _MapCellDescOffset.Value);
+    get => new SchemaUntypedField(_Handle + _MapCellDescOffset);
   }
-  private static readonly Lazy<nint> _MapCursorDescOffset = new(() => Schema.GetOffset(0x2DC54ABBED035BB6), LazyThreadSafetyMode.None);
+  private static readonly nint _MapCursorDescOffset = Schema.GetOffset(0x2DC54ABBED035BB6);
 
   public SchemaUntypedField MapCursorDesc {
-    get => new SchemaUntypedField(_Handle + _MapCursorDescOffset.Value);
+    get => new SchemaUntypedField(_Handle + _MapCursorDescOffset);
   }
 
 

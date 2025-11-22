@@ -17,20 +17,20 @@ internal partial class CAnimInputDampingImpl : SchemaClass, CAnimInputDamping {
   public CAnimInputDampingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpeedFunctionOffset = new(() => Schema.GetOffset(0xFAECFC318682F508), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedFunctionOffset = Schema.GetOffset(0xFAECFC318682F508);
 
   public ref DampingSpeedFunction SpeedFunction {
-    get => ref _Handle.AsRef<DampingSpeedFunction>(_SpeedFunctionOffset.Value);
+    get => ref _Handle.AsRef<DampingSpeedFunction>(_SpeedFunctionOffset);
   }
-  private static readonly Lazy<nint> _SpeedScaleOffset = new(() => Schema.GetOffset(0xFAECFC31E70BB6FE), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedScaleOffset = Schema.GetOffset(0xFAECFC31E70BB6FE);
 
   public ref float SpeedScale {
-    get => ref _Handle.AsRef<float>(_SpeedScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedScaleOffset);
   }
-  private static readonly Lazy<nint> _FallingSpeedScaleOffset = new(() => Schema.GetOffset(0xFAECFC31128A6857), LazyThreadSafetyMode.None);
+  private static readonly nint _FallingSpeedScaleOffset = Schema.GetOffset(0xFAECFC31128A6857);
 
   public ref float FallingSpeedScale {
-    get => ref _Handle.AsRef<float>(_FallingSpeedScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_FallingSpeedScaleOffset);
   }
 
 

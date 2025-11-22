@@ -17,40 +17,40 @@ internal partial class CReplicationParametersImpl : SchemaClass, CReplicationPar
   public CReplicationParametersImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ReplicationModeOffset = new(() => Schema.GetOffset(0xFA909F20C8967832), LazyThreadSafetyMode.None);
+  private static readonly nint _ReplicationModeOffset = Schema.GetOffset(0xFA909F20C8967832);
 
   public ref ParticleReplicationMode_t ReplicationMode {
-    get => ref _Handle.AsRef<ParticleReplicationMode_t>(_ReplicationModeOffset.Value);
+    get => ref _Handle.AsRef<ParticleReplicationMode_t>(_ReplicationModeOffset);
   }
-  private static readonly Lazy<nint> _ScaleChildParticleRadiiOffset = new(() => Schema.GetOffset(0xFA909F207842F3CC), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleChildParticleRadiiOffset = Schema.GetOffset(0xFA909F207842F3CC);
 
   public ref bool ScaleChildParticleRadii {
-    get => ref _Handle.AsRef<bool>(_ScaleChildParticleRadiiOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ScaleChildParticleRadiiOffset);
   }
-  private static readonly Lazy<nint> _MinRandomRadiusScaleOffset = new(() => Schema.GetOffset(0xFA909F208CBF88EE), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRandomRadiusScaleOffset = Schema.GetOffset(0xFA909F208CBF88EE);
 
   public CParticleCollectionFloatInput MinRandomRadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MinRandomRadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MinRandomRadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _MaxRandomRadiusScaleOffset = new(() => Schema.GetOffset(0xFA909F2022697B5C), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRandomRadiusScaleOffset = Schema.GetOffset(0xFA909F2022697B5C);
 
   public CParticleCollectionFloatInput MaxRandomRadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxRandomRadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxRandomRadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _MinRandomDisplacementOffset = new(() => Schema.GetOffset(0xFA909F20808FB77F), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRandomDisplacementOffset = Schema.GetOffset(0xFA909F20808FB77F);
 
   public CParticleCollectionVecInput MinRandomDisplacement {
-    get => new CParticleCollectionVecInputImpl(_Handle + _MinRandomDisplacementOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _MinRandomDisplacementOffset);
   }
-  private static readonly Lazy<nint> _MaxRandomDisplacementOffset = new(() => Schema.GetOffset(0xFA909F20FF279F49), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRandomDisplacementOffset = Schema.GetOffset(0xFA909F20FF279F49);
 
   public CParticleCollectionVecInput MaxRandomDisplacement {
-    get => new CParticleCollectionVecInputImpl(_Handle + _MaxRandomDisplacementOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _MaxRandomDisplacementOffset);
   }
-  private static readonly Lazy<nint> _ModellingScaleOffset = new(() => Schema.GetOffset(0xFA909F20BE93B72A), LazyThreadSafetyMode.None);
+  private static readonly nint _ModellingScaleOffset = Schema.GetOffset(0xFA909F20BE93B72A);
 
   public CParticleCollectionFloatInput ModellingScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ModellingScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ModellingScaleOffset);
   }
 
 

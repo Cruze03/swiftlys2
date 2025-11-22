@@ -17,30 +17,30 @@ internal partial class VMixDualCompressorDesc_tImpl : SchemaClass, VMixDualCompr
   public VMixDualCompressorDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RMSTimeMSOffset = new(() => Schema.GetOffset(0x6B9BDFD8FB749526), LazyThreadSafetyMode.None);
+  private static readonly nint _RMSTimeMSOffset = Schema.GetOffset(0x6B9BDFD8FB749526);
 
   public ref float RMSTimeMS {
-    get => ref _Handle.AsRef<float>(_RMSTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_RMSTimeMSOffset);
   }
-  private static readonly Lazy<nint> _FldbKneeWidthOffset = new(() => Schema.GetOffset(0x6B9BDFD835532FF2), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbKneeWidthOffset = Schema.GetOffset(0x6B9BDFD835532FF2);
 
   public ref float FldbKneeWidth {
-    get => ref _Handle.AsRef<float>(_FldbKneeWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbKneeWidthOffset);
   }
-  private static readonly Lazy<nint> _WetMixOffset = new(() => Schema.GetOffset(0x6B9BDFD8D5453C15), LazyThreadSafetyMode.None);
+  private static readonly nint _WetMixOffset = Schema.GetOffset(0x6B9BDFD8D5453C15);
 
   public ref float WetMix {
-    get => ref _Handle.AsRef<float>(_WetMixOffset.Value);
+    get => ref _Handle.AsRef<float>(_WetMixOffset);
   }
-  private static readonly Lazy<nint> _PeakModeOffset = new(() => Schema.GetOffset(0x6B9BDFD887DF35F9), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakModeOffset = Schema.GetOffset(0x6B9BDFD887DF35F9);
 
   public ref bool PeakMode {
-    get => ref _Handle.AsRef<bool>(_PeakModeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PeakModeOffset);
   }
-  private static readonly Lazy<nint> _BandDescOffset = new(() => Schema.GetOffset(0x6B9BDFD804203F47), LazyThreadSafetyMode.None);
+  private static readonly nint _BandDescOffset = Schema.GetOffset(0x6B9BDFD804203F47);
 
   public VMixDynamicsBand_t BandDesc {
-    get => new VMixDynamicsBand_tImpl(_Handle + _BandDescOffset.Value);
+    get => new VMixDynamicsBand_tImpl(_Handle + _BandDescOffset);
   }
 
 

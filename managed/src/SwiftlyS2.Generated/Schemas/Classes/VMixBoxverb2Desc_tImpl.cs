@@ -17,90 +17,90 @@ internal partial class VMixBoxverb2Desc_tImpl : SchemaClass, VMixBoxverb2Desc_t 
   public VMixBoxverb2Desc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SizeMaxOffset = new(() => Schema.GetOffset(0x319C01FDB9D7F5B8), LazyThreadSafetyMode.None);
+  private static readonly nint _SizeMaxOffset = Schema.GetOffset(0x319C01FDB9D7F5B8);
 
   public ref float SizeMax {
-    get => ref _Handle.AsRef<float>(_SizeMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_SizeMaxOffset);
   }
-  private static readonly Lazy<nint> _SizeMinOffset = new(() => Schema.GetOffset(0x319C01FDAFEB6DB2), LazyThreadSafetyMode.None);
+  private static readonly nint _SizeMinOffset = Schema.GetOffset(0x319C01FDAFEB6DB2);
 
   public ref float SizeMin {
-    get => ref _Handle.AsRef<float>(_SizeMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_SizeMinOffset);
   }
-  private static readonly Lazy<nint> _ComplexityOffset = new(() => Schema.GetOffset(0x319C01FDF222266B), LazyThreadSafetyMode.None);
+  private static readonly nint _ComplexityOffset = Schema.GetOffset(0x319C01FDF222266B);
 
   public ref float Complexity {
-    get => ref _Handle.AsRef<float>(_ComplexityOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComplexityOffset);
   }
-  private static readonly Lazy<nint> _DiffusionOffset = new(() => Schema.GetOffset(0x319C01FDCDBE8936), LazyThreadSafetyMode.None);
+  private static readonly nint _DiffusionOffset = Schema.GetOffset(0x319C01FDCDBE8936);
 
   public ref float Diffusion {
-    get => ref _Handle.AsRef<float>(_DiffusionOffset.Value);
+    get => ref _Handle.AsRef<float>(_DiffusionOffset);
   }
-  private static readonly Lazy<nint> _ModDepthOffset = new(() => Schema.GetOffset(0x319C01FDF59E0B82), LazyThreadSafetyMode.None);
+  private static readonly nint _ModDepthOffset = Schema.GetOffset(0x319C01FDF59E0B82);
 
   public ref float ModDepth {
-    get => ref _Handle.AsRef<float>(_ModDepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModDepthOffset);
   }
-  private static readonly Lazy<nint> _ModRateOffset = new(() => Schema.GetOffset(0x319C01FD0EA039FF), LazyThreadSafetyMode.None);
+  private static readonly nint _ModRateOffset = Schema.GetOffset(0x319C01FD0EA039FF);
 
   public ref float ModRate {
-    get => ref _Handle.AsRef<float>(_ModRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModRateOffset);
   }
-  private static readonly Lazy<nint> _ParallelOffset = new(() => Schema.GetOffset(0x319C01FD8971ED92), LazyThreadSafetyMode.None);
+  private static readonly nint _ParallelOffset = Schema.GetOffset(0x319C01FD8971ED92);
 
   public ref bool Parallel {
-    get => ref _Handle.AsRef<bool>(_ParallelOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ParallelOffset);
   }
-  private static readonly Lazy<nint> _FilterTypeOffset = new(() => Schema.GetOffset(0x319C01FD7E582F6F), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterTypeOffset = Schema.GetOffset(0x319C01FD7E582F6F);
 
   public VMixFilterDesc_t FilterType {
-    get => new VMixFilterDesc_tImpl(_Handle + _FilterTypeOffset.Value);
+    get => new VMixFilterDesc_tImpl(_Handle + _FilterTypeOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0x319C01FDB91935E1), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0x319C01FDB91935E1);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0x319C01FDEADD7FB0), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0x319C01FDEADD7FB0);
 
   public ref float Height {
-    get => ref _Handle.AsRef<float>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _DepthOffset = new(() => Schema.GetOffset(0x319C01FDD3AD54E8), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthOffset = Schema.GetOffset(0x319C01FDD3AD54E8);
 
   public ref float Depth {
-    get => ref _Handle.AsRef<float>(_DepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_DepthOffset);
   }
-  private static readonly Lazy<nint> _FeedbackScaleOffset = new(() => Schema.GetOffset(0x319C01FD2CE35D6E), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackScaleOffset = Schema.GetOffset(0x319C01FD2CE35D6E);
 
   public ref float FeedbackScale {
-    get => ref _Handle.AsRef<float>(_FeedbackScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackScaleOffset);
   }
-  private static readonly Lazy<nint> _FeedbackWidthOffset = new(() => Schema.GetOffset(0x319C01FD50275950), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackWidthOffset = Schema.GetOffset(0x319C01FD50275950);
 
   public ref float FeedbackWidth {
-    get => ref _Handle.AsRef<float>(_FeedbackWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackWidthOffset);
   }
-  private static readonly Lazy<nint> _FeedbackHeightOffset = new(() => Schema.GetOffset(0x319C01FDFB780A47), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackHeightOffset = Schema.GetOffset(0x319C01FDFB780A47);
 
   public ref float FeedbackHeight {
-    get => ref _Handle.AsRef<float>(_FeedbackHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackHeightOffset);
   }
-  private static readonly Lazy<nint> _FeedbackDepthOffset = new(() => Schema.GetOffset(0x319C01FDB71B2D09), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackDepthOffset = Schema.GetOffset(0x319C01FDB71B2D09);
 
   public ref float FeedbackDepth {
-    get => ref _Handle.AsRef<float>(_FeedbackDepthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackDepthOffset);
   }
-  private static readonly Lazy<nint> _OutputGainOffset = new(() => Schema.GetOffset(0x319C01FD73DB9445), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputGainOffset = Schema.GetOffset(0x319C01FD73DB9445);
 
   public ref float OutputGain {
-    get => ref _Handle.AsRef<float>(_OutputGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputGainOffset);
   }
-  private static readonly Lazy<nint> _TapsOffset = new(() => Schema.GetOffset(0x319C01FD5C502CB9), LazyThreadSafetyMode.None);
+  private static readonly nint _TapsOffset = Schema.GetOffset(0x319C01FD5C502CB9);
 
   public ref float Taps {
-    get => ref _Handle.AsRef<float>(_TapsOffset.Value);
+    get => ref _Handle.AsRef<float>(_TapsOffset);
   }
 
 

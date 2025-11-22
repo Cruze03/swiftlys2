@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNavVolumeBreadthFirstSearch : CNavVolumeCalculatedVector, ISchemaClass<CNavVolumeBreadthFirstSearch> {
 
   static CNavVolumeBreadthFirstSearch ISchemaClass<CNavVolumeBreadthFirstSearch>.From(nint handle) => new CNavVolumeBreadthFirstSearchImpl(handle);
-  static int ISchemaClass<CNavVolumeBreadthFirstSearch>.Size => 160;
+  static int ISchemaClass<CNavVolumeBreadthFirstSearch>.Size => 192;
   static string? ISchemaClass<CNavVolumeBreadthFirstSearch>.ClassName => null;
 
   

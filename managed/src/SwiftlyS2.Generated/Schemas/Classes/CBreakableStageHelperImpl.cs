@@ -17,15 +17,15 @@ internal partial class CBreakableStageHelperImpl : SchemaClass, CBreakableStageH
   public CBreakableStageHelperImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurrentStageOffset = new(() => Schema.GetOffset(0xF3B3D901E6644458), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentStageOffset = Schema.GetOffset(0xF3B3D901E6644458);
 
   public ref int CurrentStage {
-    get => ref _Handle.AsRef<int>(_CurrentStageOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentStageOffset);
   }
-  private static readonly Lazy<nint> _StageCountOffset = new(() => Schema.GetOffset(0xF3B3D901117B2130), LazyThreadSafetyMode.None);
+  private static readonly nint _StageCountOffset = Schema.GetOffset(0xF3B3D901117B2130);
 
   public ref int StageCount {
-    get => ref _Handle.AsRef<int>(_StageCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_StageCountOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class CRandStopwatchImpl : CStopwatchBaseImpl, CRandStopwatch {
   public CRandStopwatchImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinIntervalOffset = new(() => Schema.GetOffset(0x538C26044BB35EE4), LazyThreadSafetyMode.None);
+  private static readonly nint _MinIntervalOffset = Schema.GetOffset(0x538C26044BB35EE4);
 
   public ref float MinInterval {
-    get => ref _Handle.AsRef<float>(_MinIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinIntervalOffset);
   }
-  private static readonly Lazy<nint> _MaxIntervalOffset = new(() => Schema.GetOffset(0x538C2604400B2156), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxIntervalOffset = Schema.GetOffset(0x538C2604400B2156);
 
   public ref float MaxInterval {
-    get => ref _Handle.AsRef<float>(_MaxIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxIntervalOffset);
   }
 
 

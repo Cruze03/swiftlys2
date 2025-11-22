@@ -17,81 +17,81 @@ internal partial class PulseScriptedSequenceData_tImpl : SchemaClass, PulseScrip
   public PulseScriptedSequenceData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActorIDOffset = new(() => Schema.GetOffset(0x7C7814728383E163), LazyThreadSafetyMode.None);
+  private static readonly nint _ActorIDOffset = Schema.GetOffset(0x7C7814728383E163);
 
   public ref int ActorID {
-    get => ref _Handle.AsRef<int>(_ActorIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ActorIDOffset);
   }
-  private static readonly Lazy<nint> _PreIdleSequenceOffset = new(() => Schema.GetOffset(0x7C781472672B317E), LazyThreadSafetyMode.None);
+  private static readonly nint _PreIdleSequenceOffset = Schema.GetOffset(0x7C781472672B317E);
 
   public string PreIdleSequence {
     get {
-      var ptr = _Handle.Read<nint>(_PreIdleSequenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_PreIdleSequenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PreIdleSequenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _PreIdleSequenceOffset, value);
   } 
-  private static readonly Lazy<nint> _EntrySequenceOffset = new(() => Schema.GetOffset(0x7C7814722635E511), LazyThreadSafetyMode.None);
+  private static readonly nint _EntrySequenceOffset = Schema.GetOffset(0x7C7814722635E511);
 
   public string EntrySequence {
     get {
-      var ptr = _Handle.Read<nint>(_EntrySequenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_EntrySequenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EntrySequenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _EntrySequenceOffset, value);
   } 
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x7C78147209FFA3B5), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x7C78147209FFA3B5);
 
   public string Sequence {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceOffset, value);
   } 
-  private static readonly Lazy<nint> _ExitSequenceOffset = new(() => Schema.GetOffset(0x7C7814725F482845), LazyThreadSafetyMode.None);
+  private static readonly nint _ExitSequenceOffset = Schema.GetOffset(0x7C7814725F482845);
 
   public string ExitSequence {
     get {
-      var ptr = _Handle.Read<nint>(_ExitSequenceOffset.Value);
+      var ptr = _Handle.Read<nint>(_ExitSequenceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ExitSequenceOffset.Value, value);
+    set => Schema.SetString(_Handle, _ExitSequenceOffset, value);
   } 
-  private static readonly Lazy<nint> _MoveToOffset = new(() => Schema.GetOffset(0x7C781472A9282EB9), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveToOffset = Schema.GetOffset(0x7C781472A9282EB9);
 
   public ref ScriptedMoveTo_t MoveTo {
-    get => ref _Handle.AsRef<ScriptedMoveTo_t>(_MoveToOffset.Value);
+    get => ref _Handle.AsRef<ScriptedMoveTo_t>(_MoveToOffset);
   }
-  private static readonly Lazy<nint> _MoveToGaitOffset = new(() => Schema.GetOffset(0x7C7814721217E084), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveToGaitOffset = Schema.GetOffset(0x7C7814721217E084);
 
   public ref SharedMovementGait_t MoveToGait {
-    get => ref _Handle.AsRef<SharedMovementGait_t>(_MoveToGaitOffset.Value);
+    get => ref _Handle.AsRef<SharedMovementGait_t>(_MoveToGaitOffset);
   }
-  private static readonly Lazy<nint> _HeldWeaponBehaviorOffset = new(() => Schema.GetOffset(0x7C781472D545A524), LazyThreadSafetyMode.None);
+  private static readonly nint _HeldWeaponBehaviorOffset = Schema.GetOffset(0x7C781472D545A524);
 
   public ref ScriptedHeldWeaponBehavior_t HeldWeaponBehavior {
-    get => ref _Handle.AsRef<ScriptedHeldWeaponBehavior_t>(_HeldWeaponBehaviorOffset.Value);
+    get => ref _Handle.AsRef<ScriptedHeldWeaponBehavior_t>(_HeldWeaponBehaviorOffset);
   }
-  private static readonly Lazy<nint> _LoopPreIdleSequenceOffset = new(() => Schema.GetOffset(0x7C7814728649E65F), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopPreIdleSequenceOffset = Schema.GetOffset(0x7C7814728649E65F);
 
   public ref bool LoopPreIdleSequence {
-    get => ref _Handle.AsRef<bool>(_LoopPreIdleSequenceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopPreIdleSequenceOffset);
   }
-  private static readonly Lazy<nint> _LoopActionSequenceOffset = new(() => Schema.GetOffset(0x7C78147242C7CFA4), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopActionSequenceOffset = Schema.GetOffset(0x7C78147242C7CFA4);
 
   public ref bool LoopActionSequence {
-    get => ref _Handle.AsRef<bool>(_LoopActionSequenceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopActionSequenceOffset);
   }
-  private static readonly Lazy<nint> _LoopPostIdleSequenceOffset = new(() => Schema.GetOffset(0x7C781472C17036CA), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopPostIdleSequenceOffset = Schema.GetOffset(0x7C781472C17036CA);
 
   public ref bool LoopPostIdleSequence {
-    get => ref _Handle.AsRef<bool>(_LoopPostIdleSequenceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopPostIdleSequenceOffset);
   }
-  private static readonly Lazy<nint> _IgnoreLookAtOffset = new(() => Schema.GetOffset(0x7C781472ECC380B5), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreLookAtOffset = Schema.GetOffset(0x7C781472ECC380B5);
 
   public ref bool IgnoreLookAt {
-    get => ref _Handle.AsRef<bool>(_IgnoreLookAtOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreLookAtOffset);
   }
 
 

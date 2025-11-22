@@ -17,42 +17,42 @@ internal partial class CSSDSMsg_LayerBaseImpl : SchemaClass, CSSDSMsg_LayerBase 
   public CSSDSMsg_LayerBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ViewIdOffset = new(() => Schema.GetOffset(0x9F18C5E5E976CB25), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewIdOffset = Schema.GetOffset(0x9F18C5E5E976CB25);
 
   public SceneViewId_t ViewId {
-    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset.Value);
+    get => new SceneViewId_tImpl(_Handle + _ViewIdOffset);
   }
-  private static readonly Lazy<nint> _ViewNameOffset = new(() => Schema.GetOffset(0x9F18C5E5BA5BBDBB), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewNameOffset = Schema.GetOffset(0x9F18C5E5BA5BBDBB);
 
   public string ViewName {
     get {
-      var ptr = _Handle.Read<nint>(_ViewNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ViewNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ViewNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ViewNameOffset, value);
   } 
-  private static readonly Lazy<nint> _LayerIdOffset = new(() => Schema.GetOffset(0x9F18C5E531A19D87), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerIdOffset = Schema.GetOffset(0x9F18C5E531A19D87);
 
   public ref ulong LayerId {
-    get => ref _Handle.AsRef<ulong>(_LayerIdOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_LayerIdOffset);
   }
-  private static readonly Lazy<nint> _LayerNameOffset = new(() => Schema.GetOffset(0x9F18C5E55A7163B5), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerNameOffset = Schema.GetOffset(0x9F18C5E55A7163B5);
 
   public string LayerName {
     get {
-      var ptr = _Handle.Read<nint>(_LayerNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_LayerNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LayerNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _LayerNameOffset, value);
   } 
-  private static readonly Lazy<nint> _DisplayTextOffset = new(() => Schema.GetOffset(0x9F18C5E5F59D71EE), LazyThreadSafetyMode.None);
+  private static readonly nint _DisplayTextOffset = Schema.GetOffset(0x9F18C5E5F59D71EE);
 
   public string DisplayText {
     get {
-      var ptr = _Handle.Read<nint>(_DisplayTextOffset.Value);
+      var ptr = _Handle.Read<nint>(_DisplayTextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DisplayTextOffset.Value, value);
+    set => Schema.SetString(_Handle, _DisplayTextOffset, value);
   } 
 
 

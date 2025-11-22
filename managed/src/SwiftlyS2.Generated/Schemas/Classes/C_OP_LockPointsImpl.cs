@@ -17,35 +17,35 @@ internal partial class C_OP_LockPointsImpl : CParticleFunctionOperatorImpl, C_OP
   public C_OP_LockPointsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinColOffset = new(() => Schema.GetOffset(0x68C45815E41E1FFB), LazyThreadSafetyMode.None);
+  private static readonly nint _MinColOffset = Schema.GetOffset(0x68C45815E41E1FFB);
 
   public ref int MinCol {
-    get => ref _Handle.AsRef<int>(_MinColOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinColOffset);
   }
-  private static readonly Lazy<nint> _MaxColOffset = new(() => Schema.GetOffset(0x68C45815EC9939A1), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxColOffset = Schema.GetOffset(0x68C45815EC9939A1);
 
   public ref int MaxCol {
-    get => ref _Handle.AsRef<int>(_MaxColOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxColOffset);
   }
-  private static readonly Lazy<nint> _MinRowOffset = new(() => Schema.GetOffset(0x68C45815199E3CF1), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRowOffset = Schema.GetOffset(0x68C45815199E3CF1);
 
   public ref int MinRow {
-    get => ref _Handle.AsRef<int>(_MinRowOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinRowOffset);
   }
-  private static readonly Lazy<nint> _MaxRowOffset = new(() => Schema.GetOffset(0x68C458157E297EEB), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRowOffset = Schema.GetOffset(0x68C458157E297EEB);
 
   public ref int MaxRow {
-    get => ref _Handle.AsRef<int>(_MaxRowOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxRowOffset);
   }
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0x68C458150D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0x68C458150D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _BlendValueOffset = new(() => Schema.GetOffset(0x68C45815E14CD067), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendValueOffset = Schema.GetOffset(0x68C45815E14CD067);
 
   public ref float BlendValue {
-    get => ref _Handle.AsRef<float>(_BlendValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendValueOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class CAnimKeyDataImpl : SchemaClass, CAnimKeyData {
   public CAnimKeyDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x790610E24D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x790610E24D8F5786);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _BoneArrayOffset = new(() => Schema.GetOffset(0x790610E280273F0C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneArrayOffset = Schema.GetOffset(0x790610E280273F0C);
 
   public ref CUtlVector<CAnimBone> BoneArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimBone>>(_BoneArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimBone>>(_BoneArrayOffset);
   }
-  private static readonly Lazy<nint> _UserArrayOffset = new(() => Schema.GetOffset(0x790610E2FBDB0C13), LazyThreadSafetyMode.None);
+  private static readonly nint _UserArrayOffset = Schema.GetOffset(0x790610E2FBDB0C13);
 
   public ref CUtlVector<CAnimUser> UserArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimUser>>(_UserArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimUser>>(_UserArrayOffset);
   }
-  private static readonly Lazy<nint> _MorphArrayOffset = new(() => Schema.GetOffset(0x790610E28C6827E6), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphArrayOffset = Schema.GetOffset(0x790610E28C6827E6);
 
   public ref CUtlVector<CBufferString> MorphArray {
-    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_MorphArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_MorphArrayOffset);
   }
-  private static readonly Lazy<nint> _ChannelElementsOffset = new(() => Schema.GetOffset(0x790610E20D1DA989), LazyThreadSafetyMode.None);
+  private static readonly nint _ChannelElementsOffset = Schema.GetOffset(0x790610E20D1DA989);
 
   public ref int ChannelElements {
-    get => ref _Handle.AsRef<int>(_ChannelElementsOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChannelElementsOffset);
   }
-  private static readonly Lazy<nint> _DataChannelArrayOffset = new(() => Schema.GetOffset(0x790610E2D1641EB9), LazyThreadSafetyMode.None);
+  private static readonly nint _DataChannelArrayOffset = Schema.GetOffset(0x790610E2D1641EB9);
 
   public ref CUtlVector<CAnimDataChannelDesc> DataChannelArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimDataChannelDesc>>(_DataChannelArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimDataChannelDesc>>(_DataChannelArrayOffset);
   }
 
 

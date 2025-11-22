@@ -17,15 +17,15 @@ internal partial class C_OP_SetControlPointFromObjectScaleImpl : CParticleFuncti
   public C_OP_SetControlPointFromObjectScaleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPInputOffset = new(() => Schema.GetOffset(0xB0DB8599FB805736), LazyThreadSafetyMode.None);
+  private static readonly nint _CPInputOffset = Schema.GetOffset(0xB0DB8599FB805736);
 
   public ref int CPInput {
-    get => ref _Handle.AsRef<int>(_CPInputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPInputOffset);
   }
-  private static readonly Lazy<nint> _CPOutputOffset = new(() => Schema.GetOffset(0xB0DB85992077C953), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputOffset = Schema.GetOffset(0xB0DB85992077C953);
 
   public ref int CPOutput {
-    get => ref _Handle.AsRef<int>(_CPOutputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputOffset);
   }
 
 

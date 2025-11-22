@@ -17,105 +17,105 @@ internal partial class CFootLockUpdateNodeImpl : CUnaryUpdateNodeImpl, CFootLock
   public CFootLockUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpFixedSettingsOffset = new(() => Schema.GetOffset(0xA8F37E8E533AB09), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedSettingsOffset = Schema.GetOffset(0xA8F37E8E533AB09);
 
   public FootLockPoseOpFixedSettings OpFixedSettings {
-    get => new FootLockPoseOpFixedSettingsImpl(_Handle + _OpFixedSettingsOffset.Value);
+    get => new FootLockPoseOpFixedSettingsImpl(_Handle + _OpFixedSettingsOffset);
   }
-  private static readonly Lazy<nint> _FootSettingsOffset = new(() => Schema.GetOffset(0xA8F37E8A7F2ADE4), LazyThreadSafetyMode.None);
+  private static readonly nint _FootSettingsOffset = Schema.GetOffset(0xA8F37E8A7F2ADE4);
 
   public ref CUtlVector<FootFixedSettings> FootSettings {
-    get => ref _Handle.AsRef<CUtlVector<FootFixedSettings>>(_FootSettingsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<FootFixedSettings>>(_FootSettingsOffset);
   }
-  private static readonly Lazy<nint> _HipShiftDampingOffset = new(() => Schema.GetOffset(0xA8F37E80EA57628), LazyThreadSafetyMode.None);
+  private static readonly nint _HipShiftDampingOffset = Schema.GetOffset(0xA8F37E80EA57628);
 
   public CAnimInputDamping HipShiftDamping {
-    get => new CAnimInputDampingImpl(_Handle + _HipShiftDampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _HipShiftDampingOffset);
   }
-  private static readonly Lazy<nint> _RootHeightDampingOffset = new(() => Schema.GetOffset(0xA8F37E84DE10164), LazyThreadSafetyMode.None);
+  private static readonly nint _RootHeightDampingOffset = Schema.GetOffset(0xA8F37E84DE10164);
 
   public CAnimInputDamping RootHeightDamping {
-    get => new CAnimInputDampingImpl(_Handle + _RootHeightDampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _RootHeightDampingOffset);
   }
-  private static readonly Lazy<nint> _StrideCurveScaleOffset = new(() => Schema.GetOffset(0xA8F37E824E250E9), LazyThreadSafetyMode.None);
+  private static readonly nint _StrideCurveScaleOffset = Schema.GetOffset(0xA8F37E824E250E9);
 
   public ref float StrideCurveScale {
-    get => ref _Handle.AsRef<float>(_StrideCurveScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StrideCurveScaleOffset);
   }
-  private static readonly Lazy<nint> _StrideCurveLimitScaleOffset = new(() => Schema.GetOffset(0xA8F37E8BE5E55F6), LazyThreadSafetyMode.None);
+  private static readonly nint _StrideCurveLimitScaleOffset = Schema.GetOffset(0xA8F37E8BE5E55F6);
 
   public ref float StrideCurveLimitScale {
-    get => ref _Handle.AsRef<float>(_StrideCurveLimitScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StrideCurveLimitScaleOffset);
   }
-  private static readonly Lazy<nint> _StepHeightIncreaseScaleOffset = new(() => Schema.GetOffset(0xA8F37E8AEFDE950), LazyThreadSafetyMode.None);
+  private static readonly nint _StepHeightIncreaseScaleOffset = Schema.GetOffset(0xA8F37E8AEFDE950);
 
   public ref float StepHeightIncreaseScale {
-    get => ref _Handle.AsRef<float>(_StepHeightIncreaseScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StepHeightIncreaseScaleOffset);
   }
-  private static readonly Lazy<nint> _StepHeightDecreaseScaleOffset = new(() => Schema.GetOffset(0xA8F37E882893258), LazyThreadSafetyMode.None);
+  private static readonly nint _StepHeightDecreaseScaleOffset = Schema.GetOffset(0xA8F37E882893258);
 
   public ref float StepHeightDecreaseScale {
-    get => ref _Handle.AsRef<float>(_StepHeightDecreaseScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StepHeightDecreaseScaleOffset);
   }
-  private static readonly Lazy<nint> _HipShiftScaleOffset = new(() => Schema.GetOffset(0xA8F37E847C1BE5A), LazyThreadSafetyMode.None);
+  private static readonly nint _HipShiftScaleOffset = Schema.GetOffset(0xA8F37E847C1BE5A);
 
   public ref float HipShiftScale {
-    get => ref _Handle.AsRef<float>(_HipShiftScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_HipShiftScaleOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeOffset = new(() => Schema.GetOffset(0xA8F37E8A6206E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeOffset = Schema.GetOffset(0xA8F37E8A6206E9F);
 
   public ref float BlendTime {
-    get => ref _Handle.AsRef<float>(_BlendTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeOffset);
   }
-  private static readonly Lazy<nint> _MaxRootHeightOffsetOffset = new(() => Schema.GetOffset(0xA8F37E8C33AC7DF), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRootHeightOffsetOffset = Schema.GetOffset(0xA8F37E8C33AC7DF);
 
   public ref float MaxRootHeightOffset {
-    get => ref _Handle.AsRef<float>(_MaxRootHeightOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRootHeightOffsetOffset);
   }
-  private static readonly Lazy<nint> _MinRootHeightOffsetOffset = new(() => Schema.GetOffset(0xA8F37E8D9B970B1), LazyThreadSafetyMode.None);
+  private static readonly nint _MinRootHeightOffsetOffset = Schema.GetOffset(0xA8F37E8D9B970B1);
 
   public ref float MinRootHeightOffset {
-    get => ref _Handle.AsRef<float>(_MinRootHeightOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinRootHeightOffsetOffset);
   }
-  private static readonly Lazy<nint> _TiltPlanePitchSpringStrengthOffset = new(() => Schema.GetOffset(0xA8F37E864893350), LazyThreadSafetyMode.None);
+  private static readonly nint _TiltPlanePitchSpringStrengthOffset = Schema.GetOffset(0xA8F37E864893350);
 
   public ref float TiltPlanePitchSpringStrength {
-    get => ref _Handle.AsRef<float>(_TiltPlanePitchSpringStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TiltPlanePitchSpringStrengthOffset);
   }
-  private static readonly Lazy<nint> _TiltPlaneRollSpringStrengthOffset = new(() => Schema.GetOffset(0xA8F37E8AD412E55), LazyThreadSafetyMode.None);
+  private static readonly nint _TiltPlaneRollSpringStrengthOffset = Schema.GetOffset(0xA8F37E8AD412E55);
 
   public ref float TiltPlaneRollSpringStrength {
-    get => ref _Handle.AsRef<float>(_TiltPlaneRollSpringStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TiltPlaneRollSpringStrengthOffset);
   }
-  private static readonly Lazy<nint> _ApplyFootRotationLimitsOffset = new(() => Schema.GetOffset(0xA8F37E87C3F5AED), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyFootRotationLimitsOffset = Schema.GetOffset(0xA8F37E87C3F5AED);
 
   public ref bool ApplyFootRotationLimits {
-    get => ref _Handle.AsRef<bool>(_ApplyFootRotationLimitsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyFootRotationLimitsOffset);
   }
-  private static readonly Lazy<nint> _ApplyHipShiftOffset = new(() => Schema.GetOffset(0xA8F37E8DE90F994), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyHipShiftOffset = Schema.GetOffset(0xA8F37E8DE90F994);
 
   public ref bool ApplyHipShift {
-    get => ref _Handle.AsRef<bool>(_ApplyHipShiftOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyHipShiftOffset);
   }
-  private static readonly Lazy<nint> _ModulateStepHeightOffset = new(() => Schema.GetOffset(0xA8F37E82412FFBF), LazyThreadSafetyMode.None);
+  private static readonly nint _ModulateStepHeightOffset = Schema.GetOffset(0xA8F37E82412FFBF);
 
   public ref bool ModulateStepHeight {
-    get => ref _Handle.AsRef<bool>(_ModulateStepHeightOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ModulateStepHeightOffset);
   }
-  private static readonly Lazy<nint> _ResetChildOffset = new(() => Schema.GetOffset(0xA8F37E865CC88B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChildOffset = Schema.GetOffset(0xA8F37E865CC88B6);
 
   public ref bool ResetChild {
-    get => ref _Handle.AsRef<bool>(_ResetChildOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChildOffset);
   }
-  private static readonly Lazy<nint> _EnableVerticalCurvedPathsOffset = new(() => Schema.GetOffset(0xA8F37E80A18A0EB), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableVerticalCurvedPathsOffset = Schema.GetOffset(0xA8F37E80A18A0EB);
 
   public ref bool EnableVerticalCurvedPaths {
-    get => ref _Handle.AsRef<bool>(_EnableVerticalCurvedPathsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableVerticalCurvedPathsOffset);
   }
-  private static readonly Lazy<nint> _EnableRootHeightDampingOffset = new(() => Schema.GetOffset(0xA8F37E802F42911), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableRootHeightDampingOffset = Schema.GetOffset(0xA8F37E802F42911);
 
   public ref bool EnableRootHeightDamping {
-    get => ref _Handle.AsRef<bool>(_EnableRootHeightDampingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableRootHeightDampingOffset);
   }
 
 

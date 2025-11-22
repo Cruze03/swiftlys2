@@ -17,125 +17,125 @@ internal partial class CAnimGraphNetworkedVariablesImpl : SchemaClass, CAnimGrap
   public CAnimGraphNetworkedVariablesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PredNetBoolVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B906DCE9F6), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetBoolVariablesOffset = Schema.GetOffset(0x1E17B4B906DCE9F6);
 
   public ref CUtlVector<uint> PredNetBoolVariables {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_PredNetBoolVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_PredNetBoolVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetByteVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B989E64D04), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetByteVariablesOffset = Schema.GetOffset(0x1E17B4B989E64D04);
 
   public ref CUtlVector<byte> PredNetByteVariables {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_PredNetByteVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_PredNetByteVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetUInt16VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B977F08773), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetUInt16VariablesOffset = Schema.GetOffset(0x1E17B4B977F08773);
 
   public ref CUtlVector<ushort> PredNetUInt16Variables {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_PredNetUInt16VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_PredNetUInt16VariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetIntVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B96B8A2ED7), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetIntVariablesOffset = Schema.GetOffset(0x1E17B4B96B8A2ED7);
 
   public ref CUtlVector<int> PredNetIntVariables {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_PredNetIntVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_PredNetIntVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetUInt32VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9E4E7C391), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetUInt32VariablesOffset = Schema.GetOffset(0x1E17B4B9E4E7C391);
 
   public ref CUtlVector<uint> PredNetUInt32Variables {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_PredNetUInt32VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_PredNetUInt32VariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetUInt64VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B99DAD8E90), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetUInt64VariablesOffset = Schema.GetOffset(0x1E17B4B99DAD8E90);
 
   public ref CUtlVector<ulong> PredNetUInt64Variables {
-    get => ref _Handle.AsRef<CUtlVector<ulong>>(_PredNetUInt64VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ulong>>(_PredNetUInt64VariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetFloatVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B998D66E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetFloatVariablesOffset = Schema.GetOffset(0x1E17B4B998D66E5E);
 
   public ref CUtlVector<float> PredNetFloatVariables {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_PredNetFloatVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_PredNetFloatVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetVectorVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9181E9E43), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetVectorVariablesOffset = Schema.GetOffset(0x1E17B4B9181E9E43);
 
   public ref CUtlVector<Vector> PredNetVectorVariables {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_PredNetVectorVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_PredNetVectorVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetQuaternionVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B97DB635DE), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetQuaternionVariablesOffset = Schema.GetOffset(0x1E17B4B97DB635DE);
 
   public ref CUtlVector<Quaternion> PredNetQuaternionVariables {
-    get => ref _Handle.AsRef<CUtlVector<Quaternion>>(_PredNetQuaternionVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Quaternion>>(_PredNetQuaternionVariablesOffset);
   }
-  private static readonly Lazy<nint> _PredNetGlobalSymbolVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9617FC65F), LazyThreadSafetyMode.None);
+  private static readonly nint _PredNetGlobalSymbolVariablesOffset = Schema.GetOffset(0x1E17B4B9617FC65F);
 
   public ref CUtlVector<CGlobalSymbol> PredNetGlobalSymbolVariables {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_PredNetGlobalSymbolVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_PredNetGlobalSymbolVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetBoolVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B929EC42ED), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetBoolVariablesOffset = Schema.GetOffset(0x1E17B4B929EC42ED);
 
   public ref CUtlVector<uint> OwnerOnlyPredNetBoolVariables {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_OwnerOnlyPredNetBoolVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_OwnerOnlyPredNetBoolVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetByteVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B930A63C33), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetByteVariablesOffset = Schema.GetOffset(0x1E17B4B930A63C33);
 
   public ref CUtlVector<byte> OwnerOnlyPredNetByteVariables {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_OwnerOnlyPredNetByteVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_OwnerOnlyPredNetByteVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetUInt16VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9F4141ACC), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetUInt16VariablesOffset = Schema.GetOffset(0x1E17B4B9F4141ACC);
 
   public ref CUtlVector<ushort> OwnerOnlyPredNetUInt16Variables {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_OwnerOnlyPredNetUInt16VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_OwnerOnlyPredNetUInt16VariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetIntVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9334BC692), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetIntVariablesOffset = Schema.GetOffset(0x1E17B4B9334BC692);
 
   public ref CUtlVector<int> OwnerOnlyPredNetIntVariables {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_OwnerOnlyPredNetIntVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_OwnerOnlyPredNetIntVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetUInt32VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B92F3399D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetUInt32VariablesOffset = Schema.GetOffset(0x1E17B4B92F3399D2);
 
   public ref CUtlVector<uint> OwnerOnlyPredNetUInt32Variables {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_OwnerOnlyPredNetUInt32VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_OwnerOnlyPredNetUInt32VariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetUInt64VariablesOffset = new(() => Schema.GetOffset(0x1E17B4B922F96523), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetUInt64VariablesOffset = Schema.GetOffset(0x1E17B4B922F96523);
 
   public ref CUtlVector<ulong> OwnerOnlyPredNetUInt64Variables {
-    get => ref _Handle.AsRef<CUtlVector<ulong>>(_OwnerOnlyPredNetUInt64VariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ulong>>(_OwnerOnlyPredNetUInt64VariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetFloatVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9BA2D74CB), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetFloatVariablesOffset = Schema.GetOffset(0x1E17B4B9BA2D74CB);
 
   public ref CUtlVector<float> OwnerOnlyPredNetFloatVariables {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_OwnerOnlyPredNetFloatVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_OwnerOnlyPredNetFloatVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetVectorVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B91BA357BC), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetVectorVariablesOffset = Schema.GetOffset(0x1E17B4B91BA357BC);
 
   public ref CUtlVector<Vector> OwnerOnlyPredNetVectorVariables {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_OwnerOnlyPredNetVectorVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_OwnerOnlyPredNetVectorVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetQuaternionVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9D91AD9ED), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetQuaternionVariablesOffset = Schema.GetOffset(0x1E17B4B9D91AD9ED);
 
   public ref CUtlVector<Quaternion> OwnerOnlyPredNetQuaternionVariables {
-    get => ref _Handle.AsRef<CUtlVector<Quaternion>>(_OwnerOnlyPredNetQuaternionVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Quaternion>>(_OwnerOnlyPredNetQuaternionVariablesOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyPredNetGlobalSymbolVariablesOffset = new(() => Schema.GetOffset(0x1E17B4B9F5EB98E4), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyPredNetGlobalSymbolVariablesOffset = Schema.GetOffset(0x1E17B4B9F5EB98E4);
 
   public ref CUtlVector<CGlobalSymbol> OwnerOnlyPredNetGlobalSymbolVariables {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_OwnerOnlyPredNetGlobalSymbolVariablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_OwnerOnlyPredNetGlobalSymbolVariablesOffset);
   }
-  private static readonly Lazy<nint> _BoolVariablesCountOffset = new(() => Schema.GetOffset(0x1E17B4B9C49C7BDD), LazyThreadSafetyMode.None);
+  private static readonly nint _BoolVariablesCountOffset = Schema.GetOffset(0x1E17B4B9C49C7BDD);
 
   public ref int BoolVariablesCount {
-    get => ref _Handle.AsRef<int>(_BoolVariablesCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoolVariablesCountOffset);
   }
-  private static readonly Lazy<nint> _OwnerOnlyBoolVariablesCountOffset = new(() => Schema.GetOffset(0x1E17B4B9CF1E0D52), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOnlyBoolVariablesCountOffset = Schema.GetOffset(0x1E17B4B9CF1E0D52);
 
   public ref int OwnerOnlyBoolVariablesCount {
-    get => ref _Handle.AsRef<int>(_OwnerOnlyBoolVariablesCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_OwnerOnlyBoolVariablesCountOffset);
   }
-  private static readonly Lazy<nint> _RandomSeedOffsetOffset = new(() => Schema.GetOffset(0x1E17B4B942BA3B9C), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomSeedOffsetOffset = Schema.GetOffset(0x1E17B4B942BA3B9C);
 
   public ref int RandomSeedOffset {
-    get => ref _Handle.AsRef<int>(_RandomSeedOffsetOffset.Value);
+    get => ref _Handle.AsRef<int>(_RandomSeedOffsetOffset);
   }
-  private static readonly Lazy<nint> _LastTeleportTimeOffset = new(() => Schema.GetOffset(0x1E17B4B9C1AD2641), LazyThreadSafetyMode.None);
+  private static readonly nint _LastTeleportTimeOffset = Schema.GetOffset(0x1E17B4B9C1AD2641);
 
   public ref float LastTeleportTime {
-    get => ref _Handle.AsRef<float>(_LastTeleportTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastTeleportTimeOffset);
   }
 
   public void PredNetBoolVariablesUpdated() {

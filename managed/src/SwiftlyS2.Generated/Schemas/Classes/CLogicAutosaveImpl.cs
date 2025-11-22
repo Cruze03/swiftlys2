@@ -17,20 +17,20 @@ internal partial class CLogicAutosaveImpl : CLogicalEntityImpl, CLogicAutosave {
   public CLogicAutosaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceNewLevelUnitOffset = new(() => Schema.GetOffset(0xE30CCBF21473BFDE), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceNewLevelUnitOffset = Schema.GetOffset(0xE30CCBF21473BFDE);
 
   public ref bool ForceNewLevelUnit {
-    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset);
   }
-  private static readonly Lazy<nint> _MinHitPointsOffset = new(() => Schema.GetOffset(0xE30CCBF22C7E0C57), LazyThreadSafetyMode.None);
+  private static readonly nint _MinHitPointsOffset = Schema.GetOffset(0xE30CCBF22C7E0C57);
 
   public ref int MinHitPoints {
-    get => ref _Handle.AsRef<int>(_MinHitPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinHitPointsOffset);
   }
-  private static readonly Lazy<nint> _MinHitPointsToCommitOffset = new(() => Schema.GetOffset(0xE30CCBF23AAC1C7F), LazyThreadSafetyMode.None);
+  private static readonly nint _MinHitPointsToCommitOffset = Schema.GetOffset(0xE30CCBF23AAC1C7F);
 
   public ref int MinHitPointsToCommit {
-    get => ref _Handle.AsRef<int>(_MinHitPointsToCommitOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinHitPointsToCommitOffset);
   }
 
 

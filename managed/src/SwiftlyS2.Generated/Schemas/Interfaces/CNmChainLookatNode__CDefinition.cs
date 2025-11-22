@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmChainLookatNode__CDefinition : CNmPassthroughNode__CDefinition, ISchemaClass<CNmChainLookatNode__CDefinition> {
 
   static CNmChainLookatNode__CDefinition ISchemaClass<CNmChainLookatNode__CDefinition>.From(nint handle) => new CNmChainLookatNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmChainLookatNode__CDefinition>.Size => 48;
+  static int ISchemaClass<CNmChainLookatNode__CDefinition>.Size => 56;
   static string? ISchemaClass<CNmChainLookatNode__CDefinition>.ClassName => null;
 
   

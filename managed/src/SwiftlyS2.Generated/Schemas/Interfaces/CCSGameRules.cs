@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CCSGameRules : CTeamplayRules, ISchemaClass<CCSGameRules> {
 
   static CCSGameRules ISchemaClass<CCSGameRules>.From(nint handle) => new CCSGameRulesImpl(handle);
-  static int ISchemaClass<CCSGameRules>.Size => 70696;
+  static int ISchemaClass<CCSGameRules>.Size => 70704;
   static string? ISchemaClass<CCSGameRules>.ClassName => null;
 
   

@@ -17,15 +17,15 @@ internal partial class CCSPlayer_ItemServicesImpl : CPlayer_ItemServicesImpl, CC
   public CCSPlayer_ItemServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HasDefuserOffset = new(() => Schema.GetOffset(0x6BB85EAD5AF87AF5), LazyThreadSafetyMode.None);
+  private static readonly nint _HasDefuserOffset = Schema.GetOffset(0x6BB85EAD5AF87AF5);
 
   public ref bool HasDefuser {
-    get => ref _Handle.AsRef<bool>(_HasDefuserOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasDefuserOffset);
   }
-  private static readonly Lazy<nint> _HasHelmetOffset = new(() => Schema.GetOffset(0x6BB85EAD4240B6F6), LazyThreadSafetyMode.None);
+  private static readonly nint _HasHelmetOffset = Schema.GetOffset(0x6BB85EAD4240B6F6);
 
   public ref bool HasHelmet {
-    get => ref _Handle.AsRef<bool>(_HasHelmetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasHelmetOffset);
   }
 
   public void HasDefuserUpdated() {

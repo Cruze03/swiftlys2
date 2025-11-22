@@ -17,15 +17,15 @@ internal partial class C_OP_ConstrainLineLengthImpl : CParticleFunctionConstrain
   public C_OP_ConstrainLineLengthImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinDistanceOffset = new(() => Schema.GetOffset(0x50EFFC4492BCAD06), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistanceOffset = Schema.GetOffset(0x50EFFC4492BCAD06);
 
   public ref float MinDistance {
-    get => ref _Handle.AsRef<float>(_MinDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0x50EFFC4498893360), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0x50EFFC4498893360);
 
   public ref float MaxDistance {
-    get => ref _Handle.AsRef<float>(_MaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistanceOffset);
   }
 
 

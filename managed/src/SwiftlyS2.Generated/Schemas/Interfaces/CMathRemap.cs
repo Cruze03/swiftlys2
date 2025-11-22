@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CMathRemap : CLogicalEntity, ISchemaClass<CMathRemap> {
 
   static CMathRemap ISchemaClass<CMathRemap>.From(nint handle) => new CMathRemapImpl(handle);
-  static int ISchemaClass<CMathRemap>.Size => 2232;
+  static int ISchemaClass<CMathRemap>.Size => 1488;
   static string? ISchemaClass<CMathRemap>.ClassName => "math_remap";
 
   

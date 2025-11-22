@@ -17,10 +17,10 @@ internal partial class CFollowAttachmentUpdateNodeImpl : CUnaryUpdateNodeImpl, C
   public CFollowAttachmentUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpFixedDataOffset = new(() => Schema.GetOffset(0x8E705AE36960AF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedDataOffset = Schema.GetOffset(0x8E705AE36960AF8C);
 
   public FollowAttachmentSettings_t OpFixedData {
-    get => new FollowAttachmentSettings_tImpl(_Handle + _OpFixedDataOffset.Value);
+    get => new FollowAttachmentSettings_tImpl(_Handle + _OpFixedDataOffset);
   }
 
 

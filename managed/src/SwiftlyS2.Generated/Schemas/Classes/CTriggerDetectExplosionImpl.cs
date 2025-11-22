@@ -17,10 +17,10 @@ internal partial class CTriggerDetectExplosionImpl : CBaseTriggerImpl, CTriggerD
   public CTriggerDetectExplosionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnDetectedExplosionOffset = new(() => Schema.GetOffset(0xEDC17DD03CDD7F71), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDetectedExplosionOffset = Schema.GetOffset(0xEDC17DD03CDD7F71);
 
   public CEntityIOOutput OnDetectedExplosion {
-    get => new CEntityIOOutputImpl(_Handle + _OnDetectedExplosionOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDetectedExplosionOffset);
   }
 
 

@@ -17,30 +17,30 @@ internal partial class C_OP_BasicMovementImpl : CParticleFunctionOperatorImpl, C
   public C_OP_BasicMovementImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GravityOffset = new(() => Schema.GetOffset(0xC8273B20790C70C5), LazyThreadSafetyMode.None);
+  private static readonly nint _GravityOffset = Schema.GetOffset(0xC8273B20790C70C5);
 
   public CParticleCollectionVecInput Gravity {
-    get => new CParticleCollectionVecInputImpl(_Handle + _GravityOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _GravityOffset);
   }
-  private static readonly Lazy<nint> _DragOffset = new(() => Schema.GetOffset(0xC8273B2050DA6497), LazyThreadSafetyMode.None);
+  private static readonly nint _DragOffset = Schema.GetOffset(0xC8273B2050DA6497);
 
   public CParticleCollectionFloatInput Drag {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DragOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DragOffset);
   }
-  private static readonly Lazy<nint> _MassControlsOffset = new(() => Schema.GetOffset(0xC8273B2039CBEACB), LazyThreadSafetyMode.None);
+  private static readonly nint _MassControlsOffset = Schema.GetOffset(0xC8273B2039CBEACB);
 
   public CParticleMassCalculationParameters MassControls {
-    get => new CParticleMassCalculationParametersImpl(_Handle + _MassControlsOffset.Value);
+    get => new CParticleMassCalculationParametersImpl(_Handle + _MassControlsOffset);
   }
-  private static readonly Lazy<nint> _MaxConstraintPassesOffset = new(() => Schema.GetOffset(0xC8273B20D83D0CAB), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxConstraintPassesOffset = Schema.GetOffset(0xC8273B20D83D0CAB);
 
   public ref int MaxConstraintPasses {
-    get => ref _Handle.AsRef<int>(_MaxConstraintPassesOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxConstraintPassesOffset);
   }
-  private static readonly Lazy<nint> _UseNewCodeOffset = new(() => Schema.GetOffset(0xC8273B207C6D1CDF), LazyThreadSafetyMode.None);
+  private static readonly nint _UseNewCodeOffset = Schema.GetOffset(0xC8273B207C6D1CDF);
 
   public ref bool UseNewCode {
-    get => ref _Handle.AsRef<bool>(_UseNewCodeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseNewCodeOffset);
   }
 
 

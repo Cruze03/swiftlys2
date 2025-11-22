@@ -17,65 +17,65 @@ internal partial class PGDInstruction_tImpl : SchemaClass, PGDInstruction_t {
   public PGDInstruction_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CodeOffset = new(() => Schema.GetOffset(0xE64AC70782D034B8), LazyThreadSafetyMode.None);
+  private static readonly nint _CodeOffset = Schema.GetOffset(0xE64AC70782D034B8);
 
   public ref PulseInstructionCode_t Code {
-    get => ref _Handle.AsRef<PulseInstructionCode_t>(_CodeOffset.Value);
+    get => ref _Handle.AsRef<PulseInstructionCode_t>(_CodeOffset);
   }
-  private static readonly Lazy<nint> _VarOffset = new(() => Schema.GetOffset(0xE64AC707FD79AE3A), LazyThreadSafetyMode.None);
+  private static readonly nint _VarOffset = Schema.GetOffset(0xE64AC707FD79AE3A);
 
   public PulseRuntimeVarIndex_t Var {
-    get => new PulseRuntimeVarIndex_tImpl(_Handle + _VarOffset.Value);
+    get => new PulseRuntimeVarIndex_tImpl(_Handle + _VarOffset);
   }
-  private static readonly Lazy<nint> _Reg0Offset = new(() => Schema.GetOffset(0xE64AC707203A137B), LazyThreadSafetyMode.None);
+  private static readonly nint _Reg0Offset = Schema.GetOffset(0xE64AC707203A137B);
 
   public PulseRuntimeRegisterIndex_t Reg0 {
-    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg0Offset.Value);
+    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg0Offset);
   }
-  private static readonly Lazy<nint> _Reg1Offset = new(() => Schema.GetOffset(0xE64AC7071F3A11E8), LazyThreadSafetyMode.None);
+  private static readonly nint _Reg1Offset = Schema.GetOffset(0xE64AC7071F3A11E8);
 
   public PulseRuntimeRegisterIndex_t Reg1 {
-    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg1Offset.Value);
+    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg1Offset);
   }
-  private static readonly Lazy<nint> _Reg2Offset = new(() => Schema.GetOffset(0xE64AC707223A16A1), LazyThreadSafetyMode.None);
+  private static readonly nint _Reg2Offset = Schema.GetOffset(0xE64AC707223A16A1);
 
   public PulseRuntimeRegisterIndex_t Reg2 {
-    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg2Offset.Value);
+    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _Reg2Offset);
   }
-  private static readonly Lazy<nint> _InvokeBindingIndexOffset = new(() => Schema.GetOffset(0xE64AC707758774C2), LazyThreadSafetyMode.None);
+  private static readonly nint _InvokeBindingIndexOffset = Schema.GetOffset(0xE64AC707758774C2);
 
   public PulseRuntimeInvokeIndex_t InvokeBindingIndex {
-    get => new PulseRuntimeInvokeIndex_tImpl(_Handle + _InvokeBindingIndexOffset.Value);
+    get => new PulseRuntimeInvokeIndex_tImpl(_Handle + _InvokeBindingIndexOffset);
   }
-  private static readonly Lazy<nint> _ChunkOffset = new(() => Schema.GetOffset(0xE64AC7071B1DB366), LazyThreadSafetyMode.None);
+  private static readonly nint _ChunkOffset = Schema.GetOffset(0xE64AC7071B1DB366);
 
   public PulseRuntimeChunkIndex_t Chunk {
-    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _ChunkOffset.Value);
+    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _ChunkOffset);
   }
-  private static readonly Lazy<nint> _DestInstructionOffset = new(() => Schema.GetOffset(0xE64AC7071C9BCE7B), LazyThreadSafetyMode.None);
+  private static readonly nint _DestInstructionOffset = Schema.GetOffset(0xE64AC7071C9BCE7B);
 
   public ref int DestInstruction {
-    get => ref _Handle.AsRef<int>(_DestInstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_DestInstructionOffset);
   }
-  private static readonly Lazy<nint> _CallInfoIndexOffset = new(() => Schema.GetOffset(0xE64AC7075A5CA29B), LazyThreadSafetyMode.None);
+  private static readonly nint _CallInfoIndexOffset = Schema.GetOffset(0xE64AC7075A5CA29B);
 
   public PulseRuntimeCallInfoIndex_t CallInfoIndex {
-    get => new PulseRuntimeCallInfoIndex_tImpl(_Handle + _CallInfoIndexOffset.Value);
+    get => new PulseRuntimeCallInfoIndex_tImpl(_Handle + _CallInfoIndexOffset);
   }
-  private static readonly Lazy<nint> _ConstIdxOffset = new(() => Schema.GetOffset(0xE64AC707800942FF), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstIdxOffset = Schema.GetOffset(0xE64AC707800942FF);
 
   public PulseRuntimeConstantIndex_t ConstIdx {
-    get => new PulseRuntimeConstantIndex_tImpl(_Handle + _ConstIdxOffset.Value);
+    get => new PulseRuntimeConstantIndex_tImpl(_Handle + _ConstIdxOffset);
   }
-  private static readonly Lazy<nint> _DomainValueIdxOffset = new(() => Schema.GetOffset(0xE64AC70716115525), LazyThreadSafetyMode.None);
+  private static readonly nint _DomainValueIdxOffset = Schema.GetOffset(0xE64AC70716115525);
 
   public PulseRuntimeDomainValueIndex_t DomainValueIdx {
-    get => new PulseRuntimeDomainValueIndex_tImpl(_Handle + _DomainValueIdxOffset.Value);
+    get => new PulseRuntimeDomainValueIndex_tImpl(_Handle + _DomainValueIdxOffset);
   }
-  private static readonly Lazy<nint> _BlackboardReferenceIdxOffset = new(() => Schema.GetOffset(0xE64AC70727CB71C0), LazyThreadSafetyMode.None);
+  private static readonly nint _BlackboardReferenceIdxOffset = Schema.GetOffset(0xE64AC70727CB71C0);
 
   public PulseRuntimeBlackboardReferenceIndex_t BlackboardReferenceIdx {
-    get => new PulseRuntimeBlackboardReferenceIndex_tImpl(_Handle + _BlackboardReferenceIdxOffset.Value);
+    get => new PulseRuntimeBlackboardReferenceIndex_tImpl(_Handle + _BlackboardReferenceIdxOffset);
   }
 
 

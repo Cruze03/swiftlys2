@@ -17,15 +17,15 @@ internal partial class C_OP_FadeOutSimpleImpl : CParticleFunctionOperatorImpl, C
   public C_OP_FadeOutSimpleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeOutTimeOffset = new(() => Schema.GetOffset(0xD439658FE86D2FC2), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutTimeOffset = Schema.GetOffset(0xD439658FE86D2FC2);
 
   public ref float FadeOutTime {
-    get => ref _Handle.AsRef<float>(_FadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutTimeOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xD439658FE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xD439658FE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
 
 

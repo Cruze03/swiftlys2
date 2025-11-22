@@ -17,35 +17,35 @@ internal partial class C_OP_OscillateVectorSimpleImpl : CParticleFunctionOperato
   public C_OP_OscillateVectorSimpleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RateOffset = new(() => Schema.GetOffset(0xB4CA468EC3280E7), LazyThreadSafetyMode.None);
+  private static readonly nint _RateOffset = Schema.GetOffset(0xB4CA468EC3280E7);
 
   public ref Vector Rate {
-    get => ref _Handle.AsRef<Vector>(_RateOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RateOffset);
   }
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0xB4CA468BCCAA981), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0xB4CA468BCCAA981);
 
   public ref Vector Frequency {
-    get => ref _Handle.AsRef<Vector>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _FieldOffset = new(() => Schema.GetOffset(0xB4CA468C257B93B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOffset = Schema.GetOffset(0xB4CA468C257B93B);
 
   public ParticleAttributeIndex_t Field {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOffset);
   }
-  private static readonly Lazy<nint> _OscMultOffset = new(() => Schema.GetOffset(0xB4CA46816278E94), LazyThreadSafetyMode.None);
+  private static readonly nint _OscMultOffset = Schema.GetOffset(0xB4CA46816278E94);
 
   public ref float OscMult {
-    get => ref _Handle.AsRef<float>(_OscMultOffset.Value);
+    get => ref _Handle.AsRef<float>(_OscMultOffset);
   }
-  private static readonly Lazy<nint> _OscAddOffset = new(() => Schema.GetOffset(0xB4CA4687B38A63D), LazyThreadSafetyMode.None);
+  private static readonly nint _OscAddOffset = Schema.GetOffset(0xB4CA4687B38A63D);
 
   public ref float OscAdd {
-    get => ref _Handle.AsRef<float>(_OscAddOffset.Value);
+    get => ref _Handle.AsRef<float>(_OscAddOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xB4CA46817412B2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xB4CA46817412B2A);
 
   public ref bool Offset {
-    get => ref _Handle.AsRef<bool>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetOffset);
   }
 
 

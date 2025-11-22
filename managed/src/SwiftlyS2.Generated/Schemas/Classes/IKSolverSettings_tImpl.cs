@@ -17,20 +17,20 @@ internal partial class IKSolverSettings_tImpl : SchemaClass, IKSolverSettings_t 
   public IKSolverSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SolverTypeOffset = new(() => Schema.GetOffset(0x368DC59819CA61B6), LazyThreadSafetyMode.None);
+  private static readonly nint _SolverTypeOffset = Schema.GetOffset(0x368DC59819CA61B6);
 
   public ref IKSolverType SolverType {
-    get => ref _Handle.AsRef<IKSolverType>(_SolverTypeOffset.Value);
+    get => ref _Handle.AsRef<IKSolverType>(_SolverTypeOffset);
   }
-  private static readonly Lazy<nint> _NumIterationsOffset = new(() => Schema.GetOffset(0x368DC59878BB0057), LazyThreadSafetyMode.None);
+  private static readonly nint _NumIterationsOffset = Schema.GetOffset(0x368DC59878BB0057);
 
   public ref int NumIterations {
-    get => ref _Handle.AsRef<int>(_NumIterationsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumIterationsOffset);
   }
-  private static readonly Lazy<nint> _EndEffectorRotationFixUpModeOffset = new(() => Schema.GetOffset(0x368DC5980B45E281), LazyThreadSafetyMode.None);
+  private static readonly nint _EndEffectorRotationFixUpModeOffset = Schema.GetOffset(0x368DC5980B45E281);
 
   public ref EIKEndEffectorRotationFixUpMode EndEffectorRotationFixUpMode {
-    get => ref _Handle.AsRef<EIKEndEffectorRotationFixUpMode>(_EndEffectorRotationFixUpModeOffset.Value);
+    get => ref _Handle.AsRef<EIKEndEffectorRotationFixUpMode>(_EndEffectorRotationFixUpModeOffset);
   }
 
 

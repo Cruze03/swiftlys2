@@ -17,15 +17,15 @@ internal partial class CNmTargetWarpEventImpl : CNmEventImpl, CNmTargetWarpEvent
   public CNmTargetWarpEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RuleOffset = new(() => Schema.GetOffset(0x573F0894BA097173), LazyThreadSafetyMode.None);
+  private static readonly nint _RuleOffset = Schema.GetOffset(0x573F0894BA097173);
 
   public ref NmTargetWarpRule_t Rule {
-    get => ref _Handle.AsRef<NmTargetWarpRule_t>(_RuleOffset.Value);
+    get => ref _Handle.AsRef<NmTargetWarpRule_t>(_RuleOffset);
   }
-  private static readonly Lazy<nint> _AlgorithmOffset = new(() => Schema.GetOffset(0x573F0894265CAE8A), LazyThreadSafetyMode.None);
+  private static readonly nint _AlgorithmOffset = Schema.GetOffset(0x573F0894265CAE8A);
 
   public ref NmTargetWarpAlgorithm_t Algorithm {
-    get => ref _Handle.AsRef<NmTargetWarpAlgorithm_t>(_AlgorithmOffset.Value);
+    get => ref _Handle.AsRef<NmTargetWarpAlgorithm_t>(_AlgorithmOffset);
   }
 
 

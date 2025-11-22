@@ -17,138 +17,138 @@ internal partial class CPlantedC4Impl : CBaseAnimGraphImpl, CPlantedC4 {
   public CPlantedC4Impl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BombTickingOffset = new(() => Schema.GetOffset(0xE1614C81CA7488E0), LazyThreadSafetyMode.None);
+  private static readonly nint _BombTickingOffset = Schema.GetOffset(0xE1614C81CA7488E0);
 
   public ref bool BombTicking {
-    get => ref _Handle.AsRef<bool>(_BombTickingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BombTickingOffset);
   }
-  private static readonly Lazy<nint> _C4BlowOffset = new(() => Schema.GetOffset(0xE1614C812C4CFDAC), LazyThreadSafetyMode.None);
+  private static readonly nint _C4BlowOffset = Schema.GetOffset(0xE1614C812C4CFDAC);
 
   public GameTime_t C4Blow {
-    get => new GameTime_tImpl(_Handle + _C4BlowOffset.Value);
+    get => new GameTime_tImpl(_Handle + _C4BlowOffset);
   }
-  private static readonly Lazy<nint> _BombSiteOffset = new(() => Schema.GetOffset(0xE1614C81E027AC16), LazyThreadSafetyMode.None);
+  private static readonly nint _BombSiteOffset = Schema.GetOffset(0xE1614C81E027AC16);
 
   public ref int BombSite {
-    get => ref _Handle.AsRef<int>(_BombSiteOffset.Value);
+    get => ref _Handle.AsRef<int>(_BombSiteOffset);
   }
-  private static readonly Lazy<nint> _SourceSoundscapeHashOffset = new(() => Schema.GetOffset(0xE1614C8185EE0527), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceSoundscapeHashOffset = Schema.GetOffset(0xE1614C8185EE0527);
 
   public ref int SourceSoundscapeHash {
-    get => ref _Handle.AsRef<int>(_SourceSoundscapeHashOffset.Value);
+    get => ref _Handle.AsRef<int>(_SourceSoundscapeHashOffset);
   }
-  private static readonly Lazy<nint> _AbortDetonationBecauseWorldIsFrozenOffset = new(() => Schema.GetOffset(0xE1614C812D71EDD6), LazyThreadSafetyMode.None);
+  private static readonly nint _AbortDetonationBecauseWorldIsFrozenOffset = Schema.GetOffset(0xE1614C812D71EDD6);
 
   public ref bool AbortDetonationBecauseWorldIsFrozen {
-    get => ref _Handle.AsRef<bool>(_AbortDetonationBecauseWorldIsFrozenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AbortDetonationBecauseWorldIsFrozenOffset);
   }
-  private static readonly Lazy<nint> _AttributeManagerOffset = new(() => Schema.GetOffset(0xE1614C81537B0586), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeManagerOffset = Schema.GetOffset(0xE1614C81537B0586);
 
   public CAttributeContainer AttributeManager {
-    get => new CAttributeContainerImpl(_Handle + _AttributeManagerOffset.Value);
+    get => new CAttributeContainerImpl(_Handle + _AttributeManagerOffset);
   }
-  private static readonly Lazy<nint> _OnBombDefusedOffset = new(() => Schema.GetOffset(0xE1614C81BCDAD16E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombDefusedOffset = Schema.GetOffset(0xE1614C81BCDAD16E);
 
   public CEntityIOOutput OnBombDefused {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombDefusedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombDefusedOffset);
   }
-  private static readonly Lazy<nint> _OnBombBeginDefuseOffset = new(() => Schema.GetOffset(0xE1614C81CD3D21A7), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombBeginDefuseOffset = Schema.GetOffset(0xE1614C81CD3D21A7);
 
   public CEntityIOOutput OnBombBeginDefuse {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombBeginDefuseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombBeginDefuseOffset);
   }
-  private static readonly Lazy<nint> _OnBombDefuseAbortedOffset = new(() => Schema.GetOffset(0xE1614C81DCF21D69), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombDefuseAbortedOffset = Schema.GetOffset(0xE1614C81DCF21D69);
 
   public CEntityIOOutput OnBombDefuseAborted {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombDefuseAbortedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombDefuseAbortedOffset);
   }
-  private static readonly Lazy<nint> _CannotBeDefusedOffset = new(() => Schema.GetOffset(0xE1614C81AF7C9CFF), LazyThreadSafetyMode.None);
+  private static readonly nint _CannotBeDefusedOffset = Schema.GetOffset(0xE1614C81AF7C9CFF);
 
   public ref bool CannotBeDefused {
-    get => ref _Handle.AsRef<bool>(_CannotBeDefusedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CannotBeDefusedOffset);
   }
-  private static readonly Lazy<nint> _EntitySpottedStateOffset = new(() => Schema.GetOffset(0xE1614C81032B547C), LazyThreadSafetyMode.None);
+  private static readonly nint _EntitySpottedStateOffset = Schema.GetOffset(0xE1614C81032B547C);
 
   public EntitySpottedState_t EntitySpottedState {
-    get => new EntitySpottedState_tImpl(_Handle + _EntitySpottedStateOffset.Value);
+    get => new EntitySpottedState_tImpl(_Handle + _EntitySpottedStateOffset);
   }
-  private static readonly Lazy<nint> _SpotRulesOffset = new(() => Schema.GetOffset(0xE1614C81776CCE44), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotRulesOffset = Schema.GetOffset(0xE1614C81776CCE44);
 
   public ref int SpotRules {
-    get => ref _Handle.AsRef<int>(_SpotRulesOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpotRulesOffset);
   }
-  private static readonly Lazy<nint> _TrainingPlacedByPlayerOffset = new(() => Schema.GetOffset(0xE1614C818D8A976E), LazyThreadSafetyMode.None);
+  private static readonly nint _TrainingPlacedByPlayerOffset = Schema.GetOffset(0xE1614C818D8A976E);
 
   public ref bool TrainingPlacedByPlayer {
-    get => ref _Handle.AsRef<bool>(_TrainingPlacedByPlayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TrainingPlacedByPlayerOffset);
   }
-  private static readonly Lazy<nint> _HasExplodedOffset = new(() => Schema.GetOffset(0xE1614C814F35E7B0), LazyThreadSafetyMode.None);
+  private static readonly nint _HasExplodedOffset = Schema.GetOffset(0xE1614C814F35E7B0);
 
   public ref bool HasExploded {
-    get => ref _Handle.AsRef<bool>(_HasExplodedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasExplodedOffset);
   }
-  private static readonly Lazy<nint> _TimerLengthOffset = new(() => Schema.GetOffset(0xE1614C815758DBE8), LazyThreadSafetyMode.None);
+  private static readonly nint _TimerLengthOffset = Schema.GetOffset(0xE1614C815758DBE8);
 
   public ref float TimerLength {
-    get => ref _Handle.AsRef<float>(_TimerLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimerLengthOffset);
   }
-  private static readonly Lazy<nint> _BeingDefusedOffset = new(() => Schema.GetOffset(0xE1614C81E52E1146), LazyThreadSafetyMode.None);
+  private static readonly nint _BeingDefusedOffset = Schema.GetOffset(0xE1614C81E52E1146);
 
   public ref bool BeingDefused {
-    get => ref _Handle.AsRef<bool>(_BeingDefusedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BeingDefusedOffset);
   }
-  private static readonly Lazy<nint> _LastDefuseTimeOffset = new(() => Schema.GetOffset(0xE1614C81F3BD810E), LazyThreadSafetyMode.None);
+  private static readonly nint _LastDefuseTimeOffset = Schema.GetOffset(0xE1614C81F3BD810E);
 
   public GameTime_t LastDefuseTime {
-    get => new GameTime_tImpl(_Handle + _LastDefuseTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastDefuseTimeOffset);
   }
-  private static readonly Lazy<nint> _DefuseLengthOffset = new(() => Schema.GetOffset(0xE1614C8164CC4751), LazyThreadSafetyMode.None);
+  private static readonly nint _DefuseLengthOffset = Schema.GetOffset(0xE1614C8164CC4751);
 
   public ref float DefuseLength {
-    get => ref _Handle.AsRef<float>(_DefuseLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefuseLengthOffset);
   }
-  private static readonly Lazy<nint> _DefuseCountDownOffset = new(() => Schema.GetOffset(0xE1614C81BCF3DB7C), LazyThreadSafetyMode.None);
+  private static readonly nint _DefuseCountDownOffset = Schema.GetOffset(0xE1614C81BCF3DB7C);
 
   public GameTime_t DefuseCountDown {
-    get => new GameTime_tImpl(_Handle + _DefuseCountDownOffset.Value);
+    get => new GameTime_tImpl(_Handle + _DefuseCountDownOffset);
   }
-  private static readonly Lazy<nint> _BombDefusedOffset = new(() => Schema.GetOffset(0xE1614C81CA9F868D), LazyThreadSafetyMode.None);
+  private static readonly nint _BombDefusedOffset = Schema.GetOffset(0xE1614C81CA9F868D);
 
   public ref bool BombDefused {
-    get => ref _Handle.AsRef<bool>(_BombDefusedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BombDefusedOffset);
   }
-  private static readonly Lazy<nint> _BombDefuserOffset = new(() => Schema.GetOffset(0xE1614C8174E01381), LazyThreadSafetyMode.None);
+  private static readonly nint _BombDefuserOffset = Schema.GetOffset(0xE1614C8174E01381);
 
   public ref CHandle<CCSPlayerPawn> BombDefuser {
-    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_BombDefuserOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_BombDefuserOffset);
   }
-  private static readonly Lazy<nint> _ProgressBarTimeOffset = new(() => Schema.GetOffset(0xE1614C81FFF19E89), LazyThreadSafetyMode.None);
+  private static readonly nint _ProgressBarTimeOffset = Schema.GetOffset(0xE1614C81FFF19E89);
 
   public ref int ProgressBarTime {
-    get => ref _Handle.AsRef<int>(_ProgressBarTimeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ProgressBarTimeOffset);
   }
-  private static readonly Lazy<nint> _VoiceAlertFiredOffset = new(() => Schema.GetOffset(0xE1614C8139790C5F), LazyThreadSafetyMode.None);
+  private static readonly nint _VoiceAlertFiredOffset = Schema.GetOffset(0xE1614C8139790C5F);
 
   public ref bool VoiceAlertFired {
-    get => ref _Handle.AsRef<bool>(_VoiceAlertFiredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_VoiceAlertFiredOffset);
   }
   public ISchemaFixedArray<bool> VoiceAlertPlayed {
     get => new SchemaFixedArray<bool>(_Handle, 0xE1614C812559EA7A, 4, 1, 1);
   }
-  private static readonly Lazy<nint> _NextBotBeepTimeOffset = new(() => Schema.GetOffset(0xE1614C81DCAF5642), LazyThreadSafetyMode.None);
+  private static readonly nint _NextBotBeepTimeOffset = Schema.GetOffset(0xE1614C81DCAF5642);
 
   public GameTime_t NextBotBeepTime {
-    get => new GameTime_tImpl(_Handle + _NextBotBeepTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextBotBeepTimeOffset);
   }
-  private static readonly Lazy<nint> _CatchUpToPlayerEyeOffset = new(() => Schema.GetOffset(0xE1614C816AE78258), LazyThreadSafetyMode.None);
+  private static readonly nint _CatchUpToPlayerEyeOffset = Schema.GetOffset(0xE1614C816AE78258);
 
   public ref QAngle CatchUpToPlayerEye {
-    get => ref _Handle.AsRef<QAngle>(_CatchUpToPlayerEyeOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_CatchUpToPlayerEyeOffset);
   }
-  private static readonly Lazy<nint> _LastSpinDetectionTimeOffset = new(() => Schema.GetOffset(0xE1614C811BF3E683), LazyThreadSafetyMode.None);
+  private static readonly nint _LastSpinDetectionTimeOffset = Schema.GetOffset(0xE1614C811BF3E683);
 
   public GameTime_t LastSpinDetectionTime {
-    get => new GameTime_tImpl(_Handle + _LastSpinDetectionTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastSpinDetectionTimeOffset);
   }
 
   public void BombTickingUpdated() {

@@ -17,50 +17,50 @@ internal partial class C_OP_RenderSimpleModelCollectionImpl : CParticleFunctionR
   public C_OP_RenderSimpleModelCollectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CenterOffsetOffset = new(() => Schema.GetOffset(0xFCE69AE8E2C912BF), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOffsetOffset = Schema.GetOffset(0xFCE69AE8E2C912BF);
 
   public ref bool CenterOffset {
-    get => ref _Handle.AsRef<bool>(_CenterOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CenterOffsetOffset);
   }
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0xFCE69AE8E100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0xFCE69AE8E100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
-  private static readonly Lazy<nint> _ModelInputOffset = new(() => Schema.GetOffset(0xFCE69AE8EB74120E), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelInputOffset = Schema.GetOffset(0xFCE69AE8EB74120E);
 
   public CParticleModelInput ModelInput {
-    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset.Value);
+    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset);
   }
-  private static readonly Lazy<nint> _SizeCullScaleOffset = new(() => Schema.GetOffset(0xFCE69AE89AB1415E), LazyThreadSafetyMode.None);
+  private static readonly nint _SizeCullScaleOffset = Schema.GetOffset(0xFCE69AE89AB1415E);
 
   public CParticleCollectionFloatInput SizeCullScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _SizeCullScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _SizeCullScaleOffset);
   }
-  private static readonly Lazy<nint> _DisableShadowsOffset = new(() => Schema.GetOffset(0xFCE69AE8161A1880), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableShadowsOffset = Schema.GetOffset(0xFCE69AE8161A1880);
 
   public ref bool DisableShadows {
-    get => ref _Handle.AsRef<bool>(_DisableShadowsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableShadowsOffset);
   }
-  private static readonly Lazy<nint> _DisableMotionBlurOffset = new(() => Schema.GetOffset(0xFCE69AE80A3CF924), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableMotionBlurOffset = Schema.GetOffset(0xFCE69AE80A3CF924);
 
   public ref bool DisableMotionBlur {
-    get => ref _Handle.AsRef<bool>(_DisableMotionBlurOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableMotionBlurOffset);
   }
-  private static readonly Lazy<nint> _AcceptsDecalsOffset = new(() => Schema.GetOffset(0xFCE69AE83D83AB88), LazyThreadSafetyMode.None);
+  private static readonly nint _AcceptsDecalsOffset = Schema.GetOffset(0xFCE69AE83D83AB88);
 
   public ref bool AcceptsDecals {
-    get => ref _Handle.AsRef<bool>(_AcceptsDecalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AcceptsDecalsOffset);
   }
-  private static readonly Lazy<nint> _DrawFilterOffset = new(() => Schema.GetOffset(0xFCE69AE8FD854541), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawFilterOffset = Schema.GetOffset(0xFCE69AE8FD854541);
 
   public CPerParticleFloatInput DrawFilter {
-    get => new CPerParticleFloatInputImpl(_Handle + _DrawFilterOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _DrawFilterOffset);
   }
-  private static readonly Lazy<nint> _AngularVelocityFieldOffset = new(() => Schema.GetOffset(0xFCE69AE81A8493FE), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularVelocityFieldOffset = Schema.GetOffset(0xFCE69AE81A8493FE);
 
   public ParticleAttributeIndex_t AngularVelocityField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AngularVelocityFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AngularVelocityFieldOffset);
   }
 
 

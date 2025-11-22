@@ -17,15 +17,15 @@ internal partial class CPhysSurfacePropertiesVehicleImpl : SchemaClass, CPhysSur
   public CPhysSurfacePropertiesVehicleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WheelDragOffset = new(() => Schema.GetOffset(0x5B1104DCC04986AE), LazyThreadSafetyMode.None);
+  private static readonly nint _WheelDragOffset = Schema.GetOffset(0x5B1104DCC04986AE);
 
   public ref float WheelDrag {
-    get => ref _Handle.AsRef<float>(_WheelDragOffset.Value);
+    get => ref _Handle.AsRef<float>(_WheelDragOffset);
   }
-  private static readonly Lazy<nint> _WheelFrictionScaleOffset = new(() => Schema.GetOffset(0x5B1104DC7A6D9A4C), LazyThreadSafetyMode.None);
+  private static readonly nint _WheelFrictionScaleOffset = Schema.GetOffset(0x5B1104DC7A6D9A4C);
 
   public ref float WheelFrictionScale {
-    get => ref _Handle.AsRef<float>(_WheelFrictionScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_WheelFrictionScaleOffset);
   }
 
 

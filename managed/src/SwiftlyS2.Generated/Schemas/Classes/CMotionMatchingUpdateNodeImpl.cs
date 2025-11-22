@@ -17,120 +17,120 @@ internal partial class CMotionMatchingUpdateNodeImpl : CLeafUpdateNodeImpl, CMot
   public CMotionMatchingUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DataSetOffset = new(() => Schema.GetOffset(0x69501C92DA4F8423), LazyThreadSafetyMode.None);
+  private static readonly nint _DataSetOffset = Schema.GetOffset(0x69501C92DA4F8423);
 
   public CMotionDataSet DataSet {
-    get => new CMotionDataSetImpl(_Handle + _DataSetOffset.Value);
+    get => new CMotionDataSetImpl(_Handle + _DataSetOffset);
   }
-  private static readonly Lazy<nint> _MetricsOffset = new(() => Schema.GetOffset(0x69501C922104DB96), LazyThreadSafetyMode.None);
+  private static readonly nint _MetricsOffset = Schema.GetOffset(0x69501C922104DB96);
 
   public ref CUtlVector<SchemaUntypedField> Metrics {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MetricsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MetricsOffset);
   }
-  private static readonly Lazy<nint> _WeightsOffset = new(() => Schema.GetOffset(0x69501C9277B2F91E), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightsOffset = Schema.GetOffset(0x69501C9277B2F91E);
 
   public ref CUtlVector<float> Weights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset);
   }
-  private static readonly Lazy<nint> _SearchEveryTickOffset = new(() => Schema.GetOffset(0x69501C92F2CEEE05), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchEveryTickOffset = Schema.GetOffset(0x69501C92F2CEEE05);
 
   public ref bool SearchEveryTick {
-    get => ref _Handle.AsRef<bool>(_SearchEveryTickOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SearchEveryTickOffset);
   }
-  private static readonly Lazy<nint> _SearchIntervalOffset = new(() => Schema.GetOffset(0x69501C9293E76A9E), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchIntervalOffset = Schema.GetOffset(0x69501C9293E76A9E);
 
   public ref float SearchInterval {
-    get => ref _Handle.AsRef<float>(_SearchIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_SearchIntervalOffset);
   }
-  private static readonly Lazy<nint> _SearchWhenClipEndsOffset = new(() => Schema.GetOffset(0x69501C926A2E4B81), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchWhenClipEndsOffset = Schema.GetOffset(0x69501C926A2E4B81);
 
   public ref bool SearchWhenClipEnds {
-    get => ref _Handle.AsRef<bool>(_SearchWhenClipEndsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SearchWhenClipEndsOffset);
   }
-  private static readonly Lazy<nint> _SearchWhenGoalChangesOffset = new(() => Schema.GetOffset(0x69501C927EC9CEE3), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchWhenGoalChangesOffset = Schema.GetOffset(0x69501C927EC9CEE3);
 
   public ref bool SearchWhenGoalChanges {
-    get => ref _Handle.AsRef<bool>(_SearchWhenGoalChangesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SearchWhenGoalChangesOffset);
   }
-  private static readonly Lazy<nint> _BlendCurveOffset = new(() => Schema.GetOffset(0x69501C9291978183), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendCurveOffset = Schema.GetOffset(0x69501C9291978183);
 
   public CBlendCurve BlendCurve {
-    get => new CBlendCurveImpl(_Handle + _BlendCurveOffset.Value);
+    get => new CBlendCurveImpl(_Handle + _BlendCurveOffset);
   }
-  private static readonly Lazy<nint> _SampleRateOffset = new(() => Schema.GetOffset(0x69501C922545791F), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleRateOffset = Schema.GetOffset(0x69501C922545791F);
 
   public ref float SampleRate {
-    get => ref _Handle.AsRef<float>(_SampleRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_SampleRateOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeOffset = new(() => Schema.GetOffset(0x69501C92A6206E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeOffset = Schema.GetOffset(0x69501C92A6206E9F);
 
   public ref float BlendTime {
-    get => ref _Handle.AsRef<float>(_BlendTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeOffset);
   }
-  private static readonly Lazy<nint> _LockClipWhenWaningOffset = new(() => Schema.GetOffset(0x69501C9218DA5DAE), LazyThreadSafetyMode.None);
+  private static readonly nint _LockClipWhenWaningOffset = Schema.GetOffset(0x69501C9218DA5DAE);
 
   public ref bool LockClipWhenWaning {
-    get => ref _Handle.AsRef<bool>(_LockClipWhenWaningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockClipWhenWaningOffset);
   }
-  private static readonly Lazy<nint> _SelectionThresholdOffset = new(() => Schema.GetOffset(0x69501C92FDC93176), LazyThreadSafetyMode.None);
+  private static readonly nint _SelectionThresholdOffset = Schema.GetOffset(0x69501C92FDC93176);
 
   public ref float SelectionThreshold {
-    get => ref _Handle.AsRef<float>(_SelectionThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_SelectionThresholdOffset);
   }
-  private static readonly Lazy<nint> _ReselectionTimeWindowOffset = new(() => Schema.GetOffset(0x69501C923E1DEB69), LazyThreadSafetyMode.None);
+  private static readonly nint _ReselectionTimeWindowOffset = Schema.GetOffset(0x69501C923E1DEB69);
 
   public ref float ReselectionTimeWindow {
-    get => ref _Handle.AsRef<float>(_ReselectionTimeWindowOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReselectionTimeWindowOffset);
   }
-  private static readonly Lazy<nint> _EnableRotationCorrectionOffset = new(() => Schema.GetOffset(0x69501C922632BA1C), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableRotationCorrectionOffset = Schema.GetOffset(0x69501C922632BA1C);
 
   public ref bool EnableRotationCorrection {
-    get => ref _Handle.AsRef<bool>(_EnableRotationCorrectionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableRotationCorrectionOffset);
   }
-  private static readonly Lazy<nint> _GoalAssistOffset = new(() => Schema.GetOffset(0x69501C923FDD6989), LazyThreadSafetyMode.None);
+  private static readonly nint _GoalAssistOffset = Schema.GetOffset(0x69501C923FDD6989);
 
   public ref bool GoalAssist {
-    get => ref _Handle.AsRef<bool>(_GoalAssistOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GoalAssistOffset);
   }
-  private static readonly Lazy<nint> _GoalAssistDistanceOffset = new(() => Schema.GetOffset(0x69501C92593568B0), LazyThreadSafetyMode.None);
+  private static readonly nint _GoalAssistDistanceOffset = Schema.GetOffset(0x69501C92593568B0);
 
   public ref float GoalAssistDistance {
-    get => ref _Handle.AsRef<float>(_GoalAssistDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_GoalAssistDistanceOffset);
   }
-  private static readonly Lazy<nint> _GoalAssistToleranceOffset = new(() => Schema.GetOffset(0x69501C92D338CA16), LazyThreadSafetyMode.None);
+  private static readonly nint _GoalAssistToleranceOffset = Schema.GetOffset(0x69501C92D338CA16);
 
   public ref float GoalAssistTolerance {
-    get => ref _Handle.AsRef<float>(_GoalAssistToleranceOffset.Value);
+    get => ref _Handle.AsRef<float>(_GoalAssistToleranceOffset);
   }
-  private static readonly Lazy<nint> _DistanceScale_DampingOffset = new(() => Schema.GetOffset(0x69501C92EA57FBF5), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceScale_DampingOffset = Schema.GetOffset(0x69501C92EA57FBF5);
 
   public CAnimInputDamping DistanceScale_Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DistanceScale_DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DistanceScale_DampingOffset);
   }
-  private static readonly Lazy<nint> _DistanceScale_OuterRadiusOffset = new(() => Schema.GetOffset(0x69501C92632DCAF8), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceScale_OuterRadiusOffset = Schema.GetOffset(0x69501C92632DCAF8);
 
   public ref float DistanceScale_OuterRadius {
-    get => ref _Handle.AsRef<float>(_DistanceScale_OuterRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceScale_OuterRadiusOffset);
   }
-  private static readonly Lazy<nint> _DistanceScale_InnerRadiusOffset = new(() => Schema.GetOffset(0x69501C92A3772AE7), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceScale_InnerRadiusOffset = Schema.GetOffset(0x69501C92A3772AE7);
 
   public ref float DistanceScale_InnerRadius {
-    get => ref _Handle.AsRef<float>(_DistanceScale_InnerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceScale_InnerRadiusOffset);
   }
-  private static readonly Lazy<nint> _DistanceScale_MaxScaleOffset = new(() => Schema.GetOffset(0x69501C92233075C7), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceScale_MaxScaleOffset = Schema.GetOffset(0x69501C92233075C7);
 
   public ref float DistanceScale_MaxScale {
-    get => ref _Handle.AsRef<float>(_DistanceScale_MaxScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceScale_MaxScaleOffset);
   }
-  private static readonly Lazy<nint> _DistanceScale_MinScaleOffset = new(() => Schema.GetOffset(0x69501C92DE35375D), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceScale_MinScaleOffset = Schema.GetOffset(0x69501C92DE35375D);
 
   public ref float DistanceScale_MinScale {
-    get => ref _Handle.AsRef<float>(_DistanceScale_MinScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceScale_MinScaleOffset);
   }
-  private static readonly Lazy<nint> _EnableDistanceScalingOffset = new(() => Schema.GetOffset(0x69501C926CF73E92), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableDistanceScalingOffset = Schema.GetOffset(0x69501C926CF73E92);
 
   public ref bool EnableDistanceScaling {
-    get => ref _Handle.AsRef<bool>(_EnableDistanceScalingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableDistanceScalingOffset);
   }
 
 

@@ -17,30 +17,30 @@ internal partial class CSosGroupActionLimitSchemaImpl : CSosGroupActionSchemaImp
   public CSosGroupActionLimitSchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxCountOffset = new(() => Schema.GetOffset(0xE06D795E64BED864), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCountOffset = Schema.GetOffset(0xE06D795E64BED864);
 
   public ref int MaxCount {
-    get => ref _Handle.AsRef<int>(_MaxCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCountOffset);
   }
-  private static readonly Lazy<nint> _StopTypeOffset = new(() => Schema.GetOffset(0xE06D795E13397259), LazyThreadSafetyMode.None);
+  private static readonly nint _StopTypeOffset = Schema.GetOffset(0xE06D795E13397259);
 
   public ref SosActionStopType_t StopType {
-    get => ref _Handle.AsRef<SosActionStopType_t>(_StopTypeOffset.Value);
+    get => ref _Handle.AsRef<SosActionStopType_t>(_StopTypeOffset);
   }
-  private static readonly Lazy<nint> _SortTypeOffset = new(() => Schema.GetOffset(0xE06D795E2E0E44B5), LazyThreadSafetyMode.None);
+  private static readonly nint _SortTypeOffset = Schema.GetOffset(0xE06D795E2E0E44B5);
 
   public ref SosActionLimitSortType_t SortType {
-    get => ref _Handle.AsRef<SosActionLimitSortType_t>(_SortTypeOffset.Value);
+    get => ref _Handle.AsRef<SosActionLimitSortType_t>(_SortTypeOffset);
   }
-  private static readonly Lazy<nint> _StopImmediateOffset = new(() => Schema.GetOffset(0xE06D795E358D6B9A), LazyThreadSafetyMode.None);
+  private static readonly nint _StopImmediateOffset = Schema.GetOffset(0xE06D795E358D6B9A);
 
   public ref bool StopImmediate {
-    get => ref _Handle.AsRef<bool>(_StopImmediateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StopImmediateOffset);
   }
-  private static readonly Lazy<nint> _CountStoppedOffset = new(() => Schema.GetOffset(0xE06D795EF40B23D5), LazyThreadSafetyMode.None);
+  private static readonly nint _CountStoppedOffset = Schema.GetOffset(0xE06D795EF40B23D5);
 
   public ref bool CountStopped {
-    get => ref _Handle.AsRef<bool>(_CountStoppedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CountStoppedOffset);
   }
 
 

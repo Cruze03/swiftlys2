@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLightComponent : CEntityComponent, ISchemaClass<CLightComponent> {
 
   static CLightComponent ISchemaClass<CLightComponent>.From(nint handle) => new CLightComponentImpl(handle);
-  static int ISchemaClass<CLightComponent>.Size => 448;
+  static int ISchemaClass<CLightComponent>.Size => 440;
   static string? ISchemaClass<CLightComponent>.ClassName => null;
 
   

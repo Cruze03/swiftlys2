@@ -17,20 +17,20 @@ internal partial class FeFitInfluence_tImpl : SchemaClass, FeFitInfluence_t {
   public FeFitInfluence_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VertexNodeOffset = new(() => Schema.GetOffset(0xF8271D2105342743), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexNodeOffset = Schema.GetOffset(0xF8271D2105342743);
 
   public ref uint VertexNode {
-    get => ref _Handle.AsRef<uint>(_VertexNodeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VertexNodeOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0xF8271D21CFFC66CB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0xF8271D21CFFC66CB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _MatrixNodeOffset = new(() => Schema.GetOffset(0xF8271D2189590174), LazyThreadSafetyMode.None);
+  private static readonly nint _MatrixNodeOffset = Schema.GetOffset(0xF8271D2189590174);
 
   public ref uint MatrixNode {
-    get => ref _Handle.AsRef<uint>(_MatrixNodeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_MatrixNodeOffset);
   }
 
 

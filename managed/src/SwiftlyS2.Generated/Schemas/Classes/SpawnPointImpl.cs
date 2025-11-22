@@ -17,20 +17,20 @@ internal partial class SpawnPointImpl : CServerOnlyPointEntityImpl, SpawnPoint {
   public SpawnPointImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0x72527C0E6224A30C), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0x72527C0E6224A30C);
 
   public ref int Priority {
-    get => ref _Handle.AsRef<int>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_PriorityOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x72527C0E6154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x72527C0E6154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x72527C0E18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x72527C0E18853D59);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
 
 

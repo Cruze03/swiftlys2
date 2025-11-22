@@ -17,45 +17,45 @@ internal partial class CSkeletonInstanceImpl : CGameSceneNodeImpl, CSkeletonInst
   public CSkeletonInstanceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelStateOffset = new(() => Schema.GetOffset(0xD6C6252E52AC8C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelStateOffset = Schema.GetOffset(0xD6C6252E52AC8C4F);
 
   public CModelState ModelState {
-    get => new CModelStateImpl(_Handle + _ModelStateOffset.Value);
+    get => new CModelStateImpl(_Handle + _ModelStateOffset);
   }
-  private static readonly Lazy<nint> _IsAnimationEnabledOffset = new(() => Schema.GetOffset(0xD6C6252E44F0C816), LazyThreadSafetyMode.None);
+  private static readonly nint _IsAnimationEnabledOffset = Schema.GetOffset(0xD6C6252E44F0C816);
 
   public ref bool IsAnimationEnabled {
-    get => ref _Handle.AsRef<bool>(_IsAnimationEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsAnimationEnabledOffset);
   }
-  private static readonly Lazy<nint> _UseParentRenderBoundsOffset = new(() => Schema.GetOffset(0xD6C6252E15B8267D), LazyThreadSafetyMode.None);
+  private static readonly nint _UseParentRenderBoundsOffset = Schema.GetOffset(0xD6C6252E15B8267D);
 
   public ref bool UseParentRenderBounds {
-    get => ref _Handle.AsRef<bool>(_UseParentRenderBoundsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseParentRenderBoundsOffset);
   }
-  private static readonly Lazy<nint> _DisableSolidCollisionsForHierarchyOffset = new(() => Schema.GetOffset(0xD6C6252E50FCF465), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableSolidCollisionsForHierarchyOffset = Schema.GetOffset(0xD6C6252E50FCF465);
 
   public ref bool DisableSolidCollisionsForHierarchy {
-    get => ref _Handle.AsRef<bool>(_DisableSolidCollisionsForHierarchyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableSolidCollisionsForHierarchyOffset);
   }
-  private static readonly Lazy<nint> _DirtyMotionTypeOffset = new(() => Schema.GetOffset(0xD6C6252E6EB99391), LazyThreadSafetyMode.None);
+  private static readonly nint _DirtyMotionTypeOffset = Schema.GetOffset(0xD6C6252E6EB99391);
 
   public SchemaUntypedField DirtyMotionType {
-    get => new SchemaUntypedField(_Handle + _DirtyMotionTypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DirtyMotionTypeOffset);
   }
-  private static readonly Lazy<nint> _IsGeneratingLatchedParentSpaceStateOffset = new(() => Schema.GetOffset(0xD6C6252ED0EFEAB7), LazyThreadSafetyMode.None);
+  private static readonly nint _IsGeneratingLatchedParentSpaceStateOffset = Schema.GetOffset(0xD6C6252ED0EFEAB7);
 
   public SchemaUntypedField IsGeneratingLatchedParentSpaceState {
-    get => new SchemaUntypedField(_Handle + _IsGeneratingLatchedParentSpaceStateOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IsGeneratingLatchedParentSpaceStateOffset);
   }
-  private static readonly Lazy<nint> _MaterialGroupOffset = new(() => Schema.GetOffset(0xD6C6252E2B778F03), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialGroupOffset = Schema.GetOffset(0xD6C6252E2B778F03);
 
   public ref CUtlStringToken MaterialGroup {
-    get => ref _Handle.AsRef<CUtlStringToken>(_MaterialGroupOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_MaterialGroupOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetOffset = new(() => Schema.GetOffset(0xD6C6252E80C42271), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetOffset = Schema.GetOffset(0xD6C6252E80C42271);
 
   public ref byte HitboxSet {
-    get => ref _Handle.AsRef<byte>(_HitboxSetOffset.Value);
+    get => ref _Handle.AsRef<byte>(_HitboxSetOffset);
   }
 
   public void ModelStateUpdated() {

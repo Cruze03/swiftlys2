@@ -17,29 +17,29 @@ internal partial class CEntityComponentHelperImpl : SchemaClass, CEntityComponen
   public CEntityComponentHelperImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x714DB384DC74A14C), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x714DB384DC74A14C);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _InfoOffset = new(() => Schema.GetOffset(0x714DB3840F0BFD1B), LazyThreadSafetyMode.None);
+  private static readonly nint _InfoOffset = Schema.GetOffset(0x714DB3840F0BFD1B);
 
   public EntComponentInfo_t? Info {
     get {
-      var ptr = _Handle.Read<nint>(_InfoOffset.Value);
+      var ptr = _Handle.Read<nint>(_InfoOffset);
       return ptr.IsValidPtr() ? new EntComponentInfo_tImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0x714DB384E7EFB335), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0x714DB384E7EFB335);
 
   public ref int Priority {
-    get => ref _Handle.AsRef<int>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_PriorityOffset);
   }
-  private static readonly Lazy<nint> _NextOffset = new(() => Schema.GetOffset(0x714DB38432B11E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextOffset = Schema.GetOffset(0x714DB38432B11E0E);
 
   public CEntityComponentHelper? Next {
     get {
-      var ptr = _Handle.Read<nint>(_NextOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextOffset);
       return ptr.IsValidPtr() ? new CEntityComponentHelperImpl(ptr) : null;
     }
   }

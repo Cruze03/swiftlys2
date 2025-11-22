@@ -17,10 +17,10 @@ internal partial class CollisionGroupContext_tImpl : SchemaClass, CollisionGroup
   public CollisionGroupContext_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CollisionGroupNumberOffset = new(() => Schema.GetOffset(0xF923B00A9115013F), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupNumberOffset = Schema.GetOffset(0xF923B00A9115013F);
 
   public ref int CollisionGroupNumber {
-    get => ref _Handle.AsRef<int>(_CollisionGroupNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_CollisionGroupNumberOffset);
   }
 
 

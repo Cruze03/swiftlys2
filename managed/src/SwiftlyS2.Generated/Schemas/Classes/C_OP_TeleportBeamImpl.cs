@@ -17,60 +17,60 @@ internal partial class C_OP_TeleportBeamImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_TeleportBeamImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPPositionOffset = new(() => Schema.GetOffset(0xD80BE8C1AECEEF2D), LazyThreadSafetyMode.None);
+  private static readonly nint _CPPositionOffset = Schema.GetOffset(0xD80BE8C1AECEEF2D);
 
   public ref int CPPosition {
-    get => ref _Handle.AsRef<int>(_CPPositionOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPPositionOffset);
   }
-  private static readonly Lazy<nint> _CPVelocityOffset = new(() => Schema.GetOffset(0xD80BE8C165FA13B9), LazyThreadSafetyMode.None);
+  private static readonly nint _CPVelocityOffset = Schema.GetOffset(0xD80BE8C165FA13B9);
 
   public ref int CPVelocity {
-    get => ref _Handle.AsRef<int>(_CPVelocityOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPVelocityOffset);
   }
-  private static readonly Lazy<nint> _CPMiscOffset = new(() => Schema.GetOffset(0xD80BE8C1466D5C8A), LazyThreadSafetyMode.None);
+  private static readonly nint _CPMiscOffset = Schema.GetOffset(0xD80BE8C1466D5C8A);
 
   public ref int CPMisc {
-    get => ref _Handle.AsRef<int>(_CPMiscOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPMiscOffset);
   }
-  private static readonly Lazy<nint> _CPColorOffset = new(() => Schema.GetOffset(0xD80BE8C14B880225), LazyThreadSafetyMode.None);
+  private static readonly nint _CPColorOffset = Schema.GetOffset(0xD80BE8C14B880225);
 
   public ref int CPColor {
-    get => ref _Handle.AsRef<int>(_CPColorOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPColorOffset);
   }
-  private static readonly Lazy<nint> _CPInvalidColorOffset = new(() => Schema.GetOffset(0xD80BE8C1370493BC), LazyThreadSafetyMode.None);
+  private static readonly nint _CPInvalidColorOffset = Schema.GetOffset(0xD80BE8C1370493BC);
 
   public ref int CPInvalidColor {
-    get => ref _Handle.AsRef<int>(_CPInvalidColorOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPInvalidColorOffset);
   }
-  private static readonly Lazy<nint> _CPExtraArcDataOffset = new(() => Schema.GetOffset(0xD80BE8C1FE881B08), LazyThreadSafetyMode.None);
+  private static readonly nint _CPExtraArcDataOffset = Schema.GetOffset(0xD80BE8C1FE881B08);
 
   public ref int CPExtraArcData {
-    get => ref _Handle.AsRef<int>(_CPExtraArcDataOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPExtraArcDataOffset);
   }
-  private static readonly Lazy<nint> _GravityOffset = new(() => Schema.GetOffset(0xD80BE8C1A5AE4779), LazyThreadSafetyMode.None);
+  private static readonly nint _GravityOffset = Schema.GetOffset(0xD80BE8C1A5AE4779);
 
   public ref Vector Gravity {
-    get => ref _Handle.AsRef<Vector>(_GravityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_GravityOffset);
   }
-  private static readonly Lazy<nint> _ArcMaxDurationOffset = new(() => Schema.GetOffset(0xD80BE8C150FE58BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ArcMaxDurationOffset = Schema.GetOffset(0xD80BE8C150FE58BD);
 
   public ref float ArcMaxDuration {
-    get => ref _Handle.AsRef<float>(_ArcMaxDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_ArcMaxDurationOffset);
   }
-  private static readonly Lazy<nint> _SegmentBreakOffset = new(() => Schema.GetOffset(0xD80BE8C18DEE8E2F), LazyThreadSafetyMode.None);
+  private static readonly nint _SegmentBreakOffset = Schema.GetOffset(0xD80BE8C18DEE8E2F);
 
   public ref float SegmentBreak {
-    get => ref _Handle.AsRef<float>(_SegmentBreakOffset.Value);
+    get => ref _Handle.AsRef<float>(_SegmentBreakOffset);
   }
-  private static readonly Lazy<nint> _ArcSpeedOffset = new(() => Schema.GetOffset(0xD80BE8C14E9BC58C), LazyThreadSafetyMode.None);
+  private static readonly nint _ArcSpeedOffset = Schema.GetOffset(0xD80BE8C14E9BC58C);
 
   public ref float ArcSpeed {
-    get => ref _Handle.AsRef<float>(_ArcSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_ArcSpeedOffset);
   }
-  private static readonly Lazy<nint> _AlphaOffset = new(() => Schema.GetOffset(0xD80BE8C1A0DB7DD1), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaOffset = Schema.GetOffset(0xD80BE8C1A0DB7DD1);
 
   public ref float Alpha {
-    get => ref _Handle.AsRef<float>(_AlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlphaOffset);
   }
 
 

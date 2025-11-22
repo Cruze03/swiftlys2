@@ -17,20 +17,20 @@ internal partial class CNmFloatRemapNode__CDefinitionImpl : CNmFloatValueNode__C
   public CNmFloatRemapNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x5169293495E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x5169293495E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InputRangeOffset = new(() => Schema.GetOffset(0x51692934096AEBF0), LazyThreadSafetyMode.None);
+  private static readonly nint _InputRangeOffset = Schema.GetOffset(0x51692934096AEBF0);
 
   public CNmFloatRemapNode__RemapRange_t InputRange {
-    get => new CNmFloatRemapNode__RemapRange_tImpl(_Handle + _InputRangeOffset.Value);
+    get => new CNmFloatRemapNode__RemapRange_tImpl(_Handle + _InputRangeOffset);
   }
-  private static readonly Lazy<nint> _OutputRangeOffset = new(() => Schema.GetOffset(0x5169293437E0CA29), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRangeOffset = Schema.GetOffset(0x5169293437E0CA29);
 
   public CNmFloatRemapNode__RemapRange_t OutputRange {
-    get => new CNmFloatRemapNode__RemapRange_tImpl(_Handle + _OutputRangeOffset.Value);
+    get => new CNmFloatRemapNode__RemapRange_tImpl(_Handle + _OutputRangeOffset);
   }
 
 

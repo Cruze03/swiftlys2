@@ -17,35 +17,35 @@ internal partial class CMeshletDescriptorImpl : SchemaClass, CMeshletDescriptor 
   public CMeshletDescriptorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PackedAABBOffset = new(() => Schema.GetOffset(0xAF93495D8D638233), LazyThreadSafetyMode.None);
+  private static readonly nint _PackedAABBOffset = Schema.GetOffset(0xAF93495D8D638233);
 
   public PackedAABB_t PackedAABB {
-    get => new PackedAABB_tImpl(_Handle + _PackedAABBOffset.Value);
+    get => new PackedAABB_tImpl(_Handle + _PackedAABBOffset);
   }
-  private static readonly Lazy<nint> _CullingDataOffset = new(() => Schema.GetOffset(0xAF93495DA6D54DC3), LazyThreadSafetyMode.None);
+  private static readonly nint _CullingDataOffset = Schema.GetOffset(0xAF93495DA6D54DC3);
 
   public CDrawCullingData CullingData {
-    get => new CDrawCullingDataImpl(_Handle + _CullingDataOffset.Value);
+    get => new CDrawCullingDataImpl(_Handle + _CullingDataOffset);
   }
-  private static readonly Lazy<nint> _VertexOffsetOffset = new(() => Schema.GetOffset(0xAF93495DF1F6FC40), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexOffsetOffset = Schema.GetOffset(0xAF93495DF1F6FC40);
 
   public ref uint VertexOffset {
-    get => ref _Handle.AsRef<uint>(_VertexOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VertexOffsetOffset);
   }
-  private static readonly Lazy<nint> _TriangleOffsetOffset = new(() => Schema.GetOffset(0xAF93495DAFE22CE6), LazyThreadSafetyMode.None);
+  private static readonly nint _TriangleOffsetOffset = Schema.GetOffset(0xAF93495DAFE22CE6);
 
   public ref uint TriangleOffset {
-    get => ref _Handle.AsRef<uint>(_TriangleOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_TriangleOffsetOffset);
   }
-  private static readonly Lazy<nint> _VertexCountOffset = new(() => Schema.GetOffset(0xAF93495D12923E12), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexCountOffset = Schema.GetOffset(0xAF93495D12923E12);
 
   public ref byte VertexCount {
-    get => ref _Handle.AsRef<byte>(_VertexCountOffset.Value);
+    get => ref _Handle.AsRef<byte>(_VertexCountOffset);
   }
-  private static readonly Lazy<nint> _TriangleCountOffset = new(() => Schema.GetOffset(0xAF93495D5E82E240), LazyThreadSafetyMode.None);
+  private static readonly nint _TriangleCountOffset = Schema.GetOffset(0xAF93495D5E82E240);
 
   public ref byte TriangleCount {
-    get => ref _Handle.AsRef<byte>(_TriangleCountOffset.Value);
+    get => ref _Handle.AsRef<byte>(_TriangleCountOffset);
   }
 
 

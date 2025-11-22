@@ -17,10 +17,10 @@ internal partial class CAnimScriptBaseImpl : SchemaClass, CAnimScriptBase {
   public CAnimScriptBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsValidOffset = new(() => Schema.GetOffset(0x621CEA890E4A2BC1), LazyThreadSafetyMode.None);
+  private static readonly nint _IsValidOffset = Schema.GetOffset(0x621CEA890E4A2BC1);
 
   public ref bool IsValid {
-    get => ref _Handle.AsRef<bool>(_IsValidOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsValidOffset);
   }
 
 

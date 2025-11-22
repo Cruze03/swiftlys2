@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CReplicationParameters : ISchemaClass<CReplicationParameters> {
 
   static CReplicationParameters ISchemaClass<CReplicationParameters>.From(nint handle) => new CReplicationParametersImpl(handle);
-  static int ISchemaClass<CReplicationParameters>.Size => 4448;
+  static int ISchemaClass<CReplicationParameters>.Size => 4552;
   static string? ISchemaClass<CReplicationParameters>.ClassName => null;
 
   

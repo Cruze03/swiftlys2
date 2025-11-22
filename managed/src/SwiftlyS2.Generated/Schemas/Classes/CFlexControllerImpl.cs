@@ -17,33 +17,33 @@ internal partial class CFlexControllerImpl : SchemaClass, CFlexController {
   public CFlexControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x5265FDF16750BACB), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x5265FDF16750BACB);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x5265FDF1B580AB00), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x5265FDF1B580AB00);
 
   public string Type {
     get {
-      var ptr = _Handle.Read<nint>(_TypeOffset.Value);
+      var ptr = _Handle.Read<nint>(_TypeOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TypeOffset.Value, value);
+    set => Schema.SetString(_Handle, _TypeOffset, value);
   } 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x5265FDF1C98F4557), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x5265FDF1C98F4557);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x5265FDF1D7A2E319), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x5265FDF1D7A2E319);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
 
 

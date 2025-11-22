@@ -17,30 +17,30 @@ internal partial class CInfoDynamicShadowHintImpl : CPointEntityImpl, CInfoDynam
   public CInfoDynamicShadowHintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x46DDE8EE3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x46DDE8EE3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _RangeOffset = new(() => Schema.GetOffset(0x46DDE8EE3FC92844), LazyThreadSafetyMode.None);
+  private static readonly nint _RangeOffset = Schema.GetOffset(0x46DDE8EE3FC92844);
 
   public ref float Range {
-    get => ref _Handle.AsRef<float>(_RangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RangeOffset);
   }
-  private static readonly Lazy<nint> _ImportanceOffset = new(() => Schema.GetOffset(0x46DDE8EE85D7F083), LazyThreadSafetyMode.None);
+  private static readonly nint _ImportanceOffset = Schema.GetOffset(0x46DDE8EE85D7F083);
 
   public ref int Importance {
-    get => ref _Handle.AsRef<int>(_ImportanceOffset.Value);
+    get => ref _Handle.AsRef<int>(_ImportanceOffset);
   }
-  private static readonly Lazy<nint> _LightChoiceOffset = new(() => Schema.GetOffset(0x46DDE8EED82DFBD8), LazyThreadSafetyMode.None);
+  private static readonly nint _LightChoiceOffset = Schema.GetOffset(0x46DDE8EED82DFBD8);
 
   public ref int LightChoice {
-    get => ref _Handle.AsRef<int>(_LightChoiceOffset.Value);
+    get => ref _Handle.AsRef<int>(_LightChoiceOffset);
   }
-  private static readonly Lazy<nint> _LightOffset = new(() => Schema.GetOffset(0x46DDE8EEF68359B1), LazyThreadSafetyMode.None);
+  private static readonly nint _LightOffset = Schema.GetOffset(0x46DDE8EEF68359B1);
 
   public ref CHandle<CBaseEntity> Light {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LightOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LightOffset);
   }
 
 

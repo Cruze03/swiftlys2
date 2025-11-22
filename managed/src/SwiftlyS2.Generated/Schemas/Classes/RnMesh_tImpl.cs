@@ -17,60 +17,60 @@ internal partial class RnMesh_tImpl : SchemaClass, RnMesh_t {
   public RnMesh_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x5F23FA63F4B0AA63), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x5F23FA63F4B0AA63);
 
   public ref Vector Min {
-    get => ref _Handle.AsRef<Vector>(_MinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x5F23FA63EAC4225D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x5F23FA63EAC4225D);
 
   public ref Vector Max {
-    get => ref _Handle.AsRef<Vector>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxOffset);
   }
-  private static readonly Lazy<nint> _NodesOffset = new(() => Schema.GetOffset(0x5F23FA63EBA045DA), LazyThreadSafetyMode.None);
+  private static readonly nint _NodesOffset = Schema.GetOffset(0x5F23FA63EBA045DA);
 
   public ref CUtlVector<RnNode_t> Nodes {
-    get => ref _Handle.AsRef<CUtlVector<RnNode_t>>(_NodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnNode_t>>(_NodesOffset);
   }
-  private static readonly Lazy<nint> _VerticesOffset = new(() => Schema.GetOffset(0x5F23FA63E4F9760E), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticesOffset = Schema.GetOffset(0x5F23FA63E4F9760E);
 
   public SchemaUntypedField Vertices {
-    get => new SchemaUntypedField(_Handle + _VerticesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _VerticesOffset);
   }
-  private static readonly Lazy<nint> _TrianglesOffset = new(() => Schema.GetOffset(0x5F23FA6365BD00C2), LazyThreadSafetyMode.None);
+  private static readonly nint _TrianglesOffset = Schema.GetOffset(0x5F23FA6365BD00C2);
 
   public ref CUtlVector<RnTriangle_t> Triangles {
-    get => ref _Handle.AsRef<CUtlVector<RnTriangle_t>>(_TrianglesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnTriangle_t>>(_TrianglesOffset);
   }
-  private static readonly Lazy<nint> _WingsOffset = new(() => Schema.GetOffset(0x5F23FA63B34C1A4B), LazyThreadSafetyMode.None);
+  private static readonly nint _WingsOffset = Schema.GetOffset(0x5F23FA63B34C1A4B);
 
   public ref CUtlVector<RnWing_t> Wings {
-    get => ref _Handle.AsRef<CUtlVector<RnWing_t>>(_WingsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnWing_t>>(_WingsOffset);
   }
-  private static readonly Lazy<nint> _TriangleEdgeFlagsOffset = new(() => Schema.GetOffset(0x5F23FA6379FF46EF), LazyThreadSafetyMode.None);
+  private static readonly nint _TriangleEdgeFlagsOffset = Schema.GetOffset(0x5F23FA6379FF46EF);
 
   public ref CUtlVector<byte> TriangleEdgeFlags {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_TriangleEdgeFlagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_TriangleEdgeFlagsOffset);
   }
-  private static readonly Lazy<nint> _MaterialsOffset = new(() => Schema.GetOffset(0x5F23FA639E4B1B69), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialsOffset = Schema.GetOffset(0x5F23FA639E4B1B69);
 
   public ref CUtlVector<byte> Materials {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_MaterialsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_MaterialsOffset);
   }
-  private static readonly Lazy<nint> _OrthographicAreasOffset = new(() => Schema.GetOffset(0x5F23FA63B74855D3), LazyThreadSafetyMode.None);
+  private static readonly nint _OrthographicAreasOffset = Schema.GetOffset(0x5F23FA63B74855D3);
 
   public ref Vector OrthographicAreas {
-    get => ref _Handle.AsRef<Vector>(_OrthographicAreasOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OrthographicAreasOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x5F23FA63CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x5F23FA63CE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _DebugFlagsOffset = new(() => Schema.GetOffset(0x5F23FA6321AEBFEF), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugFlagsOffset = Schema.GetOffset(0x5F23FA6321AEBFEF);
 
   public ref uint DebugFlags {
-    get => ref _Handle.AsRef<uint>(_DebugFlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_DebugFlagsOffset);
   }
 
 

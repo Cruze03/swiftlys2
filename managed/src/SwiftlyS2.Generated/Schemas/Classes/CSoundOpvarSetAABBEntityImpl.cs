@@ -17,50 +17,50 @@ internal partial class CSoundOpvarSetAABBEntityImpl : CSoundOpvarSetPointEntityI
   public CSoundOpvarSetAABBEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DistanceInnerMinsOffset = new(() => Schema.GetOffset(0x9C9CB73CC7540883), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceInnerMinsOffset = Schema.GetOffset(0x9C9CB73CC7540883);
 
   public ref Vector DistanceInnerMins {
-    get => ref _Handle.AsRef<Vector>(_DistanceInnerMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceInnerMinsOffset);
   }
-  private static readonly Lazy<nint> _DistanceInnerMaxsOffset = new(() => Schema.GetOffset(0x9C9CB73C705E7E61), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceInnerMaxsOffset = Schema.GetOffset(0x9C9CB73C705E7E61);
 
   public ref Vector DistanceInnerMaxs {
-    get => ref _Handle.AsRef<Vector>(_DistanceInnerMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceInnerMaxsOffset);
   }
-  private static readonly Lazy<nint> _DistanceOuterMinsOffset = new(() => Schema.GetOffset(0x9C9CB73C185EC6F4), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOuterMinsOffset = Schema.GetOffset(0x9C9CB73C185EC6F4);
 
   public ref Vector DistanceOuterMins {
-    get => ref _Handle.AsRef<Vector>(_DistanceOuterMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceOuterMinsOffset);
   }
-  private static readonly Lazy<nint> _DistanceOuterMaxsOffset = new(() => Schema.GetOffset(0x9C9CB73C99738B36), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOuterMaxsOffset = Schema.GetOffset(0x9C9CB73C99738B36);
 
   public ref Vector DistanceOuterMaxs {
-    get => ref _Handle.AsRef<Vector>(_DistanceOuterMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceOuterMaxsOffset);
   }
-  private static readonly Lazy<nint> _AABBDirectionOffset = new(() => Schema.GetOffset(0x9C9CB73CE8CF552C), LazyThreadSafetyMode.None);
+  private static readonly nint _AABBDirectionOffset = Schema.GetOffset(0x9C9CB73CE8CF552C);
 
   public ref int AABBDirection {
-    get => ref _Handle.AsRef<int>(_AABBDirectionOffset.Value);
+    get => ref _Handle.AsRef<int>(_AABBDirectionOffset);
   }
-  private static readonly Lazy<nint> _InnerMinsOffset = new(() => Schema.GetOffset(0x9C9CB73C4C5EAC7A), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerMinsOffset = Schema.GetOffset(0x9C9CB73C4C5EAC7A);
 
   public ref Vector InnerMins {
-    get => ref _Handle.AsRef<Vector>(_InnerMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InnerMinsOffset);
   }
-  private static readonly Lazy<nint> _InnerMaxsOffset = new(() => Schema.GetOffset(0x9C9CB73CCD68E360), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerMaxsOffset = Schema.GetOffset(0x9C9CB73CCD68E360);
 
   public ref Vector InnerMaxs {
-    get => ref _Handle.AsRef<Vector>(_InnerMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InnerMaxsOffset);
   }
-  private static readonly Lazy<nint> _OuterMinsOffset = new(() => Schema.GetOffset(0x9C9CB73C30928F3D), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterMinsOffset = Schema.GetOffset(0x9C9CB73C30928F3D);
 
   public ref Vector OuterMins {
-    get => ref _Handle.AsRef<Vector>(_OuterMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OuterMinsOffset);
   }
-  private static readonly Lazy<nint> _OuterMaxsOffset = new(() => Schema.GetOffset(0x9C9CB73CC9A77947), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterMaxsOffset = Schema.GetOffset(0x9C9CB73CC9A77947);
 
   public ref Vector OuterMaxs {
-    get => ref _Handle.AsRef<Vector>(_OuterMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OuterMaxsOffset);
   }
 
 

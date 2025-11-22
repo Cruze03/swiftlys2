@@ -17,25 +17,25 @@ internal partial class FourCovMatrices3Impl : SchemaClass, FourCovMatrices3 {
   public FourCovMatrices3Impl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DiagOffset = new(() => Schema.GetOffset(0xCEA91E487CC0D332), LazyThreadSafetyMode.None);
+  private static readonly nint _DiagOffset = Schema.GetOffset(0xCEA91E487CC0D332);
 
   public ref FourVectors Diag {
-    get => ref _Handle.AsRef<FourVectors>(_DiagOffset.Value);
+    get => ref _Handle.AsRef<FourVectors>(_DiagOffset);
   }
-  private static readonly Lazy<nint> _XYOffset = new(() => Schema.GetOffset(0xCEA91E48A58DC304), LazyThreadSafetyMode.None);
+  private static readonly nint _XYOffset = Schema.GetOffset(0xCEA91E48A58DC304);
 
   public ref fltx4 XY {
-    get => ref _Handle.AsRef<fltx4>(_XYOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_XYOffset);
   }
-  private static readonly Lazy<nint> _XZOffset = new(() => Schema.GetOffset(0xCEA91E48A88DC7BD), LazyThreadSafetyMode.None);
+  private static readonly nint _XZOffset = Schema.GetOffset(0xCEA91E48A88DC7BD);
 
   public ref fltx4 XZ {
-    get => ref _Handle.AsRef<fltx4>(_XZOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_XZOffset);
   }
-  private static readonly Lazy<nint> _YZOffset = new(() => Schema.GetOffset(0xCEA91E489E8B7968), LazyThreadSafetyMode.None);
+  private static readonly nint _YZOffset = Schema.GetOffset(0xCEA91E489E8B7968);
 
   public ref fltx4 YZ {
-    get => ref _Handle.AsRef<fltx4>(_YZOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_YZOffset);
   }
 
 

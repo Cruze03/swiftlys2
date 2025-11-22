@@ -17,61 +17,61 @@ internal partial class CAI_ExpresserImpl : SchemaClass, CAI_Expresser {
   public CAI_ExpresserImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StopTalkTimeOffset = new(() => Schema.GetOffset(0xFB9DA1AC36131EC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StopTalkTimeOffset = Schema.GetOffset(0xFB9DA1AC36131EC4);
 
   public GameTime_t StopTalkTime {
-    get => new GameTime_tImpl(_Handle + _StopTalkTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StopTalkTimeOffset);
   }
-  private static readonly Lazy<nint> _StopTalkTimeWithoutDelayOffset = new(() => Schema.GetOffset(0xFB9DA1ACB3CAE32F), LazyThreadSafetyMode.None);
+  private static readonly nint _StopTalkTimeWithoutDelayOffset = Schema.GetOffset(0xFB9DA1ACB3CAE32F);
 
   public GameTime_t StopTalkTimeWithoutDelay {
-    get => new GameTime_tImpl(_Handle + _StopTalkTimeWithoutDelayOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StopTalkTimeWithoutDelayOffset);
   }
-  private static readonly Lazy<nint> _QueuedSpeechTimeOffset = new(() => Schema.GetOffset(0xFB9DA1AC93DE376D), LazyThreadSafetyMode.None);
+  private static readonly nint _QueuedSpeechTimeOffset = Schema.GetOffset(0xFB9DA1AC93DE376D);
 
   public GameTime_t QueuedSpeechTime {
-    get => new GameTime_tImpl(_Handle + _QueuedSpeechTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _QueuedSpeechTimeOffset);
   }
-  private static readonly Lazy<nint> _BlockedTalkTimeOffset = new(() => Schema.GetOffset(0xFB9DA1AC2A2AC272), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockedTalkTimeOffset = Schema.GetOffset(0xFB9DA1AC2A2AC272);
 
   public GameTime_t BlockedTalkTime {
-    get => new GameTime_tImpl(_Handle + _BlockedTalkTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _BlockedTalkTimeOffset);
   }
-  private static readonly Lazy<nint> _VoicePitchOffset = new(() => Schema.GetOffset(0xFB9DA1ACAB038A45), LazyThreadSafetyMode.None);
+  private static readonly nint _VoicePitchOffset = Schema.GetOffset(0xFB9DA1ACAB038A45);
 
   public ref int VoicePitch {
-    get => ref _Handle.AsRef<int>(_VoicePitchOffset.Value);
+    get => ref _Handle.AsRef<int>(_VoicePitchOffset);
   }
-  private static readonly Lazy<nint> _LastTimeAcceptedSpeakOffset = new(() => Schema.GetOffset(0xFB9DA1AC8D9FF64F), LazyThreadSafetyMode.None);
+  private static readonly nint _LastTimeAcceptedSpeakOffset = Schema.GetOffset(0xFB9DA1AC8D9FF64F);
 
   public GameTime_t LastTimeAcceptedSpeak {
-    get => new GameTime_tImpl(_Handle + _LastTimeAcceptedSpeakOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastTimeAcceptedSpeakOffset);
   }
-  private static readonly Lazy<nint> _AllowSpeakingInterruptsOffset = new(() => Schema.GetOffset(0xFB9DA1ACC77E4694), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowSpeakingInterruptsOffset = Schema.GetOffset(0xFB9DA1ACC77E4694);
 
   public ref bool AllowSpeakingInterrupts {
-    get => ref _Handle.AsRef<bool>(_AllowSpeakingInterruptsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowSpeakingInterruptsOffset);
   }
-  private static readonly Lazy<nint> _ConsiderSceneInvolvementAsSpeechOffset = new(() => Schema.GetOffset(0xFB9DA1ACB1C249B1), LazyThreadSafetyMode.None);
+  private static readonly nint _ConsiderSceneInvolvementAsSpeechOffset = Schema.GetOffset(0xFB9DA1ACB1C249B1);
 
   public ref bool ConsiderSceneInvolvementAsSpeech {
-    get => ref _Handle.AsRef<bool>(_ConsiderSceneInvolvementAsSpeechOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ConsiderSceneInvolvementAsSpeechOffset);
   }
-  private static readonly Lazy<nint> _SceneEntityDisabledOffset = new(() => Schema.GetOffset(0xFB9DA1AC6AC7EEF4), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneEntityDisabledOffset = Schema.GetOffset(0xFB9DA1AC6AC7EEF4);
 
   public ref bool SceneEntityDisabled {
-    get => ref _Handle.AsRef<bool>(_SceneEntityDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SceneEntityDisabledOffset);
   }
-  private static readonly Lazy<nint> _LastSpokenPriorityOffset = new(() => Schema.GetOffset(0xFB9DA1AC9722D67B), LazyThreadSafetyMode.None);
+  private static readonly nint _LastSpokenPriorityOffset = Schema.GetOffset(0xFB9DA1AC9722D67B);
 
   public ref int LastSpokenPriority {
-    get => ref _Handle.AsRef<int>(_LastSpokenPriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastSpokenPriorityOffset);
   }
-  private static readonly Lazy<nint> _OuterOffset = new(() => Schema.GetOffset(0xFB9DA1AC7359CF3A), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterOffset = Schema.GetOffset(0xFB9DA1AC7359CF3A);
 
   public CBaseFlex? Outer {
     get {
-      var ptr = _Handle.Read<nint>(_OuterOffset.Value);
+      var ptr = _Handle.Read<nint>(_OuterOffset);
       return ptr.IsValidPtr() ? new CBaseFlexImpl(ptr) : null;
     }
   }

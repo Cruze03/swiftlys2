@@ -17,26 +17,26 @@ internal partial class CSkyCameraImpl : CBaseEntityImpl, CSkyCamera {
   public CSkyCameraImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SkyboxDataOffset = new(() => Schema.GetOffset(0xCD44EF44CDA0772B), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyboxDataOffset = Schema.GetOffset(0xCD44EF44CDA0772B);
 
   public sky3dparams_t SkyboxData {
-    get => new sky3dparams_tImpl(_Handle + _SkyboxDataOffset.Value);
+    get => new sky3dparams_tImpl(_Handle + _SkyboxDataOffset);
   }
-  private static readonly Lazy<nint> _SkyboxSlotTokenOffset = new(() => Schema.GetOffset(0xCD44EF44413FD3A4), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyboxSlotTokenOffset = Schema.GetOffset(0xCD44EF44413FD3A4);
 
   public ref CUtlStringToken SkyboxSlotToken {
-    get => ref _Handle.AsRef<CUtlStringToken>(_SkyboxSlotTokenOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_SkyboxSlotTokenOffset);
   }
-  private static readonly Lazy<nint> _UseAnglesOffset = new(() => Schema.GetOffset(0xCD44EF44434C3DB4), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAnglesOffset = Schema.GetOffset(0xCD44EF44434C3DB4);
 
   public ref bool UseAngles {
-    get => ref _Handle.AsRef<bool>(_UseAnglesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAnglesOffset);
   }
-  private static readonly Lazy<nint> _NextOffset = new(() => Schema.GetOffset(0xCD44EF4432B11E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextOffset = Schema.GetOffset(0xCD44EF4432B11E0E);
 
   public CSkyCamera? Next {
     get {
-      var ptr = _Handle.Read<nint>(_NextOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextOffset);
       return ptr.IsValidPtr() ? new CSkyCameraImpl(ptr) : null;
     }
   }

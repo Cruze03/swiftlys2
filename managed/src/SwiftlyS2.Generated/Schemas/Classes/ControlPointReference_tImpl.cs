@@ -17,20 +17,20 @@ internal partial class ControlPointReference_tImpl : SchemaClass, ControlPointRe
   public ControlPointReference_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNameStringOffset = new(() => Schema.GetOffset(0x83CD020625F4E2B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNameStringOffset = Schema.GetOffset(0x83CD020625F4E2B6);
 
   public ref int ControlPointNameString {
-    get => ref _Handle.AsRef<int>(_ControlPointNameStringOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNameStringOffset);
   }
-  private static readonly Lazy<nint> _OffsetFromControlPointOffset = new(() => Schema.GetOffset(0x83CD0206C9E39FFF), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetFromControlPointOffset = Schema.GetOffset(0x83CD0206C9E39FFF);
 
   public ref Vector OffsetFromControlPoint {
-    get => ref _Handle.AsRef<Vector>(_OffsetFromControlPointOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetFromControlPointOffset);
   }
-  private static readonly Lazy<nint> _OffsetInLocalSpaceOffset = new(() => Schema.GetOffset(0x83CD02064ADEF5FE), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetInLocalSpaceOffset = Schema.GetOffset(0x83CD02064ADEF5FE);
 
   public ref bool OffsetInLocalSpace {
-    get => ref _Handle.AsRef<bool>(_OffsetInLocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetInLocalSpaceOffset);
   }
 
 

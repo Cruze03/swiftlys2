@@ -17,30 +17,30 @@ internal partial class C_OP_ControlPointToRadialScreenSpaceImpl : CParticleFunct
   public C_OP_ControlPointToRadialScreenSpaceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPInOffset = new(() => Schema.GetOffset(0xF5E82FE8CAF7E91D), LazyThreadSafetyMode.None);
+  private static readonly nint _CPInOffset = Schema.GetOffset(0xF5E82FE8CAF7E91D);
 
   public ref int CPIn {
-    get => ref _Handle.AsRef<int>(_CPInOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPInOffset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0xF5E82FE8408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0xF5E82FE8408288D9);
 
   public ref Vector CP1Pos {
-    get => ref _Handle.AsRef<Vector>(_CP1PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP1PosOffset);
   }
-  private static readonly Lazy<nint> _CPOutOffset = new(() => Schema.GetOffset(0xF5E82FE8BAE50826), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutOffset = Schema.GetOffset(0xF5E82FE8BAE50826);
 
   public ref int CPOut {
-    get => ref _Handle.AsRef<int>(_CPOutOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutOffset);
   }
-  private static readonly Lazy<nint> _CPOutFieldOffset = new(() => Schema.GetOffset(0xF5E82FE8A29393C2), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutFieldOffset = Schema.GetOffset(0xF5E82FE8A29393C2);
 
   public ref int CPOutField {
-    get => ref _Handle.AsRef<int>(_CPOutFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutFieldOffset);
   }
-  private static readonly Lazy<nint> _CPSSPosOutOffset = new(() => Schema.GetOffset(0xF5E82FE881CD01AE), LazyThreadSafetyMode.None);
+  private static readonly nint _CPSSPosOutOffset = Schema.GetOffset(0xF5E82FE881CD01AE);
 
   public ref int CPSSPosOut {
-    get => ref _Handle.AsRef<int>(_CPSSPosOutOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPSSPosOutOffset);
   }
 
 

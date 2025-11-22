@@ -17,19 +17,19 @@ internal partial class CModelConfigElementImpl : SchemaClass, CModelConfigElemen
   public CModelConfigElementImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ElementNameOffset = new(() => Schema.GetOffset(0x240CE3EFEBDAB614), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementNameOffset = Schema.GetOffset(0x240CE3EFEBDAB614);
 
   public string ElementName {
     get {
-      var ptr = _Handle.Read<nint>(_ElementNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ElementNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ElementNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ElementNameOffset, value);
   } 
-  private static readonly Lazy<nint> _NestedElementsOffset = new(() => Schema.GetOffset(0x240CE3EFA31BDBC3), LazyThreadSafetyMode.None);
+  private static readonly nint _NestedElementsOffset = Schema.GetOffset(0x240CE3EFA31BDBC3);
 
   public ref CUtlVector<PointerTo<CModelConfigElement>> NestedElements {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CModelConfigElement>>>(_NestedElementsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CModelConfigElement>>>(_NestedElementsOffset);
   }
 
 

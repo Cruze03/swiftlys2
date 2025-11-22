@@ -17,55 +17,55 @@ internal partial class C_OP_ChladniWaveImpl : CParticleFunctionOperatorImpl, C_O
   public C_OP_ChladniWaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x5C575E1BE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x5C575E1BE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _InputMinOffset = new(() => Schema.GetOffset(0x5C575E1BE88A0D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMinOffset = Schema.GetOffset(0x5C575E1BE88A0D0F);
 
   public CPerParticleFloatInput InputMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _InputMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InputMinOffset);
   }
-  private static readonly Lazy<nint> _InputMaxOffset = new(() => Schema.GetOffset(0x5C575E1BD6766901), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMaxOffset = Schema.GetOffset(0x5C575E1BD6766901);
 
   public CPerParticleFloatInput InputMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _InputMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InputMaxOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x5C575E1B5F8D7716), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x5C575E1B5F8D7716);
 
   public CPerParticleFloatInput OutputMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _OutputMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x5C575E1B51A0E8C4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x5C575E1B51A0E8C4);
 
   public CPerParticleFloatInput OutputMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _OutputMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _WaveLengthOffset = new(() => Schema.GetOffset(0x5C575E1B33948038), LazyThreadSafetyMode.None);
+  private static readonly nint _WaveLengthOffset = Schema.GetOffset(0x5C575E1B33948038);
 
   public CPerParticleVecInput WaveLength {
-    get => new CPerParticleVecInputImpl(_Handle + _WaveLengthOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _WaveLengthOffset);
   }
-  private static readonly Lazy<nint> _HarmonicsOffset = new(() => Schema.GetOffset(0x5C575E1B91D6B17F), LazyThreadSafetyMode.None);
+  private static readonly nint _HarmonicsOffset = Schema.GetOffset(0x5C575E1B91D6B17F);
 
   public CPerParticleVecInput Harmonics {
-    get => new CPerParticleVecInputImpl(_Handle + _HarmonicsOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _HarmonicsOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x5C575E1BFB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x5C575E1BFB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceControlPointOffset = new(() => Schema.GetOffset(0x5C575E1B1656DBF7), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceControlPointOffset = Schema.GetOffset(0x5C575E1B1656DBF7);
 
   public ref int LocalSpaceControlPoint {
-    get => ref _Handle.AsRef<int>(_LocalSpaceControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalSpaceControlPointOffset);
   }
-  private static readonly Lazy<nint> _B3DOffset = new(() => Schema.GetOffset(0x5C575E1B24E1BE32), LazyThreadSafetyMode.None);
+  private static readonly nint _B3DOffset = Schema.GetOffset(0x5C575E1B24E1BE32);
 
   public ref bool B3D {
-    get => ref _Handle.AsRef<bool>(_B3DOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B3DOffset);
   }
 
 

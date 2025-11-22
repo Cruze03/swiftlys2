@@ -17,25 +17,25 @@ internal partial class CPulseCell_InlineNodeSkipSelectorImpl : CPulseCell_BaseFl
   public CPulseCell_InlineNodeSkipSelectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlowNodeIDOffset = new(() => Schema.GetOffset(0x43AF14578ED47FBC), LazyThreadSafetyMode.None);
+  private static readonly nint _FlowNodeIDOffset = Schema.GetOffset(0x43AF14578ED47FBC);
 
   public PulseDocNodeID_t FlowNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _FlowNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _FlowNodeIDOffset);
   }
-  private static readonly Lazy<nint> _AndOffset = new(() => Schema.GetOffset(0x43AF14573A289986), LazyThreadSafetyMode.None);
+  private static readonly nint _AndOffset = Schema.GetOffset(0x43AF14573A289986);
 
   public ref bool And {
-    get => ref _Handle.AsRef<bool>(_AndOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AndOffset);
   }
-  private static readonly Lazy<nint> _PassOutflowOffset = new(() => Schema.GetOffset(0x43AF145724AA6434), LazyThreadSafetyMode.None);
+  private static readonly nint _PassOutflowOffset = Schema.GetOffset(0x43AF145724AA6434);
 
   public PulseSelectorOutflowList_t PassOutflow {
-    get => new PulseSelectorOutflowList_tImpl(_Handle + _PassOutflowOffset.Value);
+    get => new PulseSelectorOutflowList_tImpl(_Handle + _PassOutflowOffset);
   }
-  private static readonly Lazy<nint> _FailOutflowOffset = new(() => Schema.GetOffset(0x43AF1457AC90C0E3), LazyThreadSafetyMode.None);
+  private static readonly nint _FailOutflowOffset = Schema.GetOffset(0x43AF1457AC90C0E3);
 
   public CPulse_OutflowConnection FailOutflow {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _FailOutflowOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _FailOutflowOffset);
   }
 
 

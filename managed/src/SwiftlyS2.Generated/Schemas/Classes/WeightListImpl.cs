@@ -17,19 +17,19 @@ internal partial class WeightListImpl : SchemaClass, WeightList {
   public WeightListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x4A08DD454D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x4A08DD454D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _WeightsOffset = new(() => Schema.GetOffset(0x4A08DD4577B2F91E), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightsOffset = Schema.GetOffset(0x4A08DD4577B2F91E);
 
   public ref CUtlVector<float> Weights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WeightsOffset);
   }
 
 

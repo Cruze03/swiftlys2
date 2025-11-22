@@ -20,30 +20,30 @@ internal partial class CPhysLengthImpl : CPhysConstraintImpl, CPhysLength {
   public ISchemaFixedArray<Vector> Offset {
     get => new SchemaFixedArray<Vector>(_Handle, 0x9203A50AF836806A, 2, 12, 4);
   }
-  private static readonly Lazy<nint> _AttachOffset = new(() => Schema.GetOffset(0x9203A50A4CAEA9A4), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachOffset = Schema.GetOffset(0x9203A50A4CAEA9A4);
 
   public ref Vector Attach {
-    get => ref _Handle.AsRef<Vector>(_AttachOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AttachOffset);
   }
-  private static readonly Lazy<nint> _AddLengthOffset = new(() => Schema.GetOffset(0x9203A50AA30AA6D8), LazyThreadSafetyMode.None);
+  private static readonly nint _AddLengthOffset = Schema.GetOffset(0x9203A50AA30AA6D8);
 
   public ref float AddLength {
-    get => ref _Handle.AsRef<float>(_AddLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_AddLengthOffset);
   }
-  private static readonly Lazy<nint> _MinLengthOffset = new(() => Schema.GetOffset(0x9203A50A8FD988D7), LazyThreadSafetyMode.None);
+  private static readonly nint _MinLengthOffset = Schema.GetOffset(0x9203A50A8FD988D7);
 
   public ref float MinLength {
-    get => ref _Handle.AsRef<float>(_MinLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinLengthOffset);
   }
-  private static readonly Lazy<nint> _TotalLengthOffset = new(() => Schema.GetOffset(0x9203A50A6825671D), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalLengthOffset = Schema.GetOffset(0x9203A50A6825671D);
 
   public ref float TotalLength {
-    get => ref _Handle.AsRef<float>(_TotalLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TotalLengthOffset);
   }
-  private static readonly Lazy<nint> _EnableCollisionOffset = new(() => Schema.GetOffset(0x9203A50A1E5412CE), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableCollisionOffset = Schema.GetOffset(0x9203A50A1E5412CE);
 
   public ref bool EnableCollision {
-    get => ref _Handle.AsRef<bool>(_EnableCollisionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableCollisionOffset);
   }
 
 

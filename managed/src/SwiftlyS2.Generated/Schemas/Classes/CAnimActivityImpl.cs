@@ -17,25 +17,25 @@ internal partial class CAnimActivityImpl : SchemaClass, CAnimActivity {
   public CAnimActivityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xB773FBB24D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xB773FBB24D8F5786);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _ActivityOffset = new(() => Schema.GetOffset(0xB773FBB2E3986930), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivityOffset = Schema.GetOffset(0xB773FBB2E3986930);
 
   public ref int Activity {
-    get => ref _Handle.AsRef<int>(_ActivityOffset.Value);
+    get => ref _Handle.AsRef<int>(_ActivityOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xB773FBB2CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xB773FBB2CE6E9C28);
 
   public ref int Flags {
-    get => ref _Handle.AsRef<int>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<int>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0xB773FBB2C5CC6905), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0xB773FBB2C5CC6905);
 
   public ref int Weight {
-    get => ref _Handle.AsRef<int>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_WeightOffset);
   }
 
 

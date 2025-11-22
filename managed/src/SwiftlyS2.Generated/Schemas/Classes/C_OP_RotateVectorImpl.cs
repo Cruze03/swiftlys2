@@ -17,40 +17,40 @@ internal partial class C_OP_RotateVectorImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_RotateVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x43DEF471E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x43DEF471E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _RotAxisMinOffset = new(() => Schema.GetOffset(0x43DEF471E51ED175), LazyThreadSafetyMode.None);
+  private static readonly nint _RotAxisMinOffset = Schema.GetOffset(0x43DEF471E51ED175);
 
   public ref Vector RotAxisMin {
-    get => ref _Handle.AsRef<Vector>(_RotAxisMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RotAxisMinOffset);
   }
-  private static readonly Lazy<nint> _RotAxisMaxOffset = new(() => Schema.GetOffset(0x43DEF471CF32368B), LazyThreadSafetyMode.None);
+  private static readonly nint _RotAxisMaxOffset = Schema.GetOffset(0x43DEF471CF32368B);
 
   public ref Vector RotAxisMax {
-    get => ref _Handle.AsRef<Vector>(_RotAxisMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RotAxisMaxOffset);
   }
-  private static readonly Lazy<nint> _RotRateMinOffset = new(() => Schema.GetOffset(0x43DEF4710EE55F62), LazyThreadSafetyMode.None);
+  private static readonly nint _RotRateMinOffset = Schema.GetOffset(0x43DEF4710EE55F62);
 
   public ref float RotRateMin {
-    get => ref _Handle.AsRef<float>(_RotRateMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotRateMinOffset);
   }
-  private static readonly Lazy<nint> _RotRateMaxOffset = new(() => Schema.GetOffset(0x43DEF471F8D1B508), LazyThreadSafetyMode.None);
+  private static readonly nint _RotRateMaxOffset = Schema.GetOffset(0x43DEF471F8D1B508);
 
   public ref float RotRateMax {
-    get => ref _Handle.AsRef<float>(_RotRateMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotRateMaxOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0x43DEF47148BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0x43DEF47148BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x43DEF471B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x43DEF471B731A42F);
 
   public CPerParticleFloatInput Scale {
-    get => new CPerParticleFloatInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ScaleOffset);
   }
 
 

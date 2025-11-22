@@ -17,45 +17,45 @@ internal partial class CSeqAutoLayerFlagImpl : SchemaClass, CSeqAutoLayerFlag {
   public CSeqAutoLayerFlagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PostOffset = new(() => Schema.GetOffset(0x9E41A1515698A5A7), LazyThreadSafetyMode.None);
+  private static readonly nint _PostOffset = Schema.GetOffset(0x9E41A1515698A5A7);
 
   public ref bool Post {
-    get => ref _Handle.AsRef<bool>(_PostOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PostOffset);
   }
-  private static readonly Lazy<nint> _SplineOffset = new(() => Schema.GetOffset(0x9E41A1512F9204DC), LazyThreadSafetyMode.None);
+  private static readonly nint _SplineOffset = Schema.GetOffset(0x9E41A1512F9204DC);
 
   public ref bool Spline {
-    get => ref _Handle.AsRef<bool>(_SplineOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SplineOffset);
   }
-  private static readonly Lazy<nint> _XFadeOffset = new(() => Schema.GetOffset(0x9E41A1511DEAA5A9), LazyThreadSafetyMode.None);
+  private static readonly nint _XFadeOffset = Schema.GetOffset(0x9E41A1511DEAA5A9);
 
   public ref bool XFade {
-    get => ref _Handle.AsRef<bool>(_XFadeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_XFadeOffset);
   }
-  private static readonly Lazy<nint> _NoBlendOffset = new(() => Schema.GetOffset(0x9E41A15180E307E1), LazyThreadSafetyMode.None);
+  private static readonly nint _NoBlendOffset = Schema.GetOffset(0x9E41A15180E307E1);
 
   public ref bool NoBlend {
-    get => ref _Handle.AsRef<bool>(_NoBlendOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NoBlendOffset);
   }
-  private static readonly Lazy<nint> _LocalOffset = new(() => Schema.GetOffset(0x9E41A15130D5CDE8), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalOffset = Schema.GetOffset(0x9E41A15130D5CDE8);
 
   public ref bool Local {
-    get => ref _Handle.AsRef<bool>(_LocalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalOffset);
   }
-  private static readonly Lazy<nint> _PoseOffset = new(() => Schema.GetOffset(0x9E41A15145988AE4), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseOffset = Schema.GetOffset(0x9E41A15145988AE4);
 
   public ref bool Pose {
-    get => ref _Handle.AsRef<bool>(_PoseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PoseOffset);
   }
-  private static readonly Lazy<nint> _FetchFrameOffset = new(() => Schema.GetOffset(0x9E41A15118941788), LazyThreadSafetyMode.None);
+  private static readonly nint _FetchFrameOffset = Schema.GetOffset(0x9E41A15118941788);
 
   public ref bool FetchFrame {
-    get => ref _Handle.AsRef<bool>(_FetchFrameOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FetchFrameOffset);
   }
-  private static readonly Lazy<nint> _SubtractOffset = new(() => Schema.GetOffset(0x9E41A1514F203AC1), LazyThreadSafetyMode.None);
+  private static readonly nint _SubtractOffset = Schema.GetOffset(0x9E41A1514F203AC1);
 
   public ref bool Subtract {
-    get => ref _Handle.AsRef<bool>(_SubtractOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SubtractOffset);
   }
 
 

@@ -17,60 +17,60 @@ internal partial class RsStencilStateDesc_tImpl : SchemaClass, RsStencilStateDes
   public RsStencilStateDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StencilEnableOffset = new(() => Schema.GetOffset(0xA65B7AC54518B5FC), LazyThreadSafetyMode.None);
+  private static readonly nint _StencilEnableOffset = Schema.GetOffset(0xA65B7AC54518B5FC);
 
   public SchemaUntypedField StencilEnable {
-    get => new SchemaUntypedField(_Handle + _StencilEnableOffset.Value);
+    get => new SchemaUntypedField(_Handle + _StencilEnableOffset);
   }
-  private static readonly Lazy<nint> _FrontStencilFailOpOffset = new(() => Schema.GetOffset(0xA65B7AC59A6D86EF), LazyThreadSafetyMode.None);
+  private static readonly nint _FrontStencilFailOpOffset = Schema.GetOffset(0xA65B7AC59A6D86EF);
 
   public SchemaUntypedField FrontStencilFailOp {
-    get => new SchemaUntypedField(_Handle + _FrontStencilFailOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrontStencilFailOpOffset);
   }
-  private static readonly Lazy<nint> _FrontStencilDepthFailOpOffset = new(() => Schema.GetOffset(0xA65B7AC5E8761D3E), LazyThreadSafetyMode.None);
+  private static readonly nint _FrontStencilDepthFailOpOffset = Schema.GetOffset(0xA65B7AC5E8761D3E);
 
   public SchemaUntypedField FrontStencilDepthFailOp {
-    get => new SchemaUntypedField(_Handle + _FrontStencilDepthFailOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrontStencilDepthFailOpOffset);
   }
-  private static readonly Lazy<nint> _FrontStencilPassOpOffset = new(() => Schema.GetOffset(0xA65B7AC586875BA2), LazyThreadSafetyMode.None);
+  private static readonly nint _FrontStencilPassOpOffset = Schema.GetOffset(0xA65B7AC586875BA2);
 
   public SchemaUntypedField FrontStencilPassOp {
-    get => new SchemaUntypedField(_Handle + _FrontStencilPassOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrontStencilPassOpOffset);
   }
-  private static readonly Lazy<nint> _FrontStencilFuncOffset = new(() => Schema.GetOffset(0xA65B7AC581FBEC02), LazyThreadSafetyMode.None);
+  private static readonly nint _FrontStencilFuncOffset = Schema.GetOffset(0xA65B7AC581FBEC02);
 
   public SchemaUntypedField FrontStencilFunc {
-    get => new SchemaUntypedField(_Handle + _FrontStencilFuncOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrontStencilFuncOffset);
   }
-  private static readonly Lazy<nint> _BackStencilFailOpOffset = new(() => Schema.GetOffset(0xA65B7AC557603E59), LazyThreadSafetyMode.None);
+  private static readonly nint _BackStencilFailOpOffset = Schema.GetOffset(0xA65B7AC557603E59);
 
   public SchemaUntypedField BackStencilFailOp {
-    get => new SchemaUntypedField(_Handle + _BackStencilFailOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BackStencilFailOpOffset);
   }
-  private static readonly Lazy<nint> _BackStencilDepthFailOpOffset = new(() => Schema.GetOffset(0xA65B7AC5EA6F7BAC), LazyThreadSafetyMode.None);
+  private static readonly nint _BackStencilDepthFailOpOffset = Schema.GetOffset(0xA65B7AC5EA6F7BAC);
 
   public SchemaUntypedField BackStencilDepthFailOp {
-    get => new SchemaUntypedField(_Handle + _BackStencilDepthFailOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BackStencilDepthFailOpOffset);
   }
-  private static readonly Lazy<nint> _BackStencilPassOpOffset = new(() => Schema.GetOffset(0xA65B7AC51276F800), LazyThreadSafetyMode.None);
+  private static readonly nint _BackStencilPassOpOffset = Schema.GetOffset(0xA65B7AC51276F800);
 
   public SchemaUntypedField BackStencilPassOp {
-    get => new SchemaUntypedField(_Handle + _BackStencilPassOpOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BackStencilPassOpOffset);
   }
-  private static readonly Lazy<nint> _BackStencilFuncOffset = new(() => Schema.GetOffset(0xA65B7AC520B49048), LazyThreadSafetyMode.None);
+  private static readonly nint _BackStencilFuncOffset = Schema.GetOffset(0xA65B7AC520B49048);
 
   public SchemaUntypedField BackStencilFunc {
-    get => new SchemaUntypedField(_Handle + _BackStencilFuncOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BackStencilFuncOffset);
   }
-  private static readonly Lazy<nint> _StencilReadMaskOffset = new(() => Schema.GetOffset(0xA65B7AC5C9D7494F), LazyThreadSafetyMode.None);
+  private static readonly nint _StencilReadMaskOffset = Schema.GetOffset(0xA65B7AC5C9D7494F);
 
   public ref byte StencilReadMask {
-    get => ref _Handle.AsRef<byte>(_StencilReadMaskOffset.Value);
+    get => ref _Handle.AsRef<byte>(_StencilReadMaskOffset);
   }
-  private static readonly Lazy<nint> _StencilWriteMaskOffset = new(() => Schema.GetOffset(0xA65B7AC5E50288E2), LazyThreadSafetyMode.None);
+  private static readonly nint _StencilWriteMaskOffset = Schema.GetOffset(0xA65B7AC5E50288E2);
 
   public ref byte StencilWriteMask {
-    get => ref _Handle.AsRef<byte>(_StencilWriteMaskOffset.Value);
+    get => ref _Handle.AsRef<byte>(_StencilWriteMaskOffset);
   }
 
 

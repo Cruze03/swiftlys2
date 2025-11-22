@@ -17,10 +17,10 @@ internal partial class C_INIT_RemapQAnglesToRotationImpl : CParticleFunctionInit
   public C_INIT_RemapQAnglesToRotationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xD24C8C15B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xD24C8C15B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
 
 

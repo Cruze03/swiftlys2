@@ -17,70 +17,70 @@ internal partial class CVoxelVisibilityImpl : SchemaClass, CVoxelVisibility {
   public CVoxelVisibilityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BaseClusterCountOffset = new(() => Schema.GetOffset(0xDA27CA12A16788C5), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseClusterCountOffset = Schema.GetOffset(0xDA27CA12A16788C5);
 
   public ref uint BaseClusterCount {
-    get => ref _Handle.AsRef<uint>(_BaseClusterCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BaseClusterCountOffset);
   }
-  private static readonly Lazy<nint> _PVSBytesPerClusterOffset = new(() => Schema.GetOffset(0xDA27CA122C2340E0), LazyThreadSafetyMode.None);
+  private static readonly nint _PVSBytesPerClusterOffset = Schema.GetOffset(0xDA27CA122C2340E0);
 
   public ref uint PVSBytesPerCluster {
-    get => ref _Handle.AsRef<uint>(_PVSBytesPerClusterOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PVSBytesPerClusterOffset);
   }
-  private static readonly Lazy<nint> _MinBoundsOffset = new(() => Schema.GetOffset(0xDA27CA12114799FE), LazyThreadSafetyMode.None);
+  private static readonly nint _MinBoundsOffset = Schema.GetOffset(0xDA27CA12114799FE);
 
   public ref Vector MinBounds {
-    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinBoundsOffset);
   }
-  private static readonly Lazy<nint> _MaxBoundsOffset = new(() => Schema.GetOffset(0xDA27CA12C0B4CE60), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxBoundsOffset = Schema.GetOffset(0xDA27CA12C0B4CE60);
 
   public ref Vector MaxBounds {
-    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxBoundsOffset);
   }
-  private static readonly Lazy<nint> _GridSizeOffset = new(() => Schema.GetOffset(0xDA27CA12975208C2), LazyThreadSafetyMode.None);
+  private static readonly nint _GridSizeOffset = Schema.GetOffset(0xDA27CA12975208C2);
 
   public ref float GridSize {
-    get => ref _Handle.AsRef<float>(_GridSizeOffset.Value);
+    get => ref _Handle.AsRef<float>(_GridSizeOffset);
   }
-  private static readonly Lazy<nint> _SkyVisibilityClusterOffset = new(() => Schema.GetOffset(0xDA27CA12B43BF514), LazyThreadSafetyMode.None);
+  private static readonly nint _SkyVisibilityClusterOffset = Schema.GetOffset(0xDA27CA12B43BF514);
 
   public ref uint SkyVisibilityCluster {
-    get => ref _Handle.AsRef<uint>(_SkyVisibilityClusterOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SkyVisibilityClusterOffset);
   }
-  private static readonly Lazy<nint> _SunVisibilityClusterOffset = new(() => Schema.GetOffset(0xDA27CA12848C92AD), LazyThreadSafetyMode.None);
+  private static readonly nint _SunVisibilityClusterOffset = Schema.GetOffset(0xDA27CA12848C92AD);
 
   public ref uint SunVisibilityCluster {
-    get => ref _Handle.AsRef<uint>(_SunVisibilityClusterOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SunVisibilityClusterOffset);
   }
-  private static readonly Lazy<nint> _NodeBlockOffset = new(() => Schema.GetOffset(0xDA27CA12A64594EA), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeBlockOffset = Schema.GetOffset(0xDA27CA12A64594EA);
 
   public VoxelVisBlockOffset_t NodeBlock {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _NodeBlockOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _NodeBlockOffset);
   }
-  private static readonly Lazy<nint> _RegionBlockOffset = new(() => Schema.GetOffset(0xDA27CA121918C67A), LazyThreadSafetyMode.None);
+  private static readonly nint _RegionBlockOffset = Schema.GetOffset(0xDA27CA121918C67A);
 
   public VoxelVisBlockOffset_t RegionBlock {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _RegionBlockOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _RegionBlockOffset);
   }
-  private static readonly Lazy<nint> _EnclosedClusterListBlockOffset = new(() => Schema.GetOffset(0xDA27CA121F5DD1A9), LazyThreadSafetyMode.None);
+  private static readonly nint _EnclosedClusterListBlockOffset = Schema.GetOffset(0xDA27CA121F5DD1A9);
 
   public VoxelVisBlockOffset_t EnclosedClusterListBlock {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _EnclosedClusterListBlockOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _EnclosedClusterListBlockOffset);
   }
-  private static readonly Lazy<nint> _EnclosedClustersBlockOffset = new(() => Schema.GetOffset(0xDA27CA12F75E07CE), LazyThreadSafetyMode.None);
+  private static readonly nint _EnclosedClustersBlockOffset = Schema.GetOffset(0xDA27CA12F75E07CE);
 
   public VoxelVisBlockOffset_t EnclosedClustersBlock {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _EnclosedClustersBlockOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _EnclosedClustersBlockOffset);
   }
-  private static readonly Lazy<nint> _MasksBlockOffset = new(() => Schema.GetOffset(0xDA27CA121853F2AB), LazyThreadSafetyMode.None);
+  private static readonly nint _MasksBlockOffset = Schema.GetOffset(0xDA27CA121853F2AB);
 
   public VoxelVisBlockOffset_t MasksBlock {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _MasksBlockOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _MasksBlockOffset);
   }
-  private static readonly Lazy<nint> _VisBlocksOffset = new(() => Schema.GetOffset(0xDA27CA128C69D893), LazyThreadSafetyMode.None);
+  private static readonly nint _VisBlocksOffset = Schema.GetOffset(0xDA27CA128C69D893);
 
   public VoxelVisBlockOffset_t VisBlocks {
-    get => new VoxelVisBlockOffset_tImpl(_Handle + _VisBlocksOffset.Value);
+    get => new VoxelVisBlockOffset_tImpl(_Handle + _VisBlocksOffset);
   }
 
 

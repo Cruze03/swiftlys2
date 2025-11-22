@@ -17,40 +17,40 @@ internal partial class C_INIT_ColorLitPerParticleImpl : CParticleFunctionInitial
   public C_INIT_ColorLitPerParticleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorMinOffset = new(() => Schema.GetOffset(0xA196BF87552A5834), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorMinOffset = Schema.GetOffset(0xA196BF87552A5834);
 
   public ref Color ColorMin {
-    get => ref _Handle.AsRef<Color>(_ColorMinOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorMinOffset);
   }
-  private static readonly Lazy<nint> _ColorMaxOffset = new(() => Schema.GetOffset(0xA196BF87433DC396), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorMaxOffset = Schema.GetOffset(0xA196BF87433DC396);
 
   public ref Color ColorMax {
-    get => ref _Handle.AsRef<Color>(_ColorMaxOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorMaxOffset);
   }
-  private static readonly Lazy<nint> _TintMinOffset = new(() => Schema.GetOffset(0xA196BF8750B36A60), LazyThreadSafetyMode.None);
+  private static readonly nint _TintMinOffset = Schema.GetOffset(0xA196BF8750B36A60);
 
   public ref Color TintMin {
-    get => ref _Handle.AsRef<Color>(_TintMinOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintMinOffset);
   }
-  private static readonly Lazy<nint> _TintMaxOffset = new(() => Schema.GetOffset(0xA196BF8766A0054A), LazyThreadSafetyMode.None);
+  private static readonly nint _TintMaxOffset = Schema.GetOffset(0xA196BF8766A0054A);
 
   public ref Color TintMax {
-    get => ref _Handle.AsRef<Color>(_TintMaxOffset.Value);
+    get => ref _Handle.AsRef<Color>(_TintMaxOffset);
   }
-  private static readonly Lazy<nint> _TintPercOffset = new(() => Schema.GetOffset(0xA196BF87E32BE3C6), LazyThreadSafetyMode.None);
+  private static readonly nint _TintPercOffset = Schema.GetOffset(0xA196BF87E32BE3C6);
 
   public ref float TintPerc {
-    get => ref _Handle.AsRef<float>(_TintPercOffset.Value);
+    get => ref _Handle.AsRef<float>(_TintPercOffset);
   }
-  private static readonly Lazy<nint> _TintBlendModeOffset = new(() => Schema.GetOffset(0xA196BF87B80E5314), LazyThreadSafetyMode.None);
+  private static readonly nint _TintBlendModeOffset = Schema.GetOffset(0xA196BF87B80E5314);
 
   public ref ParticleColorBlendMode_t TintBlendMode {
-    get => ref _Handle.AsRef<ParticleColorBlendMode_t>(_TintBlendModeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendMode_t>(_TintBlendModeOffset);
   }
-  private static readonly Lazy<nint> _LightAmplificationOffset = new(() => Schema.GetOffset(0xA196BF87C8D7C0AD), LazyThreadSafetyMode.None);
+  private static readonly nint _LightAmplificationOffset = Schema.GetOffset(0xA196BF87C8D7C0AD);
 
   public ref float LightAmplification {
-    get => ref _Handle.AsRef<float>(_LightAmplificationOffset.Value);
+    get => ref _Handle.AsRef<float>(_LightAmplificationOffset);
   }
 
 

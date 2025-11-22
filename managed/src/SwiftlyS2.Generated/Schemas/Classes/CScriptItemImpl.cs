@@ -17,10 +17,10 @@ internal partial class CScriptItemImpl : CItemImpl, CScriptItem {
   public CScriptItemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MoveTypeOverrideOffset = new(() => Schema.GetOffset(0x501D9DD2B4DC8A64), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveTypeOverrideOffset = Schema.GetOffset(0x501D9DD2B4DC8A64);
 
   public ref MoveType_t MoveTypeOverride {
-    get => ref _Handle.AsRef<MoveType_t>(_MoveTypeOverrideOffset.Value);
+    get => ref _Handle.AsRef<MoveType_t>(_MoveTypeOverrideOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class FeSoftParent_tImpl : SchemaClass, FeSoftParent_t {
   public FeSoftParent_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0x2404393716640171), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0x2404393716640171);
 
   public ref int Parent {
-    get => ref _Handle.AsRef<int>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _AlphaOffset = new(() => Schema.GetOffset(0x24043937684C8871), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaOffset = Schema.GetOffset(0x24043937684C8871);
 
   public ref float Alpha {
-    get => ref _Handle.AsRef<float>(_AlphaOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlphaOffset);
   }
 
 

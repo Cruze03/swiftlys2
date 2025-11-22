@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncTrainControls : CBaseModelEntity, ISchemaClass<CFuncTrainControls> {
 
   static CFuncTrainControls ISchemaClass<CFuncTrainControls>.From(nint handle) => new CFuncTrainControlsImpl(handle);
-  static int ISchemaClass<CFuncTrainControls>.Size => 2752;
+  static int ISchemaClass<CFuncTrainControls>.Size => 2008;
   static string? ISchemaClass<CFuncTrainControls>.ClassName => "func_traincontrols";
 
 

@@ -17,15 +17,15 @@ internal partial class CTriggerBuoyancyImpl : CBaseTriggerImpl, CTriggerBuoyancy
   public CTriggerBuoyancyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BuoyancyHelperOffset = new(() => Schema.GetOffset(0xE9698D106BAFFEA7), LazyThreadSafetyMode.None);
+  private static readonly nint _BuoyancyHelperOffset = Schema.GetOffset(0xE9698D106BAFFEA7);
 
   public CBuoyancyHelper BuoyancyHelper {
-    get => new CBuoyancyHelperImpl(_Handle + _BuoyancyHelperOffset.Value);
+    get => new CBuoyancyHelperImpl(_Handle + _BuoyancyHelperOffset);
   }
-  private static readonly Lazy<nint> _FluidDensityOffset = new(() => Schema.GetOffset(0xE9698D10DABBC5A3), LazyThreadSafetyMode.None);
+  private static readonly nint _FluidDensityOffset = Schema.GetOffset(0xE9698D10DABBC5A3);
 
   public ref float FluidDensity {
-    get => ref _Handle.AsRef<float>(_FluidDensityOffset.Value);
+    get => ref _Handle.AsRef<float>(_FluidDensityOffset);
   }
 
   public void FluidDensityUpdated() {

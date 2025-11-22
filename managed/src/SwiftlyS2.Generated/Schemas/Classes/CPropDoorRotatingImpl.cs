@@ -17,95 +17,95 @@ internal partial class CPropDoorRotatingImpl : CBasePropDoorImpl, CPropDoorRotat
   public CPropDoorRotatingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AxisOffset = new(() => Schema.GetOffset(0x289EB6130AF9CE54), LazyThreadSafetyMode.None);
+  private static readonly nint _AxisOffset = Schema.GetOffset(0x289EB6130AF9CE54);
 
   public ref Vector Axis {
-    get => ref _Handle.AsRef<Vector>(_AxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AxisOffset);
   }
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x289EB61300DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x289EB61300DC4A68);
 
   public ref float Distance {
-    get => ref _Handle.AsRef<float>(_DistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceOffset);
   }
-  private static readonly Lazy<nint> _SpawnPositionOffset = new(() => Schema.GetOffset(0x289EB613F5AD878C), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnPositionOffset = Schema.GetOffset(0x289EB613F5AD878C);
 
   public ref PropDoorRotatingSpawnPos_t SpawnPosition {
-    get => ref _Handle.AsRef<PropDoorRotatingSpawnPos_t>(_SpawnPositionOffset.Value);
+    get => ref _Handle.AsRef<PropDoorRotatingSpawnPos_t>(_SpawnPositionOffset);
   }
-  private static readonly Lazy<nint> _OpenDirectionOffset = new(() => Schema.GetOffset(0x289EB6134BC74739), LazyThreadSafetyMode.None);
+  private static readonly nint _OpenDirectionOffset = Schema.GetOffset(0x289EB6134BC74739);
 
   public ref PropDoorRotatingOpenDirection_e OpenDirection {
-    get => ref _Handle.AsRef<PropDoorRotatingOpenDirection_e>(_OpenDirectionOffset.Value);
+    get => ref _Handle.AsRef<PropDoorRotatingOpenDirection_e>(_OpenDirectionOffset);
   }
-  private static readonly Lazy<nint> _CurrentOpenDirectionOffset = new(() => Schema.GetOffset(0x289EB6132BAD86EE), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentOpenDirectionOffset = Schema.GetOffset(0x289EB6132BAD86EE);
 
   public ref PropDoorRotatingOpenDirection_e CurrentOpenDirection {
-    get => ref _Handle.AsRef<PropDoorRotatingOpenDirection_e>(_CurrentOpenDirectionOffset.Value);
+    get => ref _Handle.AsRef<PropDoorRotatingOpenDirection_e>(_CurrentOpenDirectionOffset);
   }
-  private static readonly Lazy<nint> _DefaultCheckDirectionOffset = new(() => Schema.GetOffset(0x289EB6134191E768), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultCheckDirectionOffset = Schema.GetOffset(0x289EB6134191E768);
 
   public ref doorCheck_e DefaultCheckDirection {
-    get => ref _Handle.AsRef<doorCheck_e>(_DefaultCheckDirectionOffset.Value);
+    get => ref _Handle.AsRef<doorCheck_e>(_DefaultCheckDirectionOffset);
   }
-  private static readonly Lazy<nint> _AjarAngleOffset = new(() => Schema.GetOffset(0x289EB613CD456612), LazyThreadSafetyMode.None);
+  private static readonly nint _AjarAngleOffset = Schema.GetOffset(0x289EB613CD456612);
 
   public ref float AjarAngle {
-    get => ref _Handle.AsRef<float>(_AjarAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AjarAngleOffset);
   }
-  private static readonly Lazy<nint> _RotationAjarDeprecatedOffset = new(() => Schema.GetOffset(0x289EB6136AD5E768), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationAjarDeprecatedOffset = Schema.GetOffset(0x289EB6136AD5E768);
 
   public ref QAngle RotationAjarDeprecated {
-    get => ref _Handle.AsRef<QAngle>(_RotationAjarDeprecatedOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationAjarDeprecatedOffset);
   }
-  private static readonly Lazy<nint> _RotationClosedOffset = new(() => Schema.GetOffset(0x289EB6132A6472ED), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationClosedOffset = Schema.GetOffset(0x289EB6132A6472ED);
 
   public ref QAngle RotationClosed {
-    get => ref _Handle.AsRef<QAngle>(_RotationClosedOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationClosedOffset);
   }
-  private static readonly Lazy<nint> _RotationOpenForwardOffset = new(() => Schema.GetOffset(0x289EB6138F861A3E), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOpenForwardOffset = Schema.GetOffset(0x289EB6138F861A3E);
 
   public ref QAngle RotationOpenForward {
-    get => ref _Handle.AsRef<QAngle>(_RotationOpenForwardOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationOpenForwardOffset);
   }
-  private static readonly Lazy<nint> _RotationOpenBackOffset = new(() => Schema.GetOffset(0x289EB61329E9297E), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOpenBackOffset = Schema.GetOffset(0x289EB61329E9297E);
 
   public ref QAngle RotationOpenBack {
-    get => ref _Handle.AsRef<QAngle>(_RotationOpenBackOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationOpenBackOffset);
   }
-  private static readonly Lazy<nint> _GoalOffset = new(() => Schema.GetOffset(0x289EB6134D6AB03C), LazyThreadSafetyMode.None);
+  private static readonly nint _GoalOffset = Schema.GetOffset(0x289EB6134D6AB03C);
 
   public ref QAngle Goal {
-    get => ref _Handle.AsRef<QAngle>(_GoalOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_GoalOffset);
   }
-  private static readonly Lazy<nint> _ForwardBoundsMinOffset = new(() => Schema.GetOffset(0x289EB6138A35433D), LazyThreadSafetyMode.None);
+  private static readonly nint _ForwardBoundsMinOffset = Schema.GetOffset(0x289EB6138A35433D);
 
   public ref Vector ForwardBoundsMin {
-    get => ref _Handle.AsRef<Vector>(_ForwardBoundsMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForwardBoundsMinOffset);
   }
-  private static readonly Lazy<nint> _ForwardBoundsMaxOffset = new(() => Schema.GetOffset(0x289EB61394203843), LazyThreadSafetyMode.None);
+  private static readonly nint _ForwardBoundsMaxOffset = Schema.GetOffset(0x289EB61394203843);
 
   public ref Vector ForwardBoundsMax {
-    get => ref _Handle.AsRef<Vector>(_ForwardBoundsMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForwardBoundsMaxOffset);
   }
-  private static readonly Lazy<nint> _BackBoundsMinOffset = new(() => Schema.GetOffset(0x289EB6136FC138A5), LazyThreadSafetyMode.None);
+  private static readonly nint _BackBoundsMinOffset = Schema.GetOffset(0x289EB6136FC138A5);
 
   public ref Vector BackBoundsMin {
-    get => ref _Handle.AsRef<Vector>(_BackBoundsMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BackBoundsMinOffset);
   }
-  private static readonly Lazy<nint> _BackBoundsMaxOffset = new(() => Schema.GetOffset(0x289EB61379D4D01B), LazyThreadSafetyMode.None);
+  private static readonly nint _BackBoundsMaxOffset = Schema.GetOffset(0x289EB61379D4D01B);
 
   public ref Vector BackBoundsMax {
-    get => ref _Handle.AsRef<Vector>(_BackBoundsMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BackBoundsMaxOffset);
   }
-  private static readonly Lazy<nint> _AjarDoorShouldntAlwaysOpenOffset = new(() => Schema.GetOffset(0x289EB6138B1717E1), LazyThreadSafetyMode.None);
+  private static readonly nint _AjarDoorShouldntAlwaysOpenOffset = Schema.GetOffset(0x289EB6138B1717E1);
 
   public ref bool AjarDoorShouldntAlwaysOpen {
-    get => ref _Handle.AsRef<bool>(_AjarDoorShouldntAlwaysOpenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AjarDoorShouldntAlwaysOpenOffset);
   }
-  private static readonly Lazy<nint> _EntityBlockerOffset = new(() => Schema.GetOffset(0x289EB6139318939A), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityBlockerOffset = Schema.GetOffset(0x289EB6139318939A);
 
   public ref CHandle<CEntityBlocker> EntityBlocker {
-    get => ref _Handle.AsRef<CHandle<CEntityBlocker>>(_EntityBlockerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityBlocker>>(_EntityBlockerOffset);
   }
 
 

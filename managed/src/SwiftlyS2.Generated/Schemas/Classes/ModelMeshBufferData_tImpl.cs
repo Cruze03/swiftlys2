@@ -17,60 +17,60 @@ internal partial class ModelMeshBufferData_tImpl : SchemaClass, ModelMeshBufferD
   public ModelMeshBufferData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BlockIndexOffset = new(() => Schema.GetOffset(0xA75611C261BAFD8A), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockIndexOffset = Schema.GetOffset(0xA75611C261BAFD8A);
 
   public ref int BlockIndex {
-    get => ref _Handle.AsRef<int>(_BlockIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BlockIndexOffset);
   }
-  private static readonly Lazy<nint> _ElementCountOffset = new(() => Schema.GetOffset(0xA75611C251A2EF12), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementCountOffset = Schema.GetOffset(0xA75611C251A2EF12);
 
   public ref uint ElementCount {
-    get => ref _Handle.AsRef<uint>(_ElementCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ElementCountOffset);
   }
-  private static readonly Lazy<nint> _ElementSizeInBytesOffset = new(() => Schema.GetOffset(0xA75611C2F602975C), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementSizeInBytesOffset = Schema.GetOffset(0xA75611C2F602975C);
 
   public ref uint ElementSizeInBytes {
-    get => ref _Handle.AsRef<uint>(_ElementSizeInBytesOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ElementSizeInBytesOffset);
   }
-  private static readonly Lazy<nint> _MeshoptCompressedOffset = new(() => Schema.GetOffset(0xA75611C2BED25A2C), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshoptCompressedOffset = Schema.GetOffset(0xA75611C2BED25A2C);
 
   public ref bool MeshoptCompressed {
-    get => ref _Handle.AsRef<bool>(_MeshoptCompressedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MeshoptCompressedOffset);
   }
-  private static readonly Lazy<nint> _MeshoptIndexSequenceOffset = new(() => Schema.GetOffset(0xA75611C21727BBF2), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshoptIndexSequenceOffset = Schema.GetOffset(0xA75611C21727BBF2);
 
   public ref bool MeshoptIndexSequence {
-    get => ref _Handle.AsRef<bool>(_MeshoptIndexSequenceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MeshoptIndexSequenceOffset);
   }
-  private static readonly Lazy<nint> _CompressedZSTDOffset = new(() => Schema.GetOffset(0xA75611C2AB2B4F3B), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressedZSTDOffset = Schema.GetOffset(0xA75611C2AB2B4F3B);
 
   public ref bool CompressedZSTD {
-    get => ref _Handle.AsRef<bool>(_CompressedZSTDOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CompressedZSTDOffset);
   }
-  private static readonly Lazy<nint> _CreateBufferSRVOffset = new(() => Schema.GetOffset(0xA75611C2DCF67560), LazyThreadSafetyMode.None);
+  private static readonly nint _CreateBufferSRVOffset = Schema.GetOffset(0xA75611C2DCF67560);
 
   public ref bool CreateBufferSRV {
-    get => ref _Handle.AsRef<bool>(_CreateBufferSRVOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreateBufferSRVOffset);
   }
-  private static readonly Lazy<nint> _CreateBufferUAVOffset = new(() => Schema.GetOffset(0xA75611C27C3596ED), LazyThreadSafetyMode.None);
+  private static readonly nint _CreateBufferUAVOffset = Schema.GetOffset(0xA75611C27C3596ED);
 
   public ref bool CreateBufferUAV {
-    get => ref _Handle.AsRef<bool>(_CreateBufferUAVOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreateBufferUAVOffset);
   }
-  private static readonly Lazy<nint> _CreateRawBufferOffset = new(() => Schema.GetOffset(0xA75611C232F79BCF), LazyThreadSafetyMode.None);
+  private static readonly nint _CreateRawBufferOffset = Schema.GetOffset(0xA75611C232F79BCF);
 
   public ref bool CreateRawBuffer {
-    get => ref _Handle.AsRef<bool>(_CreateRawBufferOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreateRawBufferOffset);
   }
-  private static readonly Lazy<nint> _CreatePooledBufferOffset = new(() => Schema.GetOffset(0xA75611C2EFB854B4), LazyThreadSafetyMode.None);
+  private static readonly nint _CreatePooledBufferOffset = Schema.GetOffset(0xA75611C2EFB854B4);
 
   public ref bool CreatePooledBuffer {
-    get => ref _Handle.AsRef<bool>(_CreatePooledBufferOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreatePooledBufferOffset);
   }
-  private static readonly Lazy<nint> _InputLayoutFieldsOffset = new(() => Schema.GetOffset(0xA75611C2FDECA2D8), LazyThreadSafetyMode.None);
+  private static readonly nint _InputLayoutFieldsOffset = Schema.GetOffset(0xA75611C2FDECA2D8);
 
   public ref CUtlVector<RenderInputLayoutField_t> InputLayoutFields {
-    get => ref _Handle.AsRef<CUtlVector<RenderInputLayoutField_t>>(_InputLayoutFieldsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RenderInputLayoutField_t>>(_InputLayoutFieldsOffset);
   }
 
 

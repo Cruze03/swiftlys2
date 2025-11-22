@@ -17,55 +17,55 @@ internal partial class CLeanMatrixUpdateNodeImpl : CLeafUpdateNodeImpl, CLeanMat
   public CLeanMatrixUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrameCornersOffset = new(() => Schema.GetOffset(0xDB33C9A617463774), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameCornersOffset = Schema.GetOffset(0xDB33C9A617463774);
 
   public SchemaUntypedField FrameCorners {
-    get => new SchemaUntypedField(_Handle + _FrameCornersOffset.Value);
+    get => new SchemaUntypedField(_Handle + _FrameCornersOffset);
   }
-  private static readonly Lazy<nint> _PosesOffset = new(() => Schema.GetOffset(0xDB33C9A6B851C9F5), LazyThreadSafetyMode.None);
+  private static readonly nint _PosesOffset = Schema.GetOffset(0xDB33C9A6B851C9F5);
 
   public SchemaUntypedField Poses {
-    get => new SchemaUntypedField(_Handle + _PosesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PosesOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0xDB33C9A615440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0xDB33C9A615440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _BlendSourceOffset = new(() => Schema.GetOffset(0xDB33C9A6EB9142CD), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendSourceOffset = Schema.GetOffset(0xDB33C9A6EB9142CD);
 
   public ref AnimVectorSource BlendSource {
-    get => ref _Handle.AsRef<AnimVectorSource>(_BlendSourceOffset.Value);
+    get => ref _Handle.AsRef<AnimVectorSource>(_BlendSourceOffset);
   }
-  private static readonly Lazy<nint> _ParamIndexOffset = new(() => Schema.GetOffset(0xDB33C9A661990A86), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamIndexOffset = Schema.GetOffset(0xDB33C9A661990A86);
 
   public CAnimParamHandle ParamIndex {
-    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset);
   }
-  private static readonly Lazy<nint> _VerticalAxisOffset = new(() => Schema.GetOffset(0xDB33C9A6F82ED1C6), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticalAxisOffset = Schema.GetOffset(0xDB33C9A6F82ED1C6);
 
   public ref Vector VerticalAxis {
-    get => ref _Handle.AsRef<Vector>(_VerticalAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_VerticalAxisOffset);
   }
-  private static readonly Lazy<nint> _HorizontalAxisOffset = new(() => Schema.GetOffset(0xDB33C9A6FE8AD688), LazyThreadSafetyMode.None);
+  private static readonly nint _HorizontalAxisOffset = Schema.GetOffset(0xDB33C9A6FE8AD688);
 
   public ref Vector HorizontalAxis {
-    get => ref _Handle.AsRef<Vector>(_HorizontalAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HorizontalAxisOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0xDB33C9A6E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0xDB33C9A6E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _MaxValueOffset = new(() => Schema.GetOffset(0xDB33C9A6D0A5C87C), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxValueOffset = Schema.GetOffset(0xDB33C9A6D0A5C87C);
 
   public ref float MaxValue {
-    get => ref _Handle.AsRef<float>(_MaxValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxValueOffset);
   }
-  private static readonly Lazy<nint> _SequenceMaxFrameOffset = new(() => Schema.GetOffset(0xDB33C9A65FD0AE0B), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceMaxFrameOffset = Schema.GetOffset(0xDB33C9A65FD0AE0B);
 
   public ref int SequenceMaxFrame {
-    get => ref _Handle.AsRef<int>(_SequenceMaxFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_SequenceMaxFrameOffset);
   }
 
 

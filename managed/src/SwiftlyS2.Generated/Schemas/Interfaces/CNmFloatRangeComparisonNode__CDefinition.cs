@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmFloatRangeComparisonNode__CDefinition : CNmBoolValueNode__CDefinition, ISchemaClass<CNmFloatRangeComparisonNode__CDefinition> {
 
   static CNmFloatRangeComparisonNode__CDefinition ISchemaClass<CNmFloatRangeComparisonNode__CDefinition>.From(nint handle) => new CNmFloatRangeComparisonNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmFloatRangeComparisonNode__CDefinition>.Size => 24;
+  static int ISchemaClass<CNmFloatRangeComparisonNode__CDefinition>.Size => 32;
   static string? ISchemaClass<CNmFloatRangeComparisonNode__CDefinition>.ClassName => null;
 
   

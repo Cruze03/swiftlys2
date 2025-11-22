@@ -17,45 +17,45 @@ internal partial class NmCompressionSettings_tImpl : SchemaClass, NmCompressionS
   public NmCompressionSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TranslationRangeXOffset = new(() => Schema.GetOffset(0xA8EC8858BF2C2B), LazyThreadSafetyMode.None);
+  private static readonly nint _TranslationRangeXOffset = Schema.GetOffset(0xA8EC8858BF2C2B);
 
   public NmCompressionSettings_t__QuantizationRange_t TranslationRangeX {
-    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeXOffset.Value);
+    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeXOffset);
   }
-  private static readonly Lazy<nint> _TranslationRangeYOffset = new(() => Schema.GetOffset(0xA8EC8857BF2A98), LazyThreadSafetyMode.None);
+  private static readonly nint _TranslationRangeYOffset = Schema.GetOffset(0xA8EC8857BF2A98);
 
   public NmCompressionSettings_t__QuantizationRange_t TranslationRangeY {
-    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeYOffset.Value);
+    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeYOffset);
   }
-  private static readonly Lazy<nint> _TranslationRangeZOffset = new(() => Schema.GetOffset(0xA8EC885ABF2F51), LazyThreadSafetyMode.None);
+  private static readonly nint _TranslationRangeZOffset = Schema.GetOffset(0xA8EC885ABF2F51);
 
   public NmCompressionSettings_t__QuantizationRange_t TranslationRangeZ {
-    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeZOffset.Value);
+    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _TranslationRangeZOffset);
   }
-  private static readonly Lazy<nint> _ScaleRangeOffset = new(() => Schema.GetOffset(0xA8EC88E96F803E), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleRangeOffset = Schema.GetOffset(0xA8EC88E96F803E);
 
   public NmCompressionSettings_t__QuantizationRange_t ScaleRange {
-    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _ScaleRangeOffset.Value);
+    get => new NmCompressionSettings_t__QuantizationRange_tImpl(_Handle + _ScaleRangeOffset);
   }
-  private static readonly Lazy<nint> _ConstantRotationOffset = new(() => Schema.GetOffset(0xA8EC88C609717F), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstantRotationOffset = Schema.GetOffset(0xA8EC88C609717F);
 
   public ref Quaternion ConstantRotation {
-    get => ref _Handle.AsRef<Quaternion>(_ConstantRotationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_ConstantRotationOffset);
   }
-  private static readonly Lazy<nint> _IsRotationStaticOffset = new(() => Schema.GetOffset(0xA8EC88D75373C5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRotationStaticOffset = Schema.GetOffset(0xA8EC88D75373C5);
 
   public ref bool IsRotationStatic {
-    get => ref _Handle.AsRef<bool>(_IsRotationStaticOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRotationStaticOffset);
   }
-  private static readonly Lazy<nint> _IsTranslationStaticOffset = new(() => Schema.GetOffset(0xA8EC888ABDF382), LazyThreadSafetyMode.None);
+  private static readonly nint _IsTranslationStaticOffset = Schema.GetOffset(0xA8EC888ABDF382);
 
   public ref bool IsTranslationStatic {
-    get => ref _Handle.AsRef<bool>(_IsTranslationStaticOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsTranslationStaticOffset);
   }
-  private static readonly Lazy<nint> _IsScaleStaticOffset = new(() => Schema.GetOffset(0xA8EC88FDB26607), LazyThreadSafetyMode.None);
+  private static readonly nint _IsScaleStaticOffset = Schema.GetOffset(0xA8EC88FDB26607);
 
   public ref bool IsScaleStatic {
-    get => ref _Handle.AsRef<bool>(_IsScaleStaticOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsScaleStaticOffset);
   }
 
 

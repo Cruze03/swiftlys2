@@ -17,33 +17,33 @@ internal partial class C_INIT_RemapParticleCountToNamedModelElementScalarImpl : 
   public C_INIT_RemapParticleCountToNamedModelElementScalarImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0xB011C761E100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0xB011C761E100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
-  private static readonly Lazy<nint> _OutputMinNameOffset = new(() => Schema.GetOffset(0xB011C761CF5C20FB), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinNameOffset = Schema.GetOffset(0xB011C761CF5C20FB);
 
   public string OutputMinName {
     get {
-      var ptr = _Handle.Read<nint>(_OutputMinNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OutputMinNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OutputMinNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OutputMinNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OutputMaxNameOffset = new(() => Schema.GetOffset(0xB011C761553184F9), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxNameOffset = Schema.GetOffset(0xB011C761553184F9);
 
   public string OutputMaxName {
     get {
-      var ptr = _Handle.Read<nint>(_OutputMaxNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OutputMaxNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OutputMaxNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OutputMaxNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ModelFromRendererOffset = new(() => Schema.GetOffset(0xB011C761AEBA1F25), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelFromRendererOffset = Schema.GetOffset(0xB011C761AEBA1F25);
 
   public ref bool ModelFromRenderer {
-    get => ref _Handle.AsRef<bool>(_ModelFromRendererOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ModelFromRendererOffset);
   }
 
 

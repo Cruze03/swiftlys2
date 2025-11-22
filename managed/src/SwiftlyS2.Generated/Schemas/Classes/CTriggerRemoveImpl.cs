@@ -17,10 +17,10 @@ internal partial class CTriggerRemoveImpl : CBaseTriggerImpl, CTriggerRemove {
   public CTriggerRemoveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnRemoveOffset = new(() => Schema.GetOffset(0x97A9D4D67DC268F8), LazyThreadSafetyMode.None);
+  private static readonly nint _OnRemoveOffset = Schema.GetOffset(0x97A9D4D67DC268F8);
 
   public CEntityIOOutput OnRemove {
-    get => new CEntityIOOutputImpl(_Handle + _OnRemoveOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnRemoveOffset);
   }
 
 

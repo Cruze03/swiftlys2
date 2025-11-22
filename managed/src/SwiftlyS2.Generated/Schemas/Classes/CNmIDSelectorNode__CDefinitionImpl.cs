@@ -17,20 +17,20 @@ internal partial class CNmIDSelectorNode__CDefinitionImpl : CNmIDValueNode__CDef
   public CNmIDSelectorNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConditionNodeIndicesOffset = new(() => Schema.GetOffset(0x23876114A144D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionNodeIndicesOffset = Schema.GetOffset(0x23876114A144D0F);
 
   public SchemaUntypedField ConditionNodeIndices {
-    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset);
   }
-  private static readonly Lazy<nint> _ValuesOffset = new(() => Schema.GetOffset(0x2387611FBEDDADB), LazyThreadSafetyMode.None);
+  private static readonly nint _ValuesOffset = Schema.GetOffset(0x2387611FBEDDADB);
 
   public SchemaUntypedField Values {
-    get => new SchemaUntypedField(_Handle + _ValuesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValuesOffset);
   }
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x2387611BBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x2387611BBE0341F);
 
   public ref CGlobalSymbol DefaultValue {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_DefaultValueOffset);
   }
 
 

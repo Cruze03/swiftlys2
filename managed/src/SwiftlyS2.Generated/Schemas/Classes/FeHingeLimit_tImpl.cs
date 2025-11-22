@@ -20,30 +20,30 @@ internal partial class FeHingeLimit_tImpl : SchemaClass, FeHingeLimit_t {
   public ISchemaFixedArray<ushort> Node {
     get => new SchemaFixedArray<ushort>(_Handle, 0x3E7F1FF5CD6694B9, 6, 2, 2);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x3E7F1FF5B8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x3E7F1FF5B8D52E48);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _Weight4Offset = new(() => Schema.GetOffset(0x3E7F1FF56956236D), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight4Offset = Schema.GetOffset(0x3E7F1FF56956236D);
 
   public ref float Weight4 {
-    get => ref _Handle.AsRef<float>(_Weight4Offset.Value);
+    get => ref _Handle.AsRef<float>(_Weight4Offset);
   }
-  private static readonly Lazy<nint> _Weight5Offset = new(() => Schema.GetOffset(0x3E7F1FF5685621DA), LazyThreadSafetyMode.None);
+  private static readonly nint _Weight5Offset = Schema.GetOffset(0x3E7F1FF5685621DA);
 
   public ref float Weight5 {
-    get => ref _Handle.AsRef<float>(_Weight5Offset.Value);
+    get => ref _Handle.AsRef<float>(_Weight5Offset);
   }
-  private static readonly Lazy<nint> _AngleCenterOffset = new(() => Schema.GetOffset(0x3E7F1FF57BF2D76B), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleCenterOffset = Schema.GetOffset(0x3E7F1FF57BF2D76B);
 
   public ref float AngleCenter {
-    get => ref _Handle.AsRef<float>(_AngleCenterOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleCenterOffset);
   }
-  private static readonly Lazy<nint> _AngleExtentsOffset = new(() => Schema.GetOffset(0x3E7F1FF59D58EF0B), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleExtentsOffset = Schema.GetOffset(0x3E7F1FF59D58EF0B);
 
   public ref float AngleExtents {
-    get => ref _Handle.AsRef<float>(_AngleExtentsOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleExtentsOffset);
   }
 
 

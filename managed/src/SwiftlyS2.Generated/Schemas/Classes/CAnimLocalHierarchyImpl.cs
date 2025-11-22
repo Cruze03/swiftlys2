@@ -17,35 +17,35 @@ internal partial class CAnimLocalHierarchyImpl : SchemaClass, CAnimLocalHierarch
   public CAnimLocalHierarchyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneOffset = new(() => Schema.GetOffset(0x3D14C1ED515646C4), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneOffset = Schema.GetOffset(0x3D14C1ED515646C4);
 
   public ref CBufferString Bone {
-    get => ref _Handle.AsRef<CBufferString>(_BoneOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_BoneOffset);
   }
-  private static readonly Lazy<nint> _NewParentOffset = new(() => Schema.GetOffset(0x3D14C1ED40620004), LazyThreadSafetyMode.None);
+  private static readonly nint _NewParentOffset = Schema.GetOffset(0x3D14C1ED40620004);
 
   public ref CBufferString NewParent {
-    get => ref _Handle.AsRef<CBufferString>(_NewParentOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NewParentOffset);
   }
-  private static readonly Lazy<nint> _StartFrameOffset = new(() => Schema.GetOffset(0x3D14C1ED9134F088), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFrameOffset = Schema.GetOffset(0x3D14C1ED9134F088);
 
   public ref int StartFrame {
-    get => ref _Handle.AsRef<int>(_StartFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartFrameOffset);
   }
-  private static readonly Lazy<nint> _PeakFrameOffset = new(() => Schema.GetOffset(0x3D14C1ED3BAFAFC7), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakFrameOffset = Schema.GetOffset(0x3D14C1ED3BAFAFC7);
 
   public ref int PeakFrame {
-    get => ref _Handle.AsRef<int>(_PeakFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_PeakFrameOffset);
   }
-  private static readonly Lazy<nint> _TailFrameOffset = new(() => Schema.GetOffset(0x3D14C1ED3F824524), LazyThreadSafetyMode.None);
+  private static readonly nint _TailFrameOffset = Schema.GetOffset(0x3D14C1ED3F824524);
 
   public ref int TailFrame {
-    get => ref _Handle.AsRef<int>(_TailFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_TailFrameOffset);
   }
-  private static readonly Lazy<nint> _EndFrameOffset = new(() => Schema.GetOffset(0x3D14C1EDEA91BD07), LazyThreadSafetyMode.None);
+  private static readonly nint _EndFrameOffset = Schema.GetOffset(0x3D14C1EDEA91BD07);
 
   public ref int EndFrame {
-    get => ref _Handle.AsRef<int>(_EndFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndFrameOffset);
   }
 
 

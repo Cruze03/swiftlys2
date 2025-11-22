@@ -17,50 +17,50 @@ internal partial class CNmTargetWarpNode__CDefinitionImpl : CNmPoseNode__CDefini
   public CNmTargetWarpNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ClipReferenceNodeIdxOffset = new(() => Schema.GetOffset(0xEA16BCF061EC8947), LazyThreadSafetyMode.None);
+  private static readonly nint _ClipReferenceNodeIdxOffset = Schema.GetOffset(0xEA16BCF061EC8947);
 
   public ref short ClipReferenceNodeIdx {
-    get => ref _Handle.AsRef<short>(_ClipReferenceNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ClipReferenceNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TargetValueNodeIdxOffset = new(() => Schema.GetOffset(0xEA16BCF0A040C7E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetValueNodeIdxOffset = Schema.GetOffset(0xEA16BCF0A040C7E8);
 
   public ref short TargetValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_TargetValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TargetValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _SamplingModeOffset = new(() => Schema.GetOffset(0xEA16BCF0DDB31BE3), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplingModeOffset = Schema.GetOffset(0xEA16BCF0DDB31BE3);
 
   public ref CNmRootMotionData__SamplingMode_t SamplingMode {
-    get => ref _Handle.AsRef<CNmRootMotionData__SamplingMode_t>(_SamplingModeOffset.Value);
+    get => ref _Handle.AsRef<CNmRootMotionData__SamplingMode_t>(_SamplingModeOffset);
   }
-  private static readonly Lazy<nint> _AllowTargetUpdateOffset = new(() => Schema.GetOffset(0xEA16BCF08A9C0712), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowTargetUpdateOffset = Schema.GetOffset(0xEA16BCF08A9C0712);
 
   public ref bool AllowTargetUpdate {
-    get => ref _Handle.AsRef<bool>(_AllowTargetUpdateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowTargetUpdateOffset);
   }
-  private static readonly Lazy<nint> _SamplingPositionErrorThresholdSqOffset = new(() => Schema.GetOffset(0xEA16BCF0C538C7A0), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplingPositionErrorThresholdSqOffset = Schema.GetOffset(0xEA16BCF0C538C7A0);
 
   public ref float SamplingPositionErrorThresholdSq {
-    get => ref _Handle.AsRef<float>(_SamplingPositionErrorThresholdSqOffset.Value);
+    get => ref _Handle.AsRef<float>(_SamplingPositionErrorThresholdSqOffset);
   }
-  private static readonly Lazy<nint> _MaxTangentLengthOffset = new(() => Schema.GetOffset(0xEA16BCF046EAA410), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTangentLengthOffset = Schema.GetOffset(0xEA16BCF046EAA410);
 
   public ref float MaxTangentLength {
-    get => ref _Handle.AsRef<float>(_MaxTangentLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxTangentLengthOffset);
   }
-  private static readonly Lazy<nint> _LerpFallbackDistanceThresholdOffset = new(() => Schema.GetOffset(0xEA16BCF0BBC41F32), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpFallbackDistanceThresholdOffset = Schema.GetOffset(0xEA16BCF0BBC41F32);
 
   public ref float LerpFallbackDistanceThreshold {
-    get => ref _Handle.AsRef<float>(_LerpFallbackDistanceThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_LerpFallbackDistanceThresholdOffset);
   }
-  private static readonly Lazy<nint> _TargetUpdateDistanceThresholdOffset = new(() => Schema.GetOffset(0xEA16BCF074F10F17), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetUpdateDistanceThresholdOffset = Schema.GetOffset(0xEA16BCF074F10F17);
 
   public ref float TargetUpdateDistanceThreshold {
-    get => ref _Handle.AsRef<float>(_TargetUpdateDistanceThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_TargetUpdateDistanceThresholdOffset);
   }
-  private static readonly Lazy<nint> _TargetUpdateAngleThresholdRadiansOffset = new(() => Schema.GetOffset(0xEA16BCF09A1C1D31), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetUpdateAngleThresholdRadiansOffset = Schema.GetOffset(0xEA16BCF09A1C1D31);
 
   public ref float TargetUpdateAngleThresholdRadians {
-    get => ref _Handle.AsRef<float>(_TargetUpdateAngleThresholdRadiansOffset.Value);
+    get => ref _Handle.AsRef<float>(_TargetUpdateAngleThresholdRadiansOffset);
   }
 
 

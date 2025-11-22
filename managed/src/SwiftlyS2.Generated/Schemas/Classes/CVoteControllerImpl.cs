@@ -17,71 +17,71 @@ internal partial class CVoteControllerImpl : CBaseEntityImpl, CVoteController {
   public CVoteControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActiveIssueIndexOffset = new(() => Schema.GetOffset(0x6F560B06D557A463), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveIssueIndexOffset = Schema.GetOffset(0x6F560B06D557A463);
 
   public ref int ActiveIssueIndex {
-    get => ref _Handle.AsRef<int>(_ActiveIssueIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ActiveIssueIndexOffset);
   }
-  private static readonly Lazy<nint> _OnlyTeamToVoteOffset = new(() => Schema.GetOffset(0x6F560B06C957B8C6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlyTeamToVoteOffset = Schema.GetOffset(0x6F560B06C957B8C6);
 
   public ref int OnlyTeamToVote {
-    get => ref _Handle.AsRef<int>(_OnlyTeamToVoteOffset.Value);
+    get => ref _Handle.AsRef<int>(_OnlyTeamToVoteOffset);
   }
   public ISchemaFixedArray<int> VoteOptionCount {
     get => new SchemaFixedArray<int>(_Handle, 0x6F560B0614DBD0DF, 5, 4, 4);
   }
-  private static readonly Lazy<nint> _PotentialVotesOffset = new(() => Schema.GetOffset(0x6F560B060198673E), LazyThreadSafetyMode.None);
+  private static readonly nint _PotentialVotesOffset = Schema.GetOffset(0x6F560B060198673E);
 
   public ref int PotentialVotes {
-    get => ref _Handle.AsRef<int>(_PotentialVotesOffset.Value);
+    get => ref _Handle.AsRef<int>(_PotentialVotesOffset);
   }
-  private static readonly Lazy<nint> _IsYesNoVoteOffset = new(() => Schema.GetOffset(0x6F560B069A553B97), LazyThreadSafetyMode.None);
+  private static readonly nint _IsYesNoVoteOffset = Schema.GetOffset(0x6F560B069A553B97);
 
   public ref bool IsYesNoVote {
-    get => ref _Handle.AsRef<bool>(_IsYesNoVoteOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsYesNoVoteOffset);
   }
-  private static readonly Lazy<nint> _AcceptingVotesTimerOffset = new(() => Schema.GetOffset(0x6F560B069E336B15), LazyThreadSafetyMode.None);
+  private static readonly nint _AcceptingVotesTimerOffset = Schema.GetOffset(0x6F560B069E336B15);
 
   public CountdownTimer AcceptingVotesTimer {
-    get => new CountdownTimerImpl(_Handle + _AcceptingVotesTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _AcceptingVotesTimerOffset);
   }
-  private static readonly Lazy<nint> _ExecuteCommandTimerOffset = new(() => Schema.GetOffset(0x6F560B06CAF2ECEE), LazyThreadSafetyMode.None);
+  private static readonly nint _ExecuteCommandTimerOffset = Schema.GetOffset(0x6F560B06CAF2ECEE);
 
   public CountdownTimer ExecuteCommandTimer {
-    get => new CountdownTimerImpl(_Handle + _ExecuteCommandTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _ExecuteCommandTimerOffset);
   }
-  private static readonly Lazy<nint> _ResetVoteTimerOffset = new(() => Schema.GetOffset(0x6F560B06B54CD305), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetVoteTimerOffset = Schema.GetOffset(0x6F560B06B54CD305);
 
   public CountdownTimer ResetVoteTimer {
-    get => new CountdownTimerImpl(_Handle + _ResetVoteTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _ResetVoteTimerOffset);
   }
   public ISchemaFixedArray<int> VotesCast {
     get => new SchemaFixedArray<int>(_Handle, 0x6F560B060247527D, 64, 4, 4);
   }
-  private static readonly Lazy<nint> _PlayerHoldingVoteOffset = new(() => Schema.GetOffset(0x6F560B06C170B10B), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerHoldingVoteOffset = Schema.GetOffset(0x6F560B06C170B10B);
 
   public ref uint PlayerHoldingVote {
-    get => ref _Handle.AsRef<uint>(_PlayerHoldingVoteOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PlayerHoldingVoteOffset);
   }
-  private static readonly Lazy<nint> _PlayerOverrideForVoteOffset = new(() => Schema.GetOffset(0x6F560B06BF6B0097), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerOverrideForVoteOffset = Schema.GetOffset(0x6F560B06BF6B0097);
 
   public ref uint PlayerOverrideForVote {
-    get => ref _Handle.AsRef<uint>(_PlayerOverrideForVoteOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PlayerOverrideForVoteOffset);
   }
-  private static readonly Lazy<nint> _HighestCountIndexOffset = new(() => Schema.GetOffset(0x6F560B0602AF14EE), LazyThreadSafetyMode.None);
+  private static readonly nint _HighestCountIndexOffset = Schema.GetOffset(0x6F560B0602AF14EE);
 
   public ref int HighestCountIndex {
-    get => ref _Handle.AsRef<int>(_HighestCountIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_HighestCountIndexOffset);
   }
-  private static readonly Lazy<nint> _PotentialIssuesOffset = new(() => Schema.GetOffset(0x6F560B065742E1F9), LazyThreadSafetyMode.None);
+  private static readonly nint _PotentialIssuesOffset = Schema.GetOffset(0x6F560B065742E1F9);
 
   public ref CUtlVector<PointerTo<CBaseIssue>> PotentialIssues {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CBaseIssue>>>(_PotentialIssuesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CBaseIssue>>>(_PotentialIssuesOffset);
   }
-  private static readonly Lazy<nint> _VoteOptionsOffset = new(() => Schema.GetOffset(0x6F560B0604D2BA55), LazyThreadSafetyMode.None);
+  private static readonly nint _VoteOptionsOffset = Schema.GetOffset(0x6F560B0604D2BA55);
 
   public ref CUtlVector<CString> VoteOptions {
-    get => ref _Handle.AsRef<CUtlVector<CString>>(_VoteOptionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CString>>(_VoteOptionsOffset);
   }
 
   public void ActiveIssueIndexUpdated() {

@@ -17,36 +17,36 @@ internal partial class CastSphereSATParams_tImpl : SchemaClass, CastSphereSATPar
   public CastSphereSATParams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RayStartOffset = new(() => Schema.GetOffset(0x6282EF48CB929F19), LazyThreadSafetyMode.None);
+  private static readonly nint _RayStartOffset = Schema.GetOffset(0x6282EF48CB929F19);
 
   public ref Vector RayStart {
-    get => ref _Handle.AsRef<Vector>(_RayStartOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RayStartOffset);
   }
-  private static readonly Lazy<nint> _RayDeltaOffset = new(() => Schema.GetOffset(0x6282EF4874156D5B), LazyThreadSafetyMode.None);
+  private static readonly nint _RayDeltaOffset = Schema.GetOffset(0x6282EF4874156D5B);
 
   public ref Vector RayDelta {
-    get => ref _Handle.AsRef<Vector>(_RayDeltaOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RayDeltaOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x6282EF485ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x6282EF485ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _MaxFractionOffset = new(() => Schema.GetOffset(0x6282EF48BA58C801), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFractionOffset = Schema.GetOffset(0x6282EF48BA58C801);
 
   public ref float MaxFraction {
-    get => ref _Handle.AsRef<float>(_MaxFractionOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxFractionOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x6282EF48B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x6282EF48B731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _HullOffset = new(() => Schema.GetOffset(0x6282EF48FAD20488), LazyThreadSafetyMode.None);
+  private static readonly nint _HullOffset = Schema.GetOffset(0x6282EF48FAD20488);
 
   public RnHull_t? Hull {
     get {
-      var ptr = _Handle.Read<nint>(_HullOffset.Value);
+      var ptr = _Handle.Read<nint>(_HullOffset);
       return ptr.IsValidPtr() ? new RnHull_tImpl(ptr) : null;
     }
   }

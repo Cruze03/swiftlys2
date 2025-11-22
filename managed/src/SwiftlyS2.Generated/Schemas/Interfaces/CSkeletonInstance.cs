@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CSkeletonInstance : CGameSceneNode, ISchemaClass<CSkeletonInstance> {
 
   static CSkeletonInstance ISchemaClass<CSkeletonInstance>.From(nint handle) => new CSkeletonInstanceImpl(handle);
-  static int ISchemaClass<CSkeletonInstance>.Size => 1184;
+  static int ISchemaClass<CSkeletonInstance>.Size => 1168;
   static string? ISchemaClass<CSkeletonInstance>.ClassName => null;
 
   

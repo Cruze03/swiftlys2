@@ -17,30 +17,30 @@ internal partial class C_OP_DragRelativeToPlaneImpl : CParticleFunctionOperatorI
   public C_OP_DragRelativeToPlaneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DragAtPlaneOffset = new(() => Schema.GetOffset(0x9D049848176259A2), LazyThreadSafetyMode.None);
+  private static readonly nint _DragAtPlaneOffset = Schema.GetOffset(0x9D049848176259A2);
 
   public CParticleCollectionFloatInput DragAtPlane {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DragAtPlaneOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DragAtPlaneOffset);
   }
-  private static readonly Lazy<nint> _FalloffOffset = new(() => Schema.GetOffset(0x9D049848FA143DCB), LazyThreadSafetyMode.None);
+  private static readonly nint _FalloffOffset = Schema.GetOffset(0x9D049848FA143DCB);
 
   public CParticleCollectionFloatInput Falloff {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _FalloffOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _FalloffOffset);
   }
-  private static readonly Lazy<nint> _DirectionalOffset = new(() => Schema.GetOffset(0x9D0498484C2A43E7), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectionalOffset = Schema.GetOffset(0x9D0498484C2A43E7);
 
   public ref bool Directional {
-    get => ref _Handle.AsRef<bool>(_DirectionalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DirectionalOffset);
   }
-  private static readonly Lazy<nint> _PlaneNormalOffset = new(() => Schema.GetOffset(0x9D04984821103682), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaneNormalOffset = Schema.GetOffset(0x9D04984821103682);
 
   public CParticleCollectionVecInput PlaneNormal {
-    get => new CParticleCollectionVecInputImpl(_Handle + _PlaneNormalOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _PlaneNormalOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x9D0498483F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x9D0498483F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
 
 

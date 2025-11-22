@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CParticleFunction : ISchemaClass<CParticleFunction> {
 
   static CParticleFunction ISchemaClass<CParticleFunction>.From(nint handle) => new CParticleFunctionImpl(handle);
-  static int ISchemaClass<CParticleFunction>.Size => 456;
+  static int ISchemaClass<CParticleFunction>.Size => 464;
   static string? ISchemaClass<CParticleFunction>.ClassName => null;
 
   

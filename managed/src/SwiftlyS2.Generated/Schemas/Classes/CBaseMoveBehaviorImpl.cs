@@ -17,72 +17,72 @@ internal partial class CBaseMoveBehaviorImpl : CPathKeyFrameImpl, CBaseMoveBehav
   public CBaseMoveBehaviorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PositionInterpolatorOffset = new(() => Schema.GetOffset(0x4C94E06076D631CA), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionInterpolatorOffset = Schema.GetOffset(0x4C94E06076D631CA);
 
   public ref int PositionInterpolator {
-    get => ref _Handle.AsRef<int>(_PositionInterpolatorOffset.Value);
+    get => ref _Handle.AsRef<int>(_PositionInterpolatorOffset);
   }
-  private static readonly Lazy<nint> _RotationInterpolatorOffset = new(() => Schema.GetOffset(0x4C94E060D5ABDED3), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationInterpolatorOffset = Schema.GetOffset(0x4C94E060D5ABDED3);
 
   public ref int RotationInterpolator {
-    get => ref _Handle.AsRef<int>(_RotationInterpolatorOffset.Value);
+    get => ref _Handle.AsRef<int>(_RotationInterpolatorOffset);
   }
-  private static readonly Lazy<nint> _AnimStartTimeOffset = new(() => Schema.GetOffset(0x4C94E060C2FA1CCF), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimStartTimeOffset = Schema.GetOffset(0x4C94E060C2FA1CCF);
 
   public ref float AnimStartTime {
-    get => ref _Handle.AsRef<float>(_AnimStartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnimStartTimeOffset);
   }
-  private static readonly Lazy<nint> _AnimEndTimeOffset = new(() => Schema.GetOffset(0x4C94E06042C3E66A), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimEndTimeOffset = Schema.GetOffset(0x4C94E06042C3E66A);
 
   public ref float AnimEndTime {
-    get => ref _Handle.AsRef<float>(_AnimEndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnimEndTimeOffset);
   }
-  private static readonly Lazy<nint> _AverageSpeedAcrossFrameOffset = new(() => Schema.GetOffset(0x4C94E0603F4A5B51), LazyThreadSafetyMode.None);
+  private static readonly nint _AverageSpeedAcrossFrameOffset = Schema.GetOffset(0x4C94E0603F4A5B51);
 
   public ref float AverageSpeedAcrossFrame {
-    get => ref _Handle.AsRef<float>(_AverageSpeedAcrossFrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_AverageSpeedAcrossFrameOffset);
   }
-  private static readonly Lazy<nint> _CurrentKeyFrameOffset = new(() => Schema.GetOffset(0x4C94E060AF22FD24), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentKeyFrameOffset = Schema.GetOffset(0x4C94E060AF22FD24);
 
   public CPathKeyFrame? CurrentKeyFrame {
     get {
-      var ptr = _Handle.Read<nint>(_CurrentKeyFrameOffset.Value);
+      var ptr = _Handle.Read<nint>(_CurrentKeyFrameOffset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _TargetKeyFrameOffset = new(() => Schema.GetOffset(0x4C94E0606B9E13EA), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetKeyFrameOffset = Schema.GetOffset(0x4C94E0606B9E13EA);
 
   public CPathKeyFrame? TargetKeyFrame {
     get {
-      var ptr = _Handle.Read<nint>(_TargetKeyFrameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetKeyFrameOffset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PreKeyFrameOffset = new(() => Schema.GetOffset(0x4C94E0609753526C), LazyThreadSafetyMode.None);
+  private static readonly nint _PreKeyFrameOffset = Schema.GetOffset(0x4C94E0609753526C);
 
   public CPathKeyFrame? PreKeyFrame {
     get {
-      var ptr = _Handle.Read<nint>(_PreKeyFrameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PreKeyFrameOffset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PostKeyFrameOffset = new(() => Schema.GetOffset(0x4C94E06033EC8ED5), LazyThreadSafetyMode.None);
+  private static readonly nint _PostKeyFrameOffset = Schema.GetOffset(0x4C94E06033EC8ED5);
 
   public CPathKeyFrame? PostKeyFrame {
     get {
-      var ptr = _Handle.Read<nint>(_PostKeyFrameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PostKeyFrameOffset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _TimeIntoFrameOffset = new(() => Schema.GetOffset(0x4C94E060C6B111CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeIntoFrameOffset = Schema.GetOffset(0x4C94E060C6B111CD);
 
   public ref float TimeIntoFrame {
-    get => ref _Handle.AsRef<float>(_TimeIntoFrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeIntoFrameOffset);
   }
-  private static readonly Lazy<nint> _DirectionOffset = new(() => Schema.GetOffset(0x4C94E0606BDD23E5), LazyThreadSafetyMode.None);
+  private static readonly nint _DirectionOffset = Schema.GetOffset(0x4C94E0606BDD23E5);
 
   public ref int Direction {
-    get => ref _Handle.AsRef<int>(_DirectionOffset.Value);
+    get => ref _Handle.AsRef<int>(_DirectionOffset);
   }
 
 

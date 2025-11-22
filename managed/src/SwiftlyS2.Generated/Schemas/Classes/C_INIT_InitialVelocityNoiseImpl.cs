@@ -17,55 +17,55 @@ internal partial class C_INIT_InitialVelocityNoiseImpl : CParticleFunctionInitia
   public C_INIT_InitialVelocityNoiseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AbsValOffset = new(() => Schema.GetOffset(0x4F8B7A615311700A), LazyThreadSafetyMode.None);
+  private static readonly nint _AbsValOffset = Schema.GetOffset(0x4F8B7A615311700A);
 
   public ref Vector AbsVal {
-    get => ref _Handle.AsRef<Vector>(_AbsValOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AbsValOffset);
   }
-  private static readonly Lazy<nint> _AbsValInvOffset = new(() => Schema.GetOffset(0x4F8B7A611ED9F679), LazyThreadSafetyMode.None);
+  private static readonly nint _AbsValInvOffset = Schema.GetOffset(0x4F8B7A611ED9F679);
 
   public ref Vector AbsValInv {
-    get => ref _Handle.AsRef<Vector>(_AbsValInvOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AbsValInvOffset);
   }
-  private static readonly Lazy<nint> _OffsetLocOffset = new(() => Schema.GetOffset(0x4F8B7A61EFAB26AC), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetLocOffset = Schema.GetOffset(0x4F8B7A61EFAB26AC);
 
   public CPerParticleVecInput OffsetLoc {
-    get => new CPerParticleVecInputImpl(_Handle + _OffsetLocOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _OffsetLocOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x4F8B7A617F14BA34), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x4F8B7A617F14BA34);
 
   public CPerParticleFloatInput Offset {
-    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x4F8B7A612EFED678), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x4F8B7A612EFED678);
 
   public CPerParticleVecInput OutputMin {
-    get => new CPerParticleVecInputImpl(_Handle + _OutputMinOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x4F8B7A61451280D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x4F8B7A61451280D2);
 
   public CPerParticleVecInput OutputMax {
-    get => new CPerParticleVecInputImpl(_Handle + _OutputMaxOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _NoiseScaleOffset = new(() => Schema.GetOffset(0x4F8B7A6132FE2EF3), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseScaleOffset = Schema.GetOffset(0x4F8B7A6132FE2EF3);
 
   public CPerParticleFloatInput NoiseScale {
-    get => new CPerParticleFloatInputImpl(_Handle + _NoiseScaleOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _NoiseScaleOffset);
   }
-  private static readonly Lazy<nint> _NoiseScaleLocOffset = new(() => Schema.GetOffset(0x4F8B7A61A9F4B0DF), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseScaleLocOffset = Schema.GetOffset(0x4F8B7A61A9F4B0DF);
 
   public CPerParticleFloatInput NoiseScaleLoc {
-    get => new CPerParticleFloatInputImpl(_Handle + _NoiseScaleLocOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _NoiseScaleLocOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0x4F8B7A61B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0x4F8B7A61B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _IgnoreDtOffset = new(() => Schema.GetOffset(0x4F8B7A61330C0603), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreDtOffset = Schema.GetOffset(0x4F8B7A61330C0603);
 
   public ref bool IgnoreDt {
-    get => ref _Handle.AsRef<bool>(_IgnoreDtOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreDtOffset);
   }
 
 

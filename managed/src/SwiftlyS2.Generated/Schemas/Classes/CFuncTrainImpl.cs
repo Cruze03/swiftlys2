@@ -17,39 +17,39 @@ internal partial class CFuncTrainImpl : CBasePlatTrainImpl, CFuncTrain {
   public CFuncTrainImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurrentTargetOffset = new(() => Schema.GetOffset(0xAAD8EE8EBD175911), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentTargetOffset = Schema.GetOffset(0xAAD8EE8EBD175911);
 
   public ref CHandle<CBaseEntity> CurrentTarget {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentTargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentTargetOffset);
   }
-  private static readonly Lazy<nint> _ActivatedOffset = new(() => Schema.GetOffset(0xAAD8EE8E4337A09C), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatedOffset = Schema.GetOffset(0xAAD8EE8E4337A09C);
 
   public ref bool Activated {
-    get => ref _Handle.AsRef<bool>(_ActivatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActivatedOffset);
   }
-  private static readonly Lazy<nint> _EnemyOffset = new(() => Schema.GetOffset(0xAAD8EE8E430EC2D5), LazyThreadSafetyMode.None);
+  private static readonly nint _EnemyOffset = Schema.GetOffset(0xAAD8EE8E430EC2D5);
 
   public ref CHandle<CBaseEntity> Enemy {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EnemyOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EnemyOffset);
   }
-  private static readonly Lazy<nint> _BlockDamageOffset = new(() => Schema.GetOffset(0xAAD8EE8EA5348091), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockDamageOffset = Schema.GetOffset(0xAAD8EE8EA5348091);
 
   public ref float BlockDamage {
-    get => ref _Handle.AsRef<float>(_BlockDamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlockDamageOffset);
   }
-  private static readonly Lazy<nint> _NextBlockTimeOffset = new(() => Schema.GetOffset(0xAAD8EE8E82BC1902), LazyThreadSafetyMode.None);
+  private static readonly nint _NextBlockTimeOffset = Schema.GetOffset(0xAAD8EE8E82BC1902);
 
   public GameTime_t NextBlockTime {
-    get => new GameTime_tImpl(_Handle + _NextBlockTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextBlockTimeOffset);
   }
-  private static readonly Lazy<nint> _LastTargetOffset = new(() => Schema.GetOffset(0xAAD8EE8ECF22FD34), LazyThreadSafetyMode.None);
+  private static readonly nint _LastTargetOffset = Schema.GetOffset(0xAAD8EE8ECF22FD34);
 
   public string LastTarget {
     get {
-      var ptr = _Handle.Read<nint>(_LastTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_LastTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LastTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _LastTargetOffset, value);
   } 
 
 

@@ -17,50 +17,50 @@ internal partial class C_OP_VectorFieldSnapshotImpl : CParticleFunctionOperatorI
   public C_OP_VectorFieldSnapshotImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x4679512A3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x4679512A3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _AttributeToWriteOffset = new(() => Schema.GetOffset(0x4679512A389A3CC1), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeToWriteOffset = Schema.GetOffset(0x4679512A389A3CC1);
 
   public ParticleAttributeIndex_t AttributeToWrite {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToWriteOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToWriteOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceCPOffset = new(() => Schema.GetOffset(0x4679512AC8E9CB31), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceCPOffset = Schema.GetOffset(0x4679512AC8E9CB31);
 
   public ref int LocalSpaceCP {
-    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0x4679512ACF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0x4679512ACF55B987);
 
   public CPerParticleFloatInput Interpolation {
-    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x4679512A5F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x4679512A5F596B51);
 
   public CPerParticleVecInput Scale {
-    get => new CPerParticleVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _BoundaryDampeningOffset = new(() => Schema.GetOffset(0x4679512A6C557EF8), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundaryDampeningOffset = Schema.GetOffset(0x4679512A6C557EF8);
 
   public ref float BoundaryDampening {
-    get => ref _Handle.AsRef<float>(_BoundaryDampeningOffset.Value);
+    get => ref _Handle.AsRef<float>(_BoundaryDampeningOffset);
   }
-  private static readonly Lazy<nint> _SetVelocityOffset = new(() => Schema.GetOffset(0x4679512A996C0A34), LazyThreadSafetyMode.None);
+  private static readonly nint _SetVelocityOffset = Schema.GetOffset(0x4679512A996C0A34);
 
   public ref bool SetVelocity {
-    get => ref _Handle.AsRef<bool>(_SetVelocityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetVelocityOffset);
   }
-  private static readonly Lazy<nint> _LockToSurfaceOffset = new(() => Schema.GetOffset(0x4679512A81E43C02), LazyThreadSafetyMode.None);
+  private static readonly nint _LockToSurfaceOffset = Schema.GetOffset(0x4679512A81E43C02);
 
   public ref bool LockToSurface {
-    get => ref _Handle.AsRef<bool>(_LockToSurfaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockToSurfaceOffset);
   }
-  private static readonly Lazy<nint> _GridSpacingOffset = new(() => Schema.GetOffset(0x4679512AB7D1BFB8), LazyThreadSafetyMode.None);
+  private static readonly nint _GridSpacingOffset = Schema.GetOffset(0x4679512AB7D1BFB8);
 
   public ref float GridSpacing {
-    get => ref _Handle.AsRef<float>(_GridSpacingOffset.Value);
+    get => ref _Handle.AsRef<float>(_GridSpacingOffset);
   }
 
 

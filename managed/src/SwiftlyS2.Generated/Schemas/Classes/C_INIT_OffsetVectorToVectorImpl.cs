@@ -17,30 +17,30 @@ internal partial class C_INIT_OffsetVectorToVectorImpl : CParticleFunctionInitia
   public C_INIT_OffsetVectorToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0x36502BDCAE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0x36502BDCAE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x36502BDCE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x36502BDCE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x36502BDC2EFED678), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x36502BDC2EFED678);
 
   public ref Vector OutputMin {
-    get => ref _Handle.AsRef<Vector>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x36502BDC451280D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x36502BDC451280D2);
 
   public ref Vector OutputMax {
-    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _RandomnessParametersOffset = new(() => Schema.GetOffset(0x36502BDC7EDF50AD), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomnessParametersOffset = Schema.GetOffset(0x36502BDC7EDF50AD);
 
   public CRandomNumberGeneratorParameters RandomnessParameters {
-    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset.Value);
+    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset);
   }
 
 

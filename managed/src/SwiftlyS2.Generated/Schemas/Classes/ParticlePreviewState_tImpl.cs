@@ -17,106 +17,106 @@ internal partial class ParticlePreviewState_tImpl : SchemaClass, ParticlePreview
   public ParticlePreviewState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PreviewModelOffset = new(() => Schema.GetOffset(0x31FB1901BC4FDC14), LazyThreadSafetyMode.None);
+  private static readonly nint _PreviewModelOffset = Schema.GetOffset(0x31FB1901BC4FDC14);
 
   public string PreviewModel {
     get {
-      var ptr = _Handle.Read<nint>(_PreviewModelOffset.Value);
+      var ptr = _Handle.Read<nint>(_PreviewModelOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PreviewModelOffset.Value, value);
+    set => Schema.SetString(_Handle, _PreviewModelOffset, value);
   } 
-  private static readonly Lazy<nint> _ModSpecificDataOffset = new(() => Schema.GetOffset(0x31FB19011580A6CB), LazyThreadSafetyMode.None);
+  private static readonly nint _ModSpecificDataOffset = Schema.GetOffset(0x31FB19011580A6CB);
 
   public ref uint ModSpecificData {
-    get => ref _Handle.AsRef<uint>(_ModSpecificDataOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ModSpecificDataOffset);
   }
-  private static readonly Lazy<nint> _GroundTypeOffset = new(() => Schema.GetOffset(0x31FB190132DE357E), LazyThreadSafetyMode.None);
+  private static readonly nint _GroundTypeOffset = Schema.GetOffset(0x31FB190132DE357E);
 
   public ref PetGroundType_t GroundType {
-    get => ref _Handle.AsRef<PetGroundType_t>(_GroundTypeOffset.Value);
+    get => ref _Handle.AsRef<PetGroundType_t>(_GroundTypeOffset);
   }
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0x31FB19012B4A24CB), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0x31FB19012B4A24CB);
 
   public string SequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FireParticleOnSequenceFrameOffset = new(() => Schema.GetOffset(0x31FB19014432CB48), LazyThreadSafetyMode.None);
+  private static readonly nint _FireParticleOnSequenceFrameOffset = Schema.GetOffset(0x31FB19014432CB48);
 
   public ref int FireParticleOnSequenceFrame {
-    get => ref _Handle.AsRef<int>(_FireParticleOnSequenceFrameOffset.Value);
+    get => ref _Handle.AsRef<int>(_FireParticleOnSequenceFrameOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetNameOffset = new(() => Schema.GetOffset(0x31FB19011ACA1CAE), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetNameOffset = Schema.GetOffset(0x31FB19011ACA1CAE);
 
   public string HitboxSetName {
     get {
-      var ptr = _Handle.Read<nint>(_HitboxSetNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_HitboxSetNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _HitboxSetNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _HitboxSetNameOffset, value);
   } 
-  private static readonly Lazy<nint> _MaterialGroupNameOffset = new(() => Schema.GetOffset(0x31FB1901A6930C68), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialGroupNameOffset = Schema.GetOffset(0x31FB1901A6930C68);
 
   public string MaterialGroupName {
     get {
-      var ptr = _Handle.Read<nint>(_MaterialGroupNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MaterialGroupNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MaterialGroupNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MaterialGroupNameOffset, value);
   } 
-  private static readonly Lazy<nint> _BodyGroupsOffset = new(() => Schema.GetOffset(0x31FB1901893FA01D), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupsOffset = Schema.GetOffset(0x31FB1901893FA01D);
 
   public ref CUtlVector<ParticlePreviewBodyGroup_t> BodyGroups {
-    get => ref _Handle.AsRef<CUtlVector<ParticlePreviewBodyGroup_t>>(_BodyGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ParticlePreviewBodyGroup_t>>(_BodyGroupsOffset);
   }
-  private static readonly Lazy<nint> _PlaybackSpeedOffset = new(() => Schema.GetOffset(0x31FB1901FA2B402D), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaybackSpeedOffset = Schema.GetOffset(0x31FB1901FA2B402D);
 
   public ref float PlaybackSpeed {
-    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaybackSpeedOffset);
   }
-  private static readonly Lazy<nint> _ParticleSimulationRateOffset = new(() => Schema.GetOffset(0x31FB1901F9FAF9E0), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleSimulationRateOffset = Schema.GetOffset(0x31FB1901F9FAF9E0);
 
   public ref float ParticleSimulationRate {
-    get => ref _Handle.AsRef<float>(_ParticleSimulationRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_ParticleSimulationRateOffset);
   }
-  private static readonly Lazy<nint> _ShouldDrawHitboxesOffset = new(() => Schema.GetOffset(0x31FB19016D95117E), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDrawHitboxesOffset = Schema.GetOffset(0x31FB19016D95117E);
 
   public ref bool ShouldDrawHitboxes {
-    get => ref _Handle.AsRef<bool>(_ShouldDrawHitboxesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDrawHitboxesOffset);
   }
-  private static readonly Lazy<nint> _ShouldDrawAttachmentsOffset = new(() => Schema.GetOffset(0x31FB19014EC43A36), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDrawAttachmentsOffset = Schema.GetOffset(0x31FB19014EC43A36);
 
   public ref bool ShouldDrawAttachments {
-    get => ref _Handle.AsRef<bool>(_ShouldDrawAttachmentsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDrawAttachmentsOffset);
   }
-  private static readonly Lazy<nint> _ShouldDrawAttachmentNamesOffset = new(() => Schema.GetOffset(0x31FB1901177CB28B), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDrawAttachmentNamesOffset = Schema.GetOffset(0x31FB1901177CB28B);
 
   public ref bool ShouldDrawAttachmentNames {
-    get => ref _Handle.AsRef<bool>(_ShouldDrawAttachmentNamesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDrawAttachmentNamesOffset);
   }
-  private static readonly Lazy<nint> _ShouldDrawControlPointAxesOffset = new(() => Schema.GetOffset(0x31FB1901A6A34D38), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDrawControlPointAxesOffset = Schema.GetOffset(0x31FB1901A6A34D38);
 
   public ref bool ShouldDrawControlPointAxes {
-    get => ref _Handle.AsRef<bool>(_ShouldDrawControlPointAxesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDrawControlPointAxesOffset);
   }
-  private static readonly Lazy<nint> _AnimationNonLoopingOffset = new(() => Schema.GetOffset(0x31FB1901F0071FD6), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationNonLoopingOffset = Schema.GetOffset(0x31FB1901F0071FD6);
 
   public ref bool AnimationNonLooping {
-    get => ref _Handle.AsRef<bool>(_AnimationNonLoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AnimationNonLoopingOffset);
   }
-  private static readonly Lazy<nint> _SequenceNameIsAnimClipPathOffset = new(() => Schema.GetOffset(0x31FB19013BFE81C7), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameIsAnimClipPathOffset = Schema.GetOffset(0x31FB19013BFE81C7);
 
   public ref bool SequenceNameIsAnimClipPath {
-    get => ref _Handle.AsRef<bool>(_SequenceNameIsAnimClipPathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SequenceNameIsAnimClipPathOffset);
   }
-  private static readonly Lazy<nint> _PreviewGravityOffset = new(() => Schema.GetOffset(0x31FB1901A6B7913F), LazyThreadSafetyMode.None);
+  private static readonly nint _PreviewGravityOffset = Schema.GetOffset(0x31FB1901A6B7913F);
 
   public ref Vector PreviewGravity {
-    get => ref _Handle.AsRef<Vector>(_PreviewGravityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PreviewGravityOffset);
   }
 
 

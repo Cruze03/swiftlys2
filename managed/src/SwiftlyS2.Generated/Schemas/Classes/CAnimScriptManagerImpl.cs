@@ -17,10 +17,10 @@ internal partial class CAnimScriptManagerImpl : SchemaClass, CAnimScriptManager 
   public CAnimScriptManagerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScriptInfoOffset = new(() => Schema.GetOffset(0x13962EC3119509F2), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptInfoOffset = Schema.GetOffset(0x13962EC3119509F2);
 
   public ref CUtlVector<ScriptInfo_t> ScriptInfo {
-    get => ref _Handle.AsRef<CUtlVector<ScriptInfo_t>>(_ScriptInfoOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ScriptInfo_t>>(_ScriptInfoOffset);
   }
 
 

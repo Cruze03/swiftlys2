@@ -17,25 +17,25 @@ internal partial class CTransitionUpdateDataImpl : SchemaClass, CTransitionUpdat
   public CTransitionUpdateDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SrcStateIndexOffset = new(() => Schema.GetOffset(0xF3F18D08D2AF559E), LazyThreadSafetyMode.None);
+  private static readonly nint _SrcStateIndexOffset = Schema.GetOffset(0xF3F18D08D2AF559E);
 
   public ref byte SrcStateIndex {
-    get => ref _Handle.AsRef<byte>(_SrcStateIndexOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SrcStateIndexOffset);
   }
-  private static readonly Lazy<nint> _DestStateIndexOffset = new(() => Schema.GetOffset(0xF3F18D0876246C8A), LazyThreadSafetyMode.None);
+  private static readonly nint _DestStateIndexOffset = Schema.GetOffset(0xF3F18D0876246C8A);
 
   public ref byte DestStateIndex {
-    get => ref _Handle.AsRef<byte>(_DestStateIndexOffset.Value);
+    get => ref _Handle.AsRef<byte>(_DestStateIndexOffset);
   }
-  private static readonly Lazy<nint> _HandshakeMaskToDisableFirstOffset = new(() => Schema.GetOffset(0xF3F18D08E58422C5), LazyThreadSafetyMode.None);
+  private static readonly nint _HandshakeMaskToDisableFirstOffset = Schema.GetOffset(0xF3F18D08E58422C5);
 
   public SchemaUntypedField HandshakeMaskToDisableFirst {
-    get => new SchemaUntypedField(_Handle + _HandshakeMaskToDisableFirstOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HandshakeMaskToDisableFirstOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xF3F18D083A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xF3F18D083A7C5965);
 
   public SchemaUntypedField Disabled {
-    get => new SchemaUntypedField(_Handle + _DisabledOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DisabledOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class CNmBoneMaskSelectorNode__CDefinitionImpl : CNmBoneMaskVal
   public CNmBoneMaskSelectorNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultMaskNodeIdxOffset = new(() => Schema.GetOffset(0xA90158701E92549D), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultMaskNodeIdxOffset = Schema.GetOffset(0xA90158701E92549D);
 
   public ref short DefaultMaskNodeIdx {
-    get => ref _Handle.AsRef<short>(_DefaultMaskNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DefaultMaskNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ParameterValueNodeIdxOffset = new(() => Schema.GetOffset(0xA90158702696FA7C), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterValueNodeIdxOffset = Schema.GetOffset(0xA90158702696FA7C);
 
   public ref short ParameterValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_ParameterValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ParameterValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _SwitchDynamicallyOffset = new(() => Schema.GetOffset(0xA9015870461869F8), LazyThreadSafetyMode.None);
+  private static readonly nint _SwitchDynamicallyOffset = Schema.GetOffset(0xA9015870461869F8);
 
   public ref bool SwitchDynamically {
-    get => ref _Handle.AsRef<bool>(_SwitchDynamicallyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SwitchDynamicallyOffset);
   }
-  private static readonly Lazy<nint> _MaskNodeIndicesOffset = new(() => Schema.GetOffset(0xA90158703326692E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaskNodeIndicesOffset = Schema.GetOffset(0xA90158703326692E);
 
   public SchemaUntypedField MaskNodeIndices {
-    get => new SchemaUntypedField(_Handle + _MaskNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _MaskNodeIndicesOffset);
   }
-  private static readonly Lazy<nint> _ParameterValuesOffset = new(() => Schema.GetOffset(0xA90158709D777E36), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterValuesOffset = Schema.GetOffset(0xA90158709D777E36);
 
   public SchemaUntypedField ParameterValues {
-    get => new SchemaUntypedField(_Handle + _ParameterValuesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParameterValuesOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeSecondsOffset = new(() => Schema.GetOffset(0xA90158706D3A08FC), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeSecondsOffset = Schema.GetOffset(0xA90158706D3A08FC);
 
   public ref float BlendTimeSeconds {
-    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset);
   }
 
 

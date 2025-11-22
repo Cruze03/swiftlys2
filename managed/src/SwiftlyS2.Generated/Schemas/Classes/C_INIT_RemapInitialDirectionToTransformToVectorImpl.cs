@@ -17,35 +17,35 @@ internal partial class C_INIT_RemapInitialDirectionToTransformToVectorImpl : CPa
   public C_INIT_RemapInitialDirectionToTransformToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xB8FCDAFFB3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xB8FCDAFFB3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xB8FCDAFFE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xB8FCDAFFE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xB8FCDAFFB731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xB8FCDAFFB731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _OffsetRotOffset = new(() => Schema.GetOffset(0xB8FCDAFFB414F849), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetRotOffset = Schema.GetOffset(0xB8FCDAFFB414F849);
 
   public ref float OffsetRot {
-    get => ref _Handle.AsRef<float>(_OffsetRotOffset.Value);
+    get => ref _Handle.AsRef<float>(_OffsetRotOffset);
   }
-  private static readonly Lazy<nint> _OffsetAxisOffset = new(() => Schema.GetOffset(0xB8FCDAFFFAB4918F), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetAxisOffset = Schema.GetOffset(0xB8FCDAFFFAB4918F);
 
   public ref Vector OffsetAxis {
-    get => ref _Handle.AsRef<Vector>(_OffsetAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetAxisOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0xB8FCDAFF48BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0xB8FCDAFF48BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
 
 

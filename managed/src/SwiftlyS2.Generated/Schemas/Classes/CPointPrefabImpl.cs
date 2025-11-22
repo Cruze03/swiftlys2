@@ -17,47 +17,47 @@ internal partial class CPointPrefabImpl : CServerOnlyPointEntityImpl, CPointPref
   public CPointPrefabImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetMapNameOffset = new(() => Schema.GetOffset(0x2C6EB7C6129742FD), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetMapNameOffset = Schema.GetOffset(0x2C6EB7C6129742FD);
 
   public string TargetMapName {
     get {
-      var ptr = _Handle.Read<nint>(_TargetMapNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetMapNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetMapNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetMapNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ForceWorldGroupIDOffset = new(() => Schema.GetOffset(0x2C6EB7C61F55F68E), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceWorldGroupIDOffset = Schema.GetOffset(0x2C6EB7C61F55F68E);
 
   public string ForceWorldGroupID {
     get {
-      var ptr = _Handle.Read<nint>(_ForceWorldGroupIDOffset.Value);
+      var ptr = _Handle.Read<nint>(_ForceWorldGroupIDOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ForceWorldGroupIDOffset.Value, value);
+    set => Schema.SetString(_Handle, _ForceWorldGroupIDOffset, value);
   } 
-  private static readonly Lazy<nint> _AssociatedRelayTargetNameOffset = new(() => Schema.GetOffset(0x2C6EB7C6A6960E7A), LazyThreadSafetyMode.None);
+  private static readonly nint _AssociatedRelayTargetNameOffset = Schema.GetOffset(0x2C6EB7C6A6960E7A);
 
   public string AssociatedRelayTargetName {
     get {
-      var ptr = _Handle.Read<nint>(_AssociatedRelayTargetNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AssociatedRelayTargetNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AssociatedRelayTargetNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AssociatedRelayTargetNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FixupNamesOffset = new(() => Schema.GetOffset(0x2C6EB7C6821D8FCF), LazyThreadSafetyMode.None);
+  private static readonly nint _FixupNamesOffset = Schema.GetOffset(0x2C6EB7C6821D8FCF);
 
   public ref bool FixupNames {
-    get => ref _Handle.AsRef<bool>(_FixupNamesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FixupNamesOffset);
   }
-  private static readonly Lazy<nint> _LoadDynamicOffset = new(() => Schema.GetOffset(0x2C6EB7C6A3437F12), LazyThreadSafetyMode.None);
+  private static readonly nint _LoadDynamicOffset = Schema.GetOffset(0x2C6EB7C6A3437F12);
 
   public ref bool LoadDynamic {
-    get => ref _Handle.AsRef<bool>(_LoadDynamicOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoadDynamicOffset);
   }
-  private static readonly Lazy<nint> _AssociatedRelayEntityOffset = new(() => Schema.GetOffset(0x2C6EB7C683435943), LazyThreadSafetyMode.None);
+  private static readonly nint _AssociatedRelayEntityOffset = Schema.GetOffset(0x2C6EB7C683435943);
 
   public ref CHandle<CPointPrefab> AssociatedRelayEntity {
-    get => ref _Handle.AsRef<CHandle<CPointPrefab>>(_AssociatedRelayEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CPointPrefab>>(_AssociatedRelayEntityOffset);
   }
 
 

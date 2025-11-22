@@ -17,25 +17,25 @@ internal partial class C_INIT_RemapTransformOrientationToRotationsImpl : CPartic
   public C_INIT_RemapTransformOrientationToRotationsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0x51F07293B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0x51F07293B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _RotationOffset = new(() => Schema.GetOffset(0x51F072931992E6BF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOffset = Schema.GetOffset(0x51F072931992E6BF);
 
   public ref Vector Rotation {
-    get => ref _Handle.AsRef<Vector>(_RotationOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RotationOffset);
   }
-  private static readonly Lazy<nint> _UseQuatOffset = new(() => Schema.GetOffset(0x51F0729343F0D4DB), LazyThreadSafetyMode.None);
+  private static readonly nint _UseQuatOffset = Schema.GetOffset(0x51F0729343F0D4DB);
 
   public ref bool UseQuat {
-    get => ref _Handle.AsRef<bool>(_UseQuatOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseQuatOffset);
   }
-  private static readonly Lazy<nint> _WriteNormalOffset = new(() => Schema.GetOffset(0x51F07293C2EF44FF), LazyThreadSafetyMode.None);
+  private static readonly nint _WriteNormalOffset = Schema.GetOffset(0x51F07293C2EF44FF);
 
   public ref bool WriteNormal {
-    get => ref _Handle.AsRef<bool>(_WriteNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WriteNormalOffset);
   }
 
 

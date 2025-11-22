@@ -17,30 +17,30 @@ internal partial class CVoiceContainerLoopTriggerImpl : CVoiceContainerBaseImpl,
   public CVoiceContainerLoopTriggerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SoundOffset = new(() => Schema.GetOffset(0x1A1BEAF4E1C4FB4), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundOffset = Schema.GetOffset(0x1A1BEAF4E1C4FB4);
 
   public CSoundContainerReference Sound {
-    get => new CSoundContainerReferenceImpl(_Handle + _SoundOffset.Value);
+    get => new CSoundContainerReferenceImpl(_Handle + _SoundOffset);
   }
-  private static readonly Lazy<nint> _RetriggerTimeMinOffset = new(() => Schema.GetOffset(0x1A1BEAFE6138381), LazyThreadSafetyMode.None);
+  private static readonly nint _RetriggerTimeMinOffset = Schema.GetOffset(0x1A1BEAFE6138381);
 
   public ref float RetriggerTimeMin {
-    get => ref _Handle.AsRef<float>(_RetriggerTimeMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_RetriggerTimeMinOffset);
   }
-  private static readonly Lazy<nint> _RetriggerTimeMaxOffset = new(() => Schema.GetOffset(0x1A1BEAFD828882F), LazyThreadSafetyMode.None);
+  private static readonly nint _RetriggerTimeMaxOffset = Schema.GetOffset(0x1A1BEAFD828882F);
 
   public ref float RetriggerTimeMax {
-    get => ref _Handle.AsRef<float>(_RetriggerTimeMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_RetriggerTimeMaxOffset);
   }
-  private static readonly Lazy<nint> _FadeTimeOffset = new(() => Schema.GetOffset(0x1A1BEAF00BEDB08), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeTimeOffset = Schema.GetOffset(0x1A1BEAF00BEDB08);
 
   public ref float FadeTime {
-    get => ref _Handle.AsRef<float>(_FadeTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeTimeOffset);
   }
-  private static readonly Lazy<nint> _CrossFadeOffset = new(() => Schema.GetOffset(0x1A1BEAF64BEC665), LazyThreadSafetyMode.None);
+  private static readonly nint _CrossFadeOffset = Schema.GetOffset(0x1A1BEAF64BEC665);
 
   public ref bool CrossFade {
-    get => ref _Handle.AsRef<bool>(_CrossFadeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CrossFadeOffset);
   }
 
 

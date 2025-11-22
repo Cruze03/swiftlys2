@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicCase : CLogicalEntity, ISchemaClass<CLogicCase> {
 
   static CLogicCase ISchemaClass<CLogicCase>.From(nint handle) => new CLogicCaseImpl(handle);
-  static int ISchemaClass<CLogicCase>.Size => 3624;
+  static int ISchemaClass<CLogicCase>.Size => 2880;
   static string? ISchemaClass<CLogicCase>.ClassName => "logic_case";
 
   

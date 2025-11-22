@@ -17,10 +17,10 @@ internal partial class C_OP_WindForceImpl : CParticleFunctionForceImpl, C_OP_Win
   public C_OP_WindForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceOffset = new(() => Schema.GetOffset(0xBBD251C2E530B0A8), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceOffset = Schema.GetOffset(0xBBD251C2E530B0A8);
 
   public ref Vector Force {
-    get => ref _Handle.AsRef<Vector>(_ForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForceOffset);
   }
 
 

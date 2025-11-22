@@ -17,45 +17,45 @@ internal partial class CParticleTransformInputImpl : CParticleInputImpl, CPartic
   public CParticleTransformInputImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x9DF3328C18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x9DF3328C18853D59);
 
   public ref ParticleTransformType_t Type {
-    get => ref _Handle.AsRef<ParticleTransformType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleTransformType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _NamedValueOffset = new(() => Schema.GetOffset(0x9DF3328CE0618727), LazyThreadSafetyMode.None);
+  private static readonly nint _NamedValueOffset = Schema.GetOffset(0x9DF3328CE0618727);
 
   public SchemaUntypedField NamedValue {
-    get => new SchemaUntypedField(_Handle + _NamedValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NamedValueOffset);
   }
-  private static readonly Lazy<nint> _FollowNamedValueOffset = new(() => Schema.GetOffset(0x9DF3328C0F6CBBBA), LazyThreadSafetyMode.None);
+  private static readonly nint _FollowNamedValueOffset = Schema.GetOffset(0x9DF3328C0F6CBBBA);
 
   public ref bool FollowNamedValue {
-    get => ref _Handle.AsRef<bool>(_FollowNamedValueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FollowNamedValueOffset);
   }
-  private static readonly Lazy<nint> _SupportsDisabledOffset = new(() => Schema.GetOffset(0x9DF3328CCCD6A201), LazyThreadSafetyMode.None);
+  private static readonly nint _SupportsDisabledOffset = Schema.GetOffset(0x9DF3328CCCD6A201);
 
   public ref bool SupportsDisabled {
-    get => ref _Handle.AsRef<bool>(_SupportsDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SupportsDisabledOffset);
   }
-  private static readonly Lazy<nint> _UseOrientationOffset = new(() => Schema.GetOffset(0x9DF3328C8DAE39FE), LazyThreadSafetyMode.None);
+  private static readonly nint _UseOrientationOffset = Schema.GetOffset(0x9DF3328C8DAE39FE);
 
   public ref bool UseOrientation {
-    get => ref _Handle.AsRef<bool>(_UseOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseOrientationOffset);
   }
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0x9DF3328C0D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0x9DF3328C0D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _ControlPointRangeMaxOffset = new(() => Schema.GetOffset(0x9DF3328CE07DB935), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointRangeMaxOffset = Schema.GetOffset(0x9DF3328CE07DB935);
 
   public ref int ControlPointRangeMax {
-    get => ref _Handle.AsRef<int>(_ControlPointRangeMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointRangeMaxOffset);
   }
-  private static readonly Lazy<nint> _EndCPGrowthTimeOffset = new(() => Schema.GetOffset(0x9DF3328CC156B981), LazyThreadSafetyMode.None);
+  private static readonly nint _EndCPGrowthTimeOffset = Schema.GetOffset(0x9DF3328CC156B981);
 
   public ref float EndCPGrowthTime {
-    get => ref _Handle.AsRef<float>(_EndCPGrowthTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndCPGrowthTimeOffset);
   }
 
 

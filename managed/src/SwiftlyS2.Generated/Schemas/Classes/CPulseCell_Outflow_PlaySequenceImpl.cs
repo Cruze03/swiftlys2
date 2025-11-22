@@ -17,14 +17,14 @@ internal partial class CPulseCell_Outflow_PlaySequenceImpl : CPulseCell_Outflow_
   public CPulseCell_Outflow_PlaySequenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamSequenceNameOffset = new(() => Schema.GetOffset(0x9E1D42661D9365E0), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamSequenceNameOffset = Schema.GetOffset(0x9E1D42661D9365E0);
 
   public string ParamSequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_ParamSequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParamSequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParamSequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParamSequenceNameOffset, value);
   } 
 
 

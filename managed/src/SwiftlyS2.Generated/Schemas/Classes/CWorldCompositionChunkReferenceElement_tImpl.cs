@@ -17,23 +17,23 @@ internal partial class CWorldCompositionChunkReferenceElement_tImpl : SchemaClas
   public CWorldCompositionChunkReferenceElement_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrMapToLoadOffset = new(() => Schema.GetOffset(0x9B80004DE87F0C1B), LazyThreadSafetyMode.None);
+  private static readonly nint _StrMapToLoadOffset = Schema.GetOffset(0x9B80004DE87F0C1B);
 
   public string StrMapToLoad {
     get {
-      var ptr = _Handle.Read<nint>(_StrMapToLoadOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrMapToLoadOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrMapToLoadOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrMapToLoadOffset, value);
   } 
-  private static readonly Lazy<nint> _StrLandmarkNameOffset = new(() => Schema.GetOffset(0x9B80004DE0BB30D3), LazyThreadSafetyMode.None);
+  private static readonly nint _StrLandmarkNameOffset = Schema.GetOffset(0x9B80004DE0BB30D3);
 
   public string StrLandmarkName {
     get {
-      var ptr = _Handle.Read<nint>(_StrLandmarkNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrLandmarkNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrLandmarkNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrLandmarkNameOffset, value);
   } 
 
 

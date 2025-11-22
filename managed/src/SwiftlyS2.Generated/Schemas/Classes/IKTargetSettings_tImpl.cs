@@ -17,30 +17,30 @@ internal partial class IKTargetSettings_tImpl : SchemaClass, IKTargetSettings_t 
   public IKTargetSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetSourceOffset = new(() => Schema.GetOffset(0xE4055546D23809BD), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetSourceOffset = Schema.GetOffset(0xE4055546D23809BD);
 
   public ref IKTargetSource TargetSource {
-    get => ref _Handle.AsRef<IKTargetSource>(_TargetSourceOffset.Value);
+    get => ref _Handle.AsRef<IKTargetSource>(_TargetSourceOffset);
   }
-  private static readonly Lazy<nint> _BoneOffset = new(() => Schema.GetOffset(0xE4055546193FC60F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneOffset = Schema.GetOffset(0xE4055546193FC60F);
 
   public IKBoneNameAndIndex_t Bone {
-    get => new IKBoneNameAndIndex_tImpl(_Handle + _BoneOffset.Value);
+    get => new IKBoneNameAndIndex_tImpl(_Handle + _BoneOffset);
   }
-  private static readonly Lazy<nint> _AnimgraphParameterNamePositionOffset = new(() => Schema.GetOffset(0xE4055546D9047CE3), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimgraphParameterNamePositionOffset = Schema.GetOffset(0xE4055546D9047CE3);
 
   public AnimParamID AnimgraphParameterNamePosition {
-    get => new AnimParamIDImpl(_Handle + _AnimgraphParameterNamePositionOffset.Value);
+    get => new AnimParamIDImpl(_Handle + _AnimgraphParameterNamePositionOffset);
   }
-  private static readonly Lazy<nint> _AnimgraphParameterNameOrientationOffset = new(() => Schema.GetOffset(0xE4055546C162E1CA), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimgraphParameterNameOrientationOffset = Schema.GetOffset(0xE4055546C162E1CA);
 
   public AnimParamID AnimgraphParameterNameOrientation {
-    get => new AnimParamIDImpl(_Handle + _AnimgraphParameterNameOrientationOffset.Value);
+    get => new AnimParamIDImpl(_Handle + _AnimgraphParameterNameOrientationOffset);
   }
-  private static readonly Lazy<nint> _TargetCoordSystemOffset = new(() => Schema.GetOffset(0xE40555469BF14938), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetCoordSystemOffset = Schema.GetOffset(0xE40555469BF14938);
 
   public ref IKTargetCoordinateSystem TargetCoordSystem {
-    get => ref _Handle.AsRef<IKTargetCoordinateSystem>(_TargetCoordSystemOffset.Value);
+    get => ref _Handle.AsRef<IKTargetCoordinateSystem>(_TargetCoordSystemOffset);
   }
 
 

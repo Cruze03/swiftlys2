@@ -17,43 +17,43 @@ internal partial class CLogicCollisionPairImpl : CLogicalEntityImpl, CLogicColli
   public CLogicCollisionPairImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameAttach1Offset = new(() => Schema.GetOffset(0x9E0FC6AC6776530A), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttach1Offset = Schema.GetOffset(0x9E0FC6AC6776530A);
 
   public string NameAttach1 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttach1Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttach1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttach1Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttach1Offset, value);
   } 
-  private static readonly Lazy<nint> _NameAttach2Offset = new(() => Schema.GetOffset(0x9E0FC6AC66765177), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttach2Offset = Schema.GetOffset(0x9E0FC6AC66765177);
 
   public string NameAttach2 {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttach2Offset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttach2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttach2Offset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttach2Offset, value);
   } 
-  private static readonly Lazy<nint> _IncludeHierarchyOffset = new(() => Schema.GetOffset(0x9E0FC6ACC064916A), LazyThreadSafetyMode.None);
+  private static readonly nint _IncludeHierarchyOffset = Schema.GetOffset(0x9E0FC6ACC064916A);
 
   public ref bool IncludeHierarchy {
-    get => ref _Handle.AsRef<bool>(_IncludeHierarchyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IncludeHierarchyOffset);
   }
-  private static readonly Lazy<nint> _SupportMultipleEntitiesWithSameNameOffset = new(() => Schema.GetOffset(0x9E0FC6ACD009870A), LazyThreadSafetyMode.None);
+  private static readonly nint _SupportMultipleEntitiesWithSameNameOffset = Schema.GetOffset(0x9E0FC6ACD009870A);
 
   public ref bool SupportMultipleEntitiesWithSameName {
-    get => ref _Handle.AsRef<bool>(_SupportMultipleEntitiesWithSameNameOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SupportMultipleEntitiesWithSameNameOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x9E0FC6AC28A745A5), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x9E0FC6AC28A745A5);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _SucceededOffset = new(() => Schema.GetOffset(0x9E0FC6AC48FBF712), LazyThreadSafetyMode.None);
+  private static readonly nint _SucceededOffset = Schema.GetOffset(0x9E0FC6AC48FBF712);
 
   public ref bool Succeeded {
-    get => ref _Handle.AsRef<bool>(_SucceededOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SucceededOffset);
   }
 
 

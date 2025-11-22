@@ -17,80 +17,80 @@ internal partial class CTriggerLookImpl : CTriggerOnceImpl, CTriggerLook {
   public CTriggerLookImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LookTargetOffset = new(() => Schema.GetOffset(0x400CA6913361F745), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTargetOffset = Schema.GetOffset(0x400CA6913361F745);
 
   public ref CHandle<CBaseEntity> LookTarget {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LookTargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LookTargetOffset);
   }
-  private static readonly Lazy<nint> _FieldOfViewOffset = new(() => Schema.GetOffset(0x400CA69157C8F26D), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOfViewOffset = Schema.GetOffset(0x400CA69157C8F26D);
 
   public ref float FieldOfView {
-    get => ref _Handle.AsRef<float>(_FieldOfViewOffset.Value);
+    get => ref _Handle.AsRef<float>(_FieldOfViewOffset);
   }
-  private static readonly Lazy<nint> _LookTimeOffset = new(() => Schema.GetOffset(0x400CA69104D9B055), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTimeOffset = Schema.GetOffset(0x400CA69104D9B055);
 
   public ref float LookTime {
-    get => ref _Handle.AsRef<float>(_LookTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LookTimeOffset);
   }
-  private static readonly Lazy<nint> _LookTimeTotalOffset = new(() => Schema.GetOffset(0x400CA6910EF1464D), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTimeTotalOffset = Schema.GetOffset(0x400CA6910EF1464D);
 
   public ref float LookTimeTotal {
-    get => ref _Handle.AsRef<float>(_LookTimeTotalOffset.Value);
+    get => ref _Handle.AsRef<float>(_LookTimeTotalOffset);
   }
-  private static readonly Lazy<nint> _LookTimeLastOffset = new(() => Schema.GetOffset(0x400CA691C3304509), LazyThreadSafetyMode.None);
+  private static readonly nint _LookTimeLastOffset = Schema.GetOffset(0x400CA691C3304509);
 
   public GameTime_t LookTimeLast {
-    get => new GameTime_tImpl(_Handle + _LookTimeLastOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LookTimeLastOffset);
   }
-  private static readonly Lazy<nint> _TimeoutDurationOffset = new(() => Schema.GetOffset(0x400CA6919AF6CDFE), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutDurationOffset = Schema.GetOffset(0x400CA6919AF6CDFE);
 
   public ref float TimeoutDuration {
-    get => ref _Handle.AsRef<float>(_TimeoutDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeoutDurationOffset);
   }
-  private static readonly Lazy<nint> _TimeoutFiredOffset = new(() => Schema.GetOffset(0x400CA69169DF01E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutFiredOffset = Schema.GetOffset(0x400CA69169DF01E8);
 
   public ref bool TimeoutFired {
-    get => ref _Handle.AsRef<bool>(_TimeoutFiredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TimeoutFiredOffset);
   }
-  private static readonly Lazy<nint> _IsLookingOffset = new(() => Schema.GetOffset(0x400CA691983E8E2A), LazyThreadSafetyMode.None);
+  private static readonly nint _IsLookingOffset = Schema.GetOffset(0x400CA691983E8E2A);
 
   public ref bool IsLooking {
-    get => ref _Handle.AsRef<bool>(_IsLookingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsLookingOffset);
   }
-  private static readonly Lazy<nint> _B2DFOVOffset = new(() => Schema.GetOffset(0x400CA6919C4430D2), LazyThreadSafetyMode.None);
+  private static readonly nint _B2DFOVOffset = Schema.GetOffset(0x400CA6919C4430D2);
 
   public ref bool B2DFOV {
-    get => ref _Handle.AsRef<bool>(_B2DFOVOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B2DFOVOffset);
   }
-  private static readonly Lazy<nint> _UseVelocityOffset = new(() => Schema.GetOffset(0x400CA6915E806BAF), LazyThreadSafetyMode.None);
+  private static readonly nint _UseVelocityOffset = Schema.GetOffset(0x400CA6915E806BAF);
 
   public ref bool UseVelocity {
-    get => ref _Handle.AsRef<bool>(_UseVelocityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseVelocityOffset);
   }
-  private static readonly Lazy<nint> _TestOcclusionOffset = new(() => Schema.GetOffset(0x400CA6912AB3E7C2), LazyThreadSafetyMode.None);
+  private static readonly nint _TestOcclusionOffset = Schema.GetOffset(0x400CA6912AB3E7C2);
 
   public ref bool TestOcclusion {
-    get => ref _Handle.AsRef<bool>(_TestOcclusionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TestOcclusionOffset);
   }
-  private static readonly Lazy<nint> _TestAllVisibleOcclusionOffset = new(() => Schema.GetOffset(0x400CA691FBAABAEB), LazyThreadSafetyMode.None);
+  private static readonly nint _TestAllVisibleOcclusionOffset = Schema.GetOffset(0x400CA691FBAABAEB);
 
   public ref bool TestAllVisibleOcclusion {
-    get => ref _Handle.AsRef<bool>(_TestAllVisibleOcclusionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TestAllVisibleOcclusionOffset);
   }
-  private static readonly Lazy<nint> _OnTimeoutOffset = new(() => Schema.GetOffset(0x400CA691C5301603), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTimeoutOffset = Schema.GetOffset(0x400CA691C5301603);
 
   public CEntityIOOutput OnTimeout {
-    get => new CEntityIOOutputImpl(_Handle + _OnTimeoutOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTimeoutOffset);
   }
-  private static readonly Lazy<nint> _OnStartLookOffset = new(() => Schema.GetOffset(0x400CA6914E36D787), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartLookOffset = Schema.GetOffset(0x400CA6914E36D787);
 
   public CEntityIOOutput OnStartLook {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartLookOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartLookOffset);
   }
-  private static readonly Lazy<nint> _OnEndLookOffset = new(() => Schema.GetOffset(0x400CA6914D4626E6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEndLookOffset = Schema.GetOffset(0x400CA6914D4626E6);
 
   public CEntityIOOutput OnEndLook {
-    get => new CEntityIOOutputImpl(_Handle + _OnEndLookOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEndLookOffset);
   }
 
   public void TestOcclusionUpdated() {

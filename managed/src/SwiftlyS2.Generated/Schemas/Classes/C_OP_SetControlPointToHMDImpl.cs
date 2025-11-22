@@ -17,20 +17,20 @@ internal partial class C_OP_SetControlPointToHMDImpl : CParticleFunctionPreEmiss
   public C_OP_SetControlPointToHMDImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0x58898D54D4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0x58898D54D4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0x58898D54408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0x58898D54408288D9);
 
   public ref Vector CP1Pos {
-    get => ref _Handle.AsRef<Vector>(_CP1PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP1PosOffset);
   }
-  private static readonly Lazy<nint> _OrientToHMDOffset = new(() => Schema.GetOffset(0x58898D54F3E0D0A6), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientToHMDOffset = Schema.GetOffset(0x58898D54F3E0D0A6);
 
   public ref bool OrientToHMD {
-    get => ref _Handle.AsRef<bool>(_OrientToHMDOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientToHMDOffset);
   }
 
 

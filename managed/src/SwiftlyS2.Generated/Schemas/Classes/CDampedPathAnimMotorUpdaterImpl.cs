@@ -17,40 +17,40 @@ internal partial class CDampedPathAnimMotorUpdaterImpl : CPathAnimMotorUpdaterBa
   public CDampedPathAnimMotorUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnticipationTimeOffset = new(() => Schema.GetOffset(0x1519DE4D43C5CA9B), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationTimeOffset = Schema.GetOffset(0x1519DE4D43C5CA9B);
 
   public ref float AnticipationTime {
-    get => ref _Handle.AsRef<float>(_AnticipationTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnticipationTimeOffset);
   }
-  private static readonly Lazy<nint> _MinSpeedScaleOffset = new(() => Schema.GetOffset(0x1519DE4DED3B5DEE), LazyThreadSafetyMode.None);
+  private static readonly nint _MinSpeedScaleOffset = Schema.GetOffset(0x1519DE4DED3B5DEE);
 
   public ref float MinSpeedScale {
-    get => ref _Handle.AsRef<float>(_MinSpeedScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinSpeedScaleOffset);
   }
-  private static readonly Lazy<nint> _AnticipationPosParamOffset = new(() => Schema.GetOffset(0x1519DE4D86389829), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationPosParamOffset = Schema.GetOffset(0x1519DE4D86389829);
 
   public CAnimParamHandle AnticipationPosParam {
-    get => new CAnimParamHandleImpl(_Handle + _AnticipationPosParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _AnticipationPosParamOffset);
   }
-  private static readonly Lazy<nint> _AnticipationHeadingParamOffset = new(() => Schema.GetOffset(0x1519DE4D095DAB6D), LazyThreadSafetyMode.None);
+  private static readonly nint _AnticipationHeadingParamOffset = Schema.GetOffset(0x1519DE4D095DAB6D);
 
   public CAnimParamHandle AnticipationHeadingParam {
-    get => new CAnimParamHandleImpl(_Handle + _AnticipationHeadingParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _AnticipationHeadingParamOffset);
   }
-  private static readonly Lazy<nint> _SpringConstantOffset = new(() => Schema.GetOffset(0x1519DE4DCE2260BE), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringConstantOffset = Schema.GetOffset(0x1519DE4DCE2260BE);
 
   public ref float SpringConstant {
-    get => ref _Handle.AsRef<float>(_SpringConstantOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpringConstantOffset);
   }
-  private static readonly Lazy<nint> _MinSpringTensionOffset = new(() => Schema.GetOffset(0x1519DE4DEEE56032), LazyThreadSafetyMode.None);
+  private static readonly nint _MinSpringTensionOffset = Schema.GetOffset(0x1519DE4DEEE56032);
 
   public ref float MinSpringTension {
-    get => ref _Handle.AsRef<float>(_MinSpringTensionOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinSpringTensionOffset);
   }
-  private static readonly Lazy<nint> _MaxSpringTensionOffset = new(() => Schema.GetOffset(0x1519DE4DD4910BE4), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxSpringTensionOffset = Schema.GetOffset(0x1519DE4DD4910BE4);
 
   public ref float MaxSpringTension {
-    get => ref _Handle.AsRef<float>(_MaxSpringTensionOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxSpringTensionOffset);
   }
 
 

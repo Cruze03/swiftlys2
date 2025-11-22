@@ -17,85 +17,85 @@ internal partial class TextureControls_tImpl : SchemaClass, TextureControls_t {
   public TextureControls_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FinalTextureScaleUOffset = new(() => Schema.GetOffset(0x6019C255986FEDD1), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalTextureScaleUOffset = Schema.GetOffset(0x6019C255986FEDD1);
 
   public CParticleCollectionRendererFloatInput FinalTextureScaleU {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureScaleUOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureScaleUOffset);
   }
-  private static readonly Lazy<nint> _FinalTextureScaleVOffset = new(() => Schema.GetOffset(0x6019C255956FE918), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalTextureScaleVOffset = Schema.GetOffset(0x6019C255956FE918);
 
   public CParticleCollectionRendererFloatInput FinalTextureScaleV {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureScaleVOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureScaleVOffset);
   }
-  private static readonly Lazy<nint> _FinalTextureOffsetUOffset = new(() => Schema.GetOffset(0x6019C25524B7447E), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalTextureOffsetUOffset = Schema.GetOffset(0x6019C25524B7447E);
 
   public CParticleCollectionRendererFloatInput FinalTextureOffsetU {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureOffsetUOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureOffsetUOffset);
   }
-  private static readonly Lazy<nint> _FinalTextureOffsetVOffset = new(() => Schema.GetOffset(0x6019C25523B742EB), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalTextureOffsetVOffset = Schema.GetOffset(0x6019C25523B742EB);
 
   public CParticleCollectionRendererFloatInput FinalTextureOffsetV {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureOffsetVOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureOffsetVOffset);
   }
-  private static readonly Lazy<nint> _FinalTextureUVRotationOffset = new(() => Schema.GetOffset(0x6019C2550D61C771), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalTextureUVRotationOffset = Schema.GetOffset(0x6019C2550D61C771);
 
   public CParticleCollectionRendererFloatInput FinalTextureUVRotation {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureUVRotationOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _FinalTextureUVRotationOffset);
   }
-  private static readonly Lazy<nint> _ZoomScaleOffset = new(() => Schema.GetOffset(0x6019C25565643B72), LazyThreadSafetyMode.None);
+  private static readonly nint _ZoomScaleOffset = Schema.GetOffset(0x6019C25565643B72);
 
   public CParticleCollectionRendererFloatInput ZoomScale {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _ZoomScaleOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _ZoomScaleOffset);
   }
-  private static readonly Lazy<nint> _DistortionOffset = new(() => Schema.GetOffset(0x6019C25570283608), LazyThreadSafetyMode.None);
+  private static readonly nint _DistortionOffset = Schema.GetOffset(0x6019C25570283608);
 
   public CParticleCollectionRendererFloatInput Distortion {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _DistortionOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _DistortionOffset);
   }
-  private static readonly Lazy<nint> _RandomizeOffsetsOffset = new(() => Schema.GetOffset(0x6019C25541B7E31C), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomizeOffsetsOffset = Schema.GetOffset(0x6019C25541B7E31C);
 
   public ref bool RandomizeOffsets {
-    get => ref _Handle.AsRef<bool>(_RandomizeOffsetsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomizeOffsetsOffset);
   }
-  private static readonly Lazy<nint> _ClampUVsOffset = new(() => Schema.GetOffset(0x6019C255993F389C), LazyThreadSafetyMode.None);
+  private static readonly nint _ClampUVsOffset = Schema.GetOffset(0x6019C255993F389C);
 
   public ref bool ClampUVs {
-    get => ref _Handle.AsRef<bool>(_ClampUVsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClampUVsOffset);
   }
-  private static readonly Lazy<nint> _PerParticleBlendOffset = new(() => Schema.GetOffset(0x6019C25569A29D11), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleBlendOffset = Schema.GetOffset(0x6019C25569A29D11);
 
   public ref SpriteCardPerParticleScale_t PerParticleBlend {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleBlendOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleBlendOffset);
   }
-  private static readonly Lazy<nint> _PerParticleScaleOffset = new(() => Schema.GetOffset(0x6019C255E1BE0540), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleScaleOffset = Schema.GetOffset(0x6019C255E1BE0540);
 
   public ref SpriteCardPerParticleScale_t PerParticleScale {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleScaleOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleScaleOffset);
   }
-  private static readonly Lazy<nint> _PerParticleOffsetUOffset = new(() => Schema.GetOffset(0x6019C2559749CC58), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleOffsetUOffset = Schema.GetOffset(0x6019C2559749CC58);
 
   public ref SpriteCardPerParticleScale_t PerParticleOffsetU {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleOffsetUOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleOffsetUOffset);
   }
-  private static readonly Lazy<nint> _PerParticleOffsetVOffset = new(() => Schema.GetOffset(0x6019C2559A49D111), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleOffsetVOffset = Schema.GetOffset(0x6019C2559A49D111);
 
   public ref SpriteCardPerParticleScale_t PerParticleOffsetV {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleOffsetVOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleOffsetVOffset);
   }
-  private static readonly Lazy<nint> _PerParticleRotationOffset = new(() => Schema.GetOffset(0x6019C2557AD51358), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleRotationOffset = Schema.GetOffset(0x6019C2557AD51358);
 
   public ref SpriteCardPerParticleScale_t PerParticleRotation {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleRotationOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleRotationOffset);
   }
-  private static readonly Lazy<nint> _PerParticleZoomOffset = new(() => Schema.GetOffset(0x6019C255F0492151), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleZoomOffset = Schema.GetOffset(0x6019C255F0492151);
 
   public ref SpriteCardPerParticleScale_t PerParticleZoom {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleZoomOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleZoomOffset);
   }
-  private static readonly Lazy<nint> _PerParticleDistortionOffset = new(() => Schema.GetOffset(0x6019C2553A9977DD), LazyThreadSafetyMode.None);
+  private static readonly nint _PerParticleDistortionOffset = Schema.GetOffset(0x6019C2553A9977DD);
 
   public ref SpriteCardPerParticleScale_t PerParticleDistortion {
-    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleDistortionOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardPerParticleScale_t>(_PerParticleDistortionOffset);
   }
 
 

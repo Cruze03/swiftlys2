@@ -17,30 +17,30 @@ internal partial class CNmTimeConditionNode__CDefinitionImpl : CNmBoolValueNode_
   public CNmTimeConditionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x421E2145D1DB8128), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x421E2145D1DB8128);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x421E214595E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x421E214595E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ComparandOffset = new(() => Schema.GetOffset(0x421E21450CF10B48), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparandOffset = Schema.GetOffset(0x421E21450CF10B48);
 
   public ref float Comparand {
-    get => ref _Handle.AsRef<float>(_ComparandOffset.Value);
+    get => ref _Handle.AsRef<float>(_ComparandOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x421E21450F04B4ED), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x421E21450F04B4ED);
 
   public ref CNmTimeConditionNode__ComparisonType_t Type {
-    get => ref _Handle.AsRef<CNmTimeConditionNode__ComparisonType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<CNmTimeConditionNode__ComparisonType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _OperatorOffset = new(() => Schema.GetOffset(0x421E21458ABE049D), LazyThreadSafetyMode.None);
+  private static readonly nint _OperatorOffset = Schema.GetOffset(0x421E21458ABE049D);
 
   public ref CNmTimeConditionNode__Operator_t Operator {
-    get => ref _Handle.AsRef<CNmTimeConditionNode__Operator_t>(_OperatorOffset.Value);
+    get => ref _Handle.AsRef<CNmTimeConditionNode__Operator_t>(_OperatorOffset);
   }
 
 

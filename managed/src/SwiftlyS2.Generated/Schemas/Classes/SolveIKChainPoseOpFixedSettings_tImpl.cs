@@ -17,10 +17,10 @@ internal partial class SolveIKChainPoseOpFixedSettings_tImpl : SchemaClass, Solv
   public SolveIKChainPoseOpFixedSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChainsToSolveDataOffset = new(() => Schema.GetOffset(0x983BF8BD94B979E5), LazyThreadSafetyMode.None);
+  private static readonly nint _ChainsToSolveDataOffset = Schema.GetOffset(0x983BF8BD94B979E5);
 
   public ref CUtlVector<ChainToSolveData_t> ChainsToSolveData {
-    get => ref _Handle.AsRef<CUtlVector<ChainToSolveData_t>>(_ChainsToSolveDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ChainToSolveData_t>>(_ChainsToSolveDataOffset);
   }
 
 

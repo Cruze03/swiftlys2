@@ -17,55 +17,55 @@ internal partial class FootFixedSettingsImpl : SchemaClass, FootFixedSettings {
   public FootFixedSettingsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TraceSettingsOffset = new(() => Schema.GetOffset(0x3401F9D0115F2D3B), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceSettingsOffset = Schema.GetOffset(0x3401F9D0115F2D3B);
 
   public TraceSettings_t TraceSettings {
-    get => new TraceSettings_tImpl(_Handle + _TraceSettingsOffset.Value);
+    get => new TraceSettings_tImpl(_Handle + _TraceSettingsOffset);
   }
-  private static readonly Lazy<nint> _FootBaseBindPosePositionMSOffset = new(() => Schema.GetOffset(0x3401F9D0C391A025), LazyThreadSafetyMode.None);
+  private static readonly nint _FootBaseBindPosePositionMSOffset = Schema.GetOffset(0x3401F9D0C391A025);
 
   public ref Vector FootBaseBindPosePositionMS {
-    get => ref _Handle.AsRef<Vector>(_FootBaseBindPosePositionMSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FootBaseBindPosePositionMSOffset);
   }
-  private static readonly Lazy<nint> _FootBaseLengthOffset = new(() => Schema.GetOffset(0x3401F9D08593ED7E), LazyThreadSafetyMode.None);
+  private static readonly nint _FootBaseLengthOffset = Schema.GetOffset(0x3401F9D08593ED7E);
 
   public ref float FootBaseLength {
-    get => ref _Handle.AsRef<float>(_FootBaseLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FootBaseLengthOffset);
   }
-  private static readonly Lazy<nint> _MaxRotationLeftOffset = new(() => Schema.GetOffset(0x3401F9D0FA1CDF44), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRotationLeftOffset = Schema.GetOffset(0x3401F9D0FA1CDF44);
 
   public ref float MaxRotationLeft {
-    get => ref _Handle.AsRef<float>(_MaxRotationLeftOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRotationLeftOffset);
   }
-  private static readonly Lazy<nint> _MaxRotationRightOffset = new(() => Schema.GetOffset(0x3401F9D08C95FA31), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRotationRightOffset = Schema.GetOffset(0x3401F9D08C95FA31);
 
   public ref float MaxRotationRight {
-    get => ref _Handle.AsRef<float>(_MaxRotationRightOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRotationRightOffset);
   }
-  private static readonly Lazy<nint> _FootstepLandedTagIndexOffset = new(() => Schema.GetOffset(0x3401F9D04954321B), LazyThreadSafetyMode.None);
+  private static readonly nint _FootstepLandedTagIndexOffset = Schema.GetOffset(0x3401F9D04954321B);
 
   public ref int FootstepLandedTagIndex {
-    get => ref _Handle.AsRef<int>(_FootstepLandedTagIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_FootstepLandedTagIndexOffset);
   }
-  private static readonly Lazy<nint> _EnableTracingOffset = new(() => Schema.GetOffset(0x3401F9D03C16FC54), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableTracingOffset = Schema.GetOffset(0x3401F9D03C16FC54);
 
   public ref bool EnableTracing {
-    get => ref _Handle.AsRef<bool>(_EnableTracingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableTracingOffset);
   }
-  private static readonly Lazy<nint> _TraceAngleBlendOffset = new(() => Schema.GetOffset(0x3401F9D0029B769E), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceAngleBlendOffset = Schema.GetOffset(0x3401F9D0029B769E);
 
   public ref float TraceAngleBlend {
-    get => ref _Handle.AsRef<float>(_TraceAngleBlendOffset.Value);
+    get => ref _Handle.AsRef<float>(_TraceAngleBlendOffset);
   }
-  private static readonly Lazy<nint> _DisableTagIndexOffset = new(() => Schema.GetOffset(0x3401F9D0C56AE9EB), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableTagIndexOffset = Schema.GetOffset(0x3401F9D0C56AE9EB);
 
   public ref int DisableTagIndex {
-    get => ref _Handle.AsRef<int>(_DisableTagIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_DisableTagIndexOffset);
   }
-  private static readonly Lazy<nint> _FootIndexOffset = new(() => Schema.GetOffset(0x3401F9D067D56BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _FootIndexOffset = Schema.GetOffset(0x3401F9D067D56BAB);
 
   public ref int FootIndex {
-    get => ref _Handle.AsRef<int>(_FootIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_FootIndexOffset);
   }
 
 

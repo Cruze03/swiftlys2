@@ -17,10 +17,10 @@ internal partial class PulseRuntimeInvokeIndex_tImpl : SchemaClass, PulseRuntime
   public PulseRuntimeInvokeIndex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xEFA175D1DCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xEFA175D1DCB0894A);
 
   public ref int Value {
-    get => ref _Handle.AsRef<int>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_ValueOffset);
   }
 
 

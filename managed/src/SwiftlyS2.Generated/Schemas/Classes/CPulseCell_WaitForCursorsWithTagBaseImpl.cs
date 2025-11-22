@@ -17,15 +17,15 @@ internal partial class CPulseCell_WaitForCursorsWithTagBaseImpl : CPulseCell_Bas
   public CPulseCell_WaitForCursorsWithTagBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CursorsAllowedToWaitOffset = new(() => Schema.GetOffset(0xA8108DB0236617EC), LazyThreadSafetyMode.None);
+  private static readonly nint _CursorsAllowedToWaitOffset = Schema.GetOffset(0xA8108DB0236617EC);
 
   public ref int CursorsAllowedToWait {
-    get => ref _Handle.AsRef<int>(_CursorsAllowedToWaitOffset.Value);
+    get => ref _Handle.AsRef<int>(_CursorsAllowedToWaitOffset);
   }
-  private static readonly Lazy<nint> _WaitCompleteOffset = new(() => Schema.GetOffset(0xA8108DB02C41AD97), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitCompleteOffset = Schema.GetOffset(0xA8108DB02C41AD97);
 
   public CPulse_ResumePoint WaitComplete {
-    get => new CPulse_ResumePointImpl(_Handle + _WaitCompleteOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _WaitCompleteOffset);
   }
 
 

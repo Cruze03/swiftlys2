@@ -17,45 +17,45 @@ internal partial class CHitReactUpdateNodeImpl : CUnaryUpdateNodeImpl, CHitReact
   public CHitReactUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OpFixedSettingsOffset = new(() => Schema.GetOffset(0x64E4D4A7E533AB09), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedSettingsOffset = Schema.GetOffset(0x64E4D4A7E533AB09);
 
   public HitReactFixedSettings_t OpFixedSettings {
-    get => new HitReactFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset.Value);
+    get => new HitReactFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset);
   }
-  private static readonly Lazy<nint> _TriggerParamOffset = new(() => Schema.GetOffset(0x64E4D4A7AA3B4860), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerParamOffset = Schema.GetOffset(0x64E4D4A7AA3B4860);
 
   public CAnimParamHandle TriggerParam {
-    get => new CAnimParamHandleImpl(_Handle + _TriggerParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TriggerParamOffset);
   }
-  private static readonly Lazy<nint> _HitBoneParamOffset = new(() => Schema.GetOffset(0x64E4D4A70CD5764D), LazyThreadSafetyMode.None);
+  private static readonly nint _HitBoneParamOffset = Schema.GetOffset(0x64E4D4A70CD5764D);
 
   public CAnimParamHandle HitBoneParam {
-    get => new CAnimParamHandleImpl(_Handle + _HitBoneParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _HitBoneParamOffset);
   }
-  private static readonly Lazy<nint> _HitOffsetParamOffset = new(() => Schema.GetOffset(0x64E4D4A7F1CA4A4A), LazyThreadSafetyMode.None);
+  private static readonly nint _HitOffsetParamOffset = Schema.GetOffset(0x64E4D4A7F1CA4A4A);
 
   public CAnimParamHandle HitOffsetParam {
-    get => new CAnimParamHandleImpl(_Handle + _HitOffsetParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _HitOffsetParamOffset);
   }
-  private static readonly Lazy<nint> _HitDirectionParamOffset = new(() => Schema.GetOffset(0x64E4D4A76F980EDC), LazyThreadSafetyMode.None);
+  private static readonly nint _HitDirectionParamOffset = Schema.GetOffset(0x64E4D4A76F980EDC);
 
   public CAnimParamHandle HitDirectionParam {
-    get => new CAnimParamHandleImpl(_Handle + _HitDirectionParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _HitDirectionParamOffset);
   }
-  private static readonly Lazy<nint> _HitStrengthParamOffset = new(() => Schema.GetOffset(0x64E4D4A7BD447408), LazyThreadSafetyMode.None);
+  private static readonly nint _HitStrengthParamOffset = Schema.GetOffset(0x64E4D4A7BD447408);
 
   public CAnimParamHandle HitStrengthParam {
-    get => new CAnimParamHandleImpl(_Handle + _HitStrengthParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _HitStrengthParamOffset);
   }
-  private static readonly Lazy<nint> _MinDelayBetweenHitsOffset = new(() => Schema.GetOffset(0x64E4D4A762EED38E), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDelayBetweenHitsOffset = Schema.GetOffset(0x64E4D4A762EED38E);
 
   public ref float MinDelayBetweenHits {
-    get => ref _Handle.AsRef<float>(_MinDelayBetweenHitsOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinDelayBetweenHitsOffset);
   }
-  private static readonly Lazy<nint> _ResetChildOffset = new(() => Schema.GetOffset(0x64E4D4A765CC88B6), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetChildOffset = Schema.GetOffset(0x64E4D4A765CC88B6);
 
   public ref bool ResetChild {
-    get => ref _Handle.AsRef<bool>(_ResetChildOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetChildOffset);
   }
 
 

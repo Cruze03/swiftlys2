@@ -17,45 +17,45 @@ internal partial class SkeletonAnimCapture_t__FrameStamp_tImpl : SchemaClass, Sk
   public SkeletonAnimCapture_t__FrameStamp_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimeOffset = new(() => Schema.GetOffset(0x4ECAEB4FC957229E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffset = Schema.GetOffset(0x4ECAEB4FC957229E);
 
   public ref float Time {
-    get => ref _Handle.AsRef<float>(_TimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffset);
   }
-  private static readonly Lazy<nint> _EntitySimTimeOffset = new(() => Schema.GetOffset(0x4ECAEB4FAE2BAB2E), LazyThreadSafetyMode.None);
+  private static readonly nint _EntitySimTimeOffset = Schema.GetOffset(0x4ECAEB4FAE2BAB2E);
 
   public ref float EntitySimTime {
-    get => ref _Handle.AsRef<float>(_EntitySimTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EntitySimTimeOffset);
   }
-  private static readonly Lazy<nint> _TeleportTickOffset = new(() => Schema.GetOffset(0x4ECAEB4F7068242B), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportTickOffset = Schema.GetOffset(0x4ECAEB4F7068242B);
 
   public ref bool TeleportTick {
-    get => ref _Handle.AsRef<bool>(_TeleportTickOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TeleportTickOffset);
   }
-  private static readonly Lazy<nint> _PredictedOffset = new(() => Schema.GetOffset(0x4ECAEB4F419B6D9B), LazyThreadSafetyMode.None);
+  private static readonly nint _PredictedOffset = Schema.GetOffset(0x4ECAEB4F419B6D9B);
 
   public ref bool Predicted {
-    get => ref _Handle.AsRef<bool>(_PredictedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PredictedOffset);
   }
-  private static readonly Lazy<nint> _CurTimeOffset = new(() => Schema.GetOffset(0x4ECAEB4F08036F9A), LazyThreadSafetyMode.None);
+  private static readonly nint _CurTimeOffset = Schema.GetOffset(0x4ECAEB4F08036F9A);
 
   public ref float CurTime {
-    get => ref _Handle.AsRef<float>(_CurTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurTimeOffset);
   }
-  private static readonly Lazy<nint> _RealTimeOffset = new(() => Schema.GetOffset(0x4ECAEB4F1168EC02), LazyThreadSafetyMode.None);
+  private static readonly nint _RealTimeOffset = Schema.GetOffset(0x4ECAEB4F1168EC02);
 
   public ref float RealTime {
-    get => ref _Handle.AsRef<float>(_RealTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RealTimeOffset);
   }
-  private static readonly Lazy<nint> _FrameCountOffset = new(() => Schema.GetOffset(0x4ECAEB4F1DBCD049), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameCountOffset = Schema.GetOffset(0x4ECAEB4F1DBCD049);
 
   public ref int FrameCount {
-    get => ref _Handle.AsRef<int>(_FrameCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_FrameCountOffset);
   }
-  private static readonly Lazy<nint> _TickCountOffset = new(() => Schema.GetOffset(0x4ECAEB4FE25E6B27), LazyThreadSafetyMode.None);
+  private static readonly nint _TickCountOffset = Schema.GetOffset(0x4ECAEB4FE25E6B27);
 
   public ref int TickCount {
-    get => ref _Handle.AsRef<int>(_TickCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_TickCountOffset);
   }
 
 

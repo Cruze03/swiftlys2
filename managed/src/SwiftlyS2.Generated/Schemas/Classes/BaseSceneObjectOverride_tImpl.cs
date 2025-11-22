@@ -17,10 +17,10 @@ internal partial class BaseSceneObjectOverride_tImpl : SchemaClass, BaseSceneObj
   public BaseSceneObjectOverride_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SceneObjectIndexOffset = new(() => Schema.GetOffset(0xDC119FF44026A3B8), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneObjectIndexOffset = Schema.GetOffset(0xDC119FF44026A3B8);
 
   public ref uint SceneObjectIndex {
-    get => ref _Handle.AsRef<uint>(_SceneObjectIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SceneObjectIndexOffset);
   }
 
 

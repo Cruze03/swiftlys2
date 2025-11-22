@@ -17,10 +17,10 @@ internal partial class CPulseCell_LimitCount__InstanceState_tImpl : SchemaClass,
   public CPulseCell_LimitCount__InstanceState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurrentCountOffset = new(() => Schema.GetOffset(0x8CD3F919BE40B2AD), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentCountOffset = Schema.GetOffset(0x8CD3F919BE40B2AD);
 
   public ref int CurrentCount {
-    get => ref _Handle.AsRef<int>(_CurrentCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentCountOffset);
   }
 
 

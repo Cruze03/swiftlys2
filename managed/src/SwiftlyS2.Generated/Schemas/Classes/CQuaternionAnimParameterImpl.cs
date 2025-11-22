@@ -17,15 +17,15 @@ internal partial class CQuaternionAnimParameterImpl : CConcreteAnimParameterImpl
   public CQuaternionAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0xFAFCCCCABBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0xFAFCCCCABBE0341F);
 
   public ref Quaternion DefaultValue {
-    get => ref _Handle.AsRef<Quaternion>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _InterpolateOffset = new(() => Schema.GetOffset(0xFAFCCCCAF6607650), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolateOffset = Schema.GetOffset(0xFAFCCCCAF6607650);
 
   public ref bool Interpolate {
-    get => ref _Handle.AsRef<bool>(_InterpolateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterpolateOffset);
   }
 
 

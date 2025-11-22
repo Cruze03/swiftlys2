@@ -17,15 +17,15 @@ internal partial class CNmTransitionEventImpl : CNmEventImpl, CNmTransitionEvent
   public CNmTransitionEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RuleOffset = new(() => Schema.GetOffset(0x11493D8CBA097173), LazyThreadSafetyMode.None);
+  private static readonly nint _RuleOffset = Schema.GetOffset(0x11493D8CBA097173);
 
   public ref NmTransitionRule_t Rule {
-    get => ref _Handle.AsRef<NmTransitionRule_t>(_RuleOffset.Value);
+    get => ref _Handle.AsRef<NmTransitionRule_t>(_RuleOffset);
   }
-  private static readonly Lazy<nint> _IDOffset = new(() => Schema.GetOffset(0x11493D8C95066900), LazyThreadSafetyMode.None);
+  private static readonly nint _IDOffset = Schema.GetOffset(0x11493D8C95066900);
 
   public ref CGlobalSymbol ID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset);
   }
 
 

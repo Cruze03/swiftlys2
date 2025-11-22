@@ -17,40 +17,40 @@ internal partial class C_OP_SnapshotSkinToBonesImpl : CParticleFunctionOperatorI
   public C_OP_SnapshotSkinToBonesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformNormalsOffset = new(() => Schema.GetOffset(0xCA48FCF83C6BFD75), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformNormalsOffset = Schema.GetOffset(0xCA48FCF83C6BFD75);
 
   public ref bool TransformNormals {
-    get => ref _Handle.AsRef<bool>(_TransformNormalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TransformNormalsOffset);
   }
-  private static readonly Lazy<nint> _TransformRadiiOffset = new(() => Schema.GetOffset(0xCA48FCF88183F664), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformRadiiOffset = Schema.GetOffset(0xCA48FCF88183F664);
 
   public ref bool TransformRadii {
-    get => ref _Handle.AsRef<bool>(_TransformRadiiOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TransformRadiiOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xCA48FCF83F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xCA48FCF83F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _LifeTimeFadeStartOffset = new(() => Schema.GetOffset(0xCA48FCF895A2845A), LazyThreadSafetyMode.None);
+  private static readonly nint _LifeTimeFadeStartOffset = Schema.GetOffset(0xCA48FCF895A2845A);
 
   public ref float LifeTimeFadeStart {
-    get => ref _Handle.AsRef<float>(_LifeTimeFadeStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_LifeTimeFadeStartOffset);
   }
-  private static readonly Lazy<nint> _LifeTimeFadeEndOffset = new(() => Schema.GetOffset(0xCA48FCF8222841EF), LazyThreadSafetyMode.None);
+  private static readonly nint _LifeTimeFadeEndOffset = Schema.GetOffset(0xCA48FCF8222841EF);
 
   public ref float LifeTimeFadeEnd {
-    get => ref _Handle.AsRef<float>(_LifeTimeFadeEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_LifeTimeFadeEndOffset);
   }
-  private static readonly Lazy<nint> _JumpThresholdOffset = new(() => Schema.GetOffset(0xCA48FCF8B6BB1AD6), LazyThreadSafetyMode.None);
+  private static readonly nint _JumpThresholdOffset = Schema.GetOffset(0xCA48FCF8B6BB1AD6);
 
   public ref float JumpThreshold {
-    get => ref _Handle.AsRef<float>(_JumpThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_JumpThresholdOffset);
   }
-  private static readonly Lazy<nint> _PrevPosScaleOffset = new(() => Schema.GetOffset(0xCA48FCF846CED122), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevPosScaleOffset = Schema.GetOffset(0xCA48FCF846CED122);
 
   public ref float PrevPosScale {
-    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset);
   }
 
 

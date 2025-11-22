@@ -17,127 +17,127 @@ internal partial class PermModelData_tImpl : SchemaClass, PermModelData_t {
   public PermModelData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x3E367D0B4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x3E367D0B4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _ModelInfoOffset = new(() => Schema.GetOffset(0x3E367D0B506D8FE2), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelInfoOffset = Schema.GetOffset(0x3E367D0B506D8FE2);
 
   public PermModelInfo_t ModelInfo {
-    get => new PermModelInfo_tImpl(_Handle + _ModelInfoOffset.Value);
+    get => new PermModelInfo_tImpl(_Handle + _ModelInfoOffset);
   }
-  private static readonly Lazy<nint> _ExtPartsOffset = new(() => Schema.GetOffset(0x3E367D0B8564C2A6), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtPartsOffset = Schema.GetOffset(0x3E367D0B8564C2A6);
 
   public ref CUtlVector<PermModelExtPart_t> ExtParts {
-    get => ref _Handle.AsRef<CUtlVector<PermModelExtPart_t>>(_ExtPartsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PermModelExtPart_t>>(_ExtPartsOffset);
   }
-  private static readonly Lazy<nint> _RefMeshesOffset = new(() => Schema.GetOffset(0x3E367D0B9FB3727B), LazyThreadSafetyMode.None);
+  private static readonly nint _RefMeshesOffset = Schema.GetOffset(0x3E367D0B9FB3727B);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCRenderMesh>> RefMeshes {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCRenderMesh>>>(_RefMeshesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCRenderMesh>>>(_RefMeshesOffset);
   }
-  private static readonly Lazy<nint> _RefMeshGroupMasksOffset = new(() => Schema.GetOffset(0x3E367D0BDC56A19B), LazyThreadSafetyMode.None);
+  private static readonly nint _RefMeshGroupMasksOffset = Schema.GetOffset(0x3E367D0BDC56A19B);
 
   public ref CUtlVector<ulong> RefMeshGroupMasks {
-    get => ref _Handle.AsRef<CUtlVector<ulong>>(_RefMeshGroupMasksOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ulong>>(_RefMeshGroupMasksOffset);
   }
-  private static readonly Lazy<nint> _RefPhysGroupMasksOffset = new(() => Schema.GetOffset(0x3E367D0B902CAAFA), LazyThreadSafetyMode.None);
+  private static readonly nint _RefPhysGroupMasksOffset = Schema.GetOffset(0x3E367D0B902CAAFA);
 
   public ref CUtlVector<ulong> RefPhysGroupMasks {
-    get => ref _Handle.AsRef<CUtlVector<ulong>>(_RefPhysGroupMasksOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ulong>>(_RefPhysGroupMasksOffset);
   }
-  private static readonly Lazy<nint> _RefLODGroupMasksOffset = new(() => Schema.GetOffset(0x3E367D0B0FCE2099), LazyThreadSafetyMode.None);
+  private static readonly nint _RefLODGroupMasksOffset = Schema.GetOffset(0x3E367D0B0FCE2099);
 
   public ref CUtlVector<byte> RefLODGroupMasks {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_RefLODGroupMasksOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_RefLODGroupMasksOffset);
   }
-  private static readonly Lazy<nint> _LodGroupSwitchDistancesOffset = new(() => Schema.GetOffset(0x3E367D0B52CCDE75), LazyThreadSafetyMode.None);
+  private static readonly nint _LodGroupSwitchDistancesOffset = Schema.GetOffset(0x3E367D0B52CCDE75);
 
   public ref CUtlVector<float> LodGroupSwitchDistances {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_LodGroupSwitchDistancesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_LodGroupSwitchDistancesOffset);
   }
-  private static readonly Lazy<nint> _RefPhysicsDataOffset = new(() => Schema.GetOffset(0x3E367D0BF18951CB), LazyThreadSafetyMode.None);
+  private static readonly nint _RefPhysicsDataOffset = Schema.GetOffset(0x3E367D0BF18951CB);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>> RefPhysicsData {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>>>(_RefPhysicsDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>>>(_RefPhysicsDataOffset);
   }
-  private static readonly Lazy<nint> _RefPhysicsHitboxDataOffset = new(() => Schema.GetOffset(0x3E367D0B26C451DD), LazyThreadSafetyMode.None);
+  private static readonly nint _RefPhysicsHitboxDataOffset = Schema.GetOffset(0x3E367D0B26C451DD);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>> RefPhysicsHitboxData {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>>>(_RefPhysicsHitboxDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCPhysAggregateData>>>(_RefPhysicsHitboxDataOffset);
   }
-  private static readonly Lazy<nint> _RefAnimGroupsOffset = new(() => Schema.GetOffset(0x3E367D0BDC24F793), LazyThreadSafetyMode.None);
+  private static readonly nint _RefAnimGroupsOffset = Schema.GetOffset(0x3E367D0BDC24F793);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>> RefAnimGroups {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>>>(_RefAnimGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>>>(_RefAnimGroupsOffset);
   }
-  private static readonly Lazy<nint> _RefSequenceGroupsOffset = new(() => Schema.GetOffset(0x3E367D0B823AD8A3), LazyThreadSafetyMode.None);
+  private static readonly nint _RefSequenceGroupsOffset = Schema.GetOffset(0x3E367D0B823AD8A3);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCSequenceGroupData>> RefSequenceGroups {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCSequenceGroupData>>>(_RefSequenceGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCSequenceGroupData>>>(_RefSequenceGroupsOffset);
   }
-  private static readonly Lazy<nint> _MeshGroupsOffset = new(() => Schema.GetOffset(0x3E367D0B3EF7CCF4), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshGroupsOffset = Schema.GetOffset(0x3E367D0B3EF7CCF4);
 
   public ref CUtlVector<CUtlString> MeshGroups {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_MeshGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_MeshGroupsOffset);
   }
-  private static readonly Lazy<nint> _MaterialGroupsOffset = new(() => Schema.GetOffset(0x3E367D0BDD36CD50), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialGroupsOffset = Schema.GetOffset(0x3E367D0BDD36CD50);
 
   public ref CUtlVector<MaterialGroup_t> MaterialGroups {
-    get => ref _Handle.AsRef<CUtlVector<MaterialGroup_t>>(_MaterialGroupsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MaterialGroup_t>>(_MaterialGroupsOffset);
   }
-  private static readonly Lazy<nint> _DefaultMeshGroupMaskOffset = new(() => Schema.GetOffset(0x3E367D0B7320202A), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultMeshGroupMaskOffset = Schema.GetOffset(0x3E367D0B7320202A);
 
   public ref ulong DefaultMeshGroupMask {
-    get => ref _Handle.AsRef<ulong>(_DefaultMeshGroupMaskOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_DefaultMeshGroupMaskOffset);
   }
-  private static readonly Lazy<nint> _ModelSkeletonOffset = new(() => Schema.GetOffset(0x3E367D0BAFF3E579), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelSkeletonOffset = Schema.GetOffset(0x3E367D0BAFF3E579);
 
   public ModelSkeletonData_t ModelSkeleton {
-    get => new ModelSkeletonData_tImpl(_Handle + _ModelSkeletonOffset.Value);
+    get => new ModelSkeletonData_tImpl(_Handle + _ModelSkeletonOffset);
   }
-  private static readonly Lazy<nint> _RemappingTableOffset = new(() => Schema.GetOffset(0x3E367D0B2AA12BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _RemappingTableOffset = Schema.GetOffset(0x3E367D0B2AA12BB2);
 
   public ref CUtlVector<short> RemappingTable {
-    get => ref _Handle.AsRef<CUtlVector<short>>(_RemappingTableOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<short>>(_RemappingTableOffset);
   }
-  private static readonly Lazy<nint> _RemappingTableStartsOffset = new(() => Schema.GetOffset(0x3E367D0BE4304DFB), LazyThreadSafetyMode.None);
+  private static readonly nint _RemappingTableStartsOffset = Schema.GetOffset(0x3E367D0BE4304DFB);
 
   public ref CUtlVector<ushort> RemappingTableStarts {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_RemappingTableStartsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_RemappingTableStartsOffset);
   }
-  private static readonly Lazy<nint> _BoneFlexDriversOffset = new(() => Schema.GetOffset(0x3E367D0B3670337F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneFlexDriversOffset = Schema.GetOffset(0x3E367D0B3670337F);
 
   public ref CUtlVector<ModelBoneFlexDriver_t> BoneFlexDrivers {
-    get => ref _Handle.AsRef<CUtlVector<ModelBoneFlexDriver_t>>(_BoneFlexDriversOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ModelBoneFlexDriver_t>>(_BoneFlexDriversOffset);
   }
-  private static readonly Lazy<nint> _ModelConfigListOffset = new(() => Schema.GetOffset(0x3E367D0B99085156), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelConfigListOffset = Schema.GetOffset(0x3E367D0B99085156);
 
   public CModelConfigList? ModelConfigList {
     get {
-      var ptr = _Handle.Read<nint>(_ModelConfigListOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelConfigListOffset);
       return ptr.IsValidPtr() ? new CModelConfigListImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _BodyGroupsHiddenInToolsOffset = new(() => Schema.GetOffset(0x3E367D0BE312FA8D), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupsHiddenInToolsOffset = Schema.GetOffset(0x3E367D0BE312FA8D);
 
   public ref CUtlVector<CUtlString> BodyGroupsHiddenInTools {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BodyGroupsHiddenInToolsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BodyGroupsHiddenInToolsOffset);
   }
-  private static readonly Lazy<nint> _RefAnimIncludeModelsOffset = new(() => Schema.GetOffset(0x3E367D0BD99121D7), LazyThreadSafetyMode.None);
+  private static readonly nint _RefAnimIncludeModelsOffset = Schema.GetOffset(0x3E367D0BD99121D7);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCModel>> RefAnimIncludeModels {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCModel>>>(_RefAnimIncludeModelsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCModel>>>(_RefAnimIncludeModelsOffset);
   }
-  private static readonly Lazy<nint> _AnimatedMaterialAttributesOffset = new(() => Schema.GetOffset(0x3E367D0BC29D5124), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimatedMaterialAttributesOffset = Schema.GetOffset(0x3E367D0BC29D5124);
 
   public ref CUtlVector<PermModelDataAnimatedMaterialAttribute_t> AnimatedMaterialAttributes {
-    get => ref _Handle.AsRef<CUtlVector<PermModelDataAnimatedMaterialAttribute_t>>(_AnimatedMaterialAttributesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PermModelDataAnimatedMaterialAttribute_t>>(_AnimatedMaterialAttributesOffset);
   }
 
 

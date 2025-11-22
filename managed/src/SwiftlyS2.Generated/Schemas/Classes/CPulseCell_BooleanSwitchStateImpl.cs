@@ -17,25 +17,25 @@ internal partial class CPulseCell_BooleanSwitchStateImpl : CPulseCell_BaseStateI
   public CPulseCell_BooleanSwitchStateImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConditionOffset = new(() => Schema.GetOffset(0xB0380EFD5F2A883E), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionOffset = Schema.GetOffset(0xB0380EFD5F2A883E);
 
   public PulseObservableBoolExpression_t Condition {
-    get => new PulseObservableBoolExpression_tImpl(_Handle + _ConditionOffset.Value);
+    get => new PulseObservableBoolExpression_tImpl(_Handle + _ConditionOffset);
   }
-  private static readonly Lazy<nint> _SubGraphOffset = new(() => Schema.GetOffset(0xB0380EFD979BD817), LazyThreadSafetyMode.None);
+  private static readonly nint _SubGraphOffset = Schema.GetOffset(0xB0380EFD979BD817);
 
   public CPulse_OutflowConnection SubGraph {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _SubGraphOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _SubGraphOffset);
   }
-  private static readonly Lazy<nint> _WhenTrueOffset = new(() => Schema.GetOffset(0xB0380EFDB329ED61), LazyThreadSafetyMode.None);
+  private static readonly nint _WhenTrueOffset = Schema.GetOffset(0xB0380EFDB329ED61);
 
   public CPulse_OutflowConnection WhenTrue {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _WhenTrueOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _WhenTrueOffset);
   }
-  private static readonly Lazy<nint> _WhenFalseOffset = new(() => Schema.GetOffset(0xB0380EFD4DD1A01C), LazyThreadSafetyMode.None);
+  private static readonly nint _WhenFalseOffset = Schema.GetOffset(0xB0380EFD4DD1A01C);
 
   public CPulse_OutflowConnection WhenFalse {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _WhenFalseOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _WhenFalseOffset);
   }
 
 

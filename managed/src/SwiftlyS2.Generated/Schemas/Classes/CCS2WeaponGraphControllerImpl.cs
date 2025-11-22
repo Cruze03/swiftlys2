@@ -17,105 +17,105 @@ internal partial class CCS2WeaponGraphControllerImpl : CAnimGraphControllerBaseI
   public CCS2WeaponGraphControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActionOffset = new(() => Schema.GetOffset(0x8553337E7918619F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionOffset = Schema.GetOffset(0x8553337E7918619F);
 
   public SchemaUntypedField Action {
-    get => new SchemaUntypedField(_Handle + _ActionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionOffset);
   }
-  private static readonly Lazy<nint> _ActionResetOffset = new(() => Schema.GetOffset(0x8553337E580F422E), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionResetOffset = Schema.GetOffset(0x8553337E580F422E);
 
   public SchemaUntypedField ActionReset {
-    get => new SchemaUntypedField(_Handle + _ActionResetOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionResetOffset);
   }
-  private static readonly Lazy<nint> _WeaponActionSpeedScaleOffset = new(() => Schema.GetOffset(0x8553337EC667EC52), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponActionSpeedScaleOffset = Schema.GetOffset(0x8553337EC667EC52);
 
   public SchemaUntypedField WeaponActionSpeedScale {
-    get => new SchemaUntypedField(_Handle + _WeaponActionSpeedScaleOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponActionSpeedScaleOffset);
   }
-  private static readonly Lazy<nint> _WeaponCategoryOffset = new(() => Schema.GetOffset(0x8553337EE2B7A95D), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponCategoryOffset = Schema.GetOffset(0x8553337EE2B7A95D);
 
   public SchemaUntypedField WeaponCategory {
-    get => new SchemaUntypedField(_Handle + _WeaponCategoryOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponCategoryOffset);
   }
-  private static readonly Lazy<nint> _WeaponTypeOffset = new(() => Schema.GetOffset(0x8553337E0C0E3309), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponTypeOffset = Schema.GetOffset(0x8553337E0C0E3309);
 
   public SchemaUntypedField WeaponType {
-    get => new SchemaUntypedField(_Handle + _WeaponTypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponTypeOffset);
   }
-  private static readonly Lazy<nint> _WeaponExtraInfoOffset = new(() => Schema.GetOffset(0x8553337EF4004D3D), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponExtraInfoOffset = Schema.GetOffset(0x8553337EF4004D3D);
 
   public SchemaUntypedField WeaponExtraInfo {
-    get => new SchemaUntypedField(_Handle + _WeaponExtraInfoOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponExtraInfoOffset);
   }
-  private static readonly Lazy<nint> _WeaponAmmoOffset = new(() => Schema.GetOffset(0x8553337ED1A06C75), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponAmmoOffset = Schema.GetOffset(0x8553337ED1A06C75);
 
   public SchemaUntypedField WeaponAmmo {
-    get => new SchemaUntypedField(_Handle + _WeaponAmmoOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponAmmoOffset);
   }
-  private static readonly Lazy<nint> _WeaponAmmoMaxOffset = new(() => Schema.GetOffset(0x8553337EEE4C1969), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponAmmoMaxOffset = Schema.GetOffset(0x8553337EEE4C1969);
 
   public SchemaUntypedField WeaponAmmoMax {
-    get => new SchemaUntypedField(_Handle + _WeaponAmmoMaxOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponAmmoMaxOffset);
   }
-  private static readonly Lazy<nint> _WeaponAmmoReserveOffset = new(() => Schema.GetOffset(0x8553337E000AC7BB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponAmmoReserveOffset = Schema.GetOffset(0x8553337E000AC7BB);
 
   public SchemaUntypedField WeaponAmmoReserve {
-    get => new SchemaUntypedField(_Handle + _WeaponAmmoReserveOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponAmmoReserveOffset);
   }
-  private static readonly Lazy<nint> _WeaponIsSilencedOffset = new(() => Schema.GetOffset(0x8553337EBF4E259C), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponIsSilencedOffset = Schema.GetOffset(0x8553337EBF4E259C);
 
   public SchemaUntypedField WeaponIsSilenced {
-    get => new SchemaUntypedField(_Handle + _WeaponIsSilencedOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponIsSilencedOffset);
   }
-  private static readonly Lazy<nint> _WeaponIronsightAmountOffset = new(() => Schema.GetOffset(0x8553337E4239F6F6), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponIronsightAmountOffset = Schema.GetOffset(0x8553337E4239F6F6);
 
   public SchemaUntypedField WeaponIronsightAmount {
-    get => new SchemaUntypedField(_Handle + _WeaponIronsightAmountOffset.Value);
+    get => new SchemaUntypedField(_Handle + _WeaponIronsightAmountOffset);
   }
-  private static readonly Lazy<nint> _IsUsingLegacyModelOffset = new(() => Schema.GetOffset(0x8553337EBA564E5D), LazyThreadSafetyMode.None);
+  private static readonly nint _IsUsingLegacyModelOffset = Schema.GetOffset(0x8553337EBA564E5D);
 
   public SchemaUntypedField IsUsingLegacyModel {
-    get => new SchemaUntypedField(_Handle + _IsUsingLegacyModelOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IsUsingLegacyModelOffset);
   }
-  private static readonly Lazy<nint> _IdleVariationOffset = new(() => Schema.GetOffset(0x8553337ECF0EF118), LazyThreadSafetyMode.None);
+  private static readonly nint _IdleVariationOffset = Schema.GetOffset(0x8553337ECF0EF118);
 
   public SchemaUntypedField IdleVariation {
-    get => new SchemaUntypedField(_Handle + _IdleVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IdleVariationOffset);
   }
-  private static readonly Lazy<nint> _DeployVariationOffset = new(() => Schema.GetOffset(0x8553337E95BD68D7), LazyThreadSafetyMode.None);
+  private static readonly nint _DeployVariationOffset = Schema.GetOffset(0x8553337E95BD68D7);
 
   public SchemaUntypedField DeployVariation {
-    get => new SchemaUntypedField(_Handle + _DeployVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _DeployVariationOffset);
   }
-  private static readonly Lazy<nint> _AttackTypeOffset = new(() => Schema.GetOffset(0x8553337E0CCFAC15), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTypeOffset = Schema.GetOffset(0x8553337E0CCFAC15);
 
   public SchemaUntypedField AttackType {
-    get => new SchemaUntypedField(_Handle + _AttackTypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AttackTypeOffset);
   }
-  private static readonly Lazy<nint> _AttackThrowStrengthOffset = new(() => Schema.GetOffset(0x8553337EB4387222), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackThrowStrengthOffset = Schema.GetOffset(0x8553337EB4387222);
 
   public SchemaUntypedField AttackThrowStrength {
-    get => new SchemaUntypedField(_Handle + _AttackThrowStrengthOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AttackThrowStrengthOffset);
   }
-  private static readonly Lazy<nint> _AttackVariationOffset = new(() => Schema.GetOffset(0x8553337E70A63014), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackVariationOffset = Schema.GetOffset(0x8553337E70A63014);
 
   public SchemaUntypedField AttackVariation {
-    get => new SchemaUntypedField(_Handle + _AttackVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AttackVariationOffset);
   }
-  private static readonly Lazy<nint> _InspectVariationOffset = new(() => Schema.GetOffset(0x8553337EBDFCECA4), LazyThreadSafetyMode.None);
+  private static readonly nint _InspectVariationOffset = Schema.GetOffset(0x8553337EBDFCECA4);
 
   public SchemaUntypedField InspectVariation {
-    get => new SchemaUntypedField(_Handle + _InspectVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InspectVariationOffset);
   }
-  private static readonly Lazy<nint> _InspectExtraInfoOffset = new(() => Schema.GetOffset(0x8553337EF50D283F), LazyThreadSafetyMode.None);
+  private static readonly nint _InspectExtraInfoOffset = Schema.GetOffset(0x8553337EF50D283F);
 
   public SchemaUntypedField InspectExtraInfo {
-    get => new SchemaUntypedField(_Handle + _InspectExtraInfoOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InspectExtraInfoOffset);
   }
-  private static readonly Lazy<nint> _ReloadStageOffset = new(() => Schema.GetOffset(0x8553337E7F8E072A), LazyThreadSafetyMode.None);
+  private static readonly nint _ReloadStageOffset = Schema.GetOffset(0x8553337E7F8E072A);
 
   public SchemaUntypedField ReloadStage {
-    get => new SchemaUntypedField(_Handle + _ReloadStageOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ReloadStageOffset);
   }
 
 

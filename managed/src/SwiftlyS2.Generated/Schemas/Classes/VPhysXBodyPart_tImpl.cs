@@ -17,65 +17,65 @@ internal partial class VPhysXBodyPart_tImpl : SchemaClass, VPhysXBodyPart_t {
   public VPhysXBodyPart_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x53DE59CDCE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x53DE59CDCE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _MassOffset = new(() => Schema.GetOffset(0x53DE59CDCD83D263), LazyThreadSafetyMode.None);
+  private static readonly nint _MassOffset = Schema.GetOffset(0x53DE59CDCD83D263);
 
   public ref float Mass {
-    get => ref _Handle.AsRef<float>(_MassOffset.Value);
+    get => ref _Handle.AsRef<float>(_MassOffset);
   }
-  private static readonly Lazy<nint> _RnShapeOffset = new(() => Schema.GetOffset(0x53DE59CDD69E7012), LazyThreadSafetyMode.None);
+  private static readonly nint _RnShapeOffset = Schema.GetOffset(0x53DE59CDD69E7012);
 
   public VPhysics2ShapeDef_t RnShape {
-    get => new VPhysics2ShapeDef_tImpl(_Handle + _RnShapeOffset.Value);
+    get => new VPhysics2ShapeDef_tImpl(_Handle + _RnShapeOffset);
   }
-  private static readonly Lazy<nint> _CollisionAttributeIndexOffset = new(() => Schema.GetOffset(0x53DE59CDC7B64DF7), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionAttributeIndexOffset = Schema.GetOffset(0x53DE59CDC7B64DF7);
 
   public ref ushort CollisionAttributeIndex {
-    get => ref _Handle.AsRef<ushort>(_CollisionAttributeIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionAttributeIndexOffset);
   }
-  private static readonly Lazy<nint> _ReservedOffset = new(() => Schema.GetOffset(0x53DE59CD94BD4B01), LazyThreadSafetyMode.None);
+  private static readonly nint _ReservedOffset = Schema.GetOffset(0x53DE59CD94BD4B01);
 
   public ref ushort Reserved {
-    get => ref _Handle.AsRef<ushort>(_ReservedOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ReservedOffset);
   }
-  private static readonly Lazy<nint> _InertiaScaleOffset = new(() => Schema.GetOffset(0x53DE59CD4E6CAB2F), LazyThreadSafetyMode.None);
+  private static readonly nint _InertiaScaleOffset = Schema.GetOffset(0x53DE59CD4E6CAB2F);
 
   public ref float InertiaScale {
-    get => ref _Handle.AsRef<float>(_InertiaScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_InertiaScaleOffset);
   }
-  private static readonly Lazy<nint> _LinearDampingOffset = new(() => Schema.GetOffset(0x53DE59CD4E6B7F64), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearDampingOffset = Schema.GetOffset(0x53DE59CD4E6B7F64);
 
   public ref float LinearDamping {
-    get => ref _Handle.AsRef<float>(_LinearDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearDampingOffset);
   }
-  private static readonly Lazy<nint> _AngularDampingOffset = new(() => Schema.GetOffset(0x53DE59CD0E32E897), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularDampingOffset = Schema.GetOffset(0x53DE59CD0E32E897);
 
   public ref float AngularDamping {
-    get => ref _Handle.AsRef<float>(_AngularDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularDampingOffset);
   }
-  private static readonly Lazy<nint> _LinearDragOffset = new(() => Schema.GetOffset(0x53DE59CDB3D686BC), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearDragOffset = Schema.GetOffset(0x53DE59CDB3D686BC);
 
   public ref float LinearDrag {
-    get => ref _Handle.AsRef<float>(_LinearDragOffset.Value);
+    get => ref _Handle.AsRef<float>(_LinearDragOffset);
   }
-  private static readonly Lazy<nint> _AngularDragOffset = new(() => Schema.GetOffset(0x53DE59CDDCE9A7D1), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularDragOffset = Schema.GetOffset(0x53DE59CDDCE9A7D1);
 
   public ref float AngularDrag {
-    get => ref _Handle.AsRef<float>(_AngularDragOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngularDragOffset);
   }
-  private static readonly Lazy<nint> _OverrideMassCenterOffset = new(() => Schema.GetOffset(0x53DE59CD19E47DF8), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideMassCenterOffset = Schema.GetOffset(0x53DE59CD19E47DF8);
 
   public ref bool OverrideMassCenter {
-    get => ref _Handle.AsRef<bool>(_OverrideMassCenterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OverrideMassCenterOffset);
   }
-  private static readonly Lazy<nint> _MassCenterOverrideOffset = new(() => Schema.GetOffset(0x53DE59CD7249FAE4), LazyThreadSafetyMode.None);
+  private static readonly nint _MassCenterOverrideOffset = Schema.GetOffset(0x53DE59CD7249FAE4);
 
   public ref Vector MassCenterOverride {
-    get => ref _Handle.AsRef<Vector>(_MassCenterOverrideOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MassCenterOverrideOffset);
   }
 
 

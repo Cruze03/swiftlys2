@@ -17,34 +17,34 @@ internal partial class CPulseCell_Outflow_ListenForEntityOutputImpl : CPulseCell
   public CPulseCell_Outflow_ListenForEntityOutputImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnFiredOffset = new(() => Schema.GetOffset(0xCB35163784825730), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFiredOffset = Schema.GetOffset(0xCB35163784825730);
 
   public SignatureOutflow_Resume OnFired {
-    get => new SignatureOutflow_ResumeImpl(_Handle + _OnFiredOffset.Value);
+    get => new SignatureOutflow_ResumeImpl(_Handle + _OnFiredOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0xCB351637F02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0xCB351637F02162DB);
 
   public CPulse_ResumePoint OnCanceled {
-    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset);
   }
-  private static readonly Lazy<nint> _StrEntityOutputOffset = new(() => Schema.GetOffset(0xCB351637C8E70456), LazyThreadSafetyMode.None);
+  private static readonly nint _StrEntityOutputOffset = Schema.GetOffset(0xCB351637C8E70456);
 
   public ref CGlobalSymbol StrEntityOutput {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_StrEntityOutputOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_StrEntityOutputOffset);
   }
-  private static readonly Lazy<nint> _StrEntityOutputParamOffset = new(() => Schema.GetOffset(0xCB351637BB356637), LazyThreadSafetyMode.None);
+  private static readonly nint _StrEntityOutputParamOffset = Schema.GetOffset(0xCB351637BB356637);
 
   public string StrEntityOutputParam {
     get {
-      var ptr = _Handle.Read<nint>(_StrEntityOutputParamOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrEntityOutputParamOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrEntityOutputParamOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrEntityOutputParamOffset, value);
   } 
-  private static readonly Lazy<nint> _ListenUntilCanceledOffset = new(() => Schema.GetOffset(0xCB351637C798285D), LazyThreadSafetyMode.None);
+  private static readonly nint _ListenUntilCanceledOffset = Schema.GetOffset(0xCB351637C798285D);
 
   public ref bool ListenUntilCanceled {
-    get => ref _Handle.AsRef<bool>(_ListenUntilCanceledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ListenUntilCanceledOffset);
   }
 
 

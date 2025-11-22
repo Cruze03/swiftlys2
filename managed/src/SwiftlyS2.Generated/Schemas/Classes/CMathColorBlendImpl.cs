@@ -17,30 +17,30 @@ internal partial class CMathColorBlendImpl : CLogicalEntityImpl, CMathColorBlend
   public CMathColorBlendImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InMinOffset = new(() => Schema.GetOffset(0xCC5E3EF67506C6C8), LazyThreadSafetyMode.None);
+  private static readonly nint _InMinOffset = Schema.GetOffset(0xCC5E3EF67506C6C8);
 
   public ref float InMin {
-    get => ref _Handle.AsRef<float>(_InMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_InMinOffset);
   }
-  private static readonly Lazy<nint> _InMaxOffset = new(() => Schema.GetOffset(0xCC5E3EF66B1BD1C2), LazyThreadSafetyMode.None);
+  private static readonly nint _InMaxOffset = Schema.GetOffset(0xCC5E3EF66B1BD1C2);
 
   public ref float InMax {
-    get => ref _Handle.AsRef<float>(_InMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_InMaxOffset);
   }
-  private static readonly Lazy<nint> _OutColor1Offset = new(() => Schema.GetOffset(0xCC5E3EF639D7D5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _OutColor1Offset = Schema.GetOffset(0xCC5E3EF639D7D5AD);
 
   public ref Color OutColor1 {
-    get => ref _Handle.AsRef<Color>(_OutColor1Offset.Value);
+    get => ref _Handle.AsRef<Color>(_OutColor1Offset);
   }
-  private static readonly Lazy<nint> _OutColor2Offset = new(() => Schema.GetOffset(0xCC5E3EF636D7D0F4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutColor2Offset = Schema.GetOffset(0xCC5E3EF636D7D0F4);
 
   public ref Color OutColor2 {
-    get => ref _Handle.AsRef<Color>(_OutColor2Offset.Value);
+    get => ref _Handle.AsRef<Color>(_OutColor2Offset);
   }
-  private static readonly Lazy<nint> _OutValueOffset = new(() => Schema.GetOffset(0xCC5E3EF6B5358CB4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutValueOffset = Schema.GetOffset(0xCC5E3EF6B5358CB4);
 
   public SchemaUntypedField OutValue {
-    get => new SchemaUntypedField(_Handle + _OutValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OutValueOffset);
   }
 
 

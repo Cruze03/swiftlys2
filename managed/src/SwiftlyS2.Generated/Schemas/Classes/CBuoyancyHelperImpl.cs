@@ -17,55 +17,55 @@ internal partial class CBuoyancyHelperImpl : SchemaClass, CBuoyancyHelper {
   public CBuoyancyHelperImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FluidTypeOffset = new(() => Schema.GetOffset(0x7A9E77003D45CF5F), LazyThreadSafetyMode.None);
+  private static readonly nint _FluidTypeOffset = Schema.GetOffset(0x7A9E77003D45CF5F);
 
   public ref CUtlStringToken FluidType {
-    get => ref _Handle.AsRef<CUtlStringToken>(_FluidTypeOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_FluidTypeOffset);
   }
-  private static readonly Lazy<nint> _FluidDensityOffset = new(() => Schema.GetOffset(0x7A9E7700DABBC5A3), LazyThreadSafetyMode.None);
+  private static readonly nint _FluidDensityOffset = Schema.GetOffset(0x7A9E7700DABBC5A3);
 
   public ref float FluidDensity {
-    get => ref _Handle.AsRef<float>(_FluidDensityOffset.Value);
+    get => ref _Handle.AsRef<float>(_FluidDensityOffset);
   }
-  private static readonly Lazy<nint> _NeutrallyBuoyantGravityOffset = new(() => Schema.GetOffset(0x7A9E77007EFB6975), LazyThreadSafetyMode.None);
+  private static readonly nint _NeutrallyBuoyantGravityOffset = Schema.GetOffset(0x7A9E77007EFB6975);
 
   public ref float NeutrallyBuoyantGravity {
-    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantGravityOffset.Value);
+    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantGravityOffset);
   }
-  private static readonly Lazy<nint> _NeutrallyBuoyantLinearDampingOffset = new(() => Schema.GetOffset(0x7A9E7700F2B7E456), LazyThreadSafetyMode.None);
+  private static readonly nint _NeutrallyBuoyantLinearDampingOffset = Schema.GetOffset(0x7A9E7700F2B7E456);
 
   public ref float NeutrallyBuoyantLinearDamping {
-    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantLinearDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantLinearDampingOffset);
   }
-  private static readonly Lazy<nint> _NeutrallyBuoyantAngularDampingOffset = new(() => Schema.GetOffset(0x7A9E770013DF82F1), LazyThreadSafetyMode.None);
+  private static readonly nint _NeutrallyBuoyantAngularDampingOffset = Schema.GetOffset(0x7A9E770013DF82F1);
 
   public ref float NeutrallyBuoyantAngularDamping {
-    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantAngularDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_NeutrallyBuoyantAngularDampingOffset);
   }
-  private static readonly Lazy<nint> _NeutrallyBuoyantOffset = new(() => Schema.GetOffset(0x7A9E7700D0DF6ADF), LazyThreadSafetyMode.None);
+  private static readonly nint _NeutrallyBuoyantOffset = Schema.GetOffset(0x7A9E7700D0DF6ADF);
 
   public ref bool NeutrallyBuoyant {
-    get => ref _Handle.AsRef<bool>(_NeutrallyBuoyantOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NeutrallyBuoyantOffset);
   }
-  private static readonly Lazy<nint> _FractionOfWheelSubmergedForWheelFrictionOffset = new(() => Schema.GetOffset(0x7A9E77009D5C3295), LazyThreadSafetyMode.None);
+  private static readonly nint _FractionOfWheelSubmergedForWheelFrictionOffset = Schema.GetOffset(0x7A9E77009D5C3295);
 
   public ref CUtlVector<float> FractionOfWheelSubmergedForWheelFriction {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_FractionOfWheelSubmergedForWheelFrictionOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_FractionOfWheelSubmergedForWheelFrictionOffset);
   }
-  private static readonly Lazy<nint> _WheelFrictionScalesOffset = new(() => Schema.GetOffset(0x7A9E77005D5150ED), LazyThreadSafetyMode.None);
+  private static readonly nint _WheelFrictionScalesOffset = Schema.GetOffset(0x7A9E77005D5150ED);
 
   public ref CUtlVector<float> WheelFrictionScales {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WheelFrictionScalesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WheelFrictionScalesOffset);
   }
-  private static readonly Lazy<nint> _FractionOfWheelSubmergedForWheelDragOffset = new(() => Schema.GetOffset(0x7A9E7700E1C2C831), LazyThreadSafetyMode.None);
+  private static readonly nint _FractionOfWheelSubmergedForWheelDragOffset = Schema.GetOffset(0x7A9E7700E1C2C831);
 
   public ref CUtlVector<float> FractionOfWheelSubmergedForWheelDrag {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_FractionOfWheelSubmergedForWheelDragOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_FractionOfWheelSubmergedForWheelDragOffset);
   }
-  private static readonly Lazy<nint> _WheelDragOffset = new(() => Schema.GetOffset(0x7A9E7700E95C5D6E), LazyThreadSafetyMode.None);
+  private static readonly nint _WheelDragOffset = Schema.GetOffset(0x7A9E7700E95C5D6E);
 
   public ref CUtlVector<float> WheelDrag {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_WheelDragOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_WheelDragOffset);
   }
 
 

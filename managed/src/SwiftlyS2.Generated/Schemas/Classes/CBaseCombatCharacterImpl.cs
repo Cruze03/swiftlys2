@@ -17,59 +17,59 @@ internal partial class CBaseCombatCharacterImpl : CBaseFlexImpl, CBaseCombatChar
   public CBaseCombatCharacterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceServerRagdollOffset = new(() => Schema.GetOffset(0xB47DE3DEC0D0B742), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceServerRagdollOffset = Schema.GetOffset(0xB47DE3DEC0D0B742);
 
   public ref bool ForceServerRagdoll {
-    get => ref _Handle.AsRef<bool>(_ForceServerRagdollOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceServerRagdollOffset);
   }
-  private static readonly Lazy<nint> _MyWearablesOffset = new(() => Schema.GetOffset(0xB47DE3DE000B8B43), LazyThreadSafetyMode.None);
+  private static readonly nint _MyWearablesOffset = Schema.GetOffset(0xB47DE3DE000B8B43);
 
   public ref CUtlVector<CHandle<CEconWearable>> MyWearables {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CEconWearable>>>(_MyWearablesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CEconWearable>>>(_MyWearablesOffset);
   }
-  private static readonly Lazy<nint> _ImpactEnergyScaleOffset = new(() => Schema.GetOffset(0xB47DE3DEC66BAC1B), LazyThreadSafetyMode.None);
+  private static readonly nint _ImpactEnergyScaleOffset = Schema.GetOffset(0xB47DE3DEC66BAC1B);
 
   public ref float ImpactEnergyScale {
-    get => ref _Handle.AsRef<float>(_ImpactEnergyScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ImpactEnergyScaleOffset);
   }
-  private static readonly Lazy<nint> _ApplyStressDamageOffset = new(() => Schema.GetOffset(0xB47DE3DEC16FF452), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyStressDamageOffset = Schema.GetOffset(0xB47DE3DEC16FF452);
 
   public ref bool ApplyStressDamage {
-    get => ref _Handle.AsRef<bool>(_ApplyStressDamageOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyStressDamageOffset);
   }
-  private static readonly Lazy<nint> _DeathEventsDispatchedOffset = new(() => Schema.GetOffset(0xB47DE3DE8F5C8C9F), LazyThreadSafetyMode.None);
+  private static readonly nint _DeathEventsDispatchedOffset = Schema.GetOffset(0xB47DE3DE8F5C8C9F);
 
   public ref bool DeathEventsDispatched {
-    get => ref _Handle.AsRef<bool>(_DeathEventsDispatchedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DeathEventsDispatchedOffset);
   }
-  private static readonly Lazy<nint> _VecRelationshipsOffset = new(() => Schema.GetOffset(0xB47DE3DE2B978F5E), LazyThreadSafetyMode.None);
+  private static readonly nint _VecRelationshipsOffset = Schema.GetOffset(0xB47DE3DE2B978F5E);
 
   public ref CUtlVector<RelationshipOverride_t> VecRelationships {
-    get => ref _Handle.Deref<CUtlVector<RelationshipOverride_t>>(_VecRelationshipsOffset.Value);
+    get => ref _Handle.Deref<CUtlVector<RelationshipOverride_t>>(_VecRelationshipsOffset);
   }
-  private static readonly Lazy<nint> _StrRelationshipsOffset = new(() => Schema.GetOffset(0xB47DE3DEF96E2AD7), LazyThreadSafetyMode.None);
+  private static readonly nint _StrRelationshipsOffset = Schema.GetOffset(0xB47DE3DEF96E2AD7);
 
   public string StrRelationships {
     get {
-      var ptr = _Handle.Read<nint>(_StrRelationshipsOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrRelationshipsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrRelationshipsOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrRelationshipsOffset, value);
   } 
-  private static readonly Lazy<nint> _HullOffset = new(() => Schema.GetOffset(0xB47DE3DE20B7E577), LazyThreadSafetyMode.None);
+  private static readonly nint _HullOffset = Schema.GetOffset(0xB47DE3DE20B7E577);
 
   public ref Hull_t Hull {
-    get => ref _Handle.AsRef<Hull_t>(_HullOffset.Value);
+    get => ref _Handle.AsRef<Hull_t>(_HullOffset);
   }
-  private static readonly Lazy<nint> _NavHullIdxOffset = new(() => Schema.GetOffset(0xB47DE3DE90C08DF0), LazyThreadSafetyMode.None);
+  private static readonly nint _NavHullIdxOffset = Schema.GetOffset(0xB47DE3DE90C08DF0);
 
   public ref uint NavHullIdx {
-    get => ref _Handle.AsRef<uint>(_NavHullIdxOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NavHullIdxOffset);
   }
-  private static readonly Lazy<nint> _MovementStatsOffset = new(() => Schema.GetOffset(0xB47DE3DE4CF2CCDB), LazyThreadSafetyMode.None);
+  private static readonly nint _MovementStatsOffset = Schema.GetOffset(0xB47DE3DE4CF2CCDB);
 
   public CMovementStatsProperty MovementStats {
-    get => new CMovementStatsPropertyImpl(_Handle + _MovementStatsOffset.Value);
+    get => new CMovementStatsPropertyImpl(_Handle + _MovementStatsOffset);
   }
 
   public void MyWearablesUpdated() {

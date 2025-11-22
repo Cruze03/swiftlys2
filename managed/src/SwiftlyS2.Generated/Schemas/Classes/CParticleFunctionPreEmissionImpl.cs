@@ -17,10 +17,10 @@ internal partial class CParticleFunctionPreEmissionImpl : CParticleFunctionOpera
   public CParticleFunctionPreEmissionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RunOnceOffset = new(() => Schema.GetOffset(0x60FF68618CD905F), LazyThreadSafetyMode.None);
+  private static readonly nint _RunOnceOffset = Schema.GetOffset(0x60FF68618CD905F);
 
   public ref bool RunOnce {
-    get => ref _Handle.AsRef<bool>(_RunOnceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RunOnceOffset);
   }
 
 

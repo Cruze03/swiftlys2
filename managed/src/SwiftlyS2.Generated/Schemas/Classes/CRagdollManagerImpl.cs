@@ -17,25 +17,25 @@ internal partial class CRagdollManagerImpl : CBaseEntityImpl, CRagdollManager {
   public CRagdollManagerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CurrentMaxRagdollCountOffset = new(() => Schema.GetOffset(0x3C67654C8544F4A7), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentMaxRagdollCountOffset = Schema.GetOffset(0x3C67654C8544F4A7);
 
   public ref byte CurrentMaxRagdollCount {
-    get => ref _Handle.AsRef<byte>(_CurrentMaxRagdollCountOffset.Value);
+    get => ref _Handle.AsRef<byte>(_CurrentMaxRagdollCountOffset);
   }
-  private static readonly Lazy<nint> _MaxRagdollCountOffset = new(() => Schema.GetOffset(0x3C67654CC3A8C254), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRagdollCountOffset = Schema.GetOffset(0x3C67654CC3A8C254);
 
   public ref int MaxRagdollCount {
-    get => ref _Handle.AsRef<int>(_MaxRagdollCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxRagdollCountOffset);
   }
-  private static readonly Lazy<nint> _SaveImportantOffset = new(() => Schema.GetOffset(0x3C67654CB7710746), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveImportantOffset = Schema.GetOffset(0x3C67654CB7710746);
 
   public ref bool SaveImportant {
-    get => ref _Handle.AsRef<bool>(_SaveImportantOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SaveImportantOffset);
   }
-  private static readonly Lazy<nint> _CanTakeDamageOffset = new(() => Schema.GetOffset(0x3C67654C64446233), LazyThreadSafetyMode.None);
+  private static readonly nint _CanTakeDamageOffset = Schema.GetOffset(0x3C67654C64446233);
 
   public ref bool CanTakeDamage {
-    get => ref _Handle.AsRef<bool>(_CanTakeDamageOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CanTakeDamageOffset);
   }
 
   public void CurrentMaxRagdollCountUpdated() {

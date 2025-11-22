@@ -17,24 +17,24 @@ internal partial class CTriggerSoundscapeImpl : CBaseTriggerImpl, CTriggerSounds
   public CTriggerSoundscapeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SoundscapeOffset = new(() => Schema.GetOffset(0xA8ED7219EF1F0180), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundscapeOffset = Schema.GetOffset(0xA8ED7219EF1F0180);
 
   public ref CHandle<CEnvSoundscapeTriggerable> Soundscape {
-    get => ref _Handle.AsRef<CHandle<CEnvSoundscapeTriggerable>>(_SoundscapeOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEnvSoundscapeTriggerable>>(_SoundscapeOffset);
   }
-  private static readonly Lazy<nint> _SoundscapeNameOffset = new(() => Schema.GetOffset(0xA8ED7219BDF7AA81), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundscapeNameOffset = Schema.GetOffset(0xA8ED7219BDF7AA81);
 
   public string SoundscapeName {
     get {
-      var ptr = _Handle.Read<nint>(_SoundscapeNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundscapeNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundscapeNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundscapeNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SpectatorsOffset = new(() => Schema.GetOffset(0xA8ED7219149EB35B), LazyThreadSafetyMode.None);
+  private static readonly nint _SpectatorsOffset = Schema.GetOffset(0xA8ED7219149EB35B);
 
   public ref CUtlVector<CHandle<CBasePlayerPawn>> Spectators {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBasePlayerPawn>>>(_SpectatorsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBasePlayerPawn>>>(_SpectatorsOffset);
   }
 
 

@@ -17,80 +17,80 @@ internal partial class CNavHullVDataImpl : SchemaClass, CNavHullVData {
   public CNavHullVDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AgentEnabledOffset = new(() => Schema.GetOffset(0x74449E2E9D43CFF3), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentEnabledOffset = Schema.GetOffset(0x74449E2E9D43CFF3);
 
   public ref bool AgentEnabled {
-    get => ref _Handle.AsRef<bool>(_AgentEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AgentEnabledOffset);
   }
-  private static readonly Lazy<nint> _AgentRadiusOffset = new(() => Schema.GetOffset(0x74449E2ED9F4ED84), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentRadiusOffset = Schema.GetOffset(0x74449E2ED9F4ED84);
 
   public ref float AgentRadius {
-    get => ref _Handle.AsRef<float>(_AgentRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentRadiusOffset);
   }
-  private static readonly Lazy<nint> _AgentHeightOffset = new(() => Schema.GetOffset(0x74449E2E5A46CC6D), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentHeightOffset = Schema.GetOffset(0x74449E2E5A46CC6D);
 
   public ref float AgentHeight {
-    get => ref _Handle.AsRef<float>(_AgentHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentHeightOffset);
   }
-  private static readonly Lazy<nint> _AgentShortHeightEnabledOffset = new(() => Schema.GetOffset(0x74449E2EB869D4B0), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentShortHeightEnabledOffset = Schema.GetOffset(0x74449E2EB869D4B0);
 
   public ref bool AgentShortHeightEnabled {
-    get => ref _Handle.AsRef<bool>(_AgentShortHeightEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AgentShortHeightEnabledOffset);
   }
-  private static readonly Lazy<nint> _AgentShortHeightOffset = new(() => Schema.GetOffset(0x74449E2E82909A4B), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentShortHeightOffset = Schema.GetOffset(0x74449E2E82909A4B);
 
   public ref float AgentShortHeight {
-    get => ref _Handle.AsRef<float>(_AgentShortHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentShortHeightOffset);
   }
-  private static readonly Lazy<nint> _AgentCrawlEnabledOffset = new(() => Schema.GetOffset(0x74449E2E042611D2), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentCrawlEnabledOffset = Schema.GetOffset(0x74449E2E042611D2);
 
   public ref bool AgentCrawlEnabled {
-    get => ref _Handle.AsRef<bool>(_AgentCrawlEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AgentCrawlEnabledOffset);
   }
-  private static readonly Lazy<nint> _AgentCrawlHeightOffset = new(() => Schema.GetOffset(0x74449E2E8068594E), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentCrawlHeightOffset = Schema.GetOffset(0x74449E2E8068594E);
 
   public ref float AgentCrawlHeight {
-    get => ref _Handle.AsRef<float>(_AgentCrawlHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentCrawlHeightOffset);
   }
-  private static readonly Lazy<nint> _AgentMaxClimbOffset = new(() => Schema.GetOffset(0x74449E2EDF3EC175), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentMaxClimbOffset = Schema.GetOffset(0x74449E2EDF3EC175);
 
   public ref float AgentMaxClimb {
-    get => ref _Handle.AsRef<float>(_AgentMaxClimbOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentMaxClimbOffset);
   }
-  private static readonly Lazy<nint> _AgentMaxSlopeOffset = new(() => Schema.GetOffset(0x74449E2EFAC02727), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentMaxSlopeOffset = Schema.GetOffset(0x74449E2EFAC02727);
 
   public ref int AgentMaxSlope {
-    get => ref _Handle.AsRef<int>(_AgentMaxSlopeOffset.Value);
+    get => ref _Handle.AsRef<int>(_AgentMaxSlopeOffset);
   }
-  private static readonly Lazy<nint> _AgentMaxJumpDownDistOffset = new(() => Schema.GetOffset(0x74449E2E1B440540), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentMaxJumpDownDistOffset = Schema.GetOffset(0x74449E2E1B440540);
 
   public ref float AgentMaxJumpDownDist {
-    get => ref _Handle.AsRef<float>(_AgentMaxJumpDownDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentMaxJumpDownDistOffset);
   }
-  private static readonly Lazy<nint> _AgentMaxJumpHorizDistBaseOffset = new(() => Schema.GetOffset(0x74449E2ED8C1AC5F), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentMaxJumpHorizDistBaseOffset = Schema.GetOffset(0x74449E2ED8C1AC5F);
 
   public ref float AgentMaxJumpHorizDistBase {
-    get => ref _Handle.AsRef<float>(_AgentMaxJumpHorizDistBaseOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentMaxJumpHorizDistBaseOffset);
   }
-  private static readonly Lazy<nint> _AgentMaxJumpUpDistOffset = new(() => Schema.GetOffset(0x74449E2E0CA237AD), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentMaxJumpUpDistOffset = Schema.GetOffset(0x74449E2E0CA237AD);
 
   public ref float AgentMaxJumpUpDist {
-    get => ref _Handle.AsRef<float>(_AgentMaxJumpUpDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_AgentMaxJumpUpDistOffset);
   }
-  private static readonly Lazy<nint> _AgentBorderErosionOffset = new(() => Schema.GetOffset(0x74449E2EC445012D), LazyThreadSafetyMode.None);
+  private static readonly nint _AgentBorderErosionOffset = Schema.GetOffset(0x74449E2EC445012D);
 
   public ref int AgentBorderErosion {
-    get => ref _Handle.AsRef<int>(_AgentBorderErosionOffset.Value);
+    get => ref _Handle.AsRef<int>(_AgentBorderErosionOffset);
   }
-  private static readonly Lazy<nint> _FlowMapGenerationEnabledOffset = new(() => Schema.GetOffset(0x74449E2E8E7494D0), LazyThreadSafetyMode.None);
+  private static readonly nint _FlowMapGenerationEnabledOffset = Schema.GetOffset(0x74449E2E8E7494D0);
 
   public ref bool FlowMapGenerationEnabled {
-    get => ref _Handle.AsRef<bool>(_FlowMapGenerationEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FlowMapGenerationEnabledOffset);
   }
-  private static readonly Lazy<nint> _FlowMapNodeMaxRadiusOffset = new(() => Schema.GetOffset(0x74449E2E19B2323B), LazyThreadSafetyMode.None);
+  private static readonly nint _FlowMapNodeMaxRadiusOffset = Schema.GetOffset(0x74449E2E19B2323B);
 
   public ref float FlowMapNodeMaxRadius {
-    get => ref _Handle.AsRef<float>(_FlowMapNodeMaxRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_FlowMapNodeMaxRadiusOffset);
   }
 
 

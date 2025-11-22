@@ -17,55 +17,55 @@ internal partial class C_INIT_PositionWarpImpl : CParticleFunctionInitializerImp
   public C_INIT_PositionWarpImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WarpMinOffset = new(() => Schema.GetOffset(0x15BDD34F1B8A7F09), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpMinOffset = Schema.GetOffset(0x15BDD34F1B8A7F09);
 
   public CParticleCollectionVecInput WarpMin {
-    get => new CParticleCollectionVecInputImpl(_Handle + _WarpMinOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _WarpMinOffset);
   }
-  private static readonly Lazy<nint> _WarpMaxOffset = new(() => Schema.GetOffset(0x15BDD34F0D76E147), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpMaxOffset = Schema.GetOffset(0x15BDD34F0D76E147);
 
   public CParticleCollectionVecInput WarpMax {
-    get => new CParticleCollectionVecInputImpl(_Handle + _WarpMaxOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _WarpMaxOffset);
   }
-  private static readonly Lazy<nint> _ScaleControlPointNumberOffset = new(() => Schema.GetOffset(0x15BDD34F9A649261), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleControlPointNumberOffset = Schema.GetOffset(0x15BDD34F9A649261);
 
   public ref int ScaleControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ScaleControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x15BDD34F3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x15BDD34F3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _RadiusComponentOffset = new(() => Schema.GetOffset(0x15BDD34FFBFE904A), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusComponentOffset = Schema.GetOffset(0x15BDD34FFBFE904A);
 
   public ref int RadiusComponent {
-    get => ref _Handle.AsRef<int>(_RadiusComponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_RadiusComponentOffset);
   }
-  private static readonly Lazy<nint> _WarpTimeOffset = new(() => Schema.GetOffset(0x15BDD34F34CDAE88), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpTimeOffset = Schema.GetOffset(0x15BDD34F34CDAE88);
 
   public ref float WarpTime {
-    get => ref _Handle.AsRef<float>(_WarpTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_WarpTimeOffset);
   }
-  private static readonly Lazy<nint> _WarpStartTimeOffset = new(() => Schema.GetOffset(0x15BDD34F4326267A), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpStartTimeOffset = Schema.GetOffset(0x15BDD34F4326267A);
 
   public ref float WarpStartTime {
-    get => ref _Handle.AsRef<float>(_WarpStartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_WarpStartTimeOffset);
   }
-  private static readonly Lazy<nint> _PrevPosScaleOffset = new(() => Schema.GetOffset(0x15BDD34F46CED122), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevPosScaleOffset = Schema.GetOffset(0x15BDD34F46CED122);
 
   public ref float PrevPosScale {
-    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset);
   }
-  private static readonly Lazy<nint> _InvertWarpOffset = new(() => Schema.GetOffset(0x15BDD34F67E23133), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertWarpOffset = Schema.GetOffset(0x15BDD34F67E23133);
 
   public ref bool InvertWarp {
-    get => ref _Handle.AsRef<bool>(_InvertWarpOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertWarpOffset);
   }
-  private static readonly Lazy<nint> _UseCountOffset = new(() => Schema.GetOffset(0x15BDD34F8836B9AB), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCountOffset = Schema.GetOffset(0x15BDD34F8836B9AB);
 
   public ref bool UseCount {
-    get => ref _Handle.AsRef<bool>(_UseCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCountOffset);
   }
 
 

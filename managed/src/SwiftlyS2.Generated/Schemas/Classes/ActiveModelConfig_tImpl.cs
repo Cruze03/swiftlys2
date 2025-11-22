@@ -17,29 +17,29 @@ internal partial class ActiveModelConfig_tImpl : SchemaClass, ActiveModelConfig_
   public ActiveModelConfig_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HandleOffset = new(() => Schema.GetOffset(0x554D81919D208453), LazyThreadSafetyMode.None);
+  private static readonly nint _HandleOffset = Schema.GetOffset(0x554D81919D208453);
 
   public ModelConfigHandle_t Handle {
-    get => new ModelConfigHandle_tImpl(_Handle + _HandleOffset.Value);
+    get => new ModelConfigHandle_tImpl(_Handle + _HandleOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x554D8191CAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x554D8191CAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _AssociatedEntitiesOffset = new(() => Schema.GetOffset(0x554D8191D6EB4F18), LazyThreadSafetyMode.None);
+  private static readonly nint _AssociatedEntitiesOffset = Schema.GetOffset(0x554D8191D6EB4F18);
 
   public ref CUtlVector<CHandle<CBaseModelEntity>> AssociatedEntities {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_AssociatedEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_AssociatedEntitiesOffset);
   }
-  private static readonly Lazy<nint> _AssociatedEntityNamesOffset = new(() => Schema.GetOffset(0x554D8191EB3B241C), LazyThreadSafetyMode.None);
+  private static readonly nint _AssociatedEntityNamesOffset = Schema.GetOffset(0x554D8191EB3B241C);
 
   public ref CUtlVector<SchemaUntypedField> AssociatedEntityNames {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AssociatedEntityNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AssociatedEntityNamesOffset);
   }
 
   public void HandleUpdated() {

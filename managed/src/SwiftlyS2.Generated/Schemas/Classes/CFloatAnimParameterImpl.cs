@@ -17,25 +17,25 @@ internal partial class CFloatAnimParameterImpl : CConcreteAnimParameterImpl, CFl
   public CFloatAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x6CE7934089D370B3), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x6CE7934089D370B3);
 
   public ref float DefaultValue {
-    get => ref _Handle.AsRef<float>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _MinValueOffset = new(() => Schema.GetOffset(0x6CE79340AD86BD50), LazyThreadSafetyMode.None);
+  private static readonly nint _MinValueOffset = Schema.GetOffset(0x6CE79340AD86BD50);
 
   public ref float MinValue {
-    get => ref _Handle.AsRef<float>(_MinValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinValueOffset);
   }
-  private static readonly Lazy<nint> _MaxValueOffset = new(() => Schema.GetOffset(0x6CE79340DB7358B2), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxValueOffset = Schema.GetOffset(0x6CE79340DB7358B2);
 
   public ref float MaxValue {
-    get => ref _Handle.AsRef<float>(_MaxValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxValueOffset);
   }
-  private static readonly Lazy<nint> _InterpolateOffset = new(() => Schema.GetOffset(0x6CE79340F6607650), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolateOffset = Schema.GetOffset(0x6CE79340F6607650);
 
   public ref bool Interpolate {
-    get => ref _Handle.AsRef<bool>(_InterpolateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterpolateOffset);
   }
 
 

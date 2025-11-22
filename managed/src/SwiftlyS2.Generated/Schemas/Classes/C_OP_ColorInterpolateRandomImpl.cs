@@ -17,35 +17,35 @@ internal partial class C_OP_ColorInterpolateRandomImpl : CParticleFunctionOperat
   public C_OP_ColorInterpolateRandomImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorFadeMinOffset = new(() => Schema.GetOffset(0x6185EEC8EFCBE55A), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorFadeMinOffset = Schema.GetOffset(0x6185EEC8EFCBE55A);
 
   public ref Color ColorFadeMin {
-    get => ref _Handle.AsRef<Color>(_ColorFadeMinOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorFadeMinOffset);
   }
-  private static readonly Lazy<nint> _ColorFadeMaxOffset = new(() => Schema.GetOffset(0x6185EEC8D9DF4A70), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorFadeMaxOffset = Schema.GetOffset(0x6185EEC8D9DF4A70);
 
   public ref Color ColorFadeMax {
-    get => ref _Handle.AsRef<Color>(_ColorFadeMaxOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorFadeMaxOffset);
   }
-  private static readonly Lazy<nint> _FadeStartTimeOffset = new(() => Schema.GetOffset(0x6185EEC886B28BFA), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeStartTimeOffset = Schema.GetOffset(0x6185EEC886B28BFA);
 
   public ref float FadeStartTime {
-    get => ref _Handle.AsRef<float>(_FadeStartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeStartTimeOffset);
   }
-  private static readonly Lazy<nint> _FadeEndTimeOffset = new(() => Schema.GetOffset(0x6185EEC800D5CA4F), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeEndTimeOffset = Schema.GetOffset(0x6185EEC800D5CA4F);
 
   public ref float FadeEndTime {
-    get => ref _Handle.AsRef<float>(_FadeEndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeEndTimeOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x6185EEC8E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x6185EEC8E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _EaseInOutOffset = new(() => Schema.GetOffset(0x6185EEC85172CF48), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseInOutOffset = Schema.GetOffset(0x6185EEC85172CF48);
 
   public ref bool EaseInOut {
-    get => ref _Handle.AsRef<bool>(_EaseInOutOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EaseInOutOffset);
   }
 
 

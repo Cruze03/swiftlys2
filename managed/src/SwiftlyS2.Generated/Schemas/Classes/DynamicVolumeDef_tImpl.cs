@@ -17,45 +17,45 @@ internal partial class DynamicVolumeDef_tImpl : SchemaClass, DynamicVolumeDef_t 
   public DynamicVolumeDef_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceOffset = new(() => Schema.GetOffset(0x9D661554D0835C78), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOffset = Schema.GetOffset(0x9D661554D0835C78);
 
   public ref CHandle<CBaseEntity> Source {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SourceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_SourceOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0x9D661554FA08A9E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0x9D661554FA08A9E8);
 
   public ref CHandle<CBaseEntity> Target {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset);
   }
-  private static readonly Lazy<nint> _HullIdxOffset = new(() => Schema.GetOffset(0x9D661554595B303D), LazyThreadSafetyMode.None);
+  private static readonly nint _HullIdxOffset = Schema.GetOffset(0x9D661554595B303D);
 
   public ref int HullIdx {
-    get => ref _Handle.AsRef<int>(_HullIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_HullIdxOffset);
   }
-  private static readonly Lazy<nint> _SourceAnchorPosOffset = new(() => Schema.GetOffset(0x9D661554E6AC3899), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceAnchorPosOffset = Schema.GetOffset(0x9D661554E6AC3899);
 
   public ref Vector SourceAnchorPos {
-    get => ref _Handle.AsRef<Vector>(_SourceAnchorPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SourceAnchorPosOffset);
   }
-  private static readonly Lazy<nint> _TargetAnchorPosOffset = new(() => Schema.GetOffset(0x9D6615540976AD91), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetAnchorPosOffset = Schema.GetOffset(0x9D6615540976AD91);
 
   public ref Vector TargetAnchorPos {
-    get => ref _Handle.AsRef<Vector>(_TargetAnchorPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TargetAnchorPosOffset);
   }
-  private static readonly Lazy<nint> _AreaSrcOffset = new(() => Schema.GetOffset(0x9D661554E55D859E), LazyThreadSafetyMode.None);
+  private static readonly nint _AreaSrcOffset = Schema.GetOffset(0x9D661554E55D859E);
 
   public ref uint AreaSrc {
-    get => ref _Handle.AsRef<uint>(_AreaSrcOffset.Value);
+    get => ref _Handle.AsRef<uint>(_AreaSrcOffset);
   }
-  private static readonly Lazy<nint> _AreaDstOffset = new(() => Schema.GetOffset(0x9D66155487799313), LazyThreadSafetyMode.None);
+  private static readonly nint _AreaDstOffset = Schema.GetOffset(0x9D66155487799313);
 
   public ref uint AreaDst {
-    get => ref _Handle.AsRef<uint>(_AreaDstOffset.Value);
+    get => ref _Handle.AsRef<uint>(_AreaDstOffset);
   }
-  private static readonly Lazy<nint> _AttachedOffset = new(() => Schema.GetOffset(0x9D6615544C8B6515), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachedOffset = Schema.GetOffset(0x9D6615544C8B6515);
 
   public ref bool Attached {
-    get => ref _Handle.AsRef<bool>(_AttachedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AttachedOffset);
   }
 
 

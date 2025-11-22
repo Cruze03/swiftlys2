@@ -17,30 +17,30 @@ internal partial class CGameChoreoServicesImpl : IChoreoServicesImpl, CGameChore
   public CGameChoreoServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0xF5FFE2B2F6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0xF5FFE2B2F6D89572);
 
   public ref CHandle<CBaseAnimGraph> Owner {
-    get => ref _Handle.AsRef<CHandle<CBaseAnimGraph>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseAnimGraph>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _ScriptedSequenceOffset = new(() => Schema.GetOffset(0xF5FFE2B2E43BF85C), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptedSequenceOffset = Schema.GetOffset(0xF5FFE2B2E43BF85C);
 
   public ref CHandle<CScriptedSequence> ScriptedSequence {
-    get => ref _Handle.AsRef<CHandle<CScriptedSequence>>(_ScriptedSequenceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CScriptedSequence>>(_ScriptedSequenceOffset);
   }
-  private static readonly Lazy<nint> _ScriptStateOffset = new(() => Schema.GetOffset(0xF5FFE2B2E4CD331F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptStateOffset = Schema.GetOffset(0xF5FFE2B2E4CD331F);
 
   public ref IChoreoServices__ScriptState_t ScriptState {
-    get => ref _Handle.AsRef<IChoreoServices__ScriptState_t>(_ScriptStateOffset.Value);
+    get => ref _Handle.AsRef<IChoreoServices__ScriptState_t>(_ScriptStateOffset);
   }
-  private static readonly Lazy<nint> _ChoreoStateOffset = new(() => Schema.GetOffset(0xF5FFE2B251730DD8), LazyThreadSafetyMode.None);
+  private static readonly nint _ChoreoStateOffset = Schema.GetOffset(0xF5FFE2B251730DD8);
 
   public ref IChoreoServices__ChoreoState_t ChoreoState {
-    get => ref _Handle.AsRef<IChoreoServices__ChoreoState_t>(_ChoreoStateOffset.Value);
+    get => ref _Handle.AsRef<IChoreoServices__ChoreoState_t>(_ChoreoStateOffset);
   }
-  private static readonly Lazy<nint> _TimeStartedStateOffset = new(() => Schema.GetOffset(0xF5FFE2B20BD38900), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeStartedStateOffset = Schema.GetOffset(0xF5FFE2B20BD38900);
 
   public GameTime_t TimeStartedState {
-    get => new GameTime_tImpl(_Handle + _TimeStartedStateOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeStartedStateOffset);
   }
 
 

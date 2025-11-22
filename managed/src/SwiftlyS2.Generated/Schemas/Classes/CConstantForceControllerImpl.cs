@@ -17,25 +17,25 @@ internal partial class CConstantForceControllerImpl : SchemaClass, CConstantForc
   public CConstantForceControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LinearOffset = new(() => Schema.GetOffset(0x37030A8D6B6D1260), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearOffset = Schema.GetOffset(0x37030A8D6B6D1260);
 
   public ref Vector Linear {
-    get => ref _Handle.AsRef<Vector>(_LinearOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearOffset);
   }
-  private static readonly Lazy<nint> _AngularOffset = new(() => Schema.GetOffset(0x37030A8D74E0EB09), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularOffset = Schema.GetOffset(0x37030A8D74E0EB09);
 
   public SchemaUntypedField Angular {
-    get => new SchemaUntypedField(_Handle + _AngularOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AngularOffset);
   }
-  private static readonly Lazy<nint> _LinearSaveOffset = new(() => Schema.GetOffset(0x37030A8D96B9953D), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearSaveOffset = Schema.GetOffset(0x37030A8D96B9953D);
 
   public ref Vector LinearSave {
-    get => ref _Handle.AsRef<Vector>(_LinearSaveOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LinearSaveOffset);
   }
-  private static readonly Lazy<nint> _AngularSaveOffset = new(() => Schema.GetOffset(0x37030A8D8294323C), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularSaveOffset = Schema.GetOffset(0x37030A8D8294323C);
 
   public SchemaUntypedField AngularSave {
-    get => new SchemaUntypedField(_Handle + _AngularSaveOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AngularSaveOffset);
   }
 
 
