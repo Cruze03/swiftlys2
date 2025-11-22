@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.FileSystem;
+using SwiftlyS2.Shared.Natives;
 
 namespace SwiftlyS2.Core.FileSystem;
 
@@ -63,5 +65,20 @@ internal class GameFileSystem : IGameFileSystem
     public bool WriteFile( string filePath, string pathId, string content )
     {
         return NativeFileSystem.WriteFile(filePath, pathId, content);
+    }
+
+    public List<string> FindFileAbsoluteList( string wildcard, string pathId )
+    {
+        List<string> results = new();
+        ManagedCUtlVector<CUtlString> files = new();
+        unsafe {
+            fixed (void* filesPtr = &files.Value) {
+                NativeFileSystem.FindFileAbsoluteList(new IntPtr(filesPtr), wildcard, pathId);
+            }
+
+            files.Value.ToList().ForEach(file => results.Add(file.Value));
+        }
+        files.Dispose();
+        return results;
     }
 }

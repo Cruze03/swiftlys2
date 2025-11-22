@@ -269,4 +269,25 @@ internal static class NativeFileSystem {
       }
     }
   }
+
+  private unsafe static delegate* unmanaged<nint, byte*, byte*, void> _FindFileAbsoluteList;
+
+  public unsafe static void FindFileAbsoluteList(nint outVector, string wildcard, string pathId) {
+    var pool = ArrayPool<byte>.Shared;
+    var wildcardLength = Encoding.UTF8.GetByteCount(wildcard);
+    var wildcardBuffer = pool.Rent(wildcardLength + 1);
+    Encoding.UTF8.GetBytes(wildcard, wildcardBuffer);
+    wildcardBuffer[wildcardLength] = 0;
+    var pathIdLength = Encoding.UTF8.GetByteCount(pathId);
+    var pathIdBuffer = pool.Rent(pathIdLength + 1);
+    Encoding.UTF8.GetBytes(pathId, pathIdBuffer);
+    pathIdBuffer[pathIdLength] = 0;
+    fixed (byte* wildcardBufferPtr = wildcardBuffer) {
+      fixed (byte* pathIdBufferPtr = pathIdBuffer) {
+        _FindFileAbsoluteList(outVector, wildcardBufferPtr, pathIdBufferPtr);
+        pool.Return(wildcardBuffer);
+        pool.Return(pathIdBuffer);
+      }
+    }
+  }
 }
