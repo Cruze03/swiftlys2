@@ -11,12 +11,12 @@ internal class StartupService : IHostedService
     public StartupService( IServiceProvider provider )
     {
         // _provider = provider;
+        provider.UseMenuManagerAPIService();
         provider.UseCoreCommandService();
         provider.UseCoreHookService();
         provider.UsePermissionManager();
         provider.UsePluginManager();
         provider.UseCommandTrackerService();
-        provider.UseMenuManagerAPIService();
         // provider.UseTestService();
     }
 
