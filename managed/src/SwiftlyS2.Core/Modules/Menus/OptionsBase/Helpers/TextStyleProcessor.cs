@@ -9,6 +9,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase.Helpers;
 internal sealed partial class TextStyleProcessor : IDisposable
 {
     private readonly ConcurrentDictionary<string, int> scrollOffsets = new();
+    private readonly ConcurrentDictionary<string, string> staticStyleCache = new();
 
     private volatile bool disposed;
 
@@ -16,6 +17,7 @@ internal sealed partial class TextStyleProcessor : IDisposable
     {
         disposed = false;
         scrollOffsets.Clear();
+        staticStyleCache.Clear();
     }
 
     ~TextStyleProcessor()
@@ -32,6 +34,7 @@ internal sealed partial class TextStyleProcessor : IDisposable
 
         // Console.WriteLine($"{GetType().Name} has been disposed.");
         scrollOffsets.Clear();
+        staticStyleCache.Clear();
 
         disposed = true;
         GC.SuppressFinalize(this);
@@ -42,19 +45,45 @@ internal sealed partial class TextStyleProcessor : IDisposable
 
     public (string styledText, int scrollOffset) ApplyHorizontalStyle( string text, MenuOptionTextStyle textStyle, float maxWidth )
     {
-        return string.IsNullOrWhiteSpace(text)
-            ? (text, -1)
-            : Helper.EstimateTextWidth(StripHtmlTags(text)) <= maxWidth
-                ? (text, -1)
-                : textStyle switch {
-                    MenuOptionTextStyle.TruncateEnd => TruncateTextEnd(text, maxWidth),
-                    MenuOptionTextStyle.TruncateBothEnds => TruncateTextBothEnds(text, maxWidth),
-                    MenuOptionTextStyle.ScrollLeftFade => ScrollTextWithFade(text, maxWidth, true),
-                    MenuOptionTextStyle.ScrollRightFade => ScrollTextWithFade(text, maxWidth, false),
-                    MenuOptionTextStyle.ScrollLeftLoop => ScrollTextWithLoop($"{text.TrimEnd()} ", maxWidth, true),
-                    MenuOptionTextStyle.ScrollRightLoop => ScrollTextWithLoop($" {text.TrimStart()}", maxWidth, false),
-                    _ => (text, -1)
-                };
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return (text, -1);
+        }
+
+        if (Helper.EstimateTextWidth(StripHtmlTags(text)) <= maxWidth)
+        {
+            return (text, -1);
+        }
+
+        if (textStyle == MenuOptionTextStyle.TruncateEnd || textStyle == MenuOptionTextStyle.TruncateBothEnds)
+        {
+            // Cache static styles (TruncateEnd and TruncateBothEnds)
+            var cacheKey = $"{text}_{textStyle}_{maxWidth}";
+            if (staticStyleCache.TryGetValue(cacheKey, out var cachedStyledText))
+            {
+                return (cachedStyledText, -1);
+            }
+
+            var (styledText, scrollOffset) = textStyle switch {
+                MenuOptionTextStyle.TruncateEnd => TruncateTextEnd(text, maxWidth),
+                MenuOptionTextStyle.TruncateBothEnds => TruncateTextBothEnds(text, maxWidth),
+                _ => (text, -1)
+            };
+
+            _ = staticStyleCache.TryAdd(cacheKey, styledText);
+            return (styledText, scrollOffset);
+        }
+        else
+        {
+            // Dynamic styles (scrolling animations)
+            return textStyle switch {
+                MenuOptionTextStyle.ScrollLeftFade => ScrollTextWithFade(text, maxWidth, true),
+                MenuOptionTextStyle.ScrollRightFade => ScrollTextWithFade(text, maxWidth, false),
+                MenuOptionTextStyle.ScrollLeftLoop => ScrollTextWithLoop($"{text.TrimEnd()} ", maxWidth, true),
+                MenuOptionTextStyle.ScrollRightLoop => ScrollTextWithLoop($" {text.TrimStart()}", maxWidth, false),
+                _ => (text, -1)
+            };
+        }
     }
 
     private (string styledText, int scrollOffset) ScrollTextWithFade( string text, float maxWidth, bool scrollLeft )

@@ -106,7 +106,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     // public event EventHandler<MenuEventArgs>? OptionLeaving;
 
     private readonly ISwiftlyCore core;
-    private readonly List<IMenuOption> options = new();
+    private readonly List<IMenuOption> options = [];
     private readonly Lock optionsLock = new(); // Lock for synchronizing modifications to the `options`
     private readonly ConcurrentDictionary<int, int> selectedOptionIndex = new(); // Stores the currently selected option index for each player
     // NOTE: Menu selection movement is entirely driven by changes to `desiredOptionIndex` (independent of any other variables)
@@ -118,9 +118,9 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     private readonly ConcurrentDictionary<int, CancellationTokenSource> autoCloseCancelTokens = new();
 
     // private readonly ConcurrentDictionary<int, string> renderCache = new();
-    private readonly CancellationTokenSource renderLoopCancellationTokenSource = new();
+    private readonly ConcurrentDictionary<Task, CancellationTokenSource> renderLoopTasks = new();
     private readonly Lock viewersLock = new();
-    private readonly HashSet<int> viewers = new();
+    private readonly HashSet<int> viewers = [];
 
     private volatile bool disposed;
 
@@ -154,27 +154,6 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         // maxDisplayLines = 0;
 
         // core.Event.OnTick += OnTick;
-
-        _ = Task.Run(async () =>
-        {
-            var token = renderLoopCancellationTokenSource.Token;
-            var delayMilliseconds = (int)(1000f / 64f / 2f);
-            while (!token.IsCancellationRequested || disposed)
-            {
-                try
-                {
-                    OnRender();
-                    await Task.Delay(delayMilliseconds, token);
-                }
-                catch (OperationCanceledException)
-                {
-                    break;
-                }
-                catch
-                {
-                }
-            }
-        }, renderLoopCancellationTokenSource.Token);
     }
 
     ~MenuAPI()
@@ -222,8 +201,15 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
         // core.Event.OnTick -= OnTick;
 
-        renderLoopCancellationTokenSource?.Cancel();
-        renderLoopCancellationTokenSource?.Dispose();
+        renderLoopTasks.Keys.ToList().ForEach(task =>
+        {
+            if (renderLoopTasks.TryRemove(task, out var cts))
+            {
+                cts.Cancel();
+                cts.Dispose();
+            }
+        });
+        renderLoopTasks.Clear();
 
         disposed = true;
         GC.SuppressFinalize(this);
@@ -478,6 +464,38 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
             if (viewers.Count == 1)
             {
+                renderLoopTasks.Keys.ToList().ForEach(task =>
+                {
+                    if (renderLoopTasks.TryRemove(task, out var cts))
+                    {
+                        cts.Cancel();
+                        cts.Dispose();
+                    }
+                });
+
+                var cts = new CancellationTokenSource();
+                var token = cts.Token;
+                var delayMilliseconds = (int)(1000f / 64f);
+                var task = Task.Run(async () =>
+                {
+                    while (!token.IsCancellationRequested && !disposed)
+                    {
+                        try
+                        {
+                            OnRender();
+                            await Task.Delay(delayMilliseconds, token);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            break;
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }, token);
+                _ = renderLoopTasks.TryAdd(task, cts);
+
                 lock (optionsLock)
                 {
                     options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.ResumeTextAnimation());
@@ -526,6 +544,15 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
                 if (viewers.Count == 0)
                 {
+                    renderLoopTasks.Keys.ToList().ForEach(task =>
+                    {
+                        if (renderLoopTasks.TryRemove(task, out var cts))
+                        {
+                            cts.Cancel();
+                            cts.Dispose();
+                        }
+                    });
+
                     lock (optionsLock)
                     {
                         options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.PauseTextAnimation());
