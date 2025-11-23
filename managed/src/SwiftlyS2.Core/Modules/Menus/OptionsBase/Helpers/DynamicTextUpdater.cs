@@ -9,7 +9,11 @@ internal sealed class DynamicTextUpdater : IDisposable
     private readonly Func<MenuOptionTextStyle> getTextStyle;
     private readonly Func<float> getMaxWidth;
     private readonly Action<string> setDynamicText;
-    private readonly CancellationTokenSource cancellationTokenSource;
+    private readonly int updateIntervalMs;
+    private readonly int pauseIntervalMs;
+    private volatile bool isPaused;
+    private DateTime lastUpdateTime = DateTime.MinValue;
+    private DateTime pauseEndTime = DateTime.MinValue;
 
     private volatile bool disposed;
 
@@ -22,15 +26,16 @@ internal sealed class DynamicTextUpdater : IDisposable
         int pauseIntervalMs = 1000 )
     {
         disposed = false;
+        isPaused = true;
 
         this.getSourceText = getSourceText;
         this.getTextStyle = getTextStyle;
         this.getMaxWidth = getMaxWidth;
         this.setDynamicText = setDynamicText;
+        this.updateIntervalMs = updateIntervalMs;
+        this.pauseIntervalMs = pauseIntervalMs;
 
         processor = new();
-        cancellationTokenSource = new();
-        _ = Task.Run(() => UpdateLoopAsync(updateIntervalMs, pauseIntervalMs, cancellationTokenSource.Token), cancellationTokenSource.Token);
     }
 
     ~DynamicTextUpdater()
@@ -45,42 +50,67 @@ internal sealed class DynamicTextUpdater : IDisposable
             return;
         }
 
-        // Console.WriteLine($"{GetType().Name} has been disposed.");
-        cancellationTokenSource.Cancel();
-        cancellationTokenSource.Dispose();
-
+        disposed = true;
         processor.Dispose();
 
-        disposed = true;
         GC.SuppressFinalize(this);
     }
 
-    private async Task UpdateLoopAsync( int intervalMs, int pauseIntervalMs, CancellationToken token )
+    public void Pause()
     {
-        while (!token.IsCancellationRequested && !disposed)
+        if (!disposed)
         {
-            try
-            {
-                await Task.Delay(intervalMs, token);
-                var sourceText = getSourceText();
-                var textStyle = getTextStyle();
-                var maxWidth = getMaxWidth();
-                var (styledText, offset) = processor.ApplyHorizontalStyle(sourceText, textStyle, maxWidth);
-                setDynamicText(styledText);
-                // Console.WriteLine($"sourceText: {sourceText}, textStyle: {textStyle}, maxWidth: {maxWidth}, styledText: {styledText}, offset: {offset}");
+            isPaused = true;
+        }
+    }
 
-                if (offset == 0)
-                {
-                    await Task.Delay(pauseIntervalMs, token);
-                }
-            }
-            catch (OperationCanceledException)
+    public void Resume()
+    {
+        if (!disposed)
+        {
+            isPaused = false;
+            pauseEndTime = DateTime.MinValue;
+        }
+    }
+
+    public void TryUpdate( DateTime now )
+    {
+        if (disposed || isPaused)
+        {
+            return;
+        }
+
+        // Check if still in pause interval
+        if (now < pauseEndTime)
+        {
+            return;
+        }
+
+        // Check if enough time has passed since last update
+        if (lastUpdateTime != DateTime.MinValue)
+        {
+            if ((now - lastUpdateTime).TotalMilliseconds < updateIntervalMs)
             {
-                break;
-            }
-            catch
-            {
+                return;
             }
         }
+
+        try
+        {
+            var sourceText = getSourceText();
+            var textStyle = getTextStyle();
+            var maxWidth = getMaxWidth();
+            var (styledText, offset) = processor.ApplyHorizontalStyle(sourceText, textStyle, maxWidth);
+            setDynamicText(styledText);
+
+            lastUpdateTime = now;
+
+            // If offset is 0 (text fits completely), enter pause interval
+            if (offset == 0)
+            {
+                pauseEndTime = now.AddMilliseconds(pauseIntervalMs);
+            }
+        }
+        catch { }
     }
 }

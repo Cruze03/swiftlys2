@@ -17,25 +17,25 @@ internal partial class CNmFloatCurveEventNode__CDefinitionImpl : CNmFloatValueNo
   public CNmFloatCurveEventNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EventIDOffset = new(() => Schema.GetOffset(0x4512F5A69D798A72), LazyThreadSafetyMode.None);
+  private static readonly nint _EventIDOffset = Schema.GetOffset(0x4512F5A69D798A72);
 
   public ref CGlobalSymbol EventID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_EventIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_EventIDOffset);
   }
-  private static readonly Lazy<nint> _DefaultNodeIdxOffset = new(() => Schema.GetOffset(0x4512F5A6C14C9521), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultNodeIdxOffset = Schema.GetOffset(0x4512F5A6C14C9521);
 
   public ref short DefaultNodeIdx {
-    get => ref _Handle.AsRef<short>(_DefaultNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DefaultNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x4512F5A6700AB429), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x4512F5A6700AB429);
 
   public ref float DefaultValue {
-    get => ref _Handle.AsRef<float>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _EventConditionRulesOffset = new(() => Schema.GetOffset(0x4512F5A6A904315F), LazyThreadSafetyMode.None);
+  private static readonly nint _EventConditionRulesOffset = Schema.GetOffset(0x4512F5A6A904315F);
 
   public CNmBitFlags EventConditionRules {
-    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset);
   }
 
 

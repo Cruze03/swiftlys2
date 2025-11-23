@@ -17,19 +17,19 @@ internal partial class CPhysicsBodyGameMarkupImpl : SchemaClass, CPhysicsBodyGam
   public CPhysicsBodyGameMarkupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetBodyOffset = new(() => Schema.GetOffset(0xA5257571F2C6B554), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetBodyOffset = Schema.GetOffset(0xA5257571F2C6B554);
 
   public string TargetBody {
     get {
-      var ptr = _Handle.Read<nint>(_TargetBodyOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetBodyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetBodyOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetBodyOffset, value);
   } 
-  private static readonly Lazy<nint> _TagOffset = new(() => Schema.GetOffset(0xA5257571218D8313), LazyThreadSafetyMode.None);
+  private static readonly nint _TagOffset = Schema.GetOffset(0xA5257571218D8313);
 
   public ref CGlobalSymbol Tag {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_TagOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_TagOffset);
   }
 
 

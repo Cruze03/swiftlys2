@@ -17,10 +17,10 @@ internal partial class CPulseCell_Outflow_CycleOrderedImpl : CPulseCell_BaseFlow
   public CPulseCell_Outflow_CycleOrderedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutputsOffset = new(() => Schema.GetOffset(0xAED1209EA38A89D5), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputsOffset = Schema.GetOffset(0xAED1209EA38A89D5);
 
   public ref CUtlVector<CPulse_OutflowConnection> Outputs {
-    get => ref _Handle.AsRef<CUtlVector<CPulse_OutflowConnection>>(_OutputsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CPulse_OutflowConnection>>(_OutputsOffset);
   }
 
 

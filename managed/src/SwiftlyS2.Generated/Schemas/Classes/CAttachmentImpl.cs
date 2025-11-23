@@ -17,23 +17,23 @@ internal partial class CAttachmentImpl : SchemaClass, CAttachment {
   public CAttachmentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x5F09808F4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x5F09808F4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _InfluenceNamesOffset = new(() => Schema.GetOffset(0x5F09808FFD9B3CB8), LazyThreadSafetyMode.None);
+  private static readonly nint _InfluenceNamesOffset = Schema.GetOffset(0x5F09808FFD9B3CB8);
 
   public string InfluenceNames {
     get {
-      var ptr = _Handle.Read<nint>(_InfluenceNamesOffset.Value);
+      var ptr = _Handle.Read<nint>(_InfluenceNamesOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InfluenceNamesOffset.Value, value);
+    set => Schema.SetString(_Handle, _InfluenceNamesOffset, value);
   } 
   public ISchemaFixedArray<Quaternion> InfluenceRotations {
     get => new SchemaFixedArray<Quaternion>(_Handle, 0x5F09808FD277168B, 3, 16, 16);
@@ -47,15 +47,15 @@ internal partial class CAttachmentImpl : SchemaClass, CAttachment {
   public ISchemaFixedArray<bool> InfluenceRootTransform {
     get => new SchemaFixedArray<bool>(_Handle, 0x5F09808F5763011C, 3, 1, 1);
   }
-  private static readonly Lazy<nint> _InfluencesOffset = new(() => Schema.GetOffset(0x5F09808F8E94AB85), LazyThreadSafetyMode.None);
+  private static readonly nint _InfluencesOffset = Schema.GetOffset(0x5F09808F8E94AB85);
 
   public ref byte Influences {
-    get => ref _Handle.AsRef<byte>(_InfluencesOffset.Value);
+    get => ref _Handle.AsRef<byte>(_InfluencesOffset);
   }
-  private static readonly Lazy<nint> _IgnoreRotationOffset = new(() => Schema.GetOffset(0x5F09808FC7A0F33D), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreRotationOffset = Schema.GetOffset(0x5F09808FC7A0F33D);
 
   public ref bool IgnoreRotation {
-    get => ref _Handle.AsRef<bool>(_IgnoreRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreRotationOffset);
   }
 
 

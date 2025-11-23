@@ -17,50 +17,50 @@ internal partial class VMixDynamicsCompressorDesc_tImpl : SchemaClass, VMixDynam
   public VMixDynamicsCompressorDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FldbOutputGainOffset = new(() => Schema.GetOffset(0x4AC2D50067F97C23), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbOutputGainOffset = Schema.GetOffset(0x4AC2D50067F97C23);
 
   public ref float FldbOutputGain {
-    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset);
   }
-  private static readonly Lazy<nint> _FldbCompressionThresholdOffset = new(() => Schema.GetOffset(0x4AC2D500C45CDA7C), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbCompressionThresholdOffset = Schema.GetOffset(0x4AC2D500C45CDA7C);
 
   public ref float FldbCompressionThreshold {
-    get => ref _Handle.AsRef<float>(_FldbCompressionThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbCompressionThresholdOffset);
   }
-  private static readonly Lazy<nint> _FldbKneeWidthOffset = new(() => Schema.GetOffset(0x4AC2D50035532FF2), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbKneeWidthOffset = Schema.GetOffset(0x4AC2D50035532FF2);
 
   public ref float FldbKneeWidth {
-    get => ref _Handle.AsRef<float>(_FldbKneeWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbKneeWidthOffset);
   }
-  private static readonly Lazy<nint> _CompressionRatioOffset = new(() => Schema.GetOffset(0x4AC2D5008B1A1E1A), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressionRatioOffset = Schema.GetOffset(0x4AC2D5008B1A1E1A);
 
   public ref float CompressionRatio {
-    get => ref _Handle.AsRef<float>(_CompressionRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_CompressionRatioOffset);
   }
-  private static readonly Lazy<nint> _AttackTimeMSOffset = new(() => Schema.GetOffset(0x4AC2D500D4A28216), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTimeMSOffset = Schema.GetOffset(0x4AC2D500D4A28216);
 
   public ref float AttackTimeMS {
-    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset);
   }
-  private static readonly Lazy<nint> _ReleaseTimeMSOffset = new(() => Schema.GetOffset(0x4AC2D500EBB62791), LazyThreadSafetyMode.None);
+  private static readonly nint _ReleaseTimeMSOffset = Schema.GetOffset(0x4AC2D500EBB62791);
 
   public ref float ReleaseTimeMS {
-    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset);
   }
-  private static readonly Lazy<nint> _RMSTimeMSOffset = new(() => Schema.GetOffset(0x4AC2D500FB749526), LazyThreadSafetyMode.None);
+  private static readonly nint _RMSTimeMSOffset = Schema.GetOffset(0x4AC2D500FB749526);
 
   public ref float RMSTimeMS {
-    get => ref _Handle.AsRef<float>(_RMSTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_RMSTimeMSOffset);
   }
-  private static readonly Lazy<nint> _WetMixOffset = new(() => Schema.GetOffset(0x4AC2D500D5453C15), LazyThreadSafetyMode.None);
+  private static readonly nint _WetMixOffset = Schema.GetOffset(0x4AC2D500D5453C15);
 
   public ref float WetMix {
-    get => ref _Handle.AsRef<float>(_WetMixOffset.Value);
+    get => ref _Handle.AsRef<float>(_WetMixOffset);
   }
-  private static readonly Lazy<nint> _PeakModeOffset = new(() => Schema.GetOffset(0x4AC2D50087DF35F9), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakModeOffset = Schema.GetOffset(0x4AC2D50087DF35F9);
 
   public ref bool PeakMode {
-    get => ref _Handle.AsRef<bool>(_PeakModeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PeakModeOffset);
   }
 
 

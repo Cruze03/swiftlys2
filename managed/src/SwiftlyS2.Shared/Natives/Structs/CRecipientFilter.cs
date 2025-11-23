@@ -94,6 +94,17 @@ public struct CRecipientFilter
         }
         return count;
     }
+
+    public IEnumerable<int> GetRecipients()
+    {
+        for (var i = 0; i < 64; i++)
+        {
+            if ((RecipientsMask & (1UL << i)) != 0)
+            {
+                yield return i;
+            }
+        }
+    }
 }
 
 internal static class CRecipientFilterVtable

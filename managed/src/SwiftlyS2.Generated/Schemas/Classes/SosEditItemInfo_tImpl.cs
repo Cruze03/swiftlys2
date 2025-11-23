@@ -17,42 +17,42 @@ internal partial class SosEditItemInfo_tImpl : SchemaClass, SosEditItemInfo_t {
   public SosEditItemInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ItemTypeOffset = new(() => Schema.GetOffset(0x8E29E1C0C91C9136), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemTypeOffset = Schema.GetOffset(0x8E29E1C0C91C9136);
 
   public ref SosEditItemType_t ItemType {
-    get => ref _Handle.AsRef<SosEditItemType_t>(_ItemTypeOffset.Value);
+    get => ref _Handle.AsRef<SosEditItemType_t>(_ItemTypeOffset);
   }
-  private static readonly Lazy<nint> _ItemNameOffset = new(() => Schema.GetOffset(0x8E29E1C0575A2B25), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemNameOffset = Schema.GetOffset(0x8E29E1C0575A2B25);
 
   public string ItemName {
     get {
-      var ptr = _Handle.Read<nint>(_ItemNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ItemNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ItemNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ItemNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ItemTypeNameOffset = new(() => Schema.GetOffset(0x8E29E1C0B2F8CB75), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemTypeNameOffset = Schema.GetOffset(0x8E29E1C0B2F8CB75);
 
   public string ItemTypeName {
     get {
-      var ptr = _Handle.Read<nint>(_ItemTypeNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ItemTypeNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ItemTypeNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ItemTypeNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ItemKVStringOffset = new(() => Schema.GetOffset(0x8E29E1C0A0151DD6), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemKVStringOffset = Schema.GetOffset(0x8E29E1C0A0151DD6);
 
   public string ItemKVString {
     get {
-      var ptr = _Handle.Read<nint>(_ItemKVStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_ItemKVStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ItemKVStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _ItemKVStringOffset, value);
   } 
-  private static readonly Lazy<nint> _ItemPosOffset = new(() => Schema.GetOffset(0x8E29E1C0AB2D0B6C), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemPosOffset = Schema.GetOffset(0x8E29E1C0AB2D0B6C);
 
   public ref Vector2D ItemPos {
-    get => ref _Handle.AsRef<Vector2D>(_ItemPosOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_ItemPosOffset);
   }
 
 

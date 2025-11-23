@@ -17,25 +17,25 @@ internal partial class C_OP_TwistAroundAxisImpl : CParticleFunctionForceImpl, C_
   public C_OP_TwistAroundAxisImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceAmountOffset = new(() => Schema.GetOffset(0xE1FA036870831A84), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceAmountOffset = Schema.GetOffset(0xE1FA036870831A84);
 
   public ref float ForceAmount {
-    get => ref _Handle.AsRef<float>(_ForceAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceAmountOffset);
   }
-  private static readonly Lazy<nint> _TwistAxisOffset = new(() => Schema.GetOffset(0xE1FA0368BEAAB521), LazyThreadSafetyMode.None);
+  private static readonly nint _TwistAxisOffset = Schema.GetOffset(0xE1FA0368BEAAB521);
 
   public ref Vector TwistAxis {
-    get => ref _Handle.AsRef<Vector>(_TwistAxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_TwistAxisOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceOffset = new(() => Schema.GetOffset(0xE1FA036862418E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceOffset = Schema.GetOffset(0xE1FA036862418E6E);
 
   public ref bool LocalSpace {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xE1FA03683F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xE1FA03683F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
 
 

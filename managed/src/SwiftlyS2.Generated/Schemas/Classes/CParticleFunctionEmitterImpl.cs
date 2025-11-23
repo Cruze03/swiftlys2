@@ -17,10 +17,10 @@ internal partial class CParticleFunctionEmitterImpl : CParticleFunctionImpl, CPa
   public CParticleFunctionEmitterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EmitterIndexOffset = new(() => Schema.GetOffset(0x72B3FA32117F91FF), LazyThreadSafetyMode.None);
+  private static readonly nint _EmitterIndexOffset = Schema.GetOffset(0x72B3FA32117F91FF);
 
   public ref int EmitterIndex {
-    get => ref _Handle.AsRef<int>(_EmitterIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_EmitterIndexOffset);
   }
 
 

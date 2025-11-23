@@ -17,32 +17,32 @@ internal partial class CBoneConstraintDotToMorphImpl : CBoneConstraintBaseImpl, 
   public CBoneConstraintDotToMorphImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0x75939F077559AC1F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0x75939F077559AC1F);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetBoneNameOffset = new(() => Schema.GetOffset(0x75939F07CBA1BE4A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetBoneNameOffset = Schema.GetOffset(0x75939F07CBA1BE4A);
 
   public string TargetBoneName {
     get {
-      var ptr = _Handle.Read<nint>(_TargetBoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetBoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetBoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetBoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _MorphChannelNameOffset = new(() => Schema.GetOffset(0x75939F0777272AE4), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphChannelNameOffset = Schema.GetOffset(0x75939F0777272AE4);
 
   public string MorphChannelName {
     get {
-      var ptr = _Handle.Read<nint>(_MorphChannelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MorphChannelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MorphChannelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MorphChannelNameOffset, value);
   } 
   public ISchemaFixedArray<float> Remap {
     get => new SchemaFixedArray<float>(_Handle, 0x75939F07BE3DB1A0, 4, 4, 4);

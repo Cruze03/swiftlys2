@@ -17,35 +17,35 @@ internal partial class CPhysSurfacePropertiesPhysicsImpl : SchemaClass, CPhysSur
   public CPhysSurfacePropertiesPhysicsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrictionOffset = new(() => Schema.GetOffset(0xF44ED88D5DBDE05B), LazyThreadSafetyMode.None);
+  private static readonly nint _FrictionOffset = Schema.GetOffset(0xF44ED88D5DBDE05B);
 
   public ref float Friction {
-    get => ref _Handle.AsRef<float>(_FrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrictionOffset);
   }
-  private static readonly Lazy<nint> _ElasticityOffset = new(() => Schema.GetOffset(0xF44ED88DEFAD1ED4), LazyThreadSafetyMode.None);
+  private static readonly nint _ElasticityOffset = Schema.GetOffset(0xF44ED88DEFAD1ED4);
 
   public ref float Elasticity {
-    get => ref _Handle.AsRef<float>(_ElasticityOffset.Value);
+    get => ref _Handle.AsRef<float>(_ElasticityOffset);
   }
-  private static readonly Lazy<nint> _DensityOffset = new(() => Schema.GetOffset(0xF44ED88D870F96BB), LazyThreadSafetyMode.None);
+  private static readonly nint _DensityOffset = Schema.GetOffset(0xF44ED88D870F96BB);
 
   public ref float Density {
-    get => ref _Handle.AsRef<float>(_DensityOffset.Value);
+    get => ref _Handle.AsRef<float>(_DensityOffset);
   }
-  private static readonly Lazy<nint> _ThicknessOffset = new(() => Schema.GetOffset(0xF44ED88D5B5FCC35), LazyThreadSafetyMode.None);
+  private static readonly nint _ThicknessOffset = Schema.GetOffset(0xF44ED88D5B5FCC35);
 
   public ref float Thickness {
-    get => ref _Handle.AsRef<float>(_ThicknessOffset.Value);
+    get => ref _Handle.AsRef<float>(_ThicknessOffset);
   }
-  private static readonly Lazy<nint> _SoftContactFrequencyOffset = new(() => Schema.GetOffset(0xF44ED88D2103A65B), LazyThreadSafetyMode.None);
+  private static readonly nint _SoftContactFrequencyOffset = Schema.GetOffset(0xF44ED88D2103A65B);
 
   public ref float SoftContactFrequency {
-    get => ref _Handle.AsRef<float>(_SoftContactFrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_SoftContactFrequencyOffset);
   }
-  private static readonly Lazy<nint> _SoftContactDampingRatioOffset = new(() => Schema.GetOffset(0xF44ED88D1FD70102), LazyThreadSafetyMode.None);
+  private static readonly nint _SoftContactDampingRatioOffset = Schema.GetOffset(0xF44ED88D1FD70102);
 
   public ref float SoftContactDampingRatio {
-    get => ref _Handle.AsRef<float>(_SoftContactDampingRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_SoftContactDampingRatioOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class CSeqMultiFetchFlagImpl : SchemaClass, CSeqMultiFetchFlag 
   public CSeqMultiFetchFlagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RealtimeOffset = new(() => Schema.GetOffset(0xE7EB44FCB658139C), LazyThreadSafetyMode.None);
+  private static readonly nint _RealtimeOffset = Schema.GetOffset(0xE7EB44FCB658139C);
 
   public ref bool Realtime {
-    get => ref _Handle.AsRef<bool>(_RealtimeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RealtimeOffset);
   }
-  private static readonly Lazy<nint> _CyleposeOffset = new(() => Schema.GetOffset(0xE7EB44FCCB757B6B), LazyThreadSafetyMode.None);
+  private static readonly nint _CyleposeOffset = Schema.GetOffset(0xE7EB44FCCB757B6B);
 
   public ref bool Cylepose {
-    get => ref _Handle.AsRef<bool>(_CyleposeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CyleposeOffset);
   }
-  private static readonly Lazy<nint> _B0DOffset = new(() => Schema.GetOffset(0xE7EB44FC76DE6DB1), LazyThreadSafetyMode.None);
+  private static readonly nint _B0DOffset = Schema.GetOffset(0xE7EB44FC76DE6DB1);
 
   public ref bool B0D {
-    get => ref _Handle.AsRef<bool>(_B0DOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B0DOffset);
   }
-  private static readonly Lazy<nint> _B1DOffset = new(() => Schema.GetOffset(0xE7EB44FC50DBF348), LazyThreadSafetyMode.None);
+  private static readonly nint _B1DOffset = Schema.GetOffset(0xE7EB44FC50DBF348);
 
   public ref bool B1D {
-    get => ref _Handle.AsRef<bool>(_B1DOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B1DOffset);
   }
-  private static readonly Lazy<nint> _B2DOffset = new(() => Schema.GetOffset(0xE7EB44FC42E42C03), LazyThreadSafetyMode.None);
+  private static readonly nint _B2DOffset = Schema.GetOffset(0xE7EB44FC42E42C03);
 
   public ref bool B2D {
-    get => ref _Handle.AsRef<bool>(_B2DOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B2DOffset);
   }
-  private static readonly Lazy<nint> _B2D_TRIOffset = new(() => Schema.GetOffset(0xE7EB44FCC9FA6A0D), LazyThreadSafetyMode.None);
+  private static readonly nint _B2D_TRIOffset = Schema.GetOffset(0xE7EB44FCC9FA6A0D);
 
   public ref bool B2D_TRI {
-    get => ref _Handle.AsRef<bool>(_B2D_TRIOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B2D_TRIOffset);
   }
 
 

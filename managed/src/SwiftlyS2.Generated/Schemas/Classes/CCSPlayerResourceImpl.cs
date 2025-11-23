@@ -26,15 +26,15 @@ internal partial class CCSPlayerResourceImpl : CBaseEntityImpl, CCSPlayerResourc
   public ISchemaFixedArray<uint> HostageEntityIDs {
     get => new SchemaFixedArray<uint>(_Handle, 0xBEE9B9150EEFA350, 12, 4, 4);
   }
-  private static readonly Lazy<nint> _BombsiteCenterAOffset = new(() => Schema.GetOffset(0xBEE9B915A11A73BA), LazyThreadSafetyMode.None);
+  private static readonly nint _BombsiteCenterAOffset = Schema.GetOffset(0xBEE9B915A11A73BA);
 
   public ref Vector BombsiteCenterA {
-    get => ref _Handle.AsRef<Vector>(_BombsiteCenterAOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BombsiteCenterAOffset);
   }
-  private static readonly Lazy<nint> _BombsiteCenterBOffset = new(() => Schema.GetOffset(0xBEE9B915A01A7227), LazyThreadSafetyMode.None);
+  private static readonly nint _BombsiteCenterBOffset = Schema.GetOffset(0xBEE9B915A01A7227);
 
   public ref Vector BombsiteCenterB {
-    get => ref _Handle.AsRef<Vector>(_BombsiteCenterBOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BombsiteCenterBOffset);
   }
   public ISchemaFixedArray<int> HostageRescueX {
     get => new SchemaFixedArray<int>(_Handle, 0xBEE9B91584FE2109, 4, 4, 4);
@@ -45,15 +45,15 @@ internal partial class CCSPlayerResourceImpl : CBaseEntityImpl, CCSPlayerResourc
   public ISchemaFixedArray<int> HostageRescueZ {
     get => new SchemaFixedArray<int>(_Handle, 0xBEE9B91582FE1DE3, 4, 4, 4);
   }
-  private static readonly Lazy<nint> _EndMatchNextMapAllVotedOffset = new(() => Schema.GetOffset(0xBEE9B915E1946791), LazyThreadSafetyMode.None);
+  private static readonly nint _EndMatchNextMapAllVotedOffset = Schema.GetOffset(0xBEE9B915E1946791);
 
   public ref bool EndMatchNextMapAllVoted {
-    get => ref _Handle.AsRef<bool>(_EndMatchNextMapAllVotedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EndMatchNextMapAllVotedOffset);
   }
-  private static readonly Lazy<nint> _FoundGoalPositionsOffset = new(() => Schema.GetOffset(0xBEE9B915A90F0670), LazyThreadSafetyMode.None);
+  private static readonly nint _FoundGoalPositionsOffset = Schema.GetOffset(0xBEE9B915A90F0670);
 
   public ref bool FoundGoalPositions {
-    get => ref _Handle.AsRef<bool>(_FoundGoalPositionsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FoundGoalPositionsOffset);
   }
 
   public void HostageAliveUpdated() {

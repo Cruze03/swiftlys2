@@ -110,13 +110,13 @@ void TraceShapeHook(void* _this, Ray_t& ray, Vector& start, Vector& end, CTraceF
     reinterpret_cast<void(*)(void*, Ray_t&, Vector&, Vector&, CTraceFilter*, trace_t*)>(g_pTraceShapeHook->GetOriginal())(_this, ray, start, end, filter, trace);
 }
 
-int64_t TakeDamageHook(void* baseEntity, void* info, void* idk)
+int64_t TakeDamageHook(void* baseEntity, void* info, void* damageResult)
 {
     if (g_pOnEntityTakeDamageCallback)
-        if (reinterpret_cast<bool(*)(void*, void*)>(g_pOnEntityTakeDamageCallback)(baseEntity, info) == false)
+        if (reinterpret_cast<bool(*)(void*, void*, void*)>(g_pOnEntityTakeDamageCallback)(baseEntity, info, damageResult) == false)
             return 0;
 
-    return reinterpret_cast<int64_t(*)(void*, void*, void*)>(g_pOnEntityTakeDamageHook->GetOriginal())(baseEntity, info, idk);
+    return reinterpret_cast<int64_t(*)(void*, void*, void*)>(g_pOnEntityTakeDamageHook->GetOriginal())(baseEntity, info, damageResult);
 }
 
 void StartupServerHook(void* _this, const GameSessionConfiguration_t& config, ISource2WorldSession* a, const char* b)

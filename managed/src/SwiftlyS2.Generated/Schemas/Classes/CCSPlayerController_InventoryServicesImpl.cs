@@ -17,51 +17,51 @@ internal partial class CCSPlayerController_InventoryServicesImpl : CPlayerContro
   public CCSPlayerController_InventoryServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MusicIDOffset = new(() => Schema.GetOffset(0xC1D0078289F71A5C), LazyThreadSafetyMode.None);
+  private static readonly nint _MusicIDOffset = Schema.GetOffset(0xC1D0078289F71A5C);
 
   public ref ushort MusicID {
-    get => ref _Handle.AsRef<ushort>(_MusicIDOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_MusicIDOffset);
   }
   public ISchemaFixedArray<MedalRank_t> Rank {
     get => new SchemaFixedArray<MedalRank_t>(_Handle, 0xC1D007826A7861C7, 6, 4, 4);
   }
-  private static readonly Lazy<nint> _PersonaDataPublicLevelOffset = new(() => Schema.GetOffset(0xC1D00782BE2880D0), LazyThreadSafetyMode.None);
+  private static readonly nint _PersonaDataPublicLevelOffset = Schema.GetOffset(0xC1D00782BE2880D0);
 
   public ref int PersonaDataPublicLevel {
-    get => ref _Handle.AsRef<int>(_PersonaDataPublicLevelOffset.Value);
+    get => ref _Handle.AsRef<int>(_PersonaDataPublicLevelOffset);
   }
-  private static readonly Lazy<nint> _PersonaDataPublicCommendsLeaderOffset = new(() => Schema.GetOffset(0xC1D00782671B0B25), LazyThreadSafetyMode.None);
+  private static readonly nint _PersonaDataPublicCommendsLeaderOffset = Schema.GetOffset(0xC1D00782671B0B25);
 
   public ref int PersonaDataPublicCommendsLeader {
-    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsLeaderOffset.Value);
+    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsLeaderOffset);
   }
-  private static readonly Lazy<nint> _PersonaDataPublicCommendsTeacherOffset = new(() => Schema.GetOffset(0xC1D00782610CA282), LazyThreadSafetyMode.None);
+  private static readonly nint _PersonaDataPublicCommendsTeacherOffset = Schema.GetOffset(0xC1D00782610CA282);
 
   public ref int PersonaDataPublicCommendsTeacher {
-    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsTeacherOffset.Value);
+    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsTeacherOffset);
   }
-  private static readonly Lazy<nint> _PersonaDataPublicCommendsFriendlyOffset = new(() => Schema.GetOffset(0xC1D00782B3DA495B), LazyThreadSafetyMode.None);
+  private static readonly nint _PersonaDataPublicCommendsFriendlyOffset = Schema.GetOffset(0xC1D00782B3DA495B);
 
   public ref int PersonaDataPublicCommendsFriendly {
-    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsFriendlyOffset.Value);
+    get => ref _Handle.AsRef<int>(_PersonaDataPublicCommendsFriendlyOffset);
   }
-  private static readonly Lazy<nint> _PersonaDataXpTrailLevelOffset = new(() => Schema.GetOffset(0xC1D0078228192B7D), LazyThreadSafetyMode.None);
+  private static readonly nint _PersonaDataXpTrailLevelOffset = Schema.GetOffset(0xC1D0078228192B7D);
 
   public ref int PersonaDataXpTrailLevel {
-    get => ref _Handle.AsRef<int>(_PersonaDataXpTrailLevelOffset.Value);
+    get => ref _Handle.AsRef<int>(_PersonaDataXpTrailLevelOffset);
   }
   public ISchemaFixedArray<uint> EquippedPlayerSprayIDs {
     get => new SchemaFixedArray<uint>(_Handle, 0xC1D00782CE970C93, 1, 4, 4);
   }
-  private static readonly Lazy<nint> _CurrentLoadoutHashOffset = new(() => Schema.GetOffset(0xC1D007824F832E99), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentLoadoutHashOffset = Schema.GetOffset(0xC1D007824F832E99);
 
   public ref ulong CurrentLoadoutHash {
-    get => ref _Handle.AsRef<ulong>(_CurrentLoadoutHashOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_CurrentLoadoutHashOffset);
   }
-  private static readonly Lazy<nint> _ServerAuthoritativeWeaponSlotsOffset = new(() => Schema.GetOffset(0xC1D007826EED2FF6), LazyThreadSafetyMode.None);
+  private static readonly nint _ServerAuthoritativeWeaponSlotsOffset = Schema.GetOffset(0xC1D007826EED2FF6);
 
   public ref CUtlVector<ServerAuthoritativeWeaponSlot_t> ServerAuthoritativeWeaponSlots {
-    get => ref _Handle.AsRef<CUtlVector<ServerAuthoritativeWeaponSlot_t>>(_ServerAuthoritativeWeaponSlotsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ServerAuthoritativeWeaponSlot_t>>(_ServerAuthoritativeWeaponSlotsOffset);
   }
 
   public void MusicIDUpdated() {

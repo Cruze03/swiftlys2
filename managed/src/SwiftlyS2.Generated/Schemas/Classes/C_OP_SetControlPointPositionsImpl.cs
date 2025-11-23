@@ -17,65 +17,65 @@ internal partial class C_OP_SetControlPointPositionsImpl : CParticleFunctionPreE
   public C_OP_SetControlPointPositionsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseWorldLocationOffset = new(() => Schema.GetOffset(0x12B1A872F371AED7), LazyThreadSafetyMode.None);
+  private static readonly nint _UseWorldLocationOffset = Schema.GetOffset(0x12B1A872F371AED7);
 
   public ref bool UseWorldLocation {
-    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset);
   }
-  private static readonly Lazy<nint> _OrientOffset = new(() => Schema.GetOffset(0x12B1A8727CD61854), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientOffset = Schema.GetOffset(0x12B1A8727CD61854);
 
   public ref bool Orient {
-    get => ref _Handle.AsRef<bool>(_OrientOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientOffset);
   }
-  private static readonly Lazy<nint> _SetOnceOffset = new(() => Schema.GetOffset(0x12B1A8726B261086), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOnceOffset = Schema.GetOffset(0x12B1A8726B261086);
 
   public ref bool SetOnce {
-    get => ref _Handle.AsRef<bool>(_SetOnceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOnceOffset);
   }
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0x12B1A872D4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0x12B1A872D4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _CP2Offset = new(() => Schema.GetOffset(0x12B1A872D1B1E0C0), LazyThreadSafetyMode.None);
+  private static readonly nint _CP2Offset = Schema.GetOffset(0x12B1A872D1B1E0C0);
 
   public ref int CP2 {
-    get => ref _Handle.AsRef<int>(_CP2Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP2Offset);
   }
-  private static readonly Lazy<nint> _CP3Offset = new(() => Schema.GetOffset(0x12B1A872D2B1E253), LazyThreadSafetyMode.None);
+  private static readonly nint _CP3Offset = Schema.GetOffset(0x12B1A872D2B1E253);
 
   public ref int CP3 {
-    get => ref _Handle.AsRef<int>(_CP3Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP3Offset);
   }
-  private static readonly Lazy<nint> _CP4Offset = new(() => Schema.GetOffset(0x12B1A872D7B1EA32), LazyThreadSafetyMode.None);
+  private static readonly nint _CP4Offset = Schema.GetOffset(0x12B1A872D7B1EA32);
 
   public ref int CP4 {
-    get => ref _Handle.AsRef<int>(_CP4Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP4Offset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0x12B1A872408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0x12B1A872408288D9);
 
   public ref Vector CP1Pos {
-    get => ref _Handle.AsRef<Vector>(_CP1PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP1PosOffset);
   }
-  private static readonly Lazy<nint> _CP2PosOffset = new(() => Schema.GetOffset(0x12B1A872862C8D46), LazyThreadSafetyMode.None);
+  private static readonly nint _CP2PosOffset = Schema.GetOffset(0x12B1A872862C8D46);
 
   public ref Vector CP2Pos {
-    get => ref _Handle.AsRef<Vector>(_CP2PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP2PosOffset);
   }
-  private static readonly Lazy<nint> _CP3PosOffset = new(() => Schema.GetOffset(0x12B1A872E3C5304F), LazyThreadSafetyMode.None);
+  private static readonly nint _CP3PosOffset = Schema.GetOffset(0x12B1A872E3C5304F);
 
   public ref Vector CP3Pos {
-    get => ref _Handle.AsRef<Vector>(_CP3PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP3PosOffset);
   }
-  private static readonly Lazy<nint> _CP4PosOffset = new(() => Schema.GetOffset(0x12B1A872A5E5E51C), LazyThreadSafetyMode.None);
+  private static readonly nint _CP4PosOffset = Schema.GetOffset(0x12B1A872A5E5E51C);
 
   public ref Vector CP4Pos {
-    get => ref _Handle.AsRef<Vector>(_CP4PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP4PosOffset);
   }
-  private static readonly Lazy<nint> _HeadLocationOffset = new(() => Schema.GetOffset(0x12B1A872A8ECDA78), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadLocationOffset = Schema.GetOffset(0x12B1A872A8ECDA78);
 
   public ref int HeadLocation {
-    get => ref _Handle.AsRef<int>(_HeadLocationOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadLocationOffset);
   }
 
 

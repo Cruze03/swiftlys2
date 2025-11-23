@@ -17,40 +17,40 @@ internal partial class FootPinningPoseOpFixedData_tImpl : SchemaClass, FootPinni
   public FootPinningPoseOpFixedData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootInfoOffset = new(() => Schema.GetOffset(0x87C487AD942F50C1), LazyThreadSafetyMode.None);
+  private static readonly nint _FootInfoOffset = Schema.GetOffset(0x87C487AD942F50C1);
 
   public ref CUtlVector<FootFixedData_t> FootInfo {
-    get => ref _Handle.AsRef<CUtlVector<FootFixedData_t>>(_FootInfoOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<FootFixedData_t>>(_FootInfoOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeOffset = new(() => Schema.GetOffset(0x87C487ADA6206E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeOffset = Schema.GetOffset(0x87C487ADA6206E9F);
 
   public ref float BlendTime {
-    get => ref _Handle.AsRef<float>(_BlendTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeOffset);
   }
-  private static readonly Lazy<nint> _LockBreakDistanceOffset = new(() => Schema.GetOffset(0x87C487AD71965CA0), LazyThreadSafetyMode.None);
+  private static readonly nint _LockBreakDistanceOffset = Schema.GetOffset(0x87C487AD71965CA0);
 
   public ref float LockBreakDistance {
-    get => ref _Handle.AsRef<float>(_LockBreakDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_LockBreakDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxLegTwistOffset = new(() => Schema.GetOffset(0x87C487ADB79440DC), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxLegTwistOffset = Schema.GetOffset(0x87C487ADB79440DC);
 
   public ref float MaxLegTwist {
-    get => ref _Handle.AsRef<float>(_MaxLegTwistOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxLegTwistOffset);
   }
-  private static readonly Lazy<nint> _HipBoneIndexOffset = new(() => Schema.GetOffset(0x87C487AD12FFBC70), LazyThreadSafetyMode.None);
+  private static readonly nint _HipBoneIndexOffset = Schema.GetOffset(0x87C487AD12FFBC70);
 
   public ref int HipBoneIndex {
-    get => ref _Handle.AsRef<int>(_HipBoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_HipBoneIndexOffset);
   }
-  private static readonly Lazy<nint> _ApplyLegTwistLimitsOffset = new(() => Schema.GetOffset(0x87C487AD95B3EE60), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyLegTwistLimitsOffset = Schema.GetOffset(0x87C487AD95B3EE60);
 
   public ref bool ApplyLegTwistLimits {
-    get => ref _Handle.AsRef<bool>(_ApplyLegTwistLimitsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyLegTwistLimitsOffset);
   }
-  private static readonly Lazy<nint> _ApplyFootRotationLimitsOffset = new(() => Schema.GetOffset(0x87C487AD7C3F5AED), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyFootRotationLimitsOffset = Schema.GetOffset(0x87C487AD7C3F5AED);
 
   public ref bool ApplyFootRotationLimits {
-    get => ref _Handle.AsRef<bool>(_ApplyFootRotationLimitsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyFootRotationLimitsOffset);
   }
 
 

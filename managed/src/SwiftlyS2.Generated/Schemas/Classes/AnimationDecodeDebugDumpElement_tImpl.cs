@@ -17,39 +17,39 @@ internal partial class AnimationDecodeDebugDumpElement_tImpl : SchemaClass, Anim
   public AnimationDecodeDebugDumpElement_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntityIndexOffset = new(() => Schema.GetOffset(0x4CAFE8F7BDB9BC5A), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityIndexOffset = Schema.GetOffset(0x4CAFE8F7BDB9BC5A);
 
   public ref int EntityIndex {
-    get => ref _Handle.AsRef<int>(_EntityIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_EntityIndexOffset);
   }
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0x4CAFE8F75D35B6E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0x4CAFE8F75D35B6E1);
 
   public string ModelName {
     get {
-      var ptr = _Handle.Read<nint>(_ModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModelNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PoseParamsOffset = new(() => Schema.GetOffset(0x4CAFE8F7B4A27762), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseParamsOffset = Schema.GetOffset(0x4CAFE8F7B4A27762);
 
   public ref CUtlVector<CUtlString> PoseParams {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_PoseParamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_PoseParamsOffset);
   }
-  private static readonly Lazy<nint> _DecodeOpsOffset = new(() => Schema.GetOffset(0x4CAFE8F7D39502F9), LazyThreadSafetyMode.None);
+  private static readonly nint _DecodeOpsOffset = Schema.GetOffset(0x4CAFE8F7D39502F9);
 
   public ref CUtlVector<CUtlString> DecodeOps {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DecodeOpsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DecodeOpsOffset);
   }
-  private static readonly Lazy<nint> _InternalOpsOffset = new(() => Schema.GetOffset(0x4CAFE8F775823E0C), LazyThreadSafetyMode.None);
+  private static readonly nint _InternalOpsOffset = Schema.GetOffset(0x4CAFE8F775823E0C);
 
   public ref CUtlVector<CUtlString> InternalOps {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InternalOpsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InternalOpsOffset);
   }
-  private static readonly Lazy<nint> _DecodedAnimsOffset = new(() => Schema.GetOffset(0x4CAFE8F7B20FFAAD), LazyThreadSafetyMode.None);
+  private static readonly nint _DecodedAnimsOffset = Schema.GetOffset(0x4CAFE8F7B20FFAAD);
 
   public ref CUtlVector<CUtlString> DecodedAnims {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DecodedAnimsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_DecodedAnimsOffset);
   }
 
 

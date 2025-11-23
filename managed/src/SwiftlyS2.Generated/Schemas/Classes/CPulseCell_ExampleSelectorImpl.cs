@@ -17,10 +17,10 @@ internal partial class CPulseCell_ExampleSelectorImpl : CPulseCell_BaseFlowImpl,
   public CPulseCell_ExampleSelectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutflowListOffset = new(() => Schema.GetOffset(0x97417F8B1461E743), LazyThreadSafetyMode.None);
+  private static readonly nint _OutflowListOffset = Schema.GetOffset(0x97417F8B1461E743);
 
   public PulseSelectorOutflowList_t OutflowList {
-    get => new PulseSelectorOutflowList_tImpl(_Handle + _OutflowListOffset.Value);
+    get => new PulseSelectorOutflowList_tImpl(_Handle + _OutflowListOffset);
   }
 
 

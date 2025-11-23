@@ -17,10 +17,10 @@ internal partial class CTakeDamageSummaryScopeGuardImpl : SchemaClass, CTakeDama
   public CTakeDamageSummaryScopeGuardImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SummariesOffset = new(() => Schema.GetOffset(0x1CAF012DD0AD2A53), LazyThreadSafetyMode.None);
+  private static readonly nint _SummariesOffset = Schema.GetOffset(0x1CAF012DD0AD2A53);
 
   public ref CUtlVector<PointerTo<SummaryTakeDamageInfo_t>> Summaries {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<SummaryTakeDamageInfo_t>>>(_SummariesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<SummaryTakeDamageInfo_t>>>(_SummariesOffset);
   }
 
 

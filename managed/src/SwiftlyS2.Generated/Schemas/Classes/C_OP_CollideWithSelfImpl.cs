@@ -17,15 +17,15 @@ internal partial class C_OP_CollideWithSelfImpl : CParticleFunctionConstraintImp
   public C_OP_CollideWithSelfImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0xEF46C0CBA7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0xEF46C0CBA7A20159);
 
   public CPerParticleFloatInput RadiusScale {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusScaleOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _MinimumSpeedOffset = new(() => Schema.GetOffset(0xEF46C0CB2F9BEFCC), LazyThreadSafetyMode.None);
+  private static readonly nint _MinimumSpeedOffset = Schema.GetOffset(0xEF46C0CB2F9BEFCC);
 
   public CPerParticleFloatInput MinimumSpeed {
-    get => new CPerParticleFloatInputImpl(_Handle + _MinimumSpeedOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MinimumSpeedOffset);
   }
 
 

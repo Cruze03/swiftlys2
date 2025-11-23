@@ -17,40 +17,40 @@ internal partial class C_INIT_CreateSpiralSphereImpl : CParticleFunctionInitiali
   public C_INIT_CreateSpiralSphereImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x97C2018A3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x97C2018A3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _OverrideCPOffset = new(() => Schema.GetOffset(0x97C2018ADD495162), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideCPOffset = Schema.GetOffset(0x97C2018ADD495162);
 
   public ref int OverrideCP {
-    get => ref _Handle.AsRef<int>(_OverrideCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_OverrideCPOffset);
   }
-  private static readonly Lazy<nint> _DensityOffset = new(() => Schema.GetOffset(0x97C2018AA65E630F), LazyThreadSafetyMode.None);
+  private static readonly nint _DensityOffset = Schema.GetOffset(0x97C2018AA65E630F);
 
   public ref int Density {
-    get => ref _Handle.AsRef<int>(_DensityOffset.Value);
+    get => ref _Handle.AsRef<int>(_DensityOffset);
   }
-  private static readonly Lazy<nint> _InitialRadiusOffset = new(() => Schema.GetOffset(0x97C2018A8B8AAB8B), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialRadiusOffset = Schema.GetOffset(0x97C2018A8B8AAB8B);
 
   public ref float InitialRadius {
-    get => ref _Handle.AsRef<float>(_InitialRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_InitialRadiusOffset);
   }
-  private static readonly Lazy<nint> _InitialSpeedMinOffset = new(() => Schema.GetOffset(0x97C2018AE36FD694), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialSpeedMinOffset = Schema.GetOffset(0x97C2018AE36FD694);
 
   public ref float InitialSpeedMin {
-    get => ref _Handle.AsRef<float>(_InitialSpeedMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_InitialSpeedMinOffset);
   }
-  private static readonly Lazy<nint> _InitialSpeedMaxOffset = new(() => Schema.GetOffset(0x97C2018AD184D4F6), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialSpeedMaxOffset = Schema.GetOffset(0x97C2018AD184D4F6);
 
   public ref float InitialSpeedMax {
-    get => ref _Handle.AsRef<float>(_InitialSpeedMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_InitialSpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _UseParticleCountOffset = new(() => Schema.GetOffset(0x97C2018AD4DA0515), LazyThreadSafetyMode.None);
+  private static readonly nint _UseParticleCountOffset = Schema.GetOffset(0x97C2018AD4DA0515);
 
   public ref bool UseParticleCount {
-    get => ref _Handle.AsRef<bool>(_UseParticleCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseParticleCountOffset);
   }
 
 

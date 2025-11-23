@@ -17,10 +17,10 @@ internal partial class CHitboxComponentImpl : CEntityComponentImpl, CHitboxCompo
   public CHitboxComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoundsExpandRadiusOffset = new(() => Schema.GetOffset(0x8148DEC366FA148C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundsExpandRadiusOffset = Schema.GetOffset(0x8148DEC366FA148C);
 
   public ref float BoundsExpandRadius {
-    get => ref _Handle.AsRef<float>(_BoundsExpandRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_BoundsExpandRadiusOffset);
   }
 
 

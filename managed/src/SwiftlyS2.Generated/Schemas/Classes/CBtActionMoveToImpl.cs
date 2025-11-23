@@ -17,87 +17,87 @@ internal partial class CBtActionMoveToImpl : CBtNodeImpl, CBtActionMoveTo {
   public CBtActionMoveToImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DestinationInputKeyOffset = new(() => Schema.GetOffset(0xD3E75386EA98FEAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DestinationInputKeyOffset = Schema.GetOffset(0xD3E75386EA98FEAB);
 
   public string DestinationInputKey {
     get {
-      var ptr = _Handle.Read<nint>(_DestinationInputKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_DestinationInputKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DestinationInputKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _DestinationInputKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _HidingSpotInputKeyOffset = new(() => Schema.GetOffset(0xD3E75386B3449D70), LazyThreadSafetyMode.None);
+  private static readonly nint _HidingSpotInputKeyOffset = Schema.GetOffset(0xD3E75386B3449D70);
 
   public string HidingSpotInputKey {
     get {
-      var ptr = _Handle.Read<nint>(_HidingSpotInputKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_HidingSpotInputKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _HidingSpotInputKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _HidingSpotInputKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _ThreatInputKeyOffset = new(() => Schema.GetOffset(0xD3E75386E8FD875B), LazyThreadSafetyMode.None);
+  private static readonly nint _ThreatInputKeyOffset = Schema.GetOffset(0xD3E75386E8FD875B);
 
   public string ThreatInputKey {
     get {
-      var ptr = _Handle.Read<nint>(_ThreatInputKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_ThreatInputKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ThreatInputKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _ThreatInputKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _DestinationOffset = new(() => Schema.GetOffset(0xD3E753868964CB9F), LazyThreadSafetyMode.None);
+  private static readonly nint _DestinationOffset = Schema.GetOffset(0xD3E753868964CB9F);
 
   public ref Vector Destination {
-    get => ref _Handle.AsRef<Vector>(_DestinationOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DestinationOffset);
   }
-  private static readonly Lazy<nint> _AutoLookAdjustOffset = new(() => Schema.GetOffset(0xD3E75386CC24EFB6), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoLookAdjustOffset = Schema.GetOffset(0xD3E75386CC24EFB6);
 
   public ref bool AutoLookAdjust {
-    get => ref _Handle.AsRef<bool>(_AutoLookAdjustOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutoLookAdjustOffset);
   }
-  private static readonly Lazy<nint> _ComputePathOffset = new(() => Schema.GetOffset(0xD3E75386E6332AE9), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputePathOffset = Schema.GetOffset(0xD3E75386E6332AE9);
 
   public ref bool ComputePath {
-    get => ref _Handle.AsRef<bool>(_ComputePathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ComputePathOffset);
   }
-  private static readonly Lazy<nint> _DamagingAreasPenaltyCostOffset = new(() => Schema.GetOffset(0xD3E753868B6813F3), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagingAreasPenaltyCostOffset = Schema.GetOffset(0xD3E753868B6813F3);
 
   public ref float DamagingAreasPenaltyCost {
-    get => ref _Handle.AsRef<float>(_DamagingAreasPenaltyCostOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamagingAreasPenaltyCostOffset);
   }
-  private static readonly Lazy<nint> _CheckApproximateCornersTimerOffset = new(() => Schema.GetOffset(0xD3E7538689360D84), LazyThreadSafetyMode.None);
+  private static readonly nint _CheckApproximateCornersTimerOffset = Schema.GetOffset(0xD3E7538689360D84);
 
   public CountdownTimer CheckApproximateCornersTimer {
-    get => new CountdownTimerImpl(_Handle + _CheckApproximateCornersTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _CheckApproximateCornersTimerOffset);
   }
-  private static readonly Lazy<nint> _CheckHighPriorityItemOffset = new(() => Schema.GetOffset(0xD3E7538619EE60B4), LazyThreadSafetyMode.None);
+  private static readonly nint _CheckHighPriorityItemOffset = Schema.GetOffset(0xD3E7538619EE60B4);
 
   public CountdownTimer CheckHighPriorityItem {
-    get => new CountdownTimerImpl(_Handle + _CheckHighPriorityItemOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _CheckHighPriorityItemOffset);
   }
-  private static readonly Lazy<nint> _RepathTimerOffset = new(() => Schema.GetOffset(0xD3E753866BF3B99C), LazyThreadSafetyMode.None);
+  private static readonly nint _RepathTimerOffset = Schema.GetOffset(0xD3E753866BF3B99C);
 
   public CountdownTimer RepathTimer {
-    get => new CountdownTimerImpl(_Handle + _RepathTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _RepathTimerOffset);
   }
-  private static readonly Lazy<nint> _ArrivalEpsilonOffset = new(() => Schema.GetOffset(0xD3E75386193730DE), LazyThreadSafetyMode.None);
+  private static readonly nint _ArrivalEpsilonOffset = Schema.GetOffset(0xD3E75386193730DE);
 
   public ref float ArrivalEpsilon {
-    get => ref _Handle.AsRef<float>(_ArrivalEpsilonOffset.Value);
+    get => ref _Handle.AsRef<float>(_ArrivalEpsilonOffset);
   }
-  private static readonly Lazy<nint> _AdditionalArrivalEpsilon2DOffset = new(() => Schema.GetOffset(0xD3E7538601105845), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditionalArrivalEpsilon2DOffset = Schema.GetOffset(0xD3E7538601105845);
 
   public ref float AdditionalArrivalEpsilon2D {
-    get => ref _Handle.AsRef<float>(_AdditionalArrivalEpsilon2DOffset.Value);
+    get => ref _Handle.AsRef<float>(_AdditionalArrivalEpsilon2DOffset);
   }
-  private static readonly Lazy<nint> _HidingSpotCheckDistanceThresholdOffset = new(() => Schema.GetOffset(0xD3E75386BA171B2E), LazyThreadSafetyMode.None);
+  private static readonly nint _HidingSpotCheckDistanceThresholdOffset = Schema.GetOffset(0xD3E75386BA171B2E);
 
   public ref float HidingSpotCheckDistanceThreshold {
-    get => ref _Handle.AsRef<float>(_HidingSpotCheckDistanceThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_HidingSpotCheckDistanceThresholdOffset);
   }
-  private static readonly Lazy<nint> _NearestAreaDistanceThresholdOffset = new(() => Schema.GetOffset(0xD3E75386C5DEF260), LazyThreadSafetyMode.None);
+  private static readonly nint _NearestAreaDistanceThresholdOffset = Schema.GetOffset(0xD3E75386C5DEF260);
 
   public ref float NearestAreaDistanceThreshold {
-    get => ref _Handle.AsRef<float>(_NearestAreaDistanceThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_NearestAreaDistanceThresholdOffset);
   }
 
 

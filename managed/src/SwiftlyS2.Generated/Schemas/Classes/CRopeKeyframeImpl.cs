@@ -17,118 +17,118 @@ internal partial class CRopeKeyframeImpl : CBaseModelEntityImpl, CRopeKeyframe {
   public CRopeKeyframeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RopeFlagsOffset = new(() => Schema.GetOffset(0x76EE758E2EF994F4), LazyThreadSafetyMode.None);
+  private static readonly nint _RopeFlagsOffset = Schema.GetOffset(0x76EE758E2EF994F4);
 
   public ref ushort RopeFlags {
-    get => ref _Handle.AsRef<ushort>(_RopeFlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_RopeFlagsOffset);
   }
-  private static readonly Lazy<nint> _NextLinkNameOffset = new(() => Schema.GetOffset(0x76EE758EFD59AE1A), LazyThreadSafetyMode.None);
+  private static readonly nint _NextLinkNameOffset = Schema.GetOffset(0x76EE758EFD59AE1A);
 
   public string NextLinkName {
     get {
-      var ptr = _Handle.Read<nint>(_NextLinkNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextLinkNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NextLinkNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NextLinkNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SlackOffset = new(() => Schema.GetOffset(0x76EE758E84ECDEA7), LazyThreadSafetyMode.None);
+  private static readonly nint _SlackOffset = Schema.GetOffset(0x76EE758E84ECDEA7);
 
   public ref short Slack {
-    get => ref _Handle.AsRef<short>(_SlackOffset.Value);
+    get => ref _Handle.AsRef<short>(_SlackOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0x76EE758E2FD9239F), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0x76EE758E2FD9239F);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _TextureScaleOffset = new(() => Schema.GetOffset(0x76EE758EA14A014E), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureScaleOffset = Schema.GetOffset(0x76EE758EA14A014E);
 
   public ref float TextureScale {
-    get => ref _Handle.AsRef<float>(_TextureScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TextureScaleOffset);
   }
-  private static readonly Lazy<nint> _SegmentsOffset = new(() => Schema.GetOffset(0x76EE758E4878E17B), LazyThreadSafetyMode.None);
+  private static readonly nint _SegmentsOffset = Schema.GetOffset(0x76EE758E4878E17B);
 
   public ref byte Segments {
-    get => ref _Handle.AsRef<byte>(_SegmentsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SegmentsOffset);
   }
-  private static readonly Lazy<nint> _ConstrainBetweenEndpointsOffset = new(() => Schema.GetOffset(0x76EE758E05033E3C), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstrainBetweenEndpointsOffset = Schema.GetOffset(0x76EE758E05033E3C);
 
   public ref bool ConstrainBetweenEndpoints {
-    get => ref _Handle.AsRef<bool>(_ConstrainBetweenEndpointsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ConstrainBetweenEndpointsOffset);
   }
-  private static readonly Lazy<nint> _StrRopeMaterialModelOffset = new(() => Schema.GetOffset(0x76EE758E7A58C07A), LazyThreadSafetyMode.None);
+  private static readonly nint _StrRopeMaterialModelOffset = Schema.GetOffset(0x76EE758E7A58C07A);
 
   public string StrRopeMaterialModel {
     get {
-      var ptr = _Handle.Read<nint>(_StrRopeMaterialModelOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrRopeMaterialModelOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrRopeMaterialModelOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrRopeMaterialModelOffset, value);
   } 
-  private static readonly Lazy<nint> _RopeMaterialModelIndexOffset = new(() => Schema.GetOffset(0x76EE758E831DE452), LazyThreadSafetyMode.None);
+  private static readonly nint _RopeMaterialModelIndexOffset = Schema.GetOffset(0x76EE758E831DE452);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> RopeMaterialModelIndex {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_RopeMaterialModelIndexOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_RopeMaterialModelIndexOffset);
   }
-  private static readonly Lazy<nint> _SubdivOffset = new(() => Schema.GetOffset(0x76EE758E785F10D8), LazyThreadSafetyMode.None);
+  private static readonly nint _SubdivOffset = Schema.GetOffset(0x76EE758E785F10D8);
 
   public ref byte Subdiv {
-    get => ref _Handle.AsRef<byte>(_SubdivOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SubdivOffset);
   }
-  private static readonly Lazy<nint> _ChangeCountOffset = new(() => Schema.GetOffset(0x76EE758E167C12A8), LazyThreadSafetyMode.None);
+  private static readonly nint _ChangeCountOffset = Schema.GetOffset(0x76EE758E167C12A8);
 
   public ref byte ChangeCount {
-    get => ref _Handle.AsRef<byte>(_ChangeCountOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ChangeCountOffset);
   }
-  private static readonly Lazy<nint> _RopeLengthOffset = new(() => Schema.GetOffset(0x76EE758EC27FC78D), LazyThreadSafetyMode.None);
+  private static readonly nint _RopeLengthOffset = Schema.GetOffset(0x76EE758EC27FC78D);
 
   public ref short RopeLength {
-    get => ref _Handle.AsRef<short>(_RopeLengthOffset.Value);
+    get => ref _Handle.AsRef<short>(_RopeLengthOffset);
   }
-  private static readonly Lazy<nint> _LockedPointsOffset = new(() => Schema.GetOffset(0x76EE758ECE6446D4), LazyThreadSafetyMode.None);
+  private static readonly nint _LockedPointsOffset = Schema.GetOffset(0x76EE758ECE6446D4);
 
   public ref byte LockedPoints {
-    get => ref _Handle.AsRef<byte>(_LockedPointsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_LockedPointsOffset);
   }
-  private static readonly Lazy<nint> _CreatedFromMapFileOffset = new(() => Schema.GetOffset(0x76EE758EB4684909), LazyThreadSafetyMode.None);
+  private static readonly nint _CreatedFromMapFileOffset = Schema.GetOffset(0x76EE758EB4684909);
 
   public ref bool CreatedFromMapFile {
-    get => ref _Handle.AsRef<bool>(_CreatedFromMapFileOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreatedFromMapFileOffset);
   }
-  private static readonly Lazy<nint> _ScrollSpeedOffset = new(() => Schema.GetOffset(0x76EE758E448C9F71), LazyThreadSafetyMode.None);
+  private static readonly nint _ScrollSpeedOffset = Schema.GetOffset(0x76EE758E448C9F71);
 
   public ref float ScrollSpeed {
-    get => ref _Handle.AsRef<float>(_ScrollSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScrollSpeedOffset);
   }
-  private static readonly Lazy<nint> _StartPointValidOffset = new(() => Schema.GetOffset(0x76EE758E949209D3), LazyThreadSafetyMode.None);
+  private static readonly nint _StartPointValidOffset = Schema.GetOffset(0x76EE758E949209D3);
 
   public ref bool StartPointValid {
-    get => ref _Handle.AsRef<bool>(_StartPointValidOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartPointValidOffset);
   }
-  private static readonly Lazy<nint> _EndPointValidOffset = new(() => Schema.GetOffset(0x76EE758E938F0CDE), LazyThreadSafetyMode.None);
+  private static readonly nint _EndPointValidOffset = Schema.GetOffset(0x76EE758E938F0CDE);
 
   public ref bool EndPointValid {
-    get => ref _Handle.AsRef<bool>(_EndPointValidOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EndPointValidOffset);
   }
-  private static readonly Lazy<nint> _StartPointOffset = new(() => Schema.GetOffset(0x76EE758ECCE549A9), LazyThreadSafetyMode.None);
+  private static readonly nint _StartPointOffset = Schema.GetOffset(0x76EE758ECCE549A9);
 
   public ref CHandle<CBaseEntity> StartPoint {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_StartPointOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_StartPointOffset);
   }
-  private static readonly Lazy<nint> _EndPointOffset = new(() => Schema.GetOffset(0x76EE758E5E8C8D3A), LazyThreadSafetyMode.None);
+  private static readonly nint _EndPointOffset = Schema.GetOffset(0x76EE758E5E8C8D3A);
 
   public ref CHandle<CBaseEntity> EndPoint {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndPointOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndPointOffset);
   }
-  private static readonly Lazy<nint> _StartAttachmentOffset = new(() => Schema.GetOffset(0x76EE758E1022E6F5), LazyThreadSafetyMode.None);
+  private static readonly nint _StartAttachmentOffset = Schema.GetOffset(0x76EE758E1022E6F5);
 
   public AttachmentHandle_t StartAttachment {
-    get => new AttachmentHandle_tImpl(_Handle + _StartAttachmentOffset.Value);
+    get => new AttachmentHandle_tImpl(_Handle + _StartAttachmentOffset);
   }
-  private static readonly Lazy<nint> _EndAttachmentOffset = new(() => Schema.GetOffset(0x76EE758ED537713C), LazyThreadSafetyMode.None);
+  private static readonly nint _EndAttachmentOffset = Schema.GetOffset(0x76EE758ED537713C);
 
   public AttachmentHandle_t EndAttachment {
-    get => new AttachmentHandle_tImpl(_Handle + _EndAttachmentOffset.Value);
+    get => new AttachmentHandle_tImpl(_Handle + _EndAttachmentOffset);
   }
 
   public void RopeFlagsUpdated() {

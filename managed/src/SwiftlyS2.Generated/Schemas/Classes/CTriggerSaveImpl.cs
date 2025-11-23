@@ -17,20 +17,20 @@ internal partial class CTriggerSaveImpl : CBaseTriggerImpl, CTriggerSave {
   public CTriggerSaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceNewLevelUnitOffset = new(() => Schema.GetOffset(0xFA0C03F1473BFDE), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceNewLevelUnitOffset = Schema.GetOffset(0xFA0C03F1473BFDE);
 
   public ref bool ForceNewLevelUnit {
-    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset);
   }
-  private static readonly Lazy<nint> _DangerousTimerOffset = new(() => Schema.GetOffset(0xFA0C03F5CF80EC4), LazyThreadSafetyMode.None);
+  private static readonly nint _DangerousTimerOffset = Schema.GetOffset(0xFA0C03F5CF80EC4);
 
   public ref float DangerousTimer {
-    get => ref _Handle.AsRef<float>(_DangerousTimerOffset.Value);
+    get => ref _Handle.AsRef<float>(_DangerousTimerOffset);
   }
-  private static readonly Lazy<nint> _MinHitPointsOffset = new(() => Schema.GetOffset(0xFA0C03F2C7E0C57), LazyThreadSafetyMode.None);
+  private static readonly nint _MinHitPointsOffset = Schema.GetOffset(0xFA0C03F2C7E0C57);
 
   public ref int MinHitPoints {
-    get => ref _Handle.AsRef<int>(_MinHitPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinHitPointsOffset);
   }
 
 

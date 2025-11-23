@@ -17,10 +17,10 @@ internal partial class RnVertex_tImpl : SchemaClass, RnVertex_t {
   public RnVertex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EdgeOffset = new(() => Schema.GetOffset(0xA2F56A80E2949FC8), LazyThreadSafetyMode.None);
+  private static readonly nint _EdgeOffset = Schema.GetOffset(0xA2F56A80E2949FC8);
 
   public ref byte Edge {
-    get => ref _Handle.AsRef<byte>(_EdgeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_EdgeOffset);
   }
 
 

@@ -1,16 +1,27 @@
-﻿using SwiftlyS2.Core.SchemaDefinitions;
+﻿using SwiftlyS2.Core.Players;
+using SwiftlyS2.Core.SchemaDefinitions;
+using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Shared.Schemas;
 using System.Runtime.InteropServices;
 
 namespace SwiftlyS2.Shared.Natives;
 
-public enum RayType_t: byte
+public enum RayType_t : byte
 {
     RAY_TYPE_LINE = 0,
     RAY_TYPE_SPHERE,
     RAY_TYPE_HULL,
     RAY_TYPE_CAPSULE,
     RAY_TYPE_MESH,
+}
+
+public enum NameMatchType
+{
+    Exact = 0,
+    StartsWith = 1,
+    EndsWith = 2,
+    Contains = 3
 }
 
 [StructLayout(LayoutKind.Sequential)]
@@ -43,5 +54,87 @@ public unsafe struct CGameTrace
     public bool StartInSolid;
     public bool ExactHitPoint;
 
-    public CEntityInstance Entity => new CEntityInstanceImpl((nint)pEntity);
+    public readonly CEntityInstance Entity => new CEntityInstanceImpl((nint)pEntity);
+
+    public readonly bool DidHit => Fraction < 1.0f && StartInSolid == false;
+    public readonly float Distance => EndPos.Distance(StartPos);
+    public readonly Vector Direction {
+        get {
+            var dir = EndPos - StartPos;
+            dir.Normalize();
+            return dir;
+        }
+    }
+
+    public readonly bool HitEntityByDesignerName<T>( string designerName, out T outEntity, NameMatchType matchType = NameMatchType.StartsWith ) where T : ISchemaClass<T>
+    {
+        outEntity = T.From(IntPtr.Zero);
+        if (!DidHit)
+            return false;
+
+        var entity = Entity;
+        if (entity.IsValid == false || entity is not T typedEntity)
+            return false;
+
+        var name = entity.DesignerName;
+        if (name == null)
+            return false;
+
+        var isMatch = matchType switch {
+            NameMatchType.Exact => name.Equals(designerName, StringComparison.Ordinal),
+            NameMatchType.StartsWith => name.StartsWith(designerName, StringComparison.Ordinal),
+            NameMatchType.EndsWith => name.EndsWith(designerName, StringComparison.Ordinal),
+            NameMatchType.Contains => name.Contains(designerName, StringComparison.Ordinal),
+            _ => false,
+        };
+
+        if (isMatch)
+        {
+            outEntity = typedEntity;
+        }
+
+        return isMatch;
+    }
+
+    public readonly bool HitEntityByDesignerName<T>( string designerName, NameMatchType matchType = NameMatchType.StartsWith ) where T : ISchemaClass<T>
+    {
+        return HitEntityByDesignerName<T>(designerName, out _, matchType);
+    }
+
+    public readonly bool HitPlayer( out IPlayer? player )
+    {
+        if (HitEntityByDesignerName<CCSPlayerPawn>("player", out var p, NameMatchType.StartsWith))
+        {
+            var controller = p.OriginalController;
+            if (!controller.IsValid)
+            {
+                player = null;
+                return false;
+            }
+
+            player = new Player((int)(controller.Value!.Index - 1));
+            return true;
+        }
+
+        player = null;
+        return false;
+    }
+
+    public readonly bool HitEntity<T>( out T entity ) where T : ISchemaClass<T>
+    {
+        if (T.ClassName == null)
+        {
+            entity = T.From(IntPtr.Zero);
+            return false;
+        }
+
+        if (HitEntityByDesignerName<T>(T.ClassName, out var e, NameMatchType.Exact))
+        {
+            entity = e;
+            return true;
+        }
+
+        entity = T.From(IntPtr.Zero);
+        return false;
+    }
 }

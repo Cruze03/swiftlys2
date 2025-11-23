@@ -17,63 +17,63 @@ internal partial class PermModelInfo_tImpl : SchemaClass, PermModelInfo_t {
   public PermModelInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x1B48585FCE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x1B48585FCE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _HullMinOffset = new(() => Schema.GetOffset(0x1B48585FAC1193D6), LazyThreadSafetyMode.None);
+  private static readonly nint _HullMinOffset = Schema.GetOffset(0x1B48585FAC1193D6);
 
   public ref Vector HullMin {
-    get => ref _Handle.AsRef<Vector>(_HullMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HullMinOffset);
   }
-  private static readonly Lazy<nint> _HullMaxOffset = new(() => Schema.GetOffset(0x1B48585F9E269884), LazyThreadSafetyMode.None);
+  private static readonly nint _HullMaxOffset = Schema.GetOffset(0x1B48585F9E269884);
 
   public ref Vector HullMax {
-    get => ref _Handle.AsRef<Vector>(_HullMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HullMaxOffset);
   }
-  private static readonly Lazy<nint> _ViewMinOffset = new(() => Schema.GetOffset(0x1B48585F22A936E8), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewMinOffset = Schema.GetOffset(0x1B48585F22A936E8);
 
   public ref Vector ViewMin {
-    get => ref _Handle.AsRef<Vector>(_ViewMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ViewMinOffset);
   }
-  private static readonly Lazy<nint> _ViewMaxOffset = new(() => Schema.GetOffset(0x1B48585F18BCAEE2), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewMaxOffset = Schema.GetOffset(0x1B48585F18BCAEE2);
 
   public ref Vector ViewMax {
-    get => ref _Handle.AsRef<Vector>(_ViewMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ViewMaxOffset);
   }
-  private static readonly Lazy<nint> _MassOffset = new(() => Schema.GetOffset(0x1B48585FCD83D263), LazyThreadSafetyMode.None);
+  private static readonly nint _MassOffset = Schema.GetOffset(0x1B48585FCD83D263);
 
   public ref float Mass {
-    get => ref _Handle.AsRef<float>(_MassOffset.Value);
+    get => ref _Handle.AsRef<float>(_MassOffset);
   }
-  private static readonly Lazy<nint> _EyePositionOffset = new(() => Schema.GetOffset(0x1B48585FA0F51EB1), LazyThreadSafetyMode.None);
+  private static readonly nint _EyePositionOffset = Schema.GetOffset(0x1B48585FA0F51EB1);
 
   public ref Vector EyePosition {
-    get => ref _Handle.AsRef<Vector>(_EyePositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EyePositionOffset);
   }
-  private static readonly Lazy<nint> _MaxEyeDeflectionOffset = new(() => Schema.GetOffset(0x1B48585F1C6CE157), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxEyeDeflectionOffset = Schema.GetOffset(0x1B48585F1C6CE157);
 
   public ref float MaxEyeDeflection {
-    get => ref _Handle.AsRef<float>(_MaxEyeDeflectionOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxEyeDeflectionOffset);
   }
-  private static readonly Lazy<nint> _SurfacePropertyOffset = new(() => Schema.GetOffset(0x1B48585F1A25534C), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropertyOffset = Schema.GetOffset(0x1B48585F1A25534C);
 
   public string SurfaceProperty {
     get {
-      var ptr = _Handle.Read<nint>(_SurfacePropertyOffset.Value);
+      var ptr = _Handle.Read<nint>(_SurfacePropertyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SurfacePropertyOffset.Value, value);
+    set => Schema.SetString(_Handle, _SurfacePropertyOffset, value);
   } 
-  private static readonly Lazy<nint> _KeyValueTextOffset = new(() => Schema.GetOffset(0x1B48585F2156929E), LazyThreadSafetyMode.None);
+  private static readonly nint _KeyValueTextOffset = Schema.GetOffset(0x1B48585F2156929E);
 
   public string KeyValueText {
     get {
-      var ptr = _Handle.Read<nint>(_KeyValueTextOffset.Value);
+      var ptr = _Handle.Read<nint>(_KeyValueTextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _KeyValueTextOffset.Value, value);
+    set => Schema.SetString(_Handle, _KeyValueTextOffset, value);
   } 
 
 

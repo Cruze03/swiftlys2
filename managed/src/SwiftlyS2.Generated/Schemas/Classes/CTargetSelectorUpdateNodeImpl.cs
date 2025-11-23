@@ -17,55 +17,55 @@ internal partial class CTargetSelectorUpdateNodeImpl : CAnimUpdateNodeBaseImpl, 
   public CTargetSelectorUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AngleModeOffset = new(() => Schema.GetOffset(0x37AB6CCBD21DC8BC), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleModeOffset = Schema.GetOffset(0x37AB6CCBD21DC8BC);
 
   public ref TargetSelectorAngleMode_t AngleMode {
-    get => ref _Handle.AsRef<TargetSelectorAngleMode_t>(_AngleModeOffset.Value);
+    get => ref _Handle.AsRef<TargetSelectorAngleMode_t>(_AngleModeOffset);
   }
-  private static readonly Lazy<nint> _ChildrenOffset = new(() => Schema.GetOffset(0x37AB6CCB7415FA72), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildrenOffset = Schema.GetOffset(0x37AB6CCB7415FA72);
 
   public ref CUtlVector<CAnimUpdateNodeRef> Children {
-    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionOffset = new(() => Schema.GetOffset(0x37AB6CCBD1F40125), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionOffset = Schema.GetOffset(0x37AB6CCBD1F40125);
 
   public CAnimParamHandle TargetPosition {
-    get => new CAnimParamHandleImpl(_Handle + _TargetPositionOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetPositionOffset);
   }
-  private static readonly Lazy<nint> _TargetFacePositionParameterOffset = new(() => Schema.GetOffset(0x37AB6CCB1102D56F), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetFacePositionParameterOffset = Schema.GetOffset(0x37AB6CCB1102D56F);
 
   public CAnimParamHandle TargetFacePositionParameter {
-    get => new CAnimParamHandleImpl(_Handle + _TargetFacePositionParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetFacePositionParameterOffset);
   }
-  private static readonly Lazy<nint> _MoveHeadingParameterOffset = new(() => Schema.GetOffset(0x37AB6CCB3A7267CF), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveHeadingParameterOffset = Schema.GetOffset(0x37AB6CCB3A7267CF);
 
   public CAnimParamHandle MoveHeadingParameter {
-    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParameterOffset);
   }
-  private static readonly Lazy<nint> _DesiredMoveHeadingParameterOffset = new(() => Schema.GetOffset(0x37AB6CCBC6298DFB), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredMoveHeadingParameterOffset = Schema.GetOffset(0x37AB6CCBC6298DFB);
 
   public CAnimParamHandle DesiredMoveHeadingParameter {
-    get => new CAnimParamHandleImpl(_Handle + _DesiredMoveHeadingParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _DesiredMoveHeadingParameterOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionIsWorldSpaceOffset = new(() => Schema.GetOffset(0x37AB6CCBABCF9ECD), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionIsWorldSpaceOffset = Schema.GetOffset(0x37AB6CCBABCF9ECD);
 
   public ref bool TargetPositionIsWorldSpace {
-    get => ref _Handle.AsRef<bool>(_TargetPositionIsWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TargetPositionIsWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _TargetFacePositionIsWorldSpaceOffset = new(() => Schema.GetOffset(0x37AB6CCB504B4258), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetFacePositionIsWorldSpaceOffset = Schema.GetOffset(0x37AB6CCB504B4258);
 
   public ref bool TargetFacePositionIsWorldSpace {
-    get => ref _Handle.AsRef<bool>(_TargetFacePositionIsWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TargetFacePositionIsWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _EnablePhaseMatchingOffset = new(() => Schema.GetOffset(0x37AB6CCB6BC1372A), LazyThreadSafetyMode.None);
+  private static readonly nint _EnablePhaseMatchingOffset = Schema.GetOffset(0x37AB6CCB6BC1372A);
 
   public ref bool EnablePhaseMatching {
-    get => ref _Handle.AsRef<bool>(_EnablePhaseMatchingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnablePhaseMatchingOffset);
   }
-  private static readonly Lazy<nint> _PhaseMatchingMaxRootMotionSkipOffset = new(() => Schema.GetOffset(0x37AB6CCB547A4008), LazyThreadSafetyMode.None);
+  private static readonly nint _PhaseMatchingMaxRootMotionSkipOffset = Schema.GetOffset(0x37AB6CCB547A4008);
 
   public ref float PhaseMatchingMaxRootMotionSkip {
-    get => ref _Handle.AsRef<float>(_PhaseMatchingMaxRootMotionSkipOffset.Value);
+    get => ref _Handle.AsRef<float>(_PhaseMatchingMaxRootMotionSkipOffset);
   }
 
 

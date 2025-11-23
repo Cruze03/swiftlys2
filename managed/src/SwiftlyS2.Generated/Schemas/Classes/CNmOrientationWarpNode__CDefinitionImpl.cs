@@ -17,30 +17,30 @@ internal partial class CNmOrientationWarpNode__CDefinitionImpl : CNmPoseNode__CD
   public CNmOrientationWarpNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ClipReferenceNodeIdxOffset = new(() => Schema.GetOffset(0x1265525761EC8947), LazyThreadSafetyMode.None);
+  private static readonly nint _ClipReferenceNodeIdxOffset = Schema.GetOffset(0x1265525761EC8947);
 
   public ref short ClipReferenceNodeIdx {
-    get => ref _Handle.AsRef<short>(_ClipReferenceNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ClipReferenceNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TargetValueNodeIdxOffset = new(() => Schema.GetOffset(0x12655257A040C7E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetValueNodeIdxOffset = Schema.GetOffset(0x12655257A040C7E8);
 
   public ref short TargetValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_TargetValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TargetValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _IsOffsetNodeOffset = new(() => Schema.GetOffset(0x12655257174AF9D6), LazyThreadSafetyMode.None);
+  private static readonly nint _IsOffsetNodeOffset = Schema.GetOffset(0x12655257174AF9D6);
 
   public ref bool IsOffsetNode {
-    get => ref _Handle.AsRef<bool>(_IsOffsetNodeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsOffsetNodeOffset);
   }
-  private static readonly Lazy<nint> _IsOffsetRelativeToCharacterOffset = new(() => Schema.GetOffset(0x1265525793271816), LazyThreadSafetyMode.None);
+  private static readonly nint _IsOffsetRelativeToCharacterOffset = Schema.GetOffset(0x1265525793271816);
 
   public ref bool IsOffsetRelativeToCharacter {
-    get => ref _Handle.AsRef<bool>(_IsOffsetRelativeToCharacterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsOffsetRelativeToCharacterOffset);
   }
-  private static readonly Lazy<nint> _SamplingModeOffset = new(() => Schema.GetOffset(0x12655257DDB31BE3), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplingModeOffset = Schema.GetOffset(0x12655257DDB31BE3);
 
   public ref CNmRootMotionData__SamplingMode_t SamplingMode {
-    get => ref _Handle.AsRef<CNmRootMotionData__SamplingMode_t>(_SamplingModeOffset.Value);
+    get => ref _Handle.AsRef<CNmRootMotionData__SamplingMode_t>(_SamplingModeOffset);
   }
 
 

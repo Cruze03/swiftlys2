@@ -17,70 +17,70 @@ internal partial class CSceneEventInfoImpl : SchemaClass, CSceneEventInfo {
   public CSceneEventInfoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LayerOffset = new(() => Schema.GetOffset(0x38A9D25E0EDC14B1), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerOffset = Schema.GetOffset(0x38A9D25E0EDC14B1);
 
   public ref int Layer {
-    get => ref _Handle.AsRef<int>(_LayerOffset.Value);
+    get => ref _Handle.AsRef<int>(_LayerOffset);
   }
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0x38A9D25E6224A30C), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0x38A9D25E6224A30C);
 
   public ref int Priority {
-    get => ref _Handle.AsRef<int>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_PriorityOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x38A9D25EE0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x38A9D25EE0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x38A9D25E7B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x38A9D25E7B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _HasArrivedOffset = new(() => Schema.GetOffset(0x38A9D25EB10E5904), LazyThreadSafetyMode.None);
+  private static readonly nint _HasArrivedOffset = Schema.GetOffset(0x38A9D25EB10E5904);
 
   public ref bool HasArrived {
-    get => ref _Handle.AsRef<bool>(_HasArrivedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasArrivedOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x38A9D25E18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x38A9D25E18853D59);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _NextOffset = new(() => Schema.GetOffset(0x38A9D25E3BE2574E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextOffset = Schema.GetOffset(0x38A9D25E3BE2574E);
 
   public GameTime_t Next {
-    get => new GameTime_tImpl(_Handle + _NextOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextOffset);
   }
-  private static readonly Lazy<nint> _IsGestureOffset = new(() => Schema.GetOffset(0x38A9D25E4F82B044), LazyThreadSafetyMode.None);
+  private static readonly nint _IsGestureOffset = Schema.GetOffset(0x38A9D25E4F82B044);
 
   public ref bool IsGesture {
-    get => ref _Handle.AsRef<bool>(_IsGestureOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsGestureOffset);
   }
-  private static readonly Lazy<nint> _ShouldRemoveOffset = new(() => Schema.GetOffset(0x38A9D25E3CD02C8E), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldRemoveOffset = Schema.GetOffset(0x38A9D25E3CD02C8E);
 
   public ref bool ShouldRemove {
-    get => ref _Handle.AsRef<bool>(_ShouldRemoveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldRemoveOffset);
   }
-  private static readonly Lazy<nint> _TargetOffset = new(() => Schema.GetOffset(0x38A9D25ECE35901A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffset = Schema.GetOffset(0x38A9D25ECE35901A);
 
   public ref CHandle<CBaseEntity> Target {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetOffset);
   }
-  private static readonly Lazy<nint> _SceneEventIdOffset = new(() => Schema.GetOffset(0x38A9D25EE76A0188), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneEventIdOffset = Schema.GetOffset(0x38A9D25EE76A0188);
 
   public SceneEventId_t SceneEventId {
-    get => new SceneEventId_tImpl(_Handle + _SceneEventIdOffset.Value);
+    get => new SceneEventId_tImpl(_Handle + _SceneEventIdOffset);
   }
-  private static readonly Lazy<nint> _ClientSideOffset = new(() => Schema.GetOffset(0x38A9D25E6B28362D), LazyThreadSafetyMode.None);
+  private static readonly nint _ClientSideOffset = Schema.GetOffset(0x38A9D25E6B28362D);
 
   public ref bool ClientSide {
-    get => ref _Handle.AsRef<bool>(_ClientSideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClientSideOffset);
   }
-  private static readonly Lazy<nint> _StartedOffset = new(() => Schema.GetOffset(0x38A9D25E03CB4C7E), LazyThreadSafetyMode.None);
+  private static readonly nint _StartedOffset = Schema.GetOffset(0x38A9D25E03CB4C7E);
 
   public ref bool Started {
-    get => ref _Handle.AsRef<bool>(_StartedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartedOffset);
   }
 
 

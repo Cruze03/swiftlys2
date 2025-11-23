@@ -17,50 +17,50 @@ internal partial class CFootCycleDefinitionImpl : SchemaClass, CFootCycleDefinit
   public CFootCycleDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StancePositionMSOffset = new(() => Schema.GetOffset(0x6D604C9567085F86), LazyThreadSafetyMode.None);
+  private static readonly nint _StancePositionMSOffset = Schema.GetOffset(0x6D604C9567085F86);
 
   public ref Vector StancePositionMS {
-    get => ref _Handle.AsRef<Vector>(_StancePositionMSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StancePositionMSOffset);
   }
-  private static readonly Lazy<nint> _MidpointPositionMSOffset = new(() => Schema.GetOffset(0x6D604C9553980B1A), LazyThreadSafetyMode.None);
+  private static readonly nint _MidpointPositionMSOffset = Schema.GetOffset(0x6D604C9553980B1A);
 
   public ref Vector MidpointPositionMS {
-    get => ref _Handle.AsRef<Vector>(_MidpointPositionMSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MidpointPositionMSOffset);
   }
-  private static readonly Lazy<nint> _StanceDirectionMSOffset = new(() => Schema.GetOffset(0x6D604C95848F3868), LazyThreadSafetyMode.None);
+  private static readonly nint _StanceDirectionMSOffset = Schema.GetOffset(0x6D604C95848F3868);
 
   public ref float StanceDirectionMS {
-    get => ref _Handle.AsRef<float>(_StanceDirectionMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_StanceDirectionMSOffset);
   }
-  private static readonly Lazy<nint> _ToStrideStartPosOffset = new(() => Schema.GetOffset(0x6D604C953F2E1417), LazyThreadSafetyMode.None);
+  private static readonly nint _ToStrideStartPosOffset = Schema.GetOffset(0x6D604C953F2E1417);
 
   public ref Vector ToStrideStartPos {
-    get => ref _Handle.AsRef<Vector>(_ToStrideStartPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ToStrideStartPosOffset);
   }
-  private static readonly Lazy<nint> _StanceCycleOffset = new(() => Schema.GetOffset(0x6D604C954EDCBD91), LazyThreadSafetyMode.None);
+  private static readonly nint _StanceCycleOffset = Schema.GetOffset(0x6D604C954EDCBD91);
 
   public CAnimCycle StanceCycle {
-    get => new CAnimCycleImpl(_Handle + _StanceCycleOffset.Value);
+    get => new CAnimCycleImpl(_Handle + _StanceCycleOffset);
   }
-  private static readonly Lazy<nint> _FootLiftCycleOffset = new(() => Schema.GetOffset(0x6D604C9553A7B946), LazyThreadSafetyMode.None);
+  private static readonly nint _FootLiftCycleOffset = Schema.GetOffset(0x6D604C9553A7B946);
 
   public CFootCycle FootLiftCycle {
-    get => new CFootCycleImpl(_Handle + _FootLiftCycleOffset.Value);
+    get => new CFootCycleImpl(_Handle + _FootLiftCycleOffset);
   }
-  private static readonly Lazy<nint> _FootOffCycleOffset = new(() => Schema.GetOffset(0x6D604C959AC5AE30), LazyThreadSafetyMode.None);
+  private static readonly nint _FootOffCycleOffset = Schema.GetOffset(0x6D604C959AC5AE30);
 
   public CFootCycle FootOffCycle {
-    get => new CFootCycleImpl(_Handle + _FootOffCycleOffset.Value);
+    get => new CFootCycleImpl(_Handle + _FootOffCycleOffset);
   }
-  private static readonly Lazy<nint> _FootStrikeCycleOffset = new(() => Schema.GetOffset(0x6D604C95E4D3DC2B), LazyThreadSafetyMode.None);
+  private static readonly nint _FootStrikeCycleOffset = Schema.GetOffset(0x6D604C95E4D3DC2B);
 
   public CFootCycle FootStrikeCycle {
-    get => new CFootCycleImpl(_Handle + _FootStrikeCycleOffset.Value);
+    get => new CFootCycleImpl(_Handle + _FootStrikeCycleOffset);
   }
-  private static readonly Lazy<nint> _FootLandCycleOffset = new(() => Schema.GetOffset(0x6D604C954C100B46), LazyThreadSafetyMode.None);
+  private static readonly nint _FootLandCycleOffset = Schema.GetOffset(0x6D604C954C100B46);
 
   public CFootCycle FootLandCycle {
-    get => new CFootCycleImpl(_Handle + _FootLandCycleOffset.Value);
+    get => new CFootCycleImpl(_Handle + _FootLandCycleOffset);
   }
 
 

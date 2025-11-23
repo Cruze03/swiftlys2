@@ -17,10 +17,10 @@ internal partial class CFilterProximityImpl : CBaseFilterImpl, CFilterProximity 
   public CFilterProximityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xE1C36A555ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xE1C36A555ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
 
 

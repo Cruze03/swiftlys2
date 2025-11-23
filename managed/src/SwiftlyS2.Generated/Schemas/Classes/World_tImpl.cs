@@ -17,25 +17,25 @@ internal partial class World_tImpl : SchemaClass, World_t {
   public World_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BuilderParamsOffset = new(() => Schema.GetOffset(0x4CBF8350CE4EEF26), LazyThreadSafetyMode.None);
+  private static readonly nint _BuilderParamsOffset = Schema.GetOffset(0x4CBF8350CE4EEF26);
 
   public WorldBuilderParams_t BuilderParams {
-    get => new WorldBuilderParams_tImpl(_Handle + _BuilderParamsOffset.Value);
+    get => new WorldBuilderParams_tImpl(_Handle + _BuilderParamsOffset);
   }
-  private static readonly Lazy<nint> _WorldNodesOffset = new(() => Schema.GetOffset(0x4CBF835064F33530), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldNodesOffset = Schema.GetOffset(0x4CBF835064F33530);
 
   public ref CUtlVector<NodeData_t> WorldNodes {
-    get => ref _Handle.AsRef<CUtlVector<NodeData_t>>(_WorldNodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<NodeData_t>>(_WorldNodesOffset);
   }
-  private static readonly Lazy<nint> _WorldLightingInfoOffset = new(() => Schema.GetOffset(0x4CBF83508B843A17), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldLightingInfoOffset = Schema.GetOffset(0x4CBF83508B843A17);
 
   public BakedLightingInfo_t WorldLightingInfo {
-    get => new BakedLightingInfo_tImpl(_Handle + _WorldLightingInfoOffset.Value);
+    get => new BakedLightingInfo_tImpl(_Handle + _WorldLightingInfoOffset);
   }
-  private static readonly Lazy<nint> _EntityLumpsOffset = new(() => Schema.GetOffset(0x4CBF8350E4A85021), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityLumpsOffset = Schema.GetOffset(0x4CBF8350E4A85021);
 
   public ref CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>> EntityLumps {
-    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>>>(_EntityLumpsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStrongHandle<InfoForResourceTypeCEntityLump>>>(_EntityLumpsOffset);
   }
 
 

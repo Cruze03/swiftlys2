@@ -17,25 +17,25 @@ internal partial class RnHalfEdge_tImpl : SchemaClass, RnHalfEdge_t {
   public RnHalfEdge_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NextOffset = new(() => Schema.GetOffset(0xB67DE42E8D575D9C), LazyThreadSafetyMode.None);
+  private static readonly nint _NextOffset = Schema.GetOffset(0xB67DE42E8D575D9C);
 
   public ref byte Next {
-    get => ref _Handle.AsRef<byte>(_NextOffset.Value);
+    get => ref _Handle.AsRef<byte>(_NextOffset);
   }
-  private static readonly Lazy<nint> _TwinOffset = new(() => Schema.GetOffset(0xB67DE42EF8C9A257), LazyThreadSafetyMode.None);
+  private static readonly nint _TwinOffset = Schema.GetOffset(0xB67DE42EF8C9A257);
 
   public ref byte Twin {
-    get => ref _Handle.AsRef<byte>(_TwinOffset.Value);
+    get => ref _Handle.AsRef<byte>(_TwinOffset);
   }
-  private static readonly Lazy<nint> _OriginOffset = new(() => Schema.GetOffset(0xB67DE42E57B6C543), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginOffset = Schema.GetOffset(0xB67DE42E57B6C543);
 
   public ref byte Origin {
-    get => ref _Handle.AsRef<byte>(_OriginOffset.Value);
+    get => ref _Handle.AsRef<byte>(_OriginOffset);
   }
-  private static readonly Lazy<nint> _FaceOffset = new(() => Schema.GetOffset(0xB67DE42EABBCFB38), LazyThreadSafetyMode.None);
+  private static readonly nint _FaceOffset = Schema.GetOffset(0xB67DE42EABBCFB38);
 
   public ref byte Face {
-    get => ref _Handle.AsRef<byte>(_FaceOffset.Value);
+    get => ref _Handle.AsRef<byte>(_FaceOffset);
   }
 
 

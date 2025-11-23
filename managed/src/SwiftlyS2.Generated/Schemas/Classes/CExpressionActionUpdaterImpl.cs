@@ -17,20 +17,20 @@ internal partial class CExpressionActionUpdaterImpl : CAnimActionUpdaterImpl, CE
   public CExpressionActionUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamOffset = new(() => Schema.GetOffset(0x3B8502F3679286A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOffset = Schema.GetOffset(0x3B8502F3679286A4);
 
   public CAnimParamHandle Param {
-    get => new CAnimParamHandleImpl(_Handle + _ParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamOffset);
   }
-  private static readonly Lazy<nint> _ParamTypeOffset = new(() => Schema.GetOffset(0x3B8502F3F05DFDD9), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamTypeOffset = Schema.GetOffset(0x3B8502F3F05DFDD9);
 
   public ref AnimParamType_t ParamType {
-    get => ref _Handle.AsRef<AnimParamType_t>(_ParamTypeOffset.Value);
+    get => ref _Handle.AsRef<AnimParamType_t>(_ParamTypeOffset);
   }
-  private static readonly Lazy<nint> _ScriptOffset = new(() => Schema.GetOffset(0x3B8502F329D70FB0), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptOffset = Schema.GetOffset(0x3B8502F329D70FB0);
 
   public AnimScriptHandle Script {
-    get => new AnimScriptHandleImpl(_Handle + _ScriptOffset.Value);
+    get => new AnimScriptHandleImpl(_Handle + _ScriptOffset);
   }
 
 

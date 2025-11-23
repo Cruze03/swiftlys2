@@ -17,20 +17,20 @@ internal partial class CDirectPlaybackUpdateNodeImpl : CUnaryUpdateNodeImpl, CDi
   public CDirectPlaybackUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FinishEarlyOffset = new(() => Schema.GetOffset(0x4E1CBFEFC2E75991), LazyThreadSafetyMode.None);
+  private static readonly nint _FinishEarlyOffset = Schema.GetOffset(0x4E1CBFEFC2E75991);
 
   public ref bool FinishEarly {
-    get => ref _Handle.AsRef<bool>(_FinishEarlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FinishEarlyOffset);
   }
-  private static readonly Lazy<nint> _ResetOnFinishOffset = new(() => Schema.GetOffset(0x4E1CBFEFD5293C96), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetOnFinishOffset = Schema.GetOffset(0x4E1CBFEFD5293C96);
 
   public ref bool ResetOnFinish {
-    get => ref _Handle.AsRef<bool>(_ResetOnFinishOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetOnFinishOffset);
   }
-  private static readonly Lazy<nint> _AllTagsOffset = new(() => Schema.GetOffset(0x4E1CBFEF7A57C5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _AllTagsOffset = Schema.GetOffset(0x4E1CBFEF7A57C5AD);
 
   public ref CUtlVector<CDirectPlaybackTagData> AllTags {
-    get => ref _Handle.AsRef<CUtlVector<CDirectPlaybackTagData>>(_AllTagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CDirectPlaybackTagData>>(_AllTagsOffset);
   }
 
 

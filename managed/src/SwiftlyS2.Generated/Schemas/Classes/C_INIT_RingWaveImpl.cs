@@ -17,60 +17,60 @@ internal partial class C_INIT_RingWaveImpl : CParticleFunctionInitializerImpl, C
   public C_INIT_RingWaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xA5DA0691B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xA5DA0691B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _ParticlesPerOrbitOffset = new(() => Schema.GetOffset(0xA5DA069184EA503F), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlesPerOrbitOffset = Schema.GetOffset(0xA5DA069184EA503F);
 
   public CParticleCollectionFloatInput ParticlesPerOrbit {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticlesPerOrbitOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticlesPerOrbitOffset);
   }
-  private static readonly Lazy<nint> _InitialRadiusOffset = new(() => Schema.GetOffset(0xA5DA06918B8AAB8B), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialRadiusOffset = Schema.GetOffset(0xA5DA06918B8AAB8B);
 
   public CPerParticleFloatInput InitialRadius {
-    get => new CPerParticleFloatInputImpl(_Handle + _InitialRadiusOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InitialRadiusOffset);
   }
-  private static readonly Lazy<nint> _ThicknessOffset = new(() => Schema.GetOffset(0xA5DA0691DC7C1987), LazyThreadSafetyMode.None);
+  private static readonly nint _ThicknessOffset = Schema.GetOffset(0xA5DA0691DC7C1987);
 
   public CPerParticleFloatInput Thickness {
-    get => new CPerParticleFloatInputImpl(_Handle + _ThicknessOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ThicknessOffset);
   }
-  private static readonly Lazy<nint> _InitialSpeedMinOffset = new(() => Schema.GetOffset(0xA5DA0691E36FD694), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialSpeedMinOffset = Schema.GetOffset(0xA5DA0691E36FD694);
 
   public CPerParticleFloatInput InitialSpeedMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _InitialSpeedMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InitialSpeedMinOffset);
   }
-  private static readonly Lazy<nint> _InitialSpeedMaxOffset = new(() => Schema.GetOffset(0xA5DA0691D184D4F6), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialSpeedMaxOffset = Schema.GetOffset(0xA5DA0691D184D4F6);
 
   public CPerParticleFloatInput InitialSpeedMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _InitialSpeedMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InitialSpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _RollOffset = new(() => Schema.GetOffset(0xA5DA069188F97A90), LazyThreadSafetyMode.None);
+  private static readonly nint _RollOffset = Schema.GetOffset(0xA5DA069188F97A90);
 
   public CPerParticleFloatInput Roll {
-    get => new CPerParticleFloatInputImpl(_Handle + _RollOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RollOffset);
   }
-  private static readonly Lazy<nint> _PitchOffset = new(() => Schema.GetOffset(0xA5DA06911CBA22DB), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchOffset = Schema.GetOffset(0xA5DA06911CBA22DB);
 
   public CPerParticleFloatInput Pitch {
-    get => new CPerParticleFloatInputImpl(_Handle + _PitchOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _PitchOffset);
   }
-  private static readonly Lazy<nint> _YawOffset = new(() => Schema.GetOffset(0xA5DA0691B40C1E8A), LazyThreadSafetyMode.None);
+  private static readonly nint _YawOffset = Schema.GetOffset(0xA5DA0691B40C1E8A);
 
   public CPerParticleFloatInput Yaw {
-    get => new CPerParticleFloatInputImpl(_Handle + _YawOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _YawOffset);
   }
-  private static readonly Lazy<nint> _EvenDistributionOffset = new(() => Schema.GetOffset(0xA5DA069184932067), LazyThreadSafetyMode.None);
+  private static readonly nint _EvenDistributionOffset = Schema.GetOffset(0xA5DA069184932067);
 
   public ref bool EvenDistribution {
-    get => ref _Handle.AsRef<bool>(_EvenDistributionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EvenDistributionOffset);
   }
-  private static readonly Lazy<nint> _XYVelocityOnlyOffset = new(() => Schema.GetOffset(0xA5DA0691A20CED5B), LazyThreadSafetyMode.None);
+  private static readonly nint _XYVelocityOnlyOffset = Schema.GetOffset(0xA5DA0691A20CED5B);
 
   public ref bool XYVelocityOnly {
-    get => ref _Handle.AsRef<bool>(_XYVelocityOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_XYVelocityOnlyOffset);
   }
 
 

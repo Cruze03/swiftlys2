@@ -17,33 +17,33 @@ internal partial class CHitBoxSetImpl : SchemaClass, CHitBoxSet {
   public CHitBoxSetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x742AE9EC4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x742AE9EC4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _NameHashOffset = new(() => Schema.GetOffset(0x742AE9ECDE15EEFE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameHashOffset = Schema.GetOffset(0x742AE9ECDE15EEFE);
 
   public ref uint NameHash {
-    get => ref _Handle.AsRef<uint>(_NameHashOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NameHashOffset);
   }
-  private static readonly Lazy<nint> _HitBoxesOffset = new(() => Schema.GetOffset(0x742AE9EC07A4113F), LazyThreadSafetyMode.None);
+  private static readonly nint _HitBoxesOffset = Schema.GetOffset(0x742AE9EC07A4113F);
 
   public ref CUtlVector<CHitBox> HitBoxes {
-    get => ref _Handle.AsRef<CUtlVector<CHitBox>>(_HitBoxesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHitBox>>(_HitBoxesOffset);
   }
-  private static readonly Lazy<nint> _SourceFilenameOffset = new(() => Schema.GetOffset(0x742AE9ECD49CE26D), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceFilenameOffset = Schema.GetOffset(0x742AE9ECD49CE26D);
 
   public string SourceFilename {
     get {
-      var ptr = _Handle.Read<nint>(_SourceFilenameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceFilenameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceFilenameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceFilenameOffset, value);
   } 
 
 

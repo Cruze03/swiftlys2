@@ -17,34 +17,34 @@ internal partial class C_INIT_InitialVelocityFromHitboxImpl : CParticleFunctionI
   public C_INIT_InitialVelocityFromHitboxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VelocityMinOffset = new(() => Schema.GetOffset(0x48F25F17FDB3D7E4), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityMinOffset = Schema.GetOffset(0x48F25F17FDB3D7E4);
 
   public ref float VelocityMin {
-    get => ref _Handle.AsRef<float>(_VelocityMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_VelocityMinOffset);
   }
-  private static readonly Lazy<nint> _VelocityMaxOffset = new(() => Schema.GetOffset(0x48F25F170BC775A6), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityMaxOffset = Schema.GetOffset(0x48F25F170BC775A6);
 
   public ref float VelocityMax {
-    get => ref _Handle.AsRef<float>(_VelocityMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_VelocityMaxOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x48F25F173F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x48F25F173F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetNameOffset = new(() => Schema.GetOffset(0x48F25F176A21BB0E), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetNameOffset = Schema.GetOffset(0x48F25F176A21BB0E);
 
   public string HitboxSetName {
     get {
-      var ptr = _Handle + _HitboxSetNameOffset.Value;
+      var ptr = _Handle + _HitboxSetNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _UseBonesOffset = new(() => Schema.GetOffset(0x48F25F1710D1938B), LazyThreadSafetyMode.None);
+  private static readonly nint _UseBonesOffset = Schema.GetOffset(0x48F25F1710D1938B);
 
   public ref bool UseBones {
-    get => ref _Handle.AsRef<bool>(_UseBonesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseBonesOffset);
   }
 
 

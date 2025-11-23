@@ -85,7 +85,7 @@ void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
                 continue;
             }
 
-            transmittingBits.blockedMask[dword] &= ~(1 << (entindex % 64));
+            transmittingBits.blockedMask[dword] &= ~(1ULL << (entindex % 64));
             if (transmittingBits.blockedMask[dword] == 0) transmittingBits.activeMasks.erase(result);
         }
 

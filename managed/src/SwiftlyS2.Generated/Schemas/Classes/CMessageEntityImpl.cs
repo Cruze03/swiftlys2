@@ -17,34 +17,34 @@ internal partial class CMessageEntityImpl : CPointEntityImpl, CMessageEntity {
   public CMessageEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x893EADCEA921CA53), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x893EADCEA921CA53);
 
   public ref int Radius {
-    get => ref _Handle.AsRef<int>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<int>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _MessageTextOffset = new(() => Schema.GetOffset(0x893EADCEBA6E5D73), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageTextOffset = Schema.GetOffset(0x893EADCEBA6E5D73);
 
   public string MessageText {
     get {
-      var ptr = _Handle.Read<nint>(_MessageTextOffset.Value);
+      var ptr = _Handle.Read<nint>(_MessageTextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MessageTextOffset.Value, value);
+    set => Schema.SetString(_Handle, _MessageTextOffset, value);
   } 
-  private static readonly Lazy<nint> _DrawTextOffset = new(() => Schema.GetOffset(0x893EADCE598871D4), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawTextOffset = Schema.GetOffset(0x893EADCE598871D4);
 
   public ref bool DrawText {
-    get => ref _Handle.AsRef<bool>(_DrawTextOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DrawTextOffset);
   }
-  private static readonly Lazy<nint> _DeveloperOnlyOffset = new(() => Schema.GetOffset(0x893EADCE981A6E5F), LazyThreadSafetyMode.None);
+  private static readonly nint _DeveloperOnlyOffset = Schema.GetOffset(0x893EADCE981A6E5F);
 
   public ref bool DeveloperOnly {
-    get => ref _Handle.AsRef<bool>(_DeveloperOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DeveloperOnlyOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x893EADCE6154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x893EADCE6154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
 
 

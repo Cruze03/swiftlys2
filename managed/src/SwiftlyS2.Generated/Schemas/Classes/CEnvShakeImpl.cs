@@ -17,59 +17,59 @@ internal partial class CEnvShakeImpl : CPointEntityImpl, CEnvShake {
   public CEnvShakeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LimitToEntityOffset = new(() => Schema.GetOffset(0x10FEA945E1C029E2), LazyThreadSafetyMode.None);
+  private static readonly nint _LimitToEntityOffset = Schema.GetOffset(0x10FEA945E1C029E2);
 
   public string LimitToEntity {
     get {
-      var ptr = _Handle.Read<nint>(_LimitToEntityOffset.Value);
+      var ptr = _Handle.Read<nint>(_LimitToEntityOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LimitToEntityOffset.Value, value);
+    set => Schema.SetString(_Handle, _LimitToEntityOffset, value);
   } 
-  private static readonly Lazy<nint> _AmplitudeOffset = new(() => Schema.GetOffset(0x10FEA945A38BF822), LazyThreadSafetyMode.None);
+  private static readonly nint _AmplitudeOffset = Schema.GetOffset(0x10FEA945A38BF822);
 
   public ref float Amplitude {
-    get => ref _Handle.AsRef<float>(_AmplitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AmplitudeOffset);
   }
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0x10FEA945BCCAA981), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0x10FEA945BCCAA981);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x10FEA9459879A98D), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x10FEA9459879A98D);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x10FEA9457C5B0533), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x10FEA9457C5B0533);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _StopTimeOffset = new(() => Schema.GetOffset(0x10FEA9456BFFEDC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StopTimeOffset = Schema.GetOffset(0x10FEA9456BFFEDC4);
 
   public GameTime_t StopTime {
-    get => new GameTime_tImpl(_Handle + _StopTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StopTimeOffset);
   }
-  private static readonly Lazy<nint> _NextShakeOffset = new(() => Schema.GetOffset(0x10FEA94563E0833E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextShakeOffset = Schema.GetOffset(0x10FEA94563E0833E);
 
   public GameTime_t NextShake {
-    get => new GameTime_tImpl(_Handle + _NextShakeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextShakeOffset);
   }
-  private static readonly Lazy<nint> _CurrentAmpOffset = new(() => Schema.GetOffset(0x10FEA94504EE10FC), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentAmpOffset = Schema.GetOffset(0x10FEA94504EE10FC);
 
   public ref float CurrentAmp {
-    get => ref _Handle.AsRef<float>(_CurrentAmpOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurrentAmpOffset);
   }
-  private static readonly Lazy<nint> _MaxForceOffset = new(() => Schema.GetOffset(0x10FEA945FA9D37B8), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxForceOffset = Schema.GetOffset(0x10FEA945FA9D37B8);
 
   public ref Vector MaxForce {
-    get => ref _Handle.AsRef<Vector>(_MaxForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxForceOffset);
   }
-  private static readonly Lazy<nint> _ShakeCallbackOffset = new(() => Schema.GetOffset(0x10FEA945C4E1E076), LazyThreadSafetyMode.None);
+  private static readonly nint _ShakeCallbackOffset = Schema.GetOffset(0x10FEA945C4E1E076);
 
   public CPhysicsShake ShakeCallback {
-    get => new CPhysicsShakeImpl(_Handle + _ShakeCallbackOffset.Value);
+    get => new CPhysicsShakeImpl(_Handle + _ShakeCallbackOffset);
   }
 
 

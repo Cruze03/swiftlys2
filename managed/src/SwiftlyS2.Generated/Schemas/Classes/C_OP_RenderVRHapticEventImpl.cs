@@ -17,25 +17,25 @@ internal partial class C_OP_RenderVRHapticEventImpl : CParticleFunctionRendererI
   public C_OP_RenderVRHapticEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HandOffset = new(() => Schema.GetOffset(0xB83C5242D49ECB4C), LazyThreadSafetyMode.None);
+  private static readonly nint _HandOffset = Schema.GetOffset(0xB83C5242D49ECB4C);
 
   public ref ParticleVRHandChoiceList_t Hand {
-    get => ref _Handle.AsRef<ParticleVRHandChoiceList_t>(_HandOffset.Value);
+    get => ref _Handle.AsRef<ParticleVRHandChoiceList_t>(_HandOffset);
   }
-  private static readonly Lazy<nint> _OutputHandCPOffset = new(() => Schema.GetOffset(0xB83C52428D35D26A), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputHandCPOffset = Schema.GetOffset(0xB83C52428D35D26A);
 
   public ref int OutputHandCP {
-    get => ref _Handle.AsRef<int>(_OutputHandCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputHandCPOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0xB83C5242324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0xB83C5242324F6F74);
 
   public ref int OutputField {
-    get => ref _Handle.AsRef<int>(_OutputFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _AmplitudeOffset = new(() => Schema.GetOffset(0xB83C5242B44B0E18), LazyThreadSafetyMode.None);
+  private static readonly nint _AmplitudeOffset = Schema.GetOffset(0xB83C5242B44B0E18);
 
   public CPerParticleFloatInput Amplitude {
-    get => new CPerParticleFloatInputImpl(_Handle + _AmplitudeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _AmplitudeOffset);
   }
 
 

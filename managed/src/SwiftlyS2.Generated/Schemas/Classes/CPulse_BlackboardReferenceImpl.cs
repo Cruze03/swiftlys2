@@ -17,25 +17,25 @@ internal partial class CPulse_BlackboardReferenceImpl : SchemaClass, CPulse_Blac
   public CPulse_BlackboardReferenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BlackboardResourceOffset = new(() => Schema.GetOffset(0xEF83970A45E704DE), LazyThreadSafetyMode.None);
+  private static readonly nint _BlackboardResourceOffset = Schema.GetOffset(0xEF83970A45E704DE);
 
   public ref CStrongHandle<InfoForResourceTypeIPulseGraphDef> BlackboardResource {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIPulseGraphDef>>(_BlackboardResourceOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIPulseGraphDef>>(_BlackboardResourceOffset);
   }
-  private static readonly Lazy<nint> _BlackboardResource1Offset = new(() => Schema.GetOffset(0xEF83970A83127470), LazyThreadSafetyMode.None);
+  private static readonly nint _BlackboardResource1Offset = Schema.GetOffset(0xEF83970A83127470);
 
   public SchemaUntypedField BlackboardResource1 {
-    get => new SchemaUntypedField(_Handle + _BlackboardResource1Offset.Value);
+    get => new SchemaUntypedField(_Handle + _BlackboardResource1Offset);
   }
-  private static readonly Lazy<nint> _NodeIDOffset = new(() => Schema.GetOffset(0xEF83970A0FD6755C), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeIDOffset = Schema.GetOffset(0xEF83970A0FD6755C);
 
   public PulseDocNodeID_t NodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _NodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _NodeIDOffset);
   }
-  private static readonly Lazy<nint> _NodeNameOffset = new(() => Schema.GetOffset(0xEF83970A3FB4DAAE), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeNameOffset = Schema.GetOffset(0xEF83970A3FB4DAAE);
 
   public ref CGlobalSymbol NodeName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_NodeNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_NodeNameOffset);
   }
 
 

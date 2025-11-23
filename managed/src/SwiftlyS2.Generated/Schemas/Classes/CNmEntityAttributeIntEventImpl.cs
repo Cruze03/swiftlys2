@@ -17,10 +17,10 @@ internal partial class CNmEntityAttributeIntEventImpl : CNmEntityAttributeEventB
   public CNmEntityAttributeIntEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IntValueOffset = new(() => Schema.GetOffset(0x22C4DC17BF67A7DB), LazyThreadSafetyMode.None);
+  private static readonly nint _IntValueOffset = Schema.GetOffset(0x22C4DC17BF67A7DB);
 
   public ref int IntValue {
-    get => ref _Handle.AsRef<int>(_IntValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_IntValueOffset);
   }
 
 

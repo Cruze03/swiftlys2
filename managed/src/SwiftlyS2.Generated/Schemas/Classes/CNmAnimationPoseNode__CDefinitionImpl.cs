@@ -17,30 +17,30 @@ internal partial class CNmAnimationPoseNode__CDefinitionImpl : CNmPoseNode__CDef
   public CNmAnimationPoseNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PoseTimeValueNodeIdxOffset = new(() => Schema.GetOffset(0xAEB5DD4EE17A4AC5), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseTimeValueNodeIdxOffset = Schema.GetOffset(0xAEB5DD4EE17A4AC5);
 
   public ref short PoseTimeValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_PoseTimeValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_PoseTimeValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DataSlotIdxOffset = new(() => Schema.GetOffset(0xAEB5DD4EB1C15B68), LazyThreadSafetyMode.None);
+  private static readonly nint _DataSlotIdxOffset = Schema.GetOffset(0xAEB5DD4EB1C15B68);
 
   public ref short DataSlotIdx {
-    get => ref _Handle.AsRef<short>(_DataSlotIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DataSlotIdxOffset);
   }
-  private static readonly Lazy<nint> _InputTimeRemapRangeOffset = new(() => Schema.GetOffset(0xAEB5DD4EE53BDBD4), LazyThreadSafetyMode.None);
+  private static readonly nint _InputTimeRemapRangeOffset = Schema.GetOffset(0xAEB5DD4EE53BDBD4);
 
   public SchemaUntypedField InputTimeRemapRange {
-    get => new SchemaUntypedField(_Handle + _InputTimeRemapRangeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InputTimeRemapRangeOffset);
   }
-  private static readonly Lazy<nint> _UserSpecifiedTimeOffset = new(() => Schema.GetOffset(0xAEB5DD4E0D7319E7), LazyThreadSafetyMode.None);
+  private static readonly nint _UserSpecifiedTimeOffset = Schema.GetOffset(0xAEB5DD4E0D7319E7);
 
   public ref float UserSpecifiedTime {
-    get => ref _Handle.AsRef<float>(_UserSpecifiedTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_UserSpecifiedTimeOffset);
   }
-  private static readonly Lazy<nint> _UseFramesAsInputOffset = new(() => Schema.GetOffset(0xAEB5DD4EF0C41386), LazyThreadSafetyMode.None);
+  private static readonly nint _UseFramesAsInputOffset = Schema.GetOffset(0xAEB5DD4EF0C41386);
 
   public ref bool UseFramesAsInput {
-    get => ref _Handle.AsRef<bool>(_UseFramesAsInputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseFramesAsInputOffset);
   }
 
 

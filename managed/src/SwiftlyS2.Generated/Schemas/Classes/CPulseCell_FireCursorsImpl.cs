@@ -17,25 +17,25 @@ internal partial class CPulseCell_FireCursorsImpl : CPulseCell_BaseYieldingInflo
   public CPulseCell_FireCursorsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutflowsOffset = new(() => Schema.GetOffset(0x9BFA034F8F0AFDF8), LazyThreadSafetyMode.None);
+  private static readonly nint _OutflowsOffset = Schema.GetOffset(0x9BFA034F8F0AFDF8);
 
   public ref CUtlVector<CPulse_OutflowConnection> Outflows {
-    get => ref _Handle.AsRef<CUtlVector<CPulse_OutflowConnection>>(_OutflowsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CPulse_OutflowConnection>>(_OutflowsOffset);
   }
-  private static readonly Lazy<nint> _WaitForChildOutflowsOffset = new(() => Schema.GetOffset(0x9BFA034F3F8E29C6), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitForChildOutflowsOffset = Schema.GetOffset(0x9BFA034F3F8E29C6);
 
   public ref bool WaitForChildOutflows {
-    get => ref _Handle.AsRef<bool>(_WaitForChildOutflowsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitForChildOutflowsOffset);
   }
-  private static readonly Lazy<nint> _OnFinishedOffset = new(() => Schema.GetOffset(0x9BFA034F8D903E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFinishedOffset = Schema.GetOffset(0x9BFA034F8D903E5E);
 
   public CPulse_ResumePoint OnFinished {
-    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0x9BFA034FF02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0x9BFA034FF02162DB);
 
   public CPulse_ResumePoint OnCanceled {
-    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset);
   }
 
 

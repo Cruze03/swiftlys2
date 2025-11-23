@@ -29,7 +29,6 @@ public:
 
     virtual void Enable() override;
     virtual void Disable() override;
-
     virtual bool IsEnabled() override;
 
 private:

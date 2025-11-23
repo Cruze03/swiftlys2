@@ -17,46 +17,46 @@ internal partial class IKDemoCaptureSettings_tImpl : SchemaClass, IKDemoCaptureS
   public IKDemoCaptureSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParentBoneNameOffset = new(() => Schema.GetOffset(0x6D63001A95A4F804), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentBoneNameOffset = Schema.GetOffset(0x6D63001A95A4F804);
 
   public string ParentBoneName {
     get {
-      var ptr = _Handle.Read<nint>(_ParentBoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParentBoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParentBoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParentBoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0x6D63001A1050A633), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0x6D63001A1050A633);
 
   public ref IKChannelMode Mode {
-    get => ref _Handle.AsRef<IKChannelMode>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<IKChannelMode>(_ModeOffset);
   }
-  private static readonly Lazy<nint> _IkChainNameOffset = new(() => Schema.GetOffset(0x6D63001A50E152ED), LazyThreadSafetyMode.None);
+  private static readonly nint _IkChainNameOffset = Schema.GetOffset(0x6D63001A50E152ED);
 
   public string IkChainName {
     get {
-      var ptr = _Handle.Read<nint>(_IkChainNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_IkChainNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _IkChainNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _IkChainNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OneBoneStartOffset = new(() => Schema.GetOffset(0x6D63001A95ADD82F), LazyThreadSafetyMode.None);
+  private static readonly nint _OneBoneStartOffset = Schema.GetOffset(0x6D63001A95ADD82F);
 
   public string OneBoneStart {
     get {
-      var ptr = _Handle.Read<nint>(_OneBoneStartOffset.Value);
+      var ptr = _Handle.Read<nint>(_OneBoneStartOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OneBoneStartOffset.Value, value);
+    set => Schema.SetString(_Handle, _OneBoneStartOffset, value);
   } 
-  private static readonly Lazy<nint> _OneBoneEndOffset = new(() => Schema.GetOffset(0x6D63001AE57D0DBA), LazyThreadSafetyMode.None);
+  private static readonly nint _OneBoneEndOffset = Schema.GetOffset(0x6D63001AE57D0DBA);
 
   public string OneBoneEnd {
     get {
-      var ptr = _Handle.Read<nint>(_OneBoneEndOffset.Value);
+      var ptr = _Handle.Read<nint>(_OneBoneEndOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OneBoneEndOffset.Value, value);
+    set => Schema.SetString(_Handle, _OneBoneEndOffset, value);
   } 
 
 

@@ -17,89 +17,89 @@ internal partial class CBaseToggleImpl : CBaseModelEntityImpl, CBaseToggle {
   public CBaseToggleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Toggle_stateOffset = new(() => Schema.GetOffset(0xC466ACE3FAACDE93), LazyThreadSafetyMode.None);
+  private static readonly nint _Toggle_stateOffset = Schema.GetOffset(0xC466ACE3FAACDE93);
 
   public ref TOGGLE_STATE Toggle_state {
-    get => ref _Handle.AsRef<TOGGLE_STATE>(_Toggle_stateOffset.Value);
+    get => ref _Handle.AsRef<TOGGLE_STATE>(_Toggle_stateOffset);
   }
-  private static readonly Lazy<nint> _MoveDistanceOffset = new(() => Schema.GetOffset(0xC466ACE3C39E6D6D), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveDistanceOffset = Schema.GetOffset(0xC466ACE3C39E6D6D);
 
   public ref float MoveDistance {
-    get => ref _Handle.AsRef<float>(_MoveDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MoveDistanceOffset);
   }
-  private static readonly Lazy<nint> _WaitOffset = new(() => Schema.GetOffset(0xC466ACE399A062B6), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitOffset = Schema.GetOffset(0xC466ACE399A062B6);
 
   public ref float Wait {
-    get => ref _Handle.AsRef<float>(_WaitOffset.Value);
+    get => ref _Handle.AsRef<float>(_WaitOffset);
   }
-  private static readonly Lazy<nint> _LipOffset = new(() => Schema.GetOffset(0xC466ACE387D40000), LazyThreadSafetyMode.None);
+  private static readonly nint _LipOffset = Schema.GetOffset(0xC466ACE387D40000);
 
   public ref float Lip {
-    get => ref _Handle.AsRef<float>(_LipOffset.Value);
+    get => ref _Handle.AsRef<float>(_LipOffset);
   }
-  private static readonly Lazy<nint> _AlwaysFireBlockedOutputsOffset = new(() => Schema.GetOffset(0xC466ACE3785EA7AA), LazyThreadSafetyMode.None);
+  private static readonly nint _AlwaysFireBlockedOutputsOffset = Schema.GetOffset(0xC466ACE3785EA7AA);
 
   public ref bool AlwaysFireBlockedOutputs {
-    get => ref _Handle.AsRef<bool>(_AlwaysFireBlockedOutputsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AlwaysFireBlockedOutputsOffset);
   }
-  private static readonly Lazy<nint> _Position1Offset = new(() => Schema.GetOffset(0xC466ACE3E24D3941), LazyThreadSafetyMode.None);
+  private static readonly nint _Position1Offset = Schema.GetOffset(0xC466ACE3E24D3941);
 
   public ref Vector Position1 {
-    get => ref _Handle.AsRef<Vector>(_Position1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Position1Offset);
   }
-  private static readonly Lazy<nint> _Position2Offset = new(() => Schema.GetOffset(0xC466ACE3DF4D3488), LazyThreadSafetyMode.None);
+  private static readonly nint _Position2Offset = Schema.GetOffset(0xC466ACE3DF4D3488);
 
   public ref Vector Position2 {
-    get => ref _Handle.AsRef<Vector>(_Position2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Position2Offset);
   }
-  private static readonly Lazy<nint> _MoveAngOffset = new(() => Schema.GetOffset(0xC466ACE3BC6F7E1C), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveAngOffset = Schema.GetOffset(0xC466ACE3BC6F7E1C);
 
   public ref QAngle MoveAng {
-    get => ref _Handle.AsRef<QAngle>(_MoveAngOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_MoveAngOffset);
   }
-  private static readonly Lazy<nint> _Angle1Offset = new(() => Schema.GetOffset(0xC466ACE3D44B3E6B), LazyThreadSafetyMode.None);
+  private static readonly nint _Angle1Offset = Schema.GetOffset(0xC466ACE3D44B3E6B);
 
   public ref QAngle Angle1 {
-    get => ref _Handle.AsRef<QAngle>(_Angle1Offset.Value);
+    get => ref _Handle.AsRef<QAngle>(_Angle1Offset);
   }
-  private static readonly Lazy<nint> _Angle2Offset = new(() => Schema.GetOffset(0xC466ACE3D54B3FFE), LazyThreadSafetyMode.None);
+  private static readonly nint _Angle2Offset = Schema.GetOffset(0xC466ACE3D54B3FFE);
 
   public ref QAngle Angle2 {
-    get => ref _Handle.AsRef<QAngle>(_Angle2Offset.Value);
+    get => ref _Handle.AsRef<QAngle>(_Angle2Offset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0xC466ACE3EADD7FB0), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0xC466ACE3EADD7FB0);
 
   public ref float Height {
-    get => ref _Handle.AsRef<float>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _ActivatorOffset = new(() => Schema.GetOffset(0xC466ACE3AB093BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatorOffset = Schema.GetOffset(0xC466ACE3AB093BB2);
 
   public ref CHandle<CBaseEntity> Activator {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset);
   }
-  private static readonly Lazy<nint> _FinalDestOffset = new(() => Schema.GetOffset(0xC466ACE35F250E93), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalDestOffset = Schema.GetOffset(0xC466ACE35F250E93);
 
   public ref Vector FinalDest {
-    get => ref _Handle.AsRef<Vector>(_FinalDestOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FinalDestOffset);
   }
-  private static readonly Lazy<nint> _FinalAngleOffset = new(() => Schema.GetOffset(0xC466ACE32866F31E), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalAngleOffset = Schema.GetOffset(0xC466ACE32866F31E);
 
   public ref QAngle FinalAngle {
-    get => ref _Handle.AsRef<QAngle>(_FinalAngleOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_FinalAngleOffset);
   }
-  private static readonly Lazy<nint> _MovementTypeOffset = new(() => Schema.GetOffset(0xC466ACE37CE1B710), LazyThreadSafetyMode.None);
+  private static readonly nint _MovementTypeOffset = Schema.GetOffset(0xC466ACE37CE1B710);
 
   public ref int MovementType {
-    get => ref _Handle.AsRef<int>(_MovementTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_MovementTypeOffset);
   }
-  private static readonly Lazy<nint> _MasterOffset = new(() => Schema.GetOffset(0xC466ACE389DC0AE0), LazyThreadSafetyMode.None);
+  private static readonly nint _MasterOffset = Schema.GetOffset(0xC466ACE389DC0AE0);
 
   public string Master {
     get {
-      var ptr = _Handle.Read<nint>(_MasterOffset.Value);
+      var ptr = _Handle.Read<nint>(_MasterOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MasterOffset.Value, value);
+    set => Schema.SetString(_Handle, _MasterOffset, value);
   } 
 
 

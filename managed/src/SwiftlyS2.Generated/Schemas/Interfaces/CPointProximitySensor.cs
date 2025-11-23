@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPointProximitySensor : CPointEntity, ISchemaClass<CPointProximitySensor> {
 
   static CPointProximitySensor ISchemaClass<CPointProximitySensor>.From(nint handle) => new CPointProximitySensorImpl(handle);
-  static int ISchemaClass<CPointProximitySensor>.Size => 2056;
+  static int ISchemaClass<CPointProximitySensor>.Size => 1312;
   static string? ISchemaClass<CPointProximitySensor>.ClassName => "point_proximity_sensor";
 
   

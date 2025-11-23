@@ -17,10 +17,10 @@ internal partial class EventAppShutdown_tImpl : SchemaClass, EventAppShutdown_t 
   public EventAppShutdown_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Dummy0Offset = new(() => Schema.GetOffset(0x815B1527A26B2B9D), LazyThreadSafetyMode.None);
+  private static readonly nint _Dummy0Offset = Schema.GetOffset(0x815B1527A26B2B9D);
 
   public ref int Dummy0 {
-    get => ref _Handle.AsRef<int>(_Dummy0Offset.Value);
+    get => ref _Handle.AsRef<int>(_Dummy0Offset);
   }
 
 

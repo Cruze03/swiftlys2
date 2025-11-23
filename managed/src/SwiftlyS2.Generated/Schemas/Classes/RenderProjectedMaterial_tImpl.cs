@@ -17,10 +17,10 @@ internal partial class RenderProjectedMaterial_tImpl : SchemaClass, RenderProjec
   public RenderProjectedMaterial_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaterialOffset = new(() => Schema.GetOffset(0x62AF09D5888CE42E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOffset = Schema.GetOffset(0x62AF09D5888CE42E);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset);
   }
 
 

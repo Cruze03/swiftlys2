@@ -17,45 +17,45 @@ internal partial class C_OP_RenderMaterialProxyImpl : CParticleFunctionRendererI
   public C_OP_RenderMaterialProxyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaterialControlPointOffset = new(() => Schema.GetOffset(0xA7258058EACD475D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialControlPointOffset = Schema.GetOffset(0xA7258058EACD475D);
 
   public ref int MaterialControlPoint {
-    get => ref _Handle.AsRef<int>(_MaterialControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaterialControlPointOffset);
   }
-  private static readonly Lazy<nint> _ProxyTypeOffset = new(() => Schema.GetOffset(0xA7258058066A337F), LazyThreadSafetyMode.None);
+  private static readonly nint _ProxyTypeOffset = Schema.GetOffset(0xA7258058066A337F);
 
   public ref MaterialProxyType_t ProxyType {
-    get => ref _Handle.AsRef<MaterialProxyType_t>(_ProxyTypeOffset.Value);
+    get => ref _Handle.AsRef<MaterialProxyType_t>(_ProxyTypeOffset);
   }
-  private static readonly Lazy<nint> _MaterialVarsOffset = new(() => Schema.GetOffset(0xA7258058FA861D66), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialVarsOffset = Schema.GetOffset(0xA7258058FA861D66);
 
   public ref CUtlVector<MaterialVariable_t> MaterialVars {
-    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MaterialVariable_t>>(_MaterialVarsOffset);
   }
-  private static readonly Lazy<nint> _OverrideMaterialOffset = new(() => Schema.GetOffset(0xA72580582C055CBE), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideMaterialOffset = Schema.GetOffset(0xA72580582C055CBE);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> OverrideMaterial {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_OverrideMaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_OverrideMaterialOffset);
   }
-  private static readonly Lazy<nint> _MaterialOverrideEnabledOffset = new(() => Schema.GetOffset(0xA725805832275723), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOverrideEnabledOffset = Schema.GetOffset(0xA725805832275723);
 
   public CParticleCollectionFloatInput MaterialOverrideEnabled {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MaterialOverrideEnabledOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MaterialOverrideEnabledOffset);
   }
-  private static readonly Lazy<nint> _ColorScaleOffset = new(() => Schema.GetOffset(0xA72580589F9BB8BA), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorScaleOffset = Schema.GetOffset(0xA72580589F9BB8BA);
 
   public CParticleCollectionVecInput ColorScale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset);
   }
-  private static readonly Lazy<nint> _AlphaOffset = new(() => Schema.GetOffset(0xA7258058A0DB7DD1), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaOffset = Schema.GetOffset(0xA7258058A0DB7DD1);
 
   public CPerParticleFloatInput Alpha {
-    get => new CPerParticleFloatInputImpl(_Handle + _AlphaOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _AlphaOffset);
   }
-  private static readonly Lazy<nint> _ColorBlendTypeOffset = new(() => Schema.GetOffset(0xA7258058DBC6EFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorBlendTypeOffset = Schema.GetOffset(0xA7258058DBC6EFCF);
 
   public ref ParticleColorBlendType_t ColorBlendType {
-    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset);
   }
 
 

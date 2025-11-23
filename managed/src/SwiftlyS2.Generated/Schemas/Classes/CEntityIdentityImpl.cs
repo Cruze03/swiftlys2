@@ -17,78 +17,78 @@ internal partial class CEntityIdentityImpl : SchemaClass, CEntityIdentity {
   public CEntityIdentityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameStringableIndexOffset = new(() => Schema.GetOffset(0xAE42345F9A4938C9), LazyThreadSafetyMode.None);
+  private static readonly nint _NameStringableIndexOffset = Schema.GetOffset(0xAE42345F9A4938C9);
 
   public ref int NameStringableIndex {
-    get => ref _Handle.AsRef<int>(_NameStringableIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_NameStringableIndexOffset);
   }
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xAE42345F4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xAE42345F4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _DesignerNameOffset = new(() => Schema.GetOffset(0xAE42345FBFC1F33F), LazyThreadSafetyMode.None);
+  private static readonly nint _DesignerNameOffset = Schema.GetOffset(0xAE42345FBFC1F33F);
 
   public string DesignerName {
     get {
-      var ptr = _Handle.Read<nint>(_DesignerNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_DesignerNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DesignerNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _DesignerNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xAE42345FDC74A14C), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xAE42345FDC74A14C);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _WorldGroupIdOffset = new(() => Schema.GetOffset(0xAE42345F0BECFAC7), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldGroupIdOffset = Schema.GetOffset(0xAE42345F0BECFAC7);
 
   public ref uint WorldGroupId {
-    get => ref _Handle.AsRef<uint>(_WorldGroupIdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_WorldGroupIdOffset);
   }
-  private static readonly Lazy<nint> _DataObjectTypesOffset = new(() => Schema.GetOffset(0xAE42345F6C7E475F), LazyThreadSafetyMode.None);
+  private static readonly nint _DataObjectTypesOffset = Schema.GetOffset(0xAE42345F6C7E475F);
 
   public ref uint DataObjectTypes {
-    get => ref _Handle.AsRef<uint>(_DataObjectTypesOffset.Value);
+    get => ref _Handle.AsRef<uint>(_DataObjectTypesOffset);
   }
-  private static readonly Lazy<nint> _PathIndexOffset = new(() => Schema.GetOffset(0xAE42345F2DA3F47A), LazyThreadSafetyMode.None);
+  private static readonly nint _PathIndexOffset = Schema.GetOffset(0xAE42345F2DA3F47A);
 
   public ref ChangeAccessorFieldPathIndex_t PathIndex {
-    get => ref _Handle.AsRef<ChangeAccessorFieldPathIndex_t>(_PathIndexOffset.Value);
+    get => ref _Handle.AsRef<ChangeAccessorFieldPathIndex_t>(_PathIndexOffset);
   }
-  private static readonly Lazy<nint> _PrevOffset = new(() => Schema.GetOffset(0xAE42345FD49AD9AA), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevOffset = Schema.GetOffset(0xAE42345FD49AD9AA);
 
   public CEntityIdentity? Prev {
     get {
-      var ptr = _Handle.Read<nint>(_PrevOffset.Value);
+      var ptr = _Handle.Read<nint>(_PrevOffset);
       return ptr.IsValidPtr() ? new CEntityIdentityImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _NextOffset = new(() => Schema.GetOffset(0xAE42345F32B11E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _NextOffset = Schema.GetOffset(0xAE42345F32B11E0E);
 
   public CEntityIdentity? Next {
     get {
-      var ptr = _Handle.Read<nint>(_NextOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextOffset);
       return ptr.IsValidPtr() ? new CEntityIdentityImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PrevByClassOffset = new(() => Schema.GetOffset(0xAE42345F1F46E9A5), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevByClassOffset = Schema.GetOffset(0xAE42345F1F46E9A5);
 
   public CEntityIdentity? PrevByClass {
     get {
-      var ptr = _Handle.Read<nint>(_PrevByClassOffset.Value);
+      var ptr = _Handle.Read<nint>(_PrevByClassOffset);
       return ptr.IsValidPtr() ? new CEntityIdentityImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _NextByClassOffset = new(() => Schema.GetOffset(0xAE42345F908D6209), LazyThreadSafetyMode.None);
+  private static readonly nint _NextByClassOffset = Schema.GetOffset(0xAE42345F908D6209);
 
   public CEntityIdentity? NextByClass {
     get {
-      var ptr = _Handle.Read<nint>(_NextByClassOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextByClassOffset);
       return ptr.IsValidPtr() ? new CEntityIdentityImpl(ptr) : null;
     }
   }

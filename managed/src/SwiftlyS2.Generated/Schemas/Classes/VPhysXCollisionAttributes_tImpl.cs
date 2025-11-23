@@ -17,49 +17,49 @@ internal partial class VPhysXCollisionAttributes_tImpl : SchemaClass, VPhysXColl
   public VPhysXCollisionAttributes_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CollisionGroupOffset = new(() => Schema.GetOffset(0xBD3263AF91BF7016), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupOffset = Schema.GetOffset(0xBD3263AF91BF7016);
 
   public ref uint CollisionGroup {
-    get => ref _Handle.AsRef<uint>(_CollisionGroupOffset.Value);
+    get => ref _Handle.AsRef<uint>(_CollisionGroupOffset);
   }
-  private static readonly Lazy<nint> _InteractAsOffset = new(() => Schema.GetOffset(0xBD3263AF4FBB627B), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractAsOffset = Schema.GetOffset(0xBD3263AF4FBB627B);
 
   public ref CUtlVector<uint> InteractAs {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractAsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractAsOffset);
   }
-  private static readonly Lazy<nint> _InteractWithOffset = new(() => Schema.GetOffset(0xBD3263AFAD426A97), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractWithOffset = Schema.GetOffset(0xBD3263AFAD426A97);
 
   public ref CUtlVector<uint> InteractWith {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractWithOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractWithOffset);
   }
-  private static readonly Lazy<nint> _InteractExcludeOffset = new(() => Schema.GetOffset(0xBD3263AFC5ECE843), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractExcludeOffset = Schema.GetOffset(0xBD3263AFC5ECE843);
 
   public ref CUtlVector<uint> InteractExclude {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractExcludeOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_InteractExcludeOffset);
   }
-  private static readonly Lazy<nint> _CollisionGroupStringOffset = new(() => Schema.GetOffset(0xBD3263AFCF0517E7), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupStringOffset = Schema.GetOffset(0xBD3263AFCF0517E7);
 
   public string CollisionGroupString {
     get {
-      var ptr = _Handle.Read<nint>(_CollisionGroupStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_CollisionGroupStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CollisionGroupStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _CollisionGroupStringOffset, value);
   } 
-  private static readonly Lazy<nint> _InteractAsStringsOffset = new(() => Schema.GetOffset(0xBD3263AF7A4D07B7), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractAsStringsOffset = Schema.GetOffset(0xBD3263AF7A4D07B7);
 
   public ref CUtlVector<CUtlString> InteractAsStrings {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractAsStringsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractAsStringsOffset);
   }
-  private static readonly Lazy<nint> _InteractWithStringsOffset = new(() => Schema.GetOffset(0xBD3263AF691AB483), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractWithStringsOffset = Schema.GetOffset(0xBD3263AF691AB483);
 
   public ref CUtlVector<CUtlString> InteractWithStrings {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractWithStringsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractWithStringsOffset);
   }
-  private static readonly Lazy<nint> _InteractExcludeStringsOffset = new(() => Schema.GetOffset(0xBD3263AF97DC23CF), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractExcludeStringsOffset = Schema.GetOffset(0xBD3263AF97DC23CF);
 
   public ref CUtlVector<CUtlString> InteractExcludeStrings {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractExcludeStringsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_InteractExcludeStringsOffset);
   }
 
 

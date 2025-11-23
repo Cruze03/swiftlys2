@@ -17,30 +17,30 @@ internal partial class CAnimBoneDifferenceImpl : SchemaClass, CAnimBoneDifferenc
   public CAnimBoneDifferenceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xCC65F41E4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xCC65F41E4D8F5786);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0xCC65F41E2FF7A69D), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0xCC65F41E2FF7A69D);
 
   public ref CBufferString Parent {
-    get => ref _Handle.AsRef<CBufferString>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _PosErrorOffset = new(() => Schema.GetOffset(0xCC65F41E48F0F4CD), LazyThreadSafetyMode.None);
+  private static readonly nint _PosErrorOffset = Schema.GetOffset(0xCC65F41E48F0F4CD);
 
   public ref Vector PosError {
-    get => ref _Handle.AsRef<Vector>(_PosErrorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PosErrorOffset);
   }
-  private static readonly Lazy<nint> _HasRotationOffset = new(() => Schema.GetOffset(0xCC65F41E84FE2D9D), LazyThreadSafetyMode.None);
+  private static readonly nint _HasRotationOffset = Schema.GetOffset(0xCC65F41E84FE2D9D);
 
   public ref bool HasRotation {
-    get => ref _Handle.AsRef<bool>(_HasRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasRotationOffset);
   }
-  private static readonly Lazy<nint> _HasMovementOffset = new(() => Schema.GetOffset(0xCC65F41E07AC967A), LazyThreadSafetyMode.None);
+  private static readonly nint _HasMovementOffset = Schema.GetOffset(0xCC65F41E07AC967A);
 
   public ref bool HasMovement {
-    get => ref _Handle.AsRef<bool>(_HasMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasMovementOffset);
   }
 
 

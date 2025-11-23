@@ -17,20 +17,20 @@ internal partial class CFlashbangProjectileImpl : CBaseCSGrenadeProjectileImpl, 
   public CFlashbangProjectileImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimeToDetonateOffset = new(() => Schema.GetOffset(0x9F4F2EA190E2E597), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToDetonateOffset = Schema.GetOffset(0x9F4F2EA190E2E597);
 
   public ref float TimeToDetonate {
-    get => ref _Handle.AsRef<float>(_TimeToDetonateOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeToDetonateOffset);
   }
-  private static readonly Lazy<nint> _NumOpponentsHitOffset = new(() => Schema.GetOffset(0x9F4F2EA1CA7913A4), LazyThreadSafetyMode.None);
+  private static readonly nint _NumOpponentsHitOffset = Schema.GetOffset(0x9F4F2EA1CA7913A4);
 
   public ref byte NumOpponentsHit {
-    get => ref _Handle.AsRef<byte>(_NumOpponentsHitOffset.Value);
+    get => ref _Handle.AsRef<byte>(_NumOpponentsHitOffset);
   }
-  private static readonly Lazy<nint> _NumTeammatesHitOffset = new(() => Schema.GetOffset(0x9F4F2EA1BC5B8F41), LazyThreadSafetyMode.None);
+  private static readonly nint _NumTeammatesHitOffset = Schema.GetOffset(0x9F4F2EA1BC5B8F41);
 
   public ref byte NumTeammatesHit {
-    get => ref _Handle.AsRef<byte>(_NumTeammatesHitOffset.Value);
+    get => ref _Handle.AsRef<byte>(_NumTeammatesHitOffset);
   }
 
 

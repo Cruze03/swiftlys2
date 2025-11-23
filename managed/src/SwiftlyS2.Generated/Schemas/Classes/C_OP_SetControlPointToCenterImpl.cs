@@ -17,25 +17,25 @@ internal partial class C_OP_SetControlPointToCenterImpl : CParticleFunctionPreEm
   public C_OP_SetControlPointToCenterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0xB2CEB7C2D4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0xB2CEB7C2D4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0xB2CEB7C2408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0xB2CEB7C2408288D9);
 
   public ref Vector CP1Pos {
-    get => ref _Handle.AsRef<Vector>(_CP1PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP1PosOffset);
   }
-  private static readonly Lazy<nint> _UseAvgParticlePosOffset = new(() => Schema.GetOffset(0xB2CEB7C2399CEECC), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAvgParticlePosOffset = Schema.GetOffset(0xB2CEB7C2399CEECC);
 
   public ref bool UseAvgParticlePos {
-    get => ref _Handle.AsRef<bool>(_UseAvgParticlePosOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAvgParticlePosOffset);
   }
-  private static readonly Lazy<nint> _SetParentOffset = new(() => Schema.GetOffset(0xB2CEB7C22D8246B7), LazyThreadSafetyMode.None);
+  private static readonly nint _SetParentOffset = Schema.GetOffset(0xB2CEB7C22D8246B7);
 
   public ref ParticleParentSetMode_t SetParent {
-    get => ref _Handle.AsRef<ParticleParentSetMode_t>(_SetParentOffset.Value);
+    get => ref _Handle.AsRef<ParticleParentSetMode_t>(_SetParentOffset);
   }
 
 

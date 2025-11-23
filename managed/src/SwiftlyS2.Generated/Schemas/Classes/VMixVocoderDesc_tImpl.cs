@@ -17,55 +17,55 @@ internal partial class VMixVocoderDesc_tImpl : SchemaClass, VMixVocoderDesc_t {
   public VMixVocoderDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BandCountOffset = new(() => Schema.GetOffset(0xFBAB3A2972E16EF9), LazyThreadSafetyMode.None);
+  private static readonly nint _BandCountOffset = Schema.GetOffset(0xFBAB3A2972E16EF9);
 
   public ref int BandCount {
-    get => ref _Handle.AsRef<int>(_BandCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_BandCountOffset);
   }
-  private static readonly Lazy<nint> _BandwidthOffset = new(() => Schema.GetOffset(0xFBAB3A29BB43932C), LazyThreadSafetyMode.None);
+  private static readonly nint _BandwidthOffset = Schema.GetOffset(0xFBAB3A29BB43932C);
 
   public ref float Bandwidth {
-    get => ref _Handle.AsRef<float>(_BandwidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_BandwidthOffset);
   }
-  private static readonly Lazy<nint> _FldBModGainOffset = new(() => Schema.GetOffset(0xFBAB3A291EEAC180), LazyThreadSafetyMode.None);
+  private static readonly nint _FldBModGainOffset = Schema.GetOffset(0xFBAB3A291EEAC180);
 
   public ref float FldBModGain {
-    get => ref _Handle.AsRef<float>(_FldBModGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldBModGainOffset);
   }
-  private static readonly Lazy<nint> _FreqRangeStartOffset = new(() => Schema.GetOffset(0xFBAB3A29B4752A4E), LazyThreadSafetyMode.None);
+  private static readonly nint _FreqRangeStartOffset = Schema.GetOffset(0xFBAB3A29B4752A4E);
 
   public ref float FreqRangeStart {
-    get => ref _Handle.AsRef<float>(_FreqRangeStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FreqRangeStartOffset);
   }
-  private static readonly Lazy<nint> _FreqRangeEndOffset = new(() => Schema.GetOffset(0xFBAB3A29884ECF5B), LazyThreadSafetyMode.None);
+  private static readonly nint _FreqRangeEndOffset = Schema.GetOffset(0xFBAB3A29884ECF5B);
 
   public ref float FreqRangeEnd {
-    get => ref _Handle.AsRef<float>(_FreqRangeEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_FreqRangeEndOffset);
   }
-  private static readonly Lazy<nint> _FldBUnvoicedGainOffset = new(() => Schema.GetOffset(0xFBAB3A29B45A3DEF), LazyThreadSafetyMode.None);
+  private static readonly nint _FldBUnvoicedGainOffset = Schema.GetOffset(0xFBAB3A29B45A3DEF);
 
   public ref float FldBUnvoicedGain {
-    get => ref _Handle.AsRef<float>(_FldBUnvoicedGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldBUnvoicedGainOffset);
   }
-  private static readonly Lazy<nint> _AttackTimeMSOffset = new(() => Schema.GetOffset(0xFBAB3A29D4A28216), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTimeMSOffset = Schema.GetOffset(0xFBAB3A29D4A28216);
 
   public ref float AttackTimeMS {
-    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset);
   }
-  private static readonly Lazy<nint> _ReleaseTimeMSOffset = new(() => Schema.GetOffset(0xFBAB3A29EBB62791), LazyThreadSafetyMode.None);
+  private static readonly nint _ReleaseTimeMSOffset = Schema.GetOffset(0xFBAB3A29EBB62791);
 
   public ref float ReleaseTimeMS {
-    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset);
   }
-  private static readonly Lazy<nint> _DebugBandOffset = new(() => Schema.GetOffset(0xFBAB3A296E77C31B), LazyThreadSafetyMode.None);
+  private static readonly nint _DebugBandOffset = Schema.GetOffset(0xFBAB3A296E77C31B);
 
   public ref int DebugBand {
-    get => ref _Handle.AsRef<int>(_DebugBandOffset.Value);
+    get => ref _Handle.AsRef<int>(_DebugBandOffset);
   }
-  private static readonly Lazy<nint> _PeakModeOffset = new(() => Schema.GetOffset(0xFBAB3A2987DF35F9), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakModeOffset = Schema.GetOffset(0xFBAB3A2987DF35F9);
 
   public ref bool PeakMode {
-    get => ref _Handle.AsRef<bool>(_PeakModeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PeakModeOffset);
   }
 
 

@@ -17,34 +17,34 @@ internal partial class C_OP_ModelCullImpl : CParticleFunctionOperatorImpl, C_OP_
   public C_OP_ModelCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xED02878A3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xED02878A3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _BoundBoxOffset = new(() => Schema.GetOffset(0xED02878AAB65CDDC), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundBoxOffset = Schema.GetOffset(0xED02878AAB65CDDC);
 
   public ref bool BoundBox {
-    get => ref _Handle.AsRef<bool>(_BoundBoxOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BoundBoxOffset);
   }
-  private static readonly Lazy<nint> _CullOutsideOffset = new(() => Schema.GetOffset(0xED02878AA6EF9E04), LazyThreadSafetyMode.None);
+  private static readonly nint _CullOutsideOffset = Schema.GetOffset(0xED02878AA6EF9E04);
 
   public ref bool CullOutside {
-    get => ref _Handle.AsRef<bool>(_CullOutsideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CullOutsideOffset);
   }
-  private static readonly Lazy<nint> _UseBonesOffset = new(() => Schema.GetOffset(0xED02878A10D1938B), LazyThreadSafetyMode.None);
+  private static readonly nint _UseBonesOffset = Schema.GetOffset(0xED02878A10D1938B);
 
   public ref bool UseBones {
-    get => ref _Handle.AsRef<bool>(_UseBonesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseBonesOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetNameOffset = new(() => Schema.GetOffset(0xED02878A6A21BB0E), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetNameOffset = Schema.GetOffset(0xED02878A6A21BB0E);
 
   public string HitboxSetName {
     get {
-      var ptr = _Handle + _HitboxSetNameOffset.Value;
+      var ptr = _Handle + _HitboxSetNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset, value, 128);
   } 
 
 

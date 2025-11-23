@@ -11,7 +11,7 @@ internal static class FileLogger
 
   public static void Initialize( string basePath )
   {
-    var directory = Path.Combine(basePath, "logs");
+    var directory = basePath;
 
     if (!Directory.Exists(directory))
     {

@@ -17,57 +17,57 @@ internal partial class EntComponentInfo_tImpl : SchemaClass, EntComponentInfo_t 
   public EntComponentInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xDEAD526A5B47C92C), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xDEAD526A5B47C92C);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _CPPClassnameOffset = new(() => Schema.GetOffset(0xDEAD526A65BE3EC7), LazyThreadSafetyMode.None);
+  private static readonly nint _CPPClassnameOffset = Schema.GetOffset(0xDEAD526A65BE3EC7);
 
   public string CPPClassname {
     get {
-      var ptr = _Handle.Read<nint>(_CPPClassnameOffset.Value);
+      var ptr = _Handle.Read<nint>(_CPPClassnameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CPPClassnameOffset.Value, value);
+    set => Schema.SetString(_Handle, _CPPClassnameOffset, value);
   } 
-  private static readonly Lazy<nint> _NetworkDataReferencedDescriptionOffset = new(() => Schema.GetOffset(0xDEAD526AB84E3342), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkDataReferencedDescriptionOffset = Schema.GetOffset(0xDEAD526AB84E3342);
 
   public string NetworkDataReferencedDescription {
     get {
-      var ptr = _Handle.Read<nint>(_NetworkDataReferencedDescriptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_NetworkDataReferencedDescriptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NetworkDataReferencedDescriptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _NetworkDataReferencedDescriptionOffset, value);
   } 
-  private static readonly Lazy<nint> _NetworkDataReferencedPtrPropDescriptionOffset = new(() => Schema.GetOffset(0xDEAD526AFDC5489F), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkDataReferencedPtrPropDescriptionOffset = Schema.GetOffset(0xDEAD526AFDC5489F);
 
   public string NetworkDataReferencedPtrPropDescription {
     get {
-      var ptr = _Handle.Read<nint>(_NetworkDataReferencedPtrPropDescriptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_NetworkDataReferencedPtrPropDescriptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NetworkDataReferencedPtrPropDescriptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _NetworkDataReferencedPtrPropDescriptionOffset, value);
   } 
-  private static readonly Lazy<nint> _RuntimeIndexOffset = new(() => Schema.GetOffset(0xDEAD526AB53184BD), LazyThreadSafetyMode.None);
+  private static readonly nint _RuntimeIndexOffset = Schema.GetOffset(0xDEAD526AB53184BD);
 
   public ref int RuntimeIndex {
-    get => ref _Handle.AsRef<int>(_RuntimeIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_RuntimeIndexOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xDEAD526ACE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xDEAD526ACE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _BaseClassComponentHelperOffset = new(() => Schema.GetOffset(0xDEAD526A9799DD51), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseClassComponentHelperOffset = Schema.GetOffset(0xDEAD526A9799DD51);
 
   public CEntityComponentHelper? BaseClassComponentHelper {
     get {
-      var ptr = _Handle.Read<nint>(_BaseClassComponentHelperOffset.Value);
+      var ptr = _Handle.Read<nint>(_BaseClassComponentHelperOffset);
       return ptr.IsValidPtr() ? new CEntityComponentHelperImpl(ptr) : null;
     }
   }

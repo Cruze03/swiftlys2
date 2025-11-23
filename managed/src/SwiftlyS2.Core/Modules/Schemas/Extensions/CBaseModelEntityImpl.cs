@@ -24,4 +24,9 @@ internal partial class CBaseModelEntityImpl : CBaseModelEntity
         AcceptInput("SetScale", scale);
         CBodyComponentUpdated();
     }
+
+    public void ChangeSubclass(ushort itemDefinitionIndex)
+    {
+        AcceptInput("ChangeSubclass", itemDefinitionIndex.ToString());
+    }
 }

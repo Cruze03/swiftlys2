@@ -17,92 +17,92 @@ internal partial class CEnvExplosionImpl : CModelPointEntityImpl, CEnvExplosion 
   public CEnvExplosionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x27411F012CBE4C2), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x27411F012CBE4C2);
 
   public ref int Magnitude {
-    get => ref _Handle.AsRef<int>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<int>(_MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _PlayerDamageOffset = new(() => Schema.GetOffset(0x27411F08C95143B), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerDamageOffset = Schema.GetOffset(0x27411F08C95143B);
 
   public ref float PlayerDamage {
-    get => ref _Handle.AsRef<float>(_PlayerDamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlayerDamageOffset);
   }
-  private static readonly Lazy<nint> _RadiusOverrideOffset = new(() => Schema.GetOffset(0x27411F0CD5417B2), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOverrideOffset = Schema.GetOffset(0x27411F0CD5417B2);
 
   public ref int RadiusOverride {
-    get => ref _Handle.AsRef<int>(_RadiusOverrideOffset.Value);
+    get => ref _Handle.AsRef<int>(_RadiusOverrideOffset);
   }
-  private static readonly Lazy<nint> _InnerRadiusOffset = new(() => Schema.GetOffset(0x27411F032121407), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerRadiusOffset = Schema.GetOffset(0x27411F032121407);
 
   public ref float InnerRadius {
-    get => ref _Handle.AsRef<float>(_InnerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerRadiusOffset);
   }
-  private static readonly Lazy<nint> _DamageForceOffset = new(() => Schema.GetOffset(0x27411F0AB66D0A5), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageForceOffset = Schema.GetOffset(0x27411F0AB66D0A5);
 
   public ref float DamageForce {
-    get => ref _Handle.AsRef<float>(_DamageForceOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamageForceOffset);
   }
-  private static readonly Lazy<nint> _InflictorOffset = new(() => Schema.GetOffset(0x27411F04D7B4137), LazyThreadSafetyMode.None);
+  private static readonly nint _InflictorOffset = Schema.GetOffset(0x27411F04D7B4137);
 
   public ref CHandle<CBaseEntity> Inflictor {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_InflictorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_InflictorOffset);
   }
-  private static readonly Lazy<nint> _CustomDamageTypeOffset = new(() => Schema.GetOffset(0x27411F0E0A58F6E), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomDamageTypeOffset = Schema.GetOffset(0x27411F0E0A58F6E);
 
   public ref DamageTypes_t CustomDamageType {
-    get => ref _Handle.AsRef<DamageTypes_t>(_CustomDamageTypeOffset.Value);
+    get => ref _Handle.AsRef<DamageTypes_t>(_CustomDamageTypeOffset);
   }
-  private static readonly Lazy<nint> _CreateDebrisOffset = new(() => Schema.GetOffset(0x27411F08F0AE362), LazyThreadSafetyMode.None);
+  private static readonly nint _CreateDebrisOffset = Schema.GetOffset(0x27411F08F0AE362);
 
   public ref bool CreateDebris {
-    get => ref _Handle.AsRef<bool>(_CreateDebrisOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CreateDebrisOffset);
   }
-  private static readonly Lazy<nint> _CustomEffectNameOffset = new(() => Schema.GetOffset(0x27411F0455090C0), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomEffectNameOffset = Schema.GetOffset(0x27411F0455090C0);
 
   public string CustomEffectName {
     get {
-      var ptr = _Handle.Read<nint>(_CustomEffectNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_CustomEffectNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CustomEffectNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _CustomEffectNameOffset, value);
   } 
-  private static readonly Lazy<nint> _CustomSoundNameOffset = new(() => Schema.GetOffset(0x27411F0876FC976), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomSoundNameOffset = Schema.GetOffset(0x27411F0876FC976);
 
   public string CustomSoundName {
     get {
-      var ptr = _Handle.Read<nint>(_CustomSoundNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_CustomSoundNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CustomSoundNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _CustomSoundNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SuppressParticleImpulseOffset = new(() => Schema.GetOffset(0x27411F02C7847BB), LazyThreadSafetyMode.None);
+  private static readonly nint _SuppressParticleImpulseOffset = Schema.GetOffset(0x27411F02C7847BB);
 
   public ref bool SuppressParticleImpulse {
-    get => ref _Handle.AsRef<bool>(_SuppressParticleImpulseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SuppressParticleImpulseOffset);
   }
-  private static readonly Lazy<nint> _ClassIgnoreOffset = new(() => Schema.GetOffset(0x27411F0A0290EDE), LazyThreadSafetyMode.None);
+  private static readonly nint _ClassIgnoreOffset = Schema.GetOffset(0x27411F0A0290EDE);
 
   public ref Class_T ClassIgnore {
-    get => ref _Handle.AsRef<Class_T>(_ClassIgnoreOffset.Value);
+    get => ref _Handle.AsRef<Class_T>(_ClassIgnoreOffset);
   }
-  private static readonly Lazy<nint> _ClassIgnore2Offset = new(() => Schema.GetOffset(0x27411F00CA27D84), LazyThreadSafetyMode.None);
+  private static readonly nint _ClassIgnore2Offset = Schema.GetOffset(0x27411F00CA27D84);
 
   public ref Class_T ClassIgnore2 {
-    get => ref _Handle.AsRef<Class_T>(_ClassIgnore2Offset.Value);
+    get => ref _Handle.AsRef<Class_T>(_ClassIgnore2Offset);
   }
-  private static readonly Lazy<nint> _EntityIgnoreNameOffset = new(() => Schema.GetOffset(0x27411F0A786C06F), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityIgnoreNameOffset = Schema.GetOffset(0x27411F0A786C06F);
 
   public string EntityIgnoreName {
     get {
-      var ptr = _Handle.Read<nint>(_EntityIgnoreNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EntityIgnoreNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EntityIgnoreNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EntityIgnoreNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EntityIgnoreOffset = new(() => Schema.GetOffset(0x27411F08F1E5202), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityIgnoreOffset = Schema.GetOffset(0x27411F08F1E5202);
 
   public ref CHandle<CBaseEntity> EntityIgnore {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityIgnoreOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityIgnoreOffset);
   }
 
 

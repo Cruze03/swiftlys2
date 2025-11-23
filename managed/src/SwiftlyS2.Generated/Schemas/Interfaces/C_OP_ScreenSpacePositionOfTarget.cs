@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface C_OP_ScreenSpacePositionOfTarget : CParticleFunctionOperator, ISchemaClass<C_OP_ScreenSpacePositionOfTarget> {
 
   static C_OP_ScreenSpacePositionOfTarget ISchemaClass<C_OP_ScreenSpacePositionOfTarget>.From(nint handle) => new C_OP_ScreenSpacePositionOfTargetImpl(handle);
-  static int ISchemaClass<C_OP_ScreenSpacePositionOfTarget>.Size => 2512;
+  static int ISchemaClass<C_OP_ScreenSpacePositionOfTarget>.Size => 2568;
   static string? ISchemaClass<C_OP_ScreenSpacePositionOfTarget>.ClassName => null;
 
   

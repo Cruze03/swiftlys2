@@ -17,20 +17,20 @@ internal partial class C_OP_GameLiquidSpillImpl : CParticleFunctionRendererImpl,
   public C_OP_GameLiquidSpillImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LiquidContentsFieldOffset = new(() => Schema.GetOffset(0xB07185274F9A10CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LiquidContentsFieldOffset = Schema.GetOffset(0xB07185274F9A10CB);
 
   public CParticleCollectionFloatInput LiquidContentsField {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _LiquidContentsFieldOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _LiquidContentsFieldOffset);
   }
-  private static readonly Lazy<nint> _ExpirationTimeOffset = new(() => Schema.GetOffset(0xB07185272A34213F), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpirationTimeOffset = Schema.GetOffset(0xB07185272A34213F);
 
   public CParticleCollectionFloatInput ExpirationTime {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ExpirationTimeOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ExpirationTimeOffset);
   }
-  private static readonly Lazy<nint> _AmountAttributeOffset = new(() => Schema.GetOffset(0xB071852755424147), LazyThreadSafetyMode.None);
+  private static readonly nint _AmountAttributeOffset = Schema.GetOffset(0xB071852755424147);
 
   public ParticleAttributeIndex_t AmountAttribute {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AmountAttributeOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AmountAttributeOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class CNmConstTargetNode__CDefinitionImpl : CNmTargetValueNode_
   public CNmConstTargetNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xC54E1DF56B99AEEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xC54E1DF56B99AEEA);
 
   public CNmTarget Value {
-    get => new CNmTargetImpl(_Handle + _ValueOffset.Value);
+    get => new CNmTargetImpl(_Handle + _ValueOffset);
   }
 
 

@@ -17,30 +17,30 @@ internal partial class CEconItemAttributeImpl : SchemaClass, CEconItemAttribute 
   public CEconItemAttributeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttributeDefinitionIndexOffset = new(() => Schema.GetOffset(0xBB0F80FC8DAFCD73), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeDefinitionIndexOffset = Schema.GetOffset(0xBB0F80FC8DAFCD73);
 
   public ref ushort AttributeDefinitionIndex {
-    get => ref _Handle.AsRef<ushort>(_AttributeDefinitionIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_AttributeDefinitionIndexOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xBB0F80FC8DFCB984), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xBB0F80FC8DFCB984);
 
   public ref float Value {
-    get => ref _Handle.AsRef<float>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueOffset);
   }
-  private static readonly Lazy<nint> _InitialValueOffset = new(() => Schema.GetOffset(0xBB0F80FCE2DBFFF2), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialValueOffset = Schema.GetOffset(0xBB0F80FCE2DBFFF2);
 
   public ref float InitialValue {
-    get => ref _Handle.AsRef<float>(_InitialValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_InitialValueOffset);
   }
-  private static readonly Lazy<nint> _RefundableCurrencyOffset = new(() => Schema.GetOffset(0xBB0F80FC1021E694), LazyThreadSafetyMode.None);
+  private static readonly nint _RefundableCurrencyOffset = Schema.GetOffset(0xBB0F80FC1021E694);
 
   public ref int RefundableCurrency {
-    get => ref _Handle.AsRef<int>(_RefundableCurrencyOffset.Value);
+    get => ref _Handle.AsRef<int>(_RefundableCurrencyOffset);
   }
-  private static readonly Lazy<nint> _SetBonusOffset = new(() => Schema.GetOffset(0xBB0F80FCA5E9EA96), LazyThreadSafetyMode.None);
+  private static readonly nint _SetBonusOffset = Schema.GetOffset(0xBB0F80FCA5E9EA96);
 
   public ref bool SetBonus {
-    get => ref _Handle.AsRef<bool>(_SetBonusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetBonusOffset);
   }
 
   public void AttributeDefinitionIndexUpdated() {

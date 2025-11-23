@@ -17,30 +17,30 @@ internal partial class C_INIT_NormalOffsetImpl : CParticleFunctionInitializerImp
   public C_INIT_NormalOffsetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OffsetMinOffset = new(() => Schema.GetOffset(0x79E80AD67E1ECBDE), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetMinOffset = Schema.GetOffset(0x79E80AD67E1ECBDE);
 
   public ref Vector OffsetMin {
-    get => ref _Handle.AsRef<Vector>(_OffsetMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetMinOffset);
   }
-  private static readonly Lazy<nint> _OffsetMaxOffset = new(() => Schema.GetOffset(0x79E80AD69009CD7C), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetMaxOffset = Schema.GetOffset(0x79E80AD69009CD7C);
 
   public ref Vector OffsetMax {
-    get => ref _Handle.AsRef<Vector>(_OffsetMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetMaxOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x79E80AD63F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x79E80AD63F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordsOffset = new(() => Schema.GetOffset(0x79E80AD630E716DE), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordsOffset = Schema.GetOffset(0x79E80AD630E716DE);
 
   public ref bool LocalCoords {
-    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0x79E80AD648BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0x79E80AD648BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
 
 

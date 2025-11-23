@@ -17,25 +17,25 @@ internal partial class PredictedDamageTag_tImpl : SchemaClass, PredictedDamageTa
   public PredictedDamageTag_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TagTickOffset = new(() => Schema.GetOffset(0x43420069BBCAAE16), LazyThreadSafetyMode.None);
+  private static readonly nint _TagTickOffset = Schema.GetOffset(0x43420069BBCAAE16);
 
   public GameTick_t TagTick {
-    get => new GameTick_tImpl(_Handle + _TagTickOffset.Value);
+    get => new GameTick_tImpl(_Handle + _TagTickOffset);
   }
-  private static readonly Lazy<nint> _FlinchModSmallOffset = new(() => Schema.GetOffset(0x4342006970E7E18A), LazyThreadSafetyMode.None);
+  private static readonly nint _FlinchModSmallOffset = Schema.GetOffset(0x4342006970E7E18A);
 
   public ref float FlinchModSmall {
-    get => ref _Handle.AsRef<float>(_FlinchModSmallOffset.Value);
+    get => ref _Handle.AsRef<float>(_FlinchModSmallOffset);
   }
-  private static readonly Lazy<nint> _FlinchModLargeOffset = new(() => Schema.GetOffset(0x43420069E052DA66), LazyThreadSafetyMode.None);
+  private static readonly nint _FlinchModLargeOffset = Schema.GetOffset(0x43420069E052DA66);
 
   public ref float FlinchModLarge {
-    get => ref _Handle.AsRef<float>(_FlinchModLargeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FlinchModLargeOffset);
   }
-  private static readonly Lazy<nint> _FriendlyFireDamageReductionRatioOffset = new(() => Schema.GetOffset(0x43420069BA6A7F4D), LazyThreadSafetyMode.None);
+  private static readonly nint _FriendlyFireDamageReductionRatioOffset = Schema.GetOffset(0x43420069BA6A7F4D);
 
   public ref float FriendlyFireDamageReductionRatio {
-    get => ref _Handle.AsRef<float>(_FriendlyFireDamageReductionRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_FriendlyFireDamageReductionRatioOffset);
   }
 
   public void TagTickUpdated() {

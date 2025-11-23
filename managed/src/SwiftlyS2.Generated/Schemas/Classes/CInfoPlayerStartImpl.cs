@@ -17,20 +17,20 @@ internal partial class CInfoPlayerStartImpl : CPointEntityImpl, CInfoPlayerStart
   public CInfoPlayerStartImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0xE0799D713A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0xE0799D713A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _IsMasterOffset = new(() => Schema.GetOffset(0xE0799D71DE5719A3), LazyThreadSafetyMode.None);
+  private static readonly nint _IsMasterOffset = Schema.GetOffset(0xE0799D71DE5719A3);
 
   public ref bool IsMaster {
-    get => ref _Handle.AsRef<bool>(_IsMasterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsMasterOffset);
   }
-  private static readonly Lazy<nint> _PawnSubclassOffset = new(() => Schema.GetOffset(0xE0799D7190AFB5EF), LazyThreadSafetyMode.None);
+  private static readonly nint _PawnSubclassOffset = Schema.GetOffset(0xE0799D7190AFB5EF);
 
   public ref CGlobalSymbol PawnSubclass {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_PawnSubclassOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_PawnSubclassOffset);
   }
 
 

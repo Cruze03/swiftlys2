@@ -17,10 +17,10 @@ internal partial class CSymbolAnimParameterImpl : CConcreteAnimParameterImpl, CS
   public CSymbolAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0xA3486AA2BBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0xA3486AA2BBE0341F);
 
   public ref CGlobalSymbol DefaultValue {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_DefaultValueOffset);
   }
 
 

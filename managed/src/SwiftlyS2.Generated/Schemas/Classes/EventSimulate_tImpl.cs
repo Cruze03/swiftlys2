@@ -17,20 +17,20 @@ internal partial class EventSimulate_tImpl : SchemaClass, EventSimulate_t {
   public EventSimulate_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopStateOffset = new(() => Schema.GetOffset(0x39B7BD6EF928A2EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopStateOffset = Schema.GetOffset(0x39B7BD6EF928A2EC);
 
   public EngineLoopState_t LoopState {
-    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset.Value);
+    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset);
   }
-  private static readonly Lazy<nint> _FirstTickOffset = new(() => Schema.GetOffset(0x39B7BD6EC8198F38), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstTickOffset = Schema.GetOffset(0x39B7BD6EC8198F38);
 
   public ref bool FirstTick {
-    get => ref _Handle.AsRef<bool>(_FirstTickOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FirstTickOffset);
   }
-  private static readonly Lazy<nint> _LastTickOffset = new(() => Schema.GetOffset(0x39B7BD6E1704CC30), LazyThreadSafetyMode.None);
+  private static readonly nint _LastTickOffset = Schema.GetOffset(0x39B7BD6E1704CC30);
 
   public ref bool LastTick {
-    get => ref _Handle.AsRef<bool>(_LastTickOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LastTickOffset);
   }
 
 

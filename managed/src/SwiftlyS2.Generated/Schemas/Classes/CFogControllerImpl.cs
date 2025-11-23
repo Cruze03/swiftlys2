@@ -17,20 +17,20 @@ internal partial class CFogControllerImpl : CBaseEntityImpl, CFogController {
   public CFogControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FogOffset = new(() => Schema.GetOffset(0x719804B29014635F), LazyThreadSafetyMode.None);
+  private static readonly nint _FogOffset = Schema.GetOffset(0x719804B29014635F);
 
   public fogparams_t Fog {
-    get => new fogparams_tImpl(_Handle + _FogOffset.Value);
+    get => new fogparams_tImpl(_Handle + _FogOffset);
   }
-  private static readonly Lazy<nint> _UseAnglesOffset = new(() => Schema.GetOffset(0x719804B2434C3DB4), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAnglesOffset = Schema.GetOffset(0x719804B2434C3DB4);
 
   public ref bool UseAngles {
-    get => ref _Handle.AsRef<bool>(_UseAnglesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAnglesOffset);
   }
-  private static readonly Lazy<nint> _ChangedVariablesOffset = new(() => Schema.GetOffset(0x719804B2BC173F39), LazyThreadSafetyMode.None);
+  private static readonly nint _ChangedVariablesOffset = Schema.GetOffset(0x719804B2BC173F39);
 
   public ref int ChangedVariables {
-    get => ref _Handle.AsRef<int>(_ChangedVariablesOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChangedVariablesOffset);
   }
 
   public void FogUpdated() {

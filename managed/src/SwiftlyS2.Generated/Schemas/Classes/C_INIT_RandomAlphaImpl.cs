@@ -17,25 +17,25 @@ internal partial class C_INIT_RandomAlphaImpl : CParticleFunctionInitializerImpl
   public C_INIT_RandomAlphaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x3D7FD5BE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x3D7FD5BE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _AlphaMinOffset = new(() => Schema.GetOffset(0x3D7FD5BD7670531), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaMinOffset = Schema.GetOffset(0x3D7FD5BD7670531);
 
   public ref int AlphaMin {
-    get => ref _Handle.AsRef<int>(_AlphaMinOffset.Value);
+    get => ref _Handle.AsRef<int>(_AlphaMinOffset);
   }
-  private static readonly Lazy<nint> _AlphaMaxOffset = new(() => Schema.GetOffset(0x3D7FD5BE97AA93F), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaMaxOffset = Schema.GetOffset(0x3D7FD5BE97AA93F);
 
   public ref int AlphaMax {
-    get => ref _Handle.AsRef<int>(_AlphaMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_AlphaMaxOffset);
   }
-  private static readonly Lazy<nint> _AlphaRandExponentOffset = new(() => Schema.GetOffset(0x3D7FD5BA2C243B5), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaRandExponentOffset = Schema.GetOffset(0x3D7FD5BA2C243B5);
 
   public ref float AlphaRandExponent {
-    get => ref _Handle.AsRef<float>(_AlphaRandExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlphaRandExponentOffset);
   }
 
 

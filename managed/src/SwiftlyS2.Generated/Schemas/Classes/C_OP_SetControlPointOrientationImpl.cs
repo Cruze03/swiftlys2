@@ -17,45 +17,45 @@ internal partial class C_OP_SetControlPointOrientationImpl : CParticleFunctionPr
   public C_OP_SetControlPointOrientationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseWorldLocationOffset = new(() => Schema.GetOffset(0x2461079CF371AED7), LazyThreadSafetyMode.None);
+  private static readonly nint _UseWorldLocationOffset = Schema.GetOffset(0x2461079CF371AED7);
 
   public ref bool UseWorldLocation {
-    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset);
   }
-  private static readonly Lazy<nint> _RandomizeOffset = new(() => Schema.GetOffset(0x2461079C4C98CC9C), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomizeOffset = Schema.GetOffset(0x2461079C4C98CC9C);
 
   public ref bool Randomize {
-    get => ref _Handle.AsRef<bool>(_RandomizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomizeOffset);
   }
-  private static readonly Lazy<nint> _SetOnceOffset = new(() => Schema.GetOffset(0x2461079C6B261086), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOnceOffset = Schema.GetOffset(0x2461079C6B261086);
 
   public ref bool SetOnce {
-    get => ref _Handle.AsRef<bool>(_SetOnceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOnceOffset);
   }
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x2461079CEB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x2461079CEB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _HeadLocationOffset = new(() => Schema.GetOffset(0x2461079CA8ECDA78), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadLocationOffset = Schema.GetOffset(0x2461079CA8ECDA78);
 
   public ref int HeadLocation {
-    get => ref _Handle.AsRef<int>(_HeadLocationOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadLocationOffset);
   }
-  private static readonly Lazy<nint> _RotationOffset = new(() => Schema.GetOffset(0x2461079C1992E6BF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOffset = Schema.GetOffset(0x2461079C1992E6BF);
 
   public ref QAngle Rotation {
-    get => ref _Handle.AsRef<QAngle>(_RotationOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationOffset);
   }
-  private static readonly Lazy<nint> _RotationBOffset = new(() => Schema.GetOffset(0x2461079C3F41A047), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationBOffset = Schema.GetOffset(0x2461079C3F41A047);
 
   public ref QAngle RotationB {
-    get => ref _Handle.AsRef<QAngle>(_RotationBOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_RotationBOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0x2461079CCF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0x2461079CCF55B987);
 
   public CParticleCollectionFloatInput Interpolation {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class CPulse_ConstantImpl : SchemaClass, CPulse_Constant {
   public CPulse_ConstantImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x28B1B9F08ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x28B1B9F08ED6D5CD);
 
   public SchemaUntypedField Type {
-    get => new SchemaUntypedField(_Handle + _TypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TypeOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x28B1B9F0DCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x28B1B9F0DCB0894A);
 
   public SchemaUntypedField Value {
-    get => new SchemaUntypedField(_Handle + _ValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValueOffset);
   }
 
 

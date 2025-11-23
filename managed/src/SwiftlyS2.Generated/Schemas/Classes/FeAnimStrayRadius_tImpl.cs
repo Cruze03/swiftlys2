@@ -20,15 +20,15 @@ internal partial class FeAnimStrayRadius_tImpl : SchemaClass, FeAnimStrayRadius_
   public ISchemaFixedArray<ushort> Node {
     get => new SchemaFixedArray<ushort>(_Handle, 0xF06BE9BCD6694B9, 2, 2, 2);
   }
-  private static readonly Lazy<nint> _MaxDistOffset = new(() => Schema.GetOffset(0xF06BE9BC9FFDD57), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistOffset = Schema.GetOffset(0xF06BE9BC9FFDD57);
 
   public ref float MaxDist {
-    get => ref _Handle.AsRef<float>(_MaxDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistOffset);
   }
-  private static readonly Lazy<nint> _RelaxationFactorOffset = new(() => Schema.GetOffset(0xF06BE9B357F3BFF), LazyThreadSafetyMode.None);
+  private static readonly nint _RelaxationFactorOffset = Schema.GetOffset(0xF06BE9B357F3BFF);
 
   public ref float RelaxationFactor {
-    get => ref _Handle.AsRef<float>(_RelaxationFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_RelaxationFactorOffset);
   }
 
 

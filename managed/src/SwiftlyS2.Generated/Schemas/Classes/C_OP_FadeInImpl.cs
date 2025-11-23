@@ -17,25 +17,25 @@ internal partial class C_OP_FadeInImpl : CParticleFunctionOperatorImpl, C_OP_Fad
   public C_OP_FadeInImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeInTimeMinOffset = new(() => Schema.GetOffset(0xA8B59B1091A2EFE5), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInTimeMinOffset = Schema.GetOffset(0xA8B59B1091A2EFE5);
 
   public ref float FadeInTimeMin {
-    get => ref _Handle.AsRef<float>(_FadeInTimeMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInTimeMinOffset);
   }
-  private static readonly Lazy<nint> _FadeInTimeMaxOffset = new(() => Schema.GetOffset(0xA8B59B109BB6875B), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInTimeMaxOffset = Schema.GetOffset(0xA8B59B109BB6875B);
 
   public ref float FadeInTimeMax {
-    get => ref _Handle.AsRef<float>(_FadeInTimeMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInTimeMaxOffset);
   }
-  private static readonly Lazy<nint> _FadeInTimeExpOffset = new(() => Schema.GetOffset(0xA8B59B1046BA449A), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInTimeExpOffset = Schema.GetOffset(0xA8B59B1046BA449A);
 
   public ref float FadeInTimeExp {
-    get => ref _Handle.AsRef<float>(_FadeInTimeExpOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInTimeExpOffset);
   }
-  private static readonly Lazy<nint> _ProportionalOffset = new(() => Schema.GetOffset(0xA8B59B10891F328A), LazyThreadSafetyMode.None);
+  private static readonly nint _ProportionalOffset = Schema.GetOffset(0xA8B59B10891F328A);
 
   public ref bool Proportional {
-    get => ref _Handle.AsRef<bool>(_ProportionalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ProportionalOffset);
   }
 
 

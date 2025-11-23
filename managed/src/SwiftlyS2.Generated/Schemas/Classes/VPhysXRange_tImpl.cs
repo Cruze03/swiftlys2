@@ -17,15 +17,15 @@ internal partial class VPhysXRange_tImpl : SchemaClass, VPhysXRange_t {
   public VPhysXRange_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x7A251AB33B1A5649), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x7A251AB33B1A5649);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x7A251AB32D06B887), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x7A251AB32D06B887);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
 
 

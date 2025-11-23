@@ -17,184 +17,184 @@ internal partial class CFuncRotatorImpl : CBaseModelEntityImpl, CFuncRotator {
   public CFuncRotatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RotatorTargetOffset = new(() => Schema.GetOffset(0x73DA1BB9F324C519), LazyThreadSafetyMode.None);
+  private static readonly nint _RotatorTargetOffset = Schema.GetOffset(0x73DA1BB9F324C519);
 
   public ref CHandle<CBaseEntity> RotatorTarget {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_RotatorTargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_RotatorTargetOffset);
   }
-  private static readonly Lazy<nint> _IsRotatingOffset = new(() => Schema.GetOffset(0x73DA1BB94C9E159D), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRotatingOffset = Schema.GetOffset(0x73DA1BB94C9E159D);
 
   public ref bool IsRotating {
-    get => ref _Handle.AsRef<bool>(_IsRotatingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRotatingOffset);
   }
-  private static readonly Lazy<nint> _IsReversingOffset = new(() => Schema.GetOffset(0x73DA1BB9899E5BEE), LazyThreadSafetyMode.None);
+  private static readonly nint _IsReversingOffset = Schema.GetOffset(0x73DA1BB9899E5BEE);
 
   public ref bool IsReversing {
-    get => ref _Handle.AsRef<bool>(_IsReversingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsReversingOffset);
   }
-  private static readonly Lazy<nint> _TimeToReachMaxSpeedOffset = new(() => Schema.GetOffset(0x73DA1BB99452902F), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToReachMaxSpeedOffset = Schema.GetOffset(0x73DA1BB99452902F);
 
   public ref float TimeToReachMaxSpeed {
-    get => ref _Handle.AsRef<float>(_TimeToReachMaxSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeToReachMaxSpeedOffset);
   }
-  private static readonly Lazy<nint> _TimeToReachZeroSpeedOffset = new(() => Schema.GetOffset(0x73DA1BB9816228FB), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToReachZeroSpeedOffset = Schema.GetOffset(0x73DA1BB9816228FB);
 
   public ref float TimeToReachZeroSpeed {
-    get => ref _Handle.AsRef<float>(_TimeToReachZeroSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeToReachZeroSpeedOffset);
   }
-  private static readonly Lazy<nint> _DistanceAlongArcTraveledOffset = new(() => Schema.GetOffset(0x73DA1BB9AF2FCEDE), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceAlongArcTraveledOffset = Schema.GetOffset(0x73DA1BB9AF2FCEDE);
 
   public ref float DistanceAlongArcTraveled {
-    get => ref _Handle.AsRef<float>(_DistanceAlongArcTraveledOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceAlongArcTraveledOffset);
   }
-  private static readonly Lazy<nint> _TimeToWaitOscillateOffset = new(() => Schema.GetOffset(0x73DA1BB96E3B4BF4), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToWaitOscillateOffset = Schema.GetOffset(0x73DA1BB96E3B4BF4);
 
   public ref float TimeToWaitOscillate {
-    get => ref _Handle.AsRef<float>(_TimeToWaitOscillateOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeToWaitOscillateOffset);
   }
-  private static readonly Lazy<nint> _TimeRotationStartOffset = new(() => Schema.GetOffset(0x73DA1BB952C0B2E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeRotationStartOffset = Schema.GetOffset(0x73DA1BB952C0B2E8);
 
   public GameTime_t TimeRotationStart {
-    get => new GameTime_tImpl(_Handle + _TimeRotationStartOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeRotationStartOffset);
   }
-  private static readonly Lazy<nint> _LSPrevChangeOffset = new(() => Schema.GetOffset(0x73DA1BB9BC15BD54), LazyThreadSafetyMode.None);
+  private static readonly nint _LSPrevChangeOffset = Schema.GetOffset(0x73DA1BB9BC15BD54);
 
   public ref Quaternion LSPrevChange {
-    get => ref _Handle.AsRef<Quaternion>(_LSPrevChangeOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_LSPrevChangeOffset);
   }
-  private static readonly Lazy<nint> _WSPrevOffset = new(() => Schema.GetOffset(0x73DA1BB9C3EEEFFB), LazyThreadSafetyMode.None);
+  private static readonly nint _WSPrevOffset = Schema.GetOffset(0x73DA1BB9C3EEEFFB);
 
   public ref Quaternion WSPrev {
-    get => ref _Handle.AsRef<Quaternion>(_WSPrevOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_WSPrevOffset);
   }
-  private static readonly Lazy<nint> _WSInitOffset = new(() => Schema.GetOffset(0x73DA1BB99E7E023C), LazyThreadSafetyMode.None);
+  private static readonly nint _WSInitOffset = Schema.GetOffset(0x73DA1BB99E7E023C);
 
   public ref Quaternion WSInit {
-    get => ref _Handle.AsRef<Quaternion>(_WSInitOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_WSInitOffset);
   }
-  private static readonly Lazy<nint> _LSInitOffset = new(() => Schema.GetOffset(0x73DA1BB966C62507), LazyThreadSafetyMode.None);
+  private static readonly nint _LSInitOffset = Schema.GetOffset(0x73DA1BB966C62507);
 
   public ref Quaternion LSInit {
-    get => ref _Handle.AsRef<Quaternion>(_LSInitOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_LSInitOffset);
   }
-  private static readonly Lazy<nint> _LSOrientationOffset = new(() => Schema.GetOffset(0x73DA1BB9BD794B25), LazyThreadSafetyMode.None);
+  private static readonly nint _LSOrientationOffset = Schema.GetOffset(0x73DA1BB9BD794B25);
 
   public ref Quaternion LSOrientation {
-    get => ref _Handle.AsRef<Quaternion>(_LSOrientationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_LSOrientationOffset);
   }
-  private static readonly Lazy<nint> _OnRotationStartedOffset = new(() => Schema.GetOffset(0x73DA1BB9A2961697), LazyThreadSafetyMode.None);
+  private static readonly nint _OnRotationStartedOffset = Schema.GetOffset(0x73DA1BB9A2961697);
 
   public CEntityIOOutput OnRotationStarted {
-    get => new CEntityIOOutputImpl(_Handle + _OnRotationStartedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnRotationStartedOffset);
   }
-  private static readonly Lazy<nint> _OnRotationCompletedOffset = new(() => Schema.GetOffset(0x73DA1BB90478C90B), LazyThreadSafetyMode.None);
+  private static readonly nint _OnRotationCompletedOffset = Schema.GetOffset(0x73DA1BB90478C90B);
 
   public CEntityIOOutput OnRotationCompleted {
-    get => new CEntityIOOutputImpl(_Handle + _OnRotationCompletedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnRotationCompletedOffset);
   }
-  private static readonly Lazy<nint> _OnOscillateOffset = new(() => Schema.GetOffset(0x73DA1BB931B79B92), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOscillateOffset = Schema.GetOffset(0x73DA1BB931B79B92);
 
   public CEntityIOOutput OnOscillate {
-    get => new CEntityIOOutputImpl(_Handle + _OnOscillateOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnOscillateOffset);
   }
-  private static readonly Lazy<nint> _OnOscillateStartArriveOffset = new(() => Schema.GetOffset(0x73DA1BB996E9B88D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOscillateStartArriveOffset = Schema.GetOffset(0x73DA1BB996E9B88D);
 
   public CEntityIOOutput OnOscillateStartArrive {
-    get => new CEntityIOOutputImpl(_Handle + _OnOscillateStartArriveOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnOscillateStartArriveOffset);
   }
-  private static readonly Lazy<nint> _OnOscillateStartDepartOffset = new(() => Schema.GetOffset(0x73DA1BB908C9CF2C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOscillateStartDepartOffset = Schema.GetOffset(0x73DA1BB908C9CF2C);
 
   public CEntityIOOutput OnOscillateStartDepart {
-    get => new CEntityIOOutputImpl(_Handle + _OnOscillateStartDepartOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnOscillateStartDepartOffset);
   }
-  private static readonly Lazy<nint> _OnOscillateEndArriveOffset = new(() => Schema.GetOffset(0x73DA1BB98F4F6014), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOscillateEndArriveOffset = Schema.GetOffset(0x73DA1BB98F4F6014);
 
   public CEntityIOOutput OnOscillateEndArrive {
-    get => new CEntityIOOutputImpl(_Handle + _OnOscillateEndArriveOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnOscillateEndArriveOffset);
   }
-  private static readonly Lazy<nint> _OnOscillateEndDepartOffset = new(() => Schema.GetOffset(0x73DA1BB943D41D49), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOscillateEndDepartOffset = Schema.GetOffset(0x73DA1BB943D41D49);
 
   public CEntityIOOutput OnOscillateEndDepart {
-    get => new CEntityIOOutputImpl(_Handle + _OnOscillateEndDepartOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnOscillateEndDepartOffset);
   }
-  private static readonly Lazy<nint> _OscillateDepartOffset = new(() => Schema.GetOffset(0x73DA1BB9CAB88EEB), LazyThreadSafetyMode.None);
+  private static readonly nint _OscillateDepartOffset = Schema.GetOffset(0x73DA1BB9CAB88EEB);
 
   public ref bool OscillateDepart {
-    get => ref _Handle.AsRef<bool>(_OscillateDepartOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OscillateDepartOffset);
   }
-  private static readonly Lazy<nint> _OscillateCountOffset = new(() => Schema.GetOffset(0x73DA1BB9C2609150), LazyThreadSafetyMode.None);
+  private static readonly nint _OscillateCountOffset = Schema.GetOffset(0x73DA1BB9C2609150);
 
   public ref int OscillateCount {
-    get => ref _Handle.AsRef<int>(_OscillateCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_OscillateCountOffset);
   }
-  private static readonly Lazy<nint> _RotateTypeOffset = new(() => Schema.GetOffset(0x73DA1BB94BD69967), LazyThreadSafetyMode.None);
+  private static readonly nint _RotateTypeOffset = Schema.GetOffset(0x73DA1BB94BD69967);
 
   public ref CFuncRotator__Rotate_t RotateType {
-    get => ref _Handle.AsRef<CFuncRotator__Rotate_t>(_RotateTypeOffset.Value);
+    get => ref _Handle.AsRef<CFuncRotator__Rotate_t>(_RotateTypeOffset);
   }
-  private static readonly Lazy<nint> _PrevRotateTypeOffset = new(() => Schema.GetOffset(0x73DA1BB9DB4BE282), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevRotateTypeOffset = Schema.GetOffset(0x73DA1BB9DB4BE282);
 
   public ref CFuncRotator__Rotate_t PrevRotateType {
-    get => ref _Handle.AsRef<CFuncRotator__Rotate_t>(_PrevRotateTypeOffset.Value);
+    get => ref _Handle.AsRef<CFuncRotator__Rotate_t>(_PrevRotateTypeOffset);
   }
-  private static readonly Lazy<nint> _HasTargetOverrideOffset = new(() => Schema.GetOffset(0x73DA1BB9E91C45E6), LazyThreadSafetyMode.None);
+  private static readonly nint _HasTargetOverrideOffset = Schema.GetOffset(0x73DA1BB9E91C45E6);
 
   public ref bool HasTargetOverride {
-    get => ref _Handle.AsRef<bool>(_HasTargetOverrideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasTargetOverrideOffset);
   }
-  private static readonly Lazy<nint> _OrientationOverrideOffset = new(() => Schema.GetOffset(0x73DA1BB9EE27F696), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationOverrideOffset = Schema.GetOffset(0x73DA1BB9EE27F696);
 
   public ref Quaternion OrientationOverride {
-    get => ref _Handle.AsRef<Quaternion>(_OrientationOverrideOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_OrientationOverrideOffset);
   }
-  private static readonly Lazy<nint> _SpaceOverrideOffset = new(() => Schema.GetOffset(0x73DA1BB9BAF52F16), LazyThreadSafetyMode.None);
+  private static readonly nint _SpaceOverrideOffset = Schema.GetOffset(0x73DA1BB9BAF52F16);
 
   public ref RotatorTargetSpace_t SpaceOverride {
-    get => ref _Handle.AsRef<RotatorTargetSpace_t>(_SpaceOverrideOffset.Value);
+    get => ref _Handle.AsRef<RotatorTargetSpace_t>(_SpaceOverrideOffset);
   }
-  private static readonly Lazy<nint> _AngularVelocityOffset = new(() => Schema.GetOffset(0x73DA1BB9CB9A90B9), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularVelocityOffset = Schema.GetOffset(0x73DA1BB9CB9A90B9);
 
   public ref QAngle AngularVelocity {
-    get => ref _Handle.AsRef<QAngle>(_AngularVelocityOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_AngularVelocityOffset);
   }
-  private static readonly Lazy<nint> _LookAtForcedUpOffset = new(() => Schema.GetOffset(0x73DA1BB948B272FF), LazyThreadSafetyMode.None);
+  private static readonly nint _LookAtForcedUpOffset = Schema.GetOffset(0x73DA1BB948B272FF);
 
   public ref Vector LookAtForcedUp {
-    get => ref _Handle.AsRef<Vector>(_LookAtForcedUpOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LookAtForcedUpOffset);
   }
-  private static readonly Lazy<nint> _StrRotatorTargetOffset = new(() => Schema.GetOffset(0x73DA1BB95D9EF510), LazyThreadSafetyMode.None);
+  private static readonly nint _StrRotatorTargetOffset = Schema.GetOffset(0x73DA1BB95D9EF510);
 
   public string StrRotatorTarget {
     get {
-      var ptr = _Handle.Read<nint>(_StrRotatorTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrRotatorTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrRotatorTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrRotatorTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _RecordHistoryOffset = new(() => Schema.GetOffset(0x73DA1BB9A1A2B6DC), LazyThreadSafetyMode.None);
+  private static readonly nint _RecordHistoryOffset = Schema.GetOffset(0x73DA1BB9A1A2B6DC);
 
   public ref bool RecordHistory {
-    get => ref _Handle.AsRef<bool>(_RecordHistoryOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RecordHistoryOffset);
   }
-  private static readonly Lazy<nint> _RotatorHistoryOffset = new(() => Schema.GetOffset(0x73DA1BB91907536A), LazyThreadSafetyMode.None);
+  private static readonly nint _RotatorHistoryOffset = Schema.GetOffset(0x73DA1BB91907536A);
 
   public ref CUtlVector<RotatorHistoryEntry_t> RotatorHistory {
-    get => ref _Handle.AsRef<CUtlVector<RotatorHistoryEntry_t>>(_RotatorHistoryOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RotatorHistoryEntry_t>>(_RotatorHistoryOffset);
   }
-  private static readonly Lazy<nint> _ReturningToPreviousOrientationOffset = new(() => Schema.GetOffset(0x73DA1BB9540035F9), LazyThreadSafetyMode.None);
+  private static readonly nint _ReturningToPreviousOrientationOffset = Schema.GetOffset(0x73DA1BB9540035F9);
 
   public ref bool ReturningToPreviousOrientation {
-    get => ref _Handle.AsRef<bool>(_ReturningToPreviousOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReturningToPreviousOrientationOffset);
   }
-  private static readonly Lazy<nint> _RotatorQueueOffset = new(() => Schema.GetOffset(0x73DA1BB941C250ED), LazyThreadSafetyMode.None);
+  private static readonly nint _RotatorQueueOffset = Schema.GetOffset(0x73DA1BB941C250ED);
 
   public ref CUtlVector<RotatorQueueEntry_t> RotatorQueue {
-    get => ref _Handle.AsRef<CUtlVector<RotatorQueueEntry_t>>(_RotatorQueueOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RotatorQueueEntry_t>>(_RotatorQueueOffset);
   }
-  private static readonly Lazy<nint> _RotatorQueueHistoryOffset = new(() => Schema.GetOffset(0x73DA1BB9671778B7), LazyThreadSafetyMode.None);
+  private static readonly nint _RotatorQueueHistoryOffset = Schema.GetOffset(0x73DA1BB9671778B7);
 
   public ref CUtlVector<RotatorHistoryEntry_t> RotatorQueueHistory {
-    get => ref _Handle.AsRef<CUtlVector<RotatorHistoryEntry_t>>(_RotatorQueueHistoryOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RotatorHistoryEntry_t>>(_RotatorQueueHistoryOffset);
   }
 
 

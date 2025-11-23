@@ -17,10 +17,10 @@ internal partial class RnHullDesc_tImpl : RnShapeDesc_tImpl, RnHullDesc_t {
   public RnHullDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HullOffset = new(() => Schema.GetOffset(0xBB74EDD8AC535D36), LazyThreadSafetyMode.None);
+  private static readonly nint _HullOffset = Schema.GetOffset(0xBB74EDD8AC535D36);
 
   public RnHull_t Hull {
-    get => new RnHull_tImpl(_Handle + _HullOffset.Value);
+    get => new RnHull_tImpl(_Handle + _HullOffset);
   }
 
 

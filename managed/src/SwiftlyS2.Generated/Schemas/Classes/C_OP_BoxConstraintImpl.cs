@@ -17,30 +17,30 @@ internal partial class C_OP_BoxConstraintImpl : CParticleFunctionConstraintImpl,
   public C_OP_BoxConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x111EED71B0765F37), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x111EED71B0765F37);
 
   public CParticleCollectionVecInput Min {
-    get => new CParticleCollectionVecInputImpl(_Handle + _MinOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x111EED71BE89FCF9), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x111EED71BE89FCF9);
 
   public CParticleCollectionVecInput Max {
-    get => new CParticleCollectionVecInputImpl(_Handle + _MaxOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _MaxOffset);
   }
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x111EED71EB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x111EED71EB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceOffset = new(() => Schema.GetOffset(0x111EED7162418E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceOffset = Schema.GetOffset(0x111EED7162418E6E);
 
   public ref bool LocalSpace {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset);
   }
-  private static readonly Lazy<nint> _AccountForRadiusOffset = new(() => Schema.GetOffset(0x111EED71E4DE9E21), LazyThreadSafetyMode.None);
+  private static readonly nint _AccountForRadiusOffset = Schema.GetOffset(0x111EED71E4DE9E21);
 
   public ref bool AccountForRadius {
-    get => ref _Handle.AsRef<bool>(_AccountForRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AccountForRadiusOffset);
   }
 
 

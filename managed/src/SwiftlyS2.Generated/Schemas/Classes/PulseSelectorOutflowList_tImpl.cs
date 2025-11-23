@@ -17,10 +17,10 @@ internal partial class PulseSelectorOutflowList_tImpl : SchemaClass, PulseSelect
   public PulseSelectorOutflowList_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutflowsOffset = new(() => Schema.GetOffset(0x2A880DD28F0AFDF8), LazyThreadSafetyMode.None);
+  private static readonly nint _OutflowsOffset = Schema.GetOffset(0x2A880DD28F0AFDF8);
 
   public ref CUtlVector<OutflowWithRequirements_t> Outflows {
-    get => ref _Handle.AsRef<CUtlVector<OutflowWithRequirements_t>>(_OutflowsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<OutflowWithRequirements_t>>(_OutflowsOffset);
   }
 
 

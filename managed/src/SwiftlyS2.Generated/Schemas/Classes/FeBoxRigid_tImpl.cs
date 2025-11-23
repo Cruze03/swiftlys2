@@ -17,35 +17,35 @@ internal partial class FeBoxRigid_tImpl : SchemaClass, FeBoxRigid_t {
   public FeBoxRigid_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TmFrame2Offset = new(() => Schema.GetOffset(0x63C7789F568CD94B), LazyThreadSafetyMode.None);
+  private static readonly nint _TmFrame2Offset = Schema.GetOffset(0x63C7789F568CD94B);
 
   public ref CTransform TmFrame2 {
-    get => ref _Handle.AsRef<CTransform>(_TmFrame2Offset.Value);
+    get => ref _Handle.AsRef<CTransform>(_TmFrame2Offset);
   }
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0x63C7789FCD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0x63C7789FCD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _CollisionMaskOffset = new(() => Schema.GetOffset(0x63C7789F0ED3454F), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionMaskOffset = Schema.GetOffset(0x63C7789F0ED3454F);
 
   public ref ushort CollisionMask {
-    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset);
   }
-  private static readonly Lazy<nint> _SizeOffset = new(() => Schema.GetOffset(0x63C7789FCB89C418), LazyThreadSafetyMode.None);
+  private static readonly nint _SizeOffset = Schema.GetOffset(0x63C7789FCB89C418);
 
   public ref Vector Size {
-    get => ref _Handle.AsRef<Vector>(_SizeOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SizeOffset);
   }
-  private static readonly Lazy<nint> _VertexMapIndexOffset = new(() => Schema.GetOffset(0x63C7789F7B332E39), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexMapIndexOffset = Schema.GetOffset(0x63C7789F7B332E39);
 
   public ref ushort VertexMapIndex {
-    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_VertexMapIndexOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x63C7789FB8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x63C7789FB8D52E48);
 
   public ref ushort Flags {
-    get => ref _Handle.AsRef<ushort>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_FlagsOffset);
   }
 
 

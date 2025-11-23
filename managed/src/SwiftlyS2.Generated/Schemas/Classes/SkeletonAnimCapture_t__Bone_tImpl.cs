@@ -17,24 +17,24 @@ internal partial class SkeletonAnimCapture_t__Bone_tImpl : SchemaClass, Skeleton
   public SkeletonAnimCapture_t__Bone_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x30D396FDCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x30D396FDCAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _BindPoseOffset = new(() => Schema.GetOffset(0x30D396FDE664FE63), LazyThreadSafetyMode.None);
+  private static readonly nint _BindPoseOffset = Schema.GetOffset(0x30D396FDE664FE63);
 
   public ref CTransform BindPose {
-    get => ref _Handle.AsRef<CTransform>(_BindPoseOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_BindPoseOffset);
   }
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0x30D396FD0AABB9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0x30D396FD0AABB9D1);
 
   public ref int Parent {
-    get => ref _Handle.AsRef<int>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentOffset);
   }
 
 

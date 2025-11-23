@@ -17,25 +17,25 @@ internal partial class CMorphBundleDataImpl : SchemaClass, CMorphBundleData {
   public CMorphBundleDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ULeftSrcOffset = new(() => Schema.GetOffset(0x8F3A47DCADC9D147), LazyThreadSafetyMode.None);
+  private static readonly nint _ULeftSrcOffset = Schema.GetOffset(0x8F3A47DCADC9D147);
 
   public ref float ULeftSrc {
-    get => ref _Handle.AsRef<float>(_ULeftSrcOffset.Value);
+    get => ref _Handle.AsRef<float>(_ULeftSrcOffset);
   }
-  private static readonly Lazy<nint> _VTopSrcOffset = new(() => Schema.GetOffset(0x8F3A47DCEF710ED0), LazyThreadSafetyMode.None);
+  private static readonly nint _VTopSrcOffset = Schema.GetOffset(0x8F3A47DCEF710ED0);
 
   public ref float VTopSrc {
-    get => ref _Handle.AsRef<float>(_VTopSrcOffset.Value);
+    get => ref _Handle.AsRef<float>(_VTopSrcOffset);
   }
-  private static readonly Lazy<nint> _OffsetsOffset = new(() => Schema.GetOffset(0x8F3A47DCD6CBA75B), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetsOffset = Schema.GetOffset(0x8F3A47DCD6CBA75B);
 
   public ref CUtlVector<float> Offsets {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_OffsetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_OffsetsOffset);
   }
-  private static readonly Lazy<nint> _RangesOffset = new(() => Schema.GetOffset(0x8F3A47DC24CF5F13), LazyThreadSafetyMode.None);
+  private static readonly nint _RangesOffset = Schema.GetOffset(0x8F3A47DC24CF5F13);
 
   public ref CUtlVector<float> Ranges {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_RangesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_RangesOffset);
   }
 
 

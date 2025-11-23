@@ -17,10 +17,10 @@ internal partial class EventClientProcessNetworking_tImpl : SchemaClass, EventCl
   public EventClientProcessNetworking_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TickCountOffset = new(() => Schema.GetOffset(0x89FEDE50E25E6B27), LazyThreadSafetyMode.None);
+  private static readonly nint _TickCountOffset = Schema.GetOffset(0x89FEDE50E25E6B27);
 
   public ref int TickCount {
-    get => ref _Handle.AsRef<int>(_TickCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_TickCountOffset);
   }
 
 

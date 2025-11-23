@@ -17,10 +17,10 @@ internal partial class CCSGameModeRulesImpl : SchemaClass, CCSGameModeRules {
   public CCSGameModeRulesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> ___m_pChainEntityOffset = new(() => Schema.GetOffset(0x5093D6A4F63F0E7D), LazyThreadSafetyMode.None);
+  private static readonly nint ___m_pChainEntityOffset = Schema.GetOffset(0x5093D6A4F63F0E7D);
 
   public ref CNetworkVarChainer __m_pChainEntity {
-    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset.Value);
+    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset);
   }
 
 

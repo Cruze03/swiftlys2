@@ -17,15 +17,15 @@ internal partial class CPulseCell_Inflow_BaseEntrypointImpl : CPulseCell_BaseFlo
   public CPulseCell_Inflow_BaseEntrypointImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntryChunkOffset = new(() => Schema.GetOffset(0x1747DEDF279F0A60), LazyThreadSafetyMode.None);
+  private static readonly nint _EntryChunkOffset = Schema.GetOffset(0x1747DEDF279F0A60);
 
   public PulseRuntimeChunkIndex_t EntryChunk {
-    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _EntryChunkOffset.Value);
+    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _EntryChunkOffset);
   }
-  private static readonly Lazy<nint> _RegisterMapOffset = new(() => Schema.GetOffset(0x1747DEDF7BD4CE96), LazyThreadSafetyMode.None);
+  private static readonly nint _RegisterMapOffset = Schema.GetOffset(0x1747DEDF7BD4CE96);
 
   public PulseRegisterMap_t RegisterMap {
-    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset.Value);
+    get => new PulseRegisterMap_tImpl(_Handle + _RegisterMapOffset);
   }
 
 

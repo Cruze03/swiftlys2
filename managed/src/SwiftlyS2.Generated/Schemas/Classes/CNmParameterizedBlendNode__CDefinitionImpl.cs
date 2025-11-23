@@ -17,20 +17,20 @@ internal partial class CNmParameterizedBlendNode__CDefinitionImpl : CNmPoseNode_
   public CNmParameterizedBlendNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceNodeIndicesOffset = new(() => Schema.GetOffset(0x83A56F31E90F1FE1), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceNodeIndicesOffset = Schema.GetOffset(0x83A56F31E90F1FE1);
 
   public SchemaUntypedField SourceNodeIndices {
-    get => new SchemaUntypedField(_Handle + _SourceNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SourceNodeIndicesOffset);
   }
-  private static readonly Lazy<nint> _InputParameterValueNodeIdxOffset = new(() => Schema.GetOffset(0x83A56F31AEA94516), LazyThreadSafetyMode.None);
+  private static readonly nint _InputParameterValueNodeIdxOffset = Schema.GetOffset(0x83A56F31AEA94516);
 
   public ref short InputParameterValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputParameterValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputParameterValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _AllowLoopingOffset = new(() => Schema.GetOffset(0x83A56F31FEB26D98), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowLoopingOffset = Schema.GetOffset(0x83A56F31FEB26D98);
 
   public ref bool AllowLooping {
-    get => ref _Handle.AsRef<bool>(_AllowLoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowLoopingOffset);
   }
 
 

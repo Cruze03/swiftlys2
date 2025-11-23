@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBoolAnimParameter : CConcreteAnimParameter, ISchemaClass<CBoolAnimParameter> {
 
   static CBoolAnimParameter ISchemaClass<CBoolAnimParameter>.From(nint handle) => new CBoolAnimParameterImpl(handle);
-  static int ISchemaClass<CBoolAnimParameter>.Size => 128;
+  static int ISchemaClass<CBoolAnimParameter>.Size => 136;
   static string? ISchemaClass<CBoolAnimParameter>.ClassName => null;
 
   

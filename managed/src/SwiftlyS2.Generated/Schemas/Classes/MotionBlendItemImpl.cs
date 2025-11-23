@@ -17,15 +17,15 @@ internal partial class MotionBlendItemImpl : SchemaClass, MotionBlendItem {
   public MotionBlendItemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildOffset = new(() => Schema.GetOffset(0x6AF18B8D4A0B773F), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildOffset = Schema.GetOffset(0x6AF18B8D4A0B773F);
 
   public SchemaUntypedField Child {
-    get => new SchemaUntypedField(_Handle + _ChildOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ChildOffset);
   }
-  private static readonly Lazy<nint> _KeyValueOffset = new(() => Schema.GetOffset(0x6AF18B8D039CE1D7), LazyThreadSafetyMode.None);
+  private static readonly nint _KeyValueOffset = Schema.GetOffset(0x6AF18B8D039CE1D7);
 
   public ref float KeyValue {
-    get => ref _Handle.AsRef<float>(_KeyValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_KeyValueOffset);
   }
 
 

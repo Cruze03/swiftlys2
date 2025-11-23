@@ -17,20 +17,20 @@ internal partial class C_OP_RenderPostProcessingImpl : CParticleFunctionRenderer
   public C_OP_RenderPostProcessingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PostProcessStrengthOffset = new(() => Schema.GetOffset(0xD64D179C653C1A17), LazyThreadSafetyMode.None);
+  private static readonly nint _PostProcessStrengthOffset = Schema.GetOffset(0xD64D179C653C1A17);
 
   public CPerParticleFloatInput PostProcessStrength {
-    get => new CPerParticleFloatInputImpl(_Handle + _PostProcessStrengthOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _PostProcessStrengthOffset);
   }
-  private static readonly Lazy<nint> _PostTextureOffset = new(() => Schema.GetOffset(0xD64D179C943F8D28), LazyThreadSafetyMode.None);
+  private static readonly nint _PostTextureOffset = Schema.GetOffset(0xD64D179C943F8D28);
 
   public ref CStrongHandle<InfoForResourceTypeCPostProcessingResource> PostTexture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCPostProcessingResource>>(_PostTextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCPostProcessingResource>>(_PostTextureOffset);
   }
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0xD64D179CE7EFB335), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0xD64D179CE7EFB335);
 
   public ref ParticlePostProcessPriorityGroup_t Priority {
-    get => ref _Handle.AsRef<ParticlePostProcessPriorityGroup_t>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<ParticlePostProcessPriorityGroup_t>(_PriorityOffset);
   }
 
 

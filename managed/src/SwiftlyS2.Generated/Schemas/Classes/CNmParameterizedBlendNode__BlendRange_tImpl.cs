@@ -17,20 +17,20 @@ internal partial class CNmParameterizedBlendNode__BlendRange_tImpl : SchemaClass
   public CNmParameterizedBlendNode__BlendRange_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputIdx0Offset = new(() => Schema.GetOffset(0x17812ECC5A8983D2), LazyThreadSafetyMode.None);
+  private static readonly nint _InputIdx0Offset = Schema.GetOffset(0x17812ECC5A8983D2);
 
   public ref short InputIdx0 {
-    get => ref _Handle.AsRef<short>(_InputIdx0Offset.Value);
+    get => ref _Handle.AsRef<short>(_InputIdx0Offset);
   }
-  private static readonly Lazy<nint> _InputIdx1Offset = new(() => Schema.GetOffset(0x17812ECC5B898565), LazyThreadSafetyMode.None);
+  private static readonly nint _InputIdx1Offset = Schema.GetOffset(0x17812ECC5B898565);
 
   public ref short InputIdx1 {
-    get => ref _Handle.AsRef<short>(_InputIdx1Offset.Value);
+    get => ref _Handle.AsRef<short>(_InputIdx1Offset);
   }
-  private static readonly Lazy<nint> _ParameterValueRangeOffset = new(() => Schema.GetOffset(0x17812ECC64AF37AE), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterValueRangeOffset = Schema.GetOffset(0x17812ECC64AF37AE);
 
   public SchemaUntypedField ParameterValueRange {
-    get => new SchemaUntypedField(_Handle + _ParameterValueRangeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParameterValueRangeOffset);
   }
 
 

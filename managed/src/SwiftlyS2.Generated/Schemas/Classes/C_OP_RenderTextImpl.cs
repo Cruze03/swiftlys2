@@ -17,19 +17,19 @@ internal partial class C_OP_RenderTextImpl : CParticleFunctionRendererImpl, C_OP
   public C_OP_RenderTextImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutlineColorOffset = new(() => Schema.GetOffset(0x376BB2E675B94BB0), LazyThreadSafetyMode.None);
+  private static readonly nint _OutlineColorOffset = Schema.GetOffset(0x376BB2E675B94BB0);
 
   public ref Color OutlineColor {
-    get => ref _Handle.AsRef<Color>(_OutlineColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_OutlineColorOffset);
   }
-  private static readonly Lazy<nint> _DefaultTextOffset = new(() => Schema.GetOffset(0x376BB2E67556AF5D), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultTextOffset = Schema.GetOffset(0x376BB2E67556AF5D);
 
   public string DefaultText {
     get {
-      var ptr = _Handle.Read<nint>(_DefaultTextOffset.Value);
+      var ptr = _Handle.Read<nint>(_DefaultTextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DefaultTextOffset.Value, value);
+    set => Schema.SetString(_Handle, _DefaultTextOffset, value);
   } 
 
 

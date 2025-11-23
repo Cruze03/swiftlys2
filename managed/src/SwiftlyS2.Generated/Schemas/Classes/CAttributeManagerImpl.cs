@@ -17,35 +17,35 @@ internal partial class CAttributeManagerImpl : SchemaClass, CAttributeManager {
   public CAttributeManagerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ProvidersOffset = new(() => Schema.GetOffset(0x7FCB380DA07F345D), LazyThreadSafetyMode.None);
+  private static readonly nint _ProvidersOffset = Schema.GetOffset(0x7FCB380DA07F345D);
 
   public ref CUtlVector<CHandle<CBaseEntity>> Providers {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_ProvidersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_ProvidersOffset);
   }
-  private static readonly Lazy<nint> _ReapplyProvisionParityOffset = new(() => Schema.GetOffset(0x7FCB380D2F68110B), LazyThreadSafetyMode.None);
+  private static readonly nint _ReapplyProvisionParityOffset = Schema.GetOffset(0x7FCB380D2F68110B);
 
   public ref int ReapplyProvisionParity {
-    get => ref _Handle.AsRef<int>(_ReapplyProvisionParityOffset.Value);
+    get => ref _Handle.AsRef<int>(_ReapplyProvisionParityOffset);
   }
-  private static readonly Lazy<nint> _OuterOffset = new(() => Schema.GetOffset(0x7FCB380D30AE9FA2), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterOffset = Schema.GetOffset(0x7FCB380D30AE9FA2);
 
   public ref CHandle<CBaseEntity> Outer {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OuterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OuterOffset);
   }
-  private static readonly Lazy<nint> _PreventLoopbackOffset = new(() => Schema.GetOffset(0x7FCB380D2CE71CA4), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventLoopbackOffset = Schema.GetOffset(0x7FCB380D2CE71CA4);
 
   public ref bool PreventLoopback {
-    get => ref _Handle.AsRef<bool>(_PreventLoopbackOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventLoopbackOffset);
   }
-  private static readonly Lazy<nint> _ProviderTypeOffset = new(() => Schema.GetOffset(0x7FCB380DD5677CB4), LazyThreadSafetyMode.None);
+  private static readonly nint _ProviderTypeOffset = Schema.GetOffset(0x7FCB380DD5677CB4);
 
   public ref attributeprovidertypes_t ProviderType {
-    get => ref _Handle.AsRef<attributeprovidertypes_t>(_ProviderTypeOffset.Value);
+    get => ref _Handle.AsRef<attributeprovidertypes_t>(_ProviderTypeOffset);
   }
-  private static readonly Lazy<nint> _CachedResultsOffset = new(() => Schema.GetOffset(0x7FCB380D3CD4B7CB), LazyThreadSafetyMode.None);
+  private static readonly nint _CachedResultsOffset = Schema.GetOffset(0x7FCB380D3CD4B7CB);
 
   public ref CUtlVector<CAttributeManager__cached_attribute_float_t> CachedResults {
-    get => ref _Handle.AsRef<CUtlVector<CAttributeManager__cached_attribute_float_t>>(_CachedResultsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAttributeManager__cached_attribute_float_t>>(_CachedResultsOffset);
   }
 
   public void ReapplyProvisionParityUpdated() {

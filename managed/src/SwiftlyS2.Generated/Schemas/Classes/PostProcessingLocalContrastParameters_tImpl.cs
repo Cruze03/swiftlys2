@@ -17,30 +17,30 @@ internal partial class PostProcessingLocalContrastParameters_tImpl : SchemaClass
   public PostProcessingLocalContrastParameters_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LocalContrastStrengthOffset = new(() => Schema.GetOffset(0x43910BD66A89DF05), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalContrastStrengthOffset = Schema.GetOffset(0x43910BD66A89DF05);
 
   public ref float LocalContrastStrength {
-    get => ref _Handle.AsRef<float>(_LocalContrastStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LocalContrastStrengthOffset);
   }
-  private static readonly Lazy<nint> _LocalContrastEdgeStrengthOffset = new(() => Schema.GetOffset(0x43910BD6CC517324), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalContrastEdgeStrengthOffset = Schema.GetOffset(0x43910BD6CC517324);
 
   public ref float LocalContrastEdgeStrength {
-    get => ref _Handle.AsRef<float>(_LocalContrastEdgeStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LocalContrastEdgeStrengthOffset);
   }
-  private static readonly Lazy<nint> _LocalContrastVignetteStartOffset = new(() => Schema.GetOffset(0x43910BD633264BD6), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalContrastVignetteStartOffset = Schema.GetOffset(0x43910BD633264BD6);
 
   public ref float LocalContrastVignetteStart {
-    get => ref _Handle.AsRef<float>(_LocalContrastVignetteStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_LocalContrastVignetteStartOffset);
   }
-  private static readonly Lazy<nint> _LocalContrastVignetteEndOffset = new(() => Schema.GetOffset(0x43910BD689634873), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalContrastVignetteEndOffset = Schema.GetOffset(0x43910BD689634873);
 
   public ref float LocalContrastVignetteEnd {
-    get => ref _Handle.AsRef<float>(_LocalContrastVignetteEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_LocalContrastVignetteEndOffset);
   }
-  private static readonly Lazy<nint> _LocalContrastVignetteBlurOffset = new(() => Schema.GetOffset(0x43910BD6D8C40957), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalContrastVignetteBlurOffset = Schema.GetOffset(0x43910BD6D8C40957);
 
   public ref float LocalContrastVignetteBlur {
-    get => ref _Handle.AsRef<float>(_LocalContrastVignetteBlurOffset.Value);
+    get => ref _Handle.AsRef<float>(_LocalContrastVignetteBlurOffset);
   }
 
 

@@ -17,45 +17,45 @@ internal partial class C_OP_SetControlPointsToParticleImpl : CParticleFunctionOp
   public C_OP_SetControlPointsToParticleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0x119EA308E3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0x119EA308E3F3C965);
 
   public ref int ChildGroupID {
-    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _FirstControlPointOffset = new(() => Schema.GetOffset(0x119EA30872117650), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstControlPointOffset = Schema.GetOffset(0x119EA30872117650);
 
   public ref int FirstControlPoint {
-    get => ref _Handle.AsRef<int>(_FirstControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_FirstControlPointOffset);
   }
-  private static readonly Lazy<nint> _NumControlPointsOffset = new(() => Schema.GetOffset(0x119EA308551EBC4F), LazyThreadSafetyMode.None);
+  private static readonly nint _NumControlPointsOffset = Schema.GetOffset(0x119EA308551EBC4F);
 
   public ref int NumControlPoints {
-    get => ref _Handle.AsRef<int>(_NumControlPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumControlPointsOffset);
   }
-  private static readonly Lazy<nint> _FirstSourcePointOffset = new(() => Schema.GetOffset(0x119EA3089D7DC18E), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstSourcePointOffset = Schema.GetOffset(0x119EA3089D7DC18E);
 
   public ref int FirstSourcePoint {
-    get => ref _Handle.AsRef<int>(_FirstSourcePointOffset.Value);
+    get => ref _Handle.AsRef<int>(_FirstSourcePointOffset);
   }
-  private static readonly Lazy<nint> _ReverseOffset = new(() => Schema.GetOffset(0x119EA308EA4E22E5), LazyThreadSafetyMode.None);
+  private static readonly nint _ReverseOffset = Schema.GetOffset(0x119EA308EA4E22E5);
 
   public ref bool Reverse {
-    get => ref _Handle.AsRef<bool>(_ReverseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReverseOffset);
   }
-  private static readonly Lazy<nint> _SetOrientationOffset = new(() => Schema.GetOffset(0x119EA308E1390E37), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOrientationOffset = Schema.GetOffset(0x119EA308E1390E37);
 
   public ref bool SetOrientation {
-    get => ref _Handle.AsRef<bool>(_SetOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOrientationOffset);
   }
-  private static readonly Lazy<nint> _OrientationModeOffset = new(() => Schema.GetOffset(0x119EA308272947BA), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationModeOffset = Schema.GetOffset(0x119EA308272947BA);
 
   public ref ParticleOrientationSetMode_t OrientationMode {
-    get => ref _Handle.AsRef<ParticleOrientationSetMode_t>(_OrientationModeOffset.Value);
+    get => ref _Handle.AsRef<ParticleOrientationSetMode_t>(_OrientationModeOffset);
   }
-  private static readonly Lazy<nint> _SetParentOffset = new(() => Schema.GetOffset(0x119EA3082D8246B7), LazyThreadSafetyMode.None);
+  private static readonly nint _SetParentOffset = Schema.GetOffset(0x119EA3082D8246B7);
 
   public ref ParticleParentSetMode_t SetParent {
-    get => ref _Handle.AsRef<ParticleParentSetMode_t>(_SetParentOffset.Value);
+    get => ref _Handle.AsRef<ParticleParentSetMode_t>(_SetParentOffset);
   }
 
 

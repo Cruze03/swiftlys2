@@ -17,10 +17,10 @@ internal partial class CNmVirtualParameterBoolNode__CDefinitionImpl : CNmBoolVal
   public CNmVirtualParameterBoolNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildNodeIdxOffset = new(() => Schema.GetOffset(0xA28816AF5C29A73C), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildNodeIdxOffset = Schema.GetOffset(0xA28816AF5C29A73C);
 
   public ref short ChildNodeIdx {
-    get => ref _Handle.AsRef<short>(_ChildNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ChildNodeIdxOffset);
   }
 
 

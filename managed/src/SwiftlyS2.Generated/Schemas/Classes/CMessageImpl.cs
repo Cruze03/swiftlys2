@@ -17,43 +17,43 @@ internal partial class CMessageImpl : CPointEntityImpl, CMessage {
   public CMessageImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MessageOffset = new(() => Schema.GetOffset(0xCCCF499CC5243DC), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageOffset = Schema.GetOffset(0xCCCF499CC5243DC);
 
   public string Message {
     get {
-      var ptr = _Handle.Read<nint>(_MessageOffset.Value);
+      var ptr = _Handle.Read<nint>(_MessageOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MessageOffset.Value, value);
+    set => Schema.SetString(_Handle, _MessageOffset, value);
   } 
-  private static readonly Lazy<nint> _MessageVolumeOffset = new(() => Schema.GetOffset(0xCCCF499C87F24D6), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageVolumeOffset = Schema.GetOffset(0xCCCF499C87F24D6);
 
   public ref float MessageVolume {
-    get => ref _Handle.AsRef<float>(_MessageVolumeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MessageVolumeOffset);
   }
-  private static readonly Lazy<nint> _MessageAttenuationOffset = new(() => Schema.GetOffset(0xCCCF4998F72B2B4), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageAttenuationOffset = Schema.GetOffset(0xCCCF4998F72B2B4);
 
   public ref int MessageAttenuation {
-    get => ref _Handle.AsRef<int>(_MessageAttenuationOffset.Value);
+    get => ref _Handle.AsRef<int>(_MessageAttenuationOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xCCCF4997C5B0533), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xCCCF4997C5B0533);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _NoiseOffset = new(() => Schema.GetOffset(0xCCCF4991F22B8CC), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseOffset = Schema.GetOffset(0xCCCF4991F22B8CC);
 
   public string Noise {
     get {
-      var ptr = _Handle.Read<nint>(_NoiseOffset.Value);
+      var ptr = _Handle.Read<nint>(_NoiseOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NoiseOffset.Value, value);
+    set => Schema.SetString(_Handle, _NoiseOffset, value);
   } 
-  private static readonly Lazy<nint> _OnShowMessageOffset = new(() => Schema.GetOffset(0xCCCF499D586D920), LazyThreadSafetyMode.None);
+  private static readonly nint _OnShowMessageOffset = Schema.GetOffset(0xCCCF499D586D920);
 
   public CEntityIOOutput OnShowMessage {
-    get => new CEntityIOOutputImpl(_Handle + _OnShowMessageOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnShowMessageOffset);
   }
 
 

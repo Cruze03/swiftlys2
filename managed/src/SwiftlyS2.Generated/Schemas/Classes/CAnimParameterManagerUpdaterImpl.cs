@@ -17,35 +17,35 @@ internal partial class CAnimParameterManagerUpdaterImpl : SchemaClass, CAnimPara
   public CAnimParameterManagerUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParametersOffset = new(() => Schema.GetOffset(0x2289044E99935479), LazyThreadSafetyMode.None);
+  private static readonly nint _ParametersOffset = Schema.GetOffset(0x2289044E99935479);
 
   public ref CUtlVector<SchemaUntypedField> Parameters {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ParametersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ParametersOffset);
   }
-  private static readonly Lazy<nint> _IdToIndexMapOffset = new(() => Schema.GetOffset(0x2289044E7B873A5F), LazyThreadSafetyMode.None);
+  private static readonly nint _IdToIndexMapOffset = Schema.GetOffset(0x2289044E7B873A5F);
 
   public SchemaUntypedField IdToIndexMap {
-    get => new SchemaUntypedField(_Handle + _IdToIndexMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IdToIndexMapOffset);
   }
-  private static readonly Lazy<nint> _NameToIndexMapOffset = new(() => Schema.GetOffset(0x2289044EDA1FC14D), LazyThreadSafetyMode.None);
+  private static readonly nint _NameToIndexMapOffset = Schema.GetOffset(0x2289044EDA1FC14D);
 
   public SchemaUntypedField NameToIndexMap {
-    get => new SchemaUntypedField(_Handle + _NameToIndexMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NameToIndexMapOffset);
   }
-  private static readonly Lazy<nint> _IndexToHandleOffset = new(() => Schema.GetOffset(0x2289044E3F943600), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexToHandleOffset = Schema.GetOffset(0x2289044E3F943600);
 
   public ref CUtlVector<CAnimParamHandle> IndexToHandle {
-    get => ref _Handle.AsRef<CUtlVector<CAnimParamHandle>>(_IndexToHandleOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimParamHandle>>(_IndexToHandleOffset);
   }
-  private static readonly Lazy<nint> _AutoResetParamsOffset = new(() => Schema.GetOffset(0x2289044EA74F889F), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoResetParamsOffset = Schema.GetOffset(0x2289044EA74F889F);
 
   public ref CUtlVector<SchemaUntypedField> AutoResetParams {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AutoResetParamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_AutoResetParamsOffset);
   }
-  private static readonly Lazy<nint> _AutoResetMapOffset = new(() => Schema.GetOffset(0x2289044E024CB2F5), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoResetMapOffset = Schema.GetOffset(0x2289044E024CB2F5);
 
   public SchemaUntypedField AutoResetMap {
-    get => new SchemaUntypedField(_Handle + _AutoResetMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AutoResetMapOffset);
   }
 
 

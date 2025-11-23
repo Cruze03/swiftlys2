@@ -17,15 +17,15 @@ internal partial class CAudioEmphasisSampleImpl : SchemaClass, CAudioEmphasisSam
   public CAudioEmphasisSampleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimeOffset = new(() => Schema.GetOffset(0x37D4D710C957229E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffset = Schema.GetOffset(0x37D4D710C957229E);
 
   public ref float Time {
-    get => ref _Handle.AsRef<float>(_TimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x37D4D7108DFCB984), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x37D4D7108DFCB984);
 
   public ref float Value {
-    get => ref _Handle.AsRef<float>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueOffset);
   }
 
 

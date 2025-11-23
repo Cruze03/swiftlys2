@@ -160,12 +160,16 @@ void Bridge_Player_Kick(int playerid, const char* reason, int gamereason)
 void Bridge_Player_ShouldBlockTransmitEntity(int playerid, int entityidx, bool shouldBlockTransmit)
 {
     if (playerid + 1 == entityidx)
+    {
         return;
+    }
 
     static auto playerManager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     auto player = playerManager->GetPlayer(playerid);
     if (!player)
+    {
         return;
+    }
 
     auto& bv = player->GetBlockedTransmittingBits();
 
@@ -173,30 +177,42 @@ void Bridge_Player_ShouldBlockTransmitEntity(int playerid, int entityidx, bool s
     if (shouldBlockTransmit)
     {
         bool wasEmpty = (bv.blockedMask[dword] == 0);
-        bv.blockedMask[dword] |= (1 << (entityidx % 64));
+        bv.blockedMask[dword] |= (1ULL << (entityidx % 64));
         if (wasEmpty)
+        {
             bv.activeMasks.push_back(dword);
+        }
     }
     else
     {
-        bv.blockedMask[dword] &= ~(1 << (entityidx % 64));
+        bv.blockedMask[dword] &= ~(1ULL << (entityidx % 64));
         if (bv.blockedMask[dword] == 0)
-            bv.activeMasks.erase(std::find(bv.activeMasks.begin(), bv.activeMasks.end(), dword));
+        {
+            auto it = std::find(bv.activeMasks.begin(), bv.activeMasks.end(), dword);
+            if (it != bv.activeMasks.end())
+            {
+                bv.activeMasks.erase(it);
+            }
+        }
     }
 }
 
 bool Bridge_Player_IsTransmitEntityBlocked(int playerid, int entityidx)
 {
     if (playerid + 1 == entityidx)
+    {
         return false;
+    }
 
     static auto playerManager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     auto player = playerManager->GetPlayer(playerid);
     if (!player)
+    {
         return false;
+    }
 
     auto& bv = player->GetBlockedTransmittingBits();
-    return (bv.blockedMask[entityidx / 64] & (1 << (entityidx % 64))) != 0;
+    return (bv.blockedMask[entityidx / 64] & (1ULL << (entityidx % 64))) != 0;
 }
 
 void Bridge_Player_ClearTransmitEntityBlocked(int playerid)

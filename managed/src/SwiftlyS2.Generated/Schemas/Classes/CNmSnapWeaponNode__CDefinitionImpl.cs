@@ -17,20 +17,20 @@ internal partial class CNmSnapWeaponNode__CDefinitionImpl : CNmPassthroughNode__
   public CNmSnapWeaponNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnabledNodeIdxOffset = new(() => Schema.GetOffset(0x60733C89F7CDF5E9), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledNodeIdxOffset = Schema.GetOffset(0x60733C89F7CDF5E9);
 
   public ref short EnabledNodeIdx {
-    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _LockLeftHandNodeIdxOffset = new(() => Schema.GetOffset(0x60733C89493D63C1), LazyThreadSafetyMode.None);
+  private static readonly nint _LockLeftHandNodeIdxOffset = Schema.GetOffset(0x60733C89493D63C1);
 
   public ref short LockLeftHandNodeIdx {
-    get => ref _Handle.AsRef<short>(_LockLeftHandNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_LockLeftHandNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeSecondsOffset = new(() => Schema.GetOffset(0x60733C896D3A08FC), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeSecondsOffset = Schema.GetOffset(0x60733C896D3A08FC);
 
   public ref float BlendTimeSeconds {
-    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset);
   }
 
 

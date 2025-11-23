@@ -17,20 +17,20 @@ internal partial class PulseObservableBoolExpression_tImpl : SchemaClass, PulseO
   public PulseObservableBoolExpression_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EvaluateConnectionOffset = new(() => Schema.GetOffset(0x420AB396176904EE), LazyThreadSafetyMode.None);
+  private static readonly nint _EvaluateConnectionOffset = Schema.GetOffset(0x420AB396176904EE);
 
   public CPulse_OutflowConnection EvaluateConnection {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _EvaluateConnectionOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _EvaluateConnectionOffset);
   }
-  private static readonly Lazy<nint> _DependentObservableVarsOffset = new(() => Schema.GetOffset(0x420AB396C3F55B8B), LazyThreadSafetyMode.None);
+  private static readonly nint _DependentObservableVarsOffset = Schema.GetOffset(0x420AB396C3F55B8B);
 
   public ref CUtlVector<PulseRuntimeVarIndex_t> DependentObservableVars {
-    get => ref _Handle.AsRef<CUtlVector<PulseRuntimeVarIndex_t>>(_DependentObservableVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PulseRuntimeVarIndex_t>>(_DependentObservableVarsOffset);
   }
-  private static readonly Lazy<nint> _DependentObservableBlackboardReferencesOffset = new(() => Schema.GetOffset(0x420AB3961EE1483A), LazyThreadSafetyMode.None);
+  private static readonly nint _DependentObservableBlackboardReferencesOffset = Schema.GetOffset(0x420AB3961EE1483A);
 
   public ref CUtlVector<PulseRuntimeBlackboardReferenceIndex_t> DependentObservableBlackboardReferences {
-    get => ref _Handle.AsRef<CUtlVector<PulseRuntimeBlackboardReferenceIndex_t>>(_DependentObservableBlackboardReferencesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PulseRuntimeBlackboardReferenceIndex_t>>(_DependentObservableBlackboardReferencesOffset);
   }
 
 

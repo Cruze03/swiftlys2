@@ -17,39 +17,39 @@ internal partial class CLogicDistanceAutosaveImpl : CLogicalEntityImpl, CLogicDi
   public CLogicDistanceAutosaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetEntityOffset = new(() => Schema.GetOffset(0x8E908EDD8951B0FB), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntityOffset = Schema.GetOffset(0x8E908EDD8951B0FB);
 
   public string TargetEntity {
     get {
-      var ptr = _Handle.Read<nint>(_TargetEntityOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetEntityOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetEntityOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetEntityOffset, value);
   } 
-  private static readonly Lazy<nint> _DistanceToPlayerOffset = new(() => Schema.GetOffset(0x8E908EDDF04AFE0C), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceToPlayerOffset = Schema.GetOffset(0x8E908EDDF04AFE0C);
 
   public ref float DistanceToPlayer {
-    get => ref _Handle.AsRef<float>(_DistanceToPlayerOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceToPlayerOffset);
   }
-  private static readonly Lazy<nint> _ForceNewLevelUnitOffset = new(() => Schema.GetOffset(0x8E908EDD1473BFDE), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceNewLevelUnitOffset = Schema.GetOffset(0x8E908EDD1473BFDE);
 
   public ref bool ForceNewLevelUnit {
-    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceNewLevelUnitOffset);
   }
-  private static readonly Lazy<nint> _CheckCoughOffset = new(() => Schema.GetOffset(0x8E908EDD25C565C3), LazyThreadSafetyMode.None);
+  private static readonly nint _CheckCoughOffset = Schema.GetOffset(0x8E908EDD25C565C3);
 
   public ref bool CheckCough {
-    get => ref _Handle.AsRef<bool>(_CheckCoughOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CheckCoughOffset);
   }
-  private static readonly Lazy<nint> _ThinkDangerousOffset = new(() => Schema.GetOffset(0x8E908EDDE079F1C9), LazyThreadSafetyMode.None);
+  private static readonly nint _ThinkDangerousOffset = Schema.GetOffset(0x8E908EDDE079F1C9);
 
   public ref bool ThinkDangerous {
-    get => ref _Handle.AsRef<bool>(_ThinkDangerousOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ThinkDangerousOffset);
   }
-  private static readonly Lazy<nint> _DangerousTimeOffset = new(() => Schema.GetOffset(0x8E908EDD19BC5644), LazyThreadSafetyMode.None);
+  private static readonly nint _DangerousTimeOffset = Schema.GetOffset(0x8E908EDD19BC5644);
 
   public ref float DangerousTime {
-    get => ref _Handle.AsRef<float>(_DangerousTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_DangerousTimeOffset);
   }
 
 

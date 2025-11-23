@@ -17,25 +17,25 @@ internal partial class CNmFollowBoneNode__CDefinitionImpl : CNmPassthroughNode__
   public CNmFollowBoneNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneOffset = new(() => Schema.GetOffset(0x51BD725C8020F02F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneOffset = Schema.GetOffset(0x51BD725C8020F02F);
 
   public ref CGlobalSymbol Bone {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_BoneOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_BoneOffset);
   }
-  private static readonly Lazy<nint> _FollowTargetBoneOffset = new(() => Schema.GetOffset(0x51BD725C38216D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _FollowTargetBoneOffset = Schema.GetOffset(0x51BD725C38216D8B);
 
   public ref CGlobalSymbol FollowTargetBone {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_FollowTargetBoneOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_FollowTargetBoneOffset);
   }
-  private static readonly Lazy<nint> _EnabledNodeIdxOffset = new(() => Schema.GetOffset(0x51BD725CF7CDF5E9), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledNodeIdxOffset = Schema.GetOffset(0x51BD725CF7CDF5E9);
 
   public ref short EnabledNodeIdx {
-    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0x51BD725C90FD5BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0x51BD725C90FD5BB2);
 
   public ref NmFollowBoneMode_t Mode {
-    get => ref _Handle.AsRef<NmFollowBoneMode_t>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<NmFollowBoneMode_t>(_ModeOffset);
   }
 
 

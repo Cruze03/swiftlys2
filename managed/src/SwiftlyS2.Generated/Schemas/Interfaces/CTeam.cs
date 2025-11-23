@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CTeam : CBaseEntity, ISchemaClass<CTeam> {
 
   static CTeam ISchemaClass<CTeam>.From(nint handle) => new CTeamImpl(handle);
-  static int ISchemaClass<CTeam>.Size => 2192;
+  static int ISchemaClass<CTeam>.Size => 1448;
   static string? ISchemaClass<CTeam>.ClassName => "team_manager";
 
   

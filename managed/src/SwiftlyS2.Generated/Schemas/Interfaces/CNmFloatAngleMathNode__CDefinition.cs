@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmFloatAngleMathNode__CDefinition : CNmFloatValueNode__CDefinition, ISchemaClass<CNmFloatAngleMathNode__CDefinition> {
 
   static CNmFloatAngleMathNode__CDefinition ISchemaClass<CNmFloatAngleMathNode__CDefinition>.From(nint handle) => new CNmFloatAngleMathNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmFloatAngleMathNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmFloatAngleMathNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmFloatAngleMathNode__CDefinition>.ClassName => null;
 
   

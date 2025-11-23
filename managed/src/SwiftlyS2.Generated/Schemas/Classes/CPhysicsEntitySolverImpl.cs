@@ -17,25 +17,25 @@ internal partial class CPhysicsEntitySolverImpl : CLogicalEntityImpl, CPhysicsEn
   public CPhysicsEntitySolverImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MovingEntityOffset = new(() => Schema.GetOffset(0x2948C36FC1DA080E), LazyThreadSafetyMode.None);
+  private static readonly nint _MovingEntityOffset = Schema.GetOffset(0x2948C36FC1DA080E);
 
   public ref CHandle<CBaseEntity> MovingEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MovingEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MovingEntityOffset);
   }
-  private static readonly Lazy<nint> _PhysicsBlockerOffset = new(() => Schema.GetOffset(0x2948C36F3DD8AB5E), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysicsBlockerOffset = Schema.GetOffset(0x2948C36F3DD8AB5E);
 
   public ref CHandle<CBaseEntity> PhysicsBlocker {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_PhysicsBlockerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_PhysicsBlockerOffset);
   }
-  private static readonly Lazy<nint> _SeparationDurationOffset = new(() => Schema.GetOffset(0x2948C36F202FE0BD), LazyThreadSafetyMode.None);
+  private static readonly nint _SeparationDurationOffset = Schema.GetOffset(0x2948C36F202FE0BD);
 
   public ref float SeparationDuration {
-    get => ref _Handle.AsRef<float>(_SeparationDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_SeparationDurationOffset);
   }
-  private static readonly Lazy<nint> _CancelTimeOffset = new(() => Schema.GetOffset(0x2948C36F12944512), LazyThreadSafetyMode.None);
+  private static readonly nint _CancelTimeOffset = Schema.GetOffset(0x2948C36F12944512);
 
   public GameTime_t CancelTime {
-    get => new GameTime_tImpl(_Handle + _CancelTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _CancelTimeOffset);
   }
 
 

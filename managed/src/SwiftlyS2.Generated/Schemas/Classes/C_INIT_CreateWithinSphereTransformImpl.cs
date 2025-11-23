@@ -17,70 +17,70 @@ internal partial class C_INIT_CreateWithinSphereTransformImpl : CParticleFunctio
   public C_INIT_CreateWithinSphereTransformImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusMinOffset = new(() => Schema.GetOffset(0x97F9AC345AD00941), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusMinOffset = Schema.GetOffset(0x97F9AC345AD00941);
 
   public CPerParticleFloatInput RadiusMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusMinOffset);
   }
-  private static readonly Lazy<nint> _RadiusMaxOffset = new(() => Schema.GetOffset(0x97F9AC344CE37AEF), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusMaxOffset = Schema.GetOffset(0x97F9AC344CE37AEF);
 
   public CPerParticleFloatInput RadiusMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusMaxOffset);
   }
-  private static readonly Lazy<nint> _DistanceBiasOffset = new(() => Schema.GetOffset(0x97F9AC34A7A33E17), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceBiasOffset = Schema.GetOffset(0x97F9AC34A7A33E17);
 
   public CPerParticleVecInput DistanceBias {
-    get => new CPerParticleVecInputImpl(_Handle + _DistanceBiasOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _DistanceBiasOffset);
   }
-  private static readonly Lazy<nint> _DistanceBiasAbsOffset = new(() => Schema.GetOffset(0x97F9AC34FCBB3E09), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceBiasAbsOffset = Schema.GetOffset(0x97F9AC34FCBB3E09);
 
   public ref Vector DistanceBiasAbs {
-    get => ref _Handle.AsRef<Vector>(_DistanceBiasAbsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceBiasAbsOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0x97F9AC34B3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0x97F9AC34B3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _SpeedMinOffset = new(() => Schema.GetOffset(0x97F9AC34B989E1F8), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMinOffset = Schema.GetOffset(0x97F9AC34B989E1F8);
 
   public CPerParticleFloatInput SpeedMin {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMinOffset);
   }
-  private static readonly Lazy<nint> _SpeedMaxOffset = new(() => Schema.GetOffset(0x97F9AC34CF9D8C52), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedMaxOffset = Schema.GetOffset(0x97F9AC34CF9D8C52);
 
   public CPerParticleFloatInput SpeedMax {
-    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _SpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _SpeedRandExpOffset = new(() => Schema.GetOffset(0x97F9AC343303A1AA), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedRandExpOffset = Schema.GetOffset(0x97F9AC343303A1AA);
 
   public ref float SpeedRandExp {
-    get => ref _Handle.AsRef<float>(_SpeedRandExpOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedRandExpOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordsOffset = new(() => Schema.GetOffset(0x97F9AC3430E716DE), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordsOffset = Schema.GetOffset(0x97F9AC3430E716DE);
 
   public ref bool LocalCoords {
-    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalCoordsOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordinateSystemSpeedMinOffset = new(() => Schema.GetOffset(0x97F9AC34A4A0F1AE), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordinateSystemSpeedMinOffset = Schema.GetOffset(0x97F9AC34A4A0F1AE);
 
   public CPerParticleVecInput LocalCoordinateSystemSpeedMin {
-    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMinOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMinOffset);
   }
-  private static readonly Lazy<nint> _LocalCoordinateSystemSpeedMaxOffset = new(() => Schema.GetOffset(0x97F9AC34968D53EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCoordinateSystemSpeedMaxOffset = Schema.GetOffset(0x97F9AC34968D53EC);
 
   public CPerParticleVecInput LocalCoordinateSystemSpeedMax {
-    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMaxOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _LocalCoordinateSystemSpeedMaxOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x97F9AC34E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x97F9AC34E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _FieldVelocityOffset = new(() => Schema.GetOffset(0x97F9AC34852EBFAC), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldVelocityOffset = Schema.GetOffset(0x97F9AC34852EBFAC);
 
   public ParticleAttributeIndex_t FieldVelocity {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldVelocityOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldVelocityOffset);
   }
 
 

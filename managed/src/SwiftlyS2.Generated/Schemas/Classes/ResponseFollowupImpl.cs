@@ -17,65 +17,65 @@ internal partial class ResponseFollowupImpl : SchemaClass, ResponseFollowup {
   public ResponseFollowupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Followup_conceptOffset = new(() => Schema.GetOffset(0x6C93EDBE24539C9E), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_conceptOffset = Schema.GetOffset(0x6C93EDBE24539C9E);
 
   public string Followup_concept {
     get {
-      var ptr = _Handle.Read<nint>(_Followup_conceptOffset.Value);
+      var ptr = _Handle.Read<nint>(_Followup_conceptOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Followup_conceptOffset.Value, value);
+    set => Schema.SetString(_Handle, _Followup_conceptOffset, value);
   } 
-  private static readonly Lazy<nint> _Followup_contextsOffset = new(() => Schema.GetOffset(0x6C93EDBE5C4196A6), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_contextsOffset = Schema.GetOffset(0x6C93EDBE5C4196A6);
 
   public string Followup_contexts {
     get {
-      var ptr = _Handle.Read<nint>(_Followup_contextsOffset.Value);
+      var ptr = _Handle.Read<nint>(_Followup_contextsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Followup_contextsOffset.Value, value);
+    set => Schema.SetString(_Handle, _Followup_contextsOffset, value);
   } 
-  private static readonly Lazy<nint> _Followup_delayOffset = new(() => Schema.GetOffset(0x6C93EDBEC5E3BE49), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_delayOffset = Schema.GetOffset(0x6C93EDBEC5E3BE49);
 
   public ref float Followup_delay {
-    get => ref _Handle.AsRef<float>(_Followup_delayOffset.Value);
+    get => ref _Handle.AsRef<float>(_Followup_delayOffset);
   }
-  private static readonly Lazy<nint> _Followup_targetOffset = new(() => Schema.GetOffset(0x6C93EDBEAD89F8D7), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_targetOffset = Schema.GetOffset(0x6C93EDBEAD89F8D7);
 
   public string Followup_target {
     get {
-      var ptr = _Handle.Read<nint>(_Followup_targetOffset.Value);
+      var ptr = _Handle.Read<nint>(_Followup_targetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Followup_targetOffset.Value, value);
+    set => Schema.SetString(_Handle, _Followup_targetOffset, value);
   } 
-  private static readonly Lazy<nint> _Followup_entityiotargetOffset = new(() => Schema.GetOffset(0x6C93EDBEFF990A74), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_entityiotargetOffset = Schema.GetOffset(0x6C93EDBEFF990A74);
 
   public string Followup_entityiotarget {
     get {
-      var ptr = _Handle.Read<nint>(_Followup_entityiotargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_Followup_entityiotargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Followup_entityiotargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _Followup_entityiotargetOffset, value);
   } 
-  private static readonly Lazy<nint> _Followup_entityioinputOffset = new(() => Schema.GetOffset(0x6C93EDBEAB6AD4B7), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_entityioinputOffset = Schema.GetOffset(0x6C93EDBEAB6AD4B7);
 
   public string Followup_entityioinput {
     get {
-      var ptr = _Handle.Read<nint>(_Followup_entityioinputOffset.Value);
+      var ptr = _Handle.Read<nint>(_Followup_entityioinputOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Followup_entityioinputOffset.Value, value);
+    set => Schema.SetString(_Handle, _Followup_entityioinputOffset, value);
   } 
-  private static readonly Lazy<nint> _Followup_entityiodelayOffset = new(() => Schema.GetOffset(0x6C93EDBE37A3C494), LazyThreadSafetyMode.None);
+  private static readonly nint _Followup_entityiodelayOffset = Schema.GetOffset(0x6C93EDBE37A3C494);
 
   public ref float Followup_entityiodelay {
-    get => ref _Handle.AsRef<float>(_Followup_entityiodelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_Followup_entityiodelayOffset);
   }
-  private static readonly Lazy<nint> _FiredOffset = new(() => Schema.GetOffset(0x6C93EDBE5ABF7B87), LazyThreadSafetyMode.None);
+  private static readonly nint _FiredOffset = Schema.GetOffset(0x6C93EDBE5ABF7B87);
 
   public ref bool Fired {
-    get => ref _Handle.AsRef<bool>(_FiredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FiredOffset);
   }
 
 

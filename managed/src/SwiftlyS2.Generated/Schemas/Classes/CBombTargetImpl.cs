@@ -17,54 +17,54 @@ internal partial class CBombTargetImpl : CBaseTriggerImpl, CBombTarget {
   public CBombTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnBombExplodeOffset = new(() => Schema.GetOffset(0x1FEE3C3748E87715), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombExplodeOffset = Schema.GetOffset(0x1FEE3C3748E87715);
 
   public CEntityIOOutput OnBombExplode {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombExplodeOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombExplodeOffset);
   }
-  private static readonly Lazy<nint> _OnBombPlantedOffset = new(() => Schema.GetOffset(0x1FEE3C37B3C2496C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombPlantedOffset = Schema.GetOffset(0x1FEE3C37B3C2496C);
 
   public CEntityIOOutput OnBombPlanted {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombPlantedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombPlantedOffset);
   }
-  private static readonly Lazy<nint> _OnBombDefusedOffset = new(() => Schema.GetOffset(0x1FEE3C37BCDAD16E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBombDefusedOffset = Schema.GetOffset(0x1FEE3C37BCDAD16E);
 
   public CEntityIOOutput OnBombDefused {
-    get => new CEntityIOOutputImpl(_Handle + _OnBombDefusedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBombDefusedOffset);
   }
-  private static readonly Lazy<nint> _IsBombSiteBOffset = new(() => Schema.GetOffset(0x1FEE3C37A00C3E68), LazyThreadSafetyMode.None);
+  private static readonly nint _IsBombSiteBOffset = Schema.GetOffset(0x1FEE3C37A00C3E68);
 
   public ref bool IsBombSiteB {
-    get => ref _Handle.AsRef<bool>(_IsBombSiteBOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsBombSiteBOffset);
   }
-  private static readonly Lazy<nint> _IsHeistBombTargetOffset = new(() => Schema.GetOffset(0x1FEE3C374F83FD3F), LazyThreadSafetyMode.None);
+  private static readonly nint _IsHeistBombTargetOffset = Schema.GetOffset(0x1FEE3C374F83FD3F);
 
   public ref bool IsHeistBombTarget {
-    get => ref _Handle.AsRef<bool>(_IsHeistBombTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsHeistBombTargetOffset);
   }
-  private static readonly Lazy<nint> _BombPlantedHereOffset = new(() => Schema.GetOffset(0x1FEE3C37E2D52CF9), LazyThreadSafetyMode.None);
+  private static readonly nint _BombPlantedHereOffset = Schema.GetOffset(0x1FEE3C37E2D52CF9);
 
   public ref bool BombPlantedHere {
-    get => ref _Handle.AsRef<bool>(_BombPlantedHereOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BombPlantedHereOffset);
   }
-  private static readonly Lazy<nint> _MountTargetOffset = new(() => Schema.GetOffset(0x1FEE3C375F784258), LazyThreadSafetyMode.None);
+  private static readonly nint _MountTargetOffset = Schema.GetOffset(0x1FEE3C375F784258);
 
   public string MountTarget {
     get {
-      var ptr = _Handle.Read<nint>(_MountTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_MountTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MountTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _MountTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _InstructorHintOffset = new(() => Schema.GetOffset(0x1FEE3C37D6C2F245), LazyThreadSafetyMode.None);
+  private static readonly nint _InstructorHintOffset = Schema.GetOffset(0x1FEE3C37D6C2F245);
 
   public ref CHandle<CBaseEntity> InstructorHint {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_InstructorHintOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_InstructorHintOffset);
   }
-  private static readonly Lazy<nint> _BombSiteDesignationOffset = new(() => Schema.GetOffset(0x1FEE3C376B71EF25), LazyThreadSafetyMode.None);
+  private static readonly nint _BombSiteDesignationOffset = Schema.GetOffset(0x1FEE3C376B71EF25);
 
   public ref int BombSiteDesignation {
-    get => ref _Handle.AsRef<int>(_BombSiteDesignationOffset.Value);
+    get => ref _Handle.AsRef<int>(_BombSiteDesignationOffset);
   }
 
   public void BombPlantedHereUpdated() {

@@ -17,20 +17,20 @@ internal partial class CCommentaryAutoImpl : CBaseEntityImpl, CCommentaryAuto {
   public CCommentaryAutoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnCommentaryNewGameOffset = new(() => Schema.GetOffset(0x5BB39498C3245D97), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCommentaryNewGameOffset = Schema.GetOffset(0x5BB39498C3245D97);
 
   public CEntityIOOutput OnCommentaryNewGame {
-    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryNewGameOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryNewGameOffset);
   }
-  private static readonly Lazy<nint> _OnCommentaryMidGameOffset = new(() => Schema.GetOffset(0x5BB39498A1777FCB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCommentaryMidGameOffset = Schema.GetOffset(0x5BB39498A1777FCB);
 
   public CEntityIOOutput OnCommentaryMidGame {
-    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryMidGameOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryMidGameOffset);
   }
-  private static readonly Lazy<nint> _OnCommentaryMultiplayerSpawnOffset = new(() => Schema.GetOffset(0x5BB3949819FDEEB2), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCommentaryMultiplayerSpawnOffset = Schema.GetOffset(0x5BB3949819FDEEB2);
 
   public CEntityIOOutput OnCommentaryMultiplayerSpawn {
-    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryMultiplayerSpawnOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCommentaryMultiplayerSpawnOffset);
   }
 
 

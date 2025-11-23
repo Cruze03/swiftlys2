@@ -17,55 +17,55 @@ internal partial class CSelectorUpdateNodeImpl : CAnimUpdateNodeBaseImpl, CSelec
   public CSelectorUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildrenOffset = new(() => Schema.GetOffset(0x23CD95F27415FA72), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildrenOffset = Schema.GetOffset(0x23CD95F27415FA72);
 
   public ref CUtlVector<CAnimUpdateNodeRef> Children {
-    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimUpdateNodeRef>>(_ChildrenOffset);
   }
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0x23CD95F2B46C8540), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0x23CD95F2B46C8540);
 
   public ref CUtlVector<byte> Tags {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_TagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_TagsOffset);
   }
-  private static readonly Lazy<nint> _BlendCurveOffset = new(() => Schema.GetOffset(0x23CD95F291978183), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendCurveOffset = Schema.GetOffset(0x23CD95F291978183);
 
   public CBlendCurve BlendCurve {
-    get => new CBlendCurveImpl(_Handle + _BlendCurveOffset.Value);
+    get => new CBlendCurveImpl(_Handle + _BlendCurveOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeOffset = new(() => Schema.GetOffset(0x23CD95F2A6206E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeOffset = Schema.GetOffset(0x23CD95F2A6206E9F);
 
   public SchemaUntypedField BlendTime {
-    get => new SchemaUntypedField(_Handle + _BlendTimeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BlendTimeOffset);
   }
-  private static readonly Lazy<nint> _ParameterOffset = new(() => Schema.GetOffset(0x23CD95F20C7008F6), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterOffset = Schema.GetOffset(0x23CD95F20C7008F6);
 
   public CAnimParamHandle Parameter {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterOffset);
   }
-  private static readonly Lazy<nint> _TagIndexOffset = new(() => Schema.GetOffset(0x23CD95F2C2026AAD), LazyThreadSafetyMode.None);
+  private static readonly nint _TagIndexOffset = Schema.GetOffset(0x23CD95F2C2026AAD);
 
   public ref int TagIndex {
-    get => ref _Handle.AsRef<int>(_TagIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_TagIndexOffset);
   }
-  private static readonly Lazy<nint> _TagBehaviorOffset = new(() => Schema.GetOffset(0x23CD95F2698EF70A), LazyThreadSafetyMode.None);
+  private static readonly nint _TagBehaviorOffset = Schema.GetOffset(0x23CD95F2698EF70A);
 
   public ref SelectorTagBehavior_t TagBehavior {
-    get => ref _Handle.AsRef<SelectorTagBehavior_t>(_TagBehaviorOffset.Value);
+    get => ref _Handle.AsRef<SelectorTagBehavior_t>(_TagBehaviorOffset);
   }
-  private static readonly Lazy<nint> _ResetOnChangeOffset = new(() => Schema.GetOffset(0x23CD95F2E8AD58E9), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetOnChangeOffset = Schema.GetOffset(0x23CD95F2E8AD58E9);
 
   public ref bool ResetOnChange {
-    get => ref _Handle.AsRef<bool>(_ResetOnChangeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetOnChangeOffset);
   }
-  private static readonly Lazy<nint> _LockWhenWaningOffset = new(() => Schema.GetOffset(0x23CD95F2EED48004), LazyThreadSafetyMode.None);
+  private static readonly nint _LockWhenWaningOffset = Schema.GetOffset(0x23CD95F2EED48004);
 
   public ref bool LockWhenWaning {
-    get => ref _Handle.AsRef<bool>(_LockWhenWaningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockWhenWaningOffset);
   }
-  private static readonly Lazy<nint> _SyncCyclesOnChangeOffset = new(() => Schema.GetOffset(0x23CD95F25DD67E78), LazyThreadSafetyMode.None);
+  private static readonly nint _SyncCyclesOnChangeOffset = Schema.GetOffset(0x23CD95F25DD67E78);
 
   public ref bool SyncCyclesOnChange {
-    get => ref _Handle.AsRef<bool>(_SyncCyclesOnChangeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SyncCyclesOnChangeOffset);
   }
 
 

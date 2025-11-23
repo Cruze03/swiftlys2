@@ -17,60 +17,60 @@ internal partial class CNmTransitionNode__CDefinitionImpl : CNmPoseNode__CDefini
   public CNmTransitionNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetStateNodeIdxOffset = new(() => Schema.GetOffset(0x23B71EF8DE6A1B64), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetStateNodeIdxOffset = Schema.GetOffset(0x23B71EF8DE6A1B64);
 
   public ref short TargetStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_TargetStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TargetStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DurationOverrideNodeIdxOffset = new(() => Schema.GetOffset(0x23B71EF8435EE64C), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOverrideNodeIdxOffset = Schema.GetOffset(0x23B71EF8435EE64C);
 
   public ref short DurationOverrideNodeIdx {
-    get => ref _Handle.AsRef<short>(_DurationOverrideNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DurationOverrideNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TimeOffsetOverrideNodeIdxOffset = new(() => Schema.GetOffset(0x23B71EF87B4CE92E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffsetOverrideNodeIdxOffset = Schema.GetOffset(0x23B71EF87B4CE92E);
 
   public ref short TimeOffsetOverrideNodeIdx {
-    get => ref _Handle.AsRef<short>(_TimeOffsetOverrideNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TimeOffsetOverrideNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _StartBoneMaskNodeIdxOffset = new(() => Schema.GetOffset(0x23B71EF8EF270494), LazyThreadSafetyMode.None);
+  private static readonly nint _StartBoneMaskNodeIdxOffset = Schema.GetOffset(0x23B71EF8EF270494);
 
   public ref short StartBoneMaskNodeIdx {
-    get => ref _Handle.AsRef<short>(_StartBoneMaskNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_StartBoneMaskNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x23B71EF8BC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x23B71EF8BC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _BoneMaskBlendInTimePercentageOffset = new(() => Schema.GetOffset(0x23B71EF83CBCEB24), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneMaskBlendInTimePercentageOffset = Schema.GetOffset(0x23B71EF83CBCEB24);
 
   public NmPercent_t BoneMaskBlendInTimePercentage {
-    get => new NmPercent_tImpl(_Handle + _BoneMaskBlendInTimePercentageOffset.Value);
+    get => new NmPercent_tImpl(_Handle + _BoneMaskBlendInTimePercentageOffset);
   }
-  private static readonly Lazy<nint> _TimeOffsetOffset = new(() => Schema.GetOffset(0x23B71EF86F4EE629), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffsetOffset = Schema.GetOffset(0x23B71EF86F4EE629);
 
   public ref float TimeOffset {
-    get => ref _Handle.AsRef<float>(_TimeOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffsetOffset);
   }
-  private static readonly Lazy<nint> _TransitionOptionsOffset = new(() => Schema.GetOffset(0x23B71EF8875C9EAC), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionOptionsOffset = Schema.GetOffset(0x23B71EF8875C9EAC);
 
   public CNmBitFlags TransitionOptions {
-    get => new CNmBitFlagsImpl(_Handle + _TransitionOptionsOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _TransitionOptionsOffset);
   }
-  private static readonly Lazy<nint> _TargetSyncIDNodeIdxOffset = new(() => Schema.GetOffset(0x23B71EF8A952D9BD), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetSyncIDNodeIdxOffset = Schema.GetOffset(0x23B71EF8A952D9BD);
 
   public ref short TargetSyncIDNodeIdx {
-    get => ref _Handle.AsRef<short>(_TargetSyncIDNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TargetSyncIDNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _BlendWeightEasingOffset = new(() => Schema.GetOffset(0x23B71EF8E7454DC5), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendWeightEasingOffset = Schema.GetOffset(0x23B71EF8E7454DC5);
 
   public ref NmEasingOperation_t BlendWeightEasing {
-    get => ref _Handle.AsRef<NmEasingOperation_t>(_BlendWeightEasingOffset.Value);
+    get => ref _Handle.AsRef<NmEasingOperation_t>(_BlendWeightEasingOffset);
   }
-  private static readonly Lazy<nint> _RootMotionBlendOffset = new(() => Schema.GetOffset(0x23B71EF88DADB2AE), LazyThreadSafetyMode.None);
+  private static readonly nint _RootMotionBlendOffset = Schema.GetOffset(0x23B71EF88DADB2AE);
 
   public ref NmRootMotionBlendMode_t RootMotionBlend {
-    get => ref _Handle.AsRef<NmRootMotionBlendMode_t>(_RootMotionBlendOffset.Value);
+    get => ref _Handle.AsRef<NmRootMotionBlendMode_t>(_RootMotionBlendOffset);
   }
 
 

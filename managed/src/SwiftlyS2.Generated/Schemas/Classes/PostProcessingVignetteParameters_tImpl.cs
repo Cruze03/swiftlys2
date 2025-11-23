@@ -17,35 +17,35 @@ internal partial class PostProcessingVignetteParameters_tImpl : SchemaClass, Pos
   public PostProcessingVignetteParameters_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VignetteStrengthOffset = new(() => Schema.GetOffset(0xC31FEB45110C062C), LazyThreadSafetyMode.None);
+  private static readonly nint _VignetteStrengthOffset = Schema.GetOffset(0xC31FEB45110C062C);
 
   public ref float VignetteStrength {
-    get => ref _Handle.AsRef<float>(_VignetteStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_VignetteStrengthOffset);
   }
-  private static readonly Lazy<nint> _CenterOffset = new(() => Schema.GetOffset(0xC31FEB45C82A5908), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOffset = Schema.GetOffset(0xC31FEB45C82A5908);
 
   public ref Vector2D Center {
-    get => ref _Handle.AsRef<Vector2D>(_CenterOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_CenterOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xC31FEB455ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xC31FEB455ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _RoundnessOffset = new(() => Schema.GetOffset(0xC31FEB453987DB42), LazyThreadSafetyMode.None);
+  private static readonly nint _RoundnessOffset = Schema.GetOffset(0xC31FEB453987DB42);
 
   public ref float Roundness {
-    get => ref _Handle.AsRef<float>(_RoundnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_RoundnessOffset);
   }
-  private static readonly Lazy<nint> _FeatherOffset = new(() => Schema.GetOffset(0xC31FEB455070E146), LazyThreadSafetyMode.None);
+  private static readonly nint _FeatherOffset = Schema.GetOffset(0xC31FEB455070E146);
 
   public ref float Feather {
-    get => ref _Handle.AsRef<float>(_FeatherOffset.Value);
+    get => ref _Handle.AsRef<float>(_FeatherOffset);
   }
-  private static readonly Lazy<nint> _ColorTintOffset = new(() => Schema.GetOffset(0xC31FEB45569A6EA9), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorTintOffset = Schema.GetOffset(0xC31FEB45569A6EA9);
 
   public ref Vector ColorTint {
-    get => ref _Handle.AsRef<Vector>(_ColorTintOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ColorTintOffset);
   }
 
 

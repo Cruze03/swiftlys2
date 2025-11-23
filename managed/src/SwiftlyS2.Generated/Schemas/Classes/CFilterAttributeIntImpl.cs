@@ -17,14 +17,14 @@ internal partial class CFilterAttributeIntImpl : CBaseFilterImpl, CFilterAttribu
   public CFilterAttributeIntImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttributeNameOffset = new(() => Schema.GetOffset(0x7CC26955E63BC84D), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeNameOffset = Schema.GetOffset(0x7CC26955E63BC84D);
 
   public string AttributeName {
     get {
-      var ptr = _Handle.Read<nint>(_AttributeNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttributeNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttributeNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttributeNameOffset, value);
   } 
 
 

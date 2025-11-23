@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmRootMotionOverrideNode__CDefinition : CNmPassthroughNode__CDefinition, ISchemaClass<CNmRootMotionOverrideNode__CDefinition> {
 
   static CNmRootMotionOverrideNode__CDefinition ISchemaClass<CNmRootMotionOverrideNode__CDefinition>.From(nint handle) => new CNmRootMotionOverrideNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmRootMotionOverrideNode__CDefinition>.Size => 32;
+  static int ISchemaClass<CNmRootMotionOverrideNode__CDefinition>.Size => 48;
   static string? ISchemaClass<CNmRootMotionOverrideNode__CDefinition>.ClassName => null;
 
   

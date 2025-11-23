@@ -17,50 +17,50 @@ internal partial class AnimationSnapshotBase_tImpl : SchemaClass, AnimationSnaps
   public AnimationSnapshotBase_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RealTimeOffset = new(() => Schema.GetOffset(0x608F9331168EC02), LazyThreadSafetyMode.None);
+  private static readonly nint _RealTimeOffset = Schema.GetOffset(0x608F9331168EC02);
 
   public ref float RealTime {
-    get => ref _Handle.AsRef<float>(_RealTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RealTimeOffset);
   }
-  private static readonly Lazy<nint> _RootToWorldOffset = new(() => Schema.GetOffset(0x608F9331F80AFC0), LazyThreadSafetyMode.None);
+  private static readonly nint _RootToWorldOffset = Schema.GetOffset(0x608F9331F80AFC0);
 
   public ref matrix3x4_t RootToWorld {
-    get => ref _Handle.AsRef<matrix3x4_t>(_RootToWorldOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_RootToWorldOffset);
   }
-  private static readonly Lazy<nint> _BonesInWorldSpaceOffset = new(() => Schema.GetOffset(0x608F933BDD22AA1), LazyThreadSafetyMode.None);
+  private static readonly nint _BonesInWorldSpaceOffset = Schema.GetOffset(0x608F933BDD22AA1);
 
   public ref bool BonesInWorldSpace {
-    get => ref _Handle.AsRef<bool>(_BonesInWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BonesInWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _BoneSetupMaskOffset = new(() => Schema.GetOffset(0x608F9334B3C48C8), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneSetupMaskOffset = Schema.GetOffset(0x608F9334B3C48C8);
 
   public ref CUtlVector<uint> BoneSetupMask {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_BoneSetupMaskOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_BoneSetupMaskOffset);
   }
-  private static readonly Lazy<nint> _BoneTransformsOffset = new(() => Schema.GetOffset(0x608F933ED000DE6), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneTransformsOffset = Schema.GetOffset(0x608F933ED000DE6);
 
   public ref CUtlVector<matrix3x4_t> BoneTransforms {
-    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_BoneTransformsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<matrix3x4_t>>(_BoneTransformsOffset);
   }
-  private static readonly Lazy<nint> _FlexControllersOffset = new(() => Schema.GetOffset(0x608F9337742939B), LazyThreadSafetyMode.None);
+  private static readonly nint _FlexControllersOffset = Schema.GetOffset(0x608F9337742939B);
 
   public ref CUtlVector<float> FlexControllers {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexControllersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_FlexControllersOffset);
   }
-  private static readonly Lazy<nint> _SnapshotTypeOffset = new(() => Schema.GetOffset(0x608F933533E5725), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapshotTypeOffset = Schema.GetOffset(0x608F933533E5725);
 
   public ref AnimationSnapshotType_t SnapshotType {
-    get => ref _Handle.AsRef<AnimationSnapshotType_t>(_SnapshotTypeOffset.Value);
+    get => ref _Handle.AsRef<AnimationSnapshotType_t>(_SnapshotTypeOffset);
   }
-  private static readonly Lazy<nint> _HasDecodeDumpOffset = new(() => Schema.GetOffset(0x608F933BECD8B97), LazyThreadSafetyMode.None);
+  private static readonly nint _HasDecodeDumpOffset = Schema.GetOffset(0x608F933BECD8B97);
 
   public ref bool HasDecodeDump {
-    get => ref _Handle.AsRef<bool>(_HasDecodeDumpOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasDecodeDumpOffset);
   }
-  private static readonly Lazy<nint> _DecodeDumpOffset = new(() => Schema.GetOffset(0x608F9332577A819), LazyThreadSafetyMode.None);
+  private static readonly nint _DecodeDumpOffset = Schema.GetOffset(0x608F9332577A819);
 
   public AnimationDecodeDebugDumpElement_t DecodeDump {
-    get => new AnimationDecodeDebugDumpElement_tImpl(_Handle + _DecodeDumpOffset.Value);
+    get => new AnimationDecodeDebugDumpElement_tImpl(_Handle + _DecodeDumpOffset);
   }
 
 

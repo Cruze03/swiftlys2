@@ -17,10 +17,10 @@ internal partial class PulseDocNodeID_tImpl : SchemaClass, PulseDocNodeID_t {
   public PulseDocNodeID_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xAD1381DADCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xAD1381DADCB0894A);
 
   public ref int Value {
-    get => ref _Handle.AsRef<int>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_ValueOffset);
   }
 
 

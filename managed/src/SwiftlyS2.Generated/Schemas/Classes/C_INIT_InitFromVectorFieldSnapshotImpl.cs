@@ -17,30 +17,30 @@ internal partial class C_INIT_InitFromVectorFieldSnapshotImpl : CParticleFunctio
   public C_INIT_InitFromVectorFieldSnapshotImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x1F4AA8713F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x1F4AA8713F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceCPOffset = new(() => Schema.GetOffset(0x1F4AA871C8E9CB31), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceCPOffset = Schema.GetOffset(0x1F4AA871C8E9CB31);
 
   public ref int LocalSpaceCP {
-    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_LocalSpaceCPOffset);
   }
-  private static readonly Lazy<nint> _WeightUpdateCPOffset = new(() => Schema.GetOffset(0x1F4AA8712CCDE17F), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightUpdateCPOffset = Schema.GetOffset(0x1F4AA8712CCDE17F);
 
   public ref int WeightUpdateCP {
-    get => ref _Handle.AsRef<int>(_WeightUpdateCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_WeightUpdateCPOffset);
   }
-  private static readonly Lazy<nint> _UseVerticalVelocityOffset = new(() => Schema.GetOffset(0x1F4AA8713C99C6FD), LazyThreadSafetyMode.None);
+  private static readonly nint _UseVerticalVelocityOffset = Schema.GetOffset(0x1F4AA8713C99C6FD);
 
   public ref bool UseVerticalVelocity {
-    get => ref _Handle.AsRef<bool>(_UseVerticalVelocityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseVerticalVelocityOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x1F4AA8715F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x1F4AA8715F596B51);
 
   public CPerParticleVecInput Scale {
-    get => new CPerParticleVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _ScaleOffset);
   }
 
 

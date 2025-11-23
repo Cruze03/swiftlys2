@@ -17,75 +17,75 @@ internal partial class CTargetWarpUpdateNodeImpl : CUnaryUpdateNodeImpl, CTarget
   public CTargetWarpUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AngleModeOffset = new(() => Schema.GetOffset(0xF411CC8D21DC8BC), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleModeOffset = Schema.GetOffset(0xF411CC8D21DC8BC);
 
   public ref TargetWarpAngleMode_t AngleMode {
-    get => ref _Handle.AsRef<TargetWarpAngleMode_t>(_AngleModeOffset.Value);
+    get => ref _Handle.AsRef<TargetWarpAngleMode_t>(_AngleModeOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionParameterOffset = new(() => Schema.GetOffset(0xF411CC8A44B9050), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionParameterOffset = Schema.GetOffset(0xF411CC8A44B9050);
 
   public CAnimParamHandle TargetPositionParameter {
-    get => new CAnimParamHandleImpl(_Handle + _TargetPositionParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetPositionParameterOffset);
   }
-  private static readonly Lazy<nint> _TargetUpVectorParameterOffset = new(() => Schema.GetOffset(0xF411CC85C2D7DCB), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetUpVectorParameterOffset = Schema.GetOffset(0xF411CC85C2D7DCB);
 
   public CAnimParamHandle TargetUpVectorParameter {
-    get => new CAnimParamHandleImpl(_Handle + _TargetUpVectorParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetUpVectorParameterOffset);
   }
-  private static readonly Lazy<nint> _TargetFacePositionParameterOffset = new(() => Schema.GetOffset(0xF411CC81102D56F), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetFacePositionParameterOffset = Schema.GetOffset(0xF411CC81102D56F);
 
   public CAnimParamHandle TargetFacePositionParameter {
-    get => new CAnimParamHandleImpl(_Handle + _TargetFacePositionParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetFacePositionParameterOffset);
   }
-  private static readonly Lazy<nint> _MoveHeadingParameterOffset = new(() => Schema.GetOffset(0xF411CC83A7267CF), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveHeadingParameterOffset = Schema.GetOffset(0xF411CC83A7267CF);
 
   public CAnimParamHandle MoveHeadingParameter {
-    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParameterOffset);
   }
-  private static readonly Lazy<nint> _DesiredMoveHeadingParameterOffset = new(() => Schema.GetOffset(0xF411CC8C6298DFB), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredMoveHeadingParameterOffset = Schema.GetOffset(0xF411CC8C6298DFB);
 
   public CAnimParamHandle DesiredMoveHeadingParameter {
-    get => new CAnimParamHandleImpl(_Handle + _DesiredMoveHeadingParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _DesiredMoveHeadingParameterOffset);
   }
-  private static readonly Lazy<nint> _CorrectionMethodOffset = new(() => Schema.GetOffset(0xF411CC81E19BA51), LazyThreadSafetyMode.None);
+  private static readonly nint _CorrectionMethodOffset = Schema.GetOffset(0xF411CC81E19BA51);
 
   public ref TargetWarpCorrectionMethod CorrectionMethod {
-    get => ref _Handle.AsRef<TargetWarpCorrectionMethod>(_CorrectionMethodOffset.Value);
+    get => ref _Handle.AsRef<TargetWarpCorrectionMethod>(_CorrectionMethodOffset);
   }
-  private static readonly Lazy<nint> _TargetWarpTimingMethodOffset = new(() => Schema.GetOffset(0xF411CC8EC684360), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetWarpTimingMethodOffset = Schema.GetOffset(0xF411CC8EC684360);
 
   public ref TargetWarpTimingMethod TargetWarpTimingMethod {
-    get => ref _Handle.AsRef<TargetWarpTimingMethod>(_TargetWarpTimingMethodOffset.Value);
+    get => ref _Handle.AsRef<TargetWarpTimingMethod>(_TargetWarpTimingMethodOffset);
   }
-  private static readonly Lazy<nint> _TargetFacePositionIsWorldSpaceOffset = new(() => Schema.GetOffset(0xF411CC8504B4258), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetFacePositionIsWorldSpaceOffset = Schema.GetOffset(0xF411CC8504B4258);
 
   public ref bool TargetFacePositionIsWorldSpace {
-    get => ref _Handle.AsRef<bool>(_TargetFacePositionIsWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TargetFacePositionIsWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionIsWorldSpaceOffset = new(() => Schema.GetOffset(0xF411CC8ABCF9ECD), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionIsWorldSpaceOffset = Schema.GetOffset(0xF411CC8ABCF9ECD);
 
   public ref bool TargetPositionIsWorldSpace {
-    get => ref _Handle.AsRef<bool>(_TargetPositionIsWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TargetPositionIsWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _OnlyWarpWhenTagIsFoundOffset = new(() => Schema.GetOffset(0xF411CC84B577309), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlyWarpWhenTagIsFoundOffset = Schema.GetOffset(0xF411CC84B577309);
 
   public ref bool OnlyWarpWhenTagIsFound {
-    get => ref _Handle.AsRef<bool>(_OnlyWarpWhenTagIsFoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnlyWarpWhenTagIsFoundOffset);
   }
-  private static readonly Lazy<nint> _WarpOrientationDuringTranslationOffset = new(() => Schema.GetOffset(0xF411CC85672A125), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpOrientationDuringTranslationOffset = Schema.GetOffset(0xF411CC85672A125);
 
   public ref bool WarpOrientationDuringTranslation {
-    get => ref _Handle.AsRef<bool>(_WarpOrientationDuringTranslationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WarpOrientationDuringTranslationOffset);
   }
-  private static readonly Lazy<nint> _WarpAroundCenterOffset = new(() => Schema.GetOffset(0xF411CC8B19C474F), LazyThreadSafetyMode.None);
+  private static readonly nint _WarpAroundCenterOffset = Schema.GetOffset(0xF411CC8B19C474F);
 
   public ref bool WarpAroundCenter {
-    get => ref _Handle.AsRef<bool>(_WarpAroundCenterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WarpAroundCenterOffset);
   }
-  private static readonly Lazy<nint> _MaxAngleOffset = new(() => Schema.GetOffset(0xF411CC8A4B3D8AE), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxAngleOffset = Schema.GetOffset(0xF411CC8A4B3D8AE);
 
   public ref float MaxAngle {
-    get => ref _Handle.AsRef<float>(_MaxAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxAngleOffset);
   }
 
 

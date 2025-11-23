@@ -17,10 +17,10 @@ internal partial class CParamSpanUpdaterImpl : SchemaClass, CParamSpanUpdater {
   public CParamSpanUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpansOffset = new(() => Schema.GetOffset(0xA35886AC66213056), LazyThreadSafetyMode.None);
+  private static readonly nint _SpansOffset = Schema.GetOffset(0xA35886AC66213056);
 
   public ref CUtlVector<ParamSpan_t> Spans {
-    get => ref _Handle.AsRef<CUtlVector<ParamSpan_t>>(_SpansOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ParamSpan_t>>(_SpansOffset);
   }
 
 

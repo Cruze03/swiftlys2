@@ -17,55 +17,55 @@ internal partial class CRagdollComponentUpdaterImpl : CAnimComponentUpdaterImpl,
   public CRagdollComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RagdollNodePathsOffset = new(() => Schema.GetOffset(0xDD5F05A990E04B90), LazyThreadSafetyMode.None);
+  private static readonly nint _RagdollNodePathsOffset = Schema.GetOffset(0xDD5F05A990E04B90);
 
   public ref CUtlVector<CAnimNodePath> RagdollNodePaths {
-    get => ref _Handle.AsRef<CUtlVector<CAnimNodePath>>(_RagdollNodePathsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimNodePath>>(_RagdollNodePathsOffset);
   }
-  private static readonly Lazy<nint> _FollowAttachmentNodePathsOffset = new(() => Schema.GetOffset(0xDD5F05A95F8325EF), LazyThreadSafetyMode.None);
+  private static readonly nint _FollowAttachmentNodePathsOffset = Schema.GetOffset(0xDD5F05A95F8325EF);
 
   public ref CUtlVector<CAnimNodePath> FollowAttachmentNodePaths {
-    get => ref _Handle.AsRef<CUtlVector<CAnimNodePath>>(_FollowAttachmentNodePathsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimNodePath>>(_FollowAttachmentNodePathsOffset);
   }
-  private static readonly Lazy<nint> _BoneIndicesOffset = new(() => Schema.GetOffset(0xDD5F05A9E93AB60C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndicesOffset = Schema.GetOffset(0xDD5F05A9E93AB60C);
 
   public ref CUtlVector<int> BoneIndices {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneIndicesOffset);
   }
-  private static readonly Lazy<nint> _BoneNamesOffset = new(() => Schema.GetOffset(0xDD5F05A93CC0D1ED), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNamesOffset = Schema.GetOffset(0xDD5F05A93CC0D1ED);
 
   public ref CUtlVector<CUtlString> BoneNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNamesOffset);
   }
-  private static readonly Lazy<nint> _WeightListsOffset = new(() => Schema.GetOffset(0xDD5F05A9F50C4582), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightListsOffset = Schema.GetOffset(0xDD5F05A9F50C4582);
 
   public ref CUtlVector<WeightList> WeightLists {
-    get => ref _Handle.AsRef<CUtlVector<WeightList>>(_WeightListsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<WeightList>>(_WeightListsOffset);
   }
-  private static readonly Lazy<nint> _BoneToWeightIndicesOffset = new(() => Schema.GetOffset(0xDD5F05A9CA322B97), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneToWeightIndicesOffset = Schema.GetOffset(0xDD5F05A9CA322B97);
 
   public ref CUtlVector<int> BoneToWeightIndices {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneToWeightIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_BoneToWeightIndicesOffset);
   }
-  private static readonly Lazy<nint> _SpringFrequencyMinOffset = new(() => Schema.GetOffset(0xDD5F05A937C769A4), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringFrequencyMinOffset = Schema.GetOffset(0xDD5F05A937C769A4);
 
   public ref float SpringFrequencyMin {
-    get => ref _Handle.AsRef<float>(_SpringFrequencyMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpringFrequencyMinOffset);
   }
-  private static readonly Lazy<nint> _SpringFrequencyMaxOffset = new(() => Schema.GetOffset(0xDD5F05A945DB0766), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringFrequencyMaxOffset = Schema.GetOffset(0xDD5F05A945DB0766);
 
   public ref float SpringFrequencyMax {
-    get => ref _Handle.AsRef<float>(_SpringFrequencyMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpringFrequencyMaxOffset);
   }
-  private static readonly Lazy<nint> _MaxStretchOffset = new(() => Schema.GetOffset(0xDD5F05A9BCF894C4), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxStretchOffset = Schema.GetOffset(0xDD5F05A9BCF894C4);
 
   public ref float MaxStretch {
-    get => ref _Handle.AsRef<float>(_MaxStretchOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxStretchOffset);
   }
-  private static readonly Lazy<nint> _SolidCollisionAtZeroWeightOffset = new(() => Schema.GetOffset(0xDD5F05A983AB44C3), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidCollisionAtZeroWeightOffset = Schema.GetOffset(0xDD5F05A983AB44C3);
 
   public ref bool SolidCollisionAtZeroWeight {
-    get => ref _Handle.AsRef<bool>(_SolidCollisionAtZeroWeightOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SolidCollisionAtZeroWeightOffset);
   }
 
 

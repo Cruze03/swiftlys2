@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CLogicLineToEntity : CLogicalEntity, ISchemaClass<CLogicLineToEntity> {
 
   static CLogicLineToEntity ISchemaClass<CLogicLineToEntity>.From(nint handle) => new CLogicLineToEntityImpl(handle);
-  static int ISchemaClass<CLogicLineToEntity>.Size => 2064;
+  static int ISchemaClass<CLogicLineToEntity>.Size => 1320;
   static string? ISchemaClass<CLogicLineToEntity>.ClassName => "logic_lineto";
 
   

@@ -17,30 +17,30 @@ internal partial class SoundeventPathCornerPairNetworked_tImpl : SchemaClass, So
   public SoundeventPathCornerPairNetworked_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _P1Offset = new(() => Schema.GetOffset(0x138FC2E2CD01805E), LazyThreadSafetyMode.None);
+  private static readonly nint _P1Offset = Schema.GetOffset(0x138FC2E2CD01805E);
 
   public ref Vector P1 {
-    get => ref _Handle.AsRef<Vector>(_P1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_P1Offset);
   }
-  private static readonly Lazy<nint> _P2Offset = new(() => Schema.GetOffset(0x138FC2E2CC017ECB), LazyThreadSafetyMode.None);
+  private static readonly nint _P2Offset = Schema.GetOffset(0x138FC2E2CC017ECB);
 
   public ref Vector P2 {
-    get => ref _Handle.AsRef<Vector>(_P2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_P2Offset);
   }
-  private static readonly Lazy<nint> _PathLengthSqrOffset = new(() => Schema.GetOffset(0x138FC2E284D826AA), LazyThreadSafetyMode.None);
+  private static readonly nint _PathLengthSqrOffset = Schema.GetOffset(0x138FC2E284D826AA);
 
   public ref float PathLengthSqr {
-    get => ref _Handle.AsRef<float>(_PathLengthSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_PathLengthSqrOffset);
   }
-  private static readonly Lazy<nint> _P1PctOffset = new(() => Schema.GetOffset(0x138FC2E258AEE12B), LazyThreadSafetyMode.None);
+  private static readonly nint _P1PctOffset = Schema.GetOffset(0x138FC2E258AEE12B);
 
   public ref float P1Pct {
-    get => ref _Handle.AsRef<float>(_P1PctOffset.Value);
+    get => ref _Handle.AsRef<float>(_P1PctOffset);
   }
-  private static readonly Lazy<nint> _P2PctOffset = new(() => Schema.GetOffset(0x138FC2E294B6CBA8), LazyThreadSafetyMode.None);
+  private static readonly nint _P2PctOffset = Schema.GetOffset(0x138FC2E294B6CBA8);
 
   public ref float P2Pct {
-    get => ref _Handle.AsRef<float>(_P2PctOffset.Value);
+    get => ref _Handle.AsRef<float>(_P2PctOffset);
   }
 
   public void P1Updated() {

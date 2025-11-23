@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEnvGlobal : CLogicalEntity, ISchemaClass<CEnvGlobal> {
 
   static CEnvGlobal ISchemaClass<CEnvGlobal>.From(nint handle) => new CEnvGlobalImpl(handle);
-  static int ISchemaClass<CEnvGlobal>.Size => 2072;
+  static int ISchemaClass<CEnvGlobal>.Size => 1328;
   static string? ISchemaClass<CEnvGlobal>.ClassName => "env_global";
 
   

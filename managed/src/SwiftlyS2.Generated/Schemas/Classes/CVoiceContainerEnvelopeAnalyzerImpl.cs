@@ -17,20 +17,20 @@ internal partial class CVoiceContainerEnvelopeAnalyzerImpl : CVoiceContainerAnal
   public CVoiceContainerEnvelopeAnalyzerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0xC5D0FF1990FD5BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0xC5D0FF1990FD5BB2);
 
   public ref EMode_t Mode {
-    get => ref _Handle.AsRef<EMode_t>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<EMode_t>(_ModeOffset);
   }
-  private static readonly Lazy<nint> _AnalysisWindowMsOffset = new(() => Schema.GetOffset(0xC5D0FF198349BF07), LazyThreadSafetyMode.None);
+  private static readonly nint _AnalysisWindowMsOffset = Schema.GetOffset(0xC5D0FF198349BF07);
 
   public ref float AnalysisWindowMs {
-    get => ref _Handle.AsRef<float>(_AnalysisWindowMsOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnalysisWindowMsOffset);
   }
-  private static readonly Lazy<nint> _ThresholdOffset = new(() => Schema.GetOffset(0xC5D0FF197872FFEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ThresholdOffset = Schema.GetOffset(0xC5D0FF197872FFEA);
 
   public ref float Threshold {
-    get => ref _Handle.AsRef<float>(_ThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_ThresholdOffset);
   }
 
 

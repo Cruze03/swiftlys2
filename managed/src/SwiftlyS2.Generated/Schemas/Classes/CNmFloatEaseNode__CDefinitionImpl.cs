@@ -17,30 +17,30 @@ internal partial class CNmFloatEaseNode__CDefinitionImpl : CNmFloatValueNode__CD
   public CNmFloatEaseNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EaseTimeOffset = new(() => Schema.GetOffset(0x9D7103D0A54FCC), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseTimeOffset = Schema.GetOffset(0x9D7103D0A54FCC);
 
   public ref float EaseTime {
-    get => ref _Handle.AsRef<float>(_EaseTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EaseTimeOffset);
   }
-  private static readonly Lazy<nint> _StartValueOffset = new(() => Schema.GetOffset(0x9D710351C82C2A), LazyThreadSafetyMode.None);
+  private static readonly nint _StartValueOffset = Schema.GetOffset(0x9D710351C82C2A);
 
   public ref float StartValue {
-    get => ref _Handle.AsRef<float>(_StartValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartValueOffset);
   }
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x9D710395E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x9D710395E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EasingOpOffset = new(() => Schema.GetOffset(0x9D7103CF457EAF), LazyThreadSafetyMode.None);
+  private static readonly nint _EasingOpOffset = Schema.GetOffset(0x9D7103CF457EAF);
 
   public ref NmEasingOperation_t EasingOp {
-    get => ref _Handle.AsRef<NmEasingOperation_t>(_EasingOpOffset.Value);
+    get => ref _Handle.AsRef<NmEasingOperation_t>(_EasingOpOffset);
   }
-  private static readonly Lazy<nint> _UseStartValueOffset = new(() => Schema.GetOffset(0x9D710306DE6089), LazyThreadSafetyMode.None);
+  private static readonly nint _UseStartValueOffset = Schema.GetOffset(0x9D710306DE6089);
 
   public ref bool UseStartValue {
-    get => ref _Handle.AsRef<bool>(_UseStartValueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseStartValueOffset);
   }
 
 

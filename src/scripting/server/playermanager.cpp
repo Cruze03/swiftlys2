@@ -57,11 +57,11 @@ void Bridge_PlayerManager_ShouldBlockTransmitEntity(int entityidx, bool shouldBl
 
         if (shouldBlockTransmit) {
             bool wasEmpty = (bv.blockedMask[dword] == 0);
-            bv.blockedMask[dword] |= (1 << (entityidx % 32));
+            bv.blockedMask[dword] |= (1ULL << (entityidx % 32));
             if (wasEmpty) bv.activeMasks.push_back(dword);
         }
         else {
-            bv.blockedMask[dword] &= ~(1 << (entityidx % 32));
+            bv.blockedMask[dword] &= ~(1ULL << (entityidx % 32));
             if (bv.blockedMask[dword] == 0) bv.activeMasks.erase(std::find(bv.activeMasks.begin(), bv.activeMasks.end(), dword));
         }
     }
@@ -76,7 +76,7 @@ void Bridge_PlayerManager_ClearAllBlockedTransmitEntity()
 
         auto& bv = player->GetBlockedTransmittingBits();
         bv.activeMasks.clear();
-        for (int j = 0; j < 512; j++) bv.blockedMask[j] = 0;
+        for (int j = 0; j < 256; j++) bv.blockedMask[j] = 0;
     }
 }
 

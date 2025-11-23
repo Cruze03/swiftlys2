@@ -17,29 +17,29 @@ internal partial class ParticleNamedValueSource_tImpl : SchemaClass, ParticleNam
   public ParticleNamedValueSource_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x740B6BEFCAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x740B6BEFCAE8A266);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _IsPublicOffset = new(() => Schema.GetOffset(0x740B6BEFD2D88EB0), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPublicOffset = Schema.GetOffset(0x740B6BEFD2D88EB0);
 
   public ref bool IsPublic {
-    get => ref _Handle.AsRef<bool>(_IsPublicOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPublicOffset);
   }
-  private static readonly Lazy<nint> _ValueTypeOffset = new(() => Schema.GetOffset(0x740B6BEFC2A673CA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueTypeOffset = Schema.GetOffset(0x740B6BEFC2A673CA);
 
   public SchemaUntypedField ValueType {
-    get => new SchemaUntypedField(_Handle + _ValueTypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValueTypeOffset);
   }
-  private static readonly Lazy<nint> _DefaultConfigOffset = new(() => Schema.GetOffset(0x740B6BEF05A58128), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultConfigOffset = Schema.GetOffset(0x740B6BEF05A58128);
 
   public ParticleNamedValueConfiguration_t DefaultConfig {
-    get => new ParticleNamedValueConfiguration_tImpl(_Handle + _DefaultConfigOffset.Value);
+    get => new ParticleNamedValueConfiguration_tImpl(_Handle + _DefaultConfigOffset);
   }
 
 

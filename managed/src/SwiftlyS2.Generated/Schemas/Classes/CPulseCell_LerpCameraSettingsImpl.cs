@@ -17,20 +17,20 @@ internal partial class CPulseCell_LerpCameraSettingsImpl : CPulseCell_BaseLerpIm
   public CPulseCell_LerpCameraSettingsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SecondsOffset = new(() => Schema.GetOffset(0xA4A5850773C6938C), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondsOffset = Schema.GetOffset(0xA4A5850773C6938C);
 
   public ref float Seconds {
-    get => ref _Handle.AsRef<float>(_SecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_SecondsOffset);
   }
-  private static readonly Lazy<nint> _StartOffset = new(() => Schema.GetOffset(0xA4A58507FF7CBA5F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOffset = Schema.GetOffset(0xA4A58507FF7CBA5F);
 
   public PointCameraSettings_t Start {
-    get => new PointCameraSettings_tImpl(_Handle + _StartOffset.Value);
+    get => new PointCameraSettings_tImpl(_Handle + _StartOffset);
   }
-  private static readonly Lazy<nint> _EndOffset = new(() => Schema.GetOffset(0xA4A58507F624CF2A), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffset = Schema.GetOffset(0xA4A58507F624CF2A);
 
   public PointCameraSettings_t End {
-    get => new PointCameraSettings_tImpl(_Handle + _EndOffset.Value);
+    get => new PointCameraSettings_tImpl(_Handle + _EndOffset);
   }
 
 

@@ -17,20 +17,20 @@ internal partial class C_OP_OrientTo2dDirectionImpl : CParticleFunctionOperatorI
   public C_OP_OrientTo2dDirectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RotOffsetOffset = new(() => Schema.GetOffset(0x2AC61F04D1EA9CDF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotOffsetOffset = Schema.GetOffset(0x2AC61F04D1EA9CDF);
 
   public ref float RotOffset {
-    get => ref _Handle.AsRef<float>(_RotOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotOffsetOffset);
   }
-  private static readonly Lazy<nint> _SpinStrengthOffset = new(() => Schema.GetOffset(0x2AC61F0412520F26), LazyThreadSafetyMode.None);
+  private static readonly nint _SpinStrengthOffset = Schema.GetOffset(0x2AC61F0412520F26);
 
   public ref float SpinStrength {
-    get => ref _Handle.AsRef<float>(_SpinStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpinStrengthOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x2AC61F04E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x2AC61F04E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
 
 

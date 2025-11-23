@@ -17,30 +17,30 @@ internal partial class AmmoTypeInfo_tImpl : SchemaClass, AmmoTypeInfo_t {
   public AmmoTypeInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxCarryOffset = new(() => Schema.GetOffset(0xFC774B09B708280), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCarryOffset = Schema.GetOffset(0xFC774B09B708280);
 
   public ref int MaxCarry {
-    get => ref _Handle.AsRef<int>(_MaxCarryOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCarryOffset);
   }
-  private static readonly Lazy<nint> _SplashSizeOffset = new(() => Schema.GetOffset(0xFC774B045E320D3), LazyThreadSafetyMode.None);
+  private static readonly nint _SplashSizeOffset = Schema.GetOffset(0xFC774B045E320D3);
 
   public CRangeInt SplashSize {
-    get => new CRangeIntImpl(_Handle + _SplashSizeOffset.Value);
+    get => new CRangeIntImpl(_Handle + _SplashSizeOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xFC774B0CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xFC774B0CE6E9C28);
 
   public ref AmmoFlags_t Flags {
-    get => ref _Handle.AsRef<AmmoFlags_t>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<AmmoFlags_t>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _MassOffset = new(() => Schema.GetOffset(0xFC774B0CD83D263), LazyThreadSafetyMode.None);
+  private static readonly nint _MassOffset = Schema.GetOffset(0xFC774B0CD83D263);
 
   public ref float Mass {
-    get => ref _Handle.AsRef<float>(_MassOffset.Value);
+    get => ref _Handle.AsRef<float>(_MassOffset);
   }
-  private static readonly Lazy<nint> _SpeedOffset = new(() => Schema.GetOffset(0xFC774B0C631B7EA), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedOffset = Schema.GetOffset(0xFC774B0C631B7EA);
 
   public CRangeFloat Speed {
-    get => new CRangeFloatImpl(_Handle + _SpeedOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _SpeedOffset);
   }
 
 

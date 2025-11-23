@@ -17,25 +17,25 @@ internal partial class CSequenceUpdateNodeImpl : CSequenceUpdateNodeBaseImpl, CS
   public CSequenceUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0xB5F91396E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0xB5F91396E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0xB5F913963D9FF5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0xB5F913963D9FF5AD);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _ParamSpansOffset = new(() => Schema.GetOffset(0xB5F91396DAC91553), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamSpansOffset = Schema.GetOffset(0xB5F91396DAC91553);
 
   public CParamSpanUpdater ParamSpans {
-    get => new CParamSpanUpdaterImpl(_Handle + _ParamSpansOffset.Value);
+    get => new CParamSpanUpdaterImpl(_Handle + _ParamSpansOffset);
   }
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0xB5F91396B46C8540), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0xB5F91396B46C8540);
 
   public ref CUtlVector<TagSpan_t> Tags {
-    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset);
   }
 
 

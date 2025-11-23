@@ -17,35 +17,35 @@ internal partial class CTurnHelperUpdateNodeImpl : CUnaryUpdateNodeImpl, CTurnHe
   public CTurnHelperUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FacingTargetOffset = new(() => Schema.GetOffset(0xDEC0FADCED73C452), LazyThreadSafetyMode.None);
+  private static readonly nint _FacingTargetOffset = Schema.GetOffset(0xDEC0FADCED73C452);
 
   public ref AnimValueSource FacingTarget {
-    get => ref _Handle.AsRef<AnimValueSource>(_FacingTargetOffset.Value);
+    get => ref _Handle.AsRef<AnimValueSource>(_FacingTargetOffset);
   }
-  private static readonly Lazy<nint> _TurnStartTimeOffsetOffset = new(() => Schema.GetOffset(0xDEC0FADC9A7910D0), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnStartTimeOffsetOffset = Schema.GetOffset(0xDEC0FADC9A7910D0);
 
   public ref float TurnStartTimeOffset {
-    get => ref _Handle.AsRef<float>(_TurnStartTimeOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_TurnStartTimeOffsetOffset);
   }
-  private static readonly Lazy<nint> _TurnDurationOffset = new(() => Schema.GetOffset(0xDEC0FADC879BD946), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnDurationOffset = Schema.GetOffset(0xDEC0FADC879BD946);
 
   public ref float TurnDuration {
-    get => ref _Handle.AsRef<float>(_TurnDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_TurnDurationOffset);
   }
-  private static readonly Lazy<nint> _MatchChildDurationOffset = new(() => Schema.GetOffset(0xDEC0FADC6B6788BC), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchChildDurationOffset = Schema.GetOffset(0xDEC0FADC6B6788BC);
 
   public ref bool MatchChildDuration {
-    get => ref _Handle.AsRef<bool>(_MatchChildDurationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchChildDurationOffset);
   }
-  private static readonly Lazy<nint> _ManualTurnOffsetOffset = new(() => Schema.GetOffset(0xDEC0FADC61F53BBB), LazyThreadSafetyMode.None);
+  private static readonly nint _ManualTurnOffsetOffset = Schema.GetOffset(0xDEC0FADC61F53BBB);
 
   public ref float ManualTurnOffset {
-    get => ref _Handle.AsRef<float>(_ManualTurnOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_ManualTurnOffsetOffset);
   }
-  private static readonly Lazy<nint> _UseManualTurnOffsetOffset = new(() => Schema.GetOffset(0xDEC0FADC9290C2BE), LazyThreadSafetyMode.None);
+  private static readonly nint _UseManualTurnOffsetOffset = Schema.GetOffset(0xDEC0FADC9290C2BE);
 
   public ref bool UseManualTurnOffset {
-    get => ref _Handle.AsRef<bool>(_UseManualTurnOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseManualTurnOffsetOffset);
   }
 
 

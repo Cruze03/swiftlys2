@@ -17,30 +17,30 @@ internal partial class C_OP_ConstrainDistanceImpl : CParticleFunctionConstraintI
   public C_OP_ConstrainDistanceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinDistanceOffset = new(() => Schema.GetOffset(0xDF3E3FA1F016B7AC), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDistanceOffset = Schema.GetOffset(0xDF3E3FA1F016B7AC);
 
   public CParticleCollectionFloatInput MinDistance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MinDistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MinDistanceOffset);
   }
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0xDF3E3FA1844E396A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0xDF3E3FA1844E396A);
 
   public CParticleCollectionFloatInput MaxDistance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxDistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xDF3E3FA13F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xDF3E3FA13F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _CenterOffsetOffset = new(() => Schema.GetOffset(0xDF3E3FA108F7D41F), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOffsetOffset = Schema.GetOffset(0xDF3E3FA108F7D41F);
 
   public ref Vector CenterOffset {
-    get => ref _Handle.AsRef<Vector>(_CenterOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CenterOffsetOffset);
   }
-  private static readonly Lazy<nint> _GlobalCenterOffset = new(() => Schema.GetOffset(0xDF3E3FA1196669C3), LazyThreadSafetyMode.None);
+  private static readonly nint _GlobalCenterOffset = Schema.GetOffset(0xDF3E3FA1196669C3);
 
   public ref bool GlobalCenter {
-    get => ref _Handle.AsRef<bool>(_GlobalCenterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlobalCenterOffset);
   }
 
 

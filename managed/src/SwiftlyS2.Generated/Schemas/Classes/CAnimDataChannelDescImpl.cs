@@ -17,50 +17,50 @@ internal partial class CAnimDataChannelDescImpl : SchemaClass, CAnimDataChannelD
   public CAnimDataChannelDescImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChannelClassOffset = new(() => Schema.GetOffset(0x2D253CFB8F5E9AD5), LazyThreadSafetyMode.None);
+  private static readonly nint _ChannelClassOffset = Schema.GetOffset(0x2D253CFB8F5E9AD5);
 
   public ref CBufferString ChannelClass {
-    get => ref _Handle.AsRef<CBufferString>(_ChannelClassOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_ChannelClassOffset);
   }
-  private static readonly Lazy<nint> _VariableNameOffset = new(() => Schema.GetOffset(0x2D253CFB369599AB), LazyThreadSafetyMode.None);
+  private static readonly nint _VariableNameOffset = Schema.GetOffset(0x2D253CFB369599AB);
 
   public ref CBufferString VariableName {
-    get => ref _Handle.AsRef<CBufferString>(_VariableNameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_VariableNameOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x2D253CFBCE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x2D253CFBCE6E9C28);
 
   public ref int Flags {
-    get => ref _Handle.AsRef<int>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<int>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x2D253CFB18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x2D253CFB18853D59);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _GroupingOffset = new(() => Schema.GetOffset(0x2D253CFB4308F10D), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupingOffset = Schema.GetOffset(0x2D253CFB4308F10D);
 
   public ref CBufferString Grouping {
-    get => ref _Handle.AsRef<CBufferString>(_GroupingOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_GroupingOffset);
   }
-  private static readonly Lazy<nint> _DescriptionOffset = new(() => Schema.GetOffset(0x2D253CFB5BF47182), LazyThreadSafetyMode.None);
+  private static readonly nint _DescriptionOffset = Schema.GetOffset(0x2D253CFB5BF47182);
 
   public ref CBufferString Description {
-    get => ref _Handle.AsRef<CBufferString>(_DescriptionOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_DescriptionOffset);
   }
-  private static readonly Lazy<nint> _ElementNameArrayOffset = new(() => Schema.GetOffset(0x2D253CFBE31652C8), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementNameArrayOffset = Schema.GetOffset(0x2D253CFBE31652C8);
 
   public ref CUtlVector<CBufferString> ElementNameArray {
-    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_ElementNameArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_ElementNameArrayOffset);
   }
-  private static readonly Lazy<nint> _ElementIndexArrayOffset = new(() => Schema.GetOffset(0x2D253CFB3FABC2B2), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementIndexArrayOffset = Schema.GetOffset(0x2D253CFB3FABC2B2);
 
   public ref CUtlVector<int> ElementIndexArray {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_ElementIndexArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_ElementIndexArrayOffset);
   }
-  private static readonly Lazy<nint> _ElementMaskArrayOffset = new(() => Schema.GetOffset(0x2D253CFB5927F764), LazyThreadSafetyMode.None);
+  private static readonly nint _ElementMaskArrayOffset = Schema.GetOffset(0x2D253CFB5927F764);
 
   public ref CUtlVector<uint> ElementMaskArray {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_ElementMaskArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_ElementMaskArrayOffset);
   }
 
 

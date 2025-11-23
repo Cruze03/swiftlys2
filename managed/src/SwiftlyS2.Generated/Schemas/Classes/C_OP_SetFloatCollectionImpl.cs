@@ -17,25 +17,25 @@ internal partial class C_OP_SetFloatCollectionImpl : CParticleFunctionOperatorIm
   public C_OP_SetFloatCollectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueOffset = new(() => Schema.GetOffset(0x72EFBE1734445438), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueOffset = Schema.GetOffset(0x72EFBE1734445438);
 
   public CParticleCollectionFloatInput InputValue {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InputValueOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InputValueOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x72EFBE17324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x72EFBE17324F6F74);
 
   public ParticleAttributeIndex_t OutputField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x72EFBE17FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x72EFBE17FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _LerpOffset = new(() => Schema.GetOffset(0x72EFBE175C17F8E8), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpOffset = Schema.GetOffset(0x72EFBE175C17F8E8);
 
   public CParticleCollectionFloatInput Lerp {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _LerpOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _LerpOffset);
   }
 
 

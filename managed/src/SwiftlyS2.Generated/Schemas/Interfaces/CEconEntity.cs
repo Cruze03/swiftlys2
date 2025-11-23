@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CEconEntity : CBaseFlex, ISchemaClass<CEconEntity> {
 
   static CEconEntity ISchemaClass<CEconEntity>.From(nint handle) => new CEconEntityImpl(handle);
-  static int ISchemaClass<CEconEntity>.Size => 4448;
+  static int ISchemaClass<CEconEntity>.Size => 3664;
   static string? ISchemaClass<CEconEntity>.ClassName => null;
 
   

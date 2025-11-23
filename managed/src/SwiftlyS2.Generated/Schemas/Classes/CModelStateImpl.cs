@@ -17,49 +17,49 @@ internal partial class CModelStateImpl : SchemaClass, CModelState {
   public CModelStateImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0xC0A51C0E100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0xC0A51C0E100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0xC0A51C0D7A1D881), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0xC0A51C0D7A1D881);
 
   public string ModelName {
     get {
-      var ptr = _Handle.Read<nint>(_ModelNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModelNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModelNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModelNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ClientClothCreationSuppressedOffset = new(() => Schema.GetOffset(0xC0A51C0953717E1), LazyThreadSafetyMode.None);
+  private static readonly nint _ClientClothCreationSuppressedOffset = Schema.GetOffset(0xC0A51C0953717E1);
 
   public ref bool ClientClothCreationSuppressed {
-    get => ref _Handle.AsRef<bool>(_ClientClothCreationSuppressedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClientClothCreationSuppressedOffset);
   }
-  private static readonly Lazy<nint> _MeshGroupMaskOffset = new(() => Schema.GetOffset(0xC0A51C009C93F2B), LazyThreadSafetyMode.None);
+  private static readonly nint _MeshGroupMaskOffset = Schema.GetOffset(0xC0A51C009C93F2B);
 
   public ref ulong MeshGroupMask {
-    get => ref _Handle.AsRef<ulong>(_MeshGroupMaskOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_MeshGroupMaskOffset);
   }
-  private static readonly Lazy<nint> _BodyGroupChoicesOffset = new(() => Schema.GetOffset(0xC0A51C02395D0B0), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupChoicesOffset = Schema.GetOffset(0xC0A51C02395D0B0);
 
   public ref CUtlVector<int> BodyGroupChoices {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_BodyGroupChoicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_BodyGroupChoicesOffset);
   }
-  private static readonly Lazy<nint> _IdealMotionTypeOffset = new(() => Schema.GetOffset(0xC0A51C00A904E94), LazyThreadSafetyMode.None);
+  private static readonly nint _IdealMotionTypeOffset = Schema.GetOffset(0xC0A51C00A904E94);
 
   public ref byte IdealMotionType {
-    get => ref _Handle.AsRef<byte>(_IdealMotionTypeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_IdealMotionTypeOffset);
   }
-  private static readonly Lazy<nint> _ForceLODOffset = new(() => Schema.GetOffset(0xC0A51C091D53D5F), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceLODOffset = Schema.GetOffset(0xC0A51C091D53D5F);
 
   public ref byte ForceLOD {
-    get => ref _Handle.AsRef<byte>(_ForceLODOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ForceLODOffset);
   }
-  private static readonly Lazy<nint> _ClothUpdateFlagsOffset = new(() => Schema.GetOffset(0xC0A51C0C74A2B81), LazyThreadSafetyMode.None);
+  private static readonly nint _ClothUpdateFlagsOffset = Schema.GetOffset(0xC0A51C0C74A2B81);
 
   public ref byte ClothUpdateFlags {
-    get => ref _Handle.AsRef<byte>(_ClothUpdateFlagsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ClothUpdateFlagsOffset);
   }
 
   public void ModelUpdated() {

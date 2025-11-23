@@ -17,20 +17,20 @@ internal partial class CTwistConstraintImpl : CBaseConstraintImpl, CTwistConstra
   public CTwistConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InverseOffset = new(() => Schema.GetOffset(0xA3EC320A0DE8C163), LazyThreadSafetyMode.None);
+  private static readonly nint _InverseOffset = Schema.GetOffset(0xA3EC320A0DE8C163);
 
   public ref bool Inverse {
-    get => ref _Handle.AsRef<bool>(_InverseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InverseOffset);
   }
-  private static readonly Lazy<nint> _ParentBindRotationOffset = new(() => Schema.GetOffset(0xA3EC320AE46C74E5), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentBindRotationOffset = Schema.GetOffset(0xA3EC320AE46C74E5);
 
   public ref Quaternion ParentBindRotation {
-    get => ref _Handle.AsRef<Quaternion>(_ParentBindRotationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_ParentBindRotationOffset);
   }
-  private static readonly Lazy<nint> _ChildBindRotationOffset = new(() => Schema.GetOffset(0xA3EC320A0FCDDACB), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildBindRotationOffset = Schema.GetOffset(0xA3EC320A0FCDDACB);
 
   public ref Quaternion ChildBindRotation {
-    get => ref _Handle.AsRef<Quaternion>(_ChildBindRotationOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_ChildBindRotationOffset);
   }
 
 

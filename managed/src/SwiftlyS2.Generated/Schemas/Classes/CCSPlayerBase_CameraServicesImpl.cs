@@ -17,40 +17,40 @@ internal partial class CCSPlayerBase_CameraServicesImpl : CPlayer_CameraServices
   public CCSPlayerBase_CameraServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FOVOffset = new(() => Schema.GetOffset(0x5B25D9023C965687), LazyThreadSafetyMode.None);
+  private static readonly nint _FOVOffset = Schema.GetOffset(0x5B25D9023C965687);
 
   public ref uint FOV {
-    get => ref _Handle.AsRef<uint>(_FOVOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FOVOffset);
   }
-  private static readonly Lazy<nint> _FOVStartOffset = new(() => Schema.GetOffset(0x5B25D902612A684D), LazyThreadSafetyMode.None);
+  private static readonly nint _FOVStartOffset = Schema.GetOffset(0x5B25D902612A684D);
 
   public ref uint FOVStart {
-    get => ref _Handle.AsRef<uint>(_FOVStartOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FOVStartOffset);
   }
-  private static readonly Lazy<nint> _FOVTimeOffset = new(() => Schema.GetOffset(0x5B25D9024B291C67), LazyThreadSafetyMode.None);
+  private static readonly nint _FOVTimeOffset = Schema.GetOffset(0x5B25D9024B291C67);
 
   public GameTime_t FOVTime {
-    get => new GameTime_tImpl(_Handle + _FOVTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FOVTimeOffset);
   }
-  private static readonly Lazy<nint> _FOVRateOffset = new(() => Schema.GetOffset(0x5B25D902A334F8AC), LazyThreadSafetyMode.None);
+  private static readonly nint _FOVRateOffset = Schema.GetOffset(0x5B25D902A334F8AC);
 
   public ref float FOVRate {
-    get => ref _Handle.AsRef<float>(_FOVRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_FOVRateOffset);
   }
-  private static readonly Lazy<nint> _ZoomOwnerOffset = new(() => Schema.GetOffset(0x5B25D902CA6018CF), LazyThreadSafetyMode.None);
+  private static readonly nint _ZoomOwnerOffset = Schema.GetOffset(0x5B25D902CA6018CF);
 
   public ref CHandle<CBaseEntity> ZoomOwner {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ZoomOwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ZoomOwnerOffset);
   }
-  private static readonly Lazy<nint> _TriggerFogListOffset = new(() => Schema.GetOffset(0x5B25D902AAF6ED5B), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerFogListOffset = Schema.GetOffset(0x5B25D902AAF6ED5B);
 
   public ref CUtlVector<CHandle<CBaseEntity>> TriggerFogList {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_TriggerFogListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_TriggerFogListOffset);
   }
-  private static readonly Lazy<nint> _LastFogTriggerOffset = new(() => Schema.GetOffset(0x5B25D90218A86E0F), LazyThreadSafetyMode.None);
+  private static readonly nint _LastFogTriggerOffset = Schema.GetOffset(0x5B25D90218A86E0F);
 
   public ref CHandle<CBaseEntity> LastFogTrigger {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LastFogTriggerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LastFogTriggerOffset);
   }
 
   public void FOVUpdated() {

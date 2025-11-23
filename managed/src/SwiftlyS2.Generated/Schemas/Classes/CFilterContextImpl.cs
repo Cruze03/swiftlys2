@@ -17,14 +17,14 @@ internal partial class CFilterContextImpl : CBaseFilterImpl, CFilterContext {
   public CFilterContextImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FilterContextOffset = new(() => Schema.GetOffset(0xA9DA7EEFF90438D1), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterContextOffset = Schema.GetOffset(0xA9DA7EEFF90438D1);
 
   public string FilterContext {
     get {
-      var ptr = _Handle.Read<nint>(_FilterContextOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterContextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterContextOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterContextOffset, value);
   } 
 
 

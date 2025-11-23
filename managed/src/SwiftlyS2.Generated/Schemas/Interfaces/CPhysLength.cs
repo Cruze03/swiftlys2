@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysLength : CPhysConstraint, ISchemaClass<CPhysLength> {
 
   static CPhysLength ISchemaClass<CPhysLength>.From(nint handle) => new CPhysLengthImpl(handle);
-  static int ISchemaClass<CPhysLength>.Size => 2176;
+  static int ISchemaClass<CPhysLength>.Size => 1432;
   static string? ISchemaClass<CPhysLength>.ClassName => "phys_lengthconstraint";
 
   

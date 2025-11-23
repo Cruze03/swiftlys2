@@ -17,25 +17,25 @@ internal partial class C_OP_HSVShiftToCPImpl : CParticleFunctionPreEmissionImpl,
   public C_OP_HSVShiftToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorCPOffset = new(() => Schema.GetOffset(0xA6FD1F901D3D233F), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorCPOffset = Schema.GetOffset(0xA6FD1F901D3D233F);
 
   public ref int ColorCP {
-    get => ref _Handle.AsRef<int>(_ColorCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_ColorCPOffset);
   }
-  private static readonly Lazy<nint> _ColorGemEnableCPOffset = new(() => Schema.GetOffset(0xA6FD1F907B5C2B7F), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorGemEnableCPOffset = Schema.GetOffset(0xA6FD1F907B5C2B7F);
 
   public ref int ColorGemEnableCP {
-    get => ref _Handle.AsRef<int>(_ColorGemEnableCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_ColorGemEnableCPOffset);
   }
-  private static readonly Lazy<nint> _OutputCPOffset = new(() => Schema.GetOffset(0xA6FD1F9050DF5703), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputCPOffset = Schema.GetOffset(0xA6FD1F9050DF5703);
 
   public ref int OutputCP {
-    get => ref _Handle.AsRef<int>(_OutputCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputCPOffset);
   }
-  private static readonly Lazy<nint> _DefaultHSVColorOffset = new(() => Schema.GetOffset(0xA6FD1F90A7EFB0DE), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultHSVColorOffset = Schema.GetOffset(0xA6FD1F90A7EFB0DE);
 
   public ref Color DefaultHSVColor {
-    get => ref _Handle.AsRef<Color>(_DefaultHSVColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_DefaultHSVColorOffset);
   }
 
 

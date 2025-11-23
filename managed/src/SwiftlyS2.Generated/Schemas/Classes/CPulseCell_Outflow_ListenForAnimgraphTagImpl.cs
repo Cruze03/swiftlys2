@@ -17,25 +17,25 @@ internal partial class CPulseCell_Outflow_ListenForAnimgraphTagImpl : CPulseCell
   public CPulseCell_Outflow_ListenForAnimgraphTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnStartOffset = new(() => Schema.GetOffset(0xAD79BF78C3FE848C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartOffset = Schema.GetOffset(0xAD79BF78C3FE848C);
 
   public CPulse_ResumePoint OnStart {
-    get => new CPulse_ResumePointImpl(_Handle + _OnStartOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnStartOffset);
   }
-  private static readonly Lazy<nint> _OnEndOffset = new(() => Schema.GetOffset(0xAD79BF78B88A4375), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEndOffset = Schema.GetOffset(0xAD79BF78B88A4375);
 
   public CPulse_ResumePoint OnEnd {
-    get => new CPulse_ResumePointImpl(_Handle + _OnEndOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnEndOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0xAD79BF78F02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0xAD79BF78F02162DB);
 
   public CPulse_ResumePoint OnCanceled {
-    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnCanceledOffset);
   }
-  private static readonly Lazy<nint> _TagNameOffset = new(() => Schema.GetOffset(0xAD79BF78647DC278), LazyThreadSafetyMode.None);
+  private static readonly nint _TagNameOffset = Schema.GetOffset(0xAD79BF78647DC278);
 
   public ref CGlobalSymbol TagName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_TagNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_TagNameOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class CPhysicsShakeImpl : SchemaClass, CPhysicsShake {
   public CPhysicsShakeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ForceOffset = new(() => Schema.GetOffset(0x904CE6CFB9B6AFA4), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceOffset = Schema.GetOffset(0x904CE6CFB9B6AFA4);
 
   public ref Vector Force {
-    get => ref _Handle.AsRef<Vector>(_ForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForceOffset);
   }
 
 

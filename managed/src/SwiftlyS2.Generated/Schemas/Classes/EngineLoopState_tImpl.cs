@@ -17,25 +17,25 @@ internal partial class EngineLoopState_tImpl : SchemaClass, EngineLoopState_t {
   public EngineLoopState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlatWindowWidthOffset = new(() => Schema.GetOffset(0x8A7EC4513AF18278), LazyThreadSafetyMode.None);
+  private static readonly nint _PlatWindowWidthOffset = Schema.GetOffset(0x8A7EC4513AF18278);
 
   public ref int PlatWindowWidth {
-    get => ref _Handle.AsRef<int>(_PlatWindowWidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_PlatWindowWidthOffset);
   }
-  private static readonly Lazy<nint> _PlatWindowHeightOffset = new(() => Schema.GetOffset(0x8A7EC45157A7B88F), LazyThreadSafetyMode.None);
+  private static readonly nint _PlatWindowHeightOffset = Schema.GetOffset(0x8A7EC45157A7B88F);
 
   public ref int PlatWindowHeight {
-    get => ref _Handle.AsRef<int>(_PlatWindowHeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_PlatWindowHeightOffset);
   }
-  private static readonly Lazy<nint> _RenderWidthOffset = new(() => Schema.GetOffset(0x8A7EC45179B0DC63), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderWidthOffset = Schema.GetOffset(0x8A7EC45179B0DC63);
 
   public ref int RenderWidth {
-    get => ref _Handle.AsRef<int>(_RenderWidthOffset.Value);
+    get => ref _Handle.AsRef<int>(_RenderWidthOffset);
   }
-  private static readonly Lazy<nint> _RenderHeightOffset = new(() => Schema.GetOffset(0x8A7EC451A184E51E), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderHeightOffset = Schema.GetOffset(0x8A7EC451A184E51E);
 
   public ref int RenderHeight {
-    get => ref _Handle.AsRef<int>(_RenderHeightOffset.Value);
+    get => ref _Handle.AsRef<int>(_RenderHeightOffset);
   }
 
 

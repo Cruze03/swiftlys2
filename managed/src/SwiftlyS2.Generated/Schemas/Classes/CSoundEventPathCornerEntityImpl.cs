@@ -17,44 +17,44 @@ internal partial class CSoundEventPathCornerEntityImpl : CSoundEventEntityImpl, 
   public CSoundEventPathCornerEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PathCornerOffset = new(() => Schema.GetOffset(0x9EED262E0243CF47), LazyThreadSafetyMode.None);
+  private static readonly nint _PathCornerOffset = Schema.GetOffset(0x9EED262E0243CF47);
 
   public string PathCorner {
     get {
-      var ptr = _Handle.Read<nint>(_PathCornerOffset.Value);
+      var ptr = _Handle.Read<nint>(_PathCornerOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PathCornerOffset.Value, value);
+    set => Schema.SetString(_Handle, _PathCornerOffset, value);
   } 
-  private static readonly Lazy<nint> _CountMaxOffset = new(() => Schema.GetOffset(0x9EED262E6A1AD493), LazyThreadSafetyMode.None);
+  private static readonly nint _CountMaxOffset = Schema.GetOffset(0x9EED262E6A1AD493);
 
   public ref int CountMax {
-    get => ref _Handle.AsRef<int>(_CountMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_CountMaxOffset);
   }
-  private static readonly Lazy<nint> _DistanceMaxOffset = new(() => Schema.GetOffset(0x9EED262EFDEBADA6), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceMaxOffset = Schema.GetOffset(0x9EED262EFDEBADA6);
 
   public ref float DistanceMax {
-    get => ref _Handle.AsRef<float>(_DistanceMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceMaxOffset);
   }
-  private static readonly Lazy<nint> _DistMaxSqrOffset = new(() => Schema.GetOffset(0x9EED262E993EE3BF), LazyThreadSafetyMode.None);
+  private static readonly nint _DistMaxSqrOffset = Schema.GetOffset(0x9EED262E993EE3BF);
 
   public ref float DistMaxSqr {
-    get => ref _Handle.AsRef<float>(_DistMaxSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistMaxSqrOffset);
   }
-  private static readonly Lazy<nint> _DotProductMaxOffset = new(() => Schema.GetOffset(0x9EED262EF9DEDD1D), LazyThreadSafetyMode.None);
+  private static readonly nint _DotProductMaxOffset = Schema.GetOffset(0x9EED262EF9DEDD1D);
 
   public ref float DotProductMax {
-    get => ref _Handle.AsRef<float>(_DotProductMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_DotProductMaxOffset);
   }
-  private static readonly Lazy<nint> _PlayingOffset = new(() => Schema.GetOffset(0x9EED262E4B594215), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayingOffset = Schema.GetOffset(0x9EED262E4B594215);
 
   public ref bool Playing {
-    get => ref _Handle.AsRef<bool>(_PlayingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayingOffset);
   }
-  private static readonly Lazy<nint> _CornerPairsNetworkedOffset = new(() => Schema.GetOffset(0x9EED262E4C7A9B2C), LazyThreadSafetyMode.None);
+  private static readonly nint _CornerPairsNetworkedOffset = Schema.GetOffset(0x9EED262E4C7A9B2C);
 
   public ref CUtlVector<SoundeventPathCornerPairNetworked_t> CornerPairsNetworked {
-    get => ref _Handle.AsRef<CUtlVector<SoundeventPathCornerPairNetworked_t>>(_CornerPairsNetworkedOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SoundeventPathCornerPairNetworked_t>>(_CornerPairsNetworkedOffset);
   }
 
   public void CornerPairsNetworkedUpdated() {

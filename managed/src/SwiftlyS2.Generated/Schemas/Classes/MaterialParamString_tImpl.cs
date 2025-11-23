@@ -17,14 +17,14 @@ internal partial class MaterialParamString_tImpl : MaterialParam_tImpl, Material
   public MaterialParamString_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xDB5EB0676B99AEEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xDB5EB0676B99AEEA);
 
   public string Value {
     get {
-      var ptr = _Handle.Read<nint>(_ValueOffset.Value);
+      var ptr = _Handle.Read<nint>(_ValueOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ValueOffset.Value, value);
+    set => Schema.SetString(_Handle, _ValueOffset, value);
   } 
 
 

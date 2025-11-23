@@ -17,25 +17,25 @@ internal partial class CDestructiblePartsComponentImpl : SchemaClass, CDestructi
   public CDestructiblePartsComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> ___m_pChainEntityOffset = new(() => Schema.GetOffset(0xE69A9E51F63F0E7D), LazyThreadSafetyMode.None);
+  private static readonly nint ___m_pChainEntityOffset = Schema.GetOffset(0xE69A9E51F63F0E7D);
 
   public ref CNetworkVarChainer __m_pChainEntity {
-    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset.Value);
+    get => ref _Handle.AsRef<CNetworkVarChainer>(___m_pChainEntityOffset);
   }
-  private static readonly Lazy<nint> _DamageTakenByHitGroupOffset = new(() => Schema.GetOffset(0xE69A9E51F137427A), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageTakenByHitGroupOffset = Schema.GetOffset(0xE69A9E51F137427A);
 
   public ref CUtlVector<ushort> DamageTakenByHitGroup {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_DamageTakenByHitGroupOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_DamageTakenByHitGroupOffset);
   }
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0xE69A9E51F6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0xE69A9E51F6D89572);
 
   public ref CHandle<CBaseModelEntity> Owner {
-    get => ref _Handle.AsRef<CHandle<CBaseModelEntity>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseModelEntity>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _LastHitDamageLevelOffset = new(() => Schema.GetOffset(0xE69A9E51042B0657), LazyThreadSafetyMode.None);
+  private static readonly nint _LastHitDamageLevelOffset = Schema.GetOffset(0xE69A9E51042B0657);
 
   public ref int LastHitDamageLevel {
-    get => ref _Handle.AsRef<int>(_LastHitDamageLevelOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastHitDamageLevelOffset);
   }
 
   public void OwnerUpdated() {

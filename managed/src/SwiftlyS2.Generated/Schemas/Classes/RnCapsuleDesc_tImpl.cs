@@ -17,10 +17,10 @@ internal partial class RnCapsuleDesc_tImpl : RnShapeDesc_tImpl, RnCapsuleDesc_t 
   public RnCapsuleDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CapsuleOffset = new(() => Schema.GetOffset(0x842345E29A32484C), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleOffset = Schema.GetOffset(0x842345E29A32484C);
 
   public RnCapsule_t Capsule {
-    get => new RnCapsule_tImpl(_Handle + _CapsuleOffset.Value);
+    get => new RnCapsule_tImpl(_Handle + _CapsuleOffset);
   }
 
 

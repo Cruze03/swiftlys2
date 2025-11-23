@@ -17,52 +17,52 @@ internal partial class CAnimParameterBaseImpl : SchemaClass, CAnimParameterBase 
   public CAnimParameterBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x9E097C8F4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x9E097C8F4D8F5786);
 
   public ref CGlobalSymbol Name {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset);
   }
-  private static readonly Lazy<nint> _CommentOffset = new(() => Schema.GetOffset(0x9E097C8F88A0B4DF), LazyThreadSafetyMode.None);
+  private static readonly nint _CommentOffset = Schema.GetOffset(0x9E097C8F88A0B4DF);
 
   public string Comment {
     get {
-      var ptr = _Handle.Read<nint>(_CommentOffset.Value);
+      var ptr = _Handle.Read<nint>(_CommentOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CommentOffset.Value, value);
+    set => Schema.SetString(_Handle, _CommentOffset, value);
   } 
-  private static readonly Lazy<nint> _GroupOffset = new(() => Schema.GetOffset(0x9E097C8F9FC645AC), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupOffset = Schema.GetOffset(0x9E097C8F9FC645AC);
 
   public string Group {
     get {
-      var ptr = _Handle.Read<nint>(_GroupOffset.Value);
+      var ptr = _Handle.Read<nint>(_GroupOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GroupOffset.Value, value);
+    set => Schema.SetString(_Handle, _GroupOffset, value);
   } 
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0x9E097C8FB4B6E980), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0x9E097C8FB4B6E980);
 
   public AnimParamID Id {
-    get => new AnimParamIDImpl(_Handle + _IdOffset.Value);
+    get => new AnimParamIDImpl(_Handle + _IdOffset);
   }
-  private static readonly Lazy<nint> _ComponentNameOffset = new(() => Schema.GetOffset(0x9E097C8F7CAC3EA3), LazyThreadSafetyMode.None);
+  private static readonly nint _ComponentNameOffset = Schema.GetOffset(0x9E097C8F7CAC3EA3);
 
   public string ComponentName {
     get {
-      var ptr = _Handle.Read<nint>(_ComponentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ComponentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ComponentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ComponentNameOffset, value);
   } 
-  private static readonly Lazy<nint> _NetworkingRequestedOffset = new(() => Schema.GetOffset(0x9E097C8FE57548D5), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkingRequestedOffset = Schema.GetOffset(0x9E097C8FE57548D5);
 
   public ref bool NetworkingRequested {
-    get => ref _Handle.AsRef<bool>(_NetworkingRequestedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NetworkingRequestedOffset);
   }
-  private static readonly Lazy<nint> _IsReferencedOffset = new(() => Schema.GetOffset(0x9E097C8FCEABFB2A), LazyThreadSafetyMode.None);
+  private static readonly nint _IsReferencedOffset = Schema.GetOffset(0x9E097C8FCEABFB2A);
 
   public ref bool IsReferenced {
-    get => ref _Handle.AsRef<bool>(_IsReferencedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsReferencedOffset);
   }
 
 

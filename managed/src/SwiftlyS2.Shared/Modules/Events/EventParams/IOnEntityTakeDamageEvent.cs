@@ -21,6 +21,11 @@ public interface IOnEntityTakeDamageEvent
   public ref CTakeDamageInfo Info { get; }
 
   /// <summary>
+  /// The damage result.
+  /// </summary>
+  public ref CTakeDamageResult DamageResult { get; }
+
+  /// <summary>
   /// If return <see cref="HookResult.Stop"/>, the damage will not be applied.
   /// </summary>
   public HookResult Result { get; set; }

@@ -17,10 +17,10 @@ internal partial class CModelConfigElement_SetRenderColorImpl : CModelConfigElem
   public CModelConfigElement_SetRenderColorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x4B560F27D7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x4B560F27D7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
 
 

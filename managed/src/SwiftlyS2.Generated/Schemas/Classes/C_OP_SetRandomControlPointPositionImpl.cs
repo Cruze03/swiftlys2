@@ -17,45 +17,45 @@ internal partial class C_OP_SetRandomControlPointPositionImpl : CParticleFunctio
   public C_OP_SetRandomControlPointPositionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseWorldLocationOffset = new(() => Schema.GetOffset(0x4E797BEAF371AED7), LazyThreadSafetyMode.None);
+  private static readonly nint _UseWorldLocationOffset = Schema.GetOffset(0x4E797BEAF371AED7);
 
   public ref bool UseWorldLocation {
-    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseWorldLocationOffset);
   }
-  private static readonly Lazy<nint> _OrientOffset = new(() => Schema.GetOffset(0x4E797BEA7CD61854), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientOffset = Schema.GetOffset(0x4E797BEA7CD61854);
 
   public ref bool Orient {
-    get => ref _Handle.AsRef<bool>(_OrientOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientOffset);
   }
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0x4E797BEAD4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0x4E797BEAD4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _HeadLocationOffset = new(() => Schema.GetOffset(0x4E797BEAA8ECDA78), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadLocationOffset = Schema.GetOffset(0x4E797BEAA8ECDA78);
 
   public ref int HeadLocation {
-    get => ref _Handle.AsRef<int>(_HeadLocationOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadLocationOffset);
   }
-  private static readonly Lazy<nint> _ReRandomRateOffset = new(() => Schema.GetOffset(0x4E797BEA98F44A13), LazyThreadSafetyMode.None);
+  private static readonly nint _ReRandomRateOffset = Schema.GetOffset(0x4E797BEA98F44A13);
 
   public CParticleCollectionFloatInput ReRandomRate {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ReRandomRateOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ReRandomRateOffset);
   }
-  private static readonly Lazy<nint> _CPMinPosOffset = new(() => Schema.GetOffset(0x4E797BEA4E9C9B68), LazyThreadSafetyMode.None);
+  private static readonly nint _CPMinPosOffset = Schema.GetOffset(0x4E797BEA4E9C9B68);
 
   public ref Vector CPMinPos {
-    get => ref _Handle.AsRef<Vector>(_CPMinPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CPMinPosOffset);
   }
-  private static readonly Lazy<nint> _CPMaxPosOffset = new(() => Schema.GetOffset(0x4E797BEA4FFBFD72), LazyThreadSafetyMode.None);
+  private static readonly nint _CPMaxPosOffset = Schema.GetOffset(0x4E797BEA4FFBFD72);
 
   public ref Vector CPMaxPos {
-    get => ref _Handle.AsRef<Vector>(_CPMaxPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CPMaxPosOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0x4E797BEACF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0x4E797BEACF55B987);
 
   public CParticleCollectionFloatInput Interpolation {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset);
   }
 
 

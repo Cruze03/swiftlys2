@@ -17,55 +17,55 @@ internal partial class CEntityDissolveImpl : CBaseModelEntityImpl, CEntityDissol
   public CEntityDissolveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeInStartOffset = new(() => Schema.GetOffset(0x443F205EF5AD2D6A), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInStartOffset = Schema.GetOffset(0x443F205EF5AD2D6A);
 
   public ref float FadeInStart {
-    get => ref _Handle.AsRef<float>(_FadeInStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInStartOffset);
   }
-  private static readonly Lazy<nint> _FadeInLengthOffset = new(() => Schema.GetOffset(0x443F205E74538EE6), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInLengthOffset = Schema.GetOffset(0x443F205E74538EE6);
 
   public ref float FadeInLength {
-    get => ref _Handle.AsRef<float>(_FadeInLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInLengthOffset);
   }
-  private static readonly Lazy<nint> _FadeOutModelStartOffset = new(() => Schema.GetOffset(0x443F205E9C8AC6F4), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutModelStartOffset = Schema.GetOffset(0x443F205E9C8AC6F4);
 
   public ref float FadeOutModelStart {
-    get => ref _Handle.AsRef<float>(_FadeOutModelStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutModelStartOffset);
   }
-  private static readonly Lazy<nint> _FadeOutModelLengthOffset = new(() => Schema.GetOffset(0x443F205E6FC0EC34), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutModelLengthOffset = Schema.GetOffset(0x443F205E6FC0EC34);
 
   public ref float FadeOutModelLength {
-    get => ref _Handle.AsRef<float>(_FadeOutModelLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutModelLengthOffset);
   }
-  private static readonly Lazy<nint> _FadeOutStartOffset = new(() => Schema.GetOffset(0x443F205E3F5B2209), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutStartOffset = Schema.GetOffset(0x443F205E3F5B2209);
 
   public ref float FadeOutStart {
-    get => ref _Handle.AsRef<float>(_FadeOutStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutStartOffset);
   }
-  private static readonly Lazy<nint> _FadeOutLengthOffset = new(() => Schema.GetOffset(0x443F205E9D0749A3), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutLengthOffset = Schema.GetOffset(0x443F205E9D0749A3);
 
   public ref float FadeOutLength {
-    get => ref _Handle.AsRef<float>(_FadeOutLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutLengthOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x443F205E67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x443F205E67FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _DissolveTypeOffset = new(() => Schema.GetOffset(0x443F205E79AB525E), LazyThreadSafetyMode.None);
+  private static readonly nint _DissolveTypeOffset = Schema.GetOffset(0x443F205E79AB525E);
 
   public ref EntityDisolveType_t DissolveType {
-    get => ref _Handle.AsRef<EntityDisolveType_t>(_DissolveTypeOffset.Value);
+    get => ref _Handle.AsRef<EntityDisolveType_t>(_DissolveTypeOffset);
   }
-  private static readonly Lazy<nint> _DissolverOriginOffset = new(() => Schema.GetOffset(0x443F205E34A16EE6), LazyThreadSafetyMode.None);
+  private static readonly nint _DissolverOriginOffset = Schema.GetOffset(0x443F205E34A16EE6);
 
   public ref Vector DissolverOrigin {
-    get => ref _Handle.AsRef<Vector>(_DissolverOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DissolverOriginOffset);
   }
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x443F205E0C71BDF1), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x443F205E0C71BDF1);
 
   public ref uint Magnitude {
-    get => ref _Handle.AsRef<uint>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_MagnitudeOffset);
   }
 
   public void FadeInStartUpdated() {

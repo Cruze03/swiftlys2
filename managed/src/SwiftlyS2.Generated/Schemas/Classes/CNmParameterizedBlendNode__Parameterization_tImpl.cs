@@ -17,15 +17,15 @@ internal partial class CNmParameterizedBlendNode__Parameterization_tImpl : Schem
   public CNmParameterizedBlendNode__Parameterization_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BlendRangesOffset = new(() => Schema.GetOffset(0xD342D3196DA1C61A), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendRangesOffset = Schema.GetOffset(0xD342D3196DA1C61A);
 
   public SchemaUntypedField BlendRanges {
-    get => new SchemaUntypedField(_Handle + _BlendRangesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BlendRangesOffset);
   }
-  private static readonly Lazy<nint> _ParameterRangeOffset = new(() => Schema.GetOffset(0xD342D319E7E71E25), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterRangeOffset = Schema.GetOffset(0xD342D319E7E71E25);
 
   public SchemaUntypedField ParameterRange {
-    get => new SchemaUntypedField(_Handle + _ParameterRangeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParameterRangeOffset);
   }
 
 

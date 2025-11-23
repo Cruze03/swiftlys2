@@ -17,10 +17,10 @@ internal partial class PointDefinitionWithTimeValues_tImpl : PointDefinition_tIm
   public PointDefinitionWithTimeValues_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TimeDurationOffset = new(() => Schema.GetOffset(0xF2BE4F108B84C052), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeDurationOffset = Schema.GetOffset(0xF2BE4F108B84C052);
 
   public ref float TimeDuration {
-    get => ref _Handle.AsRef<float>(_TimeDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeDurationOffset);
   }
 
 

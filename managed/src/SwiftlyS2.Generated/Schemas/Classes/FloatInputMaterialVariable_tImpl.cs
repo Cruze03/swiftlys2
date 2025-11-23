@@ -17,19 +17,19 @@ internal partial class FloatInputMaterialVariable_tImpl : SchemaClass, FloatInpu
   public FloatInputMaterialVariable_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrVariableOffset = new(() => Schema.GetOffset(0xEFEA50FDA52C3390), LazyThreadSafetyMode.None);
+  private static readonly nint _StrVariableOffset = Schema.GetOffset(0xEFEA50FDA52C3390);
 
   public string StrVariable {
     get {
-      var ptr = _Handle.Read<nint>(_StrVariableOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrVariableOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrVariableOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrVariableOffset, value);
   } 
-  private static readonly Lazy<nint> _InputOffset = new(() => Schema.GetOffset(0xEFEA50FD1D4B7FFD), LazyThreadSafetyMode.None);
+  private static readonly nint _InputOffset = Schema.GetOffset(0xEFEA50FD1D4B7FFD);
 
   public CParticleCollectionFloatInput Input {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InputOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InputOffset);
   }
 
 

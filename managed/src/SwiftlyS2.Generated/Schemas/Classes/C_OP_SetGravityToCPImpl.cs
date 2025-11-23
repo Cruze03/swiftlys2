@@ -17,30 +17,30 @@ internal partial class C_OP_SetGravityToCPImpl : CParticleFunctionPreEmissionImp
   public C_OP_SetGravityToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPInputOffset = new(() => Schema.GetOffset(0xBA369CBDFB805736), LazyThreadSafetyMode.None);
+  private static readonly nint _CPInputOffset = Schema.GetOffset(0xBA369CBDFB805736);
 
   public ref int CPInput {
-    get => ref _Handle.AsRef<int>(_CPInputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPInputOffset);
   }
-  private static readonly Lazy<nint> _CPOutputOffset = new(() => Schema.GetOffset(0xBA369CBD2077C953), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputOffset = Schema.GetOffset(0xBA369CBD2077C953);
 
   public ref int CPOutput {
-    get => ref _Handle.AsRef<int>(_CPOutputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xBA369CBDB731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xBA369CBDB731A42F);
 
   public CParticleCollectionFloatInput Scale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _SetOrientationOffset = new(() => Schema.GetOffset(0xBA369CBDE1390E37), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOrientationOffset = Schema.GetOffset(0xBA369CBDE1390E37);
 
   public ref bool SetOrientation {
-    get => ref _Handle.AsRef<bool>(_SetOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOrientationOffset);
   }
-  private static readonly Lazy<nint> _SetZDownOffset = new(() => Schema.GetOffset(0xBA369CBDE2673E97), LazyThreadSafetyMode.None);
+  private static readonly nint _SetZDownOffset = Schema.GetOffset(0xBA369CBDE2673E97);
 
   public ref bool SetZDown {
-    get => ref _Handle.AsRef<bool>(_SetZDownOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetZDownOffset);
   }
 
 

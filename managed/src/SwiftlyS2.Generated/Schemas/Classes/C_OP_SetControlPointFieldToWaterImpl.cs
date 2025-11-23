@@ -17,20 +17,20 @@ internal partial class C_OP_SetControlPointFieldToWaterImpl : CParticleFunctionP
   public C_OP_SetControlPointFieldToWaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceCPOffset = new(() => Schema.GetOffset(0x77BA8CA24C01E3B7), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceCPOffset = Schema.GetOffset(0x77BA8CA24C01E3B7);
 
   public ref int SourceCP {
-    get => ref _Handle.AsRef<int>(_SourceCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_SourceCPOffset);
   }
-  private static readonly Lazy<nint> _DestCPOffset = new(() => Schema.GetOffset(0x77BA8CA2E27355DA), LazyThreadSafetyMode.None);
+  private static readonly nint _DestCPOffset = Schema.GetOffset(0x77BA8CA2E27355DA);
 
   public ref int DestCP {
-    get => ref _Handle.AsRef<int>(_DestCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_DestCPOffset);
   }
-  private static readonly Lazy<nint> _CPFieldOffset = new(() => Schema.GetOffset(0x77BA8CA250B79876), LazyThreadSafetyMode.None);
+  private static readonly nint _CPFieldOffset = Schema.GetOffset(0x77BA8CA250B79876);
 
   public ref int CPField {
-    get => ref _Handle.AsRef<int>(_CPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPFieldOffset);
   }
 
 

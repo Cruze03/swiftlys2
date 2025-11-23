@@ -17,40 +17,40 @@ internal partial class JiggleBoneSettings_tImpl : SchemaClass, JiggleBoneSetting
   public JiggleBoneSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0xBEFF05219F407B79), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0xBEFF05219F407B79);
 
   public ref int BoneIndex {
-    get => ref _Handle.AsRef<int>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _SpringStrengthOffset = new(() => Schema.GetOffset(0xBEFF0521595D254F), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringStrengthOffset = Schema.GetOffset(0xBEFF0521595D254F);
 
   public ref float SpringStrength {
-    get => ref _Handle.AsRef<float>(_SpringStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpringStrengthOffset);
   }
-  private static readonly Lazy<nint> _MaxTimeStepOffset = new(() => Schema.GetOffset(0xBEFF052177D1E0C4), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTimeStepOffset = Schema.GetOffset(0xBEFF052177D1E0C4);
 
   public ref float MaxTimeStep {
-    get => ref _Handle.AsRef<float>(_MaxTimeStepOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxTimeStepOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0xBEFF0521AAC624EB), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0xBEFF0521AAC624EB);
 
   public ref float Damping {
-    get => ref _Handle.AsRef<float>(_DampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_DampingOffset);
   }
-  private static readonly Lazy<nint> _BoundsMaxLSOffset = new(() => Schema.GetOffset(0xBEFF0521ABADA913), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundsMaxLSOffset = Schema.GetOffset(0xBEFF0521ABADA913);
 
   public ref Vector BoundsMaxLS {
-    get => ref _Handle.AsRef<Vector>(_BoundsMaxLSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoundsMaxLSOffset);
   }
-  private static readonly Lazy<nint> _BoundsMinLSOffset = new(() => Schema.GetOffset(0xBEFF0521FF607855), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundsMinLSOffset = Schema.GetOffset(0xBEFF0521FF607855);
 
   public ref Vector BoundsMinLS {
-    get => ref _Handle.AsRef<Vector>(_BoundsMinLSOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoundsMinLSOffset);
   }
-  private static readonly Lazy<nint> _SimSpaceOffset = new(() => Schema.GetOffset(0xBEFF052186872533), LazyThreadSafetyMode.None);
+  private static readonly nint _SimSpaceOffset = Schema.GetOffset(0xBEFF052186872533);
 
   public ref JiggleBoneSimSpace SimSpace {
-    get => ref _Handle.AsRef<JiggleBoneSimSpace>(_SimSpaceOffset.Value);
+    get => ref _Handle.AsRef<JiggleBoneSimSpace>(_SimSpaceOffset);
   }
 
 

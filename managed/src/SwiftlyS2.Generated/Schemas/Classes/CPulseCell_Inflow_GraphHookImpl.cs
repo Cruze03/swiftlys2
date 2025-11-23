@@ -17,10 +17,10 @@ internal partial class CPulseCell_Inflow_GraphHookImpl : CPulseCell_Inflow_BaseE
   public CPulseCell_Inflow_GraphHookImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HookNameOffset = new(() => Schema.GetOffset(0xEA4B2E6FA19F4D11), LazyThreadSafetyMode.None);
+  private static readonly nint _HookNameOffset = Schema.GetOffset(0xEA4B2E6FA19F4D11);
 
   public SchemaUntypedField HookName {
-    get => new SchemaUntypedField(_Handle + _HookNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _HookNameOffset);
   }
 
 

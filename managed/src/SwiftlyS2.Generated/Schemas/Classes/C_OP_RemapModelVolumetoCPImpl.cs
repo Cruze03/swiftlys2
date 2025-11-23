@@ -17,60 +17,60 @@ internal partial class C_OP_RemapModelVolumetoCPImpl : CParticleFunctionPreEmiss
   public C_OP_RemapModelVolumetoCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BBoxTypeOffset = new(() => Schema.GetOffset(0x5F3AA677780A22F6), LazyThreadSafetyMode.None);
+  private static readonly nint _BBoxTypeOffset = Schema.GetOffset(0x5F3AA677780A22F6);
 
   public ref BBoxVolumeType_t BBoxType {
-    get => ref _Handle.AsRef<BBoxVolumeType_t>(_BBoxTypeOffset.Value);
+    get => ref _Handle.AsRef<BBoxVolumeType_t>(_BBoxTypeOffset);
   }
-  private static readonly Lazy<nint> _InControlPointNumberOffset = new(() => Schema.GetOffset(0x5F3AA677E7CB99DE), LazyThreadSafetyMode.None);
+  private static readonly nint _InControlPointNumberOffset = Schema.GetOffset(0x5F3AA677E7CB99DE);
 
   public ref int InControlPointNumber {
-    get => ref _Handle.AsRef<int>(_InControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_InControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _OutControlPointNumberOffset = new(() => Schema.GetOffset(0x5F3AA677D021D73F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutControlPointNumberOffset = Schema.GetOffset(0x5F3AA677D021D73F);
 
   public ref int OutControlPointNumber {
-    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _OutControlPointMaxNumberOffset = new(() => Schema.GetOffset(0x5F3AA677420C1A45), LazyThreadSafetyMode.None);
+  private static readonly nint _OutControlPointMaxNumberOffset = Schema.GetOffset(0x5F3AA677420C1A45);
 
   public ref int OutControlPointMaxNumber {
-    get => ref _Handle.AsRef<int>(_OutControlPointMaxNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutControlPointMaxNumberOffset);
   }
-  private static readonly Lazy<nint> _FieldOffset = new(() => Schema.GetOffset(0x5F3AA677C257B93B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOffset = Schema.GetOffset(0x5F3AA677C257B93B);
 
   public ref int Field {
-    get => ref _Handle.AsRef<int>(_FieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_FieldOffset);
   }
-  private static readonly Lazy<nint> _InputMinOffset = new(() => Schema.GetOffset(0x5F3AA677E88A0D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMinOffset = Schema.GetOffset(0x5F3AA677E88A0D0F);
 
   public ref float InputMin {
-    get => ref _Handle.AsRef<float>(_InputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMinOffset);
   }
-  private static readonly Lazy<nint> _InputMaxOffset = new(() => Schema.GetOffset(0x5F3AA677D6766901), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMaxOffset = Schema.GetOffset(0x5F3AA677D6766901);
 
   public ref float InputMax {
-    get => ref _Handle.AsRef<float>(_InputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMaxOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x5F3AA6775F8D7716), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x5F3AA6775F8D7716);
 
   public ref float OutputMin {
-    get => ref _Handle.AsRef<float>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x5F3AA67751A0E8C4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x5F3AA67751A0E8C4);
 
   public ref float OutputMax {
-    get => ref _Handle.AsRef<float>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _BBoxOnlyOffset = new(() => Schema.GetOffset(0x5F3AA67725A324B4), LazyThreadSafetyMode.None);
+  private static readonly nint _BBoxOnlyOffset = Schema.GetOffset(0x5F3AA67725A324B4);
 
   public ref bool BBoxOnly {
-    get => ref _Handle.AsRef<bool>(_BBoxOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BBoxOnlyOffset);
   }
-  private static readonly Lazy<nint> _CubeRootOffset = new(() => Schema.GetOffset(0x5F3AA67717695018), LazyThreadSafetyMode.None);
+  private static readonly nint _CubeRootOffset = Schema.GetOffset(0x5F3AA67717695018);
 
   public ref bool CubeRoot {
-    get => ref _Handle.AsRef<bool>(_CubeRootOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CubeRootOffset);
   }
 
 

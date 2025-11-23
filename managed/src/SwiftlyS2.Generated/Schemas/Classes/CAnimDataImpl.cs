@@ -17,30 +17,30 @@ internal partial class CAnimDataImpl : SchemaClass, CAnimData {
   public CAnimDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xA4868F934D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xA4868F934D8F5786);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _AnimArrayOffset = new(() => Schema.GetOffset(0xA4868F939FE8AF0D), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimArrayOffset = Schema.GetOffset(0xA4868F939FE8AF0D);
 
   public ref CUtlVector<CAnimDesc> AnimArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimDesc>>(_AnimArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimDesc>>(_AnimArrayOffset);
   }
-  private static readonly Lazy<nint> _DecoderArrayOffset = new(() => Schema.GetOffset(0xA4868F93AB12D6C4), LazyThreadSafetyMode.None);
+  private static readonly nint _DecoderArrayOffset = Schema.GetOffset(0xA4868F93AB12D6C4);
 
   public ref CUtlVector<CAnimDecoder> DecoderArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimDecoder>>(_DecoderArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimDecoder>>(_DecoderArrayOffset);
   }
-  private static readonly Lazy<nint> _MaxUniqueFrameIndexOffset = new(() => Schema.GetOffset(0xA4868F938FB0EA0D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxUniqueFrameIndexOffset = Schema.GetOffset(0xA4868F938FB0EA0D);
 
   public ref int MaxUniqueFrameIndex {
-    get => ref _Handle.AsRef<int>(_MaxUniqueFrameIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxUniqueFrameIndexOffset);
   }
-  private static readonly Lazy<nint> _SegmentArrayOffset = new(() => Schema.GetOffset(0xA4868F933714FD2F), LazyThreadSafetyMode.None);
+  private static readonly nint _SegmentArrayOffset = Schema.GetOffset(0xA4868F933714FD2F);
 
   public ref CUtlVector<CAnimFrameSegment> SegmentArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimFrameSegment>>(_SegmentArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimFrameSegment>>(_SegmentArrayOffset);
   }
 
 

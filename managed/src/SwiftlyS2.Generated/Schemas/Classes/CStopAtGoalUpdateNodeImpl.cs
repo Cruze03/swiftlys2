@@ -17,30 +17,30 @@ internal partial class CStopAtGoalUpdateNodeImpl : CUnaryUpdateNodeImpl, CStopAt
   public CStopAtGoalUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OuterRadiusOffset = new(() => Schema.GetOffset(0x4889F8297B66A818), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterRadiusOffset = Schema.GetOffset(0x4889F8297B66A818);
 
   public ref float OuterRadius {
-    get => ref _Handle.AsRef<float>(_OuterRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_OuterRadiusOffset);
   }
-  private static readonly Lazy<nint> _InnerRadiusOffset = new(() => Schema.GetOffset(0x4889F82932121407), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerRadiusOffset = Schema.GetOffset(0x4889F82932121407);
 
   public ref float InnerRadius {
-    get => ref _Handle.AsRef<float>(_InnerRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerRadiusOffset);
   }
-  private static readonly Lazy<nint> _MaxScaleOffset = new(() => Schema.GetOffset(0x4889F829FF4EC8E7), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxScaleOffset = Schema.GetOffset(0x4889F829FF4EC8E7);
 
   public ref float MaxScale {
-    get => ref _Handle.AsRef<float>(_MaxScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxScaleOffset);
   }
-  private static readonly Lazy<nint> _MinScaleOffset = new(() => Schema.GetOffset(0x4889F829D125D67D), LazyThreadSafetyMode.None);
+  private static readonly nint _MinScaleOffset = Schema.GetOffset(0x4889F829D125D67D);
 
   public ref float MinScale {
-    get => ref _Handle.AsRef<float>(_MinScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinScaleOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0x4889F82915440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0x4889F82915440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
 
 

@@ -17,40 +17,40 @@ internal partial class C_OP_IntraParticleForceImpl : CParticleFunctionForceImpl,
   public C_OP_IntraParticleForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttractionMinDistanceOffset = new(() => Schema.GetOffset(0x784412D0CEAEE62D), LazyThreadSafetyMode.None);
+  private static readonly nint _AttractionMinDistanceOffset = Schema.GetOffset(0x784412D0CEAEE62D);
 
   public ref float AttractionMinDistance {
-    get => ref _Handle.AsRef<float>(_AttractionMinDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttractionMinDistanceOffset);
   }
-  private static readonly Lazy<nint> _AttractionMaxDistanceOffset = new(() => Schema.GetOffset(0x784412D04052F81F), LazyThreadSafetyMode.None);
+  private static readonly nint _AttractionMaxDistanceOffset = Schema.GetOffset(0x784412D04052F81F);
 
   public ref float AttractionMaxDistance {
-    get => ref _Handle.AsRef<float>(_AttractionMaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttractionMaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _AttractionMaxStrengthOffset = new(() => Schema.GetOffset(0x784412D09FE72EFD), LazyThreadSafetyMode.None);
+  private static readonly nint _AttractionMaxStrengthOffset = Schema.GetOffset(0x784412D09FE72EFD);
 
   public ref float AttractionMaxStrength {
-    get => ref _Handle.AsRef<float>(_AttractionMaxStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttractionMaxStrengthOffset);
   }
-  private static readonly Lazy<nint> _RepulsionMinDistanceOffset = new(() => Schema.GetOffset(0x784412D018F9EFB1), LazyThreadSafetyMode.None);
+  private static readonly nint _RepulsionMinDistanceOffset = Schema.GetOffset(0x784412D018F9EFB1);
 
   public ref float RepulsionMinDistance {
-    get => ref _Handle.AsRef<float>(_RepulsionMinDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_RepulsionMinDistanceOffset);
   }
-  private static readonly Lazy<nint> _RepulsionMaxDistanceOffset = new(() => Schema.GetOffset(0x784412D05B7D269B), LazyThreadSafetyMode.None);
+  private static readonly nint _RepulsionMaxDistanceOffset = Schema.GetOffset(0x784412D05B7D269B);
 
   public ref float RepulsionMaxDistance {
-    get => ref _Handle.AsRef<float>(_RepulsionMaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_RepulsionMaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _RepulsionMaxStrengthOffset = new(() => Schema.GetOffset(0x784412D0B9401C21), LazyThreadSafetyMode.None);
+  private static readonly nint _RepulsionMaxStrengthOffset = Schema.GetOffset(0x784412D0B9401C21);
 
   public ref float RepulsionMaxStrength {
-    get => ref _Handle.AsRef<float>(_RepulsionMaxStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_RepulsionMaxStrengthOffset);
   }
-  private static readonly Lazy<nint> _UseAABBOffset = new(() => Schema.GetOffset(0x784412D029AAFF2E), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAABBOffset = Schema.GetOffset(0x784412D029AAFF2E);
 
   public ref bool UseAABB {
-    get => ref _Handle.AsRef<bool>(_UseAABBOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAABBOffset);
   }
 
 

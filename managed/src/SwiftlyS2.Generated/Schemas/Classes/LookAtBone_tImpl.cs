@@ -17,15 +17,15 @@ internal partial class LookAtBone_tImpl : SchemaClass, LookAtBone_t {
   public LookAtBone_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IndexOffset = new(() => Schema.GetOffset(0x25E8B58A491963CB), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexOffset = Schema.GetOffset(0x25E8B58A491963CB);
 
   public ref int Index {
-    get => ref _Handle.AsRef<int>(_IndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_IndexOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x25E8B58A07D0CD59), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x25E8B58A07D0CD59);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
 
 

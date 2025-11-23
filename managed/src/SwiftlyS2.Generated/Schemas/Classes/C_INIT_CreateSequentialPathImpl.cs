@@ -17,35 +17,35 @@ internal partial class C_INIT_CreateSequentialPathImpl : CParticleFunctionInitia
   public C_INIT_CreateSequentialPathImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0xBCADEDE2844E396A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0xBCADEDE2844E396A);
 
   public ref float MaxDistance {
-    get => ref _Handle.AsRef<float>(_MaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _NumToAssignOffset = new(() => Schema.GetOffset(0xBCADEDE2F73366BD), LazyThreadSafetyMode.None);
+  private static readonly nint _NumToAssignOffset = Schema.GetOffset(0xBCADEDE2F73366BD);
 
   public ref float NumToAssign {
-    get => ref _Handle.AsRef<float>(_NumToAssignOffset.Value);
+    get => ref _Handle.AsRef<float>(_NumToAssignOffset);
   }
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0xBCADEDE2C668A4CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0xBCADEDE2C668A4CB);
 
   public ref bool Loop {
-    get => ref _Handle.AsRef<bool>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _CPPairsOffset = new(() => Schema.GetOffset(0xBCADEDE2A5D36D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _CPPairsOffset = Schema.GetOffset(0xBCADEDE2A5D36D0F);
 
   public ref bool CPPairs {
-    get => ref _Handle.AsRef<bool>(_CPPairsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CPPairsOffset);
   }
-  private static readonly Lazy<nint> _SaveOffsetOffset = new(() => Schema.GetOffset(0xBCADEDE243F64E5B), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveOffsetOffset = Schema.GetOffset(0xBCADEDE243F64E5B);
 
   public ref bool SaveOffset {
-    get => ref _Handle.AsRef<bool>(_SaveOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SaveOffsetOffset);
   }
-  private static readonly Lazy<nint> _PathParamsOffset = new(() => Schema.GetOffset(0xBCADEDE23C10092C), LazyThreadSafetyMode.None);
+  private static readonly nint _PathParamsOffset = Schema.GetOffset(0xBCADEDE23C10092C);
 
   public CPathParameters PathParams {
-    get => new CPathParametersImpl(_Handle + _PathParamsOffset.Value);
+    get => new CPathParametersImpl(_Handle + _PathParamsOffset);
   }
 
 

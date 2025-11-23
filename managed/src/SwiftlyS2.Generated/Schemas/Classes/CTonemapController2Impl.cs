@@ -17,30 +17,30 @@ internal partial class CTonemapController2Impl : CBaseEntityImpl, CTonemapContro
   public CTonemapController2Impl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AutoExposureMinOffset = new(() => Schema.GetOffset(0xD2B5E9D27D8FC60B), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoExposureMinOffset = Schema.GetOffset(0xD2B5E9D27D8FC60B);
 
   public ref float AutoExposureMin {
-    get => ref _Handle.AsRef<float>(_AutoExposureMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_AutoExposureMinOffset);
   }
-  private static readonly Lazy<nint> _AutoExposureMaxOffset = new(() => Schema.GetOffset(0xD2B5E9D2937C60F5), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoExposureMaxOffset = Schema.GetOffset(0xD2B5E9D2937C60F5);
 
   public ref float AutoExposureMax {
-    get => ref _Handle.AsRef<float>(_AutoExposureMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_AutoExposureMaxOffset);
   }
-  private static readonly Lazy<nint> _ExposureAdaptationSpeedUpOffset = new(() => Schema.GetOffset(0xD2B5E9D2D587708B), LazyThreadSafetyMode.None);
+  private static readonly nint _ExposureAdaptationSpeedUpOffset = Schema.GetOffset(0xD2B5E9D2D587708B);
 
   public ref float ExposureAdaptationSpeedUp {
-    get => ref _Handle.AsRef<float>(_ExposureAdaptationSpeedUpOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExposureAdaptationSpeedUpOffset);
   }
-  private static readonly Lazy<nint> _ExposureAdaptationSpeedDownOffset = new(() => Schema.GetOffset(0xD2B5E9D232DAF29E), LazyThreadSafetyMode.None);
+  private static readonly nint _ExposureAdaptationSpeedDownOffset = Schema.GetOffset(0xD2B5E9D232DAF29E);
 
   public ref float ExposureAdaptationSpeedDown {
-    get => ref _Handle.AsRef<float>(_ExposureAdaptationSpeedDownOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExposureAdaptationSpeedDownOffset);
   }
-  private static readonly Lazy<nint> _TonemapEVSmoothingRangeOffset = new(() => Schema.GetOffset(0xD2B5E9D29C2546CB), LazyThreadSafetyMode.None);
+  private static readonly nint _TonemapEVSmoothingRangeOffset = Schema.GetOffset(0xD2B5E9D29C2546CB);
 
   public ref float TonemapEVSmoothingRange {
-    get => ref _Handle.AsRef<float>(_TonemapEVSmoothingRangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TonemapEVSmoothingRangeOffset);
   }
 
   public void AutoExposureMinUpdated() {

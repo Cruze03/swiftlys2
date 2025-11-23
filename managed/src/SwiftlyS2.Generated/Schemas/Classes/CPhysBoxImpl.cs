@@ -17,80 +17,80 @@ internal partial class CPhysBoxImpl : CBreakableImpl, CPhysBox {
   public CPhysBoxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DamageTypeOffset = new(() => Schema.GetOffset(0x914B502B17488B28), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageTypeOffset = Schema.GetOffset(0x914B502B17488B28);
 
   public ref int DamageType {
-    get => ref _Handle.AsRef<int>(_DamageTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_DamageTypeOffset);
   }
-  private static readonly Lazy<nint> _DamageToEnableMotionOffset = new(() => Schema.GetOffset(0x914B502B6A217278), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageToEnableMotionOffset = Schema.GetOffset(0x914B502B6A217278);
 
   public ref int DamageToEnableMotion {
-    get => ref _Handle.AsRef<int>(_DamageToEnableMotionOffset.Value);
+    get => ref _Handle.AsRef<int>(_DamageToEnableMotionOffset);
   }
-  private static readonly Lazy<nint> _ForceToEnableMotionOffset = new(() => Schema.GetOffset(0x914B502B95BEED1A), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceToEnableMotionOffset = Schema.GetOffset(0x914B502B95BEED1A);
 
   public ref float ForceToEnableMotion {
-    get => ref _Handle.AsRef<float>(_ForceToEnableMotionOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceToEnableMotionOffset);
   }
-  private static readonly Lazy<nint> _HoverPosePositionOffset = new(() => Schema.GetOffset(0x914B502BE70418E3), LazyThreadSafetyMode.None);
+  private static readonly nint _HoverPosePositionOffset = Schema.GetOffset(0x914B502BE70418E3);
 
   public ref Vector HoverPosePosition {
-    get => ref _Handle.AsRef<Vector>(_HoverPosePositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HoverPosePositionOffset);
   }
-  private static readonly Lazy<nint> _HoverPoseAnglesOffset = new(() => Schema.GetOffset(0x914B502B086A1BC6), LazyThreadSafetyMode.None);
+  private static readonly nint _HoverPoseAnglesOffset = Schema.GetOffset(0x914B502B086A1BC6);
 
   public ref QAngle HoverPoseAngles {
-    get => ref _Handle.AsRef<QAngle>(_HoverPoseAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_HoverPoseAnglesOffset);
   }
-  private static readonly Lazy<nint> _NotSolidToWorldOffset = new(() => Schema.GetOffset(0x914B502B13A06DE8), LazyThreadSafetyMode.None);
+  private static readonly nint _NotSolidToWorldOffset = Schema.GetOffset(0x914B502B13A06DE8);
 
   public ref bool NotSolidToWorld {
-    get => ref _Handle.AsRef<bool>(_NotSolidToWorldOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NotSolidToWorldOffset);
   }
-  private static readonly Lazy<nint> _EnableUseOutputOffset = new(() => Schema.GetOffset(0x914B502B2426C360), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableUseOutputOffset = Schema.GetOffset(0x914B502B2426C360);
 
   public ref bool EnableUseOutput {
-    get => ref _Handle.AsRef<bool>(_EnableUseOutputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableUseOutputOffset);
   }
-  private static readonly Lazy<nint> _HoverPoseFlagsOffset = new(() => Schema.GetOffset(0x914B502BE0BEF17B), LazyThreadSafetyMode.None);
+  private static readonly nint _HoverPoseFlagsOffset = Schema.GetOffset(0x914B502BE0BEF17B);
 
   public ref HoverPoseFlags_t HoverPoseFlags {
-    get => ref _Handle.AsRef<HoverPoseFlags_t>(_HoverPoseFlagsOffset.Value);
+    get => ref _Handle.AsRef<HoverPoseFlags_t>(_HoverPoseFlagsOffset);
   }
-  private static readonly Lazy<nint> _TouchOutputPerEntityDelayOffset = new(() => Schema.GetOffset(0x914B502B0F1EF0C0), LazyThreadSafetyMode.None);
+  private static readonly nint _TouchOutputPerEntityDelayOffset = Schema.GetOffset(0x914B502B0F1EF0C0);
 
   public ref float TouchOutputPerEntityDelay {
-    get => ref _Handle.AsRef<float>(_TouchOutputPerEntityDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_TouchOutputPerEntityDelayOffset);
   }
-  private static readonly Lazy<nint> _OnDamagedOffset = new(() => Schema.GetOffset(0x914B502B1667F41F), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDamagedOffset = Schema.GetOffset(0x914B502B1667F41F);
 
   public CEntityIOOutput OnDamaged {
-    get => new CEntityIOOutputImpl(_Handle + _OnDamagedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDamagedOffset);
   }
-  private static readonly Lazy<nint> _OnAwakenedOffset = new(() => Schema.GetOffset(0x914B502B03EDBB66), LazyThreadSafetyMode.None);
+  private static readonly nint _OnAwakenedOffset = Schema.GetOffset(0x914B502B03EDBB66);
 
   public CEntityIOOutput OnAwakened {
-    get => new CEntityIOOutputImpl(_Handle + _OnAwakenedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnAwakenedOffset);
   }
-  private static readonly Lazy<nint> _OnMotionEnabledOffset = new(() => Schema.GetOffset(0x914B502BBB216C9F), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMotionEnabledOffset = Schema.GetOffset(0x914B502BBB216C9F);
 
   public CEntityIOOutput OnMotionEnabled {
-    get => new CEntityIOOutputImpl(_Handle + _OnMotionEnabledOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMotionEnabledOffset);
   }
-  private static readonly Lazy<nint> _OnPlayerUseOffset = new(() => Schema.GetOffset(0x914B502B611C9A14), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerUseOffset = Schema.GetOffset(0x914B502B611C9A14);
 
   public CEntityIOOutput OnPlayerUse {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerUseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerUseOffset);
   }
-  private static readonly Lazy<nint> _OnStartTouchOffset = new(() => Schema.GetOffset(0x914B502BB4E38193), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartTouchOffset = Schema.GetOffset(0x914B502BB4E38193);
 
   public CEntityIOOutput OnStartTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset);
   }
-  private static readonly Lazy<nint> _CarryingPlayerOffset = new(() => Schema.GetOffset(0x914B502B0491B86F), LazyThreadSafetyMode.None);
+  private static readonly nint _CarryingPlayerOffset = Schema.GetOffset(0x914B502B0491B86F);
 
   public ref CHandle<CBasePlayerPawn> CarryingPlayer {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_CarryingPlayerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_CarryingPlayerOffset);
   }
 
 

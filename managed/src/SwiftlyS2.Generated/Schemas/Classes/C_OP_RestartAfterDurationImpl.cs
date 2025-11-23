@@ -17,35 +17,35 @@ internal partial class C_OP_RestartAfterDurationImpl : CParticleFunctionOperator
   public C_OP_RestartAfterDurationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DurationMinOffset = new(() => Schema.GetOffset(0x3F8C903A5D25DBDD), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationMinOffset = Schema.GetOffset(0x3F8C903A5D25DBDD);
 
   public ref float DurationMin {
-    get => ref _Handle.AsRef<float>(_DurationMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationMinOffset);
   }
-  private static readonly Lazy<nint> _DurationMaxOffset = new(() => Schema.GetOffset(0x3F8C903A671263E3), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationMaxOffset = Schema.GetOffset(0x3F8C903A671263E3);
 
   public ref float DurationMax {
-    get => ref _Handle.AsRef<float>(_DurationMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationMaxOffset);
   }
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x3F8C903AEB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x3F8C903AEB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _CPFieldOffset = new(() => Schema.GetOffset(0x3F8C903A50B79876), LazyThreadSafetyMode.None);
+  private static readonly nint _CPFieldOffset = Schema.GetOffset(0x3F8C903A50B79876);
 
   public ref int CPField {
-    get => ref _Handle.AsRef<int>(_CPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPFieldOffset);
   }
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0x3F8C903AE3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0x3F8C903AE3F3C965);
 
   public ref int ChildGroupID {
-    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _OnlyChildrenOffset = new(() => Schema.GetOffset(0x3F8C903AD53575B0), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlyChildrenOffset = Schema.GetOffset(0x3F8C903AD53575B0);
 
   public ref bool OnlyChildren {
-    get => ref _Handle.AsRef<bool>(_OnlyChildrenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnlyChildrenOffset);
   }
 
 

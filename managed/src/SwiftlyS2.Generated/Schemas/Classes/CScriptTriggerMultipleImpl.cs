@@ -17,10 +17,10 @@ internal partial class CScriptTriggerMultipleImpl : CTriggerMultipleImpl, CScrip
   public CScriptTriggerMultipleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExtentOffset = new(() => Schema.GetOffset(0xE1F82C9B7AB1ED15), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtentOffset = Schema.GetOffset(0xE1F82C9B7AB1ED15);
 
   public ref Vector Extent {
-    get => ref _Handle.AsRef<Vector>(_ExtentOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ExtentOffset);
   }
 
 

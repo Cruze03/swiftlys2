@@ -17,85 +17,85 @@ internal partial class CNmClipImpl : SchemaClass, CNmClip {
   public CNmClipImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SkeletonOffset = new(() => Schema.GetOffset(0x3FC883BDE77F030E), LazyThreadSafetyMode.None);
+  private static readonly nint _SkeletonOffset = Schema.GetOffset(0x3FC883BDE77F030E);
 
   public ref CStrongHandle<InfoForResourceTypeCNmSkeleton> Skeleton {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmSkeleton>>(_SkeletonOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCNmSkeleton>>(_SkeletonOffset);
   }
-  private static readonly Lazy<nint> _NumFramesOffset = new(() => Schema.GetOffset(0x3FC883BDF764C355), LazyThreadSafetyMode.None);
+  private static readonly nint _NumFramesOffset = Schema.GetOffset(0x3FC883BDF764C355);
 
   public ref uint NumFrames {
-    get => ref _Handle.AsRef<uint>(_NumFramesOffset.Value);
+    get => ref _Handle.AsRef<uint>(_NumFramesOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x3FC883BDBC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x3FC883BDBC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _CompressedPoseDataOffset = new(() => Schema.GetOffset(0x3FC883BDDD916D11), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressedPoseDataOffset = Schema.GetOffset(0x3FC883BDDD916D11);
 
   public ref CUtlBinaryBlock CompressedPoseData {
-    get => ref _Handle.AsRef<CUtlBinaryBlock>(_CompressedPoseDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlBinaryBlock>(_CompressedPoseDataOffset);
   }
-  private static readonly Lazy<nint> _TrackCompressionSettingsOffset = new(() => Schema.GetOffset(0x3FC883BD94A50263), LazyThreadSafetyMode.None);
+  private static readonly nint _TrackCompressionSettingsOffset = Schema.GetOffset(0x3FC883BD94A50263);
 
   public ref CUtlVector<NmCompressionSettings_t> TrackCompressionSettings {
-    get => ref _Handle.AsRef<CUtlVector<NmCompressionSettings_t>>(_TrackCompressionSettingsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<NmCompressionSettings_t>>(_TrackCompressionSettingsOffset);
   }
-  private static readonly Lazy<nint> _CompressedPoseOffsetsOffset = new(() => Schema.GetOffset(0x3FC883BD4B1ECAF7), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressedPoseOffsetsOffset = Schema.GetOffset(0x3FC883BD4B1ECAF7);
 
   public ref CUtlVector<uint> CompressedPoseOffsets {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_CompressedPoseOffsetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_CompressedPoseOffsetsOffset);
   }
-  private static readonly Lazy<nint> _FloatCurveIDsOffset = new(() => Schema.GetOffset(0x3FC883BD11EF489E), LazyThreadSafetyMode.None);
+  private static readonly nint _FloatCurveIDsOffset = Schema.GetOffset(0x3FC883BD11EF489E);
 
   public ref CUtlVector<CGlobalSymbol> FloatCurveIDs {
-    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_FloatCurveIDsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CGlobalSymbol>>(_FloatCurveIDsOffset);
   }
-  private static readonly Lazy<nint> _FloatCurveDefsOffset = new(() => Schema.GetOffset(0x3FC883BDE3CCFA68), LazyThreadSafetyMode.None);
+  private static readonly nint _FloatCurveDefsOffset = Schema.GetOffset(0x3FC883BDE3CCFA68);
 
   public ref CUtlVector<NmFloatCurveCompressionSettings_t> FloatCurveDefs {
-    get => ref _Handle.AsRef<CUtlVector<NmFloatCurveCompressionSettings_t>>(_FloatCurveDefsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<NmFloatCurveCompressionSettings_t>>(_FloatCurveDefsOffset);
   }
-  private static readonly Lazy<nint> _CompressedFloatCurveDataOffset = new(() => Schema.GetOffset(0x3FC883BD42C154B9), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressedFloatCurveDataOffset = Schema.GetOffset(0x3FC883BD42C154B9);
 
   public ref CUtlVector<ushort> CompressedFloatCurveData {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_CompressedFloatCurveDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_CompressedFloatCurveDataOffset);
   }
-  private static readonly Lazy<nint> _CompressedFloatCurveOffsetsOffset = new(() => Schema.GetOffset(0x3FC883BD24AF623F), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressedFloatCurveOffsetsOffset = Schema.GetOffset(0x3FC883BD24AF623F);
 
   public ref CUtlVector<uint> CompressedFloatCurveOffsets {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_CompressedFloatCurveOffsetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_CompressedFloatCurveOffsetsOffset);
   }
-  private static readonly Lazy<nint> _SecondaryAnimationsOffset = new(() => Schema.GetOffset(0x3FC883BD9A6B439E), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondaryAnimationsOffset = Schema.GetOffset(0x3FC883BD9A6B439E);
 
   public SchemaUntypedField SecondaryAnimations {
-    get => new SchemaUntypedField(_Handle + _SecondaryAnimationsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SecondaryAnimationsOffset);
   }
-  private static readonly Lazy<nint> _SyncTrackOffset = new(() => Schema.GetOffset(0x3FC883BDB268BEE9), LazyThreadSafetyMode.None);
+  private static readonly nint _SyncTrackOffset = Schema.GetOffset(0x3FC883BDB268BEE9);
 
   public CNmSyncTrack SyncTrack {
-    get => new CNmSyncTrackImpl(_Handle + _SyncTrackOffset.Value);
+    get => new CNmSyncTrackImpl(_Handle + _SyncTrackOffset);
   }
-  private static readonly Lazy<nint> _RootMotionOffset = new(() => Schema.GetOffset(0x3FC883BD664A3F27), LazyThreadSafetyMode.None);
+  private static readonly nint _RootMotionOffset = Schema.GetOffset(0x3FC883BD664A3F27);
 
   public CNmRootMotionData RootMotion {
-    get => new CNmRootMotionDataImpl(_Handle + _RootMotionOffset.Value);
+    get => new CNmRootMotionDataImpl(_Handle + _RootMotionOffset);
   }
-  private static readonly Lazy<nint> _IsAdditiveOffset = new(() => Schema.GetOffset(0x3FC883BD4146EEF5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsAdditiveOffset = Schema.GetOffset(0x3FC883BD4146EEF5);
 
   public ref bool IsAdditive {
-    get => ref _Handle.AsRef<bool>(_IsAdditiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsAdditiveOffset);
   }
-  private static readonly Lazy<nint> _ModelSpaceSamplingChainOffset = new(() => Schema.GetOffset(0x3FC883BD54666BDA), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelSpaceSamplingChainOffset = Schema.GetOffset(0x3FC883BD54666BDA);
 
   public ref CUtlVector<CNmClip__ModelSpaceSamplingChainLink_t> ModelSpaceSamplingChain {
-    get => ref _Handle.AsRef<CUtlVector<CNmClip__ModelSpaceSamplingChainLink_t>>(_ModelSpaceSamplingChainOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CNmClip__ModelSpaceSamplingChainLink_t>>(_ModelSpaceSamplingChainOffset);
   }
-  private static readonly Lazy<nint> _ModelSpaceBoneSamplingIndicesOffset = new(() => Schema.GetOffset(0x3FC883BD197B4A28), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelSpaceBoneSamplingIndicesOffset = Schema.GetOffset(0x3FC883BD197B4A28);
 
   public ref CUtlVector<int> ModelSpaceBoneSamplingIndices {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_ModelSpaceBoneSamplingIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_ModelSpaceBoneSamplingIndicesOffset);
   }
 
 

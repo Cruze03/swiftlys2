@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmTransitionNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmTransitionNode__CDefinition> {
 
   static CNmTransitionNode__CDefinition ISchemaClass<CNmTransitionNode__CDefinition>.From(nint handle) => new CNmTransitionNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmTransitionNode__CDefinition>.Size => 40;
+  static int ISchemaClass<CNmTransitionNode__CDefinition>.Size => 48;
   static string? ISchemaClass<CNmTransitionNode__CDefinition>.ClassName => null;
 
   

@@ -17,39 +17,39 @@ internal partial class CFuncBrushImpl : CBaseModelEntityImpl, CFuncBrush {
   public CFuncBrushImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SolidityOffset = new(() => Schema.GetOffset(0x26435484B869EE4D), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidityOffset = Schema.GetOffset(0x26435484B869EE4D);
 
   public ref BrushSolidities_e Solidity {
-    get => ref _Handle.AsRef<BrushSolidities_e>(_SolidityOffset.Value);
+    get => ref _Handle.AsRef<BrushSolidities_e>(_SolidityOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x2643548451B3CEAC), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x2643548451B3CEAC);
 
   public ref int Disabled {
-    get => ref _Handle.AsRef<int>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<int>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _SolidBspOffset = new(() => Schema.GetOffset(0x26435484A50CEC89), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidBspOffset = Schema.GetOffset(0x26435484A50CEC89);
 
   public ref bool SolidBsp {
-    get => ref _Handle.AsRef<bool>(_SolidBspOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SolidBspOffset);
   }
-  private static readonly Lazy<nint> _ExcludedClassOffset = new(() => Schema.GetOffset(0x2643548495B3D111), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludedClassOffset = Schema.GetOffset(0x2643548495B3D111);
 
   public string ExcludedClass {
     get {
-      var ptr = _Handle.Read<nint>(_ExcludedClassOffset.Value);
+      var ptr = _Handle.Read<nint>(_ExcludedClassOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ExcludedClassOffset.Value, value);
+    set => Schema.SetString(_Handle, _ExcludedClassOffset, value);
   } 
-  private static readonly Lazy<nint> _InvertExclusionOffset = new(() => Schema.GetOffset(0x264354845DE14F07), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertExclusionOffset = Schema.GetOffset(0x264354845DE14F07);
 
   public ref bool InvertExclusion {
-    get => ref _Handle.AsRef<bool>(_InvertExclusionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertExclusionOffset);
   }
-  private static readonly Lazy<nint> _ScriptedMovementOffset = new(() => Schema.GetOffset(0x26435484C2863DD2), LazyThreadSafetyMode.None);
+  private static readonly nint _ScriptedMovementOffset = Schema.GetOffset(0x26435484C2863DD2);
 
   public ref bool ScriptedMovement {
-    get => ref _Handle.AsRef<bool>(_ScriptedMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ScriptedMovementOffset);
   }
 
 

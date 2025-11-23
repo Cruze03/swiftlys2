@@ -17,70 +17,70 @@ internal partial class CEnvInstructorVRHintImpl : CPointEntityImpl, CEnvInstruct
   public CEnvInstructorVRHintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x75F3B61F74FF65FE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x75F3B61F74FF65FE);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _HintTargetEntityOffset = new(() => Schema.GetOffset(0x75F3B61F0024C1BE), LazyThreadSafetyMode.None);
+  private static readonly nint _HintTargetEntityOffset = Schema.GetOffset(0x75F3B61F0024C1BE);
 
   public string HintTargetEntity {
     get {
-      var ptr = _Handle.Read<nint>(_HintTargetEntityOffset.Value);
+      var ptr = _Handle.Read<nint>(_HintTargetEntityOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _HintTargetEntityOffset.Value, value);
+    set => Schema.SetString(_Handle, _HintTargetEntityOffset, value);
   } 
-  private static readonly Lazy<nint> _TimeoutOffset = new(() => Schema.GetOffset(0x75F3B61F2EC6CDDF), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeoutOffset = Schema.GetOffset(0x75F3B61F2EC6CDDF);
 
   public ref int Timeout {
-    get => ref _Handle.AsRef<int>(_TimeoutOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimeoutOffset);
   }
-  private static readonly Lazy<nint> _CaptionOffset = new(() => Schema.GetOffset(0x75F3B61FBE8E34DD), LazyThreadSafetyMode.None);
+  private static readonly nint _CaptionOffset = Schema.GetOffset(0x75F3B61FBE8E34DD);
 
   public string Caption {
     get {
-      var ptr = _Handle.Read<nint>(_CaptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_CaptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CaptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _CaptionOffset, value);
   } 
-  private static readonly Lazy<nint> _StartSoundOffset = new(() => Schema.GetOffset(0x75F3B61FF9B2297E), LazyThreadSafetyMode.None);
+  private static readonly nint _StartSoundOffset = Schema.GetOffset(0x75F3B61FF9B2297E);
 
   public string StartSound {
     get {
-      var ptr = _Handle.Read<nint>(_StartSoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_StartSoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StartSoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _StartSoundOffset, value);
   } 
-  private static readonly Lazy<nint> _LayoutFileTypeOffset = new(() => Schema.GetOffset(0x75F3B61FAB45B364), LazyThreadSafetyMode.None);
+  private static readonly nint _LayoutFileTypeOffset = Schema.GetOffset(0x75F3B61FAB45B364);
 
   public ref int LayoutFileType {
-    get => ref _Handle.AsRef<int>(_LayoutFileTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_LayoutFileTypeOffset);
   }
-  private static readonly Lazy<nint> _CustomLayoutFileOffset = new(() => Schema.GetOffset(0x75F3B61F60A92CB6), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomLayoutFileOffset = Schema.GetOffset(0x75F3B61F60A92CB6);
 
   public string CustomLayoutFile {
     get {
-      var ptr = _Handle.Read<nint>(_CustomLayoutFileOffset.Value);
+      var ptr = _Handle.Read<nint>(_CustomLayoutFileOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CustomLayoutFileOffset.Value, value);
+    set => Schema.SetString(_Handle, _CustomLayoutFileOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachTypeOffset = new(() => Schema.GetOffset(0x75F3B61F432E8381), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachTypeOffset = Schema.GetOffset(0x75F3B61F432E8381);
 
   public ref int AttachType {
-    get => ref _Handle.AsRef<int>(_AttachTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_AttachTypeOffset);
   }
-  private static readonly Lazy<nint> _HeightOffsetOffset = new(() => Schema.GetOffset(0x75F3B61F2D0C5BF3), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffsetOffset = Schema.GetOffset(0x75F3B61F2D0C5BF3);
 
   public ref float HeightOffset {
-    get => ref _Handle.AsRef<float>(_HeightOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightOffsetOffset);
   }
 
 

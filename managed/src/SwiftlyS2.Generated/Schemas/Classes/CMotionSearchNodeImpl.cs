@@ -17,30 +17,30 @@ internal partial class CMotionSearchNodeImpl : SchemaClass, CMotionSearchNode {
   public CMotionSearchNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildrenOffset = new(() => Schema.GetOffset(0x7CB28AA07415FA72), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildrenOffset = Schema.GetOffset(0x7CB28AA07415FA72);
 
   public ref CUtlVector<PointerTo<CMotionSearchNode>> Children {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CMotionSearchNode>>>(_ChildrenOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CMotionSearchNode>>>(_ChildrenOffset);
   }
-  private static readonly Lazy<nint> _QuantizerOffset = new(() => Schema.GetOffset(0x7CB28AA0C7DE6374), LazyThreadSafetyMode.None);
+  private static readonly nint _QuantizerOffset = Schema.GetOffset(0x7CB28AA0C7DE6374);
 
   public CVectorQuantizer Quantizer {
-    get => new CVectorQuantizerImpl(_Handle + _QuantizerOffset.Value);
+    get => new CVectorQuantizerImpl(_Handle + _QuantizerOffset);
   }
-  private static readonly Lazy<nint> _SampleCodesOffset = new(() => Schema.GetOffset(0x7CB28AA0D703E42F), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleCodesOffset = Schema.GetOffset(0x7CB28AA0D703E42F);
 
   public ref CUtlVector<CUtlVector<SampleCode>> SampleCodes {
-    get => ref _Handle.AsRef<CUtlVector<CUtlVector<SampleCode>>>(_SampleCodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlVector<SampleCode>>>(_SampleCodesOffset);
   }
-  private static readonly Lazy<nint> _SampleIndicesOffset = new(() => Schema.GetOffset(0x7CB28AA02EDA0064), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleIndicesOffset = Schema.GetOffset(0x7CB28AA02EDA0064);
 
   public ref CUtlVector<CUtlVector<int>> SampleIndices {
-    get => ref _Handle.AsRef<CUtlVector<CUtlVector<int>>>(_SampleIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlVector<int>>>(_SampleIndicesOffset);
   }
-  private static readonly Lazy<nint> _SelectableSamplesOffset = new(() => Schema.GetOffset(0x7CB28AA0C1D40F34), LazyThreadSafetyMode.None);
+  private static readonly nint _SelectableSamplesOffset = Schema.GetOffset(0x7CB28AA0C1D40F34);
 
   public ref CUtlVector<int> SelectableSamples {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_SelectableSamplesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_SelectableSamplesOffset);
   }
 
 

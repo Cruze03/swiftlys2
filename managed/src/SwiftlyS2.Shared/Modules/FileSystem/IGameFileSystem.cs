@@ -98,4 +98,12 @@ public interface IGameFileSystem
     /// <param name="writable">True to make the file writable, false to make it read-only.</param>
     /// <returns>True if the writable status was set successfully, false otherwise.</returns>
     public bool SetFileWritable( string filePath, string pathId, bool writable );
+
+    /// <summary>
+    /// Finds all files matching the given wildcard and path ID.
+    /// </summary>
+    /// <param name="wildcard">The wildcard to match files against.</param>
+    /// <param name="pathId">The ID of the path to search in.</param>
+    /// <returns>A list of all files matching the given wildcard and path ID.</returns>
+    public List<string> FindFileAbsoluteList( string wildcard, string pathId );
 }

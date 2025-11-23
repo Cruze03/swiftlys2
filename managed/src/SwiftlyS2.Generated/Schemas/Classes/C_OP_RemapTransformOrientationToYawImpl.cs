@@ -17,25 +17,25 @@ internal partial class C_OP_RemapTransformOrientationToYawImpl : CParticleFuncti
   public C_OP_RemapTransformOrientationToYawImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xA0DF014CB3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xA0DF014CB3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xA0DF014CE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xA0DF014CE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _RotOffsetOffset = new(() => Schema.GetOffset(0xA0DF014CD1EA9CDF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotOffsetOffset = Schema.GetOffset(0xA0DF014CD1EA9CDF);
 
   public ref float RotOffset {
-    get => ref _Handle.AsRef<float>(_RotOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_RotOffsetOffset);
   }
-  private static readonly Lazy<nint> _SpinStrengthOffset = new(() => Schema.GetOffset(0xA0DF014C12520F26), LazyThreadSafetyMode.None);
+  private static readonly nint _SpinStrengthOffset = Schema.GetOffset(0xA0DF014C12520F26);
 
   public ref float SpinStrength {
-    get => ref _Handle.AsRef<float>(_SpinStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpinStrengthOffset);
   }
 
 

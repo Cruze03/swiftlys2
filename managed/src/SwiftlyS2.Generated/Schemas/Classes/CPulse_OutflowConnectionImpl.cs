@@ -17,25 +17,25 @@ internal partial class CPulse_OutflowConnectionImpl : SchemaClass, CPulse_Outflo
   public CPulse_OutflowConnectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceOutflowNameOffset = new(() => Schema.GetOffset(0x58023C685EA2FFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOutflowNameOffset = Schema.GetOffset(0x58023C685EA2FFCF);
 
   public SchemaUntypedField SourceOutflowName {
-    get => new SchemaUntypedField(_Handle + _SourceOutflowNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SourceOutflowNameOffset);
   }
-  private static readonly Lazy<nint> _DestChunkOffset = new(() => Schema.GetOffset(0x58023C68D6AC502E), LazyThreadSafetyMode.None);
+  private static readonly nint _DestChunkOffset = Schema.GetOffset(0x58023C68D6AC502E);
 
   public PulseRuntimeChunkIndex_t DestChunk {
-    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _DestChunkOffset.Value);
+    get => new PulseRuntimeChunkIndex_tImpl(_Handle + _DestChunkOffset);
   }
-  private static readonly Lazy<nint> _InstructionOffset = new(() => Schema.GetOffset(0x58023C6890E63133), LazyThreadSafetyMode.None);
+  private static readonly nint _InstructionOffset = Schema.GetOffset(0x58023C6890E63133);
 
   public ref int Instruction {
-    get => ref _Handle.AsRef<int>(_InstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_InstructionOffset);
   }
-  private static readonly Lazy<nint> _OutflowRegisterMapOffset = new(() => Schema.GetOffset(0x58023C68F89A90F8), LazyThreadSafetyMode.None);
+  private static readonly nint _OutflowRegisterMapOffset = Schema.GetOffset(0x58023C68F89A90F8);
 
   public PulseRegisterMap_t OutflowRegisterMap {
-    get => new PulseRegisterMap_tImpl(_Handle + _OutflowRegisterMapOffset.Value);
+    get => new PulseRegisterMap_tImpl(_Handle + _OutflowRegisterMapOffset);
   }
 
 

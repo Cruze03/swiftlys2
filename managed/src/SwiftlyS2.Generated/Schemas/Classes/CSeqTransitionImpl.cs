@@ -17,15 +17,15 @@ internal partial class CSeqTransitionImpl : SchemaClass, CSeqTransition {
   public CSeqTransitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeInTimeOffset = new(() => Schema.GetOffset(0xF641804E1F0255B3), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInTimeOffset = Schema.GetOffset(0xF641804E1F0255B3);
 
   public ref float FadeInTime {
-    get => ref _Handle.AsRef<float>(_FadeInTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInTimeOffset);
   }
-  private static readonly Lazy<nint> _FadeOutTimeOffset = new(() => Schema.GetOffset(0xF641804EE86D2FC2), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutTimeOffset = Schema.GetOffset(0xF641804EE86D2FC2);
 
   public ref float FadeOutTime {
-    get => ref _Handle.AsRef<float>(_FadeOutTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutTimeOffset);
   }
 
 

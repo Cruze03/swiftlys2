@@ -17,24 +17,24 @@ internal partial class ParticleControlPointConfiguration_tImpl : SchemaClass, Pa
   public ParticleControlPointConfiguration_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xC54E49C74D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xC54E49C74D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _DriversOffset = new(() => Schema.GetOffset(0xC54E49C7C63563E4), LazyThreadSafetyMode.None);
+  private static readonly nint _DriversOffset = Schema.GetOffset(0xC54E49C7C63563E4);
 
   public ref CUtlVector<ParticleControlPointDriver_t> Drivers {
-    get => ref _Handle.AsRef<CUtlVector<ParticleControlPointDriver_t>>(_DriversOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ParticleControlPointDriver_t>>(_DriversOffset);
   }
-  private static readonly Lazy<nint> _PreviewStateOffset = new(() => Schema.GetOffset(0xC54E49C79E440558), LazyThreadSafetyMode.None);
+  private static readonly nint _PreviewStateOffset = Schema.GetOffset(0xC54E49C79E440558);
 
   public ParticlePreviewState_t PreviewState {
-    get => new ParticlePreviewState_tImpl(_Handle + _PreviewStateOffset.Value);
+    get => new ParticlePreviewState_tImpl(_Handle + _PreviewStateOffset);
   }
 
 

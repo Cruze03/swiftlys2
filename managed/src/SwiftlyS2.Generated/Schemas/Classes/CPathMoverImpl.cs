@@ -17,20 +17,20 @@ internal partial class CPathMoverImpl : CPathSimpleImpl, CPathMover {
   public CPathMoverImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PathNodesOffset = new(() => Schema.GetOffset(0x459CE4C6FD746CE3), LazyThreadSafetyMode.None);
+  private static readonly nint _PathNodesOffset = Schema.GetOffset(0x459CE4C6FD746CE3);
 
   public ref CUtlVector<CHandle<CMoverPathNode>> PathNodes {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CMoverPathNode>>>(_PathNodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CMoverPathNode>>>(_PathNodesOffset);
   }
-  private static readonly Lazy<nint> _MoversOffset = new(() => Schema.GetOffset(0x459CE4C65C9C4C93), LazyThreadSafetyMode.None);
+  private static readonly nint _MoversOffset = Schema.GetOffset(0x459CE4C65C9C4C93);
 
   public ref CUtlVector<CHandle<CFuncMover>> Movers {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CFuncMover>>>(_MoversOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CFuncMover>>>(_MoversOffset);
   }
-  private static readonly Lazy<nint> _XInitialPathWorldToLocalOffset = new(() => Schema.GetOffset(0x459CE4C6FE5D385E), LazyThreadSafetyMode.None);
+  private static readonly nint _XInitialPathWorldToLocalOffset = Schema.GetOffset(0x459CE4C6FE5D385E);
 
   public ref CTransform XInitialPathWorldToLocal {
-    get => ref _Handle.AsRef<CTransform>(_XInitialPathWorldToLocalOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_XInitialPathWorldToLocalOffset);
   }
 
 

@@ -17,55 +17,55 @@ internal partial class C_OP_PercentageBetweenTransformsVectorImpl : CParticleFun
   public C_OP_PercentageBetweenTransformsVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x481FA5ADE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x481FA5ADE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _InputMinOffset = new(() => Schema.GetOffset(0x481FA5ADE88A0D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMinOffset = Schema.GetOffset(0x481FA5ADE88A0D0F);
 
   public ref float InputMin {
-    get => ref _Handle.AsRef<float>(_InputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMinOffset);
   }
-  private static readonly Lazy<nint> _InputMaxOffset = new(() => Schema.GetOffset(0x481FA5ADD6766901), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMaxOffset = Schema.GetOffset(0x481FA5ADD6766901);
 
   public ref float InputMax {
-    get => ref _Handle.AsRef<float>(_InputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMaxOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x481FA5AD2EFED678), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x481FA5AD2EFED678);
 
   public ref Vector OutputMin {
-    get => ref _Handle.AsRef<Vector>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x481FA5AD451280D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x481FA5AD451280D2);
 
   public ref Vector OutputMax {
-    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _TransformStartOffset = new(() => Schema.GetOffset(0x481FA5ADD94FA7F9), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformStartOffset = Schema.GetOffset(0x481FA5ADD94FA7F9);
 
   public CParticleTransformInput TransformStart {
-    get => new CParticleTransformInputImpl(_Handle + _TransformStartOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformStartOffset);
   }
-  private static readonly Lazy<nint> _TransformEndOffset = new(() => Schema.GetOffset(0x481FA5AD0C3277C8), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformEndOffset = Schema.GetOffset(0x481FA5AD0C3277C8);
 
   public CParticleTransformInput TransformEnd {
-    get => new CParticleTransformInputImpl(_Handle + _TransformEndOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformEndOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x481FA5ADFB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x481FA5ADFB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _ActiveRangeOffset = new(() => Schema.GetOffset(0x481FA5AD3FA53B84), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveRangeOffset = Schema.GetOffset(0x481FA5AD3FA53B84);
 
   public ref bool ActiveRange {
-    get => ref _Handle.AsRef<bool>(_ActiveRangeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveRangeOffset);
   }
-  private static readonly Lazy<nint> _RadialCheckOffset = new(() => Schema.GetOffset(0x481FA5AD496187DE), LazyThreadSafetyMode.None);
+  private static readonly nint _RadialCheckOffset = Schema.GetOffset(0x481FA5AD496187DE);
 
   public ref bool RadialCheck {
-    get => ref _Handle.AsRef<bool>(_RadialCheckOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RadialCheckOffset);
   }
 
 

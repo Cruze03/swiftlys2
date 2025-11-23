@@ -17,30 +17,30 @@ internal partial class CPulseCell_IntervalTimer__CursorState_tImpl : SchemaClass
   public CPulseCell_IntervalTimer__CursorState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x63BF122697B5FA8E), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x63BF122697B5FA8E);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0x63BF12267AA8F56B), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0x63BF12267AA8F56B);
 
   public GameTime_t EndTime {
-    get => new GameTime_tImpl(_Handle + _EndTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _EndTimeOffset);
   }
-  private static readonly Lazy<nint> _WaitIntervalOffset = new(() => Schema.GetOffset(0x63BF122677B6B563), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitIntervalOffset = Schema.GetOffset(0x63BF122677B6B563);
 
   public ref float WaitInterval {
-    get => ref _Handle.AsRef<float>(_WaitIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_WaitIntervalOffset);
   }
-  private static readonly Lazy<nint> _WaitIntervalHighOffset = new(() => Schema.GetOffset(0x63BF12267540534F), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitIntervalHighOffset = Schema.GetOffset(0x63BF12267540534F);
 
   public ref float WaitIntervalHigh {
-    get => ref _Handle.AsRef<float>(_WaitIntervalHighOffset.Value);
+    get => ref _Handle.AsRef<float>(_WaitIntervalHighOffset);
   }
-  private static readonly Lazy<nint> _CompleteOnNextWakeOffset = new(() => Schema.GetOffset(0x63BF122684615952), LazyThreadSafetyMode.None);
+  private static readonly nint _CompleteOnNextWakeOffset = Schema.GetOffset(0x63BF122684615952);
 
   public ref bool CompleteOnNextWake {
-    get => ref _Handle.AsRef<bool>(_CompleteOnNextWakeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CompleteOnNextWakeOffset);
   }
 
 

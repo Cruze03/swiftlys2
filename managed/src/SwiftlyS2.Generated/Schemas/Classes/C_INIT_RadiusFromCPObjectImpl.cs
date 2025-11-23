@@ -17,10 +17,10 @@ internal partial class C_INIT_RadiusFromCPObjectImpl : CParticleFunctionInitiali
   public C_INIT_RadiusFromCPObjectImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0xC79B0CC80D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0xC79B0CC80D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
 
 

@@ -17,261 +17,261 @@ internal partial class CLogicNPCCounterImpl : CBaseEntityImpl, CLogicNPCCounter 
   public CLogicNPCCounterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnMinCountAllOffset = new(() => Schema.GetOffset(0x485D88795307A826), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinCountAllOffset = Schema.GetOffset(0x485D88795307A826);
 
   public CEntityIOOutput OnMinCountAll {
-    get => new CEntityIOOutputImpl(_Handle + _OnMinCountAllOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMinCountAllOffset);
   }
-  private static readonly Lazy<nint> _OnMaxCountAllOffset = new(() => Schema.GetOffset(0x485D8879DDCC356C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMaxCountAllOffset = Schema.GetOffset(0x485D8879DDCC356C);
 
   public CEntityIOOutput OnMaxCountAll {
-    get => new CEntityIOOutputImpl(_Handle + _OnMaxCountAllOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMaxCountAllOffset);
   }
-  private static readonly Lazy<nint> _OnFactorAllOffset = new(() => Schema.GetOffset(0x485D8879E34F3A26), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFactorAllOffset = Schema.GetOffset(0x485D8879E34F3A26);
 
   public SchemaUntypedField OnFactorAll {
-    get => new SchemaUntypedField(_Handle + _OnFactorAllOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnFactorAllOffset);
   }
-  private static readonly Lazy<nint> _OnMinPlayerDistAllOffset = new(() => Schema.GetOffset(0x485D887936FA93F4), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinPlayerDistAllOffset = Schema.GetOffset(0x485D887936FA93F4);
 
   public SchemaUntypedField OnMinPlayerDistAll {
-    get => new SchemaUntypedField(_Handle + _OnMinPlayerDistAllOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMinPlayerDistAllOffset);
   }
-  private static readonly Lazy<nint> _OnMinCount_1Offset = new(() => Schema.GetOffset(0x485D88794C66E6EF), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinCount_1Offset = Schema.GetOffset(0x485D88794C66E6EF);
 
   public CEntityIOOutput OnMinCount_1 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_1Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_1Offset);
   }
-  private static readonly Lazy<nint> _OnMaxCount_1Offset = new(() => Schema.GetOffset(0x485D8879A364ADD5), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMaxCount_1Offset = Schema.GetOffset(0x485D8879A364ADD5);
 
   public CEntityIOOutput OnMaxCount_1 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_1Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_1Offset);
   }
-  private static readonly Lazy<nint> _OnFactor_1Offset = new(() => Schema.GetOffset(0x485D8879A2844CEF), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFactor_1Offset = Schema.GetOffset(0x485D8879A2844CEF);
 
   public SchemaUntypedField OnFactor_1 {
-    get => new SchemaUntypedField(_Handle + _OnFactor_1Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnFactor_1Offset);
   }
-  private static readonly Lazy<nint> _OnMinPlayerDist_1Offset = new(() => Schema.GetOffset(0x485D8879C69B333D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinPlayerDist_1Offset = Schema.GetOffset(0x485D8879C69B333D);
 
   public SchemaUntypedField OnMinPlayerDist_1 {
-    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_1Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_1Offset);
   }
-  private static readonly Lazy<nint> _OnMinCount_2Offset = new(() => Schema.GetOffset(0x485D88794D66E882), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinCount_2Offset = Schema.GetOffset(0x485D88794D66E882);
 
   public CEntityIOOutput OnMinCount_2 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_2Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_2Offset);
   }
-  private static readonly Lazy<nint> _OnMaxCount_2Offset = new(() => Schema.GetOffset(0x485D8879A064A91C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMaxCount_2Offset = Schema.GetOffset(0x485D8879A064A91C);
 
   public CEntityIOOutput OnMaxCount_2 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_2Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_2Offset);
   }
-  private static readonly Lazy<nint> _OnFactor_2Offset = new(() => Schema.GetOffset(0x485D8879A3844E82), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFactor_2Offset = Schema.GetOffset(0x485D8879A3844E82);
 
   public SchemaUntypedField OnFactor_2 {
-    get => new SchemaUntypedField(_Handle + _OnFactor_2Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnFactor_2Offset);
   }
-  private static readonly Lazy<nint> _OnMinPlayerDist_2Offset = new(() => Schema.GetOffset(0x485D8879C39B2E84), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinPlayerDist_2Offset = Schema.GetOffset(0x485D8879C39B2E84);
 
   public SchemaUntypedField OnMinPlayerDist_2 {
-    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_2Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_2Offset);
   }
-  private static readonly Lazy<nint> _OnMinCount_3Offset = new(() => Schema.GetOffset(0x485D88794E66EA15), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinCount_3Offset = Schema.GetOffset(0x485D88794E66EA15);
 
   public CEntityIOOutput OnMinCount_3 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_3Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMinCount_3Offset);
   }
-  private static readonly Lazy<nint> _OnMaxCount_3Offset = new(() => Schema.GetOffset(0x485D8879A164AAAF), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMaxCount_3Offset = Schema.GetOffset(0x485D8879A164AAAF);
 
   public CEntityIOOutput OnMaxCount_3 {
-    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_3Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMaxCount_3Offset);
   }
-  private static readonly Lazy<nint> _OnFactor_3Offset = new(() => Schema.GetOffset(0x485D8879A4845015), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFactor_3Offset = Schema.GetOffset(0x485D8879A4845015);
 
   public SchemaUntypedField OnFactor_3 {
-    get => new SchemaUntypedField(_Handle + _OnFactor_3Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnFactor_3Offset);
   }
-  private static readonly Lazy<nint> _OnMinPlayerDist_3Offset = new(() => Schema.GetOffset(0x485D8879C49B3017), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMinPlayerDist_3Offset = Schema.GetOffset(0x485D8879C49B3017);
 
   public SchemaUntypedField OnMinPlayerDist_3 {
-    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_3Offset.Value);
+    get => new SchemaUntypedField(_Handle + _OnMinPlayerDist_3Offset);
   }
-  private static readonly Lazy<nint> _SourceOffset = new(() => Schema.GetOffset(0x485D887933D3CD82), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOffset = Schema.GetOffset(0x485D887933D3CD82);
 
   public ref CHandle<CEntityInstance> Source {
-    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset);
   }
-  private static readonly Lazy<nint> _SourceEntityNameOffset = new(() => Schema.GetOffset(0x485D88796C1387C0), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceEntityNameOffset = Schema.GetOffset(0x485D88796C1387C0);
 
   public string SourceEntityName {
     get {
-      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceEntityNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceEntityNameOffset, value);
   } 
-  private static readonly Lazy<nint> _DistanceMaxOffset = new(() => Schema.GetOffset(0x485D8879FDEBADA6), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceMaxOffset = Schema.GetOffset(0x485D8879FDEBADA6);
 
   public ref float DistanceMax {
-    get => ref _Handle.AsRef<float>(_DistanceMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceMaxOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x485D88793A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x485D88793A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _MinCountAllOffset = new(() => Schema.GetOffset(0x485D8879CC867BE1), LazyThreadSafetyMode.None);
+  private static readonly nint _MinCountAllOffset = Schema.GetOffset(0x485D8879CC867BE1);
 
   public ref int MinCountAll {
-    get => ref _Handle.AsRef<int>(_MinCountAllOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinCountAllOffset);
   }
-  private static readonly Lazy<nint> _MaxCountAllOffset = new(() => Schema.GetOffset(0x485D8879307AEE1F), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCountAllOffset = Schema.GetOffset(0x485D8879307AEE1F);
 
   public ref int MaxCountAll {
-    get => ref _Handle.AsRef<int>(_MaxCountAllOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCountAllOffset);
   }
-  private static readonly Lazy<nint> _MinFactorAllOffset = new(() => Schema.GetOffset(0x485D887945AC8C1F), LazyThreadSafetyMode.None);
+  private static readonly nint _MinFactorAllOffset = Schema.GetOffset(0x485D887945AC8C1F);
 
   public ref int MinFactorAll {
-    get => ref _Handle.AsRef<int>(_MinFactorAllOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinFactorAllOffset);
   }
-  private static readonly Lazy<nint> _MaxFactorAllOffset = new(() => Schema.GetOffset(0x485D88793E95FEF5), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFactorAllOffset = Schema.GetOffset(0x485D88793E95FEF5);
 
   public ref int MaxFactorAll {
-    get => ref _Handle.AsRef<int>(_MaxFactorAllOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxFactorAllOffset);
   }
-  private static readonly Lazy<nint> _NPCClassname_1Offset = new(() => Schema.GetOffset(0x485D8879DF49E85F), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCClassname_1Offset = Schema.GetOffset(0x485D8879DF49E85F);
 
   public string NPCClassname_1 {
     get {
-      var ptr = _Handle.Read<nint>(_NPCClassname_1Offset.Value);
+      var ptr = _Handle.Read<nint>(_NPCClassname_1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NPCClassname_1Offset.Value, value);
+    set => Schema.SetString(_Handle, _NPCClassname_1Offset, value);
   } 
-  private static readonly Lazy<nint> _NPCState_1Offset = new(() => Schema.GetOffset(0x485D887959CDEB41), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCState_1Offset = Schema.GetOffset(0x485D887959CDEB41);
 
   public ref int NPCState_1 {
-    get => ref _Handle.AsRef<int>(_NPCState_1Offset.Value);
+    get => ref _Handle.AsRef<int>(_NPCState_1Offset);
   }
-  private static readonly Lazy<nint> _InvertState_1Offset = new(() => Schema.GetOffset(0x485D88796F698432), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertState_1Offset = Schema.GetOffset(0x485D88796F698432);
 
   public ref bool InvertState_1 {
-    get => ref _Handle.AsRef<bool>(_InvertState_1Offset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertState_1Offset);
   }
-  private static readonly Lazy<nint> _MinCount_1Offset = new(() => Schema.GetOffset(0x485D88797F3A776A), LazyThreadSafetyMode.None);
+  private static readonly nint _MinCount_1Offset = Schema.GetOffset(0x485D88797F3A776A);
 
   public ref int MinCount_1 {
-    get => ref _Handle.AsRef<int>(_MinCount_1Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinCount_1Offset);
   }
-  private static readonly Lazy<nint> _MaxCount_1Offset = new(() => Schema.GetOffset(0x485D8879A6C8B370), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCount_1Offset = Schema.GetOffset(0x485D8879A6C8B370);
 
   public ref int MaxCount_1 {
-    get => ref _Handle.AsRef<int>(_MaxCount_1Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCount_1Offset);
   }
-  private static readonly Lazy<nint> _MinFactor_1Offset = new(() => Schema.GetOffset(0x485D8879F1CB5D70), LazyThreadSafetyMode.None);
+  private static readonly nint _MinFactor_1Offset = Schema.GetOffset(0x485D8879F1CB5D70);
 
   public ref int MinFactor_1 {
-    get => ref _Handle.AsRef<int>(_MinFactor_1Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinFactor_1Offset);
   }
-  private static readonly Lazy<nint> _MaxFactor_1Offset = new(() => Schema.GetOffset(0x485D887909B4368E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFactor_1Offset = Schema.GetOffset(0x485D887909B4368E);
 
   public ref int MaxFactor_1 {
-    get => ref _Handle.AsRef<int>(_MaxFactor_1Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxFactor_1Offset);
   }
-  private static readonly Lazy<nint> _DefaultDist_1Offset = new(() => Schema.GetOffset(0x485D88793E54B91C), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultDist_1Offset = Schema.GetOffset(0x485D88793E54B91C);
 
   public ref float DefaultDist_1 {
-    get => ref _Handle.AsRef<float>(_DefaultDist_1Offset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultDist_1Offset);
   }
-  private static readonly Lazy<nint> _NPCClassname_2Offset = new(() => Schema.GetOffset(0x485D8879E049E9F2), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCClassname_2Offset = Schema.GetOffset(0x485D8879E049E9F2);
 
   public string NPCClassname_2 {
     get {
-      var ptr = _Handle.Read<nint>(_NPCClassname_2Offset.Value);
+      var ptr = _Handle.Read<nint>(_NPCClassname_2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NPCClassname_2Offset.Value, value);
+    set => Schema.SetString(_Handle, _NPCClassname_2Offset, value);
   } 
-  private static readonly Lazy<nint> _NPCState_2Offset = new(() => Schema.GetOffset(0x485D887956CDE688), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCState_2Offset = Schema.GetOffset(0x485D887956CDE688);
 
   public ref int NPCState_2 {
-    get => ref _Handle.AsRef<int>(_NPCState_2Offset.Value);
+    get => ref _Handle.AsRef<int>(_NPCState_2Offset);
   }
-  private static readonly Lazy<nint> _InvertState_2Offset = new(() => Schema.GetOffset(0x485D88796E69829F), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertState_2Offset = Schema.GetOffset(0x485D88796E69829F);
 
   public ref bool InvertState_2 {
-    get => ref _Handle.AsRef<bool>(_InvertState_2Offset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertState_2Offset);
   }
-  private static readonly Lazy<nint> _MinCount_2Offset = new(() => Schema.GetOffset(0x485D88797E3A75D7), LazyThreadSafetyMode.None);
+  private static readonly nint _MinCount_2Offset = Schema.GetOffset(0x485D88797E3A75D7);
 
   public ref int MinCount_2 {
-    get => ref _Handle.AsRef<int>(_MinCount_2Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinCount_2Offset);
   }
-  private static readonly Lazy<nint> _MaxCount_2Offset = new(() => Schema.GetOffset(0x485D8879A9C8B829), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCount_2Offset = Schema.GetOffset(0x485D8879A9C8B829);
 
   public ref int MaxCount_2 {
-    get => ref _Handle.AsRef<int>(_MaxCount_2Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCount_2Offset);
   }
-  private static readonly Lazy<nint> _MinFactor_2Offset = new(() => Schema.GetOffset(0x485D8879F4CB6229), LazyThreadSafetyMode.None);
+  private static readonly nint _MinFactor_2Offset = Schema.GetOffset(0x485D8879F4CB6229);
 
   public ref int MinFactor_2 {
-    get => ref _Handle.AsRef<int>(_MinFactor_2Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinFactor_2Offset);
   }
-  private static readonly Lazy<nint> _MaxFactor_2Offset = new(() => Schema.GetOffset(0x485D887908B434FB), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFactor_2Offset = Schema.GetOffset(0x485D887908B434FB);
 
   public ref int MaxFactor_2 {
-    get => ref _Handle.AsRef<int>(_MaxFactor_2Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxFactor_2Offset);
   }
-  private static readonly Lazy<nint> _DefaultDist_2Offset = new(() => Schema.GetOffset(0x485D88794154BDD5), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultDist_2Offset = Schema.GetOffset(0x485D88794154BDD5);
 
   public ref float DefaultDist_2 {
-    get => ref _Handle.AsRef<float>(_DefaultDist_2Offset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultDist_2Offset);
   }
-  private static readonly Lazy<nint> _NPCClassname_3Offset = new(() => Schema.GetOffset(0x485D8879E149EB85), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCClassname_3Offset = Schema.GetOffset(0x485D8879E149EB85);
 
   public string NPCClassname_3 {
     get {
-      var ptr = _Handle.Read<nint>(_NPCClassname_3Offset.Value);
+      var ptr = _Handle.Read<nint>(_NPCClassname_3Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NPCClassname_3Offset.Value, value);
+    set => Schema.SetString(_Handle, _NPCClassname_3Offset, value);
   } 
-  private static readonly Lazy<nint> _NPCState_3Offset = new(() => Schema.GetOffset(0x485D887957CDE81B), LazyThreadSafetyMode.None);
+  private static readonly nint _NPCState_3Offset = Schema.GetOffset(0x485D887957CDE81B);
 
   public ref int NPCState_3 {
-    get => ref _Handle.AsRef<int>(_NPCState_3Offset.Value);
+    get => ref _Handle.AsRef<int>(_NPCState_3Offset);
   }
-  private static readonly Lazy<nint> _InvertState_3Offset = new(() => Schema.GetOffset(0x485D88796D69810C), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertState_3Offset = Schema.GetOffset(0x485D88796D69810C);
 
   public ref bool InvertState_3 {
-    get => ref _Handle.AsRef<bool>(_InvertState_3Offset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertState_3Offset);
   }
-  private static readonly Lazy<nint> _MinCount_3Offset = new(() => Schema.GetOffset(0x485D88797D3A7444), LazyThreadSafetyMode.None);
+  private static readonly nint _MinCount_3Offset = Schema.GetOffset(0x485D88797D3A7444);
 
   public ref int MinCount_3 {
-    get => ref _Handle.AsRef<int>(_MinCount_3Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinCount_3Offset);
   }
-  private static readonly Lazy<nint> _MaxCount_3Offset = new(() => Schema.GetOffset(0x485D8879A8C8B696), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxCount_3Offset = Schema.GetOffset(0x485D8879A8C8B696);
 
   public ref int MaxCount_3 {
-    get => ref _Handle.AsRef<int>(_MaxCount_3Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxCount_3Offset);
   }
-  private static readonly Lazy<nint> _MinFactor_3Offset = new(() => Schema.GetOffset(0x485D8879F3CB6096), LazyThreadSafetyMode.None);
+  private static readonly nint _MinFactor_3Offset = Schema.GetOffset(0x485D8879F3CB6096);
 
   public ref int MinFactor_3 {
-    get => ref _Handle.AsRef<int>(_MinFactor_3Offset.Value);
+    get => ref _Handle.AsRef<int>(_MinFactor_3Offset);
   }
-  private static readonly Lazy<nint> _MaxFactor_3Offset = new(() => Schema.GetOffset(0x485D887907B43368), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFactor_3Offset = Schema.GetOffset(0x485D887907B43368);
 
   public ref int MaxFactor_3 {
-    get => ref _Handle.AsRef<int>(_MaxFactor_3Offset.Value);
+    get => ref _Handle.AsRef<int>(_MaxFactor_3Offset);
   }
-  private static readonly Lazy<nint> _DefaultDist_3Offset = new(() => Schema.GetOffset(0x485D88794054BC42), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultDist_3Offset = Schema.GetOffset(0x485D88794054BC42);
 
   public ref float DefaultDist_3 {
-    get => ref _Handle.AsRef<float>(_DefaultDist_3Offset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultDist_3Offset);
   }
 
 

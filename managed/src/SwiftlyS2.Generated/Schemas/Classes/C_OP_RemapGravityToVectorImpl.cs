@@ -17,25 +17,25 @@ internal partial class C_OP_RemapGravityToVectorImpl : CParticleFunctionOperator
   public C_OP_RemapGravityToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Input1Offset = new(() => Schema.GetOffset(0x3777A3A2E17F27DA), LazyThreadSafetyMode.None);
+  private static readonly nint _Input1Offset = Schema.GetOffset(0x3777A3A2E17F27DA);
 
   public CPerParticleVecInput Input1 {
-    get => new CPerParticleVecInputImpl(_Handle + _Input1Offset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _Input1Offset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x3777A3A2324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x3777A3A2324F6F74);
 
   public ParticleAttributeIndex_t OutputField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x3777A3A2FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x3777A3A2FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _NormalizedOutputOffset = new(() => Schema.GetOffset(0x3777A3A20AA98C55), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizedOutputOffset = Schema.GetOffset(0x3777A3A20AA98C55);
 
   public ref bool NormalizedOutput {
-    get => ref _Handle.AsRef<bool>(_NormalizedOutputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizedOutputOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class C_OP_MovementMoveAlongSkinnedCPSnapshotImpl : CParticleFu
   public C_OP_MovementMoveAlongSkinnedCPSnapshotImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xBF34A6C93F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xBF34A6C93F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _SnapshotControlPointNumberOffset = new(() => Schema.GetOffset(0xBF34A6C929D3EEDD), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapshotControlPointNumberOffset = Schema.GetOffset(0xBF34A6C929D3EEDD);
 
   public ref int SnapshotControlPointNumber {
-    get => ref _Handle.AsRef<int>(_SnapshotControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_SnapshotControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _SetNormalOffset = new(() => Schema.GetOffset(0xBF34A6C9542722AC), LazyThreadSafetyMode.None);
+  private static readonly nint _SetNormalOffset = Schema.GetOffset(0xBF34A6C9542722AC);
 
   public ref bool SetNormal {
-    get => ref _Handle.AsRef<bool>(_SetNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetNormalOffset);
   }
-  private static readonly Lazy<nint> _SetRadiusOffset = new(() => Schema.GetOffset(0xBF34A6C9918808D1), LazyThreadSafetyMode.None);
+  private static readonly nint _SetRadiusOffset = Schema.GetOffset(0xBF34A6C9918808D1);
 
   public ref bool SetRadius {
-    get => ref _Handle.AsRef<bool>(_SetRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetRadiusOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0xBF34A6C9CF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0xBF34A6C9CF55B987);
 
   public CPerParticleFloatInput Interpolation {
-    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset);
   }
-  private static readonly Lazy<nint> _TValueOffset = new(() => Schema.GetOffset(0xBF34A6C9B4CE908E), LazyThreadSafetyMode.None);
+  private static readonly nint _TValueOffset = Schema.GetOffset(0xBF34A6C9B4CE908E);
 
   public CPerParticleFloatInput TValue {
-    get => new CPerParticleFloatInputImpl(_Handle + _TValueOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _TValueOffset);
   }
 
 

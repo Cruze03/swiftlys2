@@ -17,20 +17,20 @@ internal partial class CEnumAnimParameterImpl : CConcreteAnimParameterImpl, CEnu
   public CEnumAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0xCCD4BF1DBBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0xCCD4BF1DBBE0341F);
 
   public ref byte DefaultValue {
-    get => ref _Handle.AsRef<byte>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<byte>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _EnumOptionsOffset = new(() => Schema.GetOffset(0xCCD4BF1D5A08D71E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnumOptionsOffset = Schema.GetOffset(0xCCD4BF1D5A08D71E);
 
   public ref CUtlVector<CUtlString> EnumOptions {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_EnumOptionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_EnumOptionsOffset);
   }
-  private static readonly Lazy<nint> _EnumReferencedOffset = new(() => Schema.GetOffset(0xCCD4BF1D5C66779B), LazyThreadSafetyMode.None);
+  private static readonly nint _EnumReferencedOffset = Schema.GetOffset(0xCCD4BF1D5C66779B);
 
   public ref CUtlVector<ulong> EnumReferenced {
-    get => ref _Handle.AsRef<CUtlVector<ulong>>(_EnumReferencedOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ulong>>(_EnumReferencedOffset);
   }
 
 

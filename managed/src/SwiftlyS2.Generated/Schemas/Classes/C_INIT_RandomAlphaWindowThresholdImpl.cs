@@ -17,20 +17,20 @@ internal partial class C_INIT_RandomAlphaWindowThresholdImpl : CParticleFunction
   public C_INIT_RandomAlphaWindowThresholdImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x68DB6A2E3B1A5649), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x68DB6A2E3B1A5649);
 
   public ref float Min {
-    get => ref _Handle.AsRef<float>(_MinOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x68DB6A2E2D06B887), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x68DB6A2E2D06B887);
 
   public ref float Max {
-    get => ref _Handle.AsRef<float>(_MaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOffset);
   }
-  private static readonly Lazy<nint> _ExponentOffset = new(() => Schema.GetOffset(0x68DB6A2E20A7BCBC), LazyThreadSafetyMode.None);
+  private static readonly nint _ExponentOffset = Schema.GetOffset(0x68DB6A2E20A7BCBC);
 
   public ref float Exponent {
-    get => ref _Handle.AsRef<float>(_ExponentOffset.Value);
+    get => ref _Handle.AsRef<float>(_ExponentOffset);
   }
 
 

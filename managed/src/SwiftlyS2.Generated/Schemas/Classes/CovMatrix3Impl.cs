@@ -17,25 +17,25 @@ internal partial class CovMatrix3Impl : SchemaClass, CovMatrix3 {
   public CovMatrix3Impl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DiagOffset = new(() => Schema.GetOffset(0xA222FA6F7CC0D332), LazyThreadSafetyMode.None);
+  private static readonly nint _DiagOffset = Schema.GetOffset(0xA222FA6F7CC0D332);
 
   public ref Vector Diag {
-    get => ref _Handle.AsRef<Vector>(_DiagOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DiagOffset);
   }
-  private static readonly Lazy<nint> _XYOffset = new(() => Schema.GetOffset(0xA222FA6FA58DC304), LazyThreadSafetyMode.None);
+  private static readonly nint _XYOffset = Schema.GetOffset(0xA222FA6FA58DC304);
 
   public ref float XY {
-    get => ref _Handle.AsRef<float>(_XYOffset.Value);
+    get => ref _Handle.AsRef<float>(_XYOffset);
   }
-  private static readonly Lazy<nint> _XZOffset = new(() => Schema.GetOffset(0xA222FA6FA88DC7BD), LazyThreadSafetyMode.None);
+  private static readonly nint _XZOffset = Schema.GetOffset(0xA222FA6FA88DC7BD);
 
   public ref float XZ {
-    get => ref _Handle.AsRef<float>(_XZOffset.Value);
+    get => ref _Handle.AsRef<float>(_XZOffset);
   }
-  private static readonly Lazy<nint> _YZOffset = new(() => Schema.GetOffset(0xA222FA6F9E8B7968), LazyThreadSafetyMode.None);
+  private static readonly nint _YZOffset = Schema.GetOffset(0xA222FA6F9E8B7968);
 
   public ref float YZ {
-    get => ref _Handle.AsRef<float>(_YZOffset.Value);
+    get => ref _Handle.AsRef<float>(_YZOffset);
   }
 
 

@@ -17,80 +17,80 @@ internal partial class CCSPlayer_WeaponServicesImpl : CPlayer_WeaponServicesImpl
   public CCSPlayer_WeaponServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NextAttackOffset = new(() => Schema.GetOffset(0x13067CB23DFDCDEA), LazyThreadSafetyMode.None);
+  private static readonly nint _NextAttackOffset = Schema.GetOffset(0x13067CB23DFDCDEA);
 
   public GameTime_t NextAttack {
-    get => new GameTime_tImpl(_Handle + _NextAttackOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextAttackOffset);
   }
-  private static readonly Lazy<nint> _IsLookingAtWeaponOffset = new(() => Schema.GetOffset(0x13067CB223393CBF), LazyThreadSafetyMode.None);
+  private static readonly nint _IsLookingAtWeaponOffset = Schema.GetOffset(0x13067CB223393CBF);
 
   public ref bool IsLookingAtWeapon {
-    get => ref _Handle.AsRef<bool>(_IsLookingAtWeaponOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsLookingAtWeaponOffset);
   }
-  private static readonly Lazy<nint> _IsHoldingLookAtWeaponOffset = new(() => Schema.GetOffset(0x13067CB2AF0F7486), LazyThreadSafetyMode.None);
+  private static readonly nint _IsHoldingLookAtWeaponOffset = Schema.GetOffset(0x13067CB2AF0F7486);
 
   public ref bool IsHoldingLookAtWeapon {
-    get => ref _Handle.AsRef<bool>(_IsHoldingLookAtWeaponOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsHoldingLookAtWeaponOffset);
   }
-  private static readonly Lazy<nint> _SavedWeaponOffset = new(() => Schema.GetOffset(0x13067CB248BC7512), LazyThreadSafetyMode.None);
+  private static readonly nint _SavedWeaponOffset = Schema.GetOffset(0x13067CB248BC7512);
 
   public ref CHandle<CBasePlayerWeapon> SavedWeapon {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_SavedWeaponOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerWeapon>>(_SavedWeaponOffset);
   }
-  private static readonly Lazy<nint> _TimeToMeleeOffset = new(() => Schema.GetOffset(0x13067CB2B21B94A7), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToMeleeOffset = Schema.GetOffset(0x13067CB2B21B94A7);
 
   public ref int TimeToMelee {
-    get => ref _Handle.AsRef<int>(_TimeToMeleeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimeToMeleeOffset);
   }
-  private static readonly Lazy<nint> _TimeToSecondaryOffset = new(() => Schema.GetOffset(0x13067CB2CA0FD845), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToSecondaryOffset = Schema.GetOffset(0x13067CB2CA0FD845);
 
   public ref int TimeToSecondary {
-    get => ref _Handle.AsRef<int>(_TimeToSecondaryOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimeToSecondaryOffset);
   }
-  private static readonly Lazy<nint> _TimeToPrimaryOffset = new(() => Schema.GetOffset(0x13067CB2B1AFDA45), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToPrimaryOffset = Schema.GetOffset(0x13067CB2B1AFDA45);
 
   public ref int TimeToPrimary {
-    get => ref _Handle.AsRef<int>(_TimeToPrimaryOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimeToPrimaryOffset);
   }
-  private static readonly Lazy<nint> _TimeToSniperRifleOffset = new(() => Schema.GetOffset(0x13067CB2A9FF6B8C), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeToSniperRifleOffset = Schema.GetOffset(0x13067CB2A9FF6B8C);
 
   public ref int TimeToSniperRifle {
-    get => ref _Handle.AsRef<int>(_TimeToSniperRifleOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimeToSniperRifleOffset);
   }
-  private static readonly Lazy<nint> _IsBeingGivenItemOffset = new(() => Schema.GetOffset(0x13067CB2D16DF82E), LazyThreadSafetyMode.None);
+  private static readonly nint _IsBeingGivenItemOffset = Schema.GetOffset(0x13067CB2D16DF82E);
 
   public ref bool IsBeingGivenItem {
-    get => ref _Handle.AsRef<bool>(_IsBeingGivenItemOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsBeingGivenItemOffset);
   }
-  private static readonly Lazy<nint> _IsPickingUpItemWithUseOffset = new(() => Schema.GetOffset(0x13067CB2833CCD8D), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPickingUpItemWithUseOffset = Schema.GetOffset(0x13067CB2833CCD8D);
 
   public ref bool IsPickingUpItemWithUse {
-    get => ref _Handle.AsRef<bool>(_IsPickingUpItemWithUseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPickingUpItemWithUseOffset);
   }
-  private static readonly Lazy<nint> _PickedUpWeaponOffset = new(() => Schema.GetOffset(0x13067CB21EEE10C0), LazyThreadSafetyMode.None);
+  private static readonly nint _PickedUpWeaponOffset = Schema.GetOffset(0x13067CB21EEE10C0);
 
   public ref bool PickedUpWeapon {
-    get => ref _Handle.AsRef<bool>(_PickedUpWeaponOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PickedUpWeaponOffset);
   }
-  private static readonly Lazy<nint> _DisableAutoDeployOffset = new(() => Schema.GetOffset(0x13067CB2B208C90B), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableAutoDeployOffset = Schema.GetOffset(0x13067CB2B208C90B);
 
   public ref bool DisableAutoDeploy {
-    get => ref _Handle.AsRef<bool>(_DisableAutoDeployOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableAutoDeployOffset);
   }
-  private static readonly Lazy<nint> _IsPickingUpGroundWeaponOffset = new(() => Schema.GetOffset(0x13067CB2CA423D76), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPickingUpGroundWeaponOffset = Schema.GetOffset(0x13067CB2CA423D76);
 
   public ref bool IsPickingUpGroundWeapon {
-    get => ref _Handle.AsRef<bool>(_IsPickingUpGroundWeaponOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPickingUpGroundWeaponOffset);
   }
-  private static readonly Lazy<nint> _NetworkAnimTimingOffset = new(() => Schema.GetOffset(0x13067CB253AFB9FA), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkAnimTimingOffset = Schema.GetOffset(0x13067CB253AFB9FA);
 
   public ref CUtlVector<byte> NetworkAnimTiming {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_NetworkAnimTimingOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_NetworkAnimTimingOffset);
   }
-  private static readonly Lazy<nint> _BlockInspectUntilNextGraphUpdateOffset = new(() => Schema.GetOffset(0x13067CB2029ABB28), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockInspectUntilNextGraphUpdateOffset = Schema.GetOffset(0x13067CB2029ABB28);
 
   public ref bool BlockInspectUntilNextGraphUpdate {
-    get => ref _Handle.AsRef<bool>(_BlockInspectUntilNextGraphUpdateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BlockInspectUntilNextGraphUpdateOffset);
   }
 
   public void NextAttackUpdated() {

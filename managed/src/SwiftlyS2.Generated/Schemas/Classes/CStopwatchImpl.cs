@@ -17,10 +17,10 @@ internal partial class CStopwatchImpl : CStopwatchBaseImpl, CStopwatch {
   public CStopwatchImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IntervalOffset = new(() => Schema.GetOffset(0x40B847F1320F7B8E), LazyThreadSafetyMode.None);
+  private static readonly nint _IntervalOffset = Schema.GetOffset(0x40B847F1320F7B8E);
 
   public ref float Interval {
-    get => ref _Handle.AsRef<float>(_IntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_IntervalOffset);
   }
 
 

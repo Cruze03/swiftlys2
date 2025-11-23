@@ -17,15 +17,15 @@ internal partial class NmSyncTrackTimeRange_tImpl : SchemaClass, NmSyncTrackTime
   public NmSyncTrackTimeRange_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xAECBDADF6330E7EE), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xAECBDADF6330E7EE);
 
   public NmSyncTrackTime_t StartTime {
-    get => new NmSyncTrackTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new NmSyncTrackTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0xAECBDADFEAD1A94B), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0xAECBDADFEAD1A94B);
 
   public NmSyncTrackTime_t EndTime {
-    get => new NmSyncTrackTime_tImpl(_Handle + _EndTimeOffset.Value);
+    get => new NmSyncTrackTime_tImpl(_Handle + _EndTimeOffset);
   }
 
 

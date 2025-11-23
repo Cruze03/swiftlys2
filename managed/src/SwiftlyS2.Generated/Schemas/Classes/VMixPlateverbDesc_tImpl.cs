@@ -17,40 +17,40 @@ internal partial class VMixPlateverbDesc_tImpl : SchemaClass, VMixPlateverbDesc_
   public VMixPlateverbDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PrefilterOffset = new(() => Schema.GetOffset(0xFF651FB0FAF1E06A), LazyThreadSafetyMode.None);
+  private static readonly nint _PrefilterOffset = Schema.GetOffset(0xFF651FB0FAF1E06A);
 
   public ref float Prefilter {
-    get => ref _Handle.AsRef<float>(_PrefilterOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrefilterOffset);
   }
-  private static readonly Lazy<nint> _InputDiffusion1Offset = new(() => Schema.GetOffset(0xFF651FB039884B67), LazyThreadSafetyMode.None);
+  private static readonly nint _InputDiffusion1Offset = Schema.GetOffset(0xFF651FB039884B67);
 
   public ref float InputDiffusion1 {
-    get => ref _Handle.AsRef<float>(_InputDiffusion1Offset.Value);
+    get => ref _Handle.AsRef<float>(_InputDiffusion1Offset);
   }
-  private static readonly Lazy<nint> _InputDiffusion2Offset = new(() => Schema.GetOffset(0xFF651FB03A884CFA), LazyThreadSafetyMode.None);
+  private static readonly nint _InputDiffusion2Offset = Schema.GetOffset(0xFF651FB03A884CFA);
 
   public ref float InputDiffusion2 {
-    get => ref _Handle.AsRef<float>(_InputDiffusion2Offset.Value);
+    get => ref _Handle.AsRef<float>(_InputDiffusion2Offset);
   }
-  private static readonly Lazy<nint> _DecayOffset = new(() => Schema.GetOffset(0xFF651FB0E24ABC67), LazyThreadSafetyMode.None);
+  private static readonly nint _DecayOffset = Schema.GetOffset(0xFF651FB0E24ABC67);
 
   public ref float Decay {
-    get => ref _Handle.AsRef<float>(_DecayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DecayOffset);
   }
-  private static readonly Lazy<nint> _DampOffset = new(() => Schema.GetOffset(0xFF651FB051CA5395), LazyThreadSafetyMode.None);
+  private static readonly nint _DampOffset = Schema.GetOffset(0xFF651FB051CA5395);
 
   public ref float Damp {
-    get => ref _Handle.AsRef<float>(_DampOffset.Value);
+    get => ref _Handle.AsRef<float>(_DampOffset);
   }
-  private static readonly Lazy<nint> _FeedbackDiffusion1Offset = new(() => Schema.GetOffset(0xFF651FB0A53A60E2), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackDiffusion1Offset = Schema.GetOffset(0xFF651FB0A53A60E2);
 
   public ref float FeedbackDiffusion1 {
-    get => ref _Handle.AsRef<float>(_FeedbackDiffusion1Offset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackDiffusion1Offset);
   }
-  private static readonly Lazy<nint> _FeedbackDiffusion2Offset = new(() => Schema.GetOffset(0xFF651FB0A43A5F4F), LazyThreadSafetyMode.None);
+  private static readonly nint _FeedbackDiffusion2Offset = Schema.GetOffset(0xFF651FB0A43A5F4F);
 
   public ref float FeedbackDiffusion2 {
-    get => ref _Handle.AsRef<float>(_FeedbackDiffusion2Offset.Value);
+    get => ref _Handle.AsRef<float>(_FeedbackDiffusion2Offset);
   }
 
 

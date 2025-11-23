@@ -76,4 +76,6 @@ public partial interface CPlayer_WeaponServices
   /// </summary>
   /// <typeparam name="T">The weapon class.</typeparam>
   public void SelectWeaponByClass<T>() where T : class, ISchemaClass<T>;
+
+  public IEnumerable<CBasePlayerWeapon> MyValidWeapons { get; }
 }

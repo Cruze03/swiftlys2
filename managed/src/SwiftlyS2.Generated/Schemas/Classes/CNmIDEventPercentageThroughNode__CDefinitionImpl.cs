@@ -17,20 +17,20 @@ internal partial class CNmIDEventPercentageThroughNode__CDefinitionImpl : CNmBoo
   public CNmIDEventPercentageThroughNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceStateNodeIdxOffset = new(() => Schema.GetOffset(0x3912E5963F0228C), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceStateNodeIdxOffset = Schema.GetOffset(0x3912E5963F0228C);
 
   public ref short SourceStateNodeIdx {
-    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_SourceStateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EventConditionRulesOffset = new(() => Schema.GetOffset(0x3912E59A904315F), LazyThreadSafetyMode.None);
+  private static readonly nint _EventConditionRulesOffset = Schema.GetOffset(0x3912E59A904315F);
 
   public CNmBitFlags EventConditionRules {
-    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _EventConditionRulesOffset);
   }
-  private static readonly Lazy<nint> _EventIDOffset = new(() => Schema.GetOffset(0x3912E599D798A72), LazyThreadSafetyMode.None);
+  private static readonly nint _EventIDOffset = Schema.GetOffset(0x3912E599D798A72);
 
   public ref CGlobalSymbol EventID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_EventIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_EventIDOffset);
   }
 
 

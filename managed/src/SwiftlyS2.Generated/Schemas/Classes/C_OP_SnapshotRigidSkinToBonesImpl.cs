@@ -17,20 +17,20 @@ internal partial class C_OP_SnapshotRigidSkinToBonesImpl : CParticleFunctionOper
   public C_OP_SnapshotRigidSkinToBonesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransformNormalsOffset = new(() => Schema.GetOffset(0x208C05EB3C6BFD75), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformNormalsOffset = Schema.GetOffset(0x208C05EB3C6BFD75);
 
   public ref bool TransformNormals {
-    get => ref _Handle.AsRef<bool>(_TransformNormalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TransformNormalsOffset);
   }
-  private static readonly Lazy<nint> _TransformRadiiOffset = new(() => Schema.GetOffset(0x208C05EB8183F664), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformRadiiOffset = Schema.GetOffset(0x208C05EB8183F664);
 
   public ref bool TransformRadii {
-    get => ref _Handle.AsRef<bool>(_TransformRadiiOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TransformRadiiOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x208C05EB3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x208C05EB3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
 
 

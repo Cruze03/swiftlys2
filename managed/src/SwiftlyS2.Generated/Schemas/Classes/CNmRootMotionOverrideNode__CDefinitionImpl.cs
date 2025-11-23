@@ -17,40 +17,40 @@ internal partial class CNmRootMotionOverrideNode__CDefinitionImpl : CNmPassthrou
   public CNmRootMotionOverrideNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DesiredMovingVelocityNodeIdxOffset = new(() => Schema.GetOffset(0x63AAD28BA5EFD80B), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredMovingVelocityNodeIdxOffset = Schema.GetOffset(0x63AAD28BA5EFD80B);
 
   public ref short DesiredMovingVelocityNodeIdx {
-    get => ref _Handle.AsRef<short>(_DesiredMovingVelocityNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DesiredMovingVelocityNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DesiredFacingDirectionNodeIdxOffset = new(() => Schema.GetOffset(0x63AAD28BAC723A63), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredFacingDirectionNodeIdxOffset = Schema.GetOffset(0x63AAD28BAC723A63);
 
   public ref short DesiredFacingDirectionNodeIdx {
-    get => ref _Handle.AsRef<short>(_DesiredFacingDirectionNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_DesiredFacingDirectionNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _LinearVelocityLimitNodeIdxOffset = new(() => Schema.GetOffset(0x63AAD28B56A698BD), LazyThreadSafetyMode.None);
+  private static readonly nint _LinearVelocityLimitNodeIdxOffset = Schema.GetOffset(0x63AAD28B56A698BD);
 
   public ref short LinearVelocityLimitNodeIdx {
-    get => ref _Handle.AsRef<short>(_LinearVelocityLimitNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_LinearVelocityLimitNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _AngularVelocityLimitNodeIdxOffset = new(() => Schema.GetOffset(0x63AAD28BCC9208F8), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularVelocityLimitNodeIdxOffset = Schema.GetOffset(0x63AAD28BCC9208F8);
 
   public ref short AngularVelocityLimitNodeIdx {
-    get => ref _Handle.AsRef<short>(_AngularVelocityLimitNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_AngularVelocityLimitNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _MaxLinearVelocityOffset = new(() => Schema.GetOffset(0x63AAD28B70FC93F7), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxLinearVelocityOffset = Schema.GetOffset(0x63AAD28B70FC93F7);
 
   public ref float MaxLinearVelocity {
-    get => ref _Handle.AsRef<float>(_MaxLinearVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxLinearVelocityOffset);
   }
-  private static readonly Lazy<nint> _MaxAngularVelocityRadiansOffset = new(() => Schema.GetOffset(0x63AAD28BC15BAB90), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxAngularVelocityRadiansOffset = Schema.GetOffset(0x63AAD28BC15BAB90);
 
   public ref float MaxAngularVelocityRadians {
-    get => ref _Handle.AsRef<float>(_MaxAngularVelocityRadiansOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxAngularVelocityRadiansOffset);
   }
-  private static readonly Lazy<nint> _OverrideFlagsOffset = new(() => Schema.GetOffset(0x63AAD28BBDB571A4), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideFlagsOffset = Schema.GetOffset(0x63AAD28BBDB571A4);
 
   public CNmBitFlags OverrideFlags {
-    get => new CNmBitFlagsImpl(_Handle + _OverrideFlagsOffset.Value);
+    get => new CNmBitFlagsImpl(_Handle + _OverrideFlagsOffset);
   }
 
 

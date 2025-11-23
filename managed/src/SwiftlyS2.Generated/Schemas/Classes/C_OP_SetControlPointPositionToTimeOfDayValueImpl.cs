@@ -17,24 +17,24 @@ internal partial class C_OP_SetControlPointPositionToTimeOfDayValueImpl : CParti
   public C_OP_SetControlPointPositionToTimeOfDayValueImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x976831CB3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x976831CB3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _TimeOfDayParameterOffset = new(() => Schema.GetOffset(0x976831CB5B5E9DD3), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOfDayParameterOffset = Schema.GetOffset(0x976831CB5B5E9DD3);
 
   public string TimeOfDayParameter {
     get {
-      var ptr = _Handle + _TimeOfDayParameterOffset.Value;
+      var ptr = _Handle + _TimeOfDayParameterOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _TimeOfDayParameterOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _TimeOfDayParameterOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x976831CB0A18BFDF), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x976831CB0A18BFDF);
 
   public ref Vector DefaultValue {
-    get => ref _Handle.AsRef<Vector>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DefaultValueOffset);
   }
 
 

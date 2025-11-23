@@ -17,25 +17,25 @@ internal partial class CVoiceContainerStaticAdditiveSynth__CGainScalePerInstance
   public CVoiceContainerStaticAdditiveSynth__CGainScalePerInstanceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinVolumeOffset = new(() => Schema.GetOffset(0x9089F81B2CA4E2A3), LazyThreadSafetyMode.None);
+  private static readonly nint _MinVolumeOffset = Schema.GetOffset(0x9089F81B2CA4E2A3);
 
   public ref float MinVolume {
-    get => ref _Handle.AsRef<float>(_MinVolumeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinVolumeOffset);
   }
-  private static readonly Lazy<nint> _InstancesAtMinVolumeOffset = new(() => Schema.GetOffset(0x9089F81BBA3DF3B8), LazyThreadSafetyMode.None);
+  private static readonly nint _InstancesAtMinVolumeOffset = Schema.GetOffset(0x9089F81BBA3DF3B8);
 
   public ref int InstancesAtMinVolume {
-    get => ref _Handle.AsRef<int>(_InstancesAtMinVolumeOffset.Value);
+    get => ref _Handle.AsRef<int>(_InstancesAtMinVolumeOffset);
   }
-  private static readonly Lazy<nint> _MaxVolumeOffset = new(() => Schema.GetOffset(0x9089F81B25691B11), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxVolumeOffset = Schema.GetOffset(0x9089F81B25691B11);
 
   public ref float MaxVolume {
-    get => ref _Handle.AsRef<float>(_MaxVolumeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxVolumeOffset);
   }
-  private static readonly Lazy<nint> _InstancesAtMaxVolumeOffset = new(() => Schema.GetOffset(0x9089F81B18EB3E46), LazyThreadSafetyMode.None);
+  private static readonly nint _InstancesAtMaxVolumeOffset = Schema.GetOffset(0x9089F81B18EB3E46);
 
   public ref int InstancesAtMaxVolume {
-    get => ref _Handle.AsRef<int>(_InstancesAtMaxVolumeOffset.Value);
+    get => ref _Handle.AsRef<int>(_InstancesAtMaxVolumeOffset);
   }
 
 

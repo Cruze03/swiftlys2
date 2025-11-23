@@ -17,55 +17,55 @@ internal partial class CAimCameraUpdateNodeImpl : CUnaryUpdateNodeImpl, CAimCame
   public CAimCameraUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParameterPositionOffset = new(() => Schema.GetOffset(0xE8DD6D01DA71CD41), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterPositionOffset = Schema.GetOffset(0xE8DD6D01DA71CD41);
 
   public CAnimParamHandle ParameterPosition {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterPositionOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterPositionOffset);
   }
-  private static readonly Lazy<nint> _ParameterOrientationOffset = new(() => Schema.GetOffset(0xE8DD6D011320E9C8), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterOrientationOffset = Schema.GetOffset(0xE8DD6D011320E9C8);
 
   public CAnimParamHandle ParameterOrientation {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterOrientationOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterOrientationOffset);
   }
-  private static readonly Lazy<nint> _ParameterSpineRotationWeightOffset = new(() => Schema.GetOffset(0xE8DD6D013A4DC0C7), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterSpineRotationWeightOffset = Schema.GetOffset(0xE8DD6D013A4DC0C7);
 
   public CAnimParamHandle ParameterSpineRotationWeight {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterSpineRotationWeightOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterSpineRotationWeightOffset);
   }
-  private static readonly Lazy<nint> _ParameterPelvisOffsetOffset = new(() => Schema.GetOffset(0xE8DD6D01C4C67FA8), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterPelvisOffsetOffset = Schema.GetOffset(0xE8DD6D01C4C67FA8);
 
   public CAnimParamHandle ParameterPelvisOffset {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterPelvisOffsetOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterPelvisOffsetOffset);
   }
-  private static readonly Lazy<nint> _ParameterUseIKOffset = new(() => Schema.GetOffset(0xE8DD6D01C8F88C49), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterUseIKOffset = Schema.GetOffset(0xE8DD6D01C8F88C49);
 
   public CAnimParamHandle ParameterUseIK {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterUseIKOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterUseIKOffset);
   }
-  private static readonly Lazy<nint> _ParameterCameraOnlyOffset = new(() => Schema.GetOffset(0xE8DD6D013A129627), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterCameraOnlyOffset = Schema.GetOffset(0xE8DD6D013A129627);
 
   public CAnimParamHandle ParameterCameraOnly {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterCameraOnlyOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterCameraOnlyOffset);
   }
-  private static readonly Lazy<nint> _ParameterWeaponDepenetrationDistanceOffset = new(() => Schema.GetOffset(0xE8DD6D01316BB0BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterWeaponDepenetrationDistanceOffset = Schema.GetOffset(0xE8DD6D01316BB0BD);
 
   public CAnimParamHandle ParameterWeaponDepenetrationDistance {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterWeaponDepenetrationDistanceOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterWeaponDepenetrationDistanceOffset);
   }
-  private static readonly Lazy<nint> _ParameterWeaponDepenetrationDeltaOffset = new(() => Schema.GetOffset(0xE8DD6D01D6C8CDF0), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterWeaponDepenetrationDeltaOffset = Schema.GetOffset(0xE8DD6D01D6C8CDF0);
 
   public CAnimParamHandle ParameterWeaponDepenetrationDelta {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterWeaponDepenetrationDeltaOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterWeaponDepenetrationDeltaOffset);
   }
-  private static readonly Lazy<nint> _ParameterCameraClearanceDistanceOffset = new(() => Schema.GetOffset(0xE8DD6D01F4F2C992), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterCameraClearanceDistanceOffset = Schema.GetOffset(0xE8DD6D01F4F2C992);
 
   public CAnimParamHandle ParameterCameraClearanceDistance {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterCameraClearanceDistanceOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterCameraClearanceDistanceOffset);
   }
-  private static readonly Lazy<nint> _OpFixedSettingsOffset = new(() => Schema.GetOffset(0xE8DD6D01E533AB09), LazyThreadSafetyMode.None);
+  private static readonly nint _OpFixedSettingsOffset = Schema.GetOffset(0xE8DD6D01E533AB09);
 
   public AimCameraOpFixedSettings_t OpFixedSettings {
-    get => new AimCameraOpFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset.Value);
+    get => new AimCameraOpFixedSettings_tImpl(_Handle + _OpFixedSettingsOffset);
   }
 
 

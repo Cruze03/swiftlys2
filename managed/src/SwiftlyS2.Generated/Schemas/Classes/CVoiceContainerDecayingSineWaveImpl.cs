@@ -17,15 +17,15 @@ internal partial class CVoiceContainerDecayingSineWaveImpl : CVoiceContainerBase
   public CVoiceContainerDecayingSineWaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0x3383CD01D2C16DD7), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0x3383CD01D2C16DD7);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _DecayTimeOffset = new(() => Schema.GetOffset(0x3383CD01E94A0656), LazyThreadSafetyMode.None);
+  private static readonly nint _DecayTimeOffset = Schema.GetOffset(0x3383CD01E94A0656);
 
   public ref float DecayTime {
-    get => ref _Handle.AsRef<float>(_DecayTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_DecayTimeOffset);
   }
 
 

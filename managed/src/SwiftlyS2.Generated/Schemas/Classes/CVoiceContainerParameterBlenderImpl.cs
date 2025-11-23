@@ -17,45 +17,45 @@ internal partial class CVoiceContainerParameterBlenderImpl : CVoiceContainerBase
   public CVoiceContainerParameterBlenderImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FirstSoundOffset = new(() => Schema.GetOffset(0xEC5F1A42666B0138), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstSoundOffset = Schema.GetOffset(0xEC5F1A42666B0138);
 
   public CSoundContainerReference FirstSound {
-    get => new CSoundContainerReferenceImpl(_Handle + _FirstSoundOffset.Value);
+    get => new CSoundContainerReferenceImpl(_Handle + _FirstSoundOffset);
   }
-  private static readonly Lazy<nint> _SecondSoundOffset = new(() => Schema.GetOffset(0xEC5F1A42A2BC3E5C), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondSoundOffset = Schema.GetOffset(0xEC5F1A42A2BC3E5C);
 
   public CSoundContainerReference SecondSound {
-    get => new CSoundContainerReferenceImpl(_Handle + _SecondSoundOffset.Value);
+    get => new CSoundContainerReferenceImpl(_Handle + _SecondSoundOffset);
   }
-  private static readonly Lazy<nint> _EnableOcclusionBlendOffset = new(() => Schema.GetOffset(0xEC5F1A42041C67C2), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableOcclusionBlendOffset = Schema.GetOffset(0xEC5F1A42041C67C2);
 
   public ref bool EnableOcclusionBlend {
-    get => ref _Handle.AsRef<bool>(_EnableOcclusionBlendOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableOcclusionBlendOffset);
   }
-  private static readonly Lazy<nint> _Curve1Offset = new(() => Schema.GetOffset(0xEC5F1A423B9F58DF), LazyThreadSafetyMode.None);
+  private static readonly nint _Curve1Offset = Schema.GetOffset(0xEC5F1A423B9F58DF);
 
   public SchemaUntypedField Curve1 {
-    get => new SchemaUntypedField(_Handle + _Curve1Offset.Value);
+    get => new SchemaUntypedField(_Handle + _Curve1Offset);
   }
-  private static readonly Lazy<nint> _Curve2Offset = new(() => Schema.GetOffset(0xEC5F1A423C9F5A72), LazyThreadSafetyMode.None);
+  private static readonly nint _Curve2Offset = Schema.GetOffset(0xEC5F1A423C9F5A72);
 
   public SchemaUntypedField Curve2 {
-    get => new SchemaUntypedField(_Handle + _Curve2Offset.Value);
+    get => new SchemaUntypedField(_Handle + _Curve2Offset);
   }
-  private static readonly Lazy<nint> _EnableDistanceBlendOffset = new(() => Schema.GetOffset(0xEC5F1A428EDC5388), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableDistanceBlendOffset = Schema.GetOffset(0xEC5F1A428EDC5388);
 
   public ref bool EnableDistanceBlend {
-    get => ref _Handle.AsRef<bool>(_EnableDistanceBlendOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableDistanceBlendOffset);
   }
-  private static readonly Lazy<nint> _Curve3Offset = new(() => Schema.GetOffset(0xEC5F1A423D9F5C05), LazyThreadSafetyMode.None);
+  private static readonly nint _Curve3Offset = Schema.GetOffset(0xEC5F1A423D9F5C05);
 
   public SchemaUntypedField Curve3 {
-    get => new SchemaUntypedField(_Handle + _Curve3Offset.Value);
+    get => new SchemaUntypedField(_Handle + _Curve3Offset);
   }
-  private static readonly Lazy<nint> _Curve4Offset = new(() => Schema.GetOffset(0xEC5F1A42369F5100), LazyThreadSafetyMode.None);
+  private static readonly nint _Curve4Offset = Schema.GetOffset(0xEC5F1A42369F5100);
 
   public SchemaUntypedField Curve4 {
-    get => new SchemaUntypedField(_Handle + _Curve4Offset.Value);
+    get => new SchemaUntypedField(_Handle + _Curve4Offset);
   }
 
 

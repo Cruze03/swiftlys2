@@ -17,65 +17,65 @@ internal partial class CPlayer_CameraServicesImpl : CPlayerPawnComponentImpl, CP
   public CPlayer_CameraServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CsViewPunchAngleOffset = new(() => Schema.GetOffset(0xCF1076771108E39), LazyThreadSafetyMode.None);
+  private static readonly nint _CsViewPunchAngleOffset = Schema.GetOffset(0xCF1076771108E39);
 
   public ref QAngle CsViewPunchAngle {
-    get => ref _Handle.AsRef<QAngle>(_CsViewPunchAngleOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_CsViewPunchAngleOffset);
   }
-  private static readonly Lazy<nint> _CsViewPunchAngleTickOffset = new(() => Schema.GetOffset(0xCF10767832A08EC), LazyThreadSafetyMode.None);
+  private static readonly nint _CsViewPunchAngleTickOffset = Schema.GetOffset(0xCF10767832A08EC);
 
   public GameTick_t CsViewPunchAngleTick {
-    get => new GameTick_tImpl(_Handle + _CsViewPunchAngleTickOffset.Value);
+    get => new GameTick_tImpl(_Handle + _CsViewPunchAngleTickOffset);
   }
-  private static readonly Lazy<nint> _CsViewPunchAngleTickRatioOffset = new(() => Schema.GetOffset(0xCF1076709BF7629), LazyThreadSafetyMode.None);
+  private static readonly nint _CsViewPunchAngleTickRatioOffset = Schema.GetOffset(0xCF1076709BF7629);
 
   public ref float CsViewPunchAngleTickRatio {
-    get => ref _Handle.AsRef<float>(_CsViewPunchAngleTickRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_CsViewPunchAngleTickRatioOffset);
   }
-  private static readonly Lazy<nint> _PlayerFogOffset = new(() => Schema.GetOffset(0xCF1076781FBA280), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerFogOffset = Schema.GetOffset(0xCF1076781FBA280);
 
   public fogplayerparams_t PlayerFog {
-    get => new fogplayerparams_tImpl(_Handle + _PlayerFogOffset.Value);
+    get => new fogplayerparams_tImpl(_Handle + _PlayerFogOffset);
   }
-  private static readonly Lazy<nint> _ColorCorrectionCtrlOffset = new(() => Schema.GetOffset(0xCF1076724DC833B), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorCorrectionCtrlOffset = Schema.GetOffset(0xCF1076724DC833B);
 
   public ref CHandle<CColorCorrection> ColorCorrectionCtrl {
-    get => ref _Handle.AsRef<CHandle<CColorCorrection>>(_ColorCorrectionCtrlOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CColorCorrection>>(_ColorCorrectionCtrlOffset);
   }
-  private static readonly Lazy<nint> _ViewEntityOffset = new(() => Schema.GetOffset(0xCF107677FD940D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ViewEntityOffset = Schema.GetOffset(0xCF107677FD940D1);
 
   public ref CHandle<CBaseEntity> ViewEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ViewEntityOffset);
   }
-  private static readonly Lazy<nint> _TonemapControllerOffset = new(() => Schema.GetOffset(0xCF10767F5E1A34F), LazyThreadSafetyMode.None);
+  private static readonly nint _TonemapControllerOffset = Schema.GetOffset(0xCF10767F5E1A34F);
 
   public ref CHandle<CTonemapController2> TonemapController {
-    get => ref _Handle.AsRef<CHandle<CTonemapController2>>(_TonemapControllerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CTonemapController2>>(_TonemapControllerOffset);
   }
-  private static readonly Lazy<nint> _AudioOffset = new(() => Schema.GetOffset(0xCF1076722E8C9B9), LazyThreadSafetyMode.None);
+  private static readonly nint _AudioOffset = Schema.GetOffset(0xCF1076722E8C9B9);
 
   public audioparams_t Audio {
-    get => new audioparams_tImpl(_Handle + _AudioOffset.Value);
+    get => new audioparams_tImpl(_Handle + _AudioOffset);
   }
-  private static readonly Lazy<nint> _PostProcessingVolumesOffset = new(() => Schema.GetOffset(0xCF107674BEE60DF), LazyThreadSafetyMode.None);
+  private static readonly nint _PostProcessingVolumesOffset = Schema.GetOffset(0xCF107674BEE60DF);
 
   public ref CUtlVector<CHandle<CPostProcessingVolume>> PostProcessingVolumes {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CPostProcessingVolume>>>(_PostProcessingVolumesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CPostProcessingVolume>>>(_PostProcessingVolumesOffset);
   }
-  private static readonly Lazy<nint> _OldPlayerZOffset = new(() => Schema.GetOffset(0xCF107677A9E373D), LazyThreadSafetyMode.None);
+  private static readonly nint _OldPlayerZOffset = Schema.GetOffset(0xCF107677A9E373D);
 
   public ref float OldPlayerZ {
-    get => ref _Handle.AsRef<float>(_OldPlayerZOffset.Value);
+    get => ref _Handle.AsRef<float>(_OldPlayerZOffset);
   }
-  private static readonly Lazy<nint> _OldPlayerViewOffsetZOffset = new(() => Schema.GetOffset(0xCF10767CA126E73), LazyThreadSafetyMode.None);
+  private static readonly nint _OldPlayerViewOffsetZOffset = Schema.GetOffset(0xCF10767CA126E73);
 
   public ref float OldPlayerViewOffsetZ {
-    get => ref _Handle.AsRef<float>(_OldPlayerViewOffsetZOffset.Value);
+    get => ref _Handle.AsRef<float>(_OldPlayerViewOffsetZOffset);
   }
-  private static readonly Lazy<nint> _TriggerSoundscapeListOffset = new(() => Schema.GetOffset(0xCF10767F74D6272), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerSoundscapeListOffset = Schema.GetOffset(0xCF10767F74D6272);
 
   public ref CUtlVector<CHandle<CEnvSoundscapeTriggerable>> TriggerSoundscapeList {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CEnvSoundscapeTriggerable>>>(_TriggerSoundscapeListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CEnvSoundscapeTriggerable>>>(_TriggerSoundscapeListOffset);
   }
 
   public void CsViewPunchAngleUpdated() {

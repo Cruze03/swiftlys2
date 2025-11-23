@@ -17,25 +17,25 @@ internal partial class C_OP_ScreenSpaceRotateTowardTargetImpl : CParticleFunctio
   public C_OP_ScreenSpaceRotateTowardTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetPositionOffset = new(() => Schema.GetOffset(0xD66164FC554C563B), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionOffset = Schema.GetOffset(0xD66164FC554C563B);
 
   public CPerParticleVecInput TargetPosition {
-    get => new CPerParticleVecInputImpl(_Handle + _TargetPositionOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _TargetPositionOffset);
   }
-  private static readonly Lazy<nint> _OutputRemapOffset = new(() => Schema.GetOffset(0xD66164FC1239396F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRemapOffset = Schema.GetOffset(0xD66164FC1239396F);
 
   public CParticleRemapFloatInput OutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0xD66164FCFB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0xD66164FCFB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _ScreenEdgeAlignmentDistanceOffset = new(() => Schema.GetOffset(0xD66164FCDB3D3EAC), LazyThreadSafetyMode.None);
+  private static readonly nint _ScreenEdgeAlignmentDistanceOffset = Schema.GetOffset(0xD66164FCDB3D3EAC);
 
   public CPerParticleFloatInput ScreenEdgeAlignmentDistance {
-    get => new CPerParticleFloatInputImpl(_Handle + _ScreenEdgeAlignmentDistanceOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ScreenEdgeAlignmentDistanceOffset);
   }
 
 

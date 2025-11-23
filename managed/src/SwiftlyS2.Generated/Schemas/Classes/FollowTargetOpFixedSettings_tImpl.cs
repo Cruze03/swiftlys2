@@ -17,30 +17,30 @@ internal partial class FollowTargetOpFixedSettings_tImpl : SchemaClass, FollowTa
   public FollowTargetOpFixedSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0xF6423DF66AFA4155), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0xF6423DF66AFA4155);
 
   public ref int BoneIndex {
-    get => ref _Handle.AsRef<int>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _BoneTargetOffset = new(() => Schema.GetOffset(0xF6423DF60E626FD2), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneTargetOffset = Schema.GetOffset(0xF6423DF60E626FD2);
 
   public ref bool BoneTarget {
-    get => ref _Handle.AsRef<bool>(_BoneTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BoneTargetOffset);
   }
-  private static readonly Lazy<nint> _BoneTargetIndexOffset = new(() => Schema.GetOffset(0xF6423DF62218DF46), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneTargetIndexOffset = Schema.GetOffset(0xF6423DF62218DF46);
 
   public ref int BoneTargetIndex {
-    get => ref _Handle.AsRef<int>(_BoneTargetIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneTargetIndexOffset);
   }
-  private static readonly Lazy<nint> _WorldCoodinateTargetOffset = new(() => Schema.GetOffset(0xF6423DF60B5B2B16), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldCoodinateTargetOffset = Schema.GetOffset(0xF6423DF60B5B2B16);
 
   public ref bool WorldCoodinateTarget {
-    get => ref _Handle.AsRef<bool>(_WorldCoodinateTargetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WorldCoodinateTargetOffset);
   }
-  private static readonly Lazy<nint> _MatchTargetOrientationOffset = new(() => Schema.GetOffset(0xF6423DF642E0C3DB), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchTargetOrientationOffset = Schema.GetOffset(0xF6423DF642E0C3DB);
 
   public ref bool MatchTargetOrientation {
-    get => ref _Handle.AsRef<bool>(_MatchTargetOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchTargetOrientationOffset);
   }
 
 

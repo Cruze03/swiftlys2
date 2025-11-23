@@ -17,60 +17,60 @@ internal partial class CVSoundImpl : SchemaClass, CVSound {
   public CVSoundImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RateOffset = new(() => Schema.GetOffset(0x478C987331106783), LazyThreadSafetyMode.None);
+  private static readonly nint _RateOffset = Schema.GetOffset(0x478C987331106783);
 
   public ref int Rate {
-    get => ref _Handle.AsRef<int>(_RateOffset.Value);
+    get => ref _Handle.AsRef<int>(_RateOffset);
   }
-  private static readonly Lazy<nint> _FormatOffset = new(() => Schema.GetOffset(0x478C9873A87491AE), LazyThreadSafetyMode.None);
+  private static readonly nint _FormatOffset = Schema.GetOffset(0x478C9873A87491AE);
 
   public ref CVSoundFormat_t Format {
-    get => ref _Handle.AsRef<CVSoundFormat_t>(_FormatOffset.Value);
+    get => ref _Handle.AsRef<CVSoundFormat_t>(_FormatOffset);
   }
-  private static readonly Lazy<nint> _ChannelsOffset = new(() => Schema.GetOffset(0x478C98735A815AD1), LazyThreadSafetyMode.None);
+  private static readonly nint _ChannelsOffset = Schema.GetOffset(0x478C98735A815AD1);
 
   public ref uint Channels {
-    get => ref _Handle.AsRef<uint>(_ChannelsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_ChannelsOffset);
   }
-  private static readonly Lazy<nint> _LoopStartOffset = new(() => Schema.GetOffset(0x478C9873A12E4295), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopStartOffset = Schema.GetOffset(0x478C9873A12E4295);
 
   public ref int LoopStart {
-    get => ref _Handle.AsRef<int>(_LoopStartOffset.Value);
+    get => ref _Handle.AsRef<int>(_LoopStartOffset);
   }
-  private static readonly Lazy<nint> _SampleCountOffset = new(() => Schema.GetOffset(0x478C98732DEF676A), LazyThreadSafetyMode.None);
+  private static readonly nint _SampleCountOffset = Schema.GetOffset(0x478C98732DEF676A);
 
   public ref uint SampleCount {
-    get => ref _Handle.AsRef<uint>(_SampleCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SampleCountOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x478C9873BC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x478C9873BC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _SentencesOffset = new(() => Schema.GetOffset(0x478C98730FF1D785), LazyThreadSafetyMode.None);
+  private static readonly nint _SentencesOffset = Schema.GetOffset(0x478C98730FF1D785);
 
   public ref CUtlVector<CAudioSentence> Sentences {
-    get => ref _Handle.AsRef<CUtlVector<CAudioSentence>>(_SentencesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAudioSentence>>(_SentencesOffset);
   }
-  private static readonly Lazy<nint> _StreamingSizeOffset = new(() => Schema.GetOffset(0x478C9873CB44A8AE), LazyThreadSafetyMode.None);
+  private static readonly nint _StreamingSizeOffset = Schema.GetOffset(0x478C9873CB44A8AE);
 
   public ref uint StreamingSize {
-    get => ref _Handle.AsRef<uint>(_StreamingSizeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_StreamingSizeOffset);
   }
-  private static readonly Lazy<nint> _SeekTableOffset = new(() => Schema.GetOffset(0x478C987388E17207), LazyThreadSafetyMode.None);
+  private static readonly nint _SeekTableOffset = Schema.GetOffset(0x478C987388E17207);
 
   public ref CUtlVector<int> SeekTable {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_SeekTableOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_SeekTableOffset);
   }
-  private static readonly Lazy<nint> _LoopEndOffset = new(() => Schema.GetOffset(0x478C9873900B36CC), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopEndOffset = Schema.GetOffset(0x478C9873900B36CC);
 
   public ref int LoopEnd {
-    get => ref _Handle.AsRef<int>(_LoopEndOffset.Value);
+    get => ref _Handle.AsRef<int>(_LoopEndOffset);
   }
-  private static readonly Lazy<nint> _EncodedHeaderOffset = new(() => Schema.GetOffset(0x478C9873BDA3C36C), LazyThreadSafetyMode.None);
+  private static readonly nint _EncodedHeaderOffset = Schema.GetOffset(0x478C9873BDA3C36C);
 
   public ref CUtlBinaryBlock EncodedHeader {
-    get => ref _Handle.AsRef<CUtlBinaryBlock>(_EncodedHeaderOffset.Value);
+    get => ref _Handle.AsRef<CUtlBinaryBlock>(_EncodedHeaderOffset);
   }
 
 

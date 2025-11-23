@@ -17,20 +17,20 @@ internal partial class C_OP_LazyCullCompareFloatImpl : CParticleFunctionOperator
   public C_OP_LazyCullCompareFloatImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Comparsion1Offset = new(() => Schema.GetOffset(0x9D0DCAD079865299), LazyThreadSafetyMode.None);
+  private static readonly nint _Comparsion1Offset = Schema.GetOffset(0x9D0DCAD079865299);
 
   public CPerParticleFloatInput Comparsion1 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Comparsion1Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Comparsion1Offset);
   }
-  private static readonly Lazy<nint> _Comparsion2Offset = new(() => Schema.GetOffset(0x9D0DCAD076864DE0), LazyThreadSafetyMode.None);
+  private static readonly nint _Comparsion2Offset = Schema.GetOffset(0x9D0DCAD076864DE0);
 
   public CPerParticleFloatInput Comparsion2 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Comparsion2Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Comparsion2Offset);
   }
-  private static readonly Lazy<nint> _CullTimeOffset = new(() => Schema.GetOffset(0x9D0DCAD0AE2A76FA), LazyThreadSafetyMode.None);
+  private static readonly nint _CullTimeOffset = Schema.GetOffset(0x9D0DCAD0AE2A76FA);
 
   public CPerParticleFloatInput CullTime {
-    get => new CPerParticleFloatInputImpl(_Handle + _CullTimeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _CullTimeOffset);
   }
 
 

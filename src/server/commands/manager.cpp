@@ -41,6 +41,9 @@ std::set<std::string> silentCommandPrefixes;
 void DispatchConCommand(void* _this, ConCommandRef cmd, const CCommandContext& ctx, const CCommand& args);
 IVFunctionHook* g_pDispatchConCommandHook = nullptr;
 
+void ClientCommandHook2(void* _this, CPlayerSlot slot, const CCommand& args);
+IVFunctionHook* g_pClientCommandHook2 = nullptr;
+
 void commandsCallback(const CCommandContext& context, const CCommand& args)
 {
     CCommand tokenizedArgs;
@@ -71,6 +74,13 @@ void CServerCommands::Initialize()
     g_pDispatchConCommandHook = hooksmanager->CreateVFunctionHook();
     g_pDispatchConCommandHook->SetHookFunction(ccvarVTable, gamedata->GetOffsets()->Fetch("ICvar::DispatchConCommand"), (void*)DispatchConCommand, true);
     g_pDispatchConCommandHook->Enable();
+
+    void* gameclientsvtable = nullptr;
+    s2binlib_find_vtable("server", "CSource2GameClients", &gameclientsvtable);
+
+    g_pClientCommandHook2 = hooksmanager->CreateVFunctionHook();
+    g_pClientCommandHook2->SetHookFunction(gameclientsvtable, gamedata->GetOffsets()->Fetch("IServerGameClients::ClientCommand"), (void*)ClientCommandHook2, true);
+    g_pClientCommandHook2->Enable();
 }
 
 void CServerCommands::Shutdown()
@@ -81,6 +91,13 @@ void CServerCommands::Shutdown()
         g_pDispatchConCommandHook->Disable();
         hooksmanager->DestroyVFunctionHook(g_pDispatchConCommandHook);
         g_pDispatchConCommandHook = nullptr;
+    }
+
+    if (g_pClientCommandHook2)
+    {
+        g_pClientCommandHook2->Disable();
+        hooksmanager->DestroyVFunctionHook(g_pClientCommandHook2);
+        g_pClientCommandHook2 = nullptr;
     }
 }
 
@@ -261,6 +278,14 @@ uint64_t CServerCommands::RegisterClientChatListener(std::function<int(int, cons
 void CServerCommands::UnregisterClientChatListener(uint64_t listener_id)
 {
     g_mClientChatListeners.erase(listener_id);
+}
+
+void ClientCommandHook2(void* _this, CPlayerSlot slot, const CCommand& args)
+{
+    static auto servercommands = g_ifaceService.FetchInterface<IServerCommands>(SERVERCOMMANDS_INTERFACE_VERSION);
+    if (!servercommands->HandleClientCommand(slot.Get(), args.GetCommandString())) return;
+
+    return reinterpret_cast<decltype(&ClientCommandHook2)>(g_pClientCommandHook2->GetOriginal())(_this, slot, args);
 }
 
 void DispatchConCommand(void* _this, ConCommandRef cmd, const CCommandContext& ctx, const CCommand& args)

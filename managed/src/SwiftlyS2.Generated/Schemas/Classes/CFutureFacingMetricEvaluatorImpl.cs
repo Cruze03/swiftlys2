@@ -17,15 +17,15 @@ internal partial class CFutureFacingMetricEvaluatorImpl : CMotionMetricEvaluator
   public CFutureFacingMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x6A3CD0D400DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x6A3CD0D400DC4A68);
 
   public ref float Distance {
-    get => ref _Handle.AsRef<float>(_DistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceOffset);
   }
-  private static readonly Lazy<nint> _TimeOffset = new(() => Schema.GetOffset(0x6A3CD0D4C957229E), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeOffset = Schema.GetOffset(0x6A3CD0D4C957229E);
 
   public ref float Time {
-    get => ref _Handle.AsRef<float>(_TimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimeOffset);
   }
 
 

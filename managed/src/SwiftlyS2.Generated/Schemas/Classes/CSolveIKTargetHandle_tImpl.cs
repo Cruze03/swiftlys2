@@ -17,15 +17,15 @@ internal partial class CSolveIKTargetHandle_tImpl : SchemaClass, CSolveIKTargetH
   public CSolveIKTargetHandle_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PositionHandleOffset = new(() => Schema.GetOffset(0xC2940485B066E3D4), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionHandleOffset = Schema.GetOffset(0xC2940485B066E3D4);
 
   public CAnimParamHandle PositionHandle {
-    get => new CAnimParamHandleImpl(_Handle + _PositionHandleOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _PositionHandleOffset);
   }
-  private static readonly Lazy<nint> _OrientationHandleOffset = new(() => Schema.GetOffset(0xC294048597E9518F), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationHandleOffset = Schema.GetOffset(0xC294048597E9518F);
 
   public CAnimParamHandle OrientationHandle {
-    get => new CAnimParamHandleImpl(_Handle + _OrientationHandleOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _OrientationHandleOffset);
   }
 
 

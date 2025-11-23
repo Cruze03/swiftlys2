@@ -17,85 +17,85 @@ internal partial class C_OP_RenderDeferredLightImpl : CParticleFunctionRendererI
   public C_OP_RenderDeferredLightImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UseAlphaTestWindowOffset = new(() => Schema.GetOffset(0x44291266951B0D10), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAlphaTestWindowOffset = Schema.GetOffset(0x44291266951B0D10);
 
   public ref bool UseAlphaTestWindow {
-    get => ref _Handle.AsRef<bool>(_UseAlphaTestWindowOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAlphaTestWindowOffset);
   }
-  private static readonly Lazy<nint> _UseTextureOffset = new(() => Schema.GetOffset(0x4429126624A2D28F), LazyThreadSafetyMode.None);
+  private static readonly nint _UseTextureOffset = Schema.GetOffset(0x4429126624A2D28F);
 
   public ref bool UseTexture {
-    get => ref _Handle.AsRef<bool>(_UseTextureOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseTextureOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x44291266A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x44291266A7A20159);
 
   public ref float RadiusScale {
-    get => ref _Handle.AsRef<float>(_RadiusScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _AlphaScaleOffset = new(() => Schema.GetOffset(0x44291266EC6D3C25), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaScaleOffset = Schema.GetOffset(0x44291266EC6D3C25);
 
   public ref float AlphaScale {
-    get => ref _Handle.AsRef<float>(_AlphaScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlphaScaleOffset);
   }
-  private static readonly Lazy<nint> _Alpha2FieldOffset = new(() => Schema.GetOffset(0x44291266F60EADC1), LazyThreadSafetyMode.None);
+  private static readonly nint _Alpha2FieldOffset = Schema.GetOffset(0x44291266F60EADC1);
 
   public ParticleAttributeIndex_t Alpha2Field {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _Alpha2FieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _Alpha2FieldOffset);
   }
-  private static readonly Lazy<nint> _ColorScaleOffset = new(() => Schema.GetOffset(0x442912669F9BB8BA), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorScaleOffset = Schema.GetOffset(0x442912669F9BB8BA);
 
   public CParticleCollectionVecInput ColorScale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset);
   }
-  private static readonly Lazy<nint> _ColorBlendTypeOffset = new(() => Schema.GetOffset(0x44291266DBC6EFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorBlendTypeOffset = Schema.GetOffset(0x44291266DBC6EFCF);
 
   public ref ParticleColorBlendType_t ColorBlendType {
-    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset);
   }
-  private static readonly Lazy<nint> _LightDistanceOffset = new(() => Schema.GetOffset(0x44291266FAE1FD66), LazyThreadSafetyMode.None);
+  private static readonly nint _LightDistanceOffset = Schema.GetOffset(0x44291266FAE1FD66);
 
   public ref float LightDistance {
-    get => ref _Handle.AsRef<float>(_LightDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_LightDistanceOffset);
   }
-  private static readonly Lazy<nint> _StartFalloffOffset = new(() => Schema.GetOffset(0x44291266A8F25925), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFalloffOffset = Schema.GetOffset(0x44291266A8F25925);
 
   public ref float StartFalloff {
-    get => ref _Handle.AsRef<float>(_StartFalloffOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFalloffOffset);
   }
-  private static readonly Lazy<nint> _DistanceFalloffOffset = new(() => Schema.GetOffset(0x44291266A9C33036), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceFalloffOffset = Schema.GetOffset(0x44291266A9C33036);
 
   public ref float DistanceFalloff {
-    get => ref _Handle.AsRef<float>(_DistanceFalloffOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceFalloffOffset);
   }
-  private static readonly Lazy<nint> _SpotFoVOffset = new(() => Schema.GetOffset(0x44291266D202E536), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotFoVOffset = Schema.GetOffset(0x44291266D202E536);
 
   public ref float SpotFoV {
-    get => ref _Handle.AsRef<float>(_SpotFoVOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpotFoVOffset);
   }
-  private static readonly Lazy<nint> _AlphaTestPointFieldOffset = new(() => Schema.GetOffset(0x442912666AD21C15), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaTestPointFieldOffset = Schema.GetOffset(0x442912666AD21C15);
 
   public ParticleAttributeIndex_t AlphaTestPointField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestPointFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestPointFieldOffset);
   }
-  private static readonly Lazy<nint> _AlphaTestRangeFieldOffset = new(() => Schema.GetOffset(0x442912663E3E66D4), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaTestRangeFieldOffset = Schema.GetOffset(0x442912663E3E66D4);
 
   public ParticleAttributeIndex_t AlphaTestRangeField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestRangeFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestRangeFieldOffset);
   }
-  private static readonly Lazy<nint> _AlphaTestSharpnessFieldOffset = new(() => Schema.GetOffset(0x44291266BCB74B82), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaTestSharpnessFieldOffset = Schema.GetOffset(0x44291266BCB74B82);
 
   public ParticleAttributeIndex_t AlphaTestSharpnessField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestSharpnessFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AlphaTestSharpnessFieldOffset);
   }
-  private static readonly Lazy<nint> _TextureOffset = new(() => Schema.GetOffset(0x442912668C0A2FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureOffset = Schema.GetOffset(0x442912668C0A2FB6);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Texture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureOffset);
   }
-  private static readonly Lazy<nint> _HSVShiftControlPointOffset = new(() => Schema.GetOffset(0x442912668848C01F), LazyThreadSafetyMode.None);
+  private static readonly nint _HSVShiftControlPointOffset = Schema.GetOffset(0x442912668848C01F);
 
   public ref int HSVShiftControlPoint {
-    get => ref _Handle.AsRef<int>(_HSVShiftControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_HSVShiftControlPointOffset);
   }
 
 

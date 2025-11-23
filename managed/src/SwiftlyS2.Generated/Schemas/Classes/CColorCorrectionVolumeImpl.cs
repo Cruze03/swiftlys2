@@ -17,49 +17,49 @@ internal partial class CColorCorrectionVolumeImpl : CBaseTriggerImpl, CColorCorr
   public CColorCorrectionVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxWeightOffset = new(() => Schema.GetOffset(0x78A9E01BEE8A2F2D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxWeightOffset = Schema.GetOffset(0x78A9E01BEE8A2F2D);
 
   public ref float MaxWeight {
-    get => ref _Handle.AsRef<float>(_MaxWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxWeightOffset);
   }
-  private static readonly Lazy<nint> _FadeDurationOffset = new(() => Schema.GetOffset(0x78A9E01B46550027), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeDurationOffset = Schema.GetOffset(0x78A9E01B46550027);
 
   public ref float FadeDuration {
-    get => ref _Handle.AsRef<float>(_FadeDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeDurationOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x78A9E01BBF415739), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x78A9E01BBF415739);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _LookupFilenameOffset = new(() => Schema.GetOffset(0x78A9E01B2611A2C6), LazyThreadSafetyMode.None);
+  private static readonly nint _LookupFilenameOffset = Schema.GetOffset(0x78A9E01B2611A2C6);
 
   public string LookupFilename {
     get {
-      var ptr = _Handle + _LookupFilenameOffset.Value;
+      var ptr = _Handle + _LookupFilenameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _LookupFilenameOffset.Value, value, 512);
+    set => Schema.SetFixedString(_Handle, _LookupFilenameOffset, value, 512);
   } 
-  private static readonly Lazy<nint> _LastEnterWeightOffset = new(() => Schema.GetOffset(0x78A9E01B2F53D64D), LazyThreadSafetyMode.None);
+  private static readonly nint _LastEnterWeightOffset = Schema.GetOffset(0x78A9E01B2F53D64D);
 
   public ref float LastEnterWeight {
-    get => ref _Handle.AsRef<float>(_LastEnterWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastEnterWeightOffset);
   }
-  private static readonly Lazy<nint> _LastEnterTimeOffset = new(() => Schema.GetOffset(0x78A9E01B01977F10), LazyThreadSafetyMode.None);
+  private static readonly nint _LastEnterTimeOffset = Schema.GetOffset(0x78A9E01B01977F10);
 
   public GameTime_t LastEnterTime {
-    get => new GameTime_tImpl(_Handle + _LastEnterTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastEnterTimeOffset);
   }
-  private static readonly Lazy<nint> _LastExitWeightOffset = new(() => Schema.GetOffset(0x78A9E01B59C9642D), LazyThreadSafetyMode.None);
+  private static readonly nint _LastExitWeightOffset = Schema.GetOffset(0x78A9E01B59C9642D);
 
   public ref float LastExitWeight {
-    get => ref _Handle.AsRef<float>(_LastExitWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastExitWeightOffset);
   }
-  private static readonly Lazy<nint> _LastExitTimeOffset = new(() => Schema.GetOffset(0x78A9E01B183C8DF0), LazyThreadSafetyMode.None);
+  private static readonly nint _LastExitTimeOffset = Schema.GetOffset(0x78A9E01B183C8DF0);
 
   public GameTime_t LastExitTime {
-    get => new GameTime_tImpl(_Handle + _LastExitTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastExitTimeOffset);
   }
 
   public void MaxWeightUpdated() {

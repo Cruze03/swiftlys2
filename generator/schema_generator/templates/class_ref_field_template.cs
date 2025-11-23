@@ -1,5 +1,5 @@
-  private static readonly Lazy<nint> _$NAME$Offset = new(() => Schema.GetOffset($HASH$), LazyThreadSafetyMode.None);
+  private static readonly nint _$NAME$Offset = Schema.GetOffset($HASH$);
 
   public $INTERFACE_TYPE$ $NAME$ {
-    get => new $IMPL_TYPE$(_Handle + _$NAME$Offset.Value);
+    get => new $IMPL_TYPE$(_Handle + _$NAME$Offset);
   }

@@ -17,20 +17,20 @@ internal partial class CNmLayerBlendNode__CDefinitionImpl : CNmPoseNode__CDefini
   public CNmLayerBlendNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BaseNodeIdxOffset = new(() => Schema.GetOffset(0xF9CDDBC5C07C7467), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseNodeIdxOffset = Schema.GetOffset(0xF9CDDBC5C07C7467);
 
   public ref short BaseNodeIdx {
-    get => ref _Handle.AsRef<short>(_BaseNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_BaseNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _OnlySampleBaseRootMotionOffset = new(() => Schema.GetOffset(0xF9CDDBC5ABE796B2), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlySampleBaseRootMotionOffset = Schema.GetOffset(0xF9CDDBC5ABE796B2);
 
   public ref bool OnlySampleBaseRootMotion {
-    get => ref _Handle.AsRef<bool>(_OnlySampleBaseRootMotionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnlySampleBaseRootMotionOffset);
   }
-  private static readonly Lazy<nint> _LayerDefinitionOffset = new(() => Schema.GetOffset(0xF9CDDBC51AE2DAAF), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerDefinitionOffset = Schema.GetOffset(0xF9CDDBC51AE2DAAF);
 
   public SchemaUntypedField LayerDefinition {
-    get => new SchemaUntypedField(_Handle + _LayerDefinitionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _LayerDefinitionOffset);
   }
 
 

@@ -17,50 +17,50 @@ internal partial class CDynamicLightImpl : CBaseModelEntityImpl, CDynamicLight {
   public CDynamicLightImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActualFlagsOffset = new(() => Schema.GetOffset(0x5256F8E9E685EDEE), LazyThreadSafetyMode.None);
+  private static readonly nint _ActualFlagsOffset = Schema.GetOffset(0x5256F8E9E685EDEE);
 
   public ref byte ActualFlags {
-    get => ref _Handle.AsRef<byte>(_ActualFlagsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ActualFlagsOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x5256F8E936B92FAC), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x5256F8E936B92FAC);
 
   public ref byte Flags {
-    get => ref _Handle.AsRef<byte>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _LightStyleOffset = new(() => Schema.GetOffset(0x5256F8E965232F30), LazyThreadSafetyMode.None);
+  private static readonly nint _LightStyleOffset = Schema.GetOffset(0x5256F8E965232F30);
 
   public ref byte LightStyle {
-    get => ref _Handle.AsRef<byte>(_LightStyleOffset.Value);
+    get => ref _Handle.AsRef<byte>(_LightStyleOffset);
   }
-  private static readonly Lazy<nint> _OnOffset = new(() => Schema.GetOffset(0x5256F8E9DF026050), LazyThreadSafetyMode.None);
+  private static readonly nint _OnOffset = Schema.GetOffset(0x5256F8E9DF026050);
 
   public ref bool On {
-    get => ref _Handle.AsRef<bool>(_OnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x5256F8E97C5B0533), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x5256F8E97C5B0533);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _ExponentOffset = new(() => Schema.GetOffset(0x5256F8E99BCA80C6), LazyThreadSafetyMode.None);
+  private static readonly nint _ExponentOffset = Schema.GetOffset(0x5256F8E99BCA80C6);
 
   public ref int Exponent {
-    get => ref _Handle.AsRef<int>(_ExponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_ExponentOffset);
   }
-  private static readonly Lazy<nint> _InnerAngleOffset = new(() => Schema.GetOffset(0x5256F8E91D12DC0E), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerAngleOffset = Schema.GetOffset(0x5256F8E91D12DC0E);
 
   public ref float InnerAngle {
-    get => ref _Handle.AsRef<float>(_InnerAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerAngleOffset);
   }
-  private static readonly Lazy<nint> _OuterAngleOffset = new(() => Schema.GetOffset(0x5256F8E9328680EF), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterAngleOffset = Schema.GetOffset(0x5256F8E9328680EF);
 
   public ref float OuterAngle {
-    get => ref _Handle.AsRef<float>(_OuterAngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_OuterAngleOffset);
   }
-  private static readonly Lazy<nint> _SpotRadiusOffset = new(() => Schema.GetOffset(0x5256F8E993FBE5BB), LazyThreadSafetyMode.None);
+  private static readonly nint _SpotRadiusOffset = Schema.GetOffset(0x5256F8E993FBE5BB);
 
   public ref float SpotRadius {
-    get => ref _Handle.AsRef<float>(_SpotRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpotRadiusOffset);
   }
 
   public void FlagsUpdated() {

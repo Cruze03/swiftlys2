@@ -17,61 +17,61 @@ internal partial class EntityIOConnectionData_tImpl : SchemaClass, EntityIOConne
   public EntityIOConnectionData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutputNameOffset = new(() => Schema.GetOffset(0xDEBEBB4D5BFC85BF), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputNameOffset = Schema.GetOffset(0xDEBEBB4D5BFC85BF);
 
   public string OutputName {
     get {
-      var ptr = _Handle.Read<nint>(_OutputNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OutputNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OutputNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OutputNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetTypeOffset = new(() => Schema.GetOffset(0xDEBEBB4D13C167A0), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetTypeOffset = Schema.GetOffset(0xDEBEBB4D13C167A0);
 
   public ref uint TargetType {
-    get => ref _Handle.AsRef<uint>(_TargetTypeOffset.Value);
+    get => ref _Handle.AsRef<uint>(_TargetTypeOffset);
   }
-  private static readonly Lazy<nint> _TargetNameOffset = new(() => Schema.GetOffset(0xDEBEBB4DC58FE46B), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetNameOffset = Schema.GetOffset(0xDEBEBB4DC58FE46B);
 
   public string TargetName {
     get {
-      var ptr = _Handle.Read<nint>(_TargetNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetNameOffset, value);
   } 
-  private static readonly Lazy<nint> _InputNameOffset = new(() => Schema.GetOffset(0xDEBEBB4D61478B20), LazyThreadSafetyMode.None);
+  private static readonly nint _InputNameOffset = Schema.GetOffset(0xDEBEBB4D61478B20);
 
   public string InputName {
     get {
-      var ptr = _Handle.Read<nint>(_InputNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_InputNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InputNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _InputNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OverrideParamOffset = new(() => Schema.GetOffset(0xDEBEBB4DB454EE6A), LazyThreadSafetyMode.None);
+  private static readonly nint _OverrideParamOffset = Schema.GetOffset(0xDEBEBB4DB454EE6A);
 
   public string OverrideParam {
     get {
-      var ptr = _Handle.Read<nint>(_OverrideParamOffset.Value);
+      var ptr = _Handle.Read<nint>(_OverrideParamOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OverrideParamOffset.Value, value);
+    set => Schema.SetString(_Handle, _OverrideParamOffset, value);
   } 
-  private static readonly Lazy<nint> _DelayOffset = new(() => Schema.GetOffset(0xDEBEBB4D7D68FD6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayOffset = Schema.GetOffset(0xDEBEBB4D7D68FD6E);
 
   public ref float Delay {
-    get => ref _Handle.AsRef<float>(_DelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayOffset);
   }
-  private static readonly Lazy<nint> _TimesToFireOffset = new(() => Schema.GetOffset(0xDEBEBB4D0393A604), LazyThreadSafetyMode.None);
+  private static readonly nint _TimesToFireOffset = Schema.GetOffset(0xDEBEBB4D0393A604);
 
   public ref int TimesToFire {
-    get => ref _Handle.AsRef<int>(_TimesToFireOffset.Value);
+    get => ref _Handle.AsRef<int>(_TimesToFireOffset);
   }
-  private static readonly Lazy<nint> _ParamMapOffset = new(() => Schema.GetOffset(0xDEBEBB4DF64DD25C), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamMapOffset = Schema.GetOffset(0xDEBEBB4DF64DD25C);
 
   public SchemaUntypedField ParamMap {
-    get => new SchemaUntypedField(_Handle + _ParamMapOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParamMapOffset);
   }
 
 

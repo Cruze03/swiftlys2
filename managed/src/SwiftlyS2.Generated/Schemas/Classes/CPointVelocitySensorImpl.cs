@@ -17,35 +17,35 @@ internal partial class CPointVelocitySensorImpl : CPointEntityImpl, CPointVeloci
   public CPointVelocitySensorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetEntityOffset = new(() => Schema.GetOffset(0x96CA232125D042A9), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntityOffset = Schema.GetOffset(0x96CA232125D042A9);
 
   public ref CHandle<CBaseEntity> TargetEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetEntityOffset);
   }
-  private static readonly Lazy<nint> _AxisOffset = new(() => Schema.GetOffset(0x96CA23210AF9CE54), LazyThreadSafetyMode.None);
+  private static readonly nint _AxisOffset = Schema.GetOffset(0x96CA23210AF9CE54);
 
   public ref Vector Axis {
-    get => ref _Handle.AsRef<Vector>(_AxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AxisOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x96CA23216154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x96CA23216154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _PrevVelocityOffset = new(() => Schema.GetOffset(0x96CA23211F9ACE5F), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevVelocityOffset = Schema.GetOffset(0x96CA23211F9ACE5F);
 
   public ref float PrevVelocity {
-    get => ref _Handle.AsRef<float>(_PrevVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevVelocityOffset);
   }
-  private static readonly Lazy<nint> _AvgIntervalOffset = new(() => Schema.GetOffset(0x96CA2321D6693004), LazyThreadSafetyMode.None);
+  private static readonly nint _AvgIntervalOffset = Schema.GetOffset(0x96CA2321D6693004);
 
   public ref float AvgInterval {
-    get => ref _Handle.AsRef<float>(_AvgIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_AvgIntervalOffset);
   }
-  private static readonly Lazy<nint> _VelocityOffset = new(() => Schema.GetOffset(0x96CA23219B4CC8B2), LazyThreadSafetyMode.None);
+  private static readonly nint _VelocityOffset = Schema.GetOffset(0x96CA23219B4CC8B2);
 
   public SchemaUntypedField Velocity {
-    get => new SchemaUntypedField(_Handle + _VelocityOffset.Value);
+    get => new SchemaUntypedField(_Handle + _VelocityOffset);
   }
 
 

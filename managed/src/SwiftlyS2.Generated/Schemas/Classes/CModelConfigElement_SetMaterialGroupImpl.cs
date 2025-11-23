@@ -17,14 +17,14 @@ internal partial class CModelConfigElement_SetMaterialGroupImpl : CModelConfigEl
   public CModelConfigElement_SetMaterialGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaterialGroupNameOffset = new(() => Schema.GetOffset(0xFF9AED50C2DD3048), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialGroupNameOffset = Schema.GetOffset(0xFF9AED50C2DD3048);
 
   public string MaterialGroupName {
     get {
-      var ptr = _Handle.Read<nint>(_MaterialGroupNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MaterialGroupNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MaterialGroupNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MaterialGroupNameOffset, value);
   } 
 
 

@@ -17,14 +17,14 @@ internal partial class CPulseCell_Step_EntFireImpl : CPulseCell_BaseFlowImpl, CP
   public CPulseCell_Step_EntFireImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputOffset = new(() => Schema.GetOffset(0xF0F9E958942A24FB), LazyThreadSafetyMode.None);
+  private static readonly nint _InputOffset = Schema.GetOffset(0xF0F9E958942A24FB);
 
   public string Input {
     get {
-      var ptr = _Handle.Read<nint>(_InputOffset.Value);
+      var ptr = _Handle.Read<nint>(_InputOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InputOffset.Value, value);
+    set => Schema.SetString(_Handle, _InputOffset, value);
   } 
 
 

@@ -17,20 +17,20 @@ internal partial class SoundOpvarTraceResult_tImpl : SchemaClass, SoundOpvarTrac
   public SoundOpvarTraceResult_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PosOffset = new(() => Schema.GetOffset(0xF93EB0CBE5D6FAFD), LazyThreadSafetyMode.None);
+  private static readonly nint _PosOffset = Schema.GetOffset(0xF93EB0CBE5D6FAFD);
 
   public ref Vector Pos {
-    get => ref _Handle.AsRef<Vector>(_PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PosOffset);
   }
-  private static readonly Lazy<nint> _DidHitOffset = new(() => Schema.GetOffset(0xF93EB0CBA8217B9F), LazyThreadSafetyMode.None);
+  private static readonly nint _DidHitOffset = Schema.GetOffset(0xF93EB0CBA8217B9F);
 
   public ref bool DidHit {
-    get => ref _Handle.AsRef<bool>(_DidHitOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DidHitOffset);
   }
-  private static readonly Lazy<nint> _DistSqrToCenterOffset = new(() => Schema.GetOffset(0xF93EB0CB96618227), LazyThreadSafetyMode.None);
+  private static readonly nint _DistSqrToCenterOffset = Schema.GetOffset(0xF93EB0CB96618227);
 
   public ref float DistSqrToCenter {
-    get => ref _Handle.AsRef<float>(_DistSqrToCenterOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistSqrToCenterOffset);
   }
 
 

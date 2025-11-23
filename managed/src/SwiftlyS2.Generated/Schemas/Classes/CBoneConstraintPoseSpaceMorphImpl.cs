@@ -17,38 +17,38 @@ internal partial class CBoneConstraintPoseSpaceMorphImpl : CBoneConstraintBaseIm
   public CBoneConstraintPoseSpaceMorphImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0x6ECAD65A7559AC1F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0x6ECAD65A7559AC1F);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachmentNameOffset = new(() => Schema.GetOffset(0x6ECAD65A7B86DB7C), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentNameOffset = Schema.GetOffset(0x6ECAD65A7B86DB7C);
 
   public string AttachmentName {
     get {
-      var ptr = _Handle.Read<nint>(_AttachmentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttachmentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttachmentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttachmentNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OutputMorphOffset = new(() => Schema.GetOffset(0x6ECAD65ADC9A8262), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMorphOffset = Schema.GetOffset(0x6ECAD65ADC9A8262);
 
   public ref CUtlVector<CUtlString> OutputMorph {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_OutputMorphOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_OutputMorphOffset);
   }
-  private static readonly Lazy<nint> _InputListOffset = new(() => Schema.GetOffset(0x6ECAD65A15EB8D83), LazyThreadSafetyMode.None);
+  private static readonly nint _InputListOffset = Schema.GetOffset(0x6ECAD65A15EB8D83);
 
   public ref CUtlVector<CBoneConstraintPoseSpaceMorph__Input_t> InputList {
-    get => ref _Handle.AsRef<CUtlVector<CBoneConstraintPoseSpaceMorph__Input_t>>(_InputListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBoneConstraintPoseSpaceMorph__Input_t>>(_InputListOffset);
   }
-  private static readonly Lazy<nint> _ClampOffset = new(() => Schema.GetOffset(0x6ECAD65A84C7929C), LazyThreadSafetyMode.None);
+  private static readonly nint _ClampOffset = Schema.GetOffset(0x6ECAD65A84C7929C);
 
   public ref bool Clamp {
-    get => ref _Handle.AsRef<bool>(_ClampOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClampOffset);
   }
 
 

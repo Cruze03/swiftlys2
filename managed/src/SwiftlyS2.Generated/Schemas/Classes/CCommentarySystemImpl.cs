@@ -17,55 +17,55 @@ internal partial class CCommentarySystemImpl : SchemaClass, CCommentarySystem {
   public CCommentarySystemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CommentaryConvarsChangingOffset = new(() => Schema.GetOffset(0x87CBBE6A7FB57A2D), LazyThreadSafetyMode.None);
+  private static readonly nint _CommentaryConvarsChangingOffset = Schema.GetOffset(0x87CBBE6A7FB57A2D);
 
   public ref bool CommentaryConvarsChanging {
-    get => ref _Handle.AsRef<bool>(_CommentaryConvarsChangingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CommentaryConvarsChangingOffset);
   }
-  private static readonly Lazy<nint> _CommentaryEnabledMidGameOffset = new(() => Schema.GetOffset(0x87CBBE6A45558B4F), LazyThreadSafetyMode.None);
+  private static readonly nint _CommentaryEnabledMidGameOffset = Schema.GetOffset(0x87CBBE6A45558B4F);
 
   public ref bool CommentaryEnabledMidGame {
-    get => ref _Handle.AsRef<bool>(_CommentaryEnabledMidGameOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CommentaryEnabledMidGameOffset);
   }
-  private static readonly Lazy<nint> _NextTeleportTimeOffset = new(() => Schema.GetOffset(0x87CBBE6A92701808), LazyThreadSafetyMode.None);
+  private static readonly nint _NextTeleportTimeOffset = Schema.GetOffset(0x87CBBE6A92701808);
 
   public GameTime_t NextTeleportTime {
-    get => new GameTime_tImpl(_Handle + _NextTeleportTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextTeleportTimeOffset);
   }
-  private static readonly Lazy<nint> _TeleportStageOffset = new(() => Schema.GetOffset(0x87CBBE6A75C25D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportStageOffset = Schema.GetOffset(0x87CBBE6A75C25D8B);
 
   public ref int TeleportStage {
-    get => ref _Handle.AsRef<int>(_TeleportStageOffset.Value);
+    get => ref _Handle.AsRef<int>(_TeleportStageOffset);
   }
-  private static readonly Lazy<nint> _CheatStateOffset = new(() => Schema.GetOffset(0x87CBBE6AA9DE3831), LazyThreadSafetyMode.None);
+  private static readonly nint _CheatStateOffset = Schema.GetOffset(0x87CBBE6AA9DE3831);
 
   public ref bool CheatState {
-    get => ref _Handle.AsRef<bool>(_CheatStateOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CheatStateOffset);
   }
-  private static readonly Lazy<nint> _IsFirstSpawnGroupToLoadOffset = new(() => Schema.GetOffset(0x87CBBE6A1BDE1032), LazyThreadSafetyMode.None);
+  private static readonly nint _IsFirstSpawnGroupToLoadOffset = Schema.GetOffset(0x87CBBE6A1BDE1032);
 
   public ref bool IsFirstSpawnGroupToLoad {
-    get => ref _Handle.AsRef<bool>(_IsFirstSpawnGroupToLoadOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsFirstSpawnGroupToLoadOffset);
   }
-  private static readonly Lazy<nint> _CurrentNodeOffset = new(() => Schema.GetOffset(0x87CBBE6A5C1029D4), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentNodeOffset = Schema.GetOffset(0x87CBBE6A5C1029D4);
 
   public ref CHandle<CPointCommentaryNode> CurrentNode {
-    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_CurrentNodeOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_CurrentNodeOffset);
   }
-  private static readonly Lazy<nint> _ActiveCommentaryNodeOffset = new(() => Schema.GetOffset(0x87CBBE6AEA08BE3C), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveCommentaryNodeOffset = Schema.GetOffset(0x87CBBE6AEA08BE3C);
 
   public ref CHandle<CPointCommentaryNode> ActiveCommentaryNode {
-    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_ActiveCommentaryNodeOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_ActiveCommentaryNodeOffset);
   }
-  private static readonly Lazy<nint> _LastCommentaryNodeOffset = new(() => Schema.GetOffset(0x87CBBE6A33A2318A), LazyThreadSafetyMode.None);
+  private static readonly nint _LastCommentaryNodeOffset = Schema.GetOffset(0x87CBBE6A33A2318A);
 
   public ref CHandle<CPointCommentaryNode> LastCommentaryNode {
-    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_LastCommentaryNodeOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CPointCommentaryNode>>(_LastCommentaryNodeOffset);
   }
-  private static readonly Lazy<nint> _NodesOffset = new(() => Schema.GetOffset(0x87CBBE6A5CCA593A), LazyThreadSafetyMode.None);
+  private static readonly nint _NodesOffset = Schema.GetOffset(0x87CBBE6A5CCA593A);
 
   public ref CUtlVector<CHandle<CPointCommentaryNode>> Nodes {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CPointCommentaryNode>>>(_NodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CPointCommentaryNode>>>(_NodesOffset);
   }
 
 

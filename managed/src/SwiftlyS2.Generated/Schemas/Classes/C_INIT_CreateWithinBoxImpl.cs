@@ -17,35 +17,35 @@ internal partial class C_INIT_CreateWithinBoxImpl : CParticleFunctionInitializer
   public C_INIT_CreateWithinBoxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinOffset = new(() => Schema.GetOffset(0x331A2B22B0765F37), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOffset = Schema.GetOffset(0x331A2B22B0765F37);
 
   public CPerParticleVecInput Min {
-    get => new CPerParticleVecInputImpl(_Handle + _MinOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _MinOffset);
   }
-  private static readonly Lazy<nint> _MaxOffset = new(() => Schema.GetOffset(0x331A2B22BE89FCF9), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOffset = Schema.GetOffset(0x331A2B22BE89FCF9);
 
   public CPerParticleVecInput Max {
-    get => new CPerParticleVecInputImpl(_Handle + _MaxOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _MaxOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x331A2B223F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x331A2B223F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceOffset = new(() => Schema.GetOffset(0x331A2B2262418E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceOffset = Schema.GetOffset(0x331A2B2262418E6E);
 
   public ref bool LocalSpace {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset);
   }
-  private static readonly Lazy<nint> _RandomnessParametersOffset = new(() => Schema.GetOffset(0x331A2B227EDF50AD), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomnessParametersOffset = Schema.GetOffset(0x331A2B227EDF50AD);
 
   public CRandomNumberGeneratorParameters RandomnessParameters {
-    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset.Value);
+    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset);
   }
-  private static readonly Lazy<nint> _UseNewCodeOffset = new(() => Schema.GetOffset(0x331A2B227C6D1CDF), LazyThreadSafetyMode.None);
+  private static readonly nint _UseNewCodeOffset = Schema.GetOffset(0x331A2B227C6D1CDF);
 
   public ref bool UseNewCode {
-    get => ref _Handle.AsRef<bool>(_UseNewCodeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseNewCodeOffset);
   }
 
 

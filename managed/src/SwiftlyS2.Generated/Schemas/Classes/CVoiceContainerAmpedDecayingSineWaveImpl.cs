@@ -17,10 +17,10 @@ internal partial class CVoiceContainerAmpedDecayingSineWaveImpl : CVoiceContaine
   public CVoiceContainerAmpedDecayingSineWaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GainAmountOffset = new(() => Schema.GetOffset(0x312CFD9CB3BC88F4), LazyThreadSafetyMode.None);
+  private static readonly nint _GainAmountOffset = Schema.GetOffset(0x312CFD9CB3BC88F4);
 
   public ref float GainAmount {
-    get => ref _Handle.AsRef<float>(_GainAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_GainAmountOffset);
   }
 
 

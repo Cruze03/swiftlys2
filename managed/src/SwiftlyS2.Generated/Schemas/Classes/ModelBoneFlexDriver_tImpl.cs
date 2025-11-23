@@ -17,24 +17,24 @@ internal partial class ModelBoneFlexDriver_tImpl : SchemaClass, ModelBoneFlexDri
   public ModelBoneFlexDriver_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0xBCBDE5AAFDEE0E0C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0xBCBDE5AAFDEE0E0C);
 
   public string BoneName {
     get {
-      var ptr = _Handle.Read<nint>(_BoneNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoneNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoneNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoneNameOffset, value);
   } 
-  private static readonly Lazy<nint> _BoneNameTokenOffset = new(() => Schema.GetOffset(0xBCBDE5AA44D1E369), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameTokenOffset = Schema.GetOffset(0xBCBDE5AA44D1E369);
 
   public ref uint BoneNameToken {
-    get => ref _Handle.AsRef<uint>(_BoneNameTokenOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BoneNameTokenOffset);
   }
-  private static readonly Lazy<nint> _ControlsOffset = new(() => Schema.GetOffset(0xBCBDE5AA5FCAD2B7), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlsOffset = Schema.GetOffset(0xBCBDE5AA5FCAD2B7);
 
   public ref CUtlVector<ModelBoneFlexDriverControl_t> Controls {
-    get => ref _Handle.AsRef<CUtlVector<ModelBoneFlexDriverControl_t>>(_ControlsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ModelBoneFlexDriverControl_t>>(_ControlsOffset);
   }
 
 

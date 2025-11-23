@@ -17,32 +17,32 @@ internal partial class CTriggerGameEventImpl : CBaseTriggerImpl, CTriggerGameEve
   public CTriggerGameEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrStartTouchEventNameOffset = new(() => Schema.GetOffset(0xF8B194884B1EB67A), LazyThreadSafetyMode.None);
+  private static readonly nint _StrStartTouchEventNameOffset = Schema.GetOffset(0xF8B194884B1EB67A);
 
   public string StrStartTouchEventName {
     get {
-      var ptr = _Handle.Read<nint>(_StrStartTouchEventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrStartTouchEventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrStartTouchEventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrStartTouchEventNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrEndTouchEventNameOffset = new(() => Schema.GetOffset(0xF8B194886EDE6893), LazyThreadSafetyMode.None);
+  private static readonly nint _StrEndTouchEventNameOffset = Schema.GetOffset(0xF8B194886EDE6893);
 
   public string StrEndTouchEventName {
     get {
-      var ptr = _Handle.Read<nint>(_StrEndTouchEventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrEndTouchEventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrEndTouchEventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrEndTouchEventNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrTriggerIDOffset = new(() => Schema.GetOffset(0xF8B19488EA731D41), LazyThreadSafetyMode.None);
+  private static readonly nint _StrTriggerIDOffset = Schema.GetOffset(0xF8B19488EA731D41);
 
   public string StrTriggerID {
     get {
-      var ptr = _Handle.Read<nint>(_StrTriggerIDOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrTriggerIDOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrTriggerIDOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrTriggerIDOffset, value);
   } 
 
   public void StrStartTouchEventNameUpdated() {

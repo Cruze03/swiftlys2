@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBaseModelEntity : CBaseEntity, ISchemaClass<CBaseModelEntity> {
 
   static CBaseModelEntity ISchemaClass<CBaseModelEntity>.From(nint handle) => new CBaseModelEntityImpl(handle);
-  static int ISchemaClass<CBaseModelEntity>.Size => 2752;
+  static int ISchemaClass<CBaseModelEntity>.Size => 2008;
   static string? ISchemaClass<CBaseModelEntity>.ClassName => "basemodelentity";
 
   
@@ -122,4 +122,5 @@ public partial interface CBaseModelEntity : CBaseEntity, ISchemaClass<CBaseModel
   public void ConfigEntitiesToPropagateMaterialDecalsToUpdated();
   public void ViewOffsetUpdated();
   public void DisabledHitGroupsUpdated();
+  public void ChangeSubclass(ushort itemDefinitionIndex);
 }

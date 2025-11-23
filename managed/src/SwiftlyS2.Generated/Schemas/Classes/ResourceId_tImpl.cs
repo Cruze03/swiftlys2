@@ -17,10 +17,10 @@ internal partial class ResourceId_tImpl : SchemaClass, ResourceId_t {
   public ResourceId_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x21F7998BDCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x21F7998BDCB0894A);
 
   public ref ulong Value {
-    get => ref _Handle.AsRef<ulong>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_ValueOffset);
   }
 
 

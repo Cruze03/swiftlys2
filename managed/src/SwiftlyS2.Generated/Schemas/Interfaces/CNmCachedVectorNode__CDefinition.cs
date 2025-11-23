@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmCachedVectorNode__CDefinition : CNmVectorValueNode__CDefinition, ISchemaClass<CNmCachedVectorNode__CDefinition> {
 
   static CNmCachedVectorNode__CDefinition ISchemaClass<CNmCachedVectorNode__CDefinition>.From(nint handle) => new CNmCachedVectorNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmCachedVectorNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmCachedVectorNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmCachedVectorNode__CDefinition>.ClassName => null;
 
   

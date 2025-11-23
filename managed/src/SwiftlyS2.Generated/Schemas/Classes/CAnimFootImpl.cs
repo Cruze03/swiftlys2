@@ -17,34 +17,34 @@ internal partial class CAnimFootImpl : SchemaClass, CAnimFoot {
   public CAnimFootImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x583A05E34D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x583A05E34D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _BallOffsetOffset = new(() => Schema.GetOffset(0x583A05E3E3376F1B), LazyThreadSafetyMode.None);
+  private static readonly nint _BallOffsetOffset = Schema.GetOffset(0x583A05E3E3376F1B);
 
   public ref Vector BallOffset {
-    get => ref _Handle.AsRef<Vector>(_BallOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BallOffsetOffset);
   }
-  private static readonly Lazy<nint> _HeelOffsetOffset = new(() => Schema.GetOffset(0x583A05E3306AE608), LazyThreadSafetyMode.None);
+  private static readonly nint _HeelOffsetOffset = Schema.GetOffset(0x583A05E3306AE608);
 
   public ref Vector HeelOffset {
-    get => ref _Handle.AsRef<Vector>(_HeelOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HeelOffsetOffset);
   }
-  private static readonly Lazy<nint> _AnkleBoneIndexOffset = new(() => Schema.GetOffset(0x583A05E31E89F146), LazyThreadSafetyMode.None);
+  private static readonly nint _AnkleBoneIndexOffset = Schema.GetOffset(0x583A05E31E89F146);
 
   public ref int AnkleBoneIndex {
-    get => ref _Handle.AsRef<int>(_AnkleBoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_AnkleBoneIndexOffset);
   }
-  private static readonly Lazy<nint> _ToeBoneIndexOffset = new(() => Schema.GetOffset(0x583A05E3EEF7CC57), LazyThreadSafetyMode.None);
+  private static readonly nint _ToeBoneIndexOffset = Schema.GetOffset(0x583A05E3EEF7CC57);
 
   public ref int ToeBoneIndex {
-    get => ref _Handle.AsRef<int>(_ToeBoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ToeBoneIndexOffset);
   }
 
 

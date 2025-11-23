@@ -17,10 +17,10 @@ internal partial class CSlowDownOnSlopesUpdateNodeImpl : CUnaryUpdateNodeImpl, C
   public CSlowDownOnSlopesUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SlowDownStrengthOffset = new(() => Schema.GetOffset(0x196FB4938D85E247), LazyThreadSafetyMode.None);
+  private static readonly nint _SlowDownStrengthOffset = Schema.GetOffset(0x196FB4938D85E247);
 
   public ref float SlowDownStrength {
-    get => ref _Handle.AsRef<float>(_SlowDownStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_SlowDownStrengthOffset);
   }
 
 

@@ -17,125 +17,125 @@ internal partial class CPointClientUIWorldPanelImpl : CBaseClientUIEntityImpl, C
   public CPointClientUIWorldPanelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IgnoreInputOffset = new(() => Schema.GetOffset(0xA4834E6F946EC6E1), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreInputOffset = Schema.GetOffset(0xA4834E6F946EC6E1);
 
   public ref bool IgnoreInput {
-    get => ref _Handle.AsRef<bool>(_IgnoreInputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreInputOffset);
   }
-  private static readonly Lazy<nint> _LitOffset = new(() => Schema.GetOffset(0xA4834E6F68D14396), LazyThreadSafetyMode.None);
+  private static readonly nint _LitOffset = Schema.GetOffset(0xA4834E6F68D14396);
 
   public ref bool Lit {
-    get => ref _Handle.AsRef<bool>(_LitOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LitOffset);
   }
-  private static readonly Lazy<nint> _FollowPlayerAcrossTeleportOffset = new(() => Schema.GetOffset(0xA4834E6F8C71E81F), LazyThreadSafetyMode.None);
+  private static readonly nint _FollowPlayerAcrossTeleportOffset = Schema.GetOffset(0xA4834E6F8C71E81F);
 
   public ref bool FollowPlayerAcrossTeleport {
-    get => ref _Handle.AsRef<bool>(_FollowPlayerAcrossTeleportOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FollowPlayerAcrossTeleportOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0xA4834E6FB91935E1), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0xA4834E6FB91935E1);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _HeightOffset = new(() => Schema.GetOffset(0xA4834E6FEADD7FB0), LazyThreadSafetyMode.None);
+  private static readonly nint _HeightOffset = Schema.GetOffset(0xA4834E6FEADD7FB0);
 
   public ref float Height {
-    get => ref _Handle.AsRef<float>(_HeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_HeightOffset);
   }
-  private static readonly Lazy<nint> _DPIOffset = new(() => Schema.GetOffset(0xA4834E6FEB0B7A2E), LazyThreadSafetyMode.None);
+  private static readonly nint _DPIOffset = Schema.GetOffset(0xA4834E6FEB0B7A2E);
 
   public ref float DPI {
-    get => ref _Handle.AsRef<float>(_DPIOffset.Value);
+    get => ref _Handle.AsRef<float>(_DPIOffset);
   }
-  private static readonly Lazy<nint> _InteractDistanceOffset = new(() => Schema.GetOffset(0xA4834E6F47FBB4C2), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractDistanceOffset = Schema.GetOffset(0xA4834E6F47FBB4C2);
 
   public ref float InteractDistance {
-    get => ref _Handle.AsRef<float>(_InteractDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_InteractDistanceOffset);
   }
-  private static readonly Lazy<nint> _DepthOffsetOffset = new(() => Schema.GetOffset(0xA4834E6F67D1DB9B), LazyThreadSafetyMode.None);
+  private static readonly nint _DepthOffsetOffset = Schema.GetOffset(0xA4834E6F67D1DB9B);
 
   public ref float DepthOffset {
-    get => ref _Handle.AsRef<float>(_DepthOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_DepthOffsetOffset);
   }
-  private static readonly Lazy<nint> _OwnerContextOffset = new(() => Schema.GetOffset(0xA4834E6FB5F5A8BC), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerContextOffset = Schema.GetOffset(0xA4834E6FB5F5A8BC);
 
   public ref uint OwnerContext {
-    get => ref _Handle.AsRef<uint>(_OwnerContextOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OwnerContextOffset);
   }
-  private static readonly Lazy<nint> _HorizontalAlignOffset = new(() => Schema.GetOffset(0xA4834E6FF2F27A57), LazyThreadSafetyMode.None);
+  private static readonly nint _HorizontalAlignOffset = Schema.GetOffset(0xA4834E6FF2F27A57);
 
   public ref uint HorizontalAlign {
-    get => ref _Handle.AsRef<uint>(_HorizontalAlignOffset.Value);
+    get => ref _Handle.AsRef<uint>(_HorizontalAlignOffset);
   }
-  private static readonly Lazy<nint> _VerticalAlignOffset = new(() => Schema.GetOffset(0xA4834E6FC263FE8D), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticalAlignOffset = Schema.GetOffset(0xA4834E6FC263FE8D);
 
   public ref uint VerticalAlign {
-    get => ref _Handle.AsRef<uint>(_VerticalAlignOffset.Value);
+    get => ref _Handle.AsRef<uint>(_VerticalAlignOffset);
   }
-  private static readonly Lazy<nint> _OrientationOffset = new(() => Schema.GetOffset(0xA4834E6FB9A99B4C), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationOffset = Schema.GetOffset(0xA4834E6FB9A99B4C);
 
   public ref uint Orientation {
-    get => ref _Handle.AsRef<uint>(_OrientationOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OrientationOffset);
   }
-  private static readonly Lazy<nint> _AllowInteractionFromAllSceneWorldsOffset = new(() => Schema.GetOffset(0xA4834E6FB50077AE), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowInteractionFromAllSceneWorldsOffset = Schema.GetOffset(0xA4834E6FB50077AE);
 
   public ref bool AllowInteractionFromAllSceneWorlds {
-    get => ref _Handle.AsRef<bool>(_AllowInteractionFromAllSceneWorldsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowInteractionFromAllSceneWorldsOffset);
   }
-  private static readonly Lazy<nint> _CSSClassesOffset = new(() => Schema.GetOffset(0xA4834E6FCB74D1DC), LazyThreadSafetyMode.None);
+  private static readonly nint _CSSClassesOffset = Schema.GetOffset(0xA4834E6FCB74D1DC);
 
   public ref CUtlVector<SchemaUntypedField> CSSClasses {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_CSSClassesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_CSSClassesOffset);
   }
-  private static readonly Lazy<nint> _OpaqueOffset = new(() => Schema.GetOffset(0xA4834E6F718DB77E), LazyThreadSafetyMode.None);
+  private static readonly nint _OpaqueOffset = Schema.GetOffset(0xA4834E6F718DB77E);
 
   public ref bool Opaque {
-    get => ref _Handle.AsRef<bool>(_OpaqueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OpaqueOffset);
   }
-  private static readonly Lazy<nint> _NoDepthOffset = new(() => Schema.GetOffset(0xA4834E6F930402F3), LazyThreadSafetyMode.None);
+  private static readonly nint _NoDepthOffset = Schema.GetOffset(0xA4834E6F930402F3);
 
   public ref bool NoDepth {
-    get => ref _Handle.AsRef<bool>(_NoDepthOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NoDepthOffset);
   }
-  private static readonly Lazy<nint> _VisibleWhenParentNoDrawOffset = new(() => Schema.GetOffset(0xA4834E6F894EBD44), LazyThreadSafetyMode.None);
+  private static readonly nint _VisibleWhenParentNoDrawOffset = Schema.GetOffset(0xA4834E6F894EBD44);
 
   public ref bool VisibleWhenParentNoDraw {
-    get => ref _Handle.AsRef<bool>(_VisibleWhenParentNoDrawOffset.Value);
+    get => ref _Handle.AsRef<bool>(_VisibleWhenParentNoDrawOffset);
   }
-  private static readonly Lazy<nint> _RenderBackfaceOffset = new(() => Schema.GetOffset(0xA4834E6F9150ED73), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderBackfaceOffset = Schema.GetOffset(0xA4834E6F9150ED73);
 
   public ref bool RenderBackface {
-    get => ref _Handle.AsRef<bool>(_RenderBackfaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RenderBackfaceOffset);
   }
-  private static readonly Lazy<nint> _UseOffScreenIndicatorOffset = new(() => Schema.GetOffset(0xA4834E6F83728A46), LazyThreadSafetyMode.None);
+  private static readonly nint _UseOffScreenIndicatorOffset = Schema.GetOffset(0xA4834E6F83728A46);
 
   public ref bool UseOffScreenIndicator {
-    get => ref _Handle.AsRef<bool>(_UseOffScreenIndicatorOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseOffScreenIndicatorOffset);
   }
-  private static readonly Lazy<nint> _ExcludeFromSaveGamesOffset = new(() => Schema.GetOffset(0xA4834E6FFC6043F7), LazyThreadSafetyMode.None);
+  private static readonly nint _ExcludeFromSaveGamesOffset = Schema.GetOffset(0xA4834E6FFC6043F7);
 
   public ref bool ExcludeFromSaveGames {
-    get => ref _Handle.AsRef<bool>(_ExcludeFromSaveGamesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExcludeFromSaveGamesOffset);
   }
-  private static readonly Lazy<nint> _GrabbableOffset = new(() => Schema.GetOffset(0xA4834E6FFE2A8983), LazyThreadSafetyMode.None);
+  private static readonly nint _GrabbableOffset = Schema.GetOffset(0xA4834E6FFE2A8983);
 
   public ref bool Grabbable {
-    get => ref _Handle.AsRef<bool>(_GrabbableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GrabbableOffset);
   }
-  private static readonly Lazy<nint> _OnlyRenderToTextureOffset = new(() => Schema.GetOffset(0xA4834E6F52B95FF9), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlyRenderToTextureOffset = Schema.GetOffset(0xA4834E6F52B95FF9);
 
   public ref bool OnlyRenderToTexture {
-    get => ref _Handle.AsRef<bool>(_OnlyRenderToTextureOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnlyRenderToTextureOffset);
   }
-  private static readonly Lazy<nint> _DisableMipGenOffset = new(() => Schema.GetOffset(0xA4834E6F0CB84487), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableMipGenOffset = Schema.GetOffset(0xA4834E6F0CB84487);
 
   public ref bool DisableMipGen {
-    get => ref _Handle.AsRef<bool>(_DisableMipGenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableMipGenOffset);
   }
-  private static readonly Lazy<nint> _ExplicitImageLayoutOffset = new(() => Schema.GetOffset(0xA4834E6FAFAD513C), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplicitImageLayoutOffset = Schema.GetOffset(0xA4834E6FAFAD513C);
 
   public ref int ExplicitImageLayout {
-    get => ref _Handle.AsRef<int>(_ExplicitImageLayoutOffset.Value);
+    get => ref _Handle.AsRef<int>(_ExplicitImageLayoutOffset);
   }
 
   public void IgnoreInputUpdated() {

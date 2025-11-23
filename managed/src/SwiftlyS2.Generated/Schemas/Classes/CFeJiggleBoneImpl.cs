@@ -17,180 +17,180 @@ internal partial class CFeJiggleBoneImpl : SchemaClass, CFeJiggleBone {
   public CFeJiggleBoneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xC064D4BDCE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xC064D4BDCE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _LengthOffset = new(() => Schema.GetOffset(0xC064D4BDFF9776DF), LazyThreadSafetyMode.None);
+  private static readonly nint _LengthOffset = Schema.GetOffset(0xC064D4BDFF9776DF);
 
   public ref float Length {
-    get => ref _Handle.AsRef<float>(_LengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_LengthOffset);
   }
-  private static readonly Lazy<nint> _TipMassOffset = new(() => Schema.GetOffset(0xC064D4BDEB1310B8), LazyThreadSafetyMode.None);
+  private static readonly nint _TipMassOffset = Schema.GetOffset(0xC064D4BDEB1310B8);
 
   public ref float TipMass {
-    get => ref _Handle.AsRef<float>(_TipMassOffset.Value);
+    get => ref _Handle.AsRef<float>(_TipMassOffset);
   }
-  private static readonly Lazy<nint> _YawStiffnessOffset = new(() => Schema.GetOffset(0xC064D4BDDBF83D43), LazyThreadSafetyMode.None);
+  private static readonly nint _YawStiffnessOffset = Schema.GetOffset(0xC064D4BDDBF83D43);
 
   public ref float YawStiffness {
-    get => ref _Handle.AsRef<float>(_YawStiffnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_YawStiffnessOffset);
   }
-  private static readonly Lazy<nint> _YawDampingOffset = new(() => Schema.GetOffset(0xC064D4BD2F1091CC), LazyThreadSafetyMode.None);
+  private static readonly nint _YawDampingOffset = Schema.GetOffset(0xC064D4BD2F1091CC);
 
   public ref float YawDamping {
-    get => ref _Handle.AsRef<float>(_YawDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_YawDampingOffset);
   }
-  private static readonly Lazy<nint> _PitchStiffnessOffset = new(() => Schema.GetOffset(0xC064D4BD3553FEE0), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchStiffnessOffset = Schema.GetOffset(0xC064D4BD3553FEE0);
 
   public ref float PitchStiffness {
-    get => ref _Handle.AsRef<float>(_PitchStiffnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchStiffnessOffset);
   }
-  private static readonly Lazy<nint> _PitchDampingOffset = new(() => Schema.GetOffset(0xC064D4BDDE2FCEFF), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchDampingOffset = Schema.GetOffset(0xC064D4BDDE2FCEFF);
 
   public ref float PitchDamping {
-    get => ref _Handle.AsRef<float>(_PitchDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchDampingOffset);
   }
-  private static readonly Lazy<nint> _AlongStiffnessOffset = new(() => Schema.GetOffset(0xC064D4BD677C6B51), LazyThreadSafetyMode.None);
+  private static readonly nint _AlongStiffnessOffset = Schema.GetOffset(0xC064D4BD677C6B51);
 
   public ref float AlongStiffness {
-    get => ref _Handle.AsRef<float>(_AlongStiffnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlongStiffnessOffset);
   }
-  private static readonly Lazy<nint> _AlongDampingOffset = new(() => Schema.GetOffset(0xC064D4BDE7D22252), LazyThreadSafetyMode.None);
+  private static readonly nint _AlongDampingOffset = Schema.GetOffset(0xC064D4BDE7D22252);
 
   public ref float AlongDamping {
-    get => ref _Handle.AsRef<float>(_AlongDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_AlongDampingOffset);
   }
-  private static readonly Lazy<nint> _AngleLimitOffset = new(() => Schema.GetOffset(0xC064D4BD2A410905), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleLimitOffset = Schema.GetOffset(0xC064D4BD2A410905);
 
   public ref float AngleLimit {
-    get => ref _Handle.AsRef<float>(_AngleLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleLimitOffset);
   }
-  private static readonly Lazy<nint> _MinYawOffset = new(() => Schema.GetOffset(0xC064D4BD4496E01C), LazyThreadSafetyMode.None);
+  private static readonly nint _MinYawOffset = Schema.GetOffset(0xC064D4BD4496E01C);
 
   public ref float MinYaw {
-    get => ref _Handle.AsRef<float>(_MinYawOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinYawOffset);
   }
-  private static readonly Lazy<nint> _MaxYawOffset = new(() => Schema.GetOffset(0xC064D4BD19C4AE42), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxYawOffset = Schema.GetOffset(0xC064D4BD19C4AE42);
 
   public ref float MaxYaw {
-    get => ref _Handle.AsRef<float>(_MaxYawOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxYawOffset);
   }
-  private static readonly Lazy<nint> _YawFrictionOffset = new(() => Schema.GetOffset(0xC064D4BD07FAF648), LazyThreadSafetyMode.None);
+  private static readonly nint _YawFrictionOffset = Schema.GetOffset(0xC064D4BD07FAF648);
 
   public ref float YawFriction {
-    get => ref _Handle.AsRef<float>(_YawFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_YawFrictionOffset);
   }
-  private static readonly Lazy<nint> _YawBounceOffset = new(() => Schema.GetOffset(0xC064D4BD156E2E2A), LazyThreadSafetyMode.None);
+  private static readonly nint _YawBounceOffset = Schema.GetOffset(0xC064D4BD156E2E2A);
 
   public ref float YawBounce {
-    get => ref _Handle.AsRef<float>(_YawBounceOffset.Value);
+    get => ref _Handle.AsRef<float>(_YawBounceOffset);
   }
-  private static readonly Lazy<nint> _MinPitchOffset = new(() => Schema.GetOffset(0xC064D4BDE0093115), LazyThreadSafetyMode.None);
+  private static readonly nint _MinPitchOffset = Schema.GetOffset(0xC064D4BDE0093115);
 
   public ref float MinPitch {
-    get => ref _Handle.AsRef<float>(_MinPitchOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinPitchOffset);
   }
-  private static readonly Lazy<nint> _MaxPitchOffset = new(() => Schema.GetOffset(0xC064D4BD1F14D2C3), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxPitchOffset = Schema.GetOffset(0xC064D4BD1F14D2C3);
 
   public ref float MaxPitch {
-    get => ref _Handle.AsRef<float>(_MaxPitchOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxPitchOffset);
   }
-  private static readonly Lazy<nint> _PitchFrictionOffset = new(() => Schema.GetOffset(0xC064D4BDB31D7A5D), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchFrictionOffset = Schema.GetOffset(0xC064D4BDB31D7A5D);
 
   public ref float PitchFriction {
-    get => ref _Handle.AsRef<float>(_PitchFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchFrictionOffset);
   }
-  private static readonly Lazy<nint> _PitchBounceOffset = new(() => Schema.GetOffset(0xC064D4BDAC140AE3), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchBounceOffset = Schema.GetOffset(0xC064D4BDAC140AE3);
 
   public ref float PitchBounce {
-    get => ref _Handle.AsRef<float>(_PitchBounceOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchBounceOffset);
   }
-  private static readonly Lazy<nint> _BaseMassOffset = new(() => Schema.GetOffset(0xC064D4BDC56419D2), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMassOffset = Schema.GetOffset(0xC064D4BDC56419D2);
 
   public ref float BaseMass {
-    get => ref _Handle.AsRef<float>(_BaseMassOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMassOffset);
   }
-  private static readonly Lazy<nint> _BaseStiffnessOffset = new(() => Schema.GetOffset(0xC064D4BD32834B1B), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseStiffnessOffset = Schema.GetOffset(0xC064D4BD32834B1B);
 
   public ref float BaseStiffness {
-    get => ref _Handle.AsRef<float>(_BaseStiffnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseStiffnessOffset);
   }
-  private static readonly Lazy<nint> _BaseDampingOffset = new(() => Schema.GetOffset(0xC064D4BDB3E982B4), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseDampingOffset = Schema.GetOffset(0xC064D4BDB3E982B4);
 
   public ref float BaseDamping {
-    get => ref _Handle.AsRef<float>(_BaseDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseDampingOffset);
   }
-  private static readonly Lazy<nint> _BaseMinLeftOffset = new(() => Schema.GetOffset(0xC064D4BD796C25E3), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMinLeftOffset = Schema.GetOffset(0xC064D4BD796C25E3);
 
   public ref float BaseMinLeft {
-    get => ref _Handle.AsRef<float>(_BaseMinLeftOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMinLeftOffset);
   }
-  private static readonly Lazy<nint> _BaseMaxLeftOffset = new(() => Schema.GetOffset(0xC064D4BDB9338D95), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMaxLeftOffset = Schema.GetOffset(0xC064D4BDB9338D95);
 
   public ref float BaseMaxLeft {
-    get => ref _Handle.AsRef<float>(_BaseMaxLeftOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMaxLeftOffset);
   }
-  private static readonly Lazy<nint> _BaseLeftFrictionOffset = new(() => Schema.GetOffset(0xC064D4BD591435B1), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseLeftFrictionOffset = Schema.GetOffset(0xC064D4BD591435B1);
 
   public ref float BaseLeftFriction {
-    get => ref _Handle.AsRef<float>(_BaseLeftFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseLeftFrictionOffset);
   }
-  private static readonly Lazy<nint> _BaseMinUpOffset = new(() => Schema.GetOffset(0xC064D4BD993DE07B), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMinUpOffset = Schema.GetOffset(0xC064D4BD993DE07B);
 
   public ref float BaseMinUp {
-    get => ref _Handle.AsRef<float>(_BaseMinUpOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMinUpOffset);
   }
-  private static readonly Lazy<nint> _BaseMaxUpOffset = new(() => Schema.GetOffset(0xC064D4BD81FA3CF9), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMaxUpOffset = Schema.GetOffset(0xC064D4BD81FA3CF9);
 
   public ref float BaseMaxUp {
-    get => ref _Handle.AsRef<float>(_BaseMaxUpOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMaxUpOffset);
   }
-  private static readonly Lazy<nint> _BaseUpFrictionOffset = new(() => Schema.GetOffset(0xC064D4BD657E3D81), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseUpFrictionOffset = Schema.GetOffset(0xC064D4BD657E3D81);
 
   public ref float BaseUpFriction {
-    get => ref _Handle.AsRef<float>(_BaseUpFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseUpFrictionOffset);
   }
-  private static readonly Lazy<nint> _BaseMinForwardOffset = new(() => Schema.GetOffset(0xC064D4BDF05F062B), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMinForwardOffset = Schema.GetOffset(0xC064D4BDF05F062B);
 
   public ref float BaseMinForward {
-    get => ref _Handle.AsRef<float>(_BaseMinForwardOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMinForwardOffset);
   }
-  private static readonly Lazy<nint> _BaseMaxForwardOffset = new(() => Schema.GetOffset(0xC064D4BDB071FCD9), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMaxForwardOffset = Schema.GetOffset(0xC064D4BDB071FCD9);
 
   public ref float BaseMaxForward {
-    get => ref _Handle.AsRef<float>(_BaseMaxForwardOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseMaxForwardOffset);
   }
-  private static readonly Lazy<nint> _BaseForwardFrictionOffset = new(() => Schema.GetOffset(0xC064D4BD1DC9EF21), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseForwardFrictionOffset = Schema.GetOffset(0xC064D4BD1DC9EF21);
 
   public ref float BaseForwardFriction {
-    get => ref _Handle.AsRef<float>(_BaseForwardFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_BaseForwardFrictionOffset);
   }
-  private static readonly Lazy<nint> _Radius0Offset = new(() => Schema.GetOffset(0xC064D4BDB20C6987), LazyThreadSafetyMode.None);
+  private static readonly nint _Radius0Offset = Schema.GetOffset(0xC064D4BDB20C6987);
 
   public ref float Radius0 {
-    get => ref _Handle.AsRef<float>(_Radius0Offset.Value);
+    get => ref _Handle.AsRef<float>(_Radius0Offset);
   }
-  private static readonly Lazy<nint> _Radius1Offset = new(() => Schema.GetOffset(0xC064D4BDB10C67F4), LazyThreadSafetyMode.None);
+  private static readonly nint _Radius1Offset = Schema.GetOffset(0xC064D4BDB10C67F4);
 
   public ref float Radius1 {
-    get => ref _Handle.AsRef<float>(_Radius1Offset.Value);
+    get => ref _Handle.AsRef<float>(_Radius1Offset);
   }
-  private static readonly Lazy<nint> _Point0Offset = new(() => Schema.GetOffset(0xC064D4BDF88AE06F), LazyThreadSafetyMode.None);
+  private static readonly nint _Point0Offset = Schema.GetOffset(0xC064D4BDF88AE06F);
 
   public ref Vector Point0 {
-    get => ref _Handle.AsRef<Vector>(_Point0Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Point0Offset);
   }
-  private static readonly Lazy<nint> _Point1Offset = new(() => Schema.GetOffset(0xC064D4BDF78ADEDC), LazyThreadSafetyMode.None);
+  private static readonly nint _Point1Offset = Schema.GetOffset(0xC064D4BDF78ADEDC);
 
   public ref Vector Point1 {
-    get => ref _Handle.AsRef<Vector>(_Point1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_Point1Offset);
   }
-  private static readonly Lazy<nint> _CollisionMaskOffset = new(() => Schema.GetOffset(0xC064D4BD0CCF1BEF), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionMaskOffset = Schema.GetOffset(0xC064D4BD0CCF1BEF);
 
   public ref ushort CollisionMask {
-    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionMaskOffset);
   }
 
 

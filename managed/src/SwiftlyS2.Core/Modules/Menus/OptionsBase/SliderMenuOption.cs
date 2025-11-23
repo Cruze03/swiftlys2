@@ -9,7 +9,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class SliderMenuOption : MenuOptionBase
 {
-    private readonly ConcurrentDictionary<IPlayer, float> values = new();
+    private readonly ConcurrentDictionary<int, float> values = new();
     private readonly float defaultValue;
     private readonly int totalBars;
 
@@ -111,7 +111,7 @@ public sealed class SliderMenuOption : MenuOptionBase
     public override string GetDisplayText( IPlayer player, int displayLine = 0 )
     {
         var text = base.GetDisplayText(player, displayLine);
-        var value = values.GetOrAdd(player, defaultValue);
+        var value = values.GetOrAdd(player.PlayerID, defaultValue);
         var percentage = (value - Min) / (Max - Min);
         var filledBars = (int)(percentage * totalBars);
 
@@ -131,7 +131,7 @@ public sealed class SliderMenuOption : MenuOptionBase
     /// <returns>The current slider value.</returns>
     public float GetValue( IPlayer player )
     {
-        return values.GetOrAdd(player, defaultValue);
+        return values.GetOrAdd(player.PlayerID, defaultValue);
     }
 
     /// <summary>
@@ -142,15 +142,15 @@ public sealed class SliderMenuOption : MenuOptionBase
     public void SetValue( IPlayer player, float value )
     {
         var clampedValue = Math.Clamp(value, Min, Max);
-        _ = values.AddOrUpdate(player, clampedValue, ( _, _ ) => clampedValue);
+        _ = values.AddOrUpdate(player.PlayerID, clampedValue, ( _, _ ) => clampedValue);
     }
 
     private ValueTask OnSliderClick( object? sender, MenuOptionClickEventArgs args )
     {
-        var oldValue = values.GetOrAdd(args.Player, defaultValue);
+        var oldValue = values.GetOrAdd(args.Player.PlayerID, defaultValue);
         var newValue = Math.Clamp(oldValue + Step > Max ? Min : oldValue + Step, Min, Max);
 
-        _ = values.AddOrUpdate(args.Player, newValue, ( _, _ ) => newValue);
+        _ = values.AddOrUpdate(args.Player.PlayerID, newValue, ( _, _ ) => newValue);
 
         ValueChanged?.Invoke(this, new MenuOptionValueChangedEventArgs<float> {
             Player = args.Player,

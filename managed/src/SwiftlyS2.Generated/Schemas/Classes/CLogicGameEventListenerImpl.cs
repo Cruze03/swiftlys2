@@ -17,38 +17,38 @@ internal partial class CLogicGameEventListenerImpl : CLogicalEntityImpl, CLogicG
   public CLogicGameEventListenerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnEventFiredOffset = new(() => Schema.GetOffset(0xB18EF22E84EA158), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEventFiredOffset = Schema.GetOffset(0xB18EF22E84EA158);
 
   public CEntityIOOutput OnEventFired {
-    get => new CEntityIOOutputImpl(_Handle + _OnEventFiredOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEventFiredOffset);
   }
-  private static readonly Lazy<nint> _GameEventNameOffset = new(() => Schema.GetOffset(0xB18EF22C6581BAE), LazyThreadSafetyMode.None);
+  private static readonly nint _GameEventNameOffset = Schema.GetOffset(0xB18EF22C6581BAE);
 
   public string GameEventName {
     get {
-      var ptr = _Handle.Read<nint>(_GameEventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_GameEventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GameEventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _GameEventNameOffset, value);
   } 
-  private static readonly Lazy<nint> _GameEventItemOffset = new(() => Schema.GetOffset(0xB18EF22ACB669EE), LazyThreadSafetyMode.None);
+  private static readonly nint _GameEventItemOffset = Schema.GetOffset(0xB18EF22ACB669EE);
 
   public string GameEventItem {
     get {
-      var ptr = _Handle.Read<nint>(_GameEventItemOffset.Value);
+      var ptr = _Handle.Read<nint>(_GameEventItemOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GameEventItemOffset.Value, value);
+    set => Schema.SetString(_Handle, _GameEventItemOffset, value);
   } 
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0xB18EF226154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0xB18EF226154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0xB18EF2261ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0xB18EF2261ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
 
   public void EnabledUpdated() {

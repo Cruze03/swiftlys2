@@ -17,35 +17,35 @@ internal partial class PhysSoftbodyDesc_tImpl : SchemaClass, PhysSoftbodyDesc_t 
   public PhysSoftbodyDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParticleBoneHashOffset = new(() => Schema.GetOffset(0xD390C8BBCC44F471), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleBoneHashOffset = Schema.GetOffset(0xD390C8BBCC44F471);
 
   public ref CUtlVector<uint> ParticleBoneHash {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_ParticleBoneHashOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_ParticleBoneHashOffset);
   }
-  private static readonly Lazy<nint> _ParticlesOffset = new(() => Schema.GetOffset(0xD390C8BB6C0747A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlesOffset = Schema.GetOffset(0xD390C8BB6C0747A4);
 
   public ref CUtlVector<RnSoftbodyParticle_t> Particles {
-    get => ref _Handle.AsRef<CUtlVector<RnSoftbodyParticle_t>>(_ParticlesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnSoftbodyParticle_t>>(_ParticlesOffset);
   }
-  private static readonly Lazy<nint> _SpringsOffset = new(() => Schema.GetOffset(0xD390C8BB1AB5EB4D), LazyThreadSafetyMode.None);
+  private static readonly nint _SpringsOffset = Schema.GetOffset(0xD390C8BB1AB5EB4D);
 
   public ref CUtlVector<RnSoftbodySpring_t> Springs {
-    get => ref _Handle.AsRef<CUtlVector<RnSoftbodySpring_t>>(_SpringsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnSoftbodySpring_t>>(_SpringsOffset);
   }
-  private static readonly Lazy<nint> _CapsulesOffset = new(() => Schema.GetOffset(0xD390C8BBFC27BB2D), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsulesOffset = Schema.GetOffset(0xD390C8BBFC27BB2D);
 
   public ref CUtlVector<RnSoftbodyCapsule_t> Capsules {
-    get => ref _Handle.AsRef<CUtlVector<RnSoftbodyCapsule_t>>(_CapsulesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<RnSoftbodyCapsule_t>>(_CapsulesOffset);
   }
-  private static readonly Lazy<nint> _InitPoseOffset = new(() => Schema.GetOffset(0xD390C8BB5E468732), LazyThreadSafetyMode.None);
+  private static readonly nint _InitPoseOffset = Schema.GetOffset(0xD390C8BB5E468732);
 
   public ref CUtlVector<CTransform> InitPose {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_InitPoseOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_InitPoseOffset);
   }
-  private static readonly Lazy<nint> _ParticleBoneNameOffset = new(() => Schema.GetOffset(0xD390C8BB8D321086), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleBoneNameOffset = Schema.GetOffset(0xD390C8BB8D321086);
 
   public ref CUtlVector<CUtlString> ParticleBoneName {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_ParticleBoneNameOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_ParticleBoneNameOffset);
   }
 
 

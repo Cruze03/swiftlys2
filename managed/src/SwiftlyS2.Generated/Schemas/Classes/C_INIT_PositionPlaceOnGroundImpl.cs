@@ -17,84 +17,84 @@ internal partial class C_INIT_PositionPlaceOnGroundImpl : CParticleFunctionIniti
   public C_INIT_PositionPlaceOnGroundImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xA022821E7F14BA34), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xA022821E7F14BA34);
 
   public CPerParticleFloatInput Offset {
-    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset);
   }
-  private static readonly Lazy<nint> _MaxTraceLengthOffset = new(() => Schema.GetOffset(0xA022821E543C3798), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTraceLengthOffset = Schema.GetOffset(0xA022821E543C3798);
 
   public CPerParticleFloatInput MaxTraceLength {
-    get => new CPerParticleFloatInputImpl(_Handle + _MaxTraceLengthOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MaxTraceLengthOffset);
   }
-  private static readonly Lazy<nint> _CollisionGroupNameOffset = new(() => Schema.GetOffset(0xA022821ED58A3195), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupNameOffset = Schema.GetOffset(0xA022821ED58A3195);
 
   public string CollisionGroupName {
     get {
-      var ptr = _Handle + _CollisionGroupNameOffset.Value;
+      var ptr = _Handle + _CollisionGroupNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _CollisionGroupNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _CollisionGroupNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _TraceSetOffset = new(() => Schema.GetOffset(0xA022821EBD26C5B2), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceSetOffset = Schema.GetOffset(0xA022821EBD26C5B2);
 
   public ref ParticleTraceSet_t TraceSet {
-    get => ref _Handle.AsRef<ParticleTraceSet_t>(_TraceSetOffset.Value);
+    get => ref _Handle.AsRef<ParticleTraceSet_t>(_TraceSetOffset);
   }
-  private static readonly Lazy<nint> _TraceMissBehaviorOffset = new(() => Schema.GetOffset(0xA022821E1F2C7BCC), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceMissBehaviorOffset = Schema.GetOffset(0xA022821E1F2C7BCC);
 
   public ref ParticleTraceMissBehavior_t TraceMissBehavior {
-    get => ref _Handle.AsRef<ParticleTraceMissBehavior_t>(_TraceMissBehaviorOffset.Value);
+    get => ref _Handle.AsRef<ParticleTraceMissBehavior_t>(_TraceMissBehaviorOffset);
   }
-  private static readonly Lazy<nint> _IncludeWaterOffset = new(() => Schema.GetOffset(0xA022821EEB8D4646), LazyThreadSafetyMode.None);
+  private static readonly nint _IncludeWaterOffset = Schema.GetOffset(0xA022821EEB8D4646);
 
   public ref bool IncludeWater {
-    get => ref _Handle.AsRef<bool>(_IncludeWaterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IncludeWaterOffset);
   }
-  private static readonly Lazy<nint> _SetNormalOffset = new(() => Schema.GetOffset(0xA022821E542722AC), LazyThreadSafetyMode.None);
+  private static readonly nint _SetNormalOffset = Schema.GetOffset(0xA022821E542722AC);
 
   public ref bool SetNormal {
-    get => ref _Handle.AsRef<bool>(_SetNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetNormalOffset);
   }
-  private static readonly Lazy<nint> _AttributeOffset = new(() => Schema.GetOffset(0xA022821E7FE8DE0B), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeOffset = Schema.GetOffset(0xA022821E7FE8DE0B);
 
   public ParticleAttributeIndex_t Attribute {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeOffset);
   }
-  private static readonly Lazy<nint> _SetPXYZOnlyOffset = new(() => Schema.GetOffset(0xA022821E93ED3336), LazyThreadSafetyMode.None);
+  private static readonly nint _SetPXYZOnlyOffset = Schema.GetOffset(0xA022821E93ED3336);
 
   public ref bool SetPXYZOnly {
-    get => ref _Handle.AsRef<bool>(_SetPXYZOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetPXYZOnlyOffset);
   }
-  private static readonly Lazy<nint> _TraceAlongNormalOffset = new(() => Schema.GetOffset(0xA022821EF6E20144), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceAlongNormalOffset = Schema.GetOffset(0xA022821EF6E20144);
 
   public ref bool TraceAlongNormal {
-    get => ref _Handle.AsRef<bool>(_TraceAlongNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TraceAlongNormalOffset);
   }
-  private static readonly Lazy<nint> _TraceDirectionAttributeOffset = new(() => Schema.GetOffset(0xA022821E00E7482D), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceDirectionAttributeOffset = Schema.GetOffset(0xA022821E00E7482D);
 
   public ParticleAttributeIndex_t TraceDirectionAttribute {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _TraceDirectionAttributeOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _TraceDirectionAttributeOffset);
   }
-  private static readonly Lazy<nint> _OffsetonColOnlyOffset = new(() => Schema.GetOffset(0xA022821E0720D19D), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetonColOnlyOffset = Schema.GetOffset(0xA022821E0720D19D);
 
   public ref bool OffsetonColOnly {
-    get => ref _Handle.AsRef<bool>(_OffsetonColOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetonColOnlyOffset);
   }
-  private static readonly Lazy<nint> _OffsetByRadiusFactorOffset = new(() => Schema.GetOffset(0xA022821E61169F50), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetByRadiusFactorOffset = Schema.GetOffset(0xA022821E61169F50);
 
   public ref float OffsetByRadiusFactor {
-    get => ref _Handle.AsRef<float>(_OffsetByRadiusFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_OffsetByRadiusFactorOffset);
   }
-  private static readonly Lazy<nint> _PreserveOffsetCPOffset = new(() => Schema.GetOffset(0xA022821E58AC51C1), LazyThreadSafetyMode.None);
+  private static readonly nint _PreserveOffsetCPOffset = Schema.GetOffset(0xA022821E58AC51C1);
 
   public ref int PreserveOffsetCP {
-    get => ref _Handle.AsRef<int>(_PreserveOffsetCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_PreserveOffsetCPOffset);
   }
-  private static readonly Lazy<nint> _IgnoreCPOffset = new(() => Schema.GetOffset(0xA022821EF0DDC7AC), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreCPOffset = Schema.GetOffset(0xA022821EF0DDC7AC);
 
   public ref int IgnoreCP {
-    get => ref _Handle.AsRef<int>(_IgnoreCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_IgnoreCPOffset);
   }
 
 

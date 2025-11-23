@@ -17,25 +17,25 @@ internal partial class CPulse_OutputConnectionImpl : SchemaClass, CPulse_OutputC
   public CPulse_OutputConnectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceOutputOffset = new(() => Schema.GetOffset(0x6DEBCD452D46D7F5), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOutputOffset = Schema.GetOffset(0x6DEBCD452D46D7F5);
 
   public SchemaUntypedField SourceOutput {
-    get => new SchemaUntypedField(_Handle + _SourceOutputOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SourceOutputOffset);
   }
-  private static readonly Lazy<nint> _TargetEntityOffset = new(() => Schema.GetOffset(0x6DEBCD45948B1533), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntityOffset = Schema.GetOffset(0x6DEBCD45948B1533);
 
   public SchemaUntypedField TargetEntity {
-    get => new SchemaUntypedField(_Handle + _TargetEntityOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TargetEntityOffset);
   }
-  private static readonly Lazy<nint> _TargetInputOffset = new(() => Schema.GetOffset(0x6DEBCD45F1A0003C), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetInputOffset = Schema.GetOffset(0x6DEBCD45F1A0003C);
 
   public SchemaUntypedField TargetInput {
-    get => new SchemaUntypedField(_Handle + _TargetInputOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TargetInputOffset);
   }
-  private static readonly Lazy<nint> _ParamOffset = new(() => Schema.GetOffset(0x6DEBCD45E85FEBB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOffset = Schema.GetOffset(0x6DEBCD45E85FEBB2);
 
   public SchemaUntypedField Param {
-    get => new SchemaUntypedField(_Handle + _ParamOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParamOffset);
   }
 
 

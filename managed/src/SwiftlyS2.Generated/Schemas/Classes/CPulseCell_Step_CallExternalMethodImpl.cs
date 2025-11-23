@@ -17,30 +17,30 @@ internal partial class CPulseCell_Step_CallExternalMethodImpl : CPulseCell_BaseY
   public CPulseCell_Step_CallExternalMethodImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MethodNameOffset = new(() => Schema.GetOffset(0x6A5B3EF57D863B13), LazyThreadSafetyMode.None);
+  private static readonly nint _MethodNameOffset = Schema.GetOffset(0x6A5B3EF57D863B13);
 
   public SchemaUntypedField MethodName {
-    get => new SchemaUntypedField(_Handle + _MethodNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _MethodNameOffset);
   }
-  private static readonly Lazy<nint> _GameBlackboardOffset = new(() => Schema.GetOffset(0x6A5B3EF536FB1236), LazyThreadSafetyMode.None);
+  private static readonly nint _GameBlackboardOffset = Schema.GetOffset(0x6A5B3EF536FB1236);
 
   public SchemaUntypedField GameBlackboard {
-    get => new SchemaUntypedField(_Handle + _GameBlackboardOffset.Value);
+    get => new SchemaUntypedField(_Handle + _GameBlackboardOffset);
   }
-  private static readonly Lazy<nint> _ExpectedArgsOffset = new(() => Schema.GetOffset(0x6A5B3EF594EB10E8), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpectedArgsOffset = Schema.GetOffset(0x6A5B3EF594EB10E8);
 
   public ref CUtlLeanVector<CPulseRuntimeMethodArg, int> ExpectedArgs {
-    get => ref _Handle.AsRef<CUtlLeanVector<CPulseRuntimeMethodArg, int>>(_ExpectedArgsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CPulseRuntimeMethodArg, int>>(_ExpectedArgsOffset);
   }
-  private static readonly Lazy<nint> _AsyncCallModeOffset = new(() => Schema.GetOffset(0x6A5B3EF535F27204), LazyThreadSafetyMode.None);
+  private static readonly nint _AsyncCallModeOffset = Schema.GetOffset(0x6A5B3EF535F27204);
 
   public ref PulseMethodCallMode_t AsyncCallMode {
-    get => ref _Handle.AsRef<PulseMethodCallMode_t>(_AsyncCallModeOffset.Value);
+    get => ref _Handle.AsRef<PulseMethodCallMode_t>(_AsyncCallModeOffset);
   }
-  private static readonly Lazy<nint> _OnFinishedOffset = new(() => Schema.GetOffset(0x6A5B3EF58D903E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFinishedOffset = Schema.GetOffset(0x6A5B3EF58D903E5E);
 
   public CPulse_ResumePoint OnFinished {
-    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset.Value);
+    get => new CPulse_ResumePointImpl(_Handle + _OnFinishedOffset);
   }
 
 

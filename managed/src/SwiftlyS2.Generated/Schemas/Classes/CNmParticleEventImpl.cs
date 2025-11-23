@@ -17,90 +17,90 @@ internal partial class CNmParticleEventImpl : CNmEventImpl, CNmParticleEvent {
   public CNmParticleEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RelevanceOffset = new(() => Schema.GetOffset(0x441D270F1E3F4008), LazyThreadSafetyMode.None);
+  private static readonly nint _RelevanceOffset = Schema.GetOffset(0x441D270F1E3F4008);
 
   public ref CNmEventRelevance_t Relevance {
-    get => ref _Handle.AsRef<CNmEventRelevance_t>(_RelevanceOffset.Value);
+    get => ref _Handle.AsRef<CNmEventRelevance_t>(_RelevanceOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x441D270F0F04B4ED), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x441D270F0F04B4ED);
 
   public ref CNmParticleEvent__Type_t Type {
-    get => ref _Handle.AsRef<CNmParticleEvent__Type_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<CNmParticleEvent__Type_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _ParticleSystemOffset = new(() => Schema.GetOffset(0x441D270FC9C33AF8), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleSystemOffset = Schema.GetOffset(0x441D270FC9C33AF8);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> ParticleSystem {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ParticleSystemOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ParticleSystemOffset);
   }
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0x441D270FB46C8540), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0x441D270FB46C8540);
 
   public string Tags {
     get {
-      var ptr = _Handle.Read<nint>(_TagsOffset.Value);
+      var ptr = _Handle.Read<nint>(_TagsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TagsOffset.Value, value);
+    set => Schema.SetString(_Handle, _TagsOffset, value);
   } 
-  private static readonly Lazy<nint> _StopImmediatelyOffset = new(() => Schema.GetOffset(0x441D270FB16078E1), LazyThreadSafetyMode.None);
+  private static readonly nint _StopImmediatelyOffset = Schema.GetOffset(0x441D270FB16078E1);
 
   public ref bool StopImmediately {
-    get => ref _Handle.AsRef<bool>(_StopImmediatelyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StopImmediatelyOffset);
   }
-  private static readonly Lazy<nint> _DetachFromOwnerOffset = new(() => Schema.GetOffset(0x441D270F357F7C69), LazyThreadSafetyMode.None);
+  private static readonly nint _DetachFromOwnerOffset = Schema.GetOffset(0x441D270F357F7C69);
 
   public ref bool DetachFromOwner {
-    get => ref _Handle.AsRef<bool>(_DetachFromOwnerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DetachFromOwnerOffset);
   }
-  private static readonly Lazy<nint> _PlayEndCapOffset = new(() => Schema.GetOffset(0x441D270FA7AB4A38), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayEndCapOffset = Schema.GetOffset(0x441D270FA7AB4A38);
 
   public ref bool PlayEndCap {
-    get => ref _Handle.AsRef<bool>(_PlayEndCapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayEndCapOffset);
   }
-  private static readonly Lazy<nint> _AttachmentPoint0Offset = new(() => Schema.GetOffset(0x441D270FBFDCDF8A), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentPoint0Offset = Schema.GetOffset(0x441D270FBFDCDF8A);
 
   public string AttachmentPoint0 {
     get {
-      var ptr = _Handle.Read<nint>(_AttachmentPoint0Offset.Value);
+      var ptr = _Handle.Read<nint>(_AttachmentPoint0Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttachmentPoint0Offset.Value, value);
+    set => Schema.SetString(_Handle, _AttachmentPoint0Offset, value);
   } 
-  private static readonly Lazy<nint> _AttachmentType0Offset = new(() => Schema.GetOffset(0x441D270F63E9B990), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentType0Offset = Schema.GetOffset(0x441D270F63E9B990);
 
   public ref ParticleAttachment_t AttachmentType0 {
-    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachmentType0Offset.Value);
+    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachmentType0Offset);
   }
-  private static readonly Lazy<nint> _AttachmentPoint1Offset = new(() => Schema.GetOffset(0x441D270FC0DCE11D), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentPoint1Offset = Schema.GetOffset(0x441D270FC0DCE11D);
 
   public string AttachmentPoint1 {
     get {
-      var ptr = _Handle.Read<nint>(_AttachmentPoint1Offset.Value);
+      var ptr = _Handle.Read<nint>(_AttachmentPoint1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttachmentPoint1Offset.Value, value);
+    set => Schema.SetString(_Handle, _AttachmentPoint1Offset, value);
   } 
-  private static readonly Lazy<nint> _AttachmentType1Offset = new(() => Schema.GetOffset(0x441D270F64E9BB23), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentType1Offset = Schema.GetOffset(0x441D270F64E9BB23);
 
   public ref ParticleAttachment_t AttachmentType1 {
-    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachmentType1Offset.Value);
+    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachmentType1Offset);
   }
-  private static readonly Lazy<nint> _ConfigOffset = new(() => Schema.GetOffset(0x441D270FD8B39967), LazyThreadSafetyMode.None);
+  private static readonly nint _ConfigOffset = Schema.GetOffset(0x441D270FD8B39967);
 
   public string Config {
     get {
-      var ptr = _Handle.Read<nint>(_ConfigOffset.Value);
+      var ptr = _Handle.Read<nint>(_ConfigOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ConfigOffset.Value, value);
+    set => Schema.SetString(_Handle, _ConfigOffset, value);
   } 
-  private static readonly Lazy<nint> _EffectForConfigOffset = new(() => Schema.GetOffset(0x441D270FA68959D9), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectForConfigOffset = Schema.GetOffset(0x441D270FA68959D9);
 
   public string EffectForConfig {
     get {
-      var ptr = _Handle.Read<nint>(_EffectForConfigOffset.Value);
+      var ptr = _Handle.Read<nint>(_EffectForConfigOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EffectForConfigOffset.Value, value);
+    set => Schema.SetString(_Handle, _EffectForConfigOffset, value);
   } 
 
 

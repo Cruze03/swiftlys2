@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmVirtualParameterVectorNode__CDefinition : CNmVectorValueNode__CDefinition, ISchemaClass<CNmVirtualParameterVectorNode__CDefinition> {
 
   static CNmVirtualParameterVectorNode__CDefinition ISchemaClass<CNmVirtualParameterVectorNode__CDefinition>.From(nint handle) => new CNmVirtualParameterVectorNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmVirtualParameterVectorNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmVirtualParameterVectorNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmVirtualParameterVectorNode__CDefinition>.ClassName => null;
 
   

@@ -17,48 +17,48 @@ internal partial class CChangeLevelImpl : CBaseTriggerImpl, CChangeLevel {
   public CChangeLevelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MapNameOffset = new(() => Schema.GetOffset(0x52008134CE11EF47), LazyThreadSafetyMode.None);
+  private static readonly nint _MapNameOffset = Schema.GetOffset(0x52008134CE11EF47);
 
   public string MapName {
     get {
-      var ptr = _Handle.Read<nint>(_MapNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MapNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MapNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MapNameOffset, value);
   } 
-  private static readonly Lazy<nint> _LandmarkNameOffset = new(() => Schema.GetOffset(0x520081342DEE941D), LazyThreadSafetyMode.None);
+  private static readonly nint _LandmarkNameOffset = Schema.GetOffset(0x520081342DEE941D);
 
   public string LandmarkName {
     get {
-      var ptr = _Handle.Read<nint>(_LandmarkNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_LandmarkNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LandmarkNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _LandmarkNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OnChangeLevelOffset = new(() => Schema.GetOffset(0x52008134EED57EDE), LazyThreadSafetyMode.None);
+  private static readonly nint _OnChangeLevelOffset = Schema.GetOffset(0x52008134EED57EDE);
 
   public CEntityIOOutput OnChangeLevel {
-    get => new CEntityIOOutputImpl(_Handle + _OnChangeLevelOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnChangeLevelOffset);
   }
-  private static readonly Lazy<nint> _TouchedOffset = new(() => Schema.GetOffset(0x520081342BF07839), LazyThreadSafetyMode.None);
+  private static readonly nint _TouchedOffset = Schema.GetOffset(0x520081342BF07839);
 
   public ref bool Touched {
-    get => ref _Handle.AsRef<bool>(_TouchedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TouchedOffset);
   }
-  private static readonly Lazy<nint> _NoTouchOffset = new(() => Schema.GetOffset(0x520081343004899D), LazyThreadSafetyMode.None);
+  private static readonly nint _NoTouchOffset = Schema.GetOffset(0x520081343004899D);
 
   public ref bool NoTouch {
-    get => ref _Handle.AsRef<bool>(_NoTouchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NoTouchOffset);
   }
-  private static readonly Lazy<nint> _NewChapterOffset = new(() => Schema.GetOffset(0x520081342D184126), LazyThreadSafetyMode.None);
+  private static readonly nint _NewChapterOffset = Schema.GetOffset(0x520081342D184126);
 
   public ref bool NewChapter {
-    get => ref _Handle.AsRef<bool>(_NewChapterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NewChapterOffset);
   }
-  private static readonly Lazy<nint> _OnChangeLevelFiredOffset = new(() => Schema.GetOffset(0x520081341173C672), LazyThreadSafetyMode.None);
+  private static readonly nint _OnChangeLevelFiredOffset = Schema.GetOffset(0x520081341173C672);
 
   public ref bool OnChangeLevelFired {
-    get => ref _Handle.AsRef<bool>(_OnChangeLevelFiredOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnChangeLevelFiredOffset);
   }
 
 

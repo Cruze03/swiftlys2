@@ -17,10 +17,10 @@ internal partial class CPulseCell_Outflow_CycleOrdered__InstanceState_tImpl : Sc
   public CPulseCell_Outflow_CycleOrdered__InstanceState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NextIndexOffset = new(() => Schema.GetOffset(0xB3EBE505EFEC0D98), LazyThreadSafetyMode.None);
+  private static readonly nint _NextIndexOffset = Schema.GetOffset(0xB3EBE505EFEC0D98);
 
   public ref int NextIndex {
-    get => ref _Handle.AsRef<int>(_NextIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_NextIndexOffset);
   }
 
 

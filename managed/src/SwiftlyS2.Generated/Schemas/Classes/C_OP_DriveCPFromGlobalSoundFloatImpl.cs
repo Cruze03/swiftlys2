@@ -17,62 +17,62 @@ internal partial class C_OP_DriveCPFromGlobalSoundFloatImpl : CParticleFunctionP
   public C_OP_DriveCPFromGlobalSoundFloatImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutputControlPointOffset = new(() => Schema.GetOffset(0x1E3FE630266B0FD9), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputControlPointOffset = Schema.GetOffset(0x1E3FE630266B0FD9);
 
   public ref int OutputControlPoint {
-    get => ref _Handle.AsRef<int>(_OutputControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputControlPointOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x1E3FE630324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x1E3FE630324F6F74);
 
   public ref int OutputField {
-    get => ref _Handle.AsRef<int>(_OutputFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _InputMinOffset = new(() => Schema.GetOffset(0x1E3FE630E88A0D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMinOffset = Schema.GetOffset(0x1E3FE630E88A0D0F);
 
   public ref float InputMin {
-    get => ref _Handle.AsRef<float>(_InputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMinOffset);
   }
-  private static readonly Lazy<nint> _InputMaxOffset = new(() => Schema.GetOffset(0x1E3FE630D6766901), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMaxOffset = Schema.GetOffset(0x1E3FE630D6766901);
 
   public ref float InputMax {
-    get => ref _Handle.AsRef<float>(_InputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_InputMaxOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x1E3FE6305F8D7716), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x1E3FE6305F8D7716);
 
   public ref float OutputMin {
-    get => ref _Handle.AsRef<float>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x1E3FE63051A0E8C4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x1E3FE63051A0E8C4);
 
   public ref float OutputMax {
-    get => ref _Handle.AsRef<float>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _StackNameOffset = new(() => Schema.GetOffset(0x1E3FE6308C81C05C), LazyThreadSafetyMode.None);
+  private static readonly nint _StackNameOffset = Schema.GetOffset(0x1E3FE6308C81C05C);
 
   public string StackName {
     get {
-      var ptr = _Handle.Read<nint>(_StackNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StackNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StackNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StackNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OperatorNameOffset = new(() => Schema.GetOffset(0x1E3FE63091CAF75E), LazyThreadSafetyMode.None);
+  private static readonly nint _OperatorNameOffset = Schema.GetOffset(0x1E3FE63091CAF75E);
 
   public string OperatorName {
     get {
-      var ptr = _Handle.Read<nint>(_OperatorNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OperatorNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OperatorNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OperatorNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FieldNameOffset = new(() => Schema.GetOffset(0x1E3FE6300A25F4C4), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldNameOffset = Schema.GetOffset(0x1E3FE6300A25F4C4);
 
   public string FieldName {
     get {
-      var ptr = _Handle.Read<nint>(_FieldNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FieldNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FieldNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FieldNameOffset, value);
   } 
 
 

@@ -17,20 +17,20 @@ internal partial class EventClientProcessGameInput_tImpl : SchemaClass, EventCli
   public EventClientProcessGameInput_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopStateOffset = new(() => Schema.GetOffset(0x705D7E06F928A2EC), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopStateOffset = Schema.GetOffset(0x705D7E06F928A2EC);
 
   public EngineLoopState_t LoopState {
-    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset.Value);
+    get => new EngineLoopState_tImpl(_Handle + _LoopStateOffset);
   }
-  private static readonly Lazy<nint> _RealTimeOffset = new(() => Schema.GetOffset(0x705D7E061168EC02), LazyThreadSafetyMode.None);
+  private static readonly nint _RealTimeOffset = Schema.GetOffset(0x705D7E061168EC02);
 
   public ref float RealTime {
-    get => ref _Handle.AsRef<float>(_RealTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_RealTimeOffset);
   }
-  private static readonly Lazy<nint> _FrameTimeOffset = new(() => Schema.GetOffset(0x705D7E06659DF875), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameTimeOffset = Schema.GetOffset(0x705D7E06659DF875);
 
   public ref float FrameTime {
-    get => ref _Handle.AsRef<float>(_FrameTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrameTimeOffset);
   }
 
 

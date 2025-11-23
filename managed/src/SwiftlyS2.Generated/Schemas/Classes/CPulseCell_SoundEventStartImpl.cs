@@ -17,10 +17,10 @@ internal partial class CPulseCell_SoundEventStartImpl : CPulseCell_BaseFlowImpl,
   public CPulseCell_SoundEventStartImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x9CC546478ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x9CC546478ED6D5CD);
 
   public ref SoundEventStartType_t Type {
-    get => ref _Handle.AsRef<SoundEventStartType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<SoundEventStartType_t>(_TypeOffset);
   }
 
 

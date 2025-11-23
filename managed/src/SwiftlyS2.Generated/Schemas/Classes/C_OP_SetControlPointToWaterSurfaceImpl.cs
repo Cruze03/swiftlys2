@@ -17,40 +17,40 @@ internal partial class C_OP_SetControlPointToWaterSurfaceImpl : CParticleFunctio
   public C_OP_SetControlPointToWaterSurfaceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SourceCPOffset = new(() => Schema.GetOffset(0x5BA6BFAD4C01E3B7), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceCPOffset = Schema.GetOffset(0x5BA6BFAD4C01E3B7);
 
   public ref int SourceCP {
-    get => ref _Handle.AsRef<int>(_SourceCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_SourceCPOffset);
   }
-  private static readonly Lazy<nint> _DestCPOffset = new(() => Schema.GetOffset(0x5BA6BFADE27355DA), LazyThreadSafetyMode.None);
+  private static readonly nint _DestCPOffset = Schema.GetOffset(0x5BA6BFADE27355DA);
 
   public ref int DestCP {
-    get => ref _Handle.AsRef<int>(_DestCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_DestCPOffset);
   }
-  private static readonly Lazy<nint> _FlowCPOffset = new(() => Schema.GetOffset(0x5BA6BFADF3D93292), LazyThreadSafetyMode.None);
+  private static readonly nint _FlowCPOffset = Schema.GetOffset(0x5BA6BFADF3D93292);
 
   public ref int FlowCP {
-    get => ref _Handle.AsRef<int>(_FlowCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_FlowCPOffset);
   }
-  private static readonly Lazy<nint> _ActiveCPOffset = new(() => Schema.GetOffset(0x5BA6BFADA12F97B0), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveCPOffset = Schema.GetOffset(0x5BA6BFADA12F97B0);
 
   public ref int ActiveCP {
-    get => ref _Handle.AsRef<int>(_ActiveCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_ActiveCPOffset);
   }
-  private static readonly Lazy<nint> _ActiveCPFieldOffset = new(() => Schema.GetOffset(0x5BA6BFAD61A1D27C), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveCPFieldOffset = Schema.GetOffset(0x5BA6BFAD61A1D27C);
 
   public ref int ActiveCPField {
-    get => ref _Handle.AsRef<int>(_ActiveCPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_ActiveCPFieldOffset);
   }
-  private static readonly Lazy<nint> _RetestRateOffset = new(() => Schema.GetOffset(0x5BA6BFAD38DA66AC), LazyThreadSafetyMode.None);
+  private static readonly nint _RetestRateOffset = Schema.GetOffset(0x5BA6BFAD38DA66AC);
 
   public CParticleCollectionFloatInput RetestRate {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RetestRateOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RetestRateOffset);
   }
-  private static readonly Lazy<nint> _AdaptiveThresholdOffset = new(() => Schema.GetOffset(0x5BA6BFADE64212D6), LazyThreadSafetyMode.None);
+  private static readonly nint _AdaptiveThresholdOffset = Schema.GetOffset(0x5BA6BFADE64212D6);
 
   public ref bool AdaptiveThreshold {
-    get => ref _Handle.AsRef<bool>(_AdaptiveThresholdOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AdaptiveThresholdOffset);
   }
 
 

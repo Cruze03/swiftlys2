@@ -17,50 +17,50 @@ internal partial class CRagdollConstraintImpl : CPhysConstraintImpl, CRagdollCon
   public CRagdollConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XminOffset = new(() => Schema.GetOffset(0xF36946DA76E67DC1), LazyThreadSafetyMode.None);
+  private static readonly nint _XminOffset = Schema.GetOffset(0xF36946DA76E67DC1);
 
   public ref float Xmin {
-    get => ref _Handle.AsRef<float>(_XminOffset.Value);
+    get => ref _Handle.AsRef<float>(_XminOffset);
   }
-  private static readonly Lazy<nint> _XmaxOffset = new(() => Schema.GetOffset(0xF36946DA68F9EF6F), LazyThreadSafetyMode.None);
+  private static readonly nint _XmaxOffset = Schema.GetOffset(0xF36946DA68F9EF6F);
 
   public ref float Xmax {
-    get => ref _Handle.AsRef<float>(_XmaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_XmaxOffset);
   }
-  private static readonly Lazy<nint> _YminOffset = new(() => Schema.GetOffset(0xF36946DACE2F1828), LazyThreadSafetyMode.None);
+  private static readonly nint _YminOffset = Schema.GetOffset(0xF36946DACE2F1828);
 
   public ref float Ymin {
-    get => ref _Handle.AsRef<float>(_YminOffset.Value);
+    get => ref _Handle.AsRef<float>(_YminOffset);
   }
-  private static readonly Lazy<nint> _YmaxOffset = new(() => Schema.GetOffset(0xF36946DAC4429022), LazyThreadSafetyMode.None);
+  private static readonly nint _YmaxOffset = Schema.GetOffset(0xF36946DAC4429022);
 
   public ref float Ymax {
-    get => ref _Handle.AsRef<float>(_YmaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_YmaxOffset);
   }
-  private static readonly Lazy<nint> _ZminOffset = new(() => Schema.GetOffset(0xF36946DAC34E881F), LazyThreadSafetyMode.None);
+  private static readonly nint _ZminOffset = Schema.GetOffset(0xF36946DAC34E881F);
 
   public ref float Zmin {
-    get => ref _Handle.AsRef<float>(_ZminOffset.Value);
+    get => ref _Handle.AsRef<float>(_ZminOffset);
   }
-  private static readonly Lazy<nint> _ZmaxOffset = new(() => Schema.GetOffset(0xF36946DAD13B1671), LazyThreadSafetyMode.None);
+  private static readonly nint _ZmaxOffset = Schema.GetOffset(0xF36946DAD13B1671);
 
   public ref float Zmax {
-    get => ref _Handle.AsRef<float>(_ZmaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_ZmaxOffset);
   }
-  private static readonly Lazy<nint> _XfrictionOffset = new(() => Schema.GetOffset(0xF36946DA08758E19), LazyThreadSafetyMode.None);
+  private static readonly nint _XfrictionOffset = Schema.GetOffset(0xF36946DA08758E19);
 
   public ref float Xfriction {
-    get => ref _Handle.AsRef<float>(_XfrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_XfrictionOffset);
   }
-  private static readonly Lazy<nint> _YfrictionOffset = new(() => Schema.GetOffset(0xF36946DAEFC8C6C6), LazyThreadSafetyMode.None);
+  private static readonly nint _YfrictionOffset = Schema.GetOffset(0xF36946DAEFC8C6C6);
 
   public ref float Yfriction {
-    get => ref _Handle.AsRef<float>(_YfrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_YfrictionOffset);
   }
-  private static readonly Lazy<nint> _ZfrictionOffset = new(() => Schema.GetOffset(0xF36946DA5587BDC3), LazyThreadSafetyMode.None);
+  private static readonly nint _ZfrictionOffset = Schema.GetOffset(0xF36946DA5587BDC3);
 
   public ref float Zfriction {
-    get => ref _Handle.AsRef<float>(_ZfrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_ZfrictionOffset);
   }
 
 

@@ -121,4 +121,5 @@ internal partial class CPlayer_WeaponServicesImpl
     SelectWeaponByDesignerName(name);
   }
 
+  public IEnumerable<CBasePlayerWeapon> MyValidWeapons => MyWeapons.ToList().Where(w => w.IsValid && w.Value != null && w.Value.IsValid).Select(w => w.Value!);
 }

@@ -17,20 +17,20 @@ internal partial class AggregateLODSetup_tImpl : SchemaClass, AggregateLODSetup_
   public AggregateLODSetup_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LODOriginOffset = new(() => Schema.GetOffset(0xA931690332EC7486), LazyThreadSafetyMode.None);
+  private static readonly nint _LODOriginOffset = Schema.GetOffset(0xA931690332EC7486);
 
   public ref Vector LODOrigin {
-    get => ref _Handle.AsRef<Vector>(_LODOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LODOriginOffset);
   }
-  private static readonly Lazy<nint> _MaxObjectScaleOffset = new(() => Schema.GetOffset(0xA9316903D0DAF878), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxObjectScaleOffset = Schema.GetOffset(0xA9316903D0DAF878);
 
   public ref float MaxObjectScale {
-    get => ref _Handle.AsRef<float>(_MaxObjectScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxObjectScaleOffset);
   }
-  private static readonly Lazy<nint> _SwitchDistancesOffset = new(() => Schema.GetOffset(0xA9316903E49F3FC3), LazyThreadSafetyMode.None);
+  private static readonly nint _SwitchDistancesOffset = Schema.GetOffset(0xA9316903E49F3FC3);
 
   public ref CUtlVector<float> SwitchDistances {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_SwitchDistancesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_SwitchDistancesOffset);
   }
 
 

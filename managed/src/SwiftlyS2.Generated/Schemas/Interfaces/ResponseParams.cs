@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface ResponseParams : ISchemaClass<ResponseParams> {
 
   static ResponseParams ISchemaClass<ResponseParams>.From(nint handle) => new ResponseParamsImpl(handle);
-  static int ISchemaClass<ResponseParams>.Size => 28;
+  static int ISchemaClass<ResponseParams>.Size => 32;
   static string? ISchemaClass<ResponseParams>.ClassName => null;
 
   

@@ -17,15 +17,15 @@ internal partial class CPulseCell_BaseLerp__CursorState_tImpl : SchemaClass, CPu
   public CPulseCell_BaseLerp__CursorState_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x1FAAE76897B5FA8E), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x1FAAE76897B5FA8E);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0x1FAAE7687AA8F56B), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0x1FAAE7687AA8F56B);
 
   public GameTime_t EndTime {
-    get => new GameTime_tImpl(_Handle + _EndTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _EndTimeOffset);
   }
 
 

@@ -17,45 +17,45 @@ internal partial class CSoundOpvarSetOBBWindEntityImpl : CSoundOpvarSetPointBase
   public CSoundOpvarSetOBBWindEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinsOffset = new(() => Schema.GetOffset(0xEC8310EF421BB730), LazyThreadSafetyMode.None);
+  private static readonly nint _MinsOffset = Schema.GetOffset(0xEC8310EF421BB730);
 
   public ref Vector Mins {
-    get => ref _Handle.AsRef<Vector>(_MinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinsOffset);
   }
-  private static readonly Lazy<nint> _MaxsOffset = new(() => Schema.GetOffset(0xEC8310EFC0C1CE6A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxsOffset = Schema.GetOffset(0xEC8310EFC0C1CE6A);
 
   public ref Vector Maxs {
-    get => ref _Handle.AsRef<Vector>(_MaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxsOffset);
   }
-  private static readonly Lazy<nint> _DistanceMinsOffset = new(() => Schema.GetOffset(0xEC8310EF84189833), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceMinsOffset = Schema.GetOffset(0xEC8310EF84189833);
 
   public ref Vector DistanceMins {
-    get => ref _Handle.AsRef<Vector>(_DistanceMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceMinsOffset);
   }
-  private static readonly Lazy<nint> _DistanceMaxsOffset = new(() => Schema.GetOffset(0xEC8310EF2AF856F1), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceMaxsOffset = Schema.GetOffset(0xEC8310EF2AF856F1);
 
   public ref Vector DistanceMaxs {
-    get => ref _Handle.AsRef<Vector>(_DistanceMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DistanceMaxsOffset);
   }
-  private static readonly Lazy<nint> _WindMinOffset = new(() => Schema.GetOffset(0xEC8310EF24871B93), LazyThreadSafetyMode.None);
+  private static readonly nint _WindMinOffset = Schema.GetOffset(0xEC8310EF24871B93);
 
   public ref float WindMin {
-    get => ref _Handle.AsRef<float>(_WindMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindMinOffset);
   }
-  private static readonly Lazy<nint> _WindMaxOffset = new(() => Schema.GetOffset(0xEC8310EF3A9C58ED), LazyThreadSafetyMode.None);
+  private static readonly nint _WindMaxOffset = Schema.GetOffset(0xEC8310EF3A9C58ED);
 
   public ref float WindMax {
-    get => ref _Handle.AsRef<float>(_WindMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindMaxOffset);
   }
-  private static readonly Lazy<nint> _WindMapMinOffset = new(() => Schema.GetOffset(0xEC8310EF2A2DE5A7), LazyThreadSafetyMode.None);
+  private static readonly nint _WindMapMinOffset = Schema.GetOffset(0xEC8310EF2A2DE5A7);
 
   public ref float WindMapMin {
-    get => ref _Handle.AsRef<float>(_WindMapMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindMapMinOffset);
   }
-  private static readonly Lazy<nint> _WindMapMaxOffset = new(() => Schema.GetOffset(0xEC8310EF1842E409), LazyThreadSafetyMode.None);
+  private static readonly nint _WindMapMaxOffset = Schema.GetOffset(0xEC8310EF1842E409);
 
   public ref float WindMapMax {
-    get => ref _Handle.AsRef<float>(_WindMapMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindMapMaxOffset);
   }
 
 

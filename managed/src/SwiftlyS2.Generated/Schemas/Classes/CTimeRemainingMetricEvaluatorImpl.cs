@@ -17,25 +17,25 @@ internal partial class CTimeRemainingMetricEvaluatorImpl : CMotionMetricEvaluato
   public CTimeRemainingMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MatchByTimeRemainingOffset = new(() => Schema.GetOffset(0xAB802C86BB70462E), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchByTimeRemainingOffset = Schema.GetOffset(0xAB802C86BB70462E);
 
   public ref bool MatchByTimeRemaining {
-    get => ref _Handle.AsRef<bool>(_MatchByTimeRemainingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchByTimeRemainingOffset);
   }
-  private static readonly Lazy<nint> _MaxTimeRemainingOffset = new(() => Schema.GetOffset(0xAB802C8686818AD6), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTimeRemainingOffset = Schema.GetOffset(0xAB802C8686818AD6);
 
   public ref float MaxTimeRemaining {
-    get => ref _Handle.AsRef<float>(_MaxTimeRemainingOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxTimeRemainingOffset);
   }
-  private static readonly Lazy<nint> _FilterByTimeRemainingOffset = new(() => Schema.GetOffset(0xAB802C8668E9E5BD), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterByTimeRemainingOffset = Schema.GetOffset(0xAB802C8668E9E5BD);
 
   public ref bool FilterByTimeRemaining {
-    get => ref _Handle.AsRef<bool>(_FilterByTimeRemainingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FilterByTimeRemainingOffset);
   }
-  private static readonly Lazy<nint> _MinTimeRemainingOffset = new(() => Schema.GetOffset(0xAB802C8604DD377C), LazyThreadSafetyMode.None);
+  private static readonly nint _MinTimeRemainingOffset = Schema.GetOffset(0xAB802C8604DD377C);
 
   public ref float MinTimeRemaining {
-    get => ref _Handle.AsRef<float>(_MinTimeRemainingOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinTimeRemainingOffset);
   }
 
 

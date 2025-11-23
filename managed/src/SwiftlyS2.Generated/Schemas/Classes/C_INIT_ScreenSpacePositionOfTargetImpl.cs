@@ -17,25 +17,25 @@ internal partial class C_INIT_ScreenSpacePositionOfTargetImpl : CParticleFunctio
   public C_INIT_ScreenSpacePositionOfTargetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetPositionOffset = new(() => Schema.GetOffset(0xBA53E3F7554C563B), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionOffset = Schema.GetOffset(0xBA53E3F7554C563B);
 
   public CPerParticleVecInput TargetPosition {
-    get => new CPerParticleVecInputImpl(_Handle + _TargetPositionOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _TargetPositionOffset);
   }
-  private static readonly Lazy<nint> _OututBehindnessOffset = new(() => Schema.GetOffset(0xBA53E3F7DB123D49), LazyThreadSafetyMode.None);
+  private static readonly nint _OututBehindnessOffset = Schema.GetOffset(0xBA53E3F7DB123D49);
 
   public ref bool OututBehindness {
-    get => ref _Handle.AsRef<bool>(_OututBehindnessOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OututBehindnessOffset);
   }
-  private static readonly Lazy<nint> _BehindFieldOutputOffset = new(() => Schema.GetOffset(0xBA53E3F769F4F392), LazyThreadSafetyMode.None);
+  private static readonly nint _BehindFieldOutputOffset = Schema.GetOffset(0xBA53E3F769F4F392);
 
   public ParticleAttributeIndex_t BehindFieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _BehindFieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _BehindFieldOutputOffset);
   }
-  private static readonly Lazy<nint> _BehindOutputRemapOffset = new(() => Schema.GetOffset(0xBA53E3F74B35FBF3), LazyThreadSafetyMode.None);
+  private static readonly nint _BehindOutputRemapOffset = Schema.GetOffset(0xBA53E3F74B35FBF3);
 
   public CParticleRemapFloatInput BehindOutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _BehindOutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _BehindOutputRemapOffset);
   }
 
 

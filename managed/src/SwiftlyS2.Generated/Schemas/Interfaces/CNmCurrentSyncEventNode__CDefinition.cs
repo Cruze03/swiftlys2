@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmCurrentSyncEventNode__CDefinition : CNmFloatValueNode__CDefinition, ISchemaClass<CNmCurrentSyncEventNode__CDefinition> {
 
   static CNmCurrentSyncEventNode__CDefinition ISchemaClass<CNmCurrentSyncEventNode__CDefinition>.From(nint handle) => new CNmCurrentSyncEventNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmCurrentSyncEventNode__CDefinition>.Size => 16;
+  static int ISchemaClass<CNmCurrentSyncEventNode__CDefinition>.Size => 24;
   static string? ISchemaClass<CNmCurrentSyncEventNode__CDefinition>.ClassName => null;
 
   

@@ -17,25 +17,25 @@ internal partial class CPointTeleportImpl : CServerOnlyPointEntityImpl, CPointTe
   public CPointTeleportImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SaveOriginOffset = new(() => Schema.GetOffset(0x9AE1393FD9277FA6), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveOriginOffset = Schema.GetOffset(0x9AE1393FD9277FA6);
 
   public ref Vector SaveOrigin {
-    get => ref _Handle.AsRef<Vector>(_SaveOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SaveOriginOffset);
   }
-  private static readonly Lazy<nint> _SaveAnglesOffset = new(() => Schema.GetOffset(0x9AE1393FD68F48DC), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveAnglesOffset = Schema.GetOffset(0x9AE1393FD68F48DC);
 
   public ref QAngle SaveAngles {
-    get => ref _Handle.AsRef<QAngle>(_SaveAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_SaveAnglesOffset);
   }
-  private static readonly Lazy<nint> _TeleportParentedEntitiesOffset = new(() => Schema.GetOffset(0x9AE1393F20FFB18C), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportParentedEntitiesOffset = Schema.GetOffset(0x9AE1393F20FFB18C);
 
   public ref bool TeleportParentedEntities {
-    get => ref _Handle.AsRef<bool>(_TeleportParentedEntitiesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TeleportParentedEntitiesOffset);
   }
-  private static readonly Lazy<nint> _TeleportUseCurrentAngleOffset = new(() => Schema.GetOffset(0x9AE1393F528952CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportUseCurrentAngleOffset = Schema.GetOffset(0x9AE1393F528952CD);
 
   public ref bool TeleportUseCurrentAngle {
-    get => ref _Handle.AsRef<bool>(_TeleportUseCurrentAngleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TeleportUseCurrentAngleOffset);
   }
 
 

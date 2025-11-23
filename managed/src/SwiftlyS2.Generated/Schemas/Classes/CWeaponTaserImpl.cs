@@ -17,15 +17,15 @@ internal partial class CWeaponTaserImpl : CCSWeaponBaseGunImpl, CWeaponTaser {
   public CWeaponTaserImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FireTimeOffset = new(() => Schema.GetOffset(0xA91A6CB965DBC00C), LazyThreadSafetyMode.None);
+  private static readonly nint _FireTimeOffset = Schema.GetOffset(0xA91A6CB965DBC00C);
 
   public GameTime_t FireTime {
-    get => new GameTime_tImpl(_Handle + _FireTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FireTimeOffset);
   }
-  private static readonly Lazy<nint> _LastAttackTickOffset = new(() => Schema.GetOffset(0xA91A6CB90BCAAD3C), LazyThreadSafetyMode.None);
+  private static readonly nint _LastAttackTickOffset = Schema.GetOffset(0xA91A6CB90BCAAD3C);
 
   public ref int LastAttackTick {
-    get => ref _Handle.AsRef<int>(_LastAttackTickOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastAttackTickOffset);
   }
 
   public void FireTimeUpdated() {

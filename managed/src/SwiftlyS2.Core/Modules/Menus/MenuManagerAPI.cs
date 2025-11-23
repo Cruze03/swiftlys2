@@ -1,12 +1,11 @@
 using System.Globalization;
 using System.Collections.Concurrent;
-using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared;
+using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.Sounds;
 using SwiftlyS2.Shared.Players;
-using SwiftlyS2.Shared.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.Menus;
 
@@ -15,7 +14,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
     /// <summary>
     /// The SwiftlyS2 core instance.
     /// </summary>
-    public ISwiftlyCore Core { get; init; }
+    public ISwiftlyCore Core { get; internal set; } = default!;
 
     /// <summary>
     /// Global Configuration settings for all menus.
@@ -32,8 +31,8 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
     /// </summary>
     public event EventHandler<MenuManagerEventArgs>? MenuOpened;
 
-    private readonly ConcurrentDictionary<IPlayer, IMenuAPI> openMenus = new();
-    private readonly ConcurrentDictionary<(IPlayer, IMenuAPI), Action<IPlayer, IMenuAPI>?> onClosedCallbacks = new();
+    private readonly ConcurrentDictionary<int, IMenuAPI> openMenus = new();
+    private readonly ConcurrentDictionary<(int, IMenuAPI), Action<IPlayer, IMenuAPI>?> onClosedCallbacks = new();
     private readonly SoundEvent useSound = new();
     private readonly SoundEvent exitSound = new();
     private readonly SoundEvent scrollSound = new();
@@ -64,10 +63,8 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
         ["f"] = KeyBind.F,
     };
 
-    public MenuManagerAPI( ISwiftlyCore core )
+    public MenuManagerAPI()
     {
-        Core = core;
-
         var settings = NativeEngineHelpers.GetMenuSettings().Trim().Split('\x01');
         Configuration = new MenuManagerConfiguration {
             NavigationPrefix = settings[0],
@@ -98,10 +95,6 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
         openMenus.Clear();
         onClosedCallbacks.Clear();
-
-        Core.Event.OnClientKeyStateChanged += KeyStateChange;
-        Core.Event.OnClientDisconnected += OnClientDisconnected;
-        Core.Event.OnMapUnload += OnMapUnload;
     }
 
     ~MenuManagerAPI()
@@ -110,13 +103,9 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
         openMenus.Clear();
         onClosedCallbacks.Clear();
-
-        Core.Event.OnClientKeyStateChanged -= KeyStateChange;
-        Core.Event.OnClientDisconnected -= OnClientDisconnected;
-        Core.Event.OnMapUnload -= OnMapUnload;
     }
 
-    private void KeyStateChange( IOnClientKeyStateChangedEvent @event )
+    internal void OnClientKeyStateChanged( IOnClientKeyStateChangedEvent @event )
     {
         if (openMenus.IsEmpty)
         {
@@ -239,19 +228,20 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
         }
     }
 
-    private void OnClientDisconnected( IOnClientDisconnectedEvent @event )
+    internal void OnClientDisconnected( IOnClientDisconnectedEvent @event )
     {
+        var stackTrace = new System.Diagnostics.StackTrace(true);
         var player = Core.PlayerManager.GetPlayer(@event.PlayerId);
         if (player != null)
         {
             openMenus
-                .Where(kvp => kvp.Key == player)
+                .Where(kvp => kvp.Key == player.PlayerID)
                 .ToList()
-                .ForEach(kvp => CloseMenuForPlayerInternal(player, kvp.Value, true));
+                .ForEach(kvp => CloseMenuForPlayerInternal(player, kvp.Value, false));
         }
     }
 
-    private void OnMapUnload( IOnMapUnloadEvent _ )
+    internal void OnMapUnload( IOnMapUnloadEvent _ )
     {
         CloseAllMenus();
     }
@@ -294,7 +284,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
     public IMenuAPI? GetCurrentMenu( IPlayer player )
     {
-        return openMenus.TryGetValue(player, out var menu) ? menu : null;
+        return openMenus.TryGetValue(player.PlayerID, out var menu) ? menu : null;
     }
 
     public void OpenMenu( IMenuAPI menu )
@@ -317,7 +307,12 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
     public void OpenMenuForPlayer( IPlayer player, IMenuAPI menu )
     {
-        if (openMenus.TryGetValue(player, out var currentMenu) && currentMenu != null)
+        if (!player.IsValid || player.IsFakeClient || !(player.Controller?.IsValid ?? false))
+        {
+            return;
+        }
+
+        if (openMenus.TryGetValue(player.PlayerID, out var currentMenu) && currentMenu != null)
         {
             if (menu.Parent.ParentMenu == currentMenu)
             {
@@ -332,9 +327,9 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 //   2. Close the current (parent) menu as part of the navigation process.
                 //   3. Re-register the callback so it will only be invoked later, when the
                 //      logical end of the menu flow is reached and the menu is truly closed.
-                _ = onClosedCallbacks.TryRemove((player, currentMenu), out var callback);
+                _ = onClosedCallbacks.TryRemove((player.PlayerID, currentMenu), out var callback);
                 CloseMenuForPlayerInternal(player, currentMenu, false);
-                _ = onClosedCallbacks.AddOrUpdate((player, currentMenu), callback, ( _, _ ) => callback);
+                _ = onClosedCallbacks.AddOrUpdate((player.PlayerID, currentMenu), callback, ( _, _ ) => callback);
             }
             else
             {
@@ -342,7 +337,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             }
         }
 
-        _ = openMenus.AddOrUpdate(player, menu, ( _, _ ) => menu);
+        _ = openMenus.AddOrUpdate(player.PlayerID, menu, ( _, _ ) => menu);
         menu.ShowForPlayer(player);
         MenuOpened?.Invoke(this, new MenuManagerEventArgs { Player = player, Menu = menu });
     }
@@ -350,7 +345,7 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
     public void OpenMenuForPlayer( IPlayer player, IMenuAPI menu, Action<IPlayer, IMenuAPI> onClosed )
     {
         OpenMenuForPlayer(player, menu);
-        _ = onClosedCallbacks.AddOrUpdate((player, menu), onClosed, ( _, _ ) => onClosed);
+        _ = onClosedCallbacks.AddOrUpdate((player.PlayerID, menu), onClosed, ( _, _ ) => onClosed);
     }
 
     public void CloseMenu( IMenuAPI menu )
@@ -373,8 +368,9 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
             var currentMenu = kvp.Value;
             while (currentMenu != null)
             {
-                currentMenu.HideForPlayer(kvp.Key);
-                MenuClosed?.Invoke(this, new MenuManagerEventArgs { Player = kvp.Key, Menu = currentMenu });
+                var player = Core.PlayerManager.GetPlayer(kvp.Key);
+                currentMenu.HideForPlayer(player);
+                MenuClosed?.Invoke(this, new MenuManagerEventArgs { Player = player, Menu = currentMenu });
                 currentMenu = currentMenu.Parent.ParentMenu;
             }
             _ = openMenus.TryRemove(kvp.Key, out _);
@@ -383,17 +379,22 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
 
     private void CloseMenuForPlayerInternal( IPlayer player, IMenuAPI menu, bool reopenParent )
     {
-        if (!openMenus.TryGetValue(player, out var currentMenu) || currentMenu != menu)
+        if (player.IsFakeClient)
         {
             return;
         }
 
-        if (onClosedCallbacks.TryRemove((player, menu), out var onClosed) && onClosed != null)
+        if (!openMenus.TryGetValue(player.PlayerID, out var currentMenu) || currentMenu != menu)
+        {
+            return;
+        }
+
+        if (onClosedCallbacks.TryRemove((player.PlayerID, menu), out var onClosed) && onClosed != null)
         {
             onClosed(player, menu);
         }
 
-        if (openMenus.TryRemove(player, out _))
+        if (openMenus.TryRemove(player.PlayerID, out _))
         {
             menu.HideForPlayer(player);
             MenuClosed?.Invoke(this, new MenuManagerEventArgs { Player = player, Menu = menu });

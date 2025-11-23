@@ -18,9 +18,9 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     private bool visible = true;
     private bool enabled = true;
     private readonly DynamicTextUpdater? dynamicTextUpdater;
-    private readonly ConcurrentDictionary<IPlayer, bool> playerVisible = new();
-    private readonly ConcurrentDictionary<IPlayer, bool> playerEnabled = new();
-    private readonly ConcurrentDictionary<IPlayer, Task> playerClickTask = new();
+    private readonly ConcurrentDictionary<int, bool> playerVisible = new();
+    private readonly ConcurrentDictionary<int, bool> playerEnabled = new();
+    private readonly ConcurrentDictionary<int, Task> playerClickTask = new();
 
     private volatile bool disposed;
 
@@ -87,6 +87,22 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 
         disposed = true;
         GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Pauses the dynamic text animation.
+    /// </summary>
+    public void PauseTextAnimation()
+    {
+        dynamicTextUpdater?.Pause();
+    }
+
+    /// <summary>
+    /// Resumes the dynamic text animation.
+    /// </summary>
+    public void ResumeTextAnimation()
+    {
+        dynamicTextUpdater?.Resume();
     }
 
     /// <summary>
@@ -264,14 +280,14 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// </summary>
     /// <param name="player">The player to check.</param>
     /// <returns>True if the click task is completed; otherwise, false.</returns>
-    public virtual bool IsClickTaskCompleted( IPlayer player ) => !playerClickTask.TryGetValue(player, out var value) || value.IsCompleted;
+    public virtual bool IsClickTaskCompleted( IPlayer player ) => !playerClickTask.TryGetValue(player.PlayerID, out var value) || value.IsCompleted;
 
     /// <summary>
     /// Determines whether this option is visible to the specified player.
     /// </summary>
     /// <param name="player">The player to check visibility for.</param>
     /// <returns>True if the option is visible to the player; otherwise, false.</returns>
-    public virtual bool GetVisible( IPlayer player ) => playerVisible.TryGetValue(player, out var value) ? value : Visible;
+    public virtual bool GetVisible( IPlayer player ) => playerVisible.TryGetValue(player.PlayerID, out var value) ? value : Visible;
 
     /// <summary>
     /// Sets the visibility of this option for a specific player.
@@ -281,14 +297,14 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <remarks>
     /// The per-player visibility has lower priority than the global <see cref="Visible"/> property.
     /// </remarks>
-    public virtual void SetVisible( IPlayer player, bool visible ) => playerVisible.AddOrUpdate(player, visible, ( key, value ) => visible);
+    public virtual void SetVisible( IPlayer player, bool visible ) => playerVisible.AddOrUpdate(player.PlayerID, visible, ( key, value ) => visible);
 
     /// <summary>
     /// Determines whether this option is enabled for the specified player.
     /// </summary>
     /// <param name="player">The player to check enabled state for.</param>
     /// <returns>True if the option is enabled for the player; otherwise, false.</returns>
-    public virtual bool GetEnabled( IPlayer player ) => playerEnabled.TryGetValue(player, out var value) ? value : Enabled;
+    public virtual bool GetEnabled( IPlayer player ) => playerEnabled.TryGetValue(player.PlayerID, out var value) ? value : Enabled;
 
     /// <summary>
     /// Sets the enabled state of this option for a specific player.
@@ -298,7 +314,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <remarks>
     /// The per-player enabled state has lower priority than the global <see cref="Enabled"/> property.
     /// </remarks>
-    public virtual void SetEnabled( IPlayer player, bool enabled ) => playerEnabled.AddOrUpdate(player, enabled, ( key, value ) => enabled);
+    public virtual void SetEnabled( IPlayer player, bool enabled ) => playerEnabled.AddOrUpdate(player.PlayerID, enabled, ( key, value ) => enabled);
 
     // /// <summary>
     // /// Gets the text to display for this option for the specified player.
@@ -366,7 +382,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 
         BeforeFormat?.Invoke(this, args);
 
-        if (playerClickTask.TryGetValue(player, out var value) && !value.IsCompleted)
+        if (playerClickTask.TryGetValue(player.PlayerID, out var value) && !value.IsCompleted)
         {
             args.CustomText = "<font color='#C0FF3E'>Waiting...</font>";
         }
@@ -466,7 +482,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
             return;
         }
 
-        if (playerClickTask.TryGetValue(player, out var value) && !value.IsCompleted)
+        if (playerClickTask.TryGetValue(player.PlayerID, out var value) && !value.IsCompleted)
         {
             return;
         }
@@ -487,12 +503,12 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
             try
             {
                 var clickTask = Click.Invoke(this, args).AsTask();
-                _ = playerClickTask.AddOrUpdate(player, clickTask, ( _, _ ) => clickTask);
+                _ = playerClickTask.AddOrUpdate(player.PlayerID, clickTask, ( _, _ ) => clickTask);
                 await clickTask;
             }
             finally
             {
-                _ = playerClickTask.TryRemove(player, out _);
+                _ = playerClickTask.TryRemove(player.PlayerID, out _);
             }
         }
 
@@ -510,6 +526,17 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     // {
     //     Hover?.Invoke(this, new MenuOptionEventArgs { Player = player, Option = this });
     // }
+
+    /// <summary>
+    /// Updates dynamic text.
+    /// </summary>
+    /// <remarks>
+    /// Called by MenuAPI's render loop.
+    /// </remarks>
+    internal void UpdateDynamicText( DateTime now )
+    {
+        dynamicTextUpdater?.TryUpdate(now);
+    }
 
     [GeneratedRegex(@"<[/\\]*br[/\\]*>", RegexOptions.IgnoreCase)]
     private static partial Regex BrTagRegex();

@@ -17,28 +17,28 @@ internal partial class locksound_tImpl : SchemaClass, locksound_t {
   public locksound_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LockedSoundOffset = new(() => Schema.GetOffset(0xDAD0AE229881D7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _LockedSoundOffset = Schema.GetOffset(0xDAD0AE229881D7AB);
 
   public string LockedSound {
     get {
-      var ptr = _Handle.Read<nint>(_LockedSoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_LockedSoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LockedSoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _LockedSoundOffset, value);
   } 
-  private static readonly Lazy<nint> _UnlockedSoundOffset = new(() => Schema.GetOffset(0xDAD0AE227EE88276), LazyThreadSafetyMode.None);
+  private static readonly nint _UnlockedSoundOffset = Schema.GetOffset(0xDAD0AE227EE88276);
 
   public string UnlockedSound {
     get {
-      var ptr = _Handle.Read<nint>(_UnlockedSoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_UnlockedSoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _UnlockedSoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _UnlockedSoundOffset, value);
   } 
-  private static readonly Lazy<nint> _FlwaitSoundOffset = new(() => Schema.GetOffset(0xDAD0AE2297A4A845), LazyThreadSafetyMode.None);
+  private static readonly nint _FlwaitSoundOffset = Schema.GetOffset(0xDAD0AE2297A4A845);
 
   public GameTime_t FlwaitSound {
-    get => new GameTime_tImpl(_Handle + _FlwaitSoundOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FlwaitSoundOffset);
   }
 
 

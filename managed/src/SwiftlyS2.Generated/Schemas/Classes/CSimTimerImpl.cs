@@ -17,10 +17,10 @@ internal partial class CSimTimerImpl : CSimpleSimTimerImpl, CSimTimer {
   public CSimTimerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IntervalOffset = new(() => Schema.GetOffset(0xB9B19F86320F7B8E), LazyThreadSafetyMode.None);
+  private static readonly nint _IntervalOffset = Schema.GetOffset(0xB9B19F86320F7B8E);
 
   public ref float Interval {
-    get => ref _Handle.AsRef<float>(_IntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_IntervalOffset);
   }
 
 

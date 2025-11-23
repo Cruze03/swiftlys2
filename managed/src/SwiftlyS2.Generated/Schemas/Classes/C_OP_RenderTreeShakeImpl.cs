@@ -17,55 +17,55 @@ internal partial class C_OP_RenderTreeShakeImpl : CParticleFunctionRendererImpl,
   public C_OP_RenderTreeShakeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PeakStrengthOffset = new(() => Schema.GetOffset(0x8EB4A28DA6BB3CD1), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakStrengthOffset = Schema.GetOffset(0x8EB4A28DA6BB3CD1);
 
   public ref float PeakStrength {
-    get => ref _Handle.AsRef<float>(_PeakStrengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_PeakStrengthOffset);
   }
-  private static readonly Lazy<nint> _PeakStrengthFieldOverrideOffset = new(() => Schema.GetOffset(0x8EB4A28D78E18331), LazyThreadSafetyMode.None);
+  private static readonly nint _PeakStrengthFieldOverrideOffset = Schema.GetOffset(0x8EB4A28D78E18331);
 
   public ParticleAttributeIndex_t PeakStrengthFieldOverride {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _PeakStrengthFieldOverrideOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _PeakStrengthFieldOverrideOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x8EB4A28D5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x8EB4A28D5ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _RadiusFieldOverrideOffset = new(() => Schema.GetOffset(0x8EB4A28D53B0BAA1), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusFieldOverrideOffset = Schema.GetOffset(0x8EB4A28D53B0BAA1);
 
   public ParticleAttributeIndex_t RadiusFieldOverride {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _RadiusFieldOverrideOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _RadiusFieldOverrideOffset);
   }
-  private static readonly Lazy<nint> _ShakeDurationOffset = new(() => Schema.GetOffset(0x8EB4A28D941D986F), LazyThreadSafetyMode.None);
+  private static readonly nint _ShakeDurationOffset = Schema.GetOffset(0x8EB4A28D941D986F);
 
   public ref float ShakeDuration {
-    get => ref _Handle.AsRef<float>(_ShakeDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_ShakeDurationOffset);
   }
-  private static readonly Lazy<nint> _TransitionTimeOffset = new(() => Schema.GetOffset(0x8EB4A28D8D4BFC39), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionTimeOffset = Schema.GetOffset(0x8EB4A28D8D4BFC39);
 
   public ref float TransitionTime {
-    get => ref _Handle.AsRef<float>(_TransitionTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TransitionTimeOffset);
   }
-  private static readonly Lazy<nint> _TwistAmountOffset = new(() => Schema.GetOffset(0x8EB4A28DB299B9CA), LazyThreadSafetyMode.None);
+  private static readonly nint _TwistAmountOffset = Schema.GetOffset(0x8EB4A28DB299B9CA);
 
   public ref float TwistAmount {
-    get => ref _Handle.AsRef<float>(_TwistAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_TwistAmountOffset);
   }
-  private static readonly Lazy<nint> _RadialAmountOffset = new(() => Schema.GetOffset(0x8EB4A28DA8611998), LazyThreadSafetyMode.None);
+  private static readonly nint _RadialAmountOffset = Schema.GetOffset(0x8EB4A28DA8611998);
 
   public ref float RadialAmount {
-    get => ref _Handle.AsRef<float>(_RadialAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadialAmountOffset);
   }
-  private static readonly Lazy<nint> _ControlPointOrientationAmountOffset = new(() => Schema.GetOffset(0x8EB4A28D3D28AFF4), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOrientationAmountOffset = Schema.GetOffset(0x8EB4A28D3D28AFF4);
 
   public ref float ControlPointOrientationAmount {
-    get => ref _Handle.AsRef<float>(_ControlPointOrientationAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_ControlPointOrientationAmountOffset);
   }
-  private static readonly Lazy<nint> _ControlPointForLinearDirectionOffset = new(() => Schema.GetOffset(0x8EB4A28D80958783), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointForLinearDirectionOffset = Schema.GetOffset(0x8EB4A28D80958783);
 
   public ref int ControlPointForLinearDirection {
-    get => ref _Handle.AsRef<int>(_ControlPointForLinearDirectionOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointForLinearDirectionOffset);
   }
 
 

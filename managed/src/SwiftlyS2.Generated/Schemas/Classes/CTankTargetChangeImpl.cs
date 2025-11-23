@@ -17,19 +17,19 @@ internal partial class CTankTargetChangeImpl : CPointEntityImpl, CTankTargetChan
   public CTankTargetChangeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NewTargetOffset = new(() => Schema.GetOffset(0xC9633A4FC35D87C4), LazyThreadSafetyMode.None);
+  private static readonly nint _NewTargetOffset = Schema.GetOffset(0xC9633A4FC35D87C4);
 
   public SchemaUntypedField NewTarget {
-    get => new SchemaUntypedField(_Handle + _NewTargetOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NewTargetOffset);
   }
-  private static readonly Lazy<nint> _NewTargetNameOffset = new(() => Schema.GetOffset(0xC9633A4FFCD3FD1F), LazyThreadSafetyMode.None);
+  private static readonly nint _NewTargetNameOffset = Schema.GetOffset(0xC9633A4FFCD3FD1F);
 
   public string NewTargetName {
     get {
-      var ptr = _Handle.Read<nint>(_NewTargetNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NewTargetNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NewTargetNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NewTargetNameOffset, value);
   } 
 
 

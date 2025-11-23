@@ -17,15 +17,15 @@ internal partial class CModelConfigElement_RandomPickImpl : CModelConfigElementI
   public CModelConfigElement_RandomPickImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChoicesOffset = new(() => Schema.GetOffset(0x31F9AEEA9E9959BF), LazyThreadSafetyMode.None);
+  private static readonly nint _ChoicesOffset = Schema.GetOffset(0x31F9AEEA9E9959BF);
 
   public ref CUtlVector<CUtlString> Choices {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_ChoicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_ChoicesOffset);
   }
-  private static readonly Lazy<nint> _ChoiceWeightsOffset = new(() => Schema.GetOffset(0x31F9AEEA379579F7), LazyThreadSafetyMode.None);
+  private static readonly nint _ChoiceWeightsOffset = Schema.GetOffset(0x31F9AEEA379579F7);
 
   public ref CUtlVector<float> ChoiceWeights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_ChoiceWeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_ChoiceWeightsOffset);
   }
 
 

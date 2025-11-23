@@ -17,70 +17,70 @@ internal partial class COrientationWarpUpdateNodeImpl : CUnaryUpdateNodeImpl, CO
   public COrientationWarpUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0xD75D3B631050A633), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0xD75D3B631050A633);
 
   public ref OrientationWarpMode_t Mode {
-    get => ref _Handle.AsRef<OrientationWarpMode_t>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<OrientationWarpMode_t>(_ModeOffset);
   }
-  private static readonly Lazy<nint> _TargetParamOffset = new(() => Schema.GetOffset(0xD75D3B63D85B45EB), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetParamOffset = Schema.GetOffset(0xD75D3B63D85B45EB);
 
   public CAnimParamHandle TargetParam {
-    get => new CAnimParamHandleImpl(_Handle + _TargetParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetParamOffset);
   }
-  private static readonly Lazy<nint> _TargetPositionParamOffset = new(() => Schema.GetOffset(0xD75D3B63550BBF72), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPositionParamOffset = Schema.GetOffset(0xD75D3B63550BBF72);
 
   public CAnimParamHandle TargetPositionParam {
-    get => new CAnimParamHandleImpl(_Handle + _TargetPositionParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetPositionParamOffset);
   }
-  private static readonly Lazy<nint> _FallbackTargetPositionParamOffset = new(() => Schema.GetOffset(0xD75D3B63E8F94D78), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackTargetPositionParamOffset = Schema.GetOffset(0xD75D3B63E8F94D78);
 
   public CAnimParamHandle FallbackTargetPositionParam {
-    get => new CAnimParamHandleImpl(_Handle + _FallbackTargetPositionParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _FallbackTargetPositionParamOffset);
   }
-  private static readonly Lazy<nint> _TargetOffsetModeOffset = new(() => Schema.GetOffset(0xD75D3B63487B121D), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffsetModeOffset = Schema.GetOffset(0xD75D3B63487B121D);
 
   public ref OrientationWarpTargetOffsetMode_t TargetOffsetMode {
-    get => ref _Handle.AsRef<OrientationWarpTargetOffsetMode_t>(_TargetOffsetModeOffset.Value);
+    get => ref _Handle.AsRef<OrientationWarpTargetOffsetMode_t>(_TargetOffsetModeOffset);
   }
-  private static readonly Lazy<nint> _TargetOffsetOffset = new(() => Schema.GetOffset(0xD75D3B6354596915), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffsetOffset = Schema.GetOffset(0xD75D3B6354596915);
 
   public ref float TargetOffset {
-    get => ref _Handle.AsRef<float>(_TargetOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_TargetOffsetOffset);
   }
-  private static readonly Lazy<nint> _TargetOffsetParamOffset = new(() => Schema.GetOffset(0xD75D3B63BA3F5E7A), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetOffsetParamOffset = Schema.GetOffset(0xD75D3B63BA3F5E7A);
 
   public CAnimParamHandle TargetOffsetParam {
-    get => new CAnimParamHandleImpl(_Handle + _TargetOffsetParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TargetOffsetParamOffset);
   }
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0xD75D3B6315440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0xD75D3B6315440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _RootMotionSourceOffset = new(() => Schema.GetOffset(0xD75D3B6398FEE9D7), LazyThreadSafetyMode.None);
+  private static readonly nint _RootMotionSourceOffset = Schema.GetOffset(0xD75D3B6398FEE9D7);
 
   public ref OrientationWarpRootMotionSource_t RootMotionSource {
-    get => ref _Handle.AsRef<OrientationWarpRootMotionSource_t>(_RootMotionSourceOffset.Value);
+    get => ref _Handle.AsRef<OrientationWarpRootMotionSource_t>(_RootMotionSourceOffset);
   }
-  private static readonly Lazy<nint> _MaxRootMotionScaleOffset = new(() => Schema.GetOffset(0xD75D3B6342F361DD), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxRootMotionScaleOffset = Schema.GetOffset(0xD75D3B6342F361DD);
 
   public ref float MaxRootMotionScale {
-    get => ref _Handle.AsRef<float>(_MaxRootMotionScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxRootMotionScaleOffset);
   }
-  private static readonly Lazy<nint> _EnablePreferredRotationDirectionOffset = new(() => Schema.GetOffset(0xD75D3B63AA7BFB6E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnablePreferredRotationDirectionOffset = Schema.GetOffset(0xD75D3B63AA7BFB6E);
 
   public ref bool EnablePreferredRotationDirection {
-    get => ref _Handle.AsRef<bool>(_EnablePreferredRotationDirectionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnablePreferredRotationDirectionOffset);
   }
-  private static readonly Lazy<nint> _PreferredRotationDirectionOffset = new(() => Schema.GetOffset(0xD75D3B633BBCBFE8), LazyThreadSafetyMode.None);
+  private static readonly nint _PreferredRotationDirectionOffset = Schema.GetOffset(0xD75D3B633BBCBFE8);
 
   public ref AnimValueSource PreferredRotationDirection {
-    get => ref _Handle.AsRef<AnimValueSource>(_PreferredRotationDirectionOffset.Value);
+    get => ref _Handle.AsRef<AnimValueSource>(_PreferredRotationDirectionOffset);
   }
-  private static readonly Lazy<nint> _PreferredRotationThresholdOffset = new(() => Schema.GetOffset(0xD75D3B6397A825DD), LazyThreadSafetyMode.None);
+  private static readonly nint _PreferredRotationThresholdOffset = Schema.GetOffset(0xD75D3B6397A825DD);
 
   public ref float PreferredRotationThreshold {
-    get => ref _Handle.AsRef<float>(_PreferredRotationThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_PreferredRotationThresholdOffset);
   }
 
 

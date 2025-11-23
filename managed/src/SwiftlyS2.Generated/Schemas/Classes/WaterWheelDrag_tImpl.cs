@@ -17,15 +17,15 @@ internal partial class WaterWheelDrag_tImpl : SchemaClass, WaterWheelDrag_t {
   public WaterWheelDrag_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FractionOfWheelSubmergedOffset = new(() => Schema.GetOffset(0x51DDFA66F2D4C09B), LazyThreadSafetyMode.None);
+  private static readonly nint _FractionOfWheelSubmergedOffset = Schema.GetOffset(0x51DDFA66F2D4C09B);
 
   public ref float FractionOfWheelSubmerged {
-    get => ref _Handle.AsRef<float>(_FractionOfWheelSubmergedOffset.Value);
+    get => ref _Handle.AsRef<float>(_FractionOfWheelSubmergedOffset);
   }
-  private static readonly Lazy<nint> _WheelDragOffset = new(() => Schema.GetOffset(0x51DDFA66B996F340), LazyThreadSafetyMode.None);
+  private static readonly nint _WheelDragOffset = Schema.GetOffset(0x51DDFA66B996F340);
 
   public ref float WheelDrag {
-    get => ref _Handle.AsRef<float>(_WheelDragOffset.Value);
+    get => ref _Handle.AsRef<float>(_WheelDragOffset);
   }
 
 

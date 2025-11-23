@@ -17,10 +17,10 @@ internal partial class AmmoIndex_tImpl : SchemaClass, AmmoIndex_t {
   public AmmoIndex_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x47E6281EDCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x47E6281EDCB0894A);
 
   public ref byte Value {
-    get => ref _Handle.AsRef<byte>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<byte>(_ValueOffset);
   }
 
 

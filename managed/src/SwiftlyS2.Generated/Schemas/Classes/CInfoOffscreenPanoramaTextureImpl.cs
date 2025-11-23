@@ -17,67 +17,67 @@ internal partial class CInfoOffscreenPanoramaTextureImpl : CPointEntityImpl, CIn
   public CInfoOffscreenPanoramaTextureImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x584660AF3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x584660AF3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _ResolutionXOffset = new(() => Schema.GetOffset(0x584660AF6C22DC51), LazyThreadSafetyMode.None);
+  private static readonly nint _ResolutionXOffset = Schema.GetOffset(0x584660AF6C22DC51);
 
   public ref int ResolutionX {
-    get => ref _Handle.AsRef<int>(_ResolutionXOffset.Value);
+    get => ref _Handle.AsRef<int>(_ResolutionXOffset);
   }
-  private static readonly Lazy<nint> _ResolutionYOffset = new(() => Schema.GetOffset(0x584660AF6B22DABE), LazyThreadSafetyMode.None);
+  private static readonly nint _ResolutionYOffset = Schema.GetOffset(0x584660AF6B22DABE);
 
   public ref int ResolutionY {
-    get => ref _Handle.AsRef<int>(_ResolutionYOffset.Value);
+    get => ref _Handle.AsRef<int>(_ResolutionYOffset);
   }
-  private static readonly Lazy<nint> _LayoutFileNameOffset = new(() => Schema.GetOffset(0x584660AF5D1172FB), LazyThreadSafetyMode.None);
+  private static readonly nint _LayoutFileNameOffset = Schema.GetOffset(0x584660AF5D1172FB);
 
   public string LayoutFileName {
     get {
-      var ptr = _Handle.Read<nint>(_LayoutFileNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_LayoutFileNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LayoutFileNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _LayoutFileNameOffset, value);
   } 
-  private static readonly Lazy<nint> _RenderAttrNameOffset = new(() => Schema.GetOffset(0x584660AFE624CDC1), LazyThreadSafetyMode.None);
+  private static readonly nint _RenderAttrNameOffset = Schema.GetOffset(0x584660AFE624CDC1);
 
   public string RenderAttrName {
     get {
-      var ptr = _Handle.Read<nint>(_RenderAttrNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_RenderAttrNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _RenderAttrNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _RenderAttrNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetEntitiesOffset = new(() => Schema.GetOffset(0x584660AFA0100A93), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntitiesOffset = Schema.GetOffset(0x584660AFA0100A93);
 
   public ref CUtlVector<CHandle<CBaseModelEntity>> TargetEntities {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_TargetEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_TargetEntitiesOffset);
   }
-  private static readonly Lazy<nint> _TargetChangeCountOffset = new(() => Schema.GetOffset(0x584660AF309CAEAB), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetChangeCountOffset = Schema.GetOffset(0x584660AF309CAEAB);
 
   public ref int TargetChangeCount {
-    get => ref _Handle.AsRef<int>(_TargetChangeCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_TargetChangeCountOffset);
   }
-  private static readonly Lazy<nint> _CSSClassesOffset = new(() => Schema.GetOffset(0x584660AFCB74D1DC), LazyThreadSafetyMode.None);
+  private static readonly nint _CSSClassesOffset = Schema.GetOffset(0x584660AFCB74D1DC);
 
   public ref CUtlVector<SchemaUntypedField> CSSClasses {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_CSSClassesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_CSSClassesOffset);
   }
-  private static readonly Lazy<nint> _TargetsNameOffset = new(() => Schema.GetOffset(0x584660AF82C9ED45), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetsNameOffset = Schema.GetOffset(0x584660AF82C9ED45);
 
   public string TargetsName {
     get {
-      var ptr = _Handle.Read<nint>(_TargetsNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetsNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetsNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetsNameOffset, value);
   } 
-  private static readonly Lazy<nint> _AdditionalTargetEntitiesOffset = new(() => Schema.GetOffset(0x584660AFD38E792A), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditionalTargetEntitiesOffset = Schema.GetOffset(0x584660AFD38E792A);
 
   public ref CUtlVector<CHandle<CBaseModelEntity>> AdditionalTargetEntities {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_AdditionalTargetEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseModelEntity>>>(_AdditionalTargetEntitiesOffset);
   }
 
   public void DisabledUpdated() {

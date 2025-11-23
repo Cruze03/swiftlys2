@@ -17,19 +17,19 @@ internal partial class CFilterMultipleImpl : CBaseFilterImpl, CFilterMultiple {
   public CFilterMultipleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FilterTypeOffset = new(() => Schema.GetOffset(0x6EA0578071861EDB), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterTypeOffset = Schema.GetOffset(0x6EA0578071861EDB);
 
   public ref filter_t FilterType {
-    get => ref _Handle.AsRef<filter_t>(_FilterTypeOffset.Value);
+    get => ref _Handle.AsRef<filter_t>(_FilterTypeOffset);
   }
-  private static readonly Lazy<nint> _FilterNameOffset = new(() => Schema.GetOffset(0x6EA0578009C86445), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterNameOffset = Schema.GetOffset(0x6EA0578009C86445);
 
   public string FilterName {
     get {
-      var ptr = _Handle.Read<nint>(_FilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterNameOffset, value);
   } 
   public ISchemaFixedArray<CHandle<CBaseEntity>> Filter {
     get => new SchemaFixedArray<CHandle<CBaseEntity>>(_Handle, 0x6EA0578045D9E0B1, 10, 4, 4);

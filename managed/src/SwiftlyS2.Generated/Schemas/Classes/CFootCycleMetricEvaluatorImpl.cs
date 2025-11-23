@@ -17,10 +17,10 @@ internal partial class CFootCycleMetricEvaluatorImpl : CMotionMetricEvaluatorImp
   public CFootCycleMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootIndicesOffset = new(() => Schema.GetOffset(0x1773C1814C840316), LazyThreadSafetyMode.None);
+  private static readonly nint _FootIndicesOffset = Schema.GetOffset(0x1773C1814C840316);
 
   public ref CUtlVector<int> FootIndices {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_FootIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_FootIndicesOffset);
   }
 
 

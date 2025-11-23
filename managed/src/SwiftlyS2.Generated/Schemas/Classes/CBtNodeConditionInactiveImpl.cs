@@ -17,20 +17,20 @@ internal partial class CBtNodeConditionInactiveImpl : CBtNodeConditionImpl, CBtN
   public CBtNodeConditionInactiveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RoundStartThresholdSecondsOffset = new(() => Schema.GetOffset(0x1AB44FB08A52CC47), LazyThreadSafetyMode.None);
+  private static readonly nint _RoundStartThresholdSecondsOffset = Schema.GetOffset(0x1AB44FB08A52CC47);
 
   public ref float RoundStartThresholdSeconds {
-    get => ref _Handle.AsRef<float>(_RoundStartThresholdSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_RoundStartThresholdSecondsOffset);
   }
-  private static readonly Lazy<nint> _SensorInactivityThresholdSecondsOffset = new(() => Schema.GetOffset(0x1AB44FB07E66A29F), LazyThreadSafetyMode.None);
+  private static readonly nint _SensorInactivityThresholdSecondsOffset = Schema.GetOffset(0x1AB44FB07E66A29F);
 
   public ref float SensorInactivityThresholdSeconds {
-    get => ref _Handle.AsRef<float>(_SensorInactivityThresholdSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_SensorInactivityThresholdSecondsOffset);
   }
-  private static readonly Lazy<nint> _SensorInactivityTimerOffset = new(() => Schema.GetOffset(0x1AB44FB0D921DF72), LazyThreadSafetyMode.None);
+  private static readonly nint _SensorInactivityTimerOffset = Schema.GetOffset(0x1AB44FB0D921DF72);
 
   public CountdownTimer SensorInactivityTimer {
-    get => new CountdownTimerImpl(_Handle + _SensorInactivityTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _SensorInactivityTimerOffset);
   }
 
 

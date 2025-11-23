@@ -142,6 +142,19 @@ internal class PermissionManager : IPermissionManager
     return false;
   }
 
+  public bool PlayerHasPermissions( ulong playerId, IEnumerable<string> permissions )
+  {
+    foreach (var permission in permissions)
+    {
+      if (!PlayerHasPermission(playerId, permission))
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   public bool PlayerHasPermission( ulong playerId, string permission )
   {
     var key = new PermissionCacheKey { PlayerId = playerId, Permission = permission };

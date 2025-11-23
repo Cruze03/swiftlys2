@@ -17,25 +17,25 @@ internal partial class CMotorControllerImpl : SchemaClass, CMotorController {
   public CMotorControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SpeedOffset = new(() => Schema.GetOffset(0x1A8B9067A4BD35A0), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedOffset = Schema.GetOffset(0x1A8B9067A4BD35A0);
 
   public ref float Speed {
-    get => ref _Handle.AsRef<float>(_SpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedOffset);
   }
-  private static readonly Lazy<nint> _MaxTorqueOffset = new(() => Schema.GetOffset(0x1A8B90677880BF37), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTorqueOffset = Schema.GetOffset(0x1A8B90677880BF37);
 
   public ref float MaxTorque {
-    get => ref _Handle.AsRef<float>(_MaxTorqueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxTorqueOffset);
   }
-  private static readonly Lazy<nint> _AxisOffset = new(() => Schema.GetOffset(0x1A8B90672B06DE94), LazyThreadSafetyMode.None);
+  private static readonly nint _AxisOffset = Schema.GetOffset(0x1A8B90672B06DE94);
 
   public ref Vector Axis {
-    get => ref _Handle.AsRef<Vector>(_AxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AxisOffset);
   }
-  private static readonly Lazy<nint> _InertiaFactorOffset = new(() => Schema.GetOffset(0x1A8B9067B824C94A), LazyThreadSafetyMode.None);
+  private static readonly nint _InertiaFactorOffset = Schema.GetOffset(0x1A8B9067B824C94A);
 
   public ref float InertiaFactor {
-    get => ref _Handle.AsRef<float>(_InertiaFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_InertiaFactorOffset);
   }
 
 

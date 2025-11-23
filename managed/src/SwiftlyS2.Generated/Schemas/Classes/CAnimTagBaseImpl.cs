@@ -17,34 +17,34 @@ internal partial class CAnimTagBaseImpl : SchemaClass, CAnimTagBase {
   public CAnimTagBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x8F7709C44D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x8F7709C44D8F5786);
 
   public ref CGlobalSymbol Name {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_NameOffset);
   }
-  private static readonly Lazy<nint> _CommentOffset = new(() => Schema.GetOffset(0x8F7709C488A0B4DF), LazyThreadSafetyMode.None);
+  private static readonly nint _CommentOffset = Schema.GetOffset(0x8F7709C488A0B4DF);
 
   public string Comment {
     get {
-      var ptr = _Handle.Read<nint>(_CommentOffset.Value);
+      var ptr = _Handle.Read<nint>(_CommentOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _CommentOffset.Value, value);
+    set => Schema.SetString(_Handle, _CommentOffset, value);
   } 
-  private static readonly Lazy<nint> _GroupOffset = new(() => Schema.GetOffset(0x8F7709C49FC645AC), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupOffset = Schema.GetOffset(0x8F7709C49FC645AC);
 
   public ref CGlobalSymbol Group {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_GroupOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_GroupOffset);
   }
-  private static readonly Lazy<nint> _TagIDOffset = new(() => Schema.GetOffset(0x8F7709C41F65DDFE), LazyThreadSafetyMode.None);
+  private static readonly nint _TagIDOffset = Schema.GetOffset(0x8F7709C41F65DDFE);
 
   public AnimTagID TagID {
-    get => new AnimTagIDImpl(_Handle + _TagIDOffset.Value);
+    get => new AnimTagIDImpl(_Handle + _TagIDOffset);
   }
-  private static readonly Lazy<nint> _IsReferencedOffset = new(() => Schema.GetOffset(0x8F7709C4CEABFB2A), LazyThreadSafetyMode.None);
+  private static readonly nint _IsReferencedOffset = Schema.GetOffset(0x8F7709C4CEABFB2A);
 
   public ref bool IsReferenced {
-    get => ref _Handle.AsRef<bool>(_IsReferencedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsReferencedOffset);
   }
 
 

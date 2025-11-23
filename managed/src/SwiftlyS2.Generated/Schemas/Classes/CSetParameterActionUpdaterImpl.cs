@@ -17,15 +17,15 @@ internal partial class CSetParameterActionUpdaterImpl : CAnimActionUpdaterImpl, 
   public CSetParameterActionUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamOffset = new(() => Schema.GetOffset(0x2CC56544679286A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOffset = Schema.GetOffset(0x2CC56544679286A4);
 
   public CAnimParamHandle Param {
-    get => new CAnimParamHandleImpl(_Handle + _ParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x2CC565446B99AEEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x2CC565446B99AEEA);
 
   public SchemaUntypedField Value {
-    get => new SchemaUntypedField(_Handle + _ValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValueOffset);
   }
 
 

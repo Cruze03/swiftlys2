@@ -17,69 +17,69 @@ internal partial class MoodAnimationLayer_tImpl : SchemaClass, MoodAnimationLaye
   public MoodAnimationLayer_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x3663914263D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x3663914263D22D49);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _ActiveListeningOffset = new(() => Schema.GetOffset(0x36639142122973A0), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveListeningOffset = Schema.GetOffset(0x36639142122973A0);
 
   public ref bool ActiveListening {
-    get => ref _Handle.AsRef<bool>(_ActiveListeningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveListeningOffset);
   }
-  private static readonly Lazy<nint> _ActiveTalkingOffset = new(() => Schema.GetOffset(0x366391423033E5C3), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveTalkingOffset = Schema.GetOffset(0x366391423033E5C3);
 
   public ref bool ActiveTalking {
-    get => ref _Handle.AsRef<bool>(_ActiveTalkingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveTalkingOffset);
   }
-  private static readonly Lazy<nint> _LayerAnimationsOffset = new(() => Schema.GetOffset(0x3663914250279465), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerAnimationsOffset = Schema.GetOffset(0x3663914250279465);
 
   public ref CUtlVector<MoodAnimation_t> LayerAnimations {
-    get => ref _Handle.AsRef<CUtlVector<MoodAnimation_t>>(_LayerAnimationsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MoodAnimation_t>>(_LayerAnimationsOffset);
   }
-  private static readonly Lazy<nint> _IntensityOffset = new(() => Schema.GetOffset(0x3663914267B5578C), LazyThreadSafetyMode.None);
+  private static readonly nint _IntensityOffset = Schema.GetOffset(0x3663914267B5578C);
 
   public CRangeFloat Intensity {
-    get => new CRangeFloatImpl(_Handle + _IntensityOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _IntensityOffset);
   }
-  private static readonly Lazy<nint> _DurationScaleOffset = new(() => Schema.GetOffset(0x36639142776D4203), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationScaleOffset = Schema.GetOffset(0x36639142776D4203);
 
   public CRangeFloat DurationScale {
-    get => new CRangeFloatImpl(_Handle + _DurationScaleOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _DurationScaleOffset);
   }
-  private static readonly Lazy<nint> _ScaleWithIntsOffset = new(() => Schema.GetOffset(0x366391427C46A077), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleWithIntsOffset = Schema.GetOffset(0x366391427C46A077);
 
   public ref bool ScaleWithInts {
-    get => ref _Handle.AsRef<bool>(_ScaleWithIntsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ScaleWithIntsOffset);
   }
-  private static readonly Lazy<nint> _NextStartOffset = new(() => Schema.GetOffset(0x3663914202956BDE), LazyThreadSafetyMode.None);
+  private static readonly nint _NextStartOffset = Schema.GetOffset(0x3663914202956BDE);
 
   public CRangeFloat NextStart {
-    get => new CRangeFloatImpl(_Handle + _NextStartOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _NextStartOffset);
   }
-  private static readonly Lazy<nint> _StartOffsetOffset = new(() => Schema.GetOffset(0x3663914269A449AA), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOffsetOffset = Schema.GetOffset(0x3663914269A449AA);
 
   public CRangeFloat StartOffset {
-    get => new CRangeFloatImpl(_Handle + _StartOffsetOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _StartOffsetOffset);
   }
-  private static readonly Lazy<nint> _EndOffsetOffset = new(() => Schema.GetOffset(0x36639142C863E027), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffsetOffset = Schema.GetOffset(0x36639142C863E027);
 
   public CRangeFloat EndOffset {
-    get => new CRangeFloatImpl(_Handle + _EndOffsetOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _EndOffsetOffset);
   }
-  private static readonly Lazy<nint> _FadeInOffset = new(() => Schema.GetOffset(0x36639142FCA835D2), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInOffset = Schema.GetOffset(0x36639142FCA835D2);
 
   public ref float FadeIn {
-    get => ref _Handle.AsRef<float>(_FadeInOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInOffset);
   }
-  private static readonly Lazy<nint> _FadeOutOffset = new(() => Schema.GetOffset(0x36639142FEBCE80B), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutOffset = Schema.GetOffset(0x36639142FEBCE80B);
 
   public ref float FadeOut {
-    get => ref _Handle.AsRef<float>(_FadeOutOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutOffset);
   }
 
 

@@ -17,70 +17,70 @@ internal partial class CPlayer_MovementServices_HumanoidImpl : CPlayer_MovementS
   public CPlayer_MovementServices_HumanoidImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StepSoundTimeOffset = new(() => Schema.GetOffset(0xB65FEA796DEC5F7D), LazyThreadSafetyMode.None);
+  private static readonly nint _StepSoundTimeOffset = Schema.GetOffset(0xB65FEA796DEC5F7D);
 
   public ref float StepSoundTime {
-    get => ref _Handle.AsRef<float>(_StepSoundTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StepSoundTimeOffset);
   }
-  private static readonly Lazy<nint> _FallVelocityOffset = new(() => Schema.GetOffset(0xB65FEA796D8D7D9D), LazyThreadSafetyMode.None);
+  private static readonly nint _FallVelocityOffset = Schema.GetOffset(0xB65FEA796D8D7D9D);
 
   public ref float FallVelocity {
-    get => ref _Handle.AsRef<float>(_FallVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_FallVelocityOffset);
   }
-  private static readonly Lazy<nint> _InCrouchOffset = new(() => Schema.GetOffset(0xB65FEA79CF28FE64), LazyThreadSafetyMode.None);
+  private static readonly nint _InCrouchOffset = Schema.GetOffset(0xB65FEA79CF28FE64);
 
   public ref bool InCrouch {
-    get => ref _Handle.AsRef<bool>(_InCrouchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InCrouchOffset);
   }
-  private static readonly Lazy<nint> _CrouchStateOffset = new(() => Schema.GetOffset(0xB65FEA7988282338), LazyThreadSafetyMode.None);
+  private static readonly nint _CrouchStateOffset = Schema.GetOffset(0xB65FEA7988282338);
 
   public ref uint CrouchState {
-    get => ref _Handle.AsRef<uint>(_CrouchStateOffset.Value);
+    get => ref _Handle.AsRef<uint>(_CrouchStateOffset);
   }
-  private static readonly Lazy<nint> _CrouchTransitionStartTimeOffset = new(() => Schema.GetOffset(0xB65FEA79E89CEC2B), LazyThreadSafetyMode.None);
+  private static readonly nint _CrouchTransitionStartTimeOffset = Schema.GetOffset(0xB65FEA79E89CEC2B);
 
   public GameTime_t CrouchTransitionStartTime {
-    get => new GameTime_tImpl(_Handle + _CrouchTransitionStartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _CrouchTransitionStartTimeOffset);
   }
-  private static readonly Lazy<nint> _DuckedOffset = new(() => Schema.GetOffset(0xB65FEA7914A05A59), LazyThreadSafetyMode.None);
+  private static readonly nint _DuckedOffset = Schema.GetOffset(0xB65FEA7914A05A59);
 
   public ref bool Ducked {
-    get => ref _Handle.AsRef<bool>(_DuckedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DuckedOffset);
   }
-  private static readonly Lazy<nint> _DuckingOffset = new(() => Schema.GetOffset(0xB65FEA798B221170), LazyThreadSafetyMode.None);
+  private static readonly nint _DuckingOffset = Schema.GetOffset(0xB65FEA798B221170);
 
   public ref bool Ducking {
-    get => ref _Handle.AsRef<bool>(_DuckingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DuckingOffset);
   }
-  private static readonly Lazy<nint> _InDuckJumpOffset = new(() => Schema.GetOffset(0xB65FEA7917ADB523), LazyThreadSafetyMode.None);
+  private static readonly nint _InDuckJumpOffset = Schema.GetOffset(0xB65FEA7917ADB523);
 
   public ref bool InDuckJump {
-    get => ref _Handle.AsRef<bool>(_InDuckJumpOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InDuckJumpOffset);
   }
-  private static readonly Lazy<nint> _GroundNormalOffset = new(() => Schema.GetOffset(0xB65FEA79ED2C77CD), LazyThreadSafetyMode.None);
+  private static readonly nint _GroundNormalOffset = Schema.GetOffset(0xB65FEA79ED2C77CD);
 
   public ref Vector GroundNormal {
-    get => ref _Handle.AsRef<Vector>(_GroundNormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_GroundNormalOffset);
   }
-  private static readonly Lazy<nint> _SurfaceFrictionOffset = new(() => Schema.GetOffset(0xB65FEA792BCEE768), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfaceFrictionOffset = Schema.GetOffset(0xB65FEA792BCEE768);
 
   public ref float SurfaceFriction {
-    get => ref _Handle.AsRef<float>(_SurfaceFrictionOffset.Value);
+    get => ref _Handle.AsRef<float>(_SurfaceFrictionOffset);
   }
-  private static readonly Lazy<nint> _SurfacePropsOffset = new(() => Schema.GetOffset(0xB65FEA7974007B42), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfacePropsOffset = Schema.GetOffset(0xB65FEA7974007B42);
 
   public ref CUtlStringToken SurfaceProps {
-    get => ref _Handle.AsRef<CUtlStringToken>(_SurfacePropsOffset.Value);
+    get => ref _Handle.AsRef<CUtlStringToken>(_SurfacePropsOffset);
   }
-  private static readonly Lazy<nint> _StepsideOffset = new(() => Schema.GetOffset(0xB65FEA7919FC0520), LazyThreadSafetyMode.None);
+  private static readonly nint _StepsideOffset = Schema.GetOffset(0xB65FEA7919FC0520);
 
   public ref int Stepside {
-    get => ref _Handle.AsRef<int>(_StepsideOffset.Value);
+    get => ref _Handle.AsRef<int>(_StepsideOffset);
   }
-  private static readonly Lazy<nint> _SmoothedVelocityOffset = new(() => Schema.GetOffset(0xB65FEA7999186E1D), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothedVelocityOffset = Schema.GetOffset(0xB65FEA7999186E1D);
 
   public ref Vector SmoothedVelocity {
-    get => ref _Handle.AsRef<Vector>(_SmoothedVelocityOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SmoothedVelocityOffset);
   }
 
   public void FallVelocityUpdated() {

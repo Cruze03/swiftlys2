@@ -12,6 +12,8 @@ using SwiftlyS2.Shared.SteamAPI;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Core.ProtobufDefinitions;
 using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Core.Schemas;
+using SwiftlyS2.Core.Natives;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -198,6 +200,9 @@ internal class CoreHookService : IDisposable
                 var result = next()(pItemServices, pEconItemView, acquireMethod, unk1);
 
                 var itemServices = core.Memory.ToSchemaClass<CCSPlayer_ItemServices>(pItemServices);
+
+                Schema.isFollowingServerGuidelines = false;
+
                 var econItemView = core.Memory.ToSchemaClass<CEconItemView>(pEconItemView);
 
                 var @event = new OnItemServicesCanAcquireHookEvent {
@@ -207,6 +212,8 @@ internal class CoreHookService : IDisposable
                     AcquireMethod = (AcquireMethod)acquireMethod,
                     OriginalResult = (AcquireResult)result
                 };
+
+                Schema.isFollowingServerGuidelines = NativeServerHelpers.IsFollowingServerGuidelines();
 
                 EventPublisher.InvokeOnCanAcquireHook(@event);
 

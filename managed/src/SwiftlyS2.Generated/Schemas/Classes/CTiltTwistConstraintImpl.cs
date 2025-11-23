@@ -17,15 +17,15 @@ internal partial class CTiltTwistConstraintImpl : CBaseConstraintImpl, CTiltTwis
   public CTiltTwistConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetAxisOffset = new(() => Schema.GetOffset(0x4A56E4D341CC84D5), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetAxisOffset = Schema.GetOffset(0x4A56E4D341CC84D5);
 
   public ref int TargetAxis {
-    get => ref _Handle.AsRef<int>(_TargetAxisOffset.Value);
+    get => ref _Handle.AsRef<int>(_TargetAxisOffset);
   }
-  private static readonly Lazy<nint> _SlaveAxisOffset = new(() => Schema.GetOffset(0x4A56E4D3CA99CDBD), LazyThreadSafetyMode.None);
+  private static readonly nint _SlaveAxisOffset = Schema.GetOffset(0x4A56E4D3CA99CDBD);
 
   public ref int SlaveAxis {
-    get => ref _Handle.AsRef<int>(_SlaveAxisOffset.Value);
+    get => ref _Handle.AsRef<int>(_SlaveAxisOffset);
   }
 
 

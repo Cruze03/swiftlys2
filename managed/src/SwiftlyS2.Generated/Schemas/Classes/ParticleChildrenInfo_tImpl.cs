@@ -17,30 +17,30 @@ internal partial class ParticleChildrenInfo_tImpl : SchemaClass, ParticleChildre
   public ParticleChildrenInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildRefOffset = new(() => Schema.GetOffset(0x1EF548F3D87838A), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildRefOffset = Schema.GetOffset(0x1EF548F3D87838A);
 
   public ref CStrongHandle<InfoForResourceTypeIParticleSystemDefinition> ChildRef {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ChildRefOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>>(_ChildRefOffset);
   }
-  private static readonly Lazy<nint> _DelayOffset = new(() => Schema.GetOffset(0x1EF548F7D68FD6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayOffset = Schema.GetOffset(0x1EF548F7D68FD6E);
 
   public ref float Delay {
-    get => ref _Handle.AsRef<float>(_DelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayOffset);
   }
-  private static readonly Lazy<nint> _EndCapOffset = new(() => Schema.GetOffset(0x1EF548FC47CB04A), LazyThreadSafetyMode.None);
+  private static readonly nint _EndCapOffset = Schema.GetOffset(0x1EF548FC47CB04A);
 
   public ref bool EndCap {
-    get => ref _Handle.AsRef<bool>(_EndCapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EndCapOffset);
   }
-  private static readonly Lazy<nint> _DisableChildOffset = new(() => Schema.GetOffset(0x1EF548F81AECD9B), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableChildOffset = Schema.GetOffset(0x1EF548F81AECD9B);
 
   public ref bool DisableChild {
-    get => ref _Handle.AsRef<bool>(_DisableChildOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisableChildOffset);
   }
-  private static readonly Lazy<nint> _DetailLevelOffset = new(() => Schema.GetOffset(0x1EF548F11D9E786), LazyThreadSafetyMode.None);
+  private static readonly nint _DetailLevelOffset = Schema.GetOffset(0x1EF548F11D9E786);
 
   public ref ParticleDetailLevel_t DetailLevel {
-    get => ref _Handle.AsRef<ParticleDetailLevel_t>(_DetailLevelOffset.Value);
+    get => ref _Handle.AsRef<ParticleDetailLevel_t>(_DetailLevelOffset);
   }
 
 

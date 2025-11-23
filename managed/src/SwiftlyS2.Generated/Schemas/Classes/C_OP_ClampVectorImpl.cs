@@ -17,20 +17,20 @@ internal partial class C_OP_ClampVectorImpl : CParticleFunctionOperatorImpl, C_O
   public C_OP_ClampVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x5977BF1BE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x5977BF1BE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0x5977BF1B2EFED678), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0x5977BF1B2EFED678);
 
   public CPerParticleVecInput OutputMin {
-    get => new CPerParticleVecInputImpl(_Handle + _OutputMinOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0x5977BF1B451280D2), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0x5977BF1B451280D2);
 
   public CPerParticleVecInput OutputMax {
-    get => new CPerParticleVecInputImpl(_Handle + _OutputMaxOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _OutputMaxOffset);
   }
 
 

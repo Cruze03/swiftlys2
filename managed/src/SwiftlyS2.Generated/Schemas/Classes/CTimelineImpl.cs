@@ -23,30 +23,30 @@ internal partial class CTimelineImpl : IntervalTimerImpl, CTimeline {
   public ISchemaFixedArray<int> ValueCounts {
     get => new SchemaFixedArray<int>(_Handle, 0x36D1E65961EF23CA, 64, 4, 4);
   }
-  private static readonly Lazy<nint> _BucketCountOffset = new(() => Schema.GetOffset(0x36D1E6596ACA5C8A), LazyThreadSafetyMode.None);
+  private static readonly nint _BucketCountOffset = Schema.GetOffset(0x36D1E6596ACA5C8A);
 
   public ref int BucketCount {
-    get => ref _Handle.AsRef<int>(_BucketCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_BucketCountOffset);
   }
-  private static readonly Lazy<nint> _IntervalOffset = new(() => Schema.GetOffset(0x36D1E659320F7B8E), LazyThreadSafetyMode.None);
+  private static readonly nint _IntervalOffset = Schema.GetOffset(0x36D1E659320F7B8E);
 
   public ref float Interval {
-    get => ref _Handle.AsRef<float>(_IntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_IntervalOffset);
   }
-  private static readonly Lazy<nint> _FinalValueOffset = new(() => Schema.GetOffset(0x36D1E659534A71BA), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalValueOffset = Schema.GetOffset(0x36D1E659534A71BA);
 
   public ref float FinalValue {
-    get => ref _Handle.AsRef<float>(_FinalValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_FinalValueOffset);
   }
-  private static readonly Lazy<nint> _CompressionTypeOffset = new(() => Schema.GetOffset(0x36D1E6593FD9B909), LazyThreadSafetyMode.None);
+  private static readonly nint _CompressionTypeOffset = Schema.GetOffset(0x36D1E6593FD9B909);
 
   public ref TimelineCompression_t CompressionType {
-    get => ref _Handle.AsRef<TimelineCompression_t>(_CompressionTypeOffset.Value);
+    get => ref _Handle.AsRef<TimelineCompression_t>(_CompressionTypeOffset);
   }
-  private static readonly Lazy<nint> _StoppedOffset = new(() => Schema.GetOffset(0x36D1E6591C198C2E), LazyThreadSafetyMode.None);
+  private static readonly nint _StoppedOffset = Schema.GetOffset(0x36D1E6591C198C2E);
 
   public ref bool Stopped {
-    get => ref _Handle.AsRef<bool>(_StoppedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StoppedOffset);
   }
 
   public void ValuesUpdated() {

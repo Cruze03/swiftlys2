@@ -17,20 +17,20 @@ internal partial class FeAxialEdgeBend_tImpl : SchemaClass, FeAxialEdgeBend_t {
   public FeAxialEdgeBend_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TeOffset = new(() => Schema.GetOffset(0x6CF84D703C453EB2), LazyThreadSafetyMode.None);
+  private static readonly nint _TeOffset = Schema.GetOffset(0x6CF84D703C453EB2);
 
   public ref float Te {
-    get => ref _Handle.AsRef<float>(_TeOffset.Value);
+    get => ref _Handle.AsRef<float>(_TeOffset);
   }
-  private static readonly Lazy<nint> _TvOffset = new(() => Schema.GetOffset(0x6CF84D704B45564F), LazyThreadSafetyMode.None);
+  private static readonly nint _TvOffset = Schema.GetOffset(0x6CF84D704B45564F);
 
   public ref float Tv {
-    get => ref _Handle.AsRef<float>(_TvOffset.Value);
+    get => ref _Handle.AsRef<float>(_TvOffset);
   }
-  private static readonly Lazy<nint> _DistOffset = new(() => Schema.GetOffset(0x6CF84D701234268F), LazyThreadSafetyMode.None);
+  private static readonly nint _DistOffset = Schema.GetOffset(0x6CF84D701234268F);
 
   public ref float Dist {
-    get => ref _Handle.AsRef<float>(_DistOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistOffset);
   }
   public ISchemaFixedArray<float> Weight {
     get => new SchemaFixedArray<float>(_Handle, 0x6CF84D70CFFC66CB, 4, 4, 4);

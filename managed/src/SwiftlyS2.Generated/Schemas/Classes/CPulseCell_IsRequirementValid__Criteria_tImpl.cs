@@ -17,10 +17,10 @@ internal partial class CPulseCell_IsRequirementValid__Criteria_tImpl : SchemaCla
   public CPulseCell_IsRequirementValid__Criteria_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsValidOffset = new(() => Schema.GetOffset(0x4D71FFB90E4A2BC1), LazyThreadSafetyMode.None);
+  private static readonly nint _IsValidOffset = Schema.GetOffset(0x4D71FFB90E4A2BC1);
 
   public ref bool IsValid {
-    get => ref _Handle.AsRef<bool>(_IsValidOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsValidOffset);
   }
 
 

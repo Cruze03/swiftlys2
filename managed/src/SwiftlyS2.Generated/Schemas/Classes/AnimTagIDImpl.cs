@@ -17,10 +17,10 @@ internal partial class AnimTagIDImpl : SchemaClass, AnimTagID {
   public AnimTagIDImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0xCEE1E76DB4B6E980), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0xCEE1E76DB4B6E980);
 
   public ref uint Id {
-    get => ref _Handle.AsRef<uint>(_IdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_IdOffset);
   }
 
 

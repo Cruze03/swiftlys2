@@ -17,30 +17,30 @@ internal partial class CPhysicsPropRespawnableImpl : CPhysicsPropImpl, CPhysicsP
   public CPhysicsPropRespawnableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OriginalSpawnOriginOffset = new(() => Schema.GetOffset(0x6C5980BAB6F410AF), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnOriginOffset = Schema.GetOffset(0x6C5980BAB6F410AF);
 
   public ref Vector OriginalSpawnOrigin {
-    get => ref _Handle.AsRef<Vector>(_OriginalSpawnOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalSpawnOriginOffset);
   }
-  private static readonly Lazy<nint> _OriginalSpawnAnglesOffset = new(() => Schema.GetOffset(0x6C5980BAF7A16BD1), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalSpawnAnglesOffset = Schema.GetOffset(0x6C5980BAF7A16BD1);
 
   public ref QAngle OriginalSpawnAngles {
-    get => ref _Handle.AsRef<QAngle>(_OriginalSpawnAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_OriginalSpawnAnglesOffset);
   }
-  private static readonly Lazy<nint> _OriginalMinsOffset = new(() => Schema.GetOffset(0x6C5980BAFBA3B1D3), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalMinsOffset = Schema.GetOffset(0x6C5980BAFBA3B1D3);
 
   public ref Vector OriginalMins {
-    get => ref _Handle.AsRef<Vector>(_OriginalMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalMinsOffset);
   }
-  private static readonly Lazy<nint> _OriginalMaxsOffset = new(() => Schema.GetOffset(0x6C5980BAA4FDD991), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalMaxsOffset = Schema.GetOffset(0x6C5980BAA4FDD991);
 
   public ref Vector OriginalMaxs {
-    get => ref _Handle.AsRef<Vector>(_OriginalMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginalMaxsOffset);
   }
-  private static readonly Lazy<nint> _RespawnDurationOffset = new(() => Schema.GetOffset(0x6C5980BA476C78ED), LazyThreadSafetyMode.None);
+  private static readonly nint _RespawnDurationOffset = Schema.GetOffset(0x6C5980BA476C78ED);
 
   public ref float RespawnDuration {
-    get => ref _Handle.AsRef<float>(_RespawnDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_RespawnDurationOffset);
   }
 
 

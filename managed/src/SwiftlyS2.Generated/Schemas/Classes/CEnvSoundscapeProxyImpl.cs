@@ -17,14 +17,14 @@ internal partial class CEnvSoundscapeProxyImpl : CEnvSoundscapeImpl, CEnvSoundsc
   public CEnvSoundscapeProxyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MainSoundscapeNameOffset = new(() => Schema.GetOffset(0x58127BA672404420), LazyThreadSafetyMode.None);
+  private static readonly nint _MainSoundscapeNameOffset = Schema.GetOffset(0x58127BA672404420);
 
   public string MainSoundscapeName {
     get {
-      var ptr = _Handle.Read<nint>(_MainSoundscapeNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MainSoundscapeNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MainSoundscapeNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MainSoundscapeNameOffset, value);
   } 
 
 

@@ -17,10 +17,10 @@ internal partial class CHandshakeAnimTagBaseImpl : CAnimTagBaseImpl, CHandshakeA
   public CHandshakeAnimTagBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsDisableTagOffset = new(() => Schema.GetOffset(0x73566C0F04E21131), LazyThreadSafetyMode.None);
+  private static readonly nint _IsDisableTagOffset = Schema.GetOffset(0x73566C0F04E21131);
 
   public ref bool IsDisableTag {
-    get => ref _Handle.AsRef<bool>(_IsDisableTagOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsDisableTagOffset);
   }
 
 

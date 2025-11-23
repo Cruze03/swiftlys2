@@ -17,25 +17,25 @@ internal partial class CFutureVelocityMetricEvaluatorImpl : CMotionMetricEvaluat
   public CFutureVelocityMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0xF0A3A8300DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0xF0A3A8300DC4A68);
 
   public ref float Distance {
-    get => ref _Handle.AsRef<float>(_DistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceOffset);
   }
-  private static readonly Lazy<nint> _StoppingDistanceOffset = new(() => Schema.GetOffset(0xF0A3A8324979434), LazyThreadSafetyMode.None);
+  private static readonly nint _StoppingDistanceOffset = Schema.GetOffset(0xF0A3A8324979434);
 
   public ref float StoppingDistance {
-    get => ref _Handle.AsRef<float>(_StoppingDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_StoppingDistanceOffset);
   }
-  private static readonly Lazy<nint> _TargetSpeedOffset = new(() => Schema.GetOffset(0xF0A3A839C627845), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetSpeedOffset = Schema.GetOffset(0xF0A3A839C627845);
 
   public ref float TargetSpeed {
-    get => ref _Handle.AsRef<float>(_TargetSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_TargetSpeedOffset);
   }
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0xF0A3A831050A633), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0xF0A3A831050A633);
 
   public ref VelocityMetricMode Mode {
-    get => ref _Handle.AsRef<VelocityMetricMode>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<VelocityMetricMode>(_ModeOffset);
   }
 
 

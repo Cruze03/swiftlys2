@@ -17,40 +17,40 @@ internal partial class CAnimMovementImpl : SchemaClass, CAnimMovement {
   public CAnimMovementImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EndframeOffset = new(() => Schema.GetOffset(0xF78C2AA2BD8E2D9B), LazyThreadSafetyMode.None);
+  private static readonly nint _EndframeOffset = Schema.GetOffset(0xF78C2AA2BD8E2D9B);
 
   public ref int Endframe {
-    get => ref _Handle.AsRef<int>(_EndframeOffset.Value);
+    get => ref _Handle.AsRef<int>(_EndframeOffset);
   }
-  private static readonly Lazy<nint> _MotionflagsOffset = new(() => Schema.GetOffset(0xF78C2AA22261973E), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionflagsOffset = Schema.GetOffset(0xF78C2AA22261973E);
 
   public ref int Motionflags {
-    get => ref _Handle.AsRef<int>(_MotionflagsOffset.Value);
+    get => ref _Handle.AsRef<int>(_MotionflagsOffset);
   }
-  private static readonly Lazy<nint> _V0Offset = new(() => Schema.GetOffset(0xF78C2AA2954A47FB), LazyThreadSafetyMode.None);
+  private static readonly nint _V0Offset = Schema.GetOffset(0xF78C2AA2954A47FB);
 
   public ref float V0 {
-    get => ref _Handle.AsRef<float>(_V0Offset.Value);
+    get => ref _Handle.AsRef<float>(_V0Offset);
   }
-  private static readonly Lazy<nint> _V1Offset = new(() => Schema.GetOffset(0xF78C2AA2944A4668), LazyThreadSafetyMode.None);
+  private static readonly nint _V1Offset = Schema.GetOffset(0xF78C2AA2944A4668);
 
   public ref float V1 {
-    get => ref _Handle.AsRef<float>(_V1Offset.Value);
+    get => ref _Handle.AsRef<float>(_V1Offset);
   }
-  private static readonly Lazy<nint> _AngleOffset = new(() => Schema.GetOffset(0xF78C2AA2AD544418), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleOffset = Schema.GetOffset(0xF78C2AA2AD544418);
 
   public ref float Angle {
-    get => ref _Handle.AsRef<float>(_AngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleOffset);
   }
-  private static readonly Lazy<nint> _VectorOffset = new(() => Schema.GetOffset(0xF78C2AA28F89E802), LazyThreadSafetyMode.None);
+  private static readonly nint _VectorOffset = Schema.GetOffset(0xF78C2AA28F89E802);
 
   public ref Vector Vector {
-    get => ref _Handle.AsRef<Vector>(_VectorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_VectorOffset);
   }
-  private static readonly Lazy<nint> _PositionOffset = new(() => Schema.GetOffset(0xF78C2AA2934F4E0A), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionOffset = Schema.GetOffset(0xF78C2AA2934F4E0A);
 
   public ref Vector Position {
-    get => ref _Handle.AsRef<Vector>(_PositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PositionOffset);
   }
 
 

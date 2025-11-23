@@ -17,25 +17,25 @@ internal partial class VPhysXConstraint2_tImpl : SchemaClass, VPhysXConstraint2_
   public VPhysXConstraint2_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x6FB758FDCE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x6FB758FDCE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0x6FB758FD0AABB9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0x6FB758FD0AABB9D1);
 
   public ref ushort Parent {
-    get => ref _Handle.AsRef<ushort>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _ChildOffset = new(() => Schema.GetOffset(0x6FB758FDFE653481), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildOffset = Schema.GetOffset(0x6FB758FDFE653481);
 
   public ref ushort Child {
-    get => ref _Handle.AsRef<ushort>(_ChildOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ChildOffset);
   }
-  private static readonly Lazy<nint> _ParamsOffset = new(() => Schema.GetOffset(0x6FB758FD640EA8F3), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamsOffset = Schema.GetOffset(0x6FB758FD640EA8F3);
 
   public VPhysXConstraintParams_t Params {
-    get => new VPhysXConstraintParams_tImpl(_Handle + _ParamsOffset.Value);
+    get => new VPhysXConstraintParams_tImpl(_Handle + _ParamsOffset);
   }
 
 

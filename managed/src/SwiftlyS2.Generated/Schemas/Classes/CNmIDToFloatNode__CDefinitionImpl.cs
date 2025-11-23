@@ -17,25 +17,25 @@ internal partial class CNmIDToFloatNode__CDefinitionImpl : CNmFloatValueNode__CD
   public CNmIDToFloatNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x9F6F687D95E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x9F6F687D95E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _DefaultValueOffset = new(() => Schema.GetOffset(0x9F6F687DBBE0341F), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultValueOffset = Schema.GetOffset(0x9F6F687DBBE0341F);
 
   public ref float DefaultValue {
-    get => ref _Handle.AsRef<float>(_DefaultValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultValueOffset);
   }
-  private static readonly Lazy<nint> _IDsOffset = new(() => Schema.GetOffset(0x9F6F687D0C180009), LazyThreadSafetyMode.None);
+  private static readonly nint _IDsOffset = Schema.GetOffset(0x9F6F687D0C180009);
 
   public SchemaUntypedField IDs {
-    get => new SchemaUntypedField(_Handle + _IDsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IDsOffset);
   }
-  private static readonly Lazy<nint> _ValuesOffset = new(() => Schema.GetOffset(0x9F6F687DFBEDDADB), LazyThreadSafetyMode.None);
+  private static readonly nint _ValuesOffset = Schema.GetOffset(0x9F6F687DFBEDDADB);
 
   public SchemaUntypedField Values {
-    get => new SchemaUntypedField(_Handle + _ValuesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ValuesOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class C_INIT_ScaleVelocityImpl : CParticleFunctionInitializerIm
   public C_INIT_ScaleVelocityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xF226CCC35F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xF226CCC35F596B51);
 
   public CParticleCollectionVecInput Scale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset);
   }
 
 

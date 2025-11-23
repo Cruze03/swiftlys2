@@ -17,30 +17,30 @@ internal partial class C_OP_SelectivelyEnableChildrenImpl : CParticleFunctionPre
   public C_OP_SelectivelyEnableChildrenImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0x73804886E3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0x73804886E3F3C965);
 
   public CParticleCollectionFloatInput ChildGroupID {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ChildGroupIDOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _FirstChildOffset = new(() => Schema.GetOffset(0x738048862DF4A8BD), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstChildOffset = Schema.GetOffset(0x738048862DF4A8BD);
 
   public CParticleCollectionFloatInput FirstChild {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _FirstChildOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _FirstChildOffset);
   }
-  private static readonly Lazy<nint> _NumChildrenToEnableOffset = new(() => Schema.GetOffset(0x738048868039247A), LazyThreadSafetyMode.None);
+  private static readonly nint _NumChildrenToEnableOffset = Schema.GetOffset(0x738048868039247A);
 
   public CParticleCollectionFloatInput NumChildrenToEnable {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _NumChildrenToEnableOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _NumChildrenToEnableOffset);
   }
-  private static readonly Lazy<nint> _PlayEndcapOnStopOffset = new(() => Schema.GetOffset(0x73804886CEC82FA1), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayEndcapOnStopOffset = Schema.GetOffset(0x73804886CEC82FA1);
 
   public ref bool PlayEndcapOnStop {
-    get => ref _Handle.AsRef<bool>(_PlayEndcapOnStopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlayEndcapOnStopOffset);
   }
-  private static readonly Lazy<nint> _DestroyImmediatelyOffset = new(() => Schema.GetOffset(0x7380488675F43101), LazyThreadSafetyMode.None);
+  private static readonly nint _DestroyImmediatelyOffset = Schema.GetOffset(0x7380488675F43101);
 
   public ref bool DestroyImmediately {
-    get => ref _Handle.AsRef<bool>(_DestroyImmediatelyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DestroyImmediatelyOffset);
   }
 
 

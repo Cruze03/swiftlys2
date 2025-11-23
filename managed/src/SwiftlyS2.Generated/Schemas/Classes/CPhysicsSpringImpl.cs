@@ -17,53 +17,53 @@ internal partial class CPhysicsSpringImpl : CBaseEntityImpl, CPhysicsSpring {
   public CPhysicsSpringImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrequencyOffset = new(() => Schema.GetOffset(0x5222EAAD2C16DD7), LazyThreadSafetyMode.None);
+  private static readonly nint _FrequencyOffset = Schema.GetOffset(0x5222EAAD2C16DD7);
 
   public ref float Frequency {
-    get => ref _Handle.AsRef<float>(_FrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrequencyOffset);
   }
-  private static readonly Lazy<nint> _DampingRatioOffset = new(() => Schema.GetOffset(0x5222EAAB40C859E), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingRatioOffset = Schema.GetOffset(0x5222EAAB40C859E);
 
   public ref float DampingRatio {
-    get => ref _Handle.AsRef<float>(_DampingRatioOffset.Value);
+    get => ref _Handle.AsRef<float>(_DampingRatioOffset);
   }
-  private static readonly Lazy<nint> _RestLengthOffset = new(() => Schema.GetOffset(0x5222EAA93AC4079), LazyThreadSafetyMode.None);
+  private static readonly nint _RestLengthOffset = Schema.GetOffset(0x5222EAA93AC4079);
 
   public ref float RestLength {
-    get => ref _Handle.AsRef<float>(_RestLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_RestLengthOffset);
   }
-  private static readonly Lazy<nint> _NameAttachStartOffset = new(() => Schema.GetOffset(0x5222EAAD19CEDD5), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttachStartOffset = Schema.GetOffset(0x5222EAAD19CEDD5);
 
   public string NameAttachStart {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttachStartOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttachStartOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttachStartOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttachStartOffset, value);
   } 
-  private static readonly Lazy<nint> _NameAttachEndOffset = new(() => Schema.GetOffset(0x5222EAACF4DE50C), LazyThreadSafetyMode.None);
+  private static readonly nint _NameAttachEndOffset = Schema.GetOffset(0x5222EAACF4DE50C);
 
   public string NameAttachEnd {
     get {
-      var ptr = _Handle.Read<nint>(_NameAttachEndOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameAttachEndOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameAttachEndOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameAttachEndOffset, value);
   } 
-  private static readonly Lazy<nint> _StartOffset = new(() => Schema.GetOffset(0x5222EAAA539BEFF), LazyThreadSafetyMode.None);
+  private static readonly nint _StartOffset = Schema.GetOffset(0x5222EAAA539BEFF);
 
   public ref Vector Start {
-    get => ref _Handle.AsRef<Vector>(_StartOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartOffset);
   }
-  private static readonly Lazy<nint> _EndOffset = new(() => Schema.GetOffset(0x5222EAA5B29CFCA), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffset = Schema.GetOffset(0x5222EAA5B29CFCA);
 
   public ref Vector End {
-    get => ref _Handle.AsRef<Vector>(_EndOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EndOffset);
   }
-  private static readonly Lazy<nint> _TeleportTickOffset = new(() => Schema.GetOffset(0x5222EAA027C0C6B), LazyThreadSafetyMode.None);
+  private static readonly nint _TeleportTickOffset = Schema.GetOffset(0x5222EAA027C0C6B);
 
   public ref uint TeleportTick {
-    get => ref _Handle.AsRef<uint>(_TeleportTickOffset.Value);
+    get => ref _Handle.AsRef<uint>(_TeleportTickOffset);
   }
 
 

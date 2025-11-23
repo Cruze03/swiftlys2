@@ -17,65 +17,65 @@ internal partial class CMoverUpdateNodeImpl : CUnaryUpdateNodeImpl, CMoverUpdate
   public CMoverUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DampingOffset = new(() => Schema.GetOffset(0x42BA18A215440FB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DampingOffset = Schema.GetOffset(0x42BA18A215440FB5);
 
   public CAnimInputDamping Damping {
-    get => new CAnimInputDampingImpl(_Handle + _DampingOffset.Value);
+    get => new CAnimInputDampingImpl(_Handle + _DampingOffset);
   }
-  private static readonly Lazy<nint> _FacingTargetOffset = new(() => Schema.GetOffset(0x42BA18A2ED73C452), LazyThreadSafetyMode.None);
+  private static readonly nint _FacingTargetOffset = Schema.GetOffset(0x42BA18A2ED73C452);
 
   public ref AnimValueSource FacingTarget {
-    get => ref _Handle.AsRef<AnimValueSource>(_FacingTargetOffset.Value);
+    get => ref _Handle.AsRef<AnimValueSource>(_FacingTargetOffset);
   }
-  private static readonly Lazy<nint> _MoveVecParamOffset = new(() => Schema.GetOffset(0x42BA18A22C2934BD), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveVecParamOffset = Schema.GetOffset(0x42BA18A22C2934BD);
 
   public CAnimParamHandle MoveVecParam {
-    get => new CAnimParamHandleImpl(_Handle + _MoveVecParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _MoveVecParamOffset);
   }
-  private static readonly Lazy<nint> _MoveHeadingParamOffset = new(() => Schema.GetOffset(0x42BA18A283A456D1), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveHeadingParamOffset = Schema.GetOffset(0x42BA18A283A456D1);
 
   public CAnimParamHandle MoveHeadingParam {
-    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _MoveHeadingParamOffset);
   }
-  private static readonly Lazy<nint> _TurnToFaceParamOffset = new(() => Schema.GetOffset(0x42BA18A275778205), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnToFaceParamOffset = Schema.GetOffset(0x42BA18A275778205);
 
   public CAnimParamHandle TurnToFaceParam {
-    get => new CAnimParamHandleImpl(_Handle + _TurnToFaceParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _TurnToFaceParamOffset);
   }
-  private static readonly Lazy<nint> _TurnToFaceOffsetOffset = new(() => Schema.GetOffset(0x42BA18A2359F1A87), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnToFaceOffsetOffset = Schema.GetOffset(0x42BA18A2359F1A87);
 
   public ref float TurnToFaceOffset {
-    get => ref _Handle.AsRef<float>(_TurnToFaceOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_TurnToFaceOffsetOffset);
   }
-  private static readonly Lazy<nint> _TurnToFaceLimitOffset = new(() => Schema.GetOffset(0x42BA18A22A27B7DF), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnToFaceLimitOffset = Schema.GetOffset(0x42BA18A22A27B7DF);
 
   public ref float TurnToFaceLimit {
-    get => ref _Handle.AsRef<float>(_TurnToFaceLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_TurnToFaceLimitOffset);
   }
-  private static readonly Lazy<nint> _AdditiveOffset = new(() => Schema.GetOffset(0x42BA18A20FA86105), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditiveOffset = Schema.GetOffset(0x42BA18A20FA86105);
 
   public ref bool Additive {
-    get => ref _Handle.AsRef<bool>(_AdditiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AdditiveOffset);
   }
-  private static readonly Lazy<nint> _ApplyMovementOffset = new(() => Schema.GetOffset(0x42BA18A240CF2252), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyMovementOffset = Schema.GetOffset(0x42BA18A240CF2252);
 
   public ref bool ApplyMovement {
-    get => ref _Handle.AsRef<bool>(_ApplyMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyMovementOffset);
   }
-  private static readonly Lazy<nint> _OrientMovementOffset = new(() => Schema.GetOffset(0x42BA18A2E957E789), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientMovementOffset = Schema.GetOffset(0x42BA18A2E957E789);
 
   public ref bool OrientMovement {
-    get => ref _Handle.AsRef<bool>(_OrientMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientMovementOffset);
   }
-  private static readonly Lazy<nint> _ApplyRotationOffset = new(() => Schema.GetOffset(0x42BA18A25B6A1835), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyRotationOffset = Schema.GetOffset(0x42BA18A25B6A1835);
 
   public ref bool ApplyRotation {
-    get => ref _Handle.AsRef<bool>(_ApplyRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyRotationOffset);
   }
-  private static readonly Lazy<nint> _LimitOnlyOffset = new(() => Schema.GetOffset(0x42BA18A2D127934E), LazyThreadSafetyMode.None);
+  private static readonly nint _LimitOnlyOffset = Schema.GetOffset(0x42BA18A2D127934E);
 
   public ref bool LimitOnly {
-    get => ref _Handle.AsRef<bool>(_LimitOnlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LimitOnlyOffset);
   }
 
 

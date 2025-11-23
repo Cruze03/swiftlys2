@@ -17,40 +17,40 @@ internal partial class CNmIKJointImpl : SchemaClass, CNmIKJoint {
   public CNmIKJointImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParentIndexOffset = new(() => Schema.GetOffset(0x31287449134E2DE7), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentIndexOffset = Schema.GetOffset(0x31287449134E2DE7);
 
   public ref int ParentIndex {
-    get => ref _Handle.AsRef<int>(_ParentIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentIndexOffset);
   }
-  private static readonly Lazy<nint> _BodyIndexOffset = new(() => Schema.GetOffset(0x312874492B50B497), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyIndexOffset = Schema.GetOffset(0x312874492B50B497);
 
   public ref int BodyIndex {
-    get => ref _Handle.AsRef<int>(_BodyIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BodyIndexOffset);
   }
-  private static readonly Lazy<nint> _XLocalFrameOffset = new(() => Schema.GetOffset(0x31287449AD5CD897), LazyThreadSafetyMode.None);
+  private static readonly nint _XLocalFrameOffset = Schema.GetOffset(0x31287449AD5CD897);
 
   public ref CTransform XLocalFrame {
-    get => ref _Handle.AsRef<CTransform>(_XLocalFrameOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_XLocalFrameOffset);
   }
-  private static readonly Lazy<nint> _SwingLimitOffset = new(() => Schema.GetOffset(0x31287449279A44C2), LazyThreadSafetyMode.None);
+  private static readonly nint _SwingLimitOffset = Schema.GetOffset(0x31287449279A44C2);
 
   public ref float SwingLimit {
-    get => ref _Handle.AsRef<float>(_SwingLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_SwingLimitOffset);
   }
-  private static readonly Lazy<nint> _MinTwistLimitOffset = new(() => Schema.GetOffset(0x3128744914A803B7), LazyThreadSafetyMode.None);
+  private static readonly nint _MinTwistLimitOffset = Schema.GetOffset(0x3128744914A803B7);
 
   public ref float MinTwistLimit {
-    get => ref _Handle.AsRef<float>(_MinTwistLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinTwistLimitOffset);
   }
-  private static readonly Lazy<nint> _MaxTwistLimitOffset = new(() => Schema.GetOffset(0x31287449F1241F7D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTwistLimitOffset = Schema.GetOffset(0x31287449F1241F7D);
 
   public ref float MaxTwistLimit {
-    get => ref _Handle.AsRef<float>(_MaxTwistLimitOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxTwistLimitOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x312874497B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x312874497B81E7AB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
 
 

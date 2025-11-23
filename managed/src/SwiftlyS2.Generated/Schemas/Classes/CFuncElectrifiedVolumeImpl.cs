@@ -17,41 +17,41 @@ internal partial class CFuncElectrifiedVolumeImpl : CFuncBrushImpl, CFuncElectri
   public CFuncElectrifiedVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EffectNameOffset = new(() => Schema.GetOffset(0x51A0E59866CD81EF), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectNameOffset = Schema.GetOffset(0x51A0E59866CD81EF);
 
   public string EffectName {
     get {
-      var ptr = _Handle.Read<nint>(_EffectNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EffectNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EffectNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EffectNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EffectInterpenetrateNameOffset = new(() => Schema.GetOffset(0x51A0E5987691FB19), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectInterpenetrateNameOffset = Schema.GetOffset(0x51A0E5987691FB19);
 
   public string EffectInterpenetrateName {
     get {
-      var ptr = _Handle.Read<nint>(_EffectInterpenetrateNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EffectInterpenetrateNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EffectInterpenetrateNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EffectInterpenetrateNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EffectZapNameOffset = new(() => Schema.GetOffset(0x51A0E598BE142B78), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectZapNameOffset = Schema.GetOffset(0x51A0E598BE142B78);
 
   public string EffectZapName {
     get {
-      var ptr = _Handle.Read<nint>(_EffectZapNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EffectZapNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EffectZapNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EffectZapNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EffectSourceOffset = new(() => Schema.GetOffset(0x51A0E598300F4ED9), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectSourceOffset = Schema.GetOffset(0x51A0E598300F4ED9);
 
   public string EffectSource {
     get {
-      var ptr = _Handle.Read<nint>(_EffectSourceOffset.Value);
+      var ptr = _Handle.Read<nint>(_EffectSourceOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EffectSourceOffset.Value, value);
+    set => Schema.SetString(_Handle, _EffectSourceOffset, value);
   } 
 
   public void EffectNameUpdated() {

@@ -17,20 +17,20 @@ internal partial class C_OP_RemapDistanceToLineSegmentToVectorImpl : C_OP_RemapD
   public C_OP_RemapDistanceToLineSegmentToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xF88068A9E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xF88068A9E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _MinOutputValueOffset = new(() => Schema.GetOffset(0xF88068A94BF7BCBF), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOutputValueOffset = Schema.GetOffset(0xF88068A94BF7BCBF);
 
   public ref Vector MinOutputValue {
-    get => ref _Handle.AsRef<Vector>(_MinOutputValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinOutputValueOffset);
   }
-  private static readonly Lazy<nint> _MaxOutputValueOffset = new(() => Schema.GetOffset(0xF88068A9A7A69BC5), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOutputValueOffset = Schema.GetOffset(0xF88068A9A7A69BC5);
 
   public ref Vector MaxOutputValue {
-    get => ref _Handle.AsRef<Vector>(_MaxOutputValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxOutputValueOffset);
   }
 
 

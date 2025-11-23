@@ -17,65 +17,65 @@ internal partial class CSeqCmdSeqDescImpl : SchemaClass, CSeqCmdSeqDesc {
   public CSeqCmdSeqDescImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x8619E10F63D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x8619E10F63D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x8619E10FDC74A14C), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x8619E10FDC74A14C);
 
   public CSeqSeqDescFlag Flags {
-    get => new CSeqSeqDescFlagImpl(_Handle + _FlagsOffset.Value);
+    get => new CSeqSeqDescFlagImpl(_Handle + _FlagsOffset);
   }
-  private static readonly Lazy<nint> _TransitionOffset = new(() => Schema.GetOffset(0x8619E10F82B0A282), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionOffset = Schema.GetOffset(0x8619E10F82B0A282);
 
   public CSeqTransition Transition {
-    get => new CSeqTransitionImpl(_Handle + _TransitionOffset.Value);
+    get => new CSeqTransitionImpl(_Handle + _TransitionOffset);
   }
-  private static readonly Lazy<nint> _FrameRangeSequenceOffset = new(() => Schema.GetOffset(0x8619E10FAE2B7FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameRangeSequenceOffset = Schema.GetOffset(0x8619E10FAE2B7FB6);
 
   public ref short FrameRangeSequence {
-    get => ref _Handle.AsRef<short>(_FrameRangeSequenceOffset.Value);
+    get => ref _Handle.AsRef<short>(_FrameRangeSequenceOffset);
   }
-  private static readonly Lazy<nint> _FrameCountOffset = new(() => Schema.GetOffset(0x8619E10F1DBCD049), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameCountOffset = Schema.GetOffset(0x8619E10F1DBCD049);
 
   public ref short FrameCount {
-    get => ref _Handle.AsRef<short>(_FrameCountOffset.Value);
+    get => ref _Handle.AsRef<short>(_FrameCountOffset);
   }
-  private static readonly Lazy<nint> _FPSOffset = new(() => Schema.GetOffset(0x8619E10F38CAA4F6), LazyThreadSafetyMode.None);
+  private static readonly nint _FPSOffset = Schema.GetOffset(0x8619E10F38CAA4F6);
 
   public ref float FPS {
-    get => ref _Handle.AsRef<float>(_FPSOffset.Value);
+    get => ref _Handle.AsRef<float>(_FPSOffset);
   }
-  private static readonly Lazy<nint> _SubCyclesOffset = new(() => Schema.GetOffset(0x8619E10FBA8C5B82), LazyThreadSafetyMode.None);
+  private static readonly nint _SubCyclesOffset = Schema.GetOffset(0x8619E10FBA8C5B82);
 
   public ref short SubCycles {
-    get => ref _Handle.AsRef<short>(_SubCyclesOffset.Value);
+    get => ref _Handle.AsRef<short>(_SubCyclesOffset);
   }
-  private static readonly Lazy<nint> _NumLocalResultsOffset = new(() => Schema.GetOffset(0x8619E10FC4396DD8), LazyThreadSafetyMode.None);
+  private static readonly nint _NumLocalResultsOffset = Schema.GetOffset(0x8619E10FC4396DD8);
 
   public ref short NumLocalResults {
-    get => ref _Handle.AsRef<short>(_NumLocalResultsOffset.Value);
+    get => ref _Handle.AsRef<short>(_NumLocalResultsOffset);
   }
-  private static readonly Lazy<nint> _CmdLayerArrayOffset = new(() => Schema.GetOffset(0x8619E10FA7272079), LazyThreadSafetyMode.None);
+  private static readonly nint _CmdLayerArrayOffset = Schema.GetOffset(0x8619E10FA7272079);
 
   public ref CUtlVector<CSeqCmdLayer> CmdLayerArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqCmdLayer>>(_CmdLayerArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqCmdLayer>>(_CmdLayerArrayOffset);
   }
-  private static readonly Lazy<nint> _EventArrayOffset = new(() => Schema.GetOffset(0x8619E10FB9FB599C), LazyThreadSafetyMode.None);
+  private static readonly nint _EventArrayOffset = Schema.GetOffset(0x8619E10FB9FB599C);
 
   public ref CUtlVector<CAnimEventDefinition> EventArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimEventDefinition>>(_EventArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimEventDefinition>>(_EventArrayOffset);
   }
-  private static readonly Lazy<nint> _ActivityArrayOffset = new(() => Schema.GetOffset(0x8619E10F38F0ACE1), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivityArrayOffset = Schema.GetOffset(0x8619E10F38F0ACE1);
 
   public ref CUtlVector<CAnimActivity> ActivityArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimActivity>>(_ActivityArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimActivity>>(_ActivityArrayOffset);
   }
-  private static readonly Lazy<nint> _PoseSettingArrayOffset = new(() => Schema.GetOffset(0x8619E10FD257125D), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseSettingArrayOffset = Schema.GetOffset(0x8619E10FD257125D);
 
   public ref CUtlVector<CSeqPoseSetting> PoseSettingArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqPoseSetting>>(_PoseSettingArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqPoseSetting>>(_PoseSettingArrayOffset);
   }
 
 

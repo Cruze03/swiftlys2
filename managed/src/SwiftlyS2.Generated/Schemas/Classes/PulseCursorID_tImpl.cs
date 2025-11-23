@@ -17,10 +17,10 @@ internal partial class PulseCursorID_tImpl : SchemaClass, PulseCursorID_t {
   public PulseCursorID_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x823828BADCB0894A), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x823828BADCB0894A);
 
   public ref int Value {
-    get => ref _Handle.AsRef<int>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_ValueOffset);
   }
 
 

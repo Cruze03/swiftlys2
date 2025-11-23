@@ -17,10 +17,10 @@ internal partial class CHitBoxSetListImpl : SchemaClass, CHitBoxSetList {
   public CHitBoxSetListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HitBoxSetsOffset = new(() => Schema.GetOffset(0x2FE1303444ABBA1A), LazyThreadSafetyMode.None);
+  private static readonly nint _HitBoxSetsOffset = Schema.GetOffset(0x2FE1303444ABBA1A);
 
   public ref CUtlVector<CHitBoxSet> HitBoxSets {
-    get => ref _Handle.AsRef<CUtlVector<CHitBoxSet>>(_HitBoxSetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHitBoxSet>>(_HitBoxSetsOffset);
   }
 
 

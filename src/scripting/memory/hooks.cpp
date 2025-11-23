@@ -17,6 +17,7 @@
  ************************************************************************************************/
 
 #include <api/interfaces/manager.h>
+#include <cstdio>
 #include <scripting/scripting.h>
 
 void* Bridge_Hooks_AllocateHook()

@@ -17,20 +17,20 @@ internal partial class CPAssignment_tImpl : SchemaClass, CPAssignment_t {
   public CPAssignment_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPNumberOffset = new(() => Schema.GetOffset(0xEB6A63F032CCA91F), LazyThreadSafetyMode.None);
+  private static readonly nint _CPNumberOffset = Schema.GetOffset(0xEB6A63F032CCA91F);
 
   public ref int CPNumber {
-    get => ref _Handle.AsRef<int>(_CPNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPNumberOffset);
   }
-  private static readonly Lazy<nint> _PosOffset = new(() => Schema.GetOffset(0xEB6A63F0DFC9BE09), LazyThreadSafetyMode.None);
+  private static readonly nint _PosOffset = Schema.GetOffset(0xEB6A63F0DFC9BE09);
 
   public CPerParticleVecInput Pos {
-    get => new CPerParticleVecInputImpl(_Handle + _PosOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _PosOffset);
   }
-  private static readonly Lazy<nint> _OrientationModeOffset = new(() => Schema.GetOffset(0xEB6A63F0272947BA), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientationModeOffset = Schema.GetOffset(0xEB6A63F0272947BA);
 
   public ref ParticleOrientationSetMode_t OrientationMode {
-    get => ref _Handle.AsRef<ParticleOrientationSetMode_t>(_OrientationModeOffset.Value);
+    get => ref _Handle.AsRef<ParticleOrientationSetMode_t>(_OrientationModeOffset);
   }
 
 

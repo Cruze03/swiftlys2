@@ -17,55 +17,55 @@ internal partial class C_OP_CycleScalarImpl : CParticleFunctionOperatorImpl, C_O
   public C_OP_CycleScalarImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DestFieldOffset = new(() => Schema.GetOffset(0x8E3188612E3589F3), LazyThreadSafetyMode.None);
+  private static readonly nint _DestFieldOffset = Schema.GetOffset(0x8E3188612E3589F3);
 
   public ParticleAttributeIndex_t DestField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _DestFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _DestFieldOffset);
   }
-  private static readonly Lazy<nint> _StartValueOffset = new(() => Schema.GetOffset(0x8E31886151C82C2A), LazyThreadSafetyMode.None);
+  private static readonly nint _StartValueOffset = Schema.GetOffset(0x8E31886151C82C2A);
 
   public ref float StartValue {
-    get => ref _Handle.AsRef<float>(_StartValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartValueOffset);
   }
-  private static readonly Lazy<nint> _EndValueOffset = new(() => Schema.GetOffset(0x8E3188616EDBBCD5), LazyThreadSafetyMode.None);
+  private static readonly nint _EndValueOffset = Schema.GetOffset(0x8E3188616EDBBCD5);
 
   public ref float EndValue {
-    get => ref _Handle.AsRef<float>(_EndValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndValueOffset);
   }
-  private static readonly Lazy<nint> _CycleTimeOffset = new(() => Schema.GetOffset(0x8E3188619EE036CE), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleTimeOffset = Schema.GetOffset(0x8E3188619EE036CE);
 
   public ref float CycleTime {
-    get => ref _Handle.AsRef<float>(_CycleTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleTimeOffset);
   }
-  private static readonly Lazy<nint> _DoNotRepeatCycleOffset = new(() => Schema.GetOffset(0x8E318861B2E181D4), LazyThreadSafetyMode.None);
+  private static readonly nint _DoNotRepeatCycleOffset = Schema.GetOffset(0x8E318861B2E181D4);
 
   public ref bool DoNotRepeatCycle {
-    get => ref _Handle.AsRef<bool>(_DoNotRepeatCycleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DoNotRepeatCycleOffset);
   }
-  private static readonly Lazy<nint> _SynchronizeParticlesOffset = new(() => Schema.GetOffset(0x8E31886132C4244C), LazyThreadSafetyMode.None);
+  private static readonly nint _SynchronizeParticlesOffset = Schema.GetOffset(0x8E31886132C4244C);
 
   public ref bool SynchronizeParticles {
-    get => ref _Handle.AsRef<bool>(_SynchronizeParticlesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SynchronizeParticlesOffset);
   }
-  private static readonly Lazy<nint> _CPScaleOffset = new(() => Schema.GetOffset(0x8E318861048A0408), LazyThreadSafetyMode.None);
+  private static readonly nint _CPScaleOffset = Schema.GetOffset(0x8E318861048A0408);
 
   public ref int CPScale {
-    get => ref _Handle.AsRef<int>(_CPScaleOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPScaleOffset);
   }
-  private static readonly Lazy<nint> _CPFieldMinOffset = new(() => Schema.GetOffset(0x8E3188613B60DFC2), LazyThreadSafetyMode.None);
+  private static readonly nint _CPFieldMinOffset = Schema.GetOffset(0x8E3188613B60DFC2);
 
   public ref int CPFieldMin {
-    get => ref _Handle.AsRef<int>(_CPFieldMinOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPFieldMinOffset);
   }
-  private static readonly Lazy<nint> _CPFieldMaxOffset = new(() => Schema.GetOffset(0x8E318861254D3568), LazyThreadSafetyMode.None);
+  private static readonly nint _CPFieldMaxOffset = Schema.GetOffset(0x8E318861254D3568);
 
   public ref int CPFieldMax {
-    get => ref _Handle.AsRef<int>(_CPFieldMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPFieldMaxOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x8E318861FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x8E318861FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
 
 

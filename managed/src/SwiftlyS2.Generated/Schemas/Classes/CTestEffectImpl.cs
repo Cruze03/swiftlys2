@@ -17,30 +17,30 @@ internal partial class CTestEffectImpl : CBaseEntityImpl, CTestEffect {
   public CTestEffectImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0xF4103FBFFFB6D07A), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0xF4103FBFFFB6D07A);
 
   public ref int Loop {
-    get => ref _Handle.AsRef<int>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<int>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _BeamOffset = new(() => Schema.GetOffset(0xF4103FBF54034EE3), LazyThreadSafetyMode.None);
+  private static readonly nint _BeamOffset = Schema.GetOffset(0xF4103FBF54034EE3);
 
   public ref int Beam {
-    get => ref _Handle.AsRef<int>(_BeamOffset.Value);
+    get => ref _Handle.AsRef<int>(_BeamOffset);
   }
-  private static readonly Lazy<nint> _Beam1Offset = new(() => Schema.GetOffset(0xF4103FBFC4017428), LazyThreadSafetyMode.None);
+  private static readonly nint _Beam1Offset = Schema.GetOffset(0xF4103FBFC4017428);
 
   public SchemaUntypedField Beam1 {
-    get => new SchemaUntypedField(_Handle + _Beam1Offset.Value);
+    get => new SchemaUntypedField(_Handle + _Beam1Offset);
   }
-  private static readonly Lazy<nint> _BeamTimeOffset = new(() => Schema.GetOffset(0xF4103FBF60293F01), LazyThreadSafetyMode.None);
+  private static readonly nint _BeamTimeOffset = Schema.GetOffset(0xF4103FBF60293F01);
 
   public SchemaUntypedField BeamTime {
-    get => new SchemaUntypedField(_Handle + _BeamTimeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _BeamTimeOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xF4103FBF67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xF4103FBF67FE9DC4);
 
   public GameTime_t StartTime {
-    get => new GameTime_tImpl(_Handle + _StartTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _StartTimeOffset);
   }
 
 

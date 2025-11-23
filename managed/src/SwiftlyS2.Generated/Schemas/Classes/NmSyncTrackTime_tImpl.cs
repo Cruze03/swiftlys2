@@ -17,15 +17,15 @@ internal partial class NmSyncTrackTime_tImpl : SchemaClass, NmSyncTrackTime_t {
   public NmSyncTrackTime_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EventIdxOffset = new(() => Schema.GetOffset(0x12BF3F3C2A6FC8DA), LazyThreadSafetyMode.None);
+  private static readonly nint _EventIdxOffset = Schema.GetOffset(0x12BF3F3C2A6FC8DA);
 
   public ref int EventIdx {
-    get => ref _Handle.AsRef<int>(_EventIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_EventIdxOffset);
   }
-  private static readonly Lazy<nint> _PercentageThroughOffset = new(() => Schema.GetOffset(0x12BF3F3C77B731AA), LazyThreadSafetyMode.None);
+  private static readonly nint _PercentageThroughOffset = Schema.GetOffset(0x12BF3F3C77B731AA);
 
   public NmPercent_t PercentageThrough {
-    get => new NmPercent_tImpl(_Handle + _PercentageThroughOffset.Value);
+    get => new NmPercent_tImpl(_Handle + _PercentageThroughOffset);
   }
 
 

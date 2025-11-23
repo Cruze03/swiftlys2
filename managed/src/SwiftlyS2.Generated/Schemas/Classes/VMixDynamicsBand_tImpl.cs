@@ -17,55 +17,55 @@ internal partial class VMixDynamicsBand_tImpl : SchemaClass, VMixDynamicsBand_t 
   public VMixDynamicsBand_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FldbGainInputOffset = new(() => Schema.GetOffset(0xC3A63113E9F143B6), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbGainInputOffset = Schema.GetOffset(0xC3A63113E9F143B6);
 
   public ref float FldbGainInput {
-    get => ref _Handle.AsRef<float>(_FldbGainInputOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbGainInputOffset);
   }
-  private static readonly Lazy<nint> _FldbGainOutputOffset = new(() => Schema.GetOffset(0xC3A63113FC3C16D3), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbGainOutputOffset = Schema.GetOffset(0xC3A63113FC3C16D3);
 
   public ref float FldbGainOutput {
-    get => ref _Handle.AsRef<float>(_FldbGainOutputOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbGainOutputOffset);
   }
-  private static readonly Lazy<nint> _FldbThresholdBelowOffset = new(() => Schema.GetOffset(0xC3A6311311693729), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbThresholdBelowOffset = Schema.GetOffset(0xC3A6311311693729);
 
   public ref float FldbThresholdBelow {
-    get => ref _Handle.AsRef<float>(_FldbThresholdBelowOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbThresholdBelowOffset);
   }
-  private static readonly Lazy<nint> _FldbThresholdAboveOffset = new(() => Schema.GetOffset(0xC3A631134516A525), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbThresholdAboveOffset = Schema.GetOffset(0xC3A631134516A525);
 
   public ref float FldbThresholdAbove {
-    get => ref _Handle.AsRef<float>(_FldbThresholdAboveOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbThresholdAboveOffset);
   }
-  private static readonly Lazy<nint> _RatioBelowOffset = new(() => Schema.GetOffset(0xC3A63113560F0E57), LazyThreadSafetyMode.None);
+  private static readonly nint _RatioBelowOffset = Schema.GetOffset(0xC3A63113560F0E57);
 
   public ref float RatioBelow {
-    get => ref _Handle.AsRef<float>(_RatioBelowOffset.Value);
+    get => ref _Handle.AsRef<float>(_RatioBelowOffset);
   }
-  private static readonly Lazy<nint> _RatioAboveOffset = new(() => Schema.GetOffset(0xC3A631139E701FCB), LazyThreadSafetyMode.None);
+  private static readonly nint _RatioAboveOffset = Schema.GetOffset(0xC3A631139E701FCB);
 
   public ref float RatioAbove {
-    get => ref _Handle.AsRef<float>(_RatioAboveOffset.Value);
+    get => ref _Handle.AsRef<float>(_RatioAboveOffset);
   }
-  private static readonly Lazy<nint> _AttackTimeMSOffset = new(() => Schema.GetOffset(0xC3A63113D4A28216), LazyThreadSafetyMode.None);
+  private static readonly nint _AttackTimeMSOffset = Schema.GetOffset(0xC3A63113D4A28216);
 
   public ref float AttackTimeMS {
-    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_AttackTimeMSOffset);
   }
-  private static readonly Lazy<nint> _ReleaseTimeMSOffset = new(() => Schema.GetOffset(0xC3A63113EBB62791), LazyThreadSafetyMode.None);
+  private static readonly nint _ReleaseTimeMSOffset = Schema.GetOffset(0xC3A63113EBB62791);
 
   public ref float ReleaseTimeMS {
-    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_ReleaseTimeMSOffset);
   }
-  private static readonly Lazy<nint> _EnableOffset = new(() => Schema.GetOffset(0xC3A6311313C00D2E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableOffset = Schema.GetOffset(0xC3A6311313C00D2E);
 
   public ref bool Enable {
-    get => ref _Handle.AsRef<bool>(_EnableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnableOffset);
   }
-  private static readonly Lazy<nint> _SoloOffset = new(() => Schema.GetOffset(0xC3A63113CF623EAA), LazyThreadSafetyMode.None);
+  private static readonly nint _SoloOffset = Schema.GetOffset(0xC3A63113CF623EAA);
 
   public ref bool Solo {
-    get => ref _Handle.AsRef<bool>(_SoloOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SoloOffset);
   }
 
 

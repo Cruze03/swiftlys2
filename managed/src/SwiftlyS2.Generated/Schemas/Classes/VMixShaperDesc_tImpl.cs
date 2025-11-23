@@ -17,30 +17,30 @@ internal partial class VMixShaperDesc_tImpl : SchemaClass, VMixShaperDesc_t {
   public VMixShaperDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ShapeOffset = new(() => Schema.GetOffset(0x80E2A73621208A02), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeOffset = Schema.GetOffset(0x80E2A73621208A02);
 
   public ref int Shape {
-    get => ref _Handle.AsRef<int>(_ShapeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ShapeOffset);
   }
-  private static readonly Lazy<nint> _FldbDriveOffset = new(() => Schema.GetOffset(0x80E2A7360E12679B), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbDriveOffset = Schema.GetOffset(0x80E2A7360E12679B);
 
   public ref float FldbDrive {
-    get => ref _Handle.AsRef<float>(_FldbDriveOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbDriveOffset);
   }
-  private static readonly Lazy<nint> _FldbOutputGainOffset = new(() => Schema.GetOffset(0x80E2A73667F97C23), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbOutputGainOffset = Schema.GetOffset(0x80E2A73667F97C23);
 
   public ref float FldbOutputGain {
-    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbOutputGainOffset);
   }
-  private static readonly Lazy<nint> _WetMixOffset = new(() => Schema.GetOffset(0x80E2A736D5453C15), LazyThreadSafetyMode.None);
+  private static readonly nint _WetMixOffset = Schema.GetOffset(0x80E2A736D5453C15);
 
   public ref float WetMix {
-    get => ref _Handle.AsRef<float>(_WetMixOffset.Value);
+    get => ref _Handle.AsRef<float>(_WetMixOffset);
   }
-  private static readonly Lazy<nint> _OversampleFactorOffset = new(() => Schema.GetOffset(0x80E2A736142D0AF2), LazyThreadSafetyMode.None);
+  private static readonly nint _OversampleFactorOffset = Schema.GetOffset(0x80E2A736142D0AF2);
 
   public ref int OversampleFactor {
-    get => ref _Handle.AsRef<int>(_OversampleFactorOffset.Value);
+    get => ref _Handle.AsRef<int>(_OversampleFactorOffset);
   }
 
 

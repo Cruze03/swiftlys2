@@ -17,45 +17,45 @@ internal partial class VMixConvolutionDesc_tImpl : SchemaClass, VMixConvolutionD
   public VMixConvolutionDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FldbGainOffset = new(() => Schema.GetOffset(0x451C060B31BF2DF2), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbGainOffset = Schema.GetOffset(0x451C060B31BF2DF2);
 
   public ref float FldbGain {
-    get => ref _Handle.AsRef<float>(_FldbGainOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbGainOffset);
   }
-  private static readonly Lazy<nint> _PreDelayMSOffset = new(() => Schema.GetOffset(0x451C060B4EFEC8E7), LazyThreadSafetyMode.None);
+  private static readonly nint _PreDelayMSOffset = Schema.GetOffset(0x451C060B4EFEC8E7);
 
   public ref float PreDelayMS {
-    get => ref _Handle.AsRef<float>(_PreDelayMSOffset.Value);
+    get => ref _Handle.AsRef<float>(_PreDelayMSOffset);
   }
-  private static readonly Lazy<nint> _WetMixOffset = new(() => Schema.GetOffset(0x451C060BD5453C15), LazyThreadSafetyMode.None);
+  private static readonly nint _WetMixOffset = Schema.GetOffset(0x451C060BD5453C15);
 
   public ref float WetMix {
-    get => ref _Handle.AsRef<float>(_WetMixOffset.Value);
+    get => ref _Handle.AsRef<float>(_WetMixOffset);
   }
-  private static readonly Lazy<nint> _FldbLowOffset = new(() => Schema.GetOffset(0x451C060B18EB7345), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbLowOffset = Schema.GetOffset(0x451C060B18EB7345);
 
   public ref float FldbLow {
-    get => ref _Handle.AsRef<float>(_FldbLowOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbLowOffset);
   }
-  private static readonly Lazy<nint> _FldbMidOffset = new(() => Schema.GetOffset(0x451C060BCF183661), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbMidOffset = Schema.GetOffset(0x451C060BCF183661);
 
   public ref float FldbMid {
-    get => ref _Handle.AsRef<float>(_FldbMidOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbMidOffset);
   }
-  private static readonly Lazy<nint> _FldbHighOffset = new(() => Schema.GetOffset(0x451C060B4A2BCD39), LazyThreadSafetyMode.None);
+  private static readonly nint _FldbHighOffset = Schema.GetOffset(0x451C060B4A2BCD39);
 
   public ref float FldbHigh {
-    get => ref _Handle.AsRef<float>(_FldbHighOffset.Value);
+    get => ref _Handle.AsRef<float>(_FldbHighOffset);
   }
-  private static readonly Lazy<nint> _LowCutoffFreqOffset = new(() => Schema.GetOffset(0x451C060B1E9A1CCC), LazyThreadSafetyMode.None);
+  private static readonly nint _LowCutoffFreqOffset = Schema.GetOffset(0x451C060B1E9A1CCC);
 
   public ref float LowCutoffFreq {
-    get => ref _Handle.AsRef<float>(_LowCutoffFreqOffset.Value);
+    get => ref _Handle.AsRef<float>(_LowCutoffFreqOffset);
   }
-  private static readonly Lazy<nint> _HighCutoffFreqOffset = new(() => Schema.GetOffset(0x451C060B3FE556C8), LazyThreadSafetyMode.None);
+  private static readonly nint _HighCutoffFreqOffset = Schema.GetOffset(0x451C060B3FE556C8);
 
   public ref float HighCutoffFreq {
-    get => ref _Handle.AsRef<float>(_HighCutoffFreqOffset.Value);
+    get => ref _Handle.AsRef<float>(_HighCutoffFreqOffset);
   }
 
 

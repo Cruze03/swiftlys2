@@ -17,15 +17,15 @@ internal partial class CAnimationGraphVisualizerAxisImpl : CAnimationGraphVisual
   public CAnimationGraphVisualizerAxisImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XWsTransformOffset = new(() => Schema.GetOffset(0xB0A274E9AE1478FF), LazyThreadSafetyMode.None);
+  private static readonly nint _XWsTransformOffset = Schema.GetOffset(0xB0A274E9AE1478FF);
 
   public ref CTransform XWsTransform {
-    get => ref _Handle.AsRef<CTransform>(_XWsTransformOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_XWsTransformOffset);
   }
-  private static readonly Lazy<nint> _AxisSizeOffset = new(() => Schema.GetOffset(0xB0A274E9224B2A23), LazyThreadSafetyMode.None);
+  private static readonly nint _AxisSizeOffset = Schema.GetOffset(0xB0A274E9224B2A23);
 
   public ref float AxisSize {
-    get => ref _Handle.AsRef<float>(_AxisSizeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AxisSizeOffset);
   }
 
 

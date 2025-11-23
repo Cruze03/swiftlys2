@@ -17,19 +17,19 @@ internal partial class CTriggerVolumeImpl : CBaseModelEntityImpl, CTriggerVolume
   public CTriggerVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FilterNameOffset = new(() => Schema.GetOffset(0x8A35845409C86445), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterNameOffset = Schema.GetOffset(0x8A35845409C86445);
 
   public string FilterName {
     get {
-      var ptr = _Handle.Read<nint>(_FilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0x8A35845445D9E0B1), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0x8A35845445D9E0B1);
 
   public ref CHandle<CBaseFilter> Filter {
-    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset);
   }
 
 

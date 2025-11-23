@@ -8,7 +8,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class ProgressBarMenuOption : MenuOptionBase
 {
-    private readonly ConcurrentDictionary<IPlayer, Func<float>> progressProviders = new();
+    private readonly ConcurrentDictionary<int, Func<float>> progressProviders = new();
     private readonly Func<float> defaultProgressProvider;
     private readonly bool multiLine;
     private readonly string filledChar;
@@ -85,7 +85,7 @@ public sealed class ProgressBarMenuOption : MenuOptionBase
 
     public override string GetDisplayText( IPlayer player, int displayLine = 0 )
     {
-        var provider = progressProviders.GetOrAdd(player, defaultProgressProvider);
+        var provider = progressProviders.GetOrAdd(player.PlayerID, defaultProgressProvider);
         var progress = Math.Clamp(provider(), 0f, 1f);
         var filledCount = (int)(progress * BarWidth);
         var emptyCount = BarWidth - filledCount;
@@ -113,7 +113,7 @@ public sealed class ProgressBarMenuOption : MenuOptionBase
     /// <param name="progressProvider">Function that returns progress value (0.0 to 1.0).</param>
     public void SetProgressProvider( IPlayer player, Func<float> progressProvider )
     {
-        _ = progressProviders.AddOrUpdate(player, progressProvider, ( _, _ ) => progressProvider);
+        _ = progressProviders.AddOrUpdate(player.PlayerID, progressProvider, ( _, _ ) => progressProvider);
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ public sealed class ProgressBarMenuOption : MenuOptionBase
     /// <returns>The current progress value (0.0 to 1.0).</returns>
     public float GetProgress( IPlayer player )
     {
-        var provider = progressProviders.GetOrAdd(player, defaultProgressProvider);
+        var provider = progressProviders.GetOrAdd(player.PlayerID, defaultProgressProvider);
         return Math.Clamp(provider(), 0f, 1f);
     }
 }

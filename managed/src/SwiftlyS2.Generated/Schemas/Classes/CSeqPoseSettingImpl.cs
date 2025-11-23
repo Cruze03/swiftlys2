@@ -17,45 +17,45 @@ internal partial class CSeqPoseSettingImpl : SchemaClass, CSeqPoseSetting {
   public CSeqPoseSettingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PoseParameterOffset = new(() => Schema.GetOffset(0x5EC3BE449DD21486), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseParameterOffset = Schema.GetOffset(0x5EC3BE449DD21486);
 
   public ref CBufferString PoseParameter {
-    get => ref _Handle.AsRef<CBufferString>(_PoseParameterOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_PoseParameterOffset);
   }
-  private static readonly Lazy<nint> _AttachmentOffset = new(() => Schema.GetOffset(0x5EC3BE4439471F5F), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentOffset = Schema.GetOffset(0x5EC3BE4439471F5F);
 
   public ref CBufferString Attachment {
-    get => ref _Handle.AsRef<CBufferString>(_AttachmentOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_AttachmentOffset);
   }
-  private static readonly Lazy<nint> _ReferenceSequenceOffset = new(() => Schema.GetOffset(0x5EC3BE44A84D180E), LazyThreadSafetyMode.None);
+  private static readonly nint _ReferenceSequenceOffset = Schema.GetOffset(0x5EC3BE44A84D180E);
 
   public ref CBufferString ReferenceSequence {
-    get => ref _Handle.AsRef<CBufferString>(_ReferenceSequenceOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_ReferenceSequenceOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x5EC3BE448DFCB984), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x5EC3BE448DFCB984);
 
   public ref float Value {
-    get => ref _Handle.AsRef<float>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueOffset);
   }
-  private static readonly Lazy<nint> _XOffset = new(() => Schema.GetOffset(0x5EC3BE44B2ABAD67), LazyThreadSafetyMode.None);
+  private static readonly nint _XOffset = Schema.GetOffset(0x5EC3BE44B2ABAD67);
 
   public ref bool X {
-    get => ref _Handle.AsRef<bool>(_XOffset.Value);
+    get => ref _Handle.AsRef<bool>(_XOffset);
   }
-  private static readonly Lazy<nint> _YOffset = new(() => Schema.GetOffset(0x5EC3BE44B1ABABD4), LazyThreadSafetyMode.None);
+  private static readonly nint _YOffset = Schema.GetOffset(0x5EC3BE44B1ABABD4);
 
   public ref bool Y {
-    get => ref _Handle.AsRef<bool>(_YOffset.Value);
+    get => ref _Handle.AsRef<bool>(_YOffset);
   }
-  private static readonly Lazy<nint> _ZOffset = new(() => Schema.GetOffset(0x5EC3BE44B4ABB08D), LazyThreadSafetyMode.None);
+  private static readonly nint _ZOffset = Schema.GetOffset(0x5EC3BE44B4ABB08D);
 
   public ref bool Z {
-    get => ref _Handle.AsRef<bool>(_ZOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ZOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x5EC3BE4421B39888), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x5EC3BE4421B39888);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
 
 

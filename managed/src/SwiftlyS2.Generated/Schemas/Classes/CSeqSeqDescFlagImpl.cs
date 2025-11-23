@@ -17,60 +17,60 @@ internal partial class CSeqSeqDescFlagImpl : SchemaClass, CSeqSeqDescFlag {
   public CSeqSeqDescFlagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopingOffset = new(() => Schema.GetOffset(0xAEF7A80B25449B0D), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopingOffset = Schema.GetOffset(0xAEF7A80B25449B0D);
 
   public ref bool Looping {
-    get => ref _Handle.AsRef<bool>(_LoopingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopingOffset);
   }
-  private static readonly Lazy<nint> _SnapOffset = new(() => Schema.GetOffset(0xAEF7A80B817324FD), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapOffset = Schema.GetOffset(0xAEF7A80B817324FD);
 
   public ref bool Snap {
-    get => ref _Handle.AsRef<bool>(_SnapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SnapOffset);
   }
-  private static readonly Lazy<nint> _AutoplayOffset = new(() => Schema.GetOffset(0xAEF7A80BB136D8A8), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoplayOffset = Schema.GetOffset(0xAEF7A80BB136D8A8);
 
   public ref bool Autoplay {
-    get => ref _Handle.AsRef<bool>(_AutoplayOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutoplayOffset);
   }
-  private static readonly Lazy<nint> _PostOffset = new(() => Schema.GetOffset(0xAEF7A80B5698A5A7), LazyThreadSafetyMode.None);
+  private static readonly nint _PostOffset = Schema.GetOffset(0xAEF7A80B5698A5A7);
 
   public ref bool Post {
-    get => ref _Handle.AsRef<bool>(_PostOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PostOffset);
   }
-  private static readonly Lazy<nint> _HiddenOffset = new(() => Schema.GetOffset(0xAEF7A80B57D2DC99), LazyThreadSafetyMode.None);
+  private static readonly nint _HiddenOffset = Schema.GetOffset(0xAEF7A80B57D2DC99);
 
   public ref bool Hidden {
-    get => ref _Handle.AsRef<bool>(_HiddenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HiddenOffset);
   }
-  private static readonly Lazy<nint> _MultiOffset = new(() => Schema.GetOffset(0xAEF7A80B04A7F792), LazyThreadSafetyMode.None);
+  private static readonly nint _MultiOffset = Schema.GetOffset(0xAEF7A80B04A7F792);
 
   public ref bool Multi {
-    get => ref _Handle.AsRef<bool>(_MultiOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MultiOffset);
   }
-  private static readonly Lazy<nint> _LegacyDeltaOffset = new(() => Schema.GetOffset(0xAEF7A80BADC37FD8), LazyThreadSafetyMode.None);
+  private static readonly nint _LegacyDeltaOffset = Schema.GetOffset(0xAEF7A80BADC37FD8);
 
   public ref bool LegacyDelta {
-    get => ref _Handle.AsRef<bool>(_LegacyDeltaOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LegacyDeltaOffset);
   }
-  private static readonly Lazy<nint> _LegacyWorldspaceOffset = new(() => Schema.GetOffset(0xAEF7A80BE598BF5C), LazyThreadSafetyMode.None);
+  private static readonly nint _LegacyWorldspaceOffset = Schema.GetOffset(0xAEF7A80BE598BF5C);
 
   public ref bool LegacyWorldspace {
-    get => ref _Handle.AsRef<bool>(_LegacyWorldspaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LegacyWorldspaceOffset);
   }
-  private static readonly Lazy<nint> _LegacyCycleposeOffset = new(() => Schema.GetOffset(0xAEF7A80B792D85FD), LazyThreadSafetyMode.None);
+  private static readonly nint _LegacyCycleposeOffset = Schema.GetOffset(0xAEF7A80B792D85FD);
 
   public ref bool LegacyCyclepose {
-    get => ref _Handle.AsRef<bool>(_LegacyCycleposeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LegacyCycleposeOffset);
   }
-  private static readonly Lazy<nint> _LegacyRealtimeOffset = new(() => Schema.GetOffset(0xAEF7A80B8D773F07), LazyThreadSafetyMode.None);
+  private static readonly nint _LegacyRealtimeOffset = Schema.GetOffset(0xAEF7A80B8D773F07);
 
   public ref bool LegacyRealtime {
-    get => ref _Handle.AsRef<bool>(_LegacyRealtimeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LegacyRealtimeOffset);
   }
-  private static readonly Lazy<nint> _ModelDocOffset = new(() => Schema.GetOffset(0xAEF7A80B815FEAE4), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelDocOffset = Schema.GetOffset(0xAEF7A80B815FEAE4);
 
   public ref bool ModelDoc {
-    get => ref _Handle.AsRef<bool>(_ModelDocOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ModelDocOffset);
   }
 
 

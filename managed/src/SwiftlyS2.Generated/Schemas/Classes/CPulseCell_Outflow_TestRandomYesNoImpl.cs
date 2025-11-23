@@ -17,15 +17,15 @@ internal partial class CPulseCell_Outflow_TestRandomYesNoImpl : CPulseCell_BaseF
   public CPulseCell_Outflow_TestRandomYesNoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _YesOffset = new(() => Schema.GetOffset(0x9EA5F31EDA358F10), LazyThreadSafetyMode.None);
+  private static readonly nint _YesOffset = Schema.GetOffset(0x9EA5F31EDA358F10);
 
   public CPulse_OutflowConnection Yes {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _YesOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _YesOffset);
   }
-  private static readonly Lazy<nint> _NoOffset = new(() => Schema.GetOffset(0x9EA5F31EE004A07A), LazyThreadSafetyMode.None);
+  private static readonly nint _NoOffset = Schema.GetOffset(0x9EA5F31EE004A07A);
 
   public CPulse_OutflowConnection No {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _NoOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _NoOffset);
   }
 
 

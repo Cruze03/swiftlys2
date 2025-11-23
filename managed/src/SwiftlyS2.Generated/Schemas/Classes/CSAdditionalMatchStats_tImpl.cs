@@ -17,65 +17,65 @@ internal partial class CSAdditionalMatchStats_tImpl : CSAdditionalPerRoundStats_
   public CSAdditionalMatchStats_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NumRoundsSurvivedOffset = new(() => Schema.GetOffset(0x22CBC1150E685E90), LazyThreadSafetyMode.None);
+  private static readonly nint _NumRoundsSurvivedOffset = Schema.GetOffset(0x22CBC1150E685E90);
 
   public ref int NumRoundsSurvived {
-    get => ref _Handle.AsRef<int>(_NumRoundsSurvivedOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumRoundsSurvivedOffset);
   }
-  private static readonly Lazy<nint> _MaxNumRoundsSurvivedOffset = new(() => Schema.GetOffset(0x22CBC115C3CE99BC), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxNumRoundsSurvivedOffset = Schema.GetOffset(0x22CBC115C3CE99BC);
 
   public ref int MaxNumRoundsSurvived {
-    get => ref _Handle.AsRef<int>(_MaxNumRoundsSurvivedOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxNumRoundsSurvivedOffset);
   }
-  private static readonly Lazy<nint> _NumRoundsSurvivedTotalOffset = new(() => Schema.GetOffset(0x22CBC1154AB60BAA), LazyThreadSafetyMode.None);
+  private static readonly nint _NumRoundsSurvivedTotalOffset = Schema.GetOffset(0x22CBC1154AB60BAA);
 
   public ref int NumRoundsSurvivedTotal {
-    get => ref _Handle.AsRef<int>(_NumRoundsSurvivedTotalOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumRoundsSurvivedTotalOffset);
   }
-  private static readonly Lazy<nint> _RoundsWonWithoutPurchaseOffset = new(() => Schema.GetOffset(0x22CBC115AC7FF6C6), LazyThreadSafetyMode.None);
+  private static readonly nint _RoundsWonWithoutPurchaseOffset = Schema.GetOffset(0x22CBC115AC7FF6C6);
 
   public ref int RoundsWonWithoutPurchase {
-    get => ref _Handle.AsRef<int>(_RoundsWonWithoutPurchaseOffset.Value);
+    get => ref _Handle.AsRef<int>(_RoundsWonWithoutPurchaseOffset);
   }
-  private static readonly Lazy<nint> _RoundsWonWithoutPurchaseTotalOffset = new(() => Schema.GetOffset(0x22CBC1153AC9D3C8), LazyThreadSafetyMode.None);
+  private static readonly nint _RoundsWonWithoutPurchaseTotalOffset = Schema.GetOffset(0x22CBC1153AC9D3C8);
 
   public ref int RoundsWonWithoutPurchaseTotal {
-    get => ref _Handle.AsRef<int>(_RoundsWonWithoutPurchaseTotalOffset.Value);
+    get => ref _Handle.AsRef<int>(_RoundsWonWithoutPurchaseTotalOffset);
   }
-  private static readonly Lazy<nint> _NumFirstKillsOffset = new(() => Schema.GetOffset(0x22CBC115500366CC), LazyThreadSafetyMode.None);
+  private static readonly nint _NumFirstKillsOffset = Schema.GetOffset(0x22CBC115500366CC);
 
   public ref int NumFirstKills {
-    get => ref _Handle.AsRef<int>(_NumFirstKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumFirstKillsOffset);
   }
-  private static readonly Lazy<nint> _NumClutchKillsOffset = new(() => Schema.GetOffset(0x22CBC115875D8493), LazyThreadSafetyMode.None);
+  private static readonly nint _NumClutchKillsOffset = Schema.GetOffset(0x22CBC115875D8493);
 
   public ref int NumClutchKills {
-    get => ref _Handle.AsRef<int>(_NumClutchKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumClutchKillsOffset);
   }
-  private static readonly Lazy<nint> _NumPistolKillsOffset = new(() => Schema.GetOffset(0x22CBC115079C10BD), LazyThreadSafetyMode.None);
+  private static readonly nint _NumPistolKillsOffset = Schema.GetOffset(0x22CBC115079C10BD);
 
   public ref int NumPistolKills {
-    get => ref _Handle.AsRef<int>(_NumPistolKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumPistolKillsOffset);
   }
-  private static readonly Lazy<nint> _NumSniperKillsOffset = new(() => Schema.GetOffset(0x22CBC115FAE64E21), LazyThreadSafetyMode.None);
+  private static readonly nint _NumSniperKillsOffset = Schema.GetOffset(0x22CBC115FAE64E21);
 
   public ref int NumSniperKills {
-    get => ref _Handle.AsRef<int>(_NumSniperKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumSniperKillsOffset);
   }
-  private static readonly Lazy<nint> _NumSuicidesOffset = new(() => Schema.GetOffset(0x22CBC11545F754B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NumSuicidesOffset = Schema.GetOffset(0x22CBC11545F754B9);
 
   public ref int NumSuicides {
-    get => ref _Handle.AsRef<int>(_NumSuicidesOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumSuicidesOffset);
   }
-  private static readonly Lazy<nint> _NumTeamKillsOffset = new(() => Schema.GetOffset(0x22CBC115033A4DAE), LazyThreadSafetyMode.None);
+  private static readonly nint _NumTeamKillsOffset = Schema.GetOffset(0x22CBC115033A4DAE);
 
   public ref int NumTeamKills {
-    get => ref _Handle.AsRef<int>(_NumTeamKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumTeamKillsOffset);
   }
-  private static readonly Lazy<nint> _TeamDamageOffset = new(() => Schema.GetOffset(0x22CBC11530150C1B), LazyThreadSafetyMode.None);
+  private static readonly nint _TeamDamageOffset = Schema.GetOffset(0x22CBC11530150C1B);
 
   public ref float TeamDamage {
-    get => ref _Handle.AsRef<float>(_TeamDamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_TeamDamageOffset);
   }
 
 

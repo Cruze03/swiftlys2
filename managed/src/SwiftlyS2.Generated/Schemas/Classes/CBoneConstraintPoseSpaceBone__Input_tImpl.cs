@@ -17,15 +17,15 @@ internal partial class CBoneConstraintPoseSpaceBone__Input_tImpl : SchemaClass, 
   public CBoneConstraintPoseSpaceBone__Input_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueOffset = new(() => Schema.GetOffset(0x4F2ED4014039DA98), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueOffset = Schema.GetOffset(0x4F2ED4014039DA98);
 
   public ref Vector InputValue {
-    get => ref _Handle.AsRef<Vector>(_InputValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InputValueOffset);
   }
-  private static readonly Lazy<nint> _OutputTransformListOffset = new(() => Schema.GetOffset(0x4F2ED401DAEA7058), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputTransformListOffset = Schema.GetOffset(0x4F2ED401DAEA7058);
 
   public ref CUtlVector<CTransform> OutputTransformList {
-    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_OutputTransformListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransform>>(_OutputTransformListOffset);
   }
 
 

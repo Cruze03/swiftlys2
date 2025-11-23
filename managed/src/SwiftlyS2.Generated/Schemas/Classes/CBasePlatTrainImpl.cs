@@ -17,38 +17,38 @@ internal partial class CBasePlatTrainImpl : CBaseToggleImpl, CBasePlatTrain {
   public CBasePlatTrainImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NoiseMovingOffset = new(() => Schema.GetOffset(0x78773ABC415AB84B), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseMovingOffset = Schema.GetOffset(0x78773ABC415AB84B);
 
   public string NoiseMoving {
     get {
-      var ptr = _Handle.Read<nint>(_NoiseMovingOffset.Value);
+      var ptr = _Handle.Read<nint>(_NoiseMovingOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NoiseMovingOffset.Value, value);
+    set => Schema.SetString(_Handle, _NoiseMovingOffset, value);
   } 
-  private static readonly Lazy<nint> _NoiseArrivedOffset = new(() => Schema.GetOffset(0x78773ABCD2CDE47A), LazyThreadSafetyMode.None);
+  private static readonly nint _NoiseArrivedOffset = Schema.GetOffset(0x78773ABCD2CDE47A);
 
   public string NoiseArrived {
     get {
-      var ptr = _Handle.Read<nint>(_NoiseArrivedOffset.Value);
+      var ptr = _Handle.Read<nint>(_NoiseArrivedOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NoiseArrivedOffset.Value, value);
+    set => Schema.SetString(_Handle, _NoiseArrivedOffset, value);
   } 
-  private static readonly Lazy<nint> _VolumeOffset = new(() => Schema.GetOffset(0x78773ABCE3962F2F), LazyThreadSafetyMode.None);
+  private static readonly nint _VolumeOffset = Schema.GetOffset(0x78773ABCE3962F2F);
 
   public ref float Volume {
-    get => ref _Handle.AsRef<float>(_VolumeOffset.Value);
+    get => ref _Handle.AsRef<float>(_VolumeOffset);
   }
-  private static readonly Lazy<nint> _TWidthOffset = new(() => Schema.GetOffset(0x78773ABCADF5A64B), LazyThreadSafetyMode.None);
+  private static readonly nint _TWidthOffset = Schema.GetOffset(0x78773ABCADF5A64B);
 
   public ref float TWidth {
-    get => ref _Handle.AsRef<float>(_TWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TWidthOffset);
   }
-  private static readonly Lazy<nint> _TLengthOffset = new(() => Schema.GetOffset(0x78773ABCA72CEC99), LazyThreadSafetyMode.None);
+  private static readonly nint _TLengthOffset = Schema.GetOffset(0x78773ABCA72CEC99);
 
   public ref float TLength {
-    get => ref _Handle.AsRef<float>(_TLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_TLengthOffset);
   }
 
 

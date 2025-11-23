@@ -17,29 +17,29 @@ internal partial class CLogicLineToEntityImpl : CLogicalEntityImpl, CLogicLineTo
   public CLogicLineToEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LineOffset = new(() => Schema.GetOffset(0x61067DC85589FAA7), LazyThreadSafetyMode.None);
+  private static readonly nint _LineOffset = Schema.GetOffset(0x61067DC85589FAA7);
 
   public SchemaUntypedField Line {
-    get => new SchemaUntypedField(_Handle + _LineOffset.Value);
+    get => new SchemaUntypedField(_Handle + _LineOffset);
   }
-  private static readonly Lazy<nint> _SourceNameOffset = new(() => Schema.GetOffset(0x61067DC82F9BA2DB), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceNameOffset = Schema.GetOffset(0x61067DC82F9BA2DB);
 
   public string SourceName {
     get {
-      var ptr = _Handle.Read<nint>(_SourceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StartEntityOffset = new(() => Schema.GetOffset(0x61067DC8904F2828), LazyThreadSafetyMode.None);
+  private static readonly nint _StartEntityOffset = Schema.GetOffset(0x61067DC8904F2828);
 
   public ref CHandle<CBaseEntity> StartEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_StartEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_StartEntityOffset);
   }
-  private static readonly Lazy<nint> _EndEntityOffset = new(() => Schema.GetOffset(0x61067DC89114A219), LazyThreadSafetyMode.None);
+  private static readonly nint _EndEntityOffset = Schema.GetOffset(0x61067DC89114A219);
 
   public ref CHandle<CBaseEntity> EndEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndEntityOffset);
   }
 
 

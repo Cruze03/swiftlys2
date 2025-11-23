@@ -17,20 +17,20 @@ internal partial class CInfoVisibilityBoxImpl : CBaseEntityImpl, CInfoVisibility
   public CInfoVisibilityBoxImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0xD226824F137F1E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0xD226824F137F1E0E);
 
   public ref int Mode {
-    get => ref _Handle.AsRef<int>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ModeOffset);
   }
-  private static readonly Lazy<nint> _BoxSizeOffset = new(() => Schema.GetOffset(0xD226824FE553E487), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxSizeOffset = Schema.GetOffset(0xD226824FE553E487);
 
   public ref Vector BoxSize {
-    get => ref _Handle.AsRef<Vector>(_BoxSizeOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoxSizeOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0xD226824F6154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0xD226824F6154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
 
   public void ModeUpdated() {

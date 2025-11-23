@@ -17,15 +17,15 @@ internal partial class CNmFloatCurveEventImpl : CNmEventImpl, CNmFloatCurveEvent
   public CNmFloatCurveEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IDOffset = new(() => Schema.GetOffset(0x79BEBEA95066900), LazyThreadSafetyMode.None);
+  private static readonly nint _IDOffset = Schema.GetOffset(0x79BEBEA95066900);
 
   public ref CGlobalSymbol ID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_IDOffset);
   }
-  private static readonly Lazy<nint> _CurveOffset = new(() => Schema.GetOffset(0x79BEBEABFFA0B34), LazyThreadSafetyMode.None);
+  private static readonly nint _CurveOffset = Schema.GetOffset(0x79BEBEABFFA0B34);
 
   public SchemaUntypedField Curve {
-    get => new SchemaUntypedField(_Handle + _CurveOffset.Value);
+    get => new SchemaUntypedField(_Handle + _CurveOffset);
   }
 
 

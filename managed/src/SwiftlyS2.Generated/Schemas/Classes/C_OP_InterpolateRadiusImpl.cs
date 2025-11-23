@@ -17,35 +17,35 @@ internal partial class C_OP_InterpolateRadiusImpl : CParticleFunctionOperatorImp
   public C_OP_InterpolateRadiusImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0x1912EFA667FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0x1912EFA667FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EndTimeOffset = new(() => Schema.GetOffset(0x1912EFA62041DF9D), LazyThreadSafetyMode.None);
+  private static readonly nint _EndTimeOffset = Schema.GetOffset(0x1912EFA62041DF9D);
 
   public ref float EndTime {
-    get => ref _Handle.AsRef<float>(_EndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndTimeOffset);
   }
-  private static readonly Lazy<nint> _StartScaleOffset = new(() => Schema.GetOffset(0x1912EFA6634567D1), LazyThreadSafetyMode.None);
+  private static readonly nint _StartScaleOffset = Schema.GetOffset(0x1912EFA6634567D1);
 
   public ref float StartScale {
-    get => ref _Handle.AsRef<float>(_StartScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartScaleOffset);
   }
-  private static readonly Lazy<nint> _EndScaleOffset = new(() => Schema.GetOffset(0x1912EFA67F017DB6), LazyThreadSafetyMode.None);
+  private static readonly nint _EndScaleOffset = Schema.GetOffset(0x1912EFA67F017DB6);
 
   public ref float EndScale {
-    get => ref _Handle.AsRef<float>(_EndScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndScaleOffset);
   }
-  private static readonly Lazy<nint> _EaseInAndOutOffset = new(() => Schema.GetOffset(0x1912EFA6D14612BF), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseInAndOutOffset = Schema.GetOffset(0x1912EFA6D14612BF);
 
   public ref bool EaseInAndOut {
-    get => ref _Handle.AsRef<bool>(_EaseInAndOutOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EaseInAndOutOffset);
   }
-  private static readonly Lazy<nint> _BiasOffset = new(() => Schema.GetOffset(0x1912EFA6E7EF43B6), LazyThreadSafetyMode.None);
+  private static readonly nint _BiasOffset = Schema.GetOffset(0x1912EFA6E7EF43B6);
 
   public ref float Bias {
-    get => ref _Handle.AsRef<float>(_BiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_BiasOffset);
   }
 
 

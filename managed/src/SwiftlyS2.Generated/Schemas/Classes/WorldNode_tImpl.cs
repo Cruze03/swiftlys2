@@ -17,79 +17,79 @@ internal partial class WorldNode_tImpl : SchemaClass, WorldNode_t {
   public WorldNode_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SceneObjectsOffset = new(() => Schema.GetOffset(0xFC310480332235A1), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneObjectsOffset = Schema.GetOffset(0xFC310480332235A1);
 
   public ref CUtlVector<SceneObject_t> SceneObjects {
-    get => ref _Handle.AsRef<CUtlVector<SceneObject_t>>(_SceneObjectsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SceneObject_t>>(_SceneObjectsOffset);
   }
-  private static readonly Lazy<nint> _VisClusterMembershipOffset = new(() => Schema.GetOffset(0xFC310480F2C828CD), LazyThreadSafetyMode.None);
+  private static readonly nint _VisClusterMembershipOffset = Schema.GetOffset(0xFC310480F2C828CD);
 
   public ref CUtlVector<ushort> VisClusterMembership {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_VisClusterMembershipOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_VisClusterMembershipOffset);
   }
-  private static readonly Lazy<nint> _AggregateSceneObjectsOffset = new(() => Schema.GetOffset(0xFC31048072C832FC), LazyThreadSafetyMode.None);
+  private static readonly nint _AggregateSceneObjectsOffset = Schema.GetOffset(0xFC31048072C832FC);
 
   public ref CUtlVector<AggregateSceneObject_t> AggregateSceneObjects {
-    get => ref _Handle.AsRef<CUtlVector<AggregateSceneObject_t>>(_AggregateSceneObjectsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<AggregateSceneObject_t>>(_AggregateSceneObjectsOffset);
   }
-  private static readonly Lazy<nint> _ClutterSceneObjectsOffset = new(() => Schema.GetOffset(0xFC310480CB15C9CA), LazyThreadSafetyMode.None);
+  private static readonly nint _ClutterSceneObjectsOffset = Schema.GetOffset(0xFC310480CB15C9CA);
 
   public ref CUtlVector<ClutterSceneObject_t> ClutterSceneObjects {
-    get => ref _Handle.AsRef<CUtlVector<ClutterSceneObject_t>>(_ClutterSceneObjectsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ClutterSceneObject_t>>(_ClutterSceneObjectsOffset);
   }
-  private static readonly Lazy<nint> _ExtraVertexStreamOverridesOffset = new(() => Schema.GetOffset(0xFC310480E2732A38), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtraVertexStreamOverridesOffset = Schema.GetOffset(0xFC310480E2732A38);
 
   public ref CUtlVector<ExtraVertexStreamOverride_t> ExtraVertexStreamOverrides {
-    get => ref _Handle.AsRef<CUtlVector<ExtraVertexStreamOverride_t>>(_ExtraVertexStreamOverridesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ExtraVertexStreamOverride_t>>(_ExtraVertexStreamOverridesOffset);
   }
-  private static readonly Lazy<nint> _MaterialOverridesOffset = new(() => Schema.GetOffset(0xFC3104809D810D99), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOverridesOffset = Schema.GetOffset(0xFC3104809D810D99);
 
   public ref CUtlVector<MaterialOverride_t> MaterialOverrides {
-    get => ref _Handle.AsRef<CUtlVector<MaterialOverride_t>>(_MaterialOverridesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MaterialOverride_t>>(_MaterialOverridesOffset);
   }
-  private static readonly Lazy<nint> _ExtraVertexStreamsOffset = new(() => Schema.GetOffset(0xFC310480544F1AA0), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtraVertexStreamsOffset = Schema.GetOffset(0xFC310480544F1AA0);
 
   public ref CUtlVector<WorldNodeOnDiskBufferData_t> ExtraVertexStreams {
-    get => ref _Handle.AsRef<CUtlVector<WorldNodeOnDiskBufferData_t>>(_ExtraVertexStreamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<WorldNodeOnDiskBufferData_t>>(_ExtraVertexStreamsOffset);
   }
-  private static readonly Lazy<nint> _AggregateInstanceStreamsOffset = new(() => Schema.GetOffset(0xFC31048038CAE4B8), LazyThreadSafetyMode.None);
+  private static readonly nint _AggregateInstanceStreamsOffset = Schema.GetOffset(0xFC31048038CAE4B8);
 
   public ref CUtlVector<AggregateInstanceStreamOnDiskData_t> AggregateInstanceStreams {
-    get => ref _Handle.AsRef<CUtlVector<AggregateInstanceStreamOnDiskData_t>>(_AggregateInstanceStreamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<AggregateInstanceStreamOnDiskData_t>>(_AggregateInstanceStreamsOffset);
   }
-  private static readonly Lazy<nint> _VertexAlbedoStreamsOffset = new(() => Schema.GetOffset(0xFC3104803DD793DB), LazyThreadSafetyMode.None);
+  private static readonly nint _VertexAlbedoStreamsOffset = Schema.GetOffset(0xFC3104803DD793DB);
 
   public ref CUtlVector<AggregateVertexAlbedoStreamOnDiskData_t> VertexAlbedoStreams {
-    get => ref _Handle.AsRef<CUtlVector<AggregateVertexAlbedoStreamOnDiskData_t>>(_VertexAlbedoStreamsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<AggregateVertexAlbedoStreamOnDiskData_t>>(_VertexAlbedoStreamsOffset);
   }
-  private static readonly Lazy<nint> _LayerNamesOffset = new(() => Schema.GetOffset(0xFC3104806E877012), LazyThreadSafetyMode.None);
+  private static readonly nint _LayerNamesOffset = Schema.GetOffset(0xFC3104806E877012);
 
   public ref CUtlVector<CUtlString> LayerNames {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_LayerNamesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_LayerNamesOffset);
   }
-  private static readonly Lazy<nint> _SceneObjectLayerIndicesOffset = new(() => Schema.GetOffset(0xFC310480F769C8CA), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneObjectLayerIndicesOffset = Schema.GetOffset(0xFC310480F769C8CA);
 
   public ref CUtlVector<byte> SceneObjectLayerIndices {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_SceneObjectLayerIndicesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_SceneObjectLayerIndicesOffset);
   }
-  private static readonly Lazy<nint> _GrassFileNameOffset = new(() => Schema.GetOffset(0xFC310480FDDFCFE0), LazyThreadSafetyMode.None);
+  private static readonly nint _GrassFileNameOffset = Schema.GetOffset(0xFC310480FDDFCFE0);
 
   public string GrassFileName {
     get {
-      var ptr = _Handle.Read<nint>(_GrassFileNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_GrassFileNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GrassFileNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _GrassFileNameOffset, value);
   } 
-  private static readonly Lazy<nint> _NodeLightingInfoOffset = new(() => Schema.GetOffset(0xFC3104800E25D839), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeLightingInfoOffset = Schema.GetOffset(0xFC3104800E25D839);
 
   public BakedLightingInfo_t NodeLightingInfo {
-    get => new BakedLightingInfo_tImpl(_Handle + _NodeLightingInfoOffset.Value);
+    get => new BakedLightingInfo_tImpl(_Handle + _NodeLightingInfoOffset);
   }
-  private static readonly Lazy<nint> _HasBakedGeometryFlagOffset = new(() => Schema.GetOffset(0xFC310480943F4594), LazyThreadSafetyMode.None);
+  private static readonly nint _HasBakedGeometryFlagOffset = Schema.GetOffset(0xFC310480943F4594);
 
   public ref bool HasBakedGeometryFlag {
-    get => ref _Handle.AsRef<bool>(_HasBakedGeometryFlagOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasBakedGeometryFlagOffset);
   }
 
 

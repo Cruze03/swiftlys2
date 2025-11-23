@@ -17,25 +17,25 @@ internal partial class CSubtractUpdateNodeImpl : CBinaryUpdateNodeImpl, CSubtrac
   public CSubtractUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootMotionTimingOffset = new(() => Schema.GetOffset(0x108B5B3FBB17F13D), LazyThreadSafetyMode.None);
+  private static readonly nint _FootMotionTimingOffset = Schema.GetOffset(0x108B5B3FBB17F13D);
 
   public ref BinaryNodeChildOption FootMotionTiming {
-    get => ref _Handle.AsRef<BinaryNodeChildOption>(_FootMotionTimingOffset.Value);
+    get => ref _Handle.AsRef<BinaryNodeChildOption>(_FootMotionTimingOffset);
   }
-  private static readonly Lazy<nint> _ApplyToFootMotionOffset = new(() => Schema.GetOffset(0x108B5B3F3D831E94), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyToFootMotionOffset = Schema.GetOffset(0x108B5B3F3D831E94);
 
   public ref bool ApplyToFootMotion {
-    get => ref _Handle.AsRef<bool>(_ApplyToFootMotionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyToFootMotionOffset);
   }
-  private static readonly Lazy<nint> _ApplyChannelsSeparatelyOffset = new(() => Schema.GetOffset(0x108B5B3FFF2DBB45), LazyThreadSafetyMode.None);
+  private static readonly nint _ApplyChannelsSeparatelyOffset = Schema.GetOffset(0x108B5B3FFF2DBB45);
 
   public ref bool ApplyChannelsSeparately {
-    get => ref _Handle.AsRef<bool>(_ApplyChannelsSeparatelyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ApplyChannelsSeparatelyOffset);
   }
-  private static readonly Lazy<nint> _UseModelSpaceOffset = new(() => Schema.GetOffset(0x108B5B3F48863521), LazyThreadSafetyMode.None);
+  private static readonly nint _UseModelSpaceOffset = Schema.GetOffset(0x108B5B3F48863521);
 
   public ref bool UseModelSpace {
-    get => ref _Handle.AsRef<bool>(_UseModelSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseModelSpaceOffset);
   }
 
 

@@ -91,7 +91,7 @@ void RegisterConfiguration(bool& wasCreated, json& document, std::string configF
             defaultJson = json::array();
         else if constexpr (std::is_same_v<T, std::map<ValueStruct, ValueStruct>>)
             defaultJson = json::object();
-    }, default_value);
+        }, default_value);
 
     json& jsonDoc = GetJSONDoc(document, key, defaultJson, wasCreated);
 
@@ -229,7 +229,7 @@ void RegisterConfiguration(bool& wasCreated, json& document, std::string configF
             auto config = g_ifaceService.FetchInterface<IConfiguration>(CONFIGURATION_INTERFACE_VERSION);
             config->SetValue(config_prefix + "." + key, mapValue);
         }
-    }, default_value);
+        }, default_value);
 }
 
 template <class T>
@@ -485,7 +485,7 @@ bool Configuration::Load()
 
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Use", "e");
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Scroll", "shift");
-        RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.ScrollBack", "alt");
+        RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.ScrollBack", "f");
         RegisterConfiguration(wasEdited, config_json, "core", "core", "Menu.Buttons.Exit", "tab");
 
         RegisterConfigurationVector<std::string>(wasEdited, config_json, "core", "core", "Menu.AvailableInputModes", { "button", "wasd" }, true, " ");

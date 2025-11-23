@@ -17,33 +17,33 @@ internal partial class CAI_ChangeHintGroupImpl : CBaseEntityImpl, CAI_ChangeHint
   public CAI_ChangeHintGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SearchTypeOffset = new(() => Schema.GetOffset(0xE2F9617B09088830), LazyThreadSafetyMode.None);
+  private static readonly nint _SearchTypeOffset = Schema.GetOffset(0xE2F9617B09088830);
 
   public ref int SearchType {
-    get => ref _Handle.AsRef<int>(_SearchTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_SearchTypeOffset);
   }
-  private static readonly Lazy<nint> _StrSearchNameOffset = new(() => Schema.GetOffset(0xE2F9617B8A77B967), LazyThreadSafetyMode.None);
+  private static readonly nint _StrSearchNameOffset = Schema.GetOffset(0xE2F9617B8A77B967);
 
   public string StrSearchName {
     get {
-      var ptr = _Handle.Read<nint>(_StrSearchNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrSearchNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrSearchNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrSearchNameOffset, value);
   } 
-  private static readonly Lazy<nint> _StrNewHintGroupOffset = new(() => Schema.GetOffset(0xE2F9617BD4585F62), LazyThreadSafetyMode.None);
+  private static readonly nint _StrNewHintGroupOffset = Schema.GetOffset(0xE2F9617BD4585F62);
 
   public string StrNewHintGroup {
     get {
-      var ptr = _Handle.Read<nint>(_StrNewHintGroupOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrNewHintGroupOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrNewHintGroupOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrNewHintGroupOffset, value);
   } 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xE2F9617B5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xE2F9617B5ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
 
 

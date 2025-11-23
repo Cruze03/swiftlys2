@@ -17,29 +17,29 @@ internal partial class CInfoFanImpl : CPointEntityImpl, CInfoFan {
   public CInfoFanImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FanForceMaxRadiusOffset = new(() => Schema.GetOffset(0x1372EEA33EA45A67), LazyThreadSafetyMode.None);
+  private static readonly nint _FanForceMaxRadiusOffset = Schema.GetOffset(0x1372EEA33EA45A67);
 
   public ref float FanForceMaxRadius {
-    get => ref _Handle.AsRef<float>(_FanForceMaxRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_FanForceMaxRadiusOffset);
   }
-  private static readonly Lazy<nint> _FanForceMinRadiusOffset = new(() => Schema.GetOffset(0x1372EEA352CA71C5), LazyThreadSafetyMode.None);
+  private static readonly nint _FanForceMinRadiusOffset = Schema.GetOffset(0x1372EEA352CA71C5);
 
   public ref float FanForceMinRadius {
-    get => ref _Handle.AsRef<float>(_FanForceMinRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_FanForceMinRadiusOffset);
   }
-  private static readonly Lazy<nint> _CurveDistRangeOffset = new(() => Schema.GetOffset(0x1372EEA3EE91456F), LazyThreadSafetyMode.None);
+  private static readonly nint _CurveDistRangeOffset = Schema.GetOffset(0x1372EEA3EE91456F);
 
   public ref float CurveDistRange {
-    get => ref _Handle.AsRef<float>(_CurveDistRangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurveDistRangeOffset);
   }
-  private static readonly Lazy<nint> _FanForceCurveStringOffset = new(() => Schema.GetOffset(0x1372EEA3CC493A61), LazyThreadSafetyMode.None);
+  private static readonly nint _FanForceCurveStringOffset = Schema.GetOffset(0x1372EEA3CC493A61);
 
   public string FanForceCurveString {
     get {
-      var ptr = _Handle.Read<nint>(_FanForceCurveStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_FanForceCurveStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FanForceCurveStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _FanForceCurveStringOffset, value);
   } 
 
   public void FanForceMaxRadiusUpdated() {

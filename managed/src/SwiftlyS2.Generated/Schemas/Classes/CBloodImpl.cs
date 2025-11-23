@@ -17,25 +17,25 @@ internal partial class CBloodImpl : CPointEntityImpl, CBlood {
   public CBloodImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SprayAnglesOffset = new(() => Schema.GetOffset(0x68CF460A2BDF444E), LazyThreadSafetyMode.None);
+  private static readonly nint _SprayAnglesOffset = Schema.GetOffset(0x68CF460A2BDF444E);
 
   public ref QAngle SprayAngles {
-    get => ref _Handle.AsRef<QAngle>(_SprayAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_SprayAnglesOffset);
   }
-  private static readonly Lazy<nint> _SprayDirOffset = new(() => Schema.GetOffset(0x68CF460A0A8A2531), LazyThreadSafetyMode.None);
+  private static readonly nint _SprayDirOffset = Schema.GetOffset(0x68CF460A0A8A2531);
 
   public ref Vector SprayDir {
-    get => ref _Handle.AsRef<Vector>(_SprayDirOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SprayDirOffset);
   }
-  private static readonly Lazy<nint> _AmountOffset = new(() => Schema.GetOffset(0x68CF460A187D1B1B), LazyThreadSafetyMode.None);
+  private static readonly nint _AmountOffset = Schema.GetOffset(0x68CF460A187D1B1B);
 
   public ref float Amount {
-    get => ref _Handle.AsRef<float>(_AmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_AmountOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x68CF460AD7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x68CF460AD7D017D8);
 
   public ref BloodType Color {
-    get => ref _Handle.AsRef<BloodType>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<BloodType>(_ColorOffset);
   }
 
 

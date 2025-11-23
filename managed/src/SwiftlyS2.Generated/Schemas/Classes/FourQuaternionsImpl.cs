@@ -17,25 +17,25 @@ internal partial class FourQuaternionsImpl : SchemaClass, FourQuaternions {
   public FourQuaternionsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XOffset = new(() => Schema.GetOffset(0x438DAD7AFD0C5087), LazyThreadSafetyMode.None);
+  private static readonly nint _XOffset = Schema.GetOffset(0x438DAD7AFD0C5087);
 
   public ref fltx4 X {
-    get => ref _Handle.AsRef<fltx4>(_XOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_XOffset);
   }
-  private static readonly Lazy<nint> _YOffset = new(() => Schema.GetOffset(0x438DAD7AFC0C4EF4), LazyThreadSafetyMode.None);
+  private static readonly nint _YOffset = Schema.GetOffset(0x438DAD7AFC0C4EF4);
 
   public ref fltx4 Y {
-    get => ref _Handle.AsRef<fltx4>(_YOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_YOffset);
   }
-  private static readonly Lazy<nint> _ZOffset = new(() => Schema.GetOffset(0x438DAD7AFF0C53AD), LazyThreadSafetyMode.None);
+  private static readonly nint _ZOffset = Schema.GetOffset(0x438DAD7AFF0C53AD);
 
   public ref fltx4 Z {
-    get => ref _Handle.AsRef<fltx4>(_ZOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_ZOffset);
   }
-  private static readonly Lazy<nint> _WOffset = new(() => Schema.GetOffset(0x438DAD7AF20C3F36), LazyThreadSafetyMode.None);
+  private static readonly nint _WOffset = Schema.GetOffset(0x438DAD7AF20C3F36);
 
   public ref fltx4 W {
-    get => ref _Handle.AsRef<fltx4>(_WOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_WOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class CKnifeImpl : CCSWeaponBaseImpl, CKnife {
   public CKnifeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FirstAttackOffset = new(() => Schema.GetOffset(0x2551A83B441D83D9), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstAttackOffset = Schema.GetOffset(0x2551A83B441D83D9);
 
   public ref bool FirstAttack {
-    get => ref _Handle.AsRef<bool>(_FirstAttackOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FirstAttackOffset);
   }
 
   public void FirstAttackUpdated() {

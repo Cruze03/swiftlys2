@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmFollowBoneNode__CDefinition : CNmPassthroughNode__CDefinition, ISchemaClass<CNmFollowBoneNode__CDefinition> {
 
   static CNmFollowBoneNode__CDefinition ISchemaClass<CNmFollowBoneNode__CDefinition>.From(nint handle) => new CNmFollowBoneNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmFollowBoneNode__CDefinition>.Size => 40;
+  static int ISchemaClass<CNmFollowBoneNode__CDefinition>.Size => 48;
   static string? ISchemaClass<CNmFollowBoneNode__CDefinition>.ClassName => null;
 
   

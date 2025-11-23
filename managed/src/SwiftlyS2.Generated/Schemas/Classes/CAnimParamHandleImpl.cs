@@ -17,15 +17,15 @@ internal partial class CAnimParamHandleImpl : SchemaClass, CAnimParamHandle {
   public CAnimParamHandleImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x7B9461E0F04B4ED), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x7B9461E0F04B4ED);
 
   public ref AnimParamType_t Type {
-    get => ref _Handle.AsRef<AnimParamType_t>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<AnimParamType_t>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _IndexOffset = new(() => Schema.GetOffset(0x7B9461E491963CB), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexOffset = Schema.GetOffset(0x7B9461E491963CB);
 
   public ref byte Index {
-    get => ref _Handle.AsRef<byte>(_IndexOffset.Value);
+    get => ref _Handle.AsRef<byte>(_IndexOffset);
   }
 
 

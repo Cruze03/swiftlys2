@@ -17,25 +17,25 @@ internal partial class CGamePlayerZoneImpl : CRuleBrushEntityImpl, CGamePlayerZo
   public CGamePlayerZoneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnPlayerInZoneOffset = new(() => Schema.GetOffset(0x35811C97FBD22730), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerInZoneOffset = Schema.GetOffset(0x35811C97FBD22730);
 
   public CEntityIOOutput OnPlayerInZone {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerInZoneOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerInZoneOffset);
   }
-  private static readonly Lazy<nint> _OnPlayerOutZoneOffset = new(() => Schema.GetOffset(0x35811C97E3DE880D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPlayerOutZoneOffset = Schema.GetOffset(0x35811C97E3DE880D);
 
   public CEntityIOOutput OnPlayerOutZone {
-    get => new CEntityIOOutputImpl(_Handle + _OnPlayerOutZoneOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPlayerOutZoneOffset);
   }
-  private static readonly Lazy<nint> _PlayersInCountOffset = new(() => Schema.GetOffset(0x35811C9706A59501), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayersInCountOffset = Schema.GetOffset(0x35811C9706A59501);
 
   public SchemaUntypedField PlayersInCount {
-    get => new SchemaUntypedField(_Handle + _PlayersInCountOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PlayersInCountOffset);
   }
-  private static readonly Lazy<nint> _PlayersOutCountOffset = new(() => Schema.GetOffset(0x35811C976894D862), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayersOutCountOffset = Schema.GetOffset(0x35811C976894D862);
 
   public SchemaUntypedField PlayersOutCount {
-    get => new SchemaUntypedField(_Handle + _PlayersOutCountOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PlayersOutCountOffset);
   }
 
 

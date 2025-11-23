@@ -17,35 +17,35 @@ internal partial class CRemapValueUpdateItemImpl : SchemaClass, CRemapValueUpdat
   public CRemapValueUpdateItemImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamInOffset = new(() => Schema.GetOffset(0x93C5E8D6ED40E37B), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamInOffset = Schema.GetOffset(0x93C5E8D6ED40E37B);
 
   public CAnimParamHandle ParamIn {
-    get => new CAnimParamHandleImpl(_Handle + _ParamInOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamInOffset);
   }
-  private static readonly Lazy<nint> _ParamOutOffset = new(() => Schema.GetOffset(0x93C5E8D6AA5799A8), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOutOffset = Schema.GetOffset(0x93C5E8D6AA5799A8);
 
   public CAnimParamHandle ParamOut {
-    get => new CAnimParamHandleImpl(_Handle + _ParamOutOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamOutOffset);
   }
-  private static readonly Lazy<nint> _MinInputValueOffset = new(() => Schema.GetOffset(0x93C5E8D6BDB4BC64), LazyThreadSafetyMode.None);
+  private static readonly nint _MinInputValueOffset = Schema.GetOffset(0x93C5E8D6BDB4BC64);
 
   public ref float MinInputValue {
-    get => ref _Handle.AsRef<float>(_MinInputValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinInputValueOffset);
   }
-  private static readonly Lazy<nint> _MaxInputValueOffset = new(() => Schema.GetOffset(0x93C5E8D63EF75C2A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxInputValueOffset = Schema.GetOffset(0x93C5E8D63EF75C2A);
 
   public ref float MaxInputValue {
-    get => ref _Handle.AsRef<float>(_MaxInputValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxInputValueOffset);
   }
-  private static readonly Lazy<nint> _MinOutputValueOffset = new(() => Schema.GetOffset(0x93C5E8D6F63C7011), LazyThreadSafetyMode.None);
+  private static readonly nint _MinOutputValueOffset = Schema.GetOffset(0x93C5E8D6F63C7011);
 
   public ref float MinOutputValue {
-    get => ref _Handle.AsRef<float>(_MinOutputValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinOutputValueOffset);
   }
-  private static readonly Lazy<nint> _MaxOutputValueOffset = new(() => Schema.GetOffset(0x93C5E8D6A91B71B3), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxOutputValueOffset = Schema.GetOffset(0x93C5E8D6A91B71B3);
 
   public ref float MaxOutputValue {
-    get => ref _Handle.AsRef<float>(_MaxOutputValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxOutputValueOffset);
   }
 
 

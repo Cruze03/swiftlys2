@@ -17,97 +17,97 @@ internal partial class CSosSoundEventGroupSchemaImpl : SchemaClass, CSosSoundEve
   public CSosSoundEventGroupSchemaImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GroupTypeOffset = new(() => Schema.GetOffset(0x25BA87001A8E5A00), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupTypeOffset = Schema.GetOffset(0x25BA87001A8E5A00);
 
   public ref SosGroupType_t GroupType {
-    get => ref _Handle.AsRef<SosGroupType_t>(_GroupTypeOffset.Value);
+    get => ref _Handle.AsRef<SosGroupType_t>(_GroupTypeOffset);
   }
-  private static readonly Lazy<nint> _BlocksEventsOffset = new(() => Schema.GetOffset(0x25BA8700E3632026), LazyThreadSafetyMode.None);
+  private static readonly nint _BlocksEventsOffset = Schema.GetOffset(0x25BA8700E3632026);
 
   public ref bool BlocksEvents {
-    get => ref _Handle.AsRef<bool>(_BlocksEventsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BlocksEventsOffset);
   }
-  private static readonly Lazy<nint> _BlockMaxCountOffset = new(() => Schema.GetOffset(0x25BA8700282E91F7), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockMaxCountOffset = Schema.GetOffset(0x25BA8700282E91F7);
 
   public ref int BlockMaxCount {
-    get => ref _Handle.AsRef<int>(_BlockMaxCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_BlockMaxCountOffset);
   }
-  private static readonly Lazy<nint> _MemberLifespanTimeOffset = new(() => Schema.GetOffset(0x25BA8700C47B4DBA), LazyThreadSafetyMode.None);
+  private static readonly nint _MemberLifespanTimeOffset = Schema.GetOffset(0x25BA8700C47B4DBA);
 
   public ref float MemberLifespanTime {
-    get => ref _Handle.AsRef<float>(_MemberLifespanTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MemberLifespanTimeOffset);
   }
-  private static readonly Lazy<nint> _InvertMatchOffset = new(() => Schema.GetOffset(0x25BA87003C3CF99A), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertMatchOffset = Schema.GetOffset(0x25BA87003C3CF99A);
 
   public ref bool InvertMatch {
-    get => ref _Handle.AsRef<bool>(_InvertMatchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertMatchOffset);
   }
-  private static readonly Lazy<nint> _Behavior_EventNameOffset = new(() => Schema.GetOffset(0x25BA870029F15E53), LazyThreadSafetyMode.None);
+  private static readonly nint _Behavior_EventNameOffset = Schema.GetOffset(0x25BA870029F15E53);
 
   public ref SosGroupFieldBehavior_t Behavior_EventName {
-    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_EventNameOffset.Value);
+    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_EventNameOffset);
   }
-  private static readonly Lazy<nint> _MatchSoundEventNameOffset = new(() => Schema.GetOffset(0x25BA87005E75165C), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchSoundEventNameOffset = Schema.GetOffset(0x25BA87005E75165C);
 
   public string MatchSoundEventName {
     get {
-      var ptr = _Handle.Read<nint>(_MatchSoundEventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_MatchSoundEventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MatchSoundEventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _MatchSoundEventNameOffset, value);
   } 
-  private static readonly Lazy<nint> _MatchEventSubStringOffset = new(() => Schema.GetOffset(0x25BA87001C020689), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchEventSubStringOffset = Schema.GetOffset(0x25BA87001C020689);
 
   public ref bool MatchEventSubString {
-    get => ref _Handle.AsRef<bool>(_MatchEventSubStringOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchEventSubStringOffset);
   }
-  private static readonly Lazy<nint> _MatchSoundEventSubStringOffset = new(() => Schema.GetOffset(0x25BA87002FBB6296), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchSoundEventSubStringOffset = Schema.GetOffset(0x25BA87002FBB6296);
 
   public string MatchSoundEventSubString {
     get {
-      var ptr = _Handle.Read<nint>(_MatchSoundEventSubStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_MatchSoundEventSubStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MatchSoundEventSubStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _MatchSoundEventSubStringOffset, value);
   } 
-  private static readonly Lazy<nint> _Behavior_EntIndexOffset = new(() => Schema.GetOffset(0x25BA8700139C6983), LazyThreadSafetyMode.None);
+  private static readonly nint _Behavior_EntIndexOffset = Schema.GetOffset(0x25BA8700139C6983);
 
   public ref SosGroupFieldBehavior_t Behavior_EntIndex {
-    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_EntIndexOffset.Value);
+    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_EntIndexOffset);
   }
-  private static readonly Lazy<nint> _EntIndexOffset = new(() => Schema.GetOffset(0x25BA8700CD8F80C8), LazyThreadSafetyMode.None);
+  private static readonly nint _EntIndexOffset = Schema.GetOffset(0x25BA8700CD8F80C8);
 
   public ref float EntIndex {
-    get => ref _Handle.AsRef<float>(_EntIndexOffset.Value);
+    get => ref _Handle.AsRef<float>(_EntIndexOffset);
   }
-  private static readonly Lazy<nint> _Behavior_OpvarOffset = new(() => Schema.GetOffset(0x25BA8700C2EFBF94), LazyThreadSafetyMode.None);
+  private static readonly nint _Behavior_OpvarOffset = Schema.GetOffset(0x25BA8700C2EFBF94);
 
   public ref SosGroupFieldBehavior_t Behavior_Opvar {
-    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_OpvarOffset.Value);
+    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_OpvarOffset);
   }
-  private static readonly Lazy<nint> _OpvarOffset = new(() => Schema.GetOffset(0x25BA870054283361), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarOffset = Schema.GetOffset(0x25BA870054283361);
 
   public ref float Opvar {
-    get => ref _Handle.AsRef<float>(_OpvarOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpvarOffset);
   }
-  private static readonly Lazy<nint> _Behavior_StringOffset = new(() => Schema.GetOffset(0x25BA87001D20B9B1), LazyThreadSafetyMode.None);
+  private static readonly nint _Behavior_StringOffset = Schema.GetOffset(0x25BA87001D20B9B1);
 
   public ref SosGroupFieldBehavior_t Behavior_String {
-    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_StringOffset.Value);
+    get => ref _Handle.AsRef<SosGroupFieldBehavior_t>(_Behavior_StringOffset);
   }
-  private static readonly Lazy<nint> _OpvarStringOffset = new(() => Schema.GetOffset(0x25BA8700528828B2), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarStringOffset = Schema.GetOffset(0x25BA8700528828B2);
 
   public string OpvarString {
     get {
-      var ptr = _Handle.Read<nint>(_OpvarStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_OpvarStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OpvarStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _OpvarStringOffset, value);
   } 
-  private static readonly Lazy<nint> _ActionsOffset = new(() => Schema.GetOffset(0x25BA8700D36B7908), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionsOffset = Schema.GetOffset(0x25BA8700D36B7908);
 
   public ref CUtlVector<PointerTo<CSosGroupActionSchema>> Actions {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CSosGroupActionSchema>>>(_ActionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CSosGroupActionSchema>>>(_ActionsOffset);
   }
 
 

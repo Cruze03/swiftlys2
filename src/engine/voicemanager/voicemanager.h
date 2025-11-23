@@ -34,9 +34,6 @@ public:
 
     virtual void SetClientVoiceFlags(int playerid, VoiceFlagValue flags) override;
     virtual VoiceFlagValue GetClientVoiceFlags(int playerid) override;
-
-    bool SetClientListening(CPlayerSlot iReceiver, CPlayerSlot iSender, bool bListen);
-    void OnClientCommand(CPlayerSlot slot, const CCommand& args);
 };
 
 #endif

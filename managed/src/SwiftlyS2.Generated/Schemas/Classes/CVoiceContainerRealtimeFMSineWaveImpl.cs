@@ -17,20 +17,20 @@ internal partial class CVoiceContainerRealtimeFMSineWaveImpl : CVoiceContainerBa
   public CVoiceContainerRealtimeFMSineWaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CarrierFrequencyOffset = new(() => Schema.GetOffset(0x3AB0D193041DC311), LazyThreadSafetyMode.None);
+  private static readonly nint _CarrierFrequencyOffset = Schema.GetOffset(0x3AB0D193041DC311);
 
   public ref float CarrierFrequency {
-    get => ref _Handle.AsRef<float>(_CarrierFrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_CarrierFrequencyOffset);
   }
-  private static readonly Lazy<nint> _ModulatorFrequencyOffset = new(() => Schema.GetOffset(0x3AB0D193656A8FFE), LazyThreadSafetyMode.None);
+  private static readonly nint _ModulatorFrequencyOffset = Schema.GetOffset(0x3AB0D193656A8FFE);
 
   public ref float ModulatorFrequency {
-    get => ref _Handle.AsRef<float>(_ModulatorFrequencyOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModulatorFrequencyOffset);
   }
-  private static readonly Lazy<nint> _ModulatorAmountOffset = new(() => Schema.GetOffset(0x3AB0D1939B320E5C), LazyThreadSafetyMode.None);
+  private static readonly nint _ModulatorAmountOffset = Schema.GetOffset(0x3AB0D1939B320E5C);
 
   public ref float ModulatorAmount {
-    get => ref _Handle.AsRef<float>(_ModulatorAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModulatorAmountOffset);
   }
 
 

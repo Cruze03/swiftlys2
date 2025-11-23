@@ -17,10 +17,10 @@ internal partial class CNmFrameSnapEventImpl : CNmEventImpl, CNmFrameSnapEvent {
   public CNmFrameSnapEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrameSnapModeOffset = new(() => Schema.GetOffset(0x948CA66C6C68AC59), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameSnapModeOffset = Schema.GetOffset(0x948CA66C6C68AC59);
 
   public ref NmFrameSnapEventMode_t FrameSnapMode {
-    get => ref _Handle.AsRef<NmFrameSnapEventMode_t>(_FrameSnapModeOffset.Value);
+    get => ref _Handle.AsRef<NmFrameSnapEventMode_t>(_FrameSnapModeOffset);
   }
 
 

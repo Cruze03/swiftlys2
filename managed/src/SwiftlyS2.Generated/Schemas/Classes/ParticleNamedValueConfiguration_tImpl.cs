@@ -17,51 +17,51 @@ internal partial class ParticleNamedValueConfiguration_tImpl : SchemaClass, Part
   public ParticleNamedValueConfiguration_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConfigNameOffset = new(() => Schema.GetOffset(0x4C42AD0EA7B74064), LazyThreadSafetyMode.None);
+  private static readonly nint _ConfigNameOffset = Schema.GetOffset(0x4C42AD0EA7B74064);
 
   public string ConfigName {
     get {
-      var ptr = _Handle.Read<nint>(_ConfigNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ConfigNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ConfigNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ConfigNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ConfigValueOffset = new(() => Schema.GetOffset(0x4C42AD0ECF981D3C), LazyThreadSafetyMode.None);
+  private static readonly nint _ConfigValueOffset = Schema.GetOffset(0x4C42AD0ECF981D3C);
 
   public SchemaUntypedField ConfigValue {
-    get => new SchemaUntypedField(_Handle + _ConfigValueOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConfigValueOffset);
   }
-  private static readonly Lazy<nint> _BoundValuePathOffset = new(() => Schema.GetOffset(0x4C42AD0ED4977C9F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundValuePathOffset = Schema.GetOffset(0x4C42AD0ED4977C9F);
 
   public string BoundValuePath {
     get {
-      var ptr = _Handle.Read<nint>(_BoundValuePathOffset.Value);
+      var ptr = _Handle.Read<nint>(_BoundValuePathOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BoundValuePathOffset.Value, value);
+    set => Schema.SetString(_Handle, _BoundValuePathOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachTypeOffset = new(() => Schema.GetOffset(0x4C42AD0E432E8381), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachTypeOffset = Schema.GetOffset(0x4C42AD0E432E8381);
 
   public ref ParticleAttachment_t AttachType {
-    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachTypeOffset);
   }
-  private static readonly Lazy<nint> _StrEntityScopeOffset = new(() => Schema.GetOffset(0x4C42AD0ECCAF0621), LazyThreadSafetyMode.None);
+  private static readonly nint _StrEntityScopeOffset = Schema.GetOffset(0x4C42AD0ECCAF0621);
 
   public string StrEntityScope {
     get {
-      var ptr = _Handle.Read<nint>(_StrEntityScopeOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrEntityScopeOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrEntityScopeOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrEntityScopeOffset, value);
   } 
-  private static readonly Lazy<nint> _StrAttachmentNameOffset = new(() => Schema.GetOffset(0x4C42AD0EEB143B4E), LazyThreadSafetyMode.None);
+  private static readonly nint _StrAttachmentNameOffset = Schema.GetOffset(0x4C42AD0EEB143B4E);
 
   public string StrAttachmentName {
     get {
-      var ptr = _Handle.Read<nint>(_StrAttachmentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrAttachmentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrAttachmentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrAttachmentNameOffset, value);
   } 
 
 

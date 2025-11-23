@@ -20,25 +20,25 @@ internal partial class FeTri_tImpl : SchemaClass, FeTri_t {
   public ISchemaFixedArray<ushort> Node {
     get => new SchemaFixedArray<ushort>(_Handle, 0x75C07D86CD6694B9, 3, 2, 2);
   }
-  private static readonly Lazy<nint> _W1Offset = new(() => Schema.GetOffset(0x75C07D8610473805), LazyThreadSafetyMode.None);
+  private static readonly nint _W1Offset = Schema.GetOffset(0x75C07D8610473805);
 
   public ref float W1 {
-    get => ref _Handle.AsRef<float>(_W1Offset.Value);
+    get => ref _Handle.AsRef<float>(_W1Offset);
   }
-  private static readonly Lazy<nint> _W2Offset = new(() => Schema.GetOffset(0x75C07D860D47334C), LazyThreadSafetyMode.None);
+  private static readonly nint _W2Offset = Schema.GetOffset(0x75C07D860D47334C);
 
   public ref float W2 {
-    get => ref _Handle.AsRef<float>(_W2Offset.Value);
+    get => ref _Handle.AsRef<float>(_W2Offset);
   }
-  private static readonly Lazy<nint> _V1xOffset = new(() => Schema.GetOffset(0x75C07D8680EC4B30), LazyThreadSafetyMode.None);
+  private static readonly nint _V1xOffset = Schema.GetOffset(0x75C07D8680EC4B30);
 
   public ref float V1x {
-    get => ref _Handle.AsRef<float>(_V1xOffset.Value);
+    get => ref _Handle.AsRef<float>(_V1xOffset);
   }
-  private static readonly Lazy<nint> _V2Offset = new(() => Schema.GetOffset(0x75C07D86974A4B21), LazyThreadSafetyMode.None);
+  private static readonly nint _V2Offset = Schema.GetOffset(0x75C07D86974A4B21);
 
   public ref Vector2D V2 {
-    get => ref _Handle.AsRef<Vector2D>(_V2Offset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_V2Offset);
   }
 
 

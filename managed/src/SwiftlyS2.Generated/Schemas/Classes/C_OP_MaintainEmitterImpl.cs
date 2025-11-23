@@ -17,54 +17,54 @@ internal partial class C_OP_MaintainEmitterImpl : CParticleFunctionEmitterImpl, 
   public C_OP_MaintainEmitterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParticlesToMaintainOffset = new(() => Schema.GetOffset(0xAD7D6862537AE378), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlesToMaintainOffset = Schema.GetOffset(0xAD7D6862537AE378);
 
   public CParticleCollectionFloatInput ParticlesToMaintain {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticlesToMaintainOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticlesToMaintainOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xAD7D686267FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xAD7D686267FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _EmissionDurationOffset = new(() => Schema.GetOffset(0xAD7D686290181C90), LazyThreadSafetyMode.None);
+  private static readonly nint _EmissionDurationOffset = Schema.GetOffset(0xAD7D686290181C90);
 
   public CParticleCollectionFloatInput EmissionDuration {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _EmissionDurationOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _EmissionDurationOffset);
   }
-  private static readonly Lazy<nint> _EmissionRateOffset = new(() => Schema.GetOffset(0xAD7D68620F6F6312), LazyThreadSafetyMode.None);
+  private static readonly nint _EmissionRateOffset = Schema.GetOffset(0xAD7D68620F6F6312);
 
   public ref float EmissionRate {
-    get => ref _Handle.AsRef<float>(_EmissionRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_EmissionRateOffset);
   }
-  private static readonly Lazy<nint> _SnapshotControlPointOffset = new(() => Schema.GetOffset(0xAD7D6862192638EC), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapshotControlPointOffset = Schema.GetOffset(0xAD7D6862192638EC);
 
   public ref int SnapshotControlPoint {
-    get => ref _Handle.AsRef<int>(_SnapshotControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_SnapshotControlPointOffset);
   }
-  private static readonly Lazy<nint> _StrSnapshotSubsetOffset = new(() => Schema.GetOffset(0xAD7D6862BD8A8E5E), LazyThreadSafetyMode.None);
+  private static readonly nint _StrSnapshotSubsetOffset = Schema.GetOffset(0xAD7D6862BD8A8E5E);
 
   public string StrSnapshotSubset {
     get {
-      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrSnapshotSubsetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrSnapshotSubsetOffset, value);
   } 
-  private static readonly Lazy<nint> _EmitInstantaneouslyOffset = new(() => Schema.GetOffset(0xAD7D686205EFA03B), LazyThreadSafetyMode.None);
+  private static readonly nint _EmitInstantaneouslyOffset = Schema.GetOffset(0xAD7D686205EFA03B);
 
   public ref bool EmitInstantaneously {
-    get => ref _Handle.AsRef<bool>(_EmitInstantaneouslyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EmitInstantaneouslyOffset);
   }
-  private static readonly Lazy<nint> _FinalEmitOnStopOffset = new(() => Schema.GetOffset(0xAD7D68626A482A7D), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalEmitOnStopOffset = Schema.GetOffset(0xAD7D68626A482A7D);
 
   public ref bool FinalEmitOnStop {
-    get => ref _Handle.AsRef<bool>(_FinalEmitOnStopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FinalEmitOnStopOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xAD7D6862B731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xAD7D6862B731A42F);
 
   public CParticleCollectionFloatInput Scale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ScaleOffset);
   }
 
 

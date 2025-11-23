@@ -17,25 +17,25 @@ internal partial class FeNodeWindBase_tImpl : SchemaClass, FeNodeWindBase_t {
   public FeNodeWindBase_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeX0Offset = new(() => Schema.GetOffset(0x3892EC5081C7FEB9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeX0Offset = Schema.GetOffset(0x3892EC5081C7FEB9);
 
   public ref ushort NodeX0 {
-    get => ref _Handle.AsRef<ushort>(_NodeX0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeX0Offset);
   }
-  private static readonly Lazy<nint> _NodeX1Offset = new(() => Schema.GetOffset(0x3892EC5080C7FD26), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeX1Offset = Schema.GetOffset(0x3892EC5080C7FD26);
 
   public ref ushort NodeX1 {
-    get => ref _Handle.AsRef<ushort>(_NodeX1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeX1Offset);
   }
-  private static readonly Lazy<nint> _NodeY0Offset = new(() => Schema.GetOffset(0x3892EC507BC5B6B0), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeY0Offset = Schema.GetOffset(0x3892EC507BC5B6B0);
 
   public ref ushort NodeY0 {
-    get => ref _Handle.AsRef<ushort>(_NodeY0Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeY0Offset);
   }
-  private static readonly Lazy<nint> _NodeY1Offset = new(() => Schema.GetOffset(0x3892EC507CC5B843), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeY1Offset = Schema.GetOffset(0x3892EC507CC5B843);
 
   public ref ushort NodeY1 {
-    get => ref _Handle.AsRef<ushort>(_NodeY1Offset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeY1Offset);
   }
 
 

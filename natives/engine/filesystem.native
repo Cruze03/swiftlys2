@@ -12,3 +12,4 @@ uint32 GetFileSize = string fileName, string pathId
 bool PrecacheFile = string fileName, string pathId
 bool IsFileWritable = string fileName, string pathId
 bool SetFileWritable = string fileName, string pathId, bool writable
+void FindFileAbsoluteList = ptr outVector, string wildcard, string pathId

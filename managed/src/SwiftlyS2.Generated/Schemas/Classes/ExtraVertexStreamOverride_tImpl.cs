@@ -17,25 +17,25 @@ internal partial class ExtraVertexStreamOverride_tImpl : BaseSceneObjectOverride
   public ExtraVertexStreamOverride_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SubSceneObjectOffset = new(() => Schema.GetOffset(0x38857FE855C3CCBC), LazyThreadSafetyMode.None);
+  private static readonly nint _SubSceneObjectOffset = Schema.GetOffset(0x38857FE855C3CCBC);
 
   public ref uint SubSceneObject {
-    get => ref _Handle.AsRef<uint>(_SubSceneObjectOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SubSceneObjectOffset);
   }
-  private static readonly Lazy<nint> _DrawCallIndexOffset = new(() => Schema.GetOffset(0x38857FE8FA5614D5), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawCallIndexOffset = Schema.GetOffset(0x38857FE8FA5614D5);
 
   public ref uint DrawCallIndex {
-    get => ref _Handle.AsRef<uint>(_DrawCallIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_DrawCallIndexOffset);
   }
-  private static readonly Lazy<nint> _AdditionalMeshDrawPrimitiveFlagsOffset = new(() => Schema.GetOffset(0x38857FE8F0E57F2B), LazyThreadSafetyMode.None);
+  private static readonly nint _AdditionalMeshDrawPrimitiveFlagsOffset = Schema.GetOffset(0x38857FE8F0E57F2B);
 
   public ref MeshDrawPrimitiveFlags_t AdditionalMeshDrawPrimitiveFlags {
-    get => ref _Handle.AsRef<MeshDrawPrimitiveFlags_t>(_AdditionalMeshDrawPrimitiveFlagsOffset.Value);
+    get => ref _Handle.AsRef<MeshDrawPrimitiveFlags_t>(_AdditionalMeshDrawPrimitiveFlagsOffset);
   }
-  private static readonly Lazy<nint> _ExtraBufferBindingOffset = new(() => Schema.GetOffset(0x38857FE800630FD0), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtraBufferBindingOffset = Schema.GetOffset(0x38857FE800630FD0);
 
   public CRenderBufferBinding ExtraBufferBinding {
-    get => new CRenderBufferBindingImpl(_Handle + _ExtraBufferBindingOffset.Value);
+    get => new CRenderBufferBindingImpl(_Handle + _ExtraBufferBindingOffset);
   }
 
 

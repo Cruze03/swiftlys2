@@ -17,35 +17,35 @@ internal partial class C_INIT_AddVectorToVectorImpl : CParticleFunctionInitializ
   public C_INIT_AddVectorToVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0xFBD8AC005F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0xFBD8AC005F596B51);
 
   public ref Vector Scale {
-    get => ref _Handle.AsRef<Vector>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xFBD8AC00E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xFBD8AC00E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0xFBD8AC00AE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0xFBD8AC00AE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _OffsetMinOffset = new(() => Schema.GetOffset(0xFBD8AC00ABED1082), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetMinOffset = Schema.GetOffset(0xFBD8AC00ABED1082);
 
   public ref Vector OffsetMin {
-    get => ref _Handle.AsRef<Vector>(_OffsetMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetMinOffset);
   }
-  private static readonly Lazy<nint> _OffsetMaxOffset = new(() => Schema.GetOffset(0xFBD8AC0095D96628), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetMaxOffset = Schema.GetOffset(0xFBD8AC0095D96628);
 
   public ref Vector OffsetMax {
-    get => ref _Handle.AsRef<Vector>(_OffsetMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetMaxOffset);
   }
-  private static readonly Lazy<nint> _RandomnessParametersOffset = new(() => Schema.GetOffset(0xFBD8AC007EDF50AD), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomnessParametersOffset = Schema.GetOffset(0xFBD8AC007EDF50AD);
 
   public CRandomNumberGeneratorParameters RandomnessParameters {
-    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset.Value);
+    get => new CRandomNumberGeneratorParametersImpl(_Handle + _RandomnessParametersOffset);
   }
 
 

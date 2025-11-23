@@ -17,98 +17,98 @@ internal partial class CColorCorrectionImpl : CBaseEntityImpl, CColorCorrection 
   public CColorCorrectionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FadeInDurationOffset = new(() => Schema.GetOffset(0x86645E1101B5EB8E), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeInDurationOffset = Schema.GetOffset(0x86645E1101B5EB8E);
 
   public ref float FadeInDuration {
-    get => ref _Handle.AsRef<float>(_FadeInDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeInDurationOffset);
   }
-  private static readonly Lazy<nint> _FadeOutDurationOffset = new(() => Schema.GetOffset(0x86645E11543512CF), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeOutDurationOffset = Schema.GetOffset(0x86645E11543512CF);
 
   public ref float FadeOutDuration {
-    get => ref _Handle.AsRef<float>(_FadeOutDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeOutDurationOffset);
   }
-  private static readonly Lazy<nint> _StartFadeInWeightOffset = new(() => Schema.GetOffset(0x86645E11E12AF000), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFadeInWeightOffset = Schema.GetOffset(0x86645E11E12AF000);
 
   public ref float StartFadeInWeight {
-    get => ref _Handle.AsRef<float>(_StartFadeInWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFadeInWeightOffset);
   }
-  private static readonly Lazy<nint> _StartFadeOutWeightOffset = new(() => Schema.GetOffset(0x86645E118757D4F9), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFadeOutWeightOffset = Schema.GetOffset(0x86645E118757D4F9);
 
   public ref float StartFadeOutWeight {
-    get => ref _Handle.AsRef<float>(_StartFadeOutWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFadeOutWeightOffset);
   }
-  private static readonly Lazy<nint> _TimeStartFadeInOffset = new(() => Schema.GetOffset(0x86645E1175A6B4B7), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeStartFadeInOffset = Schema.GetOffset(0x86645E1175A6B4B7);
 
   public GameTime_t TimeStartFadeIn {
-    get => new GameTime_tImpl(_Handle + _TimeStartFadeInOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeStartFadeInOffset);
   }
-  private static readonly Lazy<nint> _TimeStartFadeOutOffset = new(() => Schema.GetOffset(0x86645E118028C93C), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeStartFadeOutOffset = Schema.GetOffset(0x86645E118028C93C);
 
   public GameTime_t TimeStartFadeOut {
-    get => new GameTime_tImpl(_Handle + _TimeStartFadeOutOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeStartFadeOutOffset);
   }
-  private static readonly Lazy<nint> _MaxWeightOffset = new(() => Schema.GetOffset(0x86645E1155F00F23), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxWeightOffset = Schema.GetOffset(0x86645E1155F00F23);
 
   public ref float MaxWeight {
-    get => ref _Handle.AsRef<float>(_MaxWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxWeightOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0x86645E1161ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0x86645E1161ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x86645E116154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x86645E116154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _MasterOffset = new(() => Schema.GetOffset(0x86645E115AFF9193), LazyThreadSafetyMode.None);
+  private static readonly nint _MasterOffset = Schema.GetOffset(0x86645E115AFF9193);
 
   public ref bool Master {
-    get => ref _Handle.AsRef<bool>(_MasterOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MasterOffset);
   }
-  private static readonly Lazy<nint> _ClientSideOffset = new(() => Schema.GetOffset(0x86645E116B28362D), LazyThreadSafetyMode.None);
+  private static readonly nint _ClientSideOffset = Schema.GetOffset(0x86645E116B28362D);
 
   public ref bool ClientSide {
-    get => ref _Handle.AsRef<bool>(_ClientSideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClientSideOffset);
   }
-  private static readonly Lazy<nint> _ExclusiveOffset = new(() => Schema.GetOffset(0x86645E11D84BE6BB), LazyThreadSafetyMode.None);
+  private static readonly nint _ExclusiveOffset = Schema.GetOffset(0x86645E11D84BE6BB);
 
   public ref bool Exclusive {
-    get => ref _Handle.AsRef<bool>(_ExclusiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExclusiveOffset);
   }
-  private static readonly Lazy<nint> _MinFalloffOffset = new(() => Schema.GetOffset(0x86645E116628F1F3), LazyThreadSafetyMode.None);
+  private static readonly nint _MinFalloffOffset = Schema.GetOffset(0x86645E116628F1F3);
 
   public ref float MinFalloff {
-    get => ref _Handle.AsRef<float>(_MinFalloffOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinFalloffOffset);
   }
-  private static readonly Lazy<nint> _MaxFalloffOffset = new(() => Schema.GetOffset(0x86645E118837D7E1), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxFalloffOffset = Schema.GetOffset(0x86645E118837D7E1);
 
   public ref float MaxFalloff {
-    get => ref _Handle.AsRef<float>(_MaxFalloffOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxFalloffOffset);
   }
-  private static readonly Lazy<nint> _CurWeightOffset = new(() => Schema.GetOffset(0x86645E112EA7ED7F), LazyThreadSafetyMode.None);
+  private static readonly nint _CurWeightOffset = Schema.GetOffset(0x86645E112EA7ED7F);
 
   public ref float CurWeight {
-    get => ref _Handle.AsRef<float>(_CurWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurWeightOffset);
   }
-  private static readonly Lazy<nint> _NetlookupFilenameOffset = new(() => Schema.GetOffset(0x86645E11543AB1EB), LazyThreadSafetyMode.None);
+  private static readonly nint _NetlookupFilenameOffset = Schema.GetOffset(0x86645E11543AB1EB);
 
   public string NetlookupFilename {
     get {
-      var ptr = _Handle + _NetlookupFilenameOffset.Value;
+      var ptr = _Handle + _NetlookupFilenameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _NetlookupFilenameOffset.Value, value, 512);
+    set => Schema.SetFixedString(_Handle, _NetlookupFilenameOffset, value, 512);
   } 
-  private static readonly Lazy<nint> _LookupFilenameOffset = new(() => Schema.GetOffset(0x86645E112611A2C6), LazyThreadSafetyMode.None);
+  private static readonly nint _LookupFilenameOffset = Schema.GetOffset(0x86645E112611A2C6);
 
   public string LookupFilename {
     get {
-      var ptr = _Handle.Read<nint>(_LookupFilenameOffset.Value);
+      var ptr = _Handle.Read<nint>(_LookupFilenameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LookupFilenameOffset.Value, value);
+    set => Schema.SetString(_Handle, _LookupFilenameOffset, value);
   } 
 
   public void FadeInDurationUpdated() {

@@ -9,7 +9,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class ToggleMenuOption : MenuOptionBase
 {
-    private readonly ConcurrentDictionary<IPlayer, bool> toggled = new();
+    private readonly ConcurrentDictionary<int, bool> toggled = new();
     private readonly bool defaultToggleState;
     private readonly string toggleOnSymbol;
     private readonly string toggleOffSymbol;
@@ -76,7 +76,7 @@ public sealed class ToggleMenuOption : MenuOptionBase
     public override string GetDisplayText( IPlayer player, int displayLine = 0 )
     {
         var text = base.GetDisplayText(player, displayLine);
-        var isToggled = toggled.GetOrAdd(player, defaultToggleState);
+        var isToggled = toggled.GetOrAdd(player.PlayerID, defaultToggleState);
         return $"{text} {(isToggled ? $"<font color='#008000'>{toggleOnSymbol}</font>" : $"<font color='#FF0000'>{toggleOffSymbol}</font>")}";
     }
 
@@ -87,7 +87,7 @@ public sealed class ToggleMenuOption : MenuOptionBase
     /// <returns>True if toggled on, false if toggled off. Uses the configured default value for new players.</returns>
     public bool GetToggleState( IPlayer player )
     {
-        return toggled.GetOrAdd(player, defaultToggleState);
+        return toggled.GetOrAdd(player.PlayerID, defaultToggleState);
     }
 
     /// <summary>
@@ -98,14 +98,14 @@ public sealed class ToggleMenuOption : MenuOptionBase
     /// <returns>True if the value was changed, false if it was already the same value.</returns>
     public bool SetToggleState( IPlayer player, bool value )
     {
-        var oldValue = toggled.GetOrAdd(player, defaultToggleState);
+        var oldValue = toggled.GetOrAdd(player.PlayerID, defaultToggleState);
 
         if (oldValue == value)
         {
             return false;
         }
 
-        _ = toggled.AddOrUpdate(player, value, ( _, _ ) => value);
+        _ = toggled.AddOrUpdate(player.PlayerID, value, ( _, _ ) => value);
 
         ValueChanged?.Invoke(this, new MenuOptionValueChangedEventArgs<bool> {
             Player = player,

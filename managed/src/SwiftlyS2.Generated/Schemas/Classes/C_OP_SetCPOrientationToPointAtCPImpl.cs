@@ -17,35 +17,35 @@ internal partial class C_OP_SetCPOrientationToPointAtCPImpl : CParticleFunctionP
   public C_OP_SetCPOrientationToPointAtCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputCPOffset = new(() => Schema.GetOffset(0xEB886769F39A3C14), LazyThreadSafetyMode.None);
+  private static readonly nint _InputCPOffset = Schema.GetOffset(0xEB886769F39A3C14);
 
   public ref int InputCP {
-    get => ref _Handle.AsRef<int>(_InputCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_InputCPOffset);
   }
-  private static readonly Lazy<nint> _OutputCPOffset = new(() => Schema.GetOffset(0xEB88676950DF5703), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputCPOffset = Schema.GetOffset(0xEB88676950DF5703);
 
   public ref int OutputCP {
-    get => ref _Handle.AsRef<int>(_OutputCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutputCPOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0xEB886769CF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0xEB886769CF55B987);
 
   public CParticleCollectionFloatInput Interpolation {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InterpolationOffset);
   }
-  private static readonly Lazy<nint> _B2DOrientationOffset = new(() => Schema.GetOffset(0xEB886769D5B7C017), LazyThreadSafetyMode.None);
+  private static readonly nint _B2DOrientationOffset = Schema.GetOffset(0xEB886769D5B7C017);
 
   public ref bool B2DOrientation {
-    get => ref _Handle.AsRef<bool>(_B2DOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_B2DOrientationOffset);
   }
-  private static readonly Lazy<nint> _AvoidSingularityOffset = new(() => Schema.GetOffset(0xEB8867694B0F0B45), LazyThreadSafetyMode.None);
+  private static readonly nint _AvoidSingularityOffset = Schema.GetOffset(0xEB8867694B0F0B45);
 
   public ref bool AvoidSingularity {
-    get => ref _Handle.AsRef<bool>(_AvoidSingularityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AvoidSingularityOffset);
   }
-  private static readonly Lazy<nint> _PointAwayOffset = new(() => Schema.GetOffset(0xEB88676987355BAF), LazyThreadSafetyMode.None);
+  private static readonly nint _PointAwayOffset = Schema.GetOffset(0xEB88676987355BAF);
 
   public ref bool PointAway {
-    get => ref _Handle.AsRef<bool>(_PointAwayOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PointAwayOffset);
   }
 
 

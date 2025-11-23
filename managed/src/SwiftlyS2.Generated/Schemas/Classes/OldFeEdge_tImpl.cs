@@ -20,50 +20,50 @@ internal partial class OldFeEdge_tImpl : SchemaClass, OldFeEdge_t {
   public ISchemaFixedArray<float> K {
     get => new SchemaFixedArray<float>(_Handle, 0xBAF074C17C12054C, 3, 4, 4);
   }
-  private static readonly Lazy<nint> _InvAOffset = new(() => Schema.GetOffset(0xBAF074C1518D5F7B), LazyThreadSafetyMode.None);
+  private static readonly nint _InvAOffset = Schema.GetOffset(0xBAF074C1518D5F7B);
 
   public ref float InvA {
-    get => ref _Handle.AsRef<float>(_InvAOffset.Value);
+    get => ref _Handle.AsRef<float>(_InvAOffset);
   }
-  private static readonly Lazy<nint> _TOffset = new(() => Schema.GetOffset(0xBAF074C1F10C3DA3), LazyThreadSafetyMode.None);
+  private static readonly nint _TOffset = Schema.GetOffset(0xBAF074C1F10C3DA3);
 
   public ref float T {
-    get => ref _Handle.AsRef<float>(_TOffset.Value);
+    get => ref _Handle.AsRef<float>(_TOffset);
   }
-  private static readonly Lazy<nint> _ThetaRelaxedOffset = new(() => Schema.GetOffset(0xBAF074C14C35B770), LazyThreadSafetyMode.None);
+  private static readonly nint _ThetaRelaxedOffset = Schema.GetOffset(0xBAF074C14C35B770);
 
   public ref float ThetaRelaxed {
-    get => ref _Handle.AsRef<float>(_ThetaRelaxedOffset.Value);
+    get => ref _Handle.AsRef<float>(_ThetaRelaxedOffset);
   }
-  private static readonly Lazy<nint> _ThetaFactorOffset = new(() => Schema.GetOffset(0xBAF074C165B8FFDA), LazyThreadSafetyMode.None);
+  private static readonly nint _ThetaFactorOffset = Schema.GetOffset(0xBAF074C165B8FFDA);
 
   public ref float ThetaFactor {
-    get => ref _Handle.AsRef<float>(_ThetaFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_ThetaFactorOffset);
   }
-  private static readonly Lazy<nint> _C01Offset = new(() => Schema.GetOffset(0xBAF074C13DE93555), LazyThreadSafetyMode.None);
+  private static readonly nint _C01Offset = Schema.GetOffset(0xBAF074C13DE93555);
 
   public ref float C01 {
-    get => ref _Handle.AsRef<float>(_C01Offset.Value);
+    get => ref _Handle.AsRef<float>(_C01Offset);
   }
-  private static readonly Lazy<nint> _C02Offset = new(() => Schema.GetOffset(0xBAF074C13AE9309C), LazyThreadSafetyMode.None);
+  private static readonly nint _C02Offset = Schema.GetOffset(0xBAF074C13AE9309C);
 
   public ref float C02 {
-    get => ref _Handle.AsRef<float>(_C02Offset.Value);
+    get => ref _Handle.AsRef<float>(_C02Offset);
   }
-  private static readonly Lazy<nint> _C03Offset = new(() => Schema.GetOffset(0xBAF074C13BE9322F), LazyThreadSafetyMode.None);
+  private static readonly nint _C03Offset = Schema.GetOffset(0xBAF074C13BE9322F);
 
   public ref float C03 {
-    get => ref _Handle.AsRef<float>(_C03Offset.Value);
+    get => ref _Handle.AsRef<float>(_C03Offset);
   }
-  private static readonly Lazy<nint> _C04Offset = new(() => Schema.GetOffset(0xBAF074C138E92D76), LazyThreadSafetyMode.None);
+  private static readonly nint _C04Offset = Schema.GetOffset(0xBAF074C138E92D76);
 
   public ref float C04 {
-    get => ref _Handle.AsRef<float>(_C04Offset.Value);
+    get => ref _Handle.AsRef<float>(_C04Offset);
   }
-  private static readonly Lazy<nint> _AxialModelDistOffset = new(() => Schema.GetOffset(0xBAF074C1E53980E9), LazyThreadSafetyMode.None);
+  private static readonly nint _AxialModelDistOffset = Schema.GetOffset(0xBAF074C1E53980E9);
 
   public ref float AxialModelDist {
-    get => ref _Handle.AsRef<float>(_AxialModelDistOffset.Value);
+    get => ref _Handle.AsRef<float>(_AxialModelDistOffset);
   }
   public ISchemaFixedArray<float> AxialModelWeights {
     get => new SchemaFixedArray<float>(_Handle, 0xBAF074C1D9CDB73E, 4, 4, 4);

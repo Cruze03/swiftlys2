@@ -17,25 +17,25 @@ internal partial class C_INIT_SequenceFromCPImpl : CParticleFunctionInitializerI
   public C_INIT_SequenceFromCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _KillUnusedOffset = new(() => Schema.GetOffset(0xC62FB07C81506527), LazyThreadSafetyMode.None);
+  private static readonly nint _KillUnusedOffset = Schema.GetOffset(0xC62FB07C81506527);
 
   public ref bool KillUnused {
-    get => ref _Handle.AsRef<bool>(_KillUnusedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_KillUnusedOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0xC62FB07CBBCB728B), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0xC62FB07CBBCB728B);
 
   public ref bool RadiusScale {
-    get => ref _Handle.AsRef<bool>(_RadiusScaleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0xC62FB07CEB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0xC62FB07CEB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xC62FB07CBD25CC2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xC62FB07CBD25CC2A);
 
   public ref Vector Offset {
-    get => ref _Handle.AsRef<Vector>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetOffset);
   }
 
 

@@ -97,6 +97,7 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
             .AddSingleton(coreProvider.GetRequiredService<TraceManager>())
             .AddSingleton(coreProvider.GetRequiredService<PermissionManager>())
             .AddSingleton(coreProvider.GetRequiredService<CommandTrackerManager>())
+            .AddSingleton(coreProvider.GetRequiredService<MenuManagerAPI>())
 
             .AddSingleton<EventSubscriber>()
             .AddSingleton<EngineService>()
@@ -118,12 +119,10 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
             .AddSingleton<Localizer>(provider => provider.GetRequiredService<TranslationService>().GetLocalizer())
             .AddSingleton<RegistratorService>()
             // .AddSingleton<MenuManager>()
-            .AddSingleton<MenuManagerAPI>()
             .AddSingleton<CommandLineService>()
             .AddSingleton<HelpersService>()
             .AddSingleton<GameService>()
             .AddSingleton<IPermissionManager>(provider => provider.GetRequiredService<PermissionManager>())
-
             .AddSingleton<IEventSubscriber>(provider => provider.GetRequiredService<EventSubscriber>())
             .AddSingleton<IGameEventService>(provider => provider.GetRequiredService<GameEventService>())
             .AddSingleton<INetMessageService>(provider => provider.GetRequiredService<NetMessageService>())
@@ -151,7 +150,6 @@ internal class SwiftlyCore : ISwiftlyCore, IDisposable
             .AddSingleton<IGameFileSystem>(provider => provider.GetRequiredService<GameFileSystem>())
 
             .AddLogging(builder => builder.AddProvider(new SwiftlyLoggerProvider(id.Name)))
-
             .BuildServiceProvider();
 
         EventSubscriber = serviceProvider.GetRequiredService<EventSubscriber>();

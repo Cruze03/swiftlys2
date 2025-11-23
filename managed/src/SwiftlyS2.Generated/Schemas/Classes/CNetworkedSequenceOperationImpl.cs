@@ -17,45 +17,45 @@ internal partial class CNetworkedSequenceOperationImpl : SchemaClass, CNetworked
   public CNetworkedSequenceOperationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x3EA8ECC5E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x3EA8ECC5E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _PrevCycleOffset = new(() => Schema.GetOffset(0x3EA8ECC5AA0F5CF4), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevCycleOffset = Schema.GetOffset(0x3EA8ECC5AA0F5CF4);
 
   public ref float PrevCycle {
-    get => ref _Handle.AsRef<float>(_PrevCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevCycleOffset);
   }
-  private static readonly Lazy<nint> _CycleOffset = new(() => Schema.GetOffset(0x3EA8ECC50C77829F), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleOffset = Schema.GetOffset(0x3EA8ECC50C77829F);
 
   public ref float Cycle {
-    get => ref _Handle.AsRef<float>(_CycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x3EA8ECC57B81E7AB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x3EA8ECC57B81E7AB);
 
   public ref CNetworkedQuantizedFloat Weight {
-    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _SequenceChangeNetworkedOffset = new(() => Schema.GetOffset(0x3EA8ECC510DEC927), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceChangeNetworkedOffset = Schema.GetOffset(0x3EA8ECC510DEC927);
 
   public ref bool SequenceChangeNetworked {
-    get => ref _Handle.AsRef<bool>(_SequenceChangeNetworkedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SequenceChangeNetworkedOffset);
   }
-  private static readonly Lazy<nint> _DiscontinuityOffset = new(() => Schema.GetOffset(0x3EA8ECC5C37DF9B1), LazyThreadSafetyMode.None);
+  private static readonly nint _DiscontinuityOffset = Schema.GetOffset(0x3EA8ECC5C37DF9B1);
 
   public ref bool Discontinuity {
-    get => ref _Handle.AsRef<bool>(_DiscontinuityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DiscontinuityOffset);
   }
-  private static readonly Lazy<nint> _PrevCycleFromDiscontinuityOffset = new(() => Schema.GetOffset(0x3EA8ECC581FD154E), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevCycleFromDiscontinuityOffset = Schema.GetOffset(0x3EA8ECC581FD154E);
 
   public ref float PrevCycleFromDiscontinuity {
-    get => ref _Handle.AsRef<float>(_PrevCycleFromDiscontinuityOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevCycleFromDiscontinuityOffset);
   }
-  private static readonly Lazy<nint> _PrevCycleForAnimEventDetectionOffset = new(() => Schema.GetOffset(0x3EA8ECC5B36E4559), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevCycleForAnimEventDetectionOffset = Schema.GetOffset(0x3EA8ECC5B36E4559);
 
   public ref float PrevCycleForAnimEventDetection {
-    get => ref _Handle.AsRef<float>(_PrevCycleForAnimEventDetectionOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevCycleForAnimEventDetectionOffset);
   }
 
   public void SequenceUpdated() {

@@ -17,25 +17,25 @@ internal partial class CPathMetricEvaluatorImpl : CMotionMetricEvaluatorImpl, CP
   public CPathMetricEvaluatorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PathTimeSamplesOffset = new(() => Schema.GetOffset(0x6BF20F3A94DC552A), LazyThreadSafetyMode.None);
+  private static readonly nint _PathTimeSamplesOffset = Schema.GetOffset(0x6BF20F3A94DC552A);
 
   public ref CUtlVector<float> PathTimeSamples {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_PathTimeSamplesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_PathTimeSamplesOffset);
   }
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x6BF20F3A00DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x6BF20F3A00DC4A68);
 
   public ref float Distance {
-    get => ref _Handle.AsRef<float>(_DistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistanceOffset);
   }
-  private static readonly Lazy<nint> _ExtrapolateMovementOffset = new(() => Schema.GetOffset(0x6BF20F3ACBEE3025), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtrapolateMovementOffset = Schema.GetOffset(0x6BF20F3ACBEE3025);
 
   public ref bool ExtrapolateMovement {
-    get => ref _Handle.AsRef<bool>(_ExtrapolateMovementOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExtrapolateMovementOffset);
   }
-  private static readonly Lazy<nint> _MinExtrapolationSpeedOffset = new(() => Schema.GetOffset(0x6BF20F3A9F6FB95C), LazyThreadSafetyMode.None);
+  private static readonly nint _MinExtrapolationSpeedOffset = Schema.GetOffset(0x6BF20F3A9F6FB95C);
 
   public ref float MinExtrapolationSpeed {
-    get => ref _Handle.AsRef<float>(_MinExtrapolationSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinExtrapolationSpeedOffset);
   }
 
 

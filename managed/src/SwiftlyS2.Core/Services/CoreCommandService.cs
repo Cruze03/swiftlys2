@@ -42,12 +42,20 @@ internal class CoreCommandService
         void ShowServerStatus()
         {
             var uptime = DateTime.Now - System.Diagnostics.Process.GetCurrentProcess().StartTime;
+            ThreadPool.GetAvailableThreads(out var availableWorkerThreads, out var availableCompletionPortThreads);
+            ThreadPool.GetMaxThreads(out var maxWorkerThreads, out var maxCompletionPortThreads);
+            var busyWorkerThreads = maxWorkerThreads - availableWorkerThreads;
+            var processThreadCount = System.Diagnostics.Process.GetCurrentProcess().Threads.Count;
+
             var output = string.Join("\n", [
                 $"Uptime: {uptime.Days}d {uptime.Hours}h {uptime.Minutes}m {uptime.Seconds}s",
                 $"Managed Heap Memory: {GC.GetTotalMemory(false) / 1024.0f / 1024.0f:0.00} MB",
+                $"Process Threads: {processThreadCount}",
+                $"ThreadPool Worker Threads: {busyWorkerThreads}/{maxWorkerThreads} (Busy/Max)",
+                $"ThreadPool Completion Port Threads: {maxCompletionPortThreads - availableCompletionPortThreads}/{maxCompletionPortThreads} (Busy/Max)",
                 $"Loaded Plugins: {pluginManager.GetPlugins().Count}",
                 $"Players: {core.PlayerManager.PlayerCount}/{core.Engine.GlobalVars.MaxClients}",
-                $"Map: {core.Engine.GlobalVars.MapName.Value}"
+                $"Map: {core.Engine.GlobalVars.MapName.Value}",
             ]);
             logger.LogInformation("{Output}", output);
         }

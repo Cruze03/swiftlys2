@@ -17,34 +17,34 @@ internal partial class CAnimGraphDebugReplayImpl : SchemaClass, CAnimGraphDebugR
   public CAnimGraphDebugReplayImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AnimGraphFileNameOffset = new(() => Schema.GetOffset(0x31D5349314D2CC69), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimGraphFileNameOffset = Schema.GetOffset(0x31D5349314D2CC69);
 
   public string AnimGraphFileName {
     get {
-      var ptr = _Handle.Read<nint>(_AnimGraphFileNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AnimGraphFileNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AnimGraphFileNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AnimGraphFileNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FrameListOffset = new(() => Schema.GetOffset(0x31D5349393EB99F2), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameListOffset = Schema.GetOffset(0x31D5349393EB99F2);
 
   public ref CUtlVector<SchemaUntypedField> FrameList {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_FrameListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_FrameListOffset);
   }
-  private static readonly Lazy<nint> _StartIndexOffset = new(() => Schema.GetOffset(0x31D534939F316D25), LazyThreadSafetyMode.None);
+  private static readonly nint _StartIndexOffset = Schema.GetOffset(0x31D534939F316D25);
 
   public ref int StartIndex {
-    get => ref _Handle.AsRef<int>(_StartIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartIndexOffset);
   }
-  private static readonly Lazy<nint> _WriteIndexOffset = new(() => Schema.GetOffset(0x31D53493161871B8), LazyThreadSafetyMode.None);
+  private static readonly nint _WriteIndexOffset = Schema.GetOffset(0x31D53493161871B8);
 
   public ref int WriteIndex {
-    get => ref _Handle.AsRef<int>(_WriteIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_WriteIndexOffset);
   }
-  private static readonly Lazy<nint> _FrameCountOffset = new(() => Schema.GetOffset(0x31D53493B0C97215), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameCountOffset = Schema.GetOffset(0x31D53493B0C97215);
 
   public ref int FrameCount {
-    get => ref _Handle.AsRef<int>(_FrameCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_FrameCountOffset);
   }
 
 

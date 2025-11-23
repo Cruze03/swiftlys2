@@ -17,10 +17,10 @@ internal partial class CEnvEntityIgniterImpl : CBaseEntityImpl, CEnvEntityIgnite
   public CEnvEntityIgniterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LifetimeOffset = new(() => Schema.GetOffset(0xF8FFE95A39B35564), LazyThreadSafetyMode.None);
+  private static readonly nint _LifetimeOffset = Schema.GetOffset(0xF8FFE95A39B35564);
 
   public ref float Lifetime {
-    get => ref _Handle.AsRef<float>(_LifetimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LifetimeOffset);
   }
 
 

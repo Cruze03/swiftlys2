@@ -17,71 +17,71 @@ internal partial class CFuncTrackChangeImpl : CFuncPlatRotImpl, CFuncTrackChange
   public CFuncTrackChangeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TrackTopOffset = new(() => Schema.GetOffset(0x25A8A26FF7C2CCBF), LazyThreadSafetyMode.None);
+  private static readonly nint _TrackTopOffset = Schema.GetOffset(0x25A8A26FF7C2CCBF);
 
   public CPathTrack? TrackTop {
     get {
-      var ptr = _Handle.Read<nint>(_TrackTopOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrackTopOffset);
       return ptr.IsValidPtr() ? new CPathTrackImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _TrackBottomOffset = new(() => Schema.GetOffset(0x25A8A26F37EC7637), LazyThreadSafetyMode.None);
+  private static readonly nint _TrackBottomOffset = Schema.GetOffset(0x25A8A26F37EC7637);
 
   public CPathTrack? TrackBottom {
     get {
-      var ptr = _Handle.Read<nint>(_TrackBottomOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrackBottomOffset);
       return ptr.IsValidPtr() ? new CPathTrackImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _TrainOffset = new(() => Schema.GetOffset(0x25A8A26FB8642689), LazyThreadSafetyMode.None);
+  private static readonly nint _TrainOffset = Schema.GetOffset(0x25A8A26FB8642689);
 
   public CFuncTrackTrain? Train {
     get {
-      var ptr = _Handle.Read<nint>(_TrainOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrainOffset);
       return ptr.IsValidPtr() ? new CFuncTrackTrainImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _TrackTopNameOffset = new(() => Schema.GetOffset(0x25A8A26FF9BD489C), LazyThreadSafetyMode.None);
+  private static readonly nint _TrackTopNameOffset = Schema.GetOffset(0x25A8A26FF9BD489C);
 
   public string TrackTopName {
     get {
-      var ptr = _Handle.Read<nint>(_TrackTopNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrackTopNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TrackTopNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TrackTopNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TrackBottomNameOffset = new(() => Schema.GetOffset(0x25A8A26F7F34C2D4), LazyThreadSafetyMode.None);
+  private static readonly nint _TrackBottomNameOffset = Schema.GetOffset(0x25A8A26F7F34C2D4);
 
   public string TrackBottomName {
     get {
-      var ptr = _Handle.Read<nint>(_TrackBottomNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrackBottomNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TrackBottomNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TrackBottomNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TrainNameOffset = new(() => Schema.GetOffset(0x25A8A26FA3DC4C82), LazyThreadSafetyMode.None);
+  private static readonly nint _TrainNameOffset = Schema.GetOffset(0x25A8A26FA3DC4C82);
 
   public string TrainName {
     get {
-      var ptr = _Handle.Read<nint>(_TrainNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_TrainNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TrainNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _TrainNameOffset, value);
   } 
-  private static readonly Lazy<nint> _CodeOffset = new(() => Schema.GetOffset(0x25A8A26FB70C9D94), LazyThreadSafetyMode.None);
+  private static readonly nint _CodeOffset = Schema.GetOffset(0x25A8A26FB70C9D94);
 
   public ref TRAIN_CODE Code {
-    get => ref _Handle.AsRef<TRAIN_CODE>(_CodeOffset.Value);
+    get => ref _Handle.AsRef<TRAIN_CODE>(_CodeOffset);
   }
-  private static readonly Lazy<nint> _TargetStateOffset = new(() => Schema.GetOffset(0x25A8A26F9EA3444D), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetStateOffset = Schema.GetOffset(0x25A8A26F9EA3444D);
 
   public ref int TargetState {
-    get => ref _Handle.AsRef<int>(_TargetStateOffset.Value);
+    get => ref _Handle.AsRef<int>(_TargetStateOffset);
   }
-  private static readonly Lazy<nint> _UseOffset = new(() => Schema.GetOffset(0x25A8A26F45B2B614), LazyThreadSafetyMode.None);
+  private static readonly nint _UseOffset = Schema.GetOffset(0x25A8A26F45B2B614);
 
   public ref int Use {
-    get => ref _Handle.AsRef<int>(_UseOffset.Value);
+    get => ref _Handle.AsRef<int>(_UseOffset);
   }
 
 

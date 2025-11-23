@@ -17,20 +17,20 @@ internal partial class C_OP_RemapVectortoCPImpl : CParticleFunctionOperatorImpl,
   public C_OP_RemapVectortoCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutControlPointNumberOffset = new(() => Schema.GetOffset(0xADC661D7D021D73F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutControlPointNumberOffset = Schema.GetOffset(0xADC661D7D021D73F);
 
   public ref int OutControlPointNumber {
-    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0xADC661D7AE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0xADC661D7AE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _ParticleNumberOffset = new(() => Schema.GetOffset(0xADC661D712F26402), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleNumberOffset = Schema.GetOffset(0xADC661D712F26402);
 
   public ref int ParticleNumber {
-    get => ref _Handle.AsRef<int>(_ParticleNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParticleNumberOffset);
   }
 
 

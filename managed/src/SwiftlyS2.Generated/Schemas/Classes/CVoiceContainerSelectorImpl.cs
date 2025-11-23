@@ -17,20 +17,20 @@ internal partial class CVoiceContainerSelectorImpl : CVoiceContainerBaseImpl, CV
   public CVoiceContainerSelectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0xF16C473A90FD5BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0xF16C473A90FD5BB2);
 
   public ref PlayBackMode_t Mode {
-    get => ref _Handle.AsRef<PlayBackMode_t>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<PlayBackMode_t>(_ModeOffset);
   }
-  private static readonly Lazy<nint> _SoundsToPlayOffset = new(() => Schema.GetOffset(0xF16C473ADCB5F70E), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundsToPlayOffset = Schema.GetOffset(0xF16C473ADCB5F70E);
 
   public CSoundContainerReferenceArray SoundsToPlay {
-    get => new CSoundContainerReferenceArrayImpl(_Handle + _SoundsToPlayOffset.Value);
+    get => new CSoundContainerReferenceArrayImpl(_Handle + _SoundsToPlayOffset);
   }
-  private static readonly Lazy<nint> _ProbabilityWeightsOffset = new(() => Schema.GetOffset(0xF16C473A6DABFC99), LazyThreadSafetyMode.None);
+  private static readonly nint _ProbabilityWeightsOffset = Schema.GetOffset(0xF16C473A6DABFC99);
 
   public ref CUtlVector<float> ProbabilityWeights {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_ProbabilityWeightsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_ProbabilityWeightsOffset);
   }
 
 

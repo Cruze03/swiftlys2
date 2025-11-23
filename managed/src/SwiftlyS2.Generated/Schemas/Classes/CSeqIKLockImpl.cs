@@ -17,25 +17,25 @@ internal partial class CSeqIKLockImpl : SchemaClass, CSeqIKLock {
   public CSeqIKLockImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PosWeightOffset = new(() => Schema.GetOffset(0x9813F59E9CC6C04B), LazyThreadSafetyMode.None);
+  private static readonly nint _PosWeightOffset = Schema.GetOffset(0x9813F59E9CC6C04B);
 
   public ref float PosWeight {
-    get => ref _Handle.AsRef<float>(_PosWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_PosWeightOffset);
   }
-  private static readonly Lazy<nint> _AngleWeightOffset = new(() => Schema.GetOffset(0x9813F59E51DFB6EE), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleWeightOffset = Schema.GetOffset(0x9813F59E51DFB6EE);
 
   public ref float AngleWeight {
-    get => ref _Handle.AsRef<float>(_AngleWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleWeightOffset);
   }
-  private static readonly Lazy<nint> _LocalBoneOffset = new(() => Schema.GetOffset(0x9813F59EC2F7B8CA), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneOffset = Schema.GetOffset(0x9813F59EC2F7B8CA);
 
   public ref short LocalBone {
-    get => ref _Handle.AsRef<short>(_LocalBoneOffset.Value);
+    get => ref _Handle.AsRef<short>(_LocalBoneOffset);
   }
-  private static readonly Lazy<nint> _BonesOrientedAlongPositiveXOffset = new(() => Schema.GetOffset(0x9813F59ED3FDAB3A), LazyThreadSafetyMode.None);
+  private static readonly nint _BonesOrientedAlongPositiveXOffset = Schema.GetOffset(0x9813F59ED3FDAB3A);
 
   public ref bool BonesOrientedAlongPositiveX {
-    get => ref _Handle.AsRef<bool>(_BonesOrientedAlongPositiveXOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BonesOrientedAlongPositiveXOffset);
   }
 
 

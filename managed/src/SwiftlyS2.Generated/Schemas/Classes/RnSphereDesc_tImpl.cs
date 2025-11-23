@@ -17,10 +17,10 @@ internal partial class RnSphereDesc_tImpl : RnShapeDesc_tImpl, RnSphereDesc_t {
   public RnSphereDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SphereOffset = new(() => Schema.GetOffset(0x6187F5E1E7A3D98), LazyThreadSafetyMode.None);
+  private static readonly nint _SphereOffset = Schema.GetOffset(0x6187F5E1E7A3D98);
 
   public SchemaUntypedField Sphere {
-    get => new SchemaUntypedField(_Handle + _SphereOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SphereOffset);
   }
 
 

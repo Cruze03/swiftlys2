@@ -538,6 +538,8 @@ internal class PluginManager
             }
             catch { }
 
+            logger.LogError(e, "Exception occurred while loading plugin: {PluginPath}", Path.Combine(dir, Path.GetFileName(dir)) + ".dll");
+
             return FailWithError(context, $"Failed to load plugin: {Path.Combine(dir, Path.GetFileName(dir))}.dll");
         }
     }

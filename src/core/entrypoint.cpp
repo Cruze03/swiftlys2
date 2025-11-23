@@ -125,6 +125,10 @@ bool SwiftlyCore::Load(BridgeKind_t kind)
     if (!ends_with(m_sCorePath, WIN_LINUX("\\", "/")))
         m_sCorePath += WIN_LINUX("\\", "/");
 
+    m_sLogPath = CommandLine()->ParmValue(CUtlStringToken("-sw_logpath"), WIN_LINUX("addons\\swiftlys2\\logs", "addons/swiftlys2/logs"));
+    if (!ends_with(m_sLogPath, WIN_LINUX("\\", "/")))
+        m_sLogPath += WIN_LINUX("\\", "/");
+
     auto configuration = g_ifaceService.FetchInterface<IConfiguration>(CONFIGURATION_INTERFACE_VERSION);
     configuration->InitializeExamples();
 
@@ -231,7 +235,7 @@ bool SwiftlyCore::Load(BridgeKind_t kind)
         crashreporter->ReportPreventionIncident("Managed", fmt::format("Couldn't initialize the .NET runtime. Make sure you installed `swiftlys2-{}-{}-with-runtimes.zip`.", WIN_LINUX("windows", "linux"), GetVersion()));
         return true;
     }
-    if (!InitializeDotNetAPI(scripting->GetNativeFunctions(), scripting->GetNativeFunctionsCount()))
+    if (!InitializeDotNetAPI(scripting->GetNativeFunctions(), scripting->GetNativeFunctionsCount(), std::string(Plat_GetGameDirectory()) + "/csgo/" + m_sLogPath))
     {
         auto crashreporter = g_ifaceService.FetchInterface<ICrashReporter>(CRASHREPORTER_INTERFACE_VERSION);
         crashreporter->ReportPreventionIncident("Managed", "Couldn't initialize the .NET scripting API.");
@@ -310,7 +314,8 @@ bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry)
     g_SwiftlyCore.OnMapLoad(pKeyValues->GetString("levelname"));
     if (pKeyValues->FindKey("customgamemode")) {
         workshop_map = pKeyValues->GetString("customgamemode");
-    } else workshop_map = "";
+    }
+    else workshop_map = "";
 
     return ret;
 }
@@ -379,6 +384,12 @@ void* SwiftlyCore::GetInterface(const std::string& interface_name)
     else if (SOUNDSYSTEM_INTERFACE_VERSION == interface_name || SOUNDOPSYSTEM_INTERFACE_VERSION == interface_name)
     {
         void* lib = load_library((const char_t*)WIN_LINUX(StringWide(Plat_GetGameDirectory() + std::string("\\bin\\win64\\soundsystem.dll")).c_str(), (Plat_GetGameDirectory() + std::string("/bin/linuxsteamrt64/libsoundsystem.so")).c_str()));
+        ifaceCreate = get_export(lib, "CreateInterface");
+        unload_library(lib);
+    }
+    else if (FILESYSTEM_INTERFACE_VERSION == interface_name)
+    {
+        void* lib = load_library((const char_t*)WIN_LINUX(StringWide(Plat_GetGameDirectory() + std::string("\\bin\\win64\\filesystem_stdio.dll")).c_str(), (Plat_GetGameDirectory() + std::string("/bin/linuxsteamrt64/libfilesystem_stdio.so")).c_str()));
         ifaceCreate = get_export(lib, "CreateInterface");
         unload_library(lib);
     }

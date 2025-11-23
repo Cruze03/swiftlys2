@@ -17,25 +17,25 @@ internal partial class FeNodeIntegrator_tImpl : SchemaClass, FeNodeIntegrator_t 
   public FeNodeIntegrator_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PointDampingOffset = new(() => Schema.GetOffset(0x64217E4215738003), LazyThreadSafetyMode.None);
+  private static readonly nint _PointDampingOffset = Schema.GetOffset(0x64217E4215738003);
 
   public ref float PointDamping {
-    get => ref _Handle.AsRef<float>(_PointDampingOffset.Value);
+    get => ref _Handle.AsRef<float>(_PointDampingOffset);
   }
-  private static readonly Lazy<nint> _AnimationForceAttractionOffset = new(() => Schema.GetOffset(0x64217E423D09A7B3), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationForceAttractionOffset = Schema.GetOffset(0x64217E423D09A7B3);
 
   public ref float AnimationForceAttraction {
-    get => ref _Handle.AsRef<float>(_AnimationForceAttractionOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnimationForceAttractionOffset);
   }
-  private static readonly Lazy<nint> _AnimationVertexAttractionOffset = new(() => Schema.GetOffset(0x64217E424E9EA4DC), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationVertexAttractionOffset = Schema.GetOffset(0x64217E424E9EA4DC);
 
   public ref float AnimationVertexAttraction {
-    get => ref _Handle.AsRef<float>(_AnimationVertexAttractionOffset.Value);
+    get => ref _Handle.AsRef<float>(_AnimationVertexAttractionOffset);
   }
-  private static readonly Lazy<nint> _GravityOffset = new(() => Schema.GetOffset(0x64217E4289B3B847), LazyThreadSafetyMode.None);
+  private static readonly nint _GravityOffset = Schema.GetOffset(0x64217E4289B3B847);
 
   public ref float Gravity {
-    get => ref _Handle.AsRef<float>(_GravityOffset.Value);
+    get => ref _Handle.AsRef<float>(_GravityOffset);
   }
 
 

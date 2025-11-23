@@ -17,125 +17,125 @@ internal partial class CFishImpl : CBaseAnimGraphImpl, CFish {
   public CFishImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PoolOffset = new(() => Schema.GetOffset(0xC43C8434366BF523), LazyThreadSafetyMode.None);
+  private static readonly nint _PoolOffset = Schema.GetOffset(0xC43C8434366BF523);
 
   public ref CHandle<CFishPool> Pool {
-    get => ref _Handle.AsRef<CHandle<CFishPool>>(_PoolOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CFishPool>>(_PoolOffset);
   }
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0xC43C8434B4B6E980), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0xC43C8434B4B6E980);
 
   public ref uint Id {
-    get => ref _Handle.AsRef<uint>(_IdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_IdOffset);
   }
-  private static readonly Lazy<nint> _XOffset = new(() => Schema.GetOffset(0xC43C8434DBC57BA7), LazyThreadSafetyMode.None);
+  private static readonly nint _XOffset = Schema.GetOffset(0xC43C8434DBC57BA7);
 
   public ref float X {
-    get => ref _Handle.AsRef<float>(_XOffset.Value);
+    get => ref _Handle.AsRef<float>(_XOffset);
   }
-  private static readonly Lazy<nint> _YOffset = new(() => Schema.GetOffset(0xC43C8434DAC57A14), LazyThreadSafetyMode.None);
+  private static readonly nint _YOffset = Schema.GetOffset(0xC43C8434DAC57A14);
 
   public ref float Y {
-    get => ref _Handle.AsRef<float>(_YOffset.Value);
+    get => ref _Handle.AsRef<float>(_YOffset);
   }
-  private static readonly Lazy<nint> _ZOffset = new(() => Schema.GetOffset(0xC43C8434DDC57ECD), LazyThreadSafetyMode.None);
+  private static readonly nint _ZOffset = Schema.GetOffset(0xC43C8434DDC57ECD);
 
   public ref float Z {
-    get => ref _Handle.AsRef<float>(_ZOffset.Value);
+    get => ref _Handle.AsRef<float>(_ZOffset);
   }
-  private static readonly Lazy<nint> _AngleOffset = new(() => Schema.GetOffset(0xC43C8434D4164938), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleOffset = Schema.GetOffset(0xC43C8434D4164938);
 
   public ref float Angle {
-    get => ref _Handle.AsRef<float>(_AngleOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleOffset);
   }
-  private static readonly Lazy<nint> _AngleChangeOffset = new(() => Schema.GetOffset(0xC43C84343E25ADF0), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleChangeOffset = Schema.GetOffset(0xC43C84343E25ADF0);
 
   public ref float AngleChange {
-    get => ref _Handle.AsRef<float>(_AngleChangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngleChangeOffset);
   }
-  private static readonly Lazy<nint> _ForwardOffset = new(() => Schema.GetOffset(0xC43C84348C0AF53A), LazyThreadSafetyMode.None);
+  private static readonly nint _ForwardOffset = Schema.GetOffset(0xC43C84348C0AF53A);
 
   public ref Vector Forward {
-    get => ref _Handle.AsRef<Vector>(_ForwardOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ForwardOffset);
   }
-  private static readonly Lazy<nint> _PerpOffset = new(() => Schema.GetOffset(0xC43C8434607EC05C), LazyThreadSafetyMode.None);
+  private static readonly nint _PerpOffset = Schema.GetOffset(0xC43C8434607EC05C);
 
   public ref Vector Perp {
-    get => ref _Handle.AsRef<Vector>(_PerpOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PerpOffset);
   }
-  private static readonly Lazy<nint> _PoolOriginOffset = new(() => Schema.GetOffset(0xC43C843442AD682D), LazyThreadSafetyMode.None);
+  private static readonly nint _PoolOriginOffset = Schema.GetOffset(0xC43C843442AD682D);
 
   public ref Vector PoolOrigin {
-    get => ref _Handle.AsRef<Vector>(_PoolOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PoolOriginOffset);
   }
-  private static readonly Lazy<nint> _WaterLevelOffset = new(() => Schema.GetOffset(0xC43C8434E63A21D6), LazyThreadSafetyMode.None);
+  private static readonly nint _WaterLevelOffset = Schema.GetOffset(0xC43C8434E63A21D6);
 
   public ref float WaterLevel {
-    get => ref _Handle.AsRef<float>(_WaterLevelOffset.Value);
+    get => ref _Handle.AsRef<float>(_WaterLevelOffset);
   }
-  private static readonly Lazy<nint> _SpeedOffset = new(() => Schema.GetOffset(0xC43C8434A4BD35A0), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedOffset = Schema.GetOffset(0xC43C8434A4BD35A0);
 
   public ref float Speed {
-    get => ref _Handle.AsRef<float>(_SpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedOffset);
   }
-  private static readonly Lazy<nint> _DesiredSpeedOffset = new(() => Schema.GetOffset(0xC43C843492BBF450), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredSpeedOffset = Schema.GetOffset(0xC43C843492BBF450);
 
   public ref float DesiredSpeed {
-    get => ref _Handle.AsRef<float>(_DesiredSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_DesiredSpeedOffset);
   }
-  private static readonly Lazy<nint> _CalmSpeedOffset = new(() => Schema.GetOffset(0xC43C84340BF88DE9), LazyThreadSafetyMode.None);
+  private static readonly nint _CalmSpeedOffset = Schema.GetOffset(0xC43C84340BF88DE9);
 
   public ref float CalmSpeed {
-    get => ref _Handle.AsRef<float>(_CalmSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_CalmSpeedOffset);
   }
-  private static readonly Lazy<nint> _PanicSpeedOffset = new(() => Schema.GetOffset(0xC43C8434270FACBF), LazyThreadSafetyMode.None);
+  private static readonly nint _PanicSpeedOffset = Schema.GetOffset(0xC43C8434270FACBF);
 
   public ref float PanicSpeed {
-    get => ref _Handle.AsRef<float>(_PanicSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_PanicSpeedOffset);
   }
-  private static readonly Lazy<nint> _AvoidRangeOffset = new(() => Schema.GetOffset(0xC43C84346BCFA4EB), LazyThreadSafetyMode.None);
+  private static readonly nint _AvoidRangeOffset = Schema.GetOffset(0xC43C84346BCFA4EB);
 
   public ref float AvoidRange {
-    get => ref _Handle.AsRef<float>(_AvoidRangeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AvoidRangeOffset);
   }
-  private static readonly Lazy<nint> _TurnTimerOffset = new(() => Schema.GetOffset(0xC43C8434700B062B), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnTimerOffset = Schema.GetOffset(0xC43C8434700B062B);
 
   public CountdownTimer TurnTimer {
-    get => new CountdownTimerImpl(_Handle + _TurnTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _TurnTimerOffset);
   }
-  private static readonly Lazy<nint> _TurnClockwiseOffset = new(() => Schema.GetOffset(0xC43C8434C5ECCED4), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnClockwiseOffset = Schema.GetOffset(0xC43C8434C5ECCED4);
 
   public ref bool TurnClockwise {
-    get => ref _Handle.AsRef<bool>(_TurnClockwiseOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TurnClockwiseOffset);
   }
-  private static readonly Lazy<nint> _GoTimerOffset = new(() => Schema.GetOffset(0xC43C84348CBF9730), LazyThreadSafetyMode.None);
+  private static readonly nint _GoTimerOffset = Schema.GetOffset(0xC43C84348CBF9730);
 
   public CountdownTimer GoTimer {
-    get => new CountdownTimerImpl(_Handle + _GoTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _GoTimerOffset);
   }
-  private static readonly Lazy<nint> _MoveTimerOffset = new(() => Schema.GetOffset(0xC43C8434254C6AC5), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveTimerOffset = Schema.GetOffset(0xC43C8434254C6AC5);
 
   public CountdownTimer MoveTimer {
-    get => new CountdownTimerImpl(_Handle + _MoveTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _MoveTimerOffset);
   }
-  private static readonly Lazy<nint> _PanicTimerOffset = new(() => Schema.GetOffset(0xC43C8434D2FFC665), LazyThreadSafetyMode.None);
+  private static readonly nint _PanicTimerOffset = Schema.GetOffset(0xC43C8434D2FFC665);
 
   public CountdownTimer PanicTimer {
-    get => new CountdownTimerImpl(_Handle + _PanicTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _PanicTimerOffset);
   }
-  private static readonly Lazy<nint> _DisperseTimerOffset = new(() => Schema.GetOffset(0xC43C8434C8E05E9F), LazyThreadSafetyMode.None);
+  private static readonly nint _DisperseTimerOffset = Schema.GetOffset(0xC43C8434C8E05E9F);
 
   public CountdownTimer DisperseTimer {
-    get => new CountdownTimerImpl(_Handle + _DisperseTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _DisperseTimerOffset);
   }
-  private static readonly Lazy<nint> _ProximityTimerOffset = new(() => Schema.GetOffset(0xC43C8434ABE32A63), LazyThreadSafetyMode.None);
+  private static readonly nint _ProximityTimerOffset = Schema.GetOffset(0xC43C8434ABE32A63);
 
   public CountdownTimer ProximityTimer {
-    get => new CountdownTimerImpl(_Handle + _ProximityTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _ProximityTimerOffset);
   }
-  private static readonly Lazy<nint> _VisibleOffset = new(() => Schema.GetOffset(0xC43C8434002CBAC1), LazyThreadSafetyMode.None);
+  private static readonly nint _VisibleOffset = Schema.GetOffset(0xC43C8434002CBAC1);
 
   public ref CUtlVector<PointerTo<CFish>> Visible {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CFish>>>(_VisibleOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CFish>>>(_VisibleOffset);
   }
 
   public void XUpdated() {

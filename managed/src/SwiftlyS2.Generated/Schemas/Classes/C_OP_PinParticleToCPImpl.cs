@@ -17,75 +17,75 @@ internal partial class C_OP_PinParticleToCPImpl : CParticleFunctionOperatorImpl,
   public C_OP_PinParticleToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xE4FC73983F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xE4FC73983F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xE4FC7398BD25CC2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xE4FC7398BD25CC2A);
 
   public CParticleCollectionVecInput Offset {
-    get => new CParticleCollectionVecInputImpl(_Handle + _OffsetOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _OffsetOffset);
   }
-  private static readonly Lazy<nint> _OffsetLocalOffset = new(() => Schema.GetOffset(0xE4FC7398F07D31C1), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetLocalOffset = Schema.GetOffset(0xE4FC7398F07D31C1);
 
   public ref bool OffsetLocal {
-    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset);
   }
-  private static readonly Lazy<nint> _ParticleSelectionOffset = new(() => Schema.GetOffset(0xE4FC7398A2307EA7), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleSelectionOffset = Schema.GetOffset(0xE4FC7398A2307EA7);
 
   public ref ParticleSelection_t ParticleSelection {
-    get => ref _Handle.AsRef<ParticleSelection_t>(_ParticleSelectionOffset.Value);
+    get => ref _Handle.AsRef<ParticleSelection_t>(_ParticleSelectionOffset);
   }
-  private static readonly Lazy<nint> _ParticleNumberOffset = new(() => Schema.GetOffset(0xE4FC739812F26402), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleNumberOffset = Schema.GetOffset(0xE4FC739812F26402);
 
   public CParticleCollectionFloatInput ParticleNumber {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticleNumberOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ParticleNumberOffset);
   }
-  private static readonly Lazy<nint> _PinBreakTypeOffset = new(() => Schema.GetOffset(0xE4FC73981D66F607), LazyThreadSafetyMode.None);
+  private static readonly nint _PinBreakTypeOffset = Schema.GetOffset(0xE4FC73981D66F607);
 
   public ref ParticlePinDistance_t PinBreakType {
-    get => ref _Handle.AsRef<ParticlePinDistance_t>(_PinBreakTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticlePinDistance_t>(_PinBreakTypeOffset);
   }
-  private static readonly Lazy<nint> _BreakDistanceOffset = new(() => Schema.GetOffset(0xE4FC7398AD760DA9), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakDistanceOffset = Schema.GetOffset(0xE4FC7398AD760DA9);
 
   public CParticleCollectionFloatInput BreakDistance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakDistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakDistanceOffset);
   }
-  private static readonly Lazy<nint> _BreakSpeedOffset = new(() => Schema.GetOffset(0xE4FC739817DB9AD5), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakSpeedOffset = Schema.GetOffset(0xE4FC739817DB9AD5);
 
   public CParticleCollectionFloatInput BreakSpeed {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakSpeedOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakSpeedOffset);
   }
-  private static readonly Lazy<nint> _AgeOffset = new(() => Schema.GetOffset(0xE4FC73984F7B4AF6), LazyThreadSafetyMode.None);
+  private static readonly nint _AgeOffset = Schema.GetOffset(0xE4FC73984F7B4AF6);
 
   public CParticleCollectionFloatInput Age {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _AgeOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _AgeOffset);
   }
-  private static readonly Lazy<nint> _BreakControlPointNumberOffset = new(() => Schema.GetOffset(0xE4FC739817C1EFA0), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakControlPointNumberOffset = Schema.GetOffset(0xE4FC739817C1EFA0);
 
   public ref int BreakControlPointNumber {
-    get => ref _Handle.AsRef<int>(_BreakControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_BreakControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _BreakControlPointNumber2Offset = new(() => Schema.GetOffset(0xE4FC7398F84C22D6), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakControlPointNumber2Offset = Schema.GetOffset(0xE4FC7398F84C22D6);
 
   public ref int BreakControlPointNumber2 {
-    get => ref _Handle.AsRef<int>(_BreakControlPointNumber2Offset.Value);
+    get => ref _Handle.AsRef<int>(_BreakControlPointNumber2Offset);
   }
-  private static readonly Lazy<nint> _BreakValueOffset = new(() => Schema.GetOffset(0xE4FC7398D120F44B), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakValueOffset = Schema.GetOffset(0xE4FC7398D120F44B);
 
   public CParticleCollectionFloatInput BreakValue {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakValueOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _BreakValueOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0xE4FC7398CF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0xE4FC7398CF55B987);
 
   public CPerParticleFloatInput Interpolation {
-    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset);
   }
-  private static readonly Lazy<nint> _RetainInitialVelocityOffset = new(() => Schema.GetOffset(0xE4FC73981B3893D3), LazyThreadSafetyMode.None);
+  private static readonly nint _RetainInitialVelocityOffset = Schema.GetOffset(0xE4FC73981B3893D3);
 
   public ref bool RetainInitialVelocity {
-    get => ref _Handle.AsRef<bool>(_RetainInitialVelocityOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RetainInitialVelocityOffset);
   }
 
 

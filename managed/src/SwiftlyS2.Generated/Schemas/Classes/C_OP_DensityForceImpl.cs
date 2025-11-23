@@ -17,20 +17,20 @@ internal partial class C_OP_DensityForceImpl : CParticleFunctionForceImpl, C_OP_
   public C_OP_DensityForceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x7846D656A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x7846D656A7A20159);
 
   public ref float RadiusScale {
-    get => ref _Handle.AsRef<float>(_RadiusScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _ForceScaleOffset = new(() => Schema.GetOffset(0x7846D6564817F390), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceScaleOffset = Schema.GetOffset(0x7846D6564817F390);
 
   public ref float ForceScale {
-    get => ref _Handle.AsRef<float>(_ForceScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceScaleOffset);
   }
-  private static readonly Lazy<nint> _TargetDensityOffset = new(() => Schema.GetOffset(0x7846D656157E0796), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetDensityOffset = Schema.GetOffset(0x7846D656157E0796);
 
   public ref float TargetDensity {
-    get => ref _Handle.AsRef<float>(_TargetDensityOffset.Value);
+    get => ref _Handle.AsRef<float>(_TargetDensityOffset);
   }
 
 

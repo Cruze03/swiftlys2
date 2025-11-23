@@ -17,30 +17,30 @@ internal partial class C_OP_DistanceCullImpl : CParticleFunctionOperatorImpl, C_
   public C_OP_DistanceCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointOffset = new(() => Schema.GetOffset(0x7252AA520D0DDF8C), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointOffset = Schema.GetOffset(0x7252AA520D0DDF8C);
 
   public ref int ControlPoint {
-    get => ref _Handle.AsRef<int>(_ControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointOffset);
   }
-  private static readonly Lazy<nint> _PointOffsetOffset = new(() => Schema.GetOffset(0x7252AA52300E046E), LazyThreadSafetyMode.None);
+  private static readonly nint _PointOffsetOffset = Schema.GetOffset(0x7252AA52300E046E);
 
   public ref Vector PointOffset {
-    get => ref _Handle.AsRef<Vector>(_PointOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PointOffsetOffset);
   }
-  private static readonly Lazy<nint> _DistanceOffset = new(() => Schema.GetOffset(0x7252AA5200DC4A68), LazyThreadSafetyMode.None);
+  private static readonly nint _DistanceOffset = Schema.GetOffset(0x7252AA5200DC4A68);
 
   public CParticleCollectionFloatInput Distance {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _DistanceOffset);
   }
-  private static readonly Lazy<nint> _CullInsideOffset = new(() => Schema.GetOffset(0x7252AA52293E00AD), LazyThreadSafetyMode.None);
+  private static readonly nint _CullInsideOffset = Schema.GetOffset(0x7252AA52293E00AD);
 
   public ref bool CullInside {
-    get => ref _Handle.AsRef<bool>(_CullInsideOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CullInsideOffset);
   }
-  private static readonly Lazy<nint> _AttributeOffset = new(() => Schema.GetOffset(0x7252AA527FE8DE0B), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeOffset = Schema.GetOffset(0x7252AA527FE8DE0B);
 
   public ParticleAttributeIndex_t Attribute {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeOffset);
   }
 
 

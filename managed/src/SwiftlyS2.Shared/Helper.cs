@@ -1,12 +1,12 @@
 using System.Globalization;
+using SwiftlyS2.Shared.NetMessages;
 using SwiftlyS2.Shared.Schemas;
 
 namespace SwiftlyS2.Shared;
 
 public static class Helper
 {
-    private static readonly Dictionary<string, string> ColorCodes = new()
-    {
+    private static readonly Dictionary<string, string> ColorCodes = new() {
         { "[default]", "\x01" },
         { "[/]", "\x01" },
         { "[white]", "\x01" },
@@ -89,6 +89,18 @@ public static class Helper
     }
 
     /// <summary>
+    /// Convert the pointer to the protobuf class.
+    /// </summary>
+    /// <typeparam name="T">The protobuf class to convert to.</typeparam>
+    /// <param name="ptr">The pointer to the protobuf class.</param>
+    /// <param name="manuallyAllocated">Whether the pointer is manually allocated.</param>
+    /// <returns>The protobuf class.</returns>
+    public static T AsProtobuf<T>( nint ptr, bool manuallyAllocated ) where T : ITypedProtobuf<T>
+    {
+        return T.Wrap(ptr, false);
+    }
+
+    /// <summary>
     /// Get the size of a schema class.
     /// </summary>
     /// <typeparam name="T">The schema class to get the size of.</typeparam>
@@ -161,15 +173,16 @@ public static class Helper
             var groupSize = hexPart.Length / groupCount;
             var groups = Enumerable.Range(0, groupCount)
                 .Select(i => hexPart.Substring(i * groupSize, groupSize))
-                .Select(g => int.TryParse(g, NumberStyles.HexNumber, null, out var v) && v is >= 0 and <= 255 ? v : (int?)null)
+                .Select(g =>
+                    int.TryParse(g, NumberStyles.HexNumber, null, out var v) && v is >= 0 and <= 255 ? v : (int?)null)
                 .ToArray();
 
             if (groups.All(g => g.HasValue))
             {
                 return groupCount switch {
-                    3 => (groups[0], groups[1], groups[2], 255),                         // RGB
-                    4 when alphaFirst => (groups[1], groups[2], groups[3], groups[0]),   // ARGB → RGBA
-                    4 => (groups[0], groups[1], groups[2], groups[3]),                   // RGBA
+                    3 => (groups[0], groups[1], groups[2], 255), // RGB
+                    4 when alphaFirst => (groups[1], groups[2], groups[3], groups[0]), // ARGB → RGBA
+                    4 => (groups[0], groups[1], groups[2], groups[3]), // RGBA
                     _ => (null, null, null, null)
                 };
             }

@@ -17,34 +17,34 @@ internal partial class CPlayerPingImpl : CBaseEntityImpl, CPlayerPing {
   public CPlayerPingImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlayerOffset = new(() => Schema.GetOffset(0x5943E25F68856C16), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerOffset = Schema.GetOffset(0x5943E25F68856C16);
 
   public ref CHandle<CCSPlayerPawn> Player {
-    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_PlayerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_PlayerOffset);
   }
-  private static readonly Lazy<nint> _PingedEntityOffset = new(() => Schema.GetOffset(0x5943E25F35D9D429), LazyThreadSafetyMode.None);
+  private static readonly nint _PingedEntityOffset = Schema.GetOffset(0x5943E25F35D9D429);
 
   public ref CHandle<CBaseEntity> PingedEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_PingedEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_PingedEntityOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x5943E25FC932D7CC), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x5943E25FC932D7CC);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _UrgentOffset = new(() => Schema.GetOffset(0x5943E25F4F5EE9D0), LazyThreadSafetyMode.None);
+  private static readonly nint _UrgentOffset = Schema.GetOffset(0x5943E25F4F5EE9D0);
 
   public ref bool Urgent {
-    get => ref _Handle.AsRef<bool>(_UrgentOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UrgentOffset);
   }
-  private static readonly Lazy<nint> _PlaceNameOffset = new(() => Schema.GetOffset(0x5943E25F6039F660), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaceNameOffset = Schema.GetOffset(0x5943E25F6039F660);
 
   public string PlaceName {
     get {
-      var ptr = _Handle + _PlaceNameOffset.Value;
+      var ptr = _Handle + _PlaceNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _PlaceNameOffset.Value, value, 18);
+    set => Schema.SetFixedString(_Handle, _PlaceNameOffset, value, 18);
   } 
 
   public void PlayerUpdated() {

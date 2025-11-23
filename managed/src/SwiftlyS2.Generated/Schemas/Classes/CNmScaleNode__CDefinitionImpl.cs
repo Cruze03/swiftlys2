@@ -17,15 +17,15 @@ internal partial class CNmScaleNode__CDefinitionImpl : CNmPassthroughNode__CDefi
   public CNmScaleNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaskNodeIdxOffset = new(() => Schema.GetOffset(0x5902F6B1216FA578), LazyThreadSafetyMode.None);
+  private static readonly nint _MaskNodeIdxOffset = Schema.GetOffset(0x5902F6B1216FA578);
 
   public ref short MaskNodeIdx {
-    get => ref _Handle.AsRef<short>(_MaskNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_MaskNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EnableNodeIdxOffset = new(() => Schema.GetOffset(0x5902F6B10C9DD729), LazyThreadSafetyMode.None);
+  private static readonly nint _EnableNodeIdxOffset = Schema.GetOffset(0x5902F6B10C9DD729);
 
   public ref short EnableNodeIdx {
-    get => ref _Handle.AsRef<short>(_EnableNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EnableNodeIdxOffset);
   }
 
 

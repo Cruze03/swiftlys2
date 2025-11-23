@@ -17,10 +17,10 @@ internal partial class CWeaponCZ75aImpl : CCSWeaponBaseGunImpl, CWeaponCZ75a {
   public CWeaponCZ75aImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MagazineRemovedOffset = new(() => Schema.GetOffset(0x5FFE9C69188A471), LazyThreadSafetyMode.None);
+  private static readonly nint _MagazineRemovedOffset = Schema.GetOffset(0x5FFE9C69188A471);
 
   public ref bool MagazineRemoved {
-    get => ref _Handle.AsRef<bool>(_MagazineRemovedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MagazineRemovedOffset);
   }
 
   public void MagazineRemovedUpdated() {

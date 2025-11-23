@@ -17,84 +17,84 @@ internal partial class C_OP_LockToBoneImpl : CParticleFunctionOperatorImpl, C_OP
   public C_OP_LockToBoneImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelInputOffset = new(() => Schema.GetOffset(0xF6C2B94DEB74120E), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelInputOffset = Schema.GetOffset(0xF6C2B94DEB74120E);
 
   public CParticleModelInput ModelInput {
-    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset.Value);
+    get => new CParticleModelInputImpl(_Handle + _ModelInputOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xF6C2B94D3A9ED669), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xF6C2B94D3A9ED669);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _LifeTimeFadeStartOffset = new(() => Schema.GetOffset(0xF6C2B94D95A2845A), LazyThreadSafetyMode.None);
+  private static readonly nint _LifeTimeFadeStartOffset = Schema.GetOffset(0xF6C2B94D95A2845A);
 
   public ref float LifeTimeFadeStart {
-    get => ref _Handle.AsRef<float>(_LifeTimeFadeStartOffset.Value);
+    get => ref _Handle.AsRef<float>(_LifeTimeFadeStartOffset);
   }
-  private static readonly Lazy<nint> _LifeTimeFadeEndOffset = new(() => Schema.GetOffset(0xF6C2B94D222841EF), LazyThreadSafetyMode.None);
+  private static readonly nint _LifeTimeFadeEndOffset = Schema.GetOffset(0xF6C2B94D222841EF);
 
   public ref float LifeTimeFadeEnd {
-    get => ref _Handle.AsRef<float>(_LifeTimeFadeEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_LifeTimeFadeEndOffset);
   }
-  private static readonly Lazy<nint> _JumpThresholdOffset = new(() => Schema.GetOffset(0xF6C2B94DB6BB1AD6), LazyThreadSafetyMode.None);
+  private static readonly nint _JumpThresholdOffset = Schema.GetOffset(0xF6C2B94DB6BB1AD6);
 
   public ref float JumpThreshold {
-    get => ref _Handle.AsRef<float>(_JumpThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_JumpThresholdOffset);
   }
-  private static readonly Lazy<nint> _PrevPosScaleOffset = new(() => Schema.GetOffset(0xF6C2B94D46CED122), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevPosScaleOffset = Schema.GetOffset(0xF6C2B94D46CED122);
 
   public ref float PrevPosScale {
-    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_PrevPosScaleOffset);
   }
-  private static readonly Lazy<nint> _HitboxSetNameOffset = new(() => Schema.GetOffset(0xF6C2B94D6A21BB0E), LazyThreadSafetyMode.None);
+  private static readonly nint _HitboxSetNameOffset = Schema.GetOffset(0xF6C2B94D6A21BB0E);
 
   public string HitboxSetName {
     get {
-      var ptr = _Handle + _HitboxSetNameOffset.Value;
+      var ptr = _Handle + _HitboxSetNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _HitboxSetNameOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _RigidOffset = new(() => Schema.GetOffset(0xF6C2B94DF9ED9C8C), LazyThreadSafetyMode.None);
+  private static readonly nint _RigidOffset = Schema.GetOffset(0xF6C2B94DF9ED9C8C);
 
   public ref bool Rigid {
-    get => ref _Handle.AsRef<bool>(_RigidOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RigidOffset);
   }
-  private static readonly Lazy<nint> _UseBonesOffset = new(() => Schema.GetOffset(0xF6C2B94D10D1938B), LazyThreadSafetyMode.None);
+  private static readonly nint _UseBonesOffset = Schema.GetOffset(0xF6C2B94D10D1938B);
 
   public ref bool UseBones {
-    get => ref _Handle.AsRef<bool>(_UseBonesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseBonesOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xF6C2B94DE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xF6C2B94DE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputPrevOffset = new(() => Schema.GetOffset(0xF6C2B94D68D9463B), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputPrevOffset = Schema.GetOffset(0xF6C2B94D68D9463B);
 
   public ParticleAttributeIndex_t FieldOutputPrev {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputPrevOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputPrevOffset);
   }
-  private static readonly Lazy<nint> _RotationSetTypeOffset = new(() => Schema.GetOffset(0xF6C2B94D084883F9), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationSetTypeOffset = Schema.GetOffset(0xF6C2B94D084883F9);
 
   public ref ParticleRotationLockType_t RotationSetType {
-    get => ref _Handle.AsRef<ParticleRotationLockType_t>(_RotationSetTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleRotationLockType_t>(_RotationSetTypeOffset);
   }
-  private static readonly Lazy<nint> _RigidRotationLockOffset = new(() => Schema.GetOffset(0xF6C2B94D824664C5), LazyThreadSafetyMode.None);
+  private static readonly nint _RigidRotationLockOffset = Schema.GetOffset(0xF6C2B94D824664C5);
 
   public ref bool RigidRotationLock {
-    get => ref _Handle.AsRef<bool>(_RigidRotationLockOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RigidRotationLockOffset);
   }
-  private static readonly Lazy<nint> _RotationOffset = new(() => Schema.GetOffset(0xF6C2B94D1992E6BF), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationOffset = Schema.GetOffset(0xF6C2B94D1992E6BF);
 
   public CPerParticleVecInput Rotation {
-    get => new CPerParticleVecInputImpl(_Handle + _RotationOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _RotationOffset);
   }
-  private static readonly Lazy<nint> _RotLerpOffset = new(() => Schema.GetOffset(0xF6C2B94D2C030C4D), LazyThreadSafetyMode.None);
+  private static readonly nint _RotLerpOffset = Schema.GetOffset(0xF6C2B94D2C030C4D);
 
   public CPerParticleFloatInput RotLerp {
-    get => new CPerParticleFloatInputImpl(_Handle + _RotLerpOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RotLerpOffset);
   }
 
 

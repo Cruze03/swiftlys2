@@ -17,20 +17,20 @@ internal partial class FeSimdAnimStrayRadius_tImpl : SchemaClass, FeSimdAnimStra
   public FeSimdAnimStrayRadius_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0xEEC96A9CCD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0xEEC96A9CCD6694B9);
 
   public SchemaUntypedField Node {
-    get => new SchemaUntypedField(_Handle + _NodeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NodeOffset);
   }
-  private static readonly Lazy<nint> _MaxDistOffset = new(() => Schema.GetOffset(0xEEC96A9CC9FFDD57), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistOffset = Schema.GetOffset(0xEEC96A9CC9FFDD57);
 
   public ref fltx4 MaxDist {
-    get => ref _Handle.AsRef<fltx4>(_MaxDistOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_MaxDistOffset);
   }
-  private static readonly Lazy<nint> _RelaxationFactorOffset = new(() => Schema.GetOffset(0xEEC96A9C357F3BFF), LazyThreadSafetyMode.None);
+  private static readonly nint _RelaxationFactorOffset = Schema.GetOffset(0xEEC96A9C357F3BFF);
 
   public ref fltx4 RelaxationFactor {
-    get => ref _Handle.AsRef<fltx4>(_RelaxationFactorOffset.Value);
+    get => ref _Handle.AsRef<fltx4>(_RelaxationFactorOffset);
   }
 
 

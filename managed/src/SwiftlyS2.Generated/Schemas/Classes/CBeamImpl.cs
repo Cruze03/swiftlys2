@@ -17,123 +17,123 @@ internal partial class CBeamImpl : CBaseModelEntityImpl, CBeam {
   public CBeamImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FrameRateOffset = new(() => Schema.GetOffset(0x4BCF3CE574BE5A46), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameRateOffset = Schema.GetOffset(0x4BCF3CE574BE5A46);
 
   public ref float FrameRate {
-    get => ref _Handle.AsRef<float>(_FrameRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrameRateOffset);
   }
-  private static readonly Lazy<nint> _HDRColorScaleOffset = new(() => Schema.GetOffset(0x4BCF3CE5C930B3E8), LazyThreadSafetyMode.None);
+  private static readonly nint _HDRColorScaleOffset = Schema.GetOffset(0x4BCF3CE5C930B3E8);
 
   public ref float HDRColorScale {
-    get => ref _Handle.AsRef<float>(_HDRColorScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_HDRColorScaleOffset);
   }
-  private static readonly Lazy<nint> _FireTimeOffset = new(() => Schema.GetOffset(0x4BCF3CE5873CD172), LazyThreadSafetyMode.None);
+  private static readonly nint _FireTimeOffset = Schema.GetOffset(0x4BCF3CE5873CD172);
 
   public GameTime_t FireTime {
-    get => new GameTime_tImpl(_Handle + _FireTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FireTimeOffset);
   }
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0x4BCF3CE5DC60E53E), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0x4BCF3CE5DC60E53E);
 
   public ref float Damage {
-    get => ref _Handle.AsRef<float>(_DamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamageOffset);
   }
-  private static readonly Lazy<nint> _NumBeamEntsOffset = new(() => Schema.GetOffset(0x4BCF3CE5D7D7CDFA), LazyThreadSafetyMode.None);
+  private static readonly nint _NumBeamEntsOffset = Schema.GetOffset(0x4BCF3CE5D7D7CDFA);
 
   public ref byte NumBeamEnts {
-    get => ref _Handle.AsRef<byte>(_NumBeamEntsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_NumBeamEntsOffset);
   }
-  private static readonly Lazy<nint> _BaseMaterialOffset = new(() => Schema.GetOffset(0x4BCF3CE55B164FBF), LazyThreadSafetyMode.None);
+  private static readonly nint _BaseMaterialOffset = Schema.GetOffset(0x4BCF3CE55B164FBF);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> BaseMaterial {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_BaseMaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_BaseMaterialOffset);
   }
-  private static readonly Lazy<nint> _HaloIndexOffset = new(() => Schema.GetOffset(0x4BCF3CE5F6B595E1), LazyThreadSafetyMode.None);
+  private static readonly nint _HaloIndexOffset = Schema.GetOffset(0x4BCF3CE5F6B595E1);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> HaloIndex {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_HaloIndexOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_HaloIndexOffset);
   }
-  private static readonly Lazy<nint> _BeamTypeOffset = new(() => Schema.GetOffset(0x4BCF3CE5E65D2926), LazyThreadSafetyMode.None);
+  private static readonly nint _BeamTypeOffset = Schema.GetOffset(0x4BCF3CE5E65D2926);
 
   public ref BeamType_t BeamType {
-    get => ref _Handle.AsRef<BeamType_t>(_BeamTypeOffset.Value);
+    get => ref _Handle.AsRef<BeamType_t>(_BeamTypeOffset);
   }
-  private static readonly Lazy<nint> _BeamFlagsOffset = new(() => Schema.GetOffset(0x4BCF3CE5BB875091), LazyThreadSafetyMode.None);
+  private static readonly nint _BeamFlagsOffset = Schema.GetOffset(0x4BCF3CE5BB875091);
 
   public ref uint BeamFlags {
-    get => ref _Handle.AsRef<uint>(_BeamFlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_BeamFlagsOffset);
   }
   public ISchemaFixedArray<CHandle<CBaseEntity>> AttachEntity {
     get => new SchemaFixedArray<CHandle<CBaseEntity>>(_Handle, 0x4BCF3CE56BCDCAD1, 10, 4, 4);
   }
-  private static readonly Lazy<nint> _AttachIndexOffset = new(() => Schema.GetOffset(0x4BCF3CE5502E5BEC), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachIndexOffset = Schema.GetOffset(0x4BCF3CE5502E5BEC);
 
   public SchemaUntypedField AttachIndex {
-    get => new SchemaUntypedField(_Handle + _AttachIndexOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AttachIndexOffset);
   }
-  private static readonly Lazy<nint> _WidthOffset = new(() => Schema.GetOffset(0x4BCF3CE55A6716D3), LazyThreadSafetyMode.None);
+  private static readonly nint _WidthOffset = Schema.GetOffset(0x4BCF3CE55A6716D3);
 
   public ref float Width {
-    get => ref _Handle.AsRef<float>(_WidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_WidthOffset);
   }
-  private static readonly Lazy<nint> _EndWidthOffset = new(() => Schema.GetOffset(0x4BCF3CE531E2A13A), LazyThreadSafetyMode.None);
+  private static readonly nint _EndWidthOffset = Schema.GetOffset(0x4BCF3CE531E2A13A);
 
   public ref float EndWidth {
-    get => ref _Handle.AsRef<float>(_EndWidthOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndWidthOffset);
   }
-  private static readonly Lazy<nint> _FadeLengthOffset = new(() => Schema.GetOffset(0x4BCF3CE5BDBE91AF), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeLengthOffset = Schema.GetOffset(0x4BCF3CE5BDBE91AF);
 
   public ref float FadeLength {
-    get => ref _Handle.AsRef<float>(_FadeLengthOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeLengthOffset);
   }
-  private static readonly Lazy<nint> _HaloScaleOffset = new(() => Schema.GetOffset(0x4BCF3CE5E01B893B), LazyThreadSafetyMode.None);
+  private static readonly nint _HaloScaleOffset = Schema.GetOffset(0x4BCF3CE5E01B893B);
 
   public ref float HaloScale {
-    get => ref _Handle.AsRef<float>(_HaloScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_HaloScaleOffset);
   }
-  private static readonly Lazy<nint> _AmplitudeOffset = new(() => Schema.GetOffset(0x4BCF3CE56B89E71E), LazyThreadSafetyMode.None);
+  private static readonly nint _AmplitudeOffset = Schema.GetOffset(0x4BCF3CE56B89E71E);
 
   public ref float Amplitude {
-    get => ref _Handle.AsRef<float>(_AmplitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AmplitudeOffset);
   }
-  private static readonly Lazy<nint> _StartFrameOffset = new(() => Schema.GetOffset(0x4BCF3CE5EE6DF5C0), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFrameOffset = Schema.GetOffset(0x4BCF3CE5EE6DF5C0);
 
   public ref float StartFrame {
-    get => ref _Handle.AsRef<float>(_StartFrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFrameOffset);
   }
-  private static readonly Lazy<nint> _SpeedOffset = new(() => Schema.GetOffset(0x4BCF3CE5288671E4), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeedOffset = Schema.GetOffset(0x4BCF3CE5288671E4);
 
   public ref float Speed {
-    get => ref _Handle.AsRef<float>(_SpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpeedOffset);
   }
-  private static readonly Lazy<nint> _FrameOffset = new(() => Schema.GetOffset(0x4BCF3CE5F836C9F4), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameOffset = Schema.GetOffset(0x4BCF3CE5F836C9F4);
 
   public ref float Frame {
-    get => ref _Handle.AsRef<float>(_FrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrameOffset);
   }
-  private static readonly Lazy<nint> _ClipStyleOffset = new(() => Schema.GetOffset(0x4BCF3CE51A311350), LazyThreadSafetyMode.None);
+  private static readonly nint _ClipStyleOffset = Schema.GetOffset(0x4BCF3CE51A311350);
 
   public ref BeamClipStyle_t ClipStyle {
-    get => ref _Handle.AsRef<BeamClipStyle_t>(_ClipStyleOffset.Value);
+    get => ref _Handle.AsRef<BeamClipStyle_t>(_ClipStyleOffset);
   }
-  private static readonly Lazy<nint> _TurnedOffOffset = new(() => Schema.GetOffset(0x4BCF3CE5EC469948), LazyThreadSafetyMode.None);
+  private static readonly nint _TurnedOffOffset = Schema.GetOffset(0x4BCF3CE5EC469948);
 
   public ref bool TurnedOff {
-    get => ref _Handle.AsRef<bool>(_TurnedOffOffset.Value);
+    get => ref _Handle.AsRef<bool>(_TurnedOffOffset);
   }
-  private static readonly Lazy<nint> _EndPosOffset = new(() => Schema.GetOffset(0x4BCF3CE58DD24760), LazyThreadSafetyMode.None);
+  private static readonly nint _EndPosOffset = Schema.GetOffset(0x4BCF3CE58DD24760);
 
   public ref Vector EndPos {
-    get => ref _Handle.AsRef<Vector>(_EndPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EndPosOffset);
   }
-  private static readonly Lazy<nint> _EndEntityOffset = new(() => Schema.GetOffset(0x4BCF3CE561070A9F), LazyThreadSafetyMode.None);
+  private static readonly nint _EndEntityOffset = Schema.GetOffset(0x4BCF3CE561070A9F);
 
   public ref CHandle<CBaseEntity> EndEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EndEntityOffset);
   }
-  private static readonly Lazy<nint> _DissolveTypeOffset = new(() => Schema.GetOffset(0x4BCF3CE579AB525E), LazyThreadSafetyMode.None);
+  private static readonly nint _DissolveTypeOffset = Schema.GetOffset(0x4BCF3CE579AB525E);
 
   public ref int DissolveType {
-    get => ref _Handle.AsRef<int>(_DissolveTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_DissolveTypeOffset);
   }
 
   public void FrameRateUpdated() {

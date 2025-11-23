@@ -17,30 +17,30 @@ internal partial class DynamicMeshDeformParams_tImpl : SchemaClass, DynamicMeshD
   public DynamicMeshDeformParams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TensionCompressScaleOffset = new(() => Schema.GetOffset(0xBC2B1F5B5DC0072F), LazyThreadSafetyMode.None);
+  private static readonly nint _TensionCompressScaleOffset = Schema.GetOffset(0xBC2B1F5B5DC0072F);
 
   public ref float TensionCompressScale {
-    get => ref _Handle.AsRef<float>(_TensionCompressScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TensionCompressScaleOffset);
   }
-  private static readonly Lazy<nint> _TensionStretchScaleOffset = new(() => Schema.GetOffset(0xBC2B1F5B0EC210AA), LazyThreadSafetyMode.None);
+  private static readonly nint _TensionStretchScaleOffset = Schema.GetOffset(0xBC2B1F5B0EC210AA);
 
   public ref float TensionStretchScale {
-    get => ref _Handle.AsRef<float>(_TensionStretchScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TensionStretchScaleOffset);
   }
-  private static readonly Lazy<nint> _RecomputeSmoothNormalsAfterAnimationOffset = new(() => Schema.GetOffset(0xBC2B1F5BAAFD0999), LazyThreadSafetyMode.None);
+  private static readonly nint _RecomputeSmoothNormalsAfterAnimationOffset = Schema.GetOffset(0xBC2B1F5BAAFD0999);
 
   public ref bool RecomputeSmoothNormalsAfterAnimation {
-    get => ref _Handle.AsRef<bool>(_RecomputeSmoothNormalsAfterAnimationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RecomputeSmoothNormalsAfterAnimationOffset);
   }
-  private static readonly Lazy<nint> _ComputeDynamicMeshTensionAfterAnimationOffset = new(() => Schema.GetOffset(0xBC2B1F5BDC02C4E8), LazyThreadSafetyMode.None);
+  private static readonly nint _ComputeDynamicMeshTensionAfterAnimationOffset = Schema.GetOffset(0xBC2B1F5BDC02C4E8);
 
   public ref bool ComputeDynamicMeshTensionAfterAnimation {
-    get => ref _Handle.AsRef<bool>(_ComputeDynamicMeshTensionAfterAnimationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ComputeDynamicMeshTensionAfterAnimationOffset);
   }
-  private static readonly Lazy<nint> _SmoothNormalsAcrossUvSeamsOffset = new(() => Schema.GetOffset(0xBC2B1F5B6719D8D2), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothNormalsAcrossUvSeamsOffset = Schema.GetOffset(0xBC2B1F5B6719D8D2);
 
   public ref bool SmoothNormalsAcrossUvSeams {
-    get => ref _Handle.AsRef<bool>(_SmoothNormalsAcrossUvSeamsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SmoothNormalsAcrossUvSeamsOffset);
   }
 
 

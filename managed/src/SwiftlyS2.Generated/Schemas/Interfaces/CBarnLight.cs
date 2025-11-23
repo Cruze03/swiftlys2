@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CBarnLight : CBaseModelEntity, ISchemaClass<CBarnLight> {
 
   static CBarnLight ISchemaClass<CBarnLight>.From(nint handle) => new CBarnLightImpl(handle);
-  static int ISchemaClass<CBarnLight>.Size => 3552;
+  static int ISchemaClass<CBarnLight>.Size => 2816;
   static string? ISchemaClass<CBarnLight>.ClassName => "light_barn";
 
   

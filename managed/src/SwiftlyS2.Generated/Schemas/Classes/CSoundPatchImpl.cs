@@ -17,78 +17,78 @@ internal partial class CSoundPatchImpl : SchemaClass, CSoundPatch {
   public CSoundPatchImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PitchOffset = new(() => Schema.GetOffset(0xBE66ED3D12AC36D1), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchOffset = Schema.GetOffset(0xBE66ED3D12AC36D1);
 
   public CSoundEnvelope Pitch {
-    get => new CSoundEnvelopeImpl(_Handle + _PitchOffset.Value);
+    get => new CSoundEnvelopeImpl(_Handle + _PitchOffset);
   }
-  private static readonly Lazy<nint> _VolumeOffset = new(() => Schema.GetOffset(0xBE66ED3DE3962F2F), LazyThreadSafetyMode.None);
+  private static readonly nint _VolumeOffset = Schema.GetOffset(0xBE66ED3DE3962F2F);
 
   public CSoundEnvelope Volume {
-    get => new CSoundEnvelopeImpl(_Handle + _VolumeOffset.Value);
+    get => new CSoundEnvelopeImpl(_Handle + _VolumeOffset);
   }
-  private static readonly Lazy<nint> _ShutdownTimeOffset = new(() => Schema.GetOffset(0xBE66ED3DFA135362), LazyThreadSafetyMode.None);
+  private static readonly nint _ShutdownTimeOffset = Schema.GetOffset(0xBE66ED3DFA135362);
 
   public ref float ShutdownTime {
-    get => ref _Handle.AsRef<float>(_ShutdownTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_ShutdownTimeOffset);
   }
-  private static readonly Lazy<nint> _LastTimeOffset = new(() => Schema.GetOffset(0xBE66ED3D2E79549E), LazyThreadSafetyMode.None);
+  private static readonly nint _LastTimeOffset = Schema.GetOffset(0xBE66ED3D2E79549E);
 
   public ref float LastTime {
-    get => ref _Handle.AsRef<float>(_LastTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastTimeOffset);
   }
-  private static readonly Lazy<nint> _SoundScriptNameOffset = new(() => Schema.GetOffset(0xBE66ED3D6486B844), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundScriptNameOffset = Schema.GetOffset(0xBE66ED3D6486B844);
 
   public string SoundScriptName {
     get {
-      var ptr = _Handle.Read<nint>(_SoundScriptNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundScriptNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundScriptNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundScriptNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EntOffset = new(() => Schema.GetOffset(0xBE66ED3D8BBDB334), LazyThreadSafetyMode.None);
+  private static readonly nint _EntOffset = Schema.GetOffset(0xBE66ED3D8BBDB334);
 
   public ref CHandle<CBaseEntity> Ent {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntOffset);
   }
-  private static readonly Lazy<nint> _SoundEntityIndexOffset = new(() => Schema.GetOffset(0xBE66ED3DEC098195), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundEntityIndexOffset = Schema.GetOffset(0xBE66ED3DEC098195);
 
   public ref uint SoundEntityIndex {
-    get => ref _Handle.AsRef<uint>(_SoundEntityIndexOffset.Value);
+    get => ref _Handle.AsRef<uint>(_SoundEntityIndexOffset);
   }
-  private static readonly Lazy<nint> _SoundOriginOffset = new(() => Schema.GetOffset(0xBE66ED3D384D083E), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundOriginOffset = Schema.GetOffset(0xBE66ED3D384D083E);
 
   public ref Vector SoundOrigin {
-    get => ref _Handle.AsRef<Vector>(_SoundOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SoundOriginOffset);
   }
-  private static readonly Lazy<nint> _IsPlayingOffset = new(() => Schema.GetOffset(0xBE66ED3D71CADDE5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPlayingOffset = Schema.GetOffset(0xBE66ED3D71CADDE5);
 
   public ref int IsPlaying {
-    get => ref _Handle.AsRef<int>(_IsPlayingOffset.Value);
+    get => ref _Handle.AsRef<int>(_IsPlayingOffset);
   }
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0xBE66ED3D368220F7), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0xBE66ED3D368220F7);
 
   public CCopyRecipientFilter Filter {
-    get => new CCopyRecipientFilterImpl(_Handle + _FilterOffset.Value);
+    get => new CCopyRecipientFilterImpl(_Handle + _FilterOffset);
   }
-  private static readonly Lazy<nint> _CloseCaptionDurationOffset = new(() => Schema.GetOffset(0xBE66ED3D71B7507D), LazyThreadSafetyMode.None);
+  private static readonly nint _CloseCaptionDurationOffset = Schema.GetOffset(0xBE66ED3D71B7507D);
 
   public ref float CloseCaptionDuration {
-    get => ref _Handle.AsRef<float>(_CloseCaptionDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_CloseCaptionDurationOffset);
   }
-  private static readonly Lazy<nint> _UpdatedSoundOriginOffset = new(() => Schema.GetOffset(0xBE66ED3DACCF22F1), LazyThreadSafetyMode.None);
+  private static readonly nint _UpdatedSoundOriginOffset = Schema.GetOffset(0xBE66ED3DACCF22F1);
 
   public ref bool UpdatedSoundOrigin {
-    get => ref _Handle.AsRef<bool>(_UpdatedSoundOriginOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UpdatedSoundOriginOffset);
   }
-  private static readonly Lazy<nint> _ClassNameOffset = new(() => Schema.GetOffset(0xBE66ED3D71BB2314), LazyThreadSafetyMode.None);
+  private static readonly nint _ClassNameOffset = Schema.GetOffset(0xBE66ED3D71BB2314);
 
   public string ClassName {
     get {
-      var ptr = _Handle.Read<nint>(_ClassNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ClassNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ClassNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ClassNameOffset, value);
   } 
 
 

@@ -17,15 +17,15 @@ internal partial class MotionIndexImpl : SchemaClass, MotionIndex {
   public MotionIndexImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GroupOffset = new(() => Schema.GetOffset(0x5914302D0CD16308), LazyThreadSafetyMode.None);
+  private static readonly nint _GroupOffset = Schema.GetOffset(0x5914302D0CD16308);
 
   public ref ushort Group {
-    get => ref _Handle.AsRef<ushort>(_GroupOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_GroupOffset);
   }
-  private static readonly Lazy<nint> _MotionOffset = new(() => Schema.GetOffset(0x5914302DBB2E0DCB), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionOffset = Schema.GetOffset(0x5914302DBB2E0DCB);
 
   public ref ushort Motion {
-    get => ref _Handle.AsRef<ushort>(_MotionOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_MotionOffset);
   }
 
 

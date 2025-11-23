@@ -17,40 +17,40 @@ internal partial class FeAntiTunnelProbeBuild_tImpl : SchemaClass, FeAntiTunnelP
   public FeAntiTunnelProbeBuild_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x71B6F8ABCFFC66CB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x71B6F8ABCFFC66CB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
-  private static readonly Lazy<nint> _ActivationDistanceOffset = new(() => Schema.GetOffset(0x71B6F8ABEAB1A998), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivationDistanceOffset = Schema.GetOffset(0x71B6F8ABEAB1A998);
 
   public ref float ActivationDistance {
-    get => ref _Handle.AsRef<float>(_ActivationDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_ActivationDistanceOffset);
   }
-  private static readonly Lazy<nint> _BiasOffset = new(() => Schema.GetOffset(0x71B6F8AB30667CD6), LazyThreadSafetyMode.None);
+  private static readonly nint _BiasOffset = Schema.GetOffset(0x71B6F8AB30667CD6);
 
   public ref float Bias {
-    get => ref _Handle.AsRef<float>(_BiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_BiasOffset);
   }
-  private static readonly Lazy<nint> _CurvatureOffset = new(() => Schema.GetOffset(0x71B6F8ABF5F69668), LazyThreadSafetyMode.None);
+  private static readonly nint _CurvatureOffset = Schema.GetOffset(0x71B6F8ABF5F69668);
 
   public ref float Curvature {
-    get => ref _Handle.AsRef<float>(_CurvatureOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurvatureOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x71B6F8ABB8D52E48), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x71B6F8ABB8D52E48);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _ProbeNodeOffset = new(() => Schema.GetOffset(0x71B6F8AB5F3CB12D), LazyThreadSafetyMode.None);
+  private static readonly nint _ProbeNodeOffset = Schema.GetOffset(0x71B6F8AB5F3CB12D);
 
   public ref ushort ProbeNode {
-    get => ref _Handle.AsRef<ushort>(_ProbeNodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ProbeNodeOffset);
   }
-  private static readonly Lazy<nint> _TargetNodesOffset = new(() => Schema.GetOffset(0x71B6F8AB4BCFFCA5), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetNodesOffset = Schema.GetOffset(0x71B6F8AB4BCFFCA5);
 
   public ref CUtlVector<ushort> TargetNodes {
-    get => ref _Handle.AsRef<CUtlVector<ushort>>(_TargetNodesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ushort>>(_TargetNodesOffset);
   }
 
 

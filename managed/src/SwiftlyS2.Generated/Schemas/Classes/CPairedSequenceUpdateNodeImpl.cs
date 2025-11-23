@@ -17,10 +17,10 @@ internal partial class CPairedSequenceUpdateNodeImpl : CSequenceUpdateNodeBaseIm
   public CPairedSequenceUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PairedSequenceRoleOffset = new(() => Schema.GetOffset(0xB2B6F0EB4A4CFB12), LazyThreadSafetyMode.None);
+  private static readonly nint _PairedSequenceRoleOffset = Schema.GetOffset(0xB2B6F0EB4A4CFB12);
 
   public ref CGlobalSymbol PairedSequenceRole {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_PairedSequenceRoleOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_PairedSequenceRoleOffset);
   }
 
 

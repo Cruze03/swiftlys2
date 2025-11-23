@@ -17,55 +17,55 @@ internal partial class CPathKeyFrameImpl : CLogicalEntityImpl, CPathKeyFrame {
   public CPathKeyFrameImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OriginOffset = new(() => Schema.GetOffset(0x34025185482052CF), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginOffset = Schema.GetOffset(0x34025185482052CF);
 
   public ref Vector Origin {
-    get => ref _Handle.AsRef<Vector>(_OriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OriginOffset);
   }
-  private static readonly Lazy<nint> _AnglesOffset = new(() => Schema.GetOffset(0x34025185B5486CF1), LazyThreadSafetyMode.None);
+  private static readonly nint _AnglesOffset = Schema.GetOffset(0x34025185B5486CF1);
 
   public ref QAngle Angles {
-    get => ref _Handle.AsRef<QAngle>(_AnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_AnglesOffset);
   }
-  private static readonly Lazy<nint> _AngleOffset = new(() => Schema.GetOffset(0x34025185CE339C27), LazyThreadSafetyMode.None);
+  private static readonly nint _AngleOffset = Schema.GetOffset(0x34025185CE339C27);
 
   public ref Quaternion Angle {
-    get => ref _Handle.AsRef<Quaternion>(_AngleOffset.Value);
+    get => ref _Handle.AsRef<Quaternion>(_AngleOffset);
   }
-  private static readonly Lazy<nint> _NextKeyOffset = new(() => Schema.GetOffset(0x340251858326E814), LazyThreadSafetyMode.None);
+  private static readonly nint _NextKeyOffset = Schema.GetOffset(0x340251858326E814);
 
   public string NextKey {
     get {
-      var ptr = _Handle.Read<nint>(_NextKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_NextKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NextKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _NextKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _NextTimeOffset = new(() => Schema.GetOffset(0x340251854F129C67), LazyThreadSafetyMode.None);
+  private static readonly nint _NextTimeOffset = Schema.GetOffset(0x340251854F129C67);
 
   public ref float NextTime {
-    get => ref _Handle.AsRef<float>(_NextTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_NextTimeOffset);
   }
-  private static readonly Lazy<nint> _NextKey1Offset = new(() => Schema.GetOffset(0x3402518585EE45D5), LazyThreadSafetyMode.None);
+  private static readonly nint _NextKey1Offset = Schema.GetOffset(0x3402518585EE45D5);
 
   public CPathKeyFrame? NextKey1 {
     get {
-      var ptr = _Handle.Read<nint>(_NextKey1Offset.Value);
+      var ptr = _Handle.Read<nint>(_NextKey1Offset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _PrevKeyOffset = new(() => Schema.GetOffset(0x34025185B9327481), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevKeyOffset = Schema.GetOffset(0x34025185B9327481);
 
   public CPathKeyFrame? PrevKey {
     get {
-      var ptr = _Handle.Read<nint>(_PrevKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_PrevKeyOffset);
       return ptr.IsValidPtr() ? new CPathKeyFrameImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _MoveSpeedOffset = new(() => Schema.GetOffset(0x3402518566D18279), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveSpeedOffset = Schema.GetOffset(0x3402518566D18279);
 
   public ref float MoveSpeed {
-    get => ref _Handle.AsRef<float>(_MoveSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_MoveSpeedOffset);
   }
 
 

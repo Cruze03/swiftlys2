@@ -17,15 +17,15 @@ internal partial class CItemDogtagsImpl : CItemImpl, CItemDogtags {
   public CItemDogtagsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OwningPlayerOffset = new(() => Schema.GetOffset(0x69879A78258F5D24), LazyThreadSafetyMode.None);
+  private static readonly nint _OwningPlayerOffset = Schema.GetOffset(0x69879A78258F5D24);
 
   public ref CHandle<CCSPlayerPawn> OwningPlayer {
-    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_OwningPlayerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_OwningPlayerOffset);
   }
-  private static readonly Lazy<nint> _KillingPlayerOffset = new(() => Schema.GetOffset(0x69879A784617E6C6), LazyThreadSafetyMode.None);
+  private static readonly nint _KillingPlayerOffset = Schema.GetOffset(0x69879A784617E6C6);
 
   public ref CHandle<CCSPlayerPawn> KillingPlayer {
-    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_KillingPlayerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CCSPlayerPawn>>(_KillingPlayerOffset);
   }
 
   public void OwningPlayerUpdated() {

@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmStateNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmStateNode__CDefinition> {
 
   static CNmStateNode__CDefinition ISchemaClass<CNmStateNode__CDefinition>.From(nint handle) => new CNmStateNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmStateNode__CDefinition>.Size => 168;
+  static int ISchemaClass<CNmStateNode__CDefinition>.Size => 176;
   static string? ISchemaClass<CNmStateNode__CDefinition>.ClassName => null;
 
   

@@ -17,61 +17,61 @@ internal partial class CSoundOpvarSetEntityImpl : CBaseEntityImpl, CSoundOpvarSe
   public CSoundOpvarSetEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StackNameOffset = new(() => Schema.GetOffset(0xAF468F963B3E9CD4), LazyThreadSafetyMode.None);
+  private static readonly nint _StackNameOffset = Schema.GetOffset(0xAF468F963B3E9CD4);
 
   public string StackName {
     get {
-      var ptr = _Handle.Read<nint>(_StackNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StackNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StackNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StackNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OperatorNameOffset = new(() => Schema.GetOffset(0xAF468F96F6140996), LazyThreadSafetyMode.None);
+  private static readonly nint _OperatorNameOffset = Schema.GetOffset(0xAF468F96F6140996);
 
   public string OperatorName {
     get {
-      var ptr = _Handle.Read<nint>(_OperatorNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OperatorNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OperatorNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OperatorNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OpvarNameOffset = new(() => Schema.GetOffset(0xAF468F962CAEFF3C), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarNameOffset = Schema.GetOffset(0xAF468F962CAEFF3C);
 
   public string OpvarName {
     get {
-      var ptr = _Handle.Read<nint>(_OpvarNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OpvarNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OpvarNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OpvarNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OpvarTypeOffset = new(() => Schema.GetOffset(0xAF468F96752C1313), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarTypeOffset = Schema.GetOffset(0xAF468F96752C1313);
 
   public ref int OpvarType {
-    get => ref _Handle.AsRef<int>(_OpvarTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_OpvarTypeOffset);
   }
-  private static readonly Lazy<nint> _OpvarIndexOffset = new(() => Schema.GetOffset(0xAF468F962482CE01), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarIndexOffset = Schema.GetOffset(0xAF468F962482CE01);
 
   public ref int OpvarIndex {
-    get => ref _Handle.AsRef<int>(_OpvarIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_OpvarIndexOffset);
   }
-  private static readonly Lazy<nint> _OpvarValueOffset = new(() => Schema.GetOffset(0xAF468F96D0681AAE), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarValueOffset = Schema.GetOffset(0xAF468F96D0681AAE);
 
   public ref float OpvarValue {
-    get => ref _Handle.AsRef<float>(_OpvarValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_OpvarValueOffset);
   }
-  private static readonly Lazy<nint> _OpvarValueStringOffset = new(() => Schema.GetOffset(0xAF468F96D2422B1D), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarValueStringOffset = Schema.GetOffset(0xAF468F96D2422B1D);
 
   public string OpvarValueString {
     get {
-      var ptr = _Handle.Read<nint>(_OpvarValueStringOffset.Value);
+      var ptr = _Handle.Read<nint>(_OpvarValueStringOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OpvarValueStringOffset.Value, value);
+    set => Schema.SetString(_Handle, _OpvarValueStringOffset, value);
   } 
-  private static readonly Lazy<nint> _SetOnSpawnOffset = new(() => Schema.GetOffset(0xAF468F96749B637D), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOnSpawnOffset = Schema.GetOffset(0xAF468F96749B637D);
 
   public ref bool SetOnSpawn {
-    get => ref _Handle.AsRef<bool>(_SetOnSpawnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOnSpawnOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class CNmCachedBoolNode__CDefinitionImpl : CNmBoolValueNode__CD
   public CNmCachedBoolNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x4BFAE2E795E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x4BFAE2E795E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0x4BFAE2E790FD5BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0x4BFAE2E790FD5BB2);
 
   public ref NmCachedValueMode_t Mode {
-    get => ref _Handle.AsRef<NmCachedValueMode_t>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<NmCachedValueMode_t>(_ModeOffset);
   }
 
 

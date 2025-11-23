@@ -17,25 +17,25 @@ internal partial class CountdownTimerImpl : SchemaClass, CountdownTimer {
   public CountdownTimerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x8A632F13D9FF5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x8A632F13D9FF5AD);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _TimestampOffset = new(() => Schema.GetOffset(0x8A632F1B6C56F43), LazyThreadSafetyMode.None);
+  private static readonly nint _TimestampOffset = Schema.GetOffset(0x8A632F1B6C56F43);
 
   public GameTime_t Timestamp {
-    get => new GameTime_tImpl(_Handle + _TimestampOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimestampOffset);
   }
-  private static readonly Lazy<nint> _TimescaleOffset = new(() => Schema.GetOffset(0x8A632F18A240BBE), LazyThreadSafetyMode.None);
+  private static readonly nint _TimescaleOffset = Schema.GetOffset(0x8A632F18A240BBE);
 
   public ref float Timescale {
-    get => ref _Handle.AsRef<float>(_TimescaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimescaleOffset);
   }
-  private static readonly Lazy<nint> _WorldGroupIdOffset = new(() => Schema.GetOffset(0x8A632F17414B193), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldGroupIdOffset = Schema.GetOffset(0x8A632F17414B193);
 
   public ref uint WorldGroupId {
-    get => ref _Handle.AsRef<uint>(_WorldGroupIdOffset.Value);
+    get => ref _Handle.AsRef<uint>(_WorldGroupIdOffset);
   }
 
   public void DurationUpdated() {

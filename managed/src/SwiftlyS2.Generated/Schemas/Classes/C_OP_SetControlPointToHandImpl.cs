@@ -17,25 +17,25 @@ internal partial class C_OP_SetControlPointToHandImpl : CParticleFunctionPreEmis
   public C_OP_SetControlPointToHandImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0x5D527B26D4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0x5D527B26D4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _HandOffset = new(() => Schema.GetOffset(0x5D527B26D49ECB4C), LazyThreadSafetyMode.None);
+  private static readonly nint _HandOffset = Schema.GetOffset(0x5D527B26D49ECB4C);
 
   public ref int Hand {
-    get => ref _Handle.AsRef<int>(_HandOffset.Value);
+    get => ref _Handle.AsRef<int>(_HandOffset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0x5D527B26408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0x5D527B26408288D9);
 
   public ref Vector CP1Pos {
-    get => ref _Handle.AsRef<Vector>(_CP1PosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CP1PosOffset);
   }
-  private static readonly Lazy<nint> _OrientToHandOffset = new(() => Schema.GetOffset(0x5D527B26372CF7D8), LazyThreadSafetyMode.None);
+  private static readonly nint _OrientToHandOffset = Schema.GetOffset(0x5D527B26372CF7D8);
 
   public ref bool OrientToHand {
-    get => ref _Handle.AsRef<bool>(_OrientToHandOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OrientToHandOffset);
   }
 
 

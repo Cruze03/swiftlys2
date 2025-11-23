@@ -17,10 +17,10 @@ internal partial class CPhysicsWireImpl : CBaseEntityImpl, CPhysicsWire {
   public CPhysicsWireImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DensityOffset = new(() => Schema.GetOffset(0x455AFD76A65E630F), LazyThreadSafetyMode.None);
+  private static readonly nint _DensityOffset = Schema.GetOffset(0x455AFD76A65E630F);
 
   public ref int Density {
-    get => ref _Handle.AsRef<int>(_DensityOffset.Value);
+    get => ref _Handle.AsRef<int>(_DensityOffset);
   }
 
 

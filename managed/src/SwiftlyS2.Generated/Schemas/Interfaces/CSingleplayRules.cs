@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CSingleplayRules : CGameRules, ISchemaClass<CSingleplayRules> {
 
   static CSingleplayRules ISchemaClass<CSingleplayRules>.From(nint handle) => new CSingleplayRulesImpl(handle);
-  static int ISchemaClass<CSingleplayRules>.Size => 192;
+  static int ISchemaClass<CSingleplayRules>.Size => 200;
   static string? ISchemaClass<CSingleplayRules>.ClassName => null;
 
   

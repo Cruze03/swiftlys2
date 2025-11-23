@@ -17,20 +17,20 @@ internal partial class CParticleFunctionRendererImpl : CParticleFunctionImpl, CP
   public CParticleFunctionRendererImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _VisibilityInputsOffset = new(() => Schema.GetOffset(0xAE332DA3CF8264F8), LazyThreadSafetyMode.None);
+  private static readonly nint _VisibilityInputsOffset = Schema.GetOffset(0xAE332DA3CF8264F8);
 
   public CParticleVisibilityInputs VisibilityInputs {
-    get => new CParticleVisibilityInputsImpl(_Handle + _VisibilityInputsOffset.Value);
+    get => new CParticleVisibilityInputsImpl(_Handle + _VisibilityInputsOffset);
   }
-  private static readonly Lazy<nint> _CannotBeRefractedOffset = new(() => Schema.GetOffset(0xAE332DA3CC78C4FB), LazyThreadSafetyMode.None);
+  private static readonly nint _CannotBeRefractedOffset = Schema.GetOffset(0xAE332DA3CC78C4FB);
 
   public ref bool CannotBeRefracted {
-    get => ref _Handle.AsRef<bool>(_CannotBeRefractedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CannotBeRefractedOffset);
   }
-  private static readonly Lazy<nint> _SkipRenderingOnMobileOffset = new(() => Schema.GetOffset(0xAE332DA33F34EA75), LazyThreadSafetyMode.None);
+  private static readonly nint _SkipRenderingOnMobileOffset = Schema.GetOffset(0xAE332DA33F34EA75);
 
   public ref bool SkipRenderingOnMobile {
-    get => ref _Handle.AsRef<bool>(_SkipRenderingOnMobileOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SkipRenderingOnMobileOffset);
   }
 
 

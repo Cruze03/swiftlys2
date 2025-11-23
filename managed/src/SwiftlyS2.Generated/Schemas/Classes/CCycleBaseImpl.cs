@@ -17,10 +17,10 @@ internal partial class CCycleBaseImpl : SchemaClass, CCycleBase {
   public CCycleBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CycleOffset = new(() => Schema.GetOffset(0x8FBE16990C77829F), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleOffset = Schema.GetOffset(0x8FBE16990C77829F);
 
   public ref float Cycle {
-    get => ref _Handle.AsRef<float>(_CycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleOffset);
   }
 
 

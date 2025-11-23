@@ -17,20 +17,20 @@ internal partial class FeFollowNode_tImpl : SchemaClass, FeFollowNode_t {
   public FeFollowNode_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParentNodeOffset = new(() => Schema.GetOffset(0x8BE908126CBBA7F9), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentNodeOffset = Schema.GetOffset(0x8BE908126CBBA7F9);
 
   public ref ushort ParentNode {
-    get => ref _Handle.AsRef<ushort>(_ParentNodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ParentNodeOffset);
   }
-  private static readonly Lazy<nint> _ChildNodeOffset = new(() => Schema.GetOffset(0x8BE9081292A8E0E9), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildNodeOffset = Schema.GetOffset(0x8BE9081292A8E0E9);
 
   public ref ushort ChildNode {
-    get => ref _Handle.AsRef<ushort>(_ChildNodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ChildNodeOffset);
   }
-  private static readonly Lazy<nint> _WeightOffset = new(() => Schema.GetOffset(0x8BE90812CFFC66CB), LazyThreadSafetyMode.None);
+  private static readonly nint _WeightOffset = Schema.GetOffset(0x8BE90812CFFC66CB);
 
   public ref float Weight {
-    get => ref _Handle.AsRef<float>(_WeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_WeightOffset);
   }
 
 

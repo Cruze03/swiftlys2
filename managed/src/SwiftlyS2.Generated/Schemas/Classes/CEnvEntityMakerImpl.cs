@@ -17,69 +17,69 @@ internal partial class CEnvEntityMakerImpl : CPointEntityImpl, CEnvEntityMaker {
   public CEnvEntityMakerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntityMinsOffset = new(() => Schema.GetOffset(0x5EC16696C39F1E27), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityMinsOffset = Schema.GetOffset(0x5EC16696C39F1E27);
 
   public ref Vector EntityMins {
-    get => ref _Handle.AsRef<Vector>(_EntityMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EntityMinsOffset);
   }
-  private static readonly Lazy<nint> _EntityMaxsOffset = new(() => Schema.GetOffset(0x5EC166965CBE958D), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityMaxsOffset = Schema.GetOffset(0x5EC166965CBE958D);
 
   public ref Vector EntityMaxs {
-    get => ref _Handle.AsRef<Vector>(_EntityMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EntityMaxsOffset);
   }
-  private static readonly Lazy<nint> _CurrentInstanceOffset = new(() => Schema.GetOffset(0x5EC166969C4BA153), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentInstanceOffset = Schema.GetOffset(0x5EC166969C4BA153);
 
   public ref CHandle<CBaseEntity> CurrentInstance {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentInstanceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentInstanceOffset);
   }
-  private static readonly Lazy<nint> _CurrentBlockerOffset = new(() => Schema.GetOffset(0x5EC1669684284A72), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentBlockerOffset = Schema.GetOffset(0x5EC1669684284A72);
 
   public ref CHandle<CBaseEntity> CurrentBlocker {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentBlockerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_CurrentBlockerOffset);
   }
-  private static readonly Lazy<nint> _BlockerOriginOffset = new(() => Schema.GetOffset(0x5EC16696987D753F), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockerOriginOffset = Schema.GetOffset(0x5EC16696987D753F);
 
   public ref Vector BlockerOrigin {
-    get => ref _Handle.AsRef<Vector>(_BlockerOriginOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BlockerOriginOffset);
   }
-  private static readonly Lazy<nint> _PostSpawnDirectionOffset = new(() => Schema.GetOffset(0x5EC16696226D1B99), LazyThreadSafetyMode.None);
+  private static readonly nint _PostSpawnDirectionOffset = Schema.GetOffset(0x5EC16696226D1B99);
 
   public ref QAngle PostSpawnDirection {
-    get => ref _Handle.AsRef<QAngle>(_PostSpawnDirectionOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_PostSpawnDirectionOffset);
   }
-  private static readonly Lazy<nint> _PostSpawnDirectionVarianceOffset = new(() => Schema.GetOffset(0x5EC166965FA89D66), LazyThreadSafetyMode.None);
+  private static readonly nint _PostSpawnDirectionVarianceOffset = Schema.GetOffset(0x5EC166965FA89D66);
 
   public ref float PostSpawnDirectionVariance {
-    get => ref _Handle.AsRef<float>(_PostSpawnDirectionVarianceOffset.Value);
+    get => ref _Handle.AsRef<float>(_PostSpawnDirectionVarianceOffset);
   }
-  private static readonly Lazy<nint> _PostSpawnSpeedOffset = new(() => Schema.GetOffset(0x5EC16696C4D43237), LazyThreadSafetyMode.None);
+  private static readonly nint _PostSpawnSpeedOffset = Schema.GetOffset(0x5EC16696C4D43237);
 
   public ref float PostSpawnSpeed {
-    get => ref _Handle.AsRef<float>(_PostSpawnSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_PostSpawnSpeedOffset);
   }
-  private static readonly Lazy<nint> _PostSpawnUseAnglesOffset = new(() => Schema.GetOffset(0x5EC1669689448F21), LazyThreadSafetyMode.None);
+  private static readonly nint _PostSpawnUseAnglesOffset = Schema.GetOffset(0x5EC1669689448F21);
 
   public ref bool PostSpawnUseAngles {
-    get => ref _Handle.AsRef<bool>(_PostSpawnUseAnglesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PostSpawnUseAnglesOffset);
   }
-  private static readonly Lazy<nint> _TemplateOffset = new(() => Schema.GetOffset(0x5EC16696F24EC223), LazyThreadSafetyMode.None);
+  private static readonly nint _TemplateOffset = Schema.GetOffset(0x5EC16696F24EC223);
 
   public string Template {
     get {
-      var ptr = _Handle.Read<nint>(_TemplateOffset.Value);
+      var ptr = _Handle.Read<nint>(_TemplateOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TemplateOffset.Value, value);
+    set => Schema.SetString(_Handle, _TemplateOffset, value);
   } 
-  private static readonly Lazy<nint> _OutputOnSpawnedOffset = new(() => Schema.GetOffset(0x5EC1669629B86CFF), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputOnSpawnedOffset = Schema.GetOffset(0x5EC1669629B86CFF);
 
   public CEntityIOOutput OutputOnSpawned {
-    get => new CEntityIOOutputImpl(_Handle + _OutputOnSpawnedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OutputOnSpawnedOffset);
   }
-  private static readonly Lazy<nint> _OutputOnFailedSpawnOffset = new(() => Schema.GetOffset(0x5EC16696EBDC0A35), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputOnFailedSpawnOffset = Schema.GetOffset(0x5EC16696EBDC0A35);
 
   public CEntityIOOutput OutputOnFailedSpawn {
-    get => new CEntityIOOutputImpl(_Handle + _OutputOnFailedSpawnOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OutputOnFailedSpawnOffset);
   }
 
 

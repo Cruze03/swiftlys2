@@ -17,99 +17,99 @@ internal partial class CModelConfigElement_AttachedModelImpl : CModelConfigEleme
   public CModelConfigElement_AttachedModelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InstanceNameOffset = new(() => Schema.GetOffset(0x82D04A99643AE8F9), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceNameOffset = Schema.GetOffset(0x82D04A99643AE8F9);
 
   public string InstanceName {
     get {
-      var ptr = _Handle.Read<nint>(_InstanceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_InstanceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InstanceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _InstanceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _EntityClassOffset = new(() => Schema.GetOffset(0x82D04A995BEE014A), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityClassOffset = Schema.GetOffset(0x82D04A995BEE014A);
 
   public string EntityClass {
     get {
-      var ptr = _Handle.Read<nint>(_EntityClassOffset.Value);
+      var ptr = _Handle.Read<nint>(_EntityClassOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EntityClassOffset.Value, value);
+    set => Schema.SetString(_Handle, _EntityClassOffset, value);
   } 
-  private static readonly Lazy<nint> _ModelOffset = new(() => Schema.GetOffset(0x82D04A99E100C814), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelOffset = Schema.GetOffset(0x82D04A99E100C814);
 
   public ref CStrongHandle<InfoForResourceTypeCModel> Model {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCModel>>(_ModelOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x82D04A99FE159136), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x82D04A99FE159136);
 
   public ref Vector Offset {
-    get => ref _Handle.AsRef<Vector>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _AngOffsetOffset = new(() => Schema.GetOffset(0x82D04A9971C0EE4F), LazyThreadSafetyMode.None);
+  private static readonly nint _AngOffsetOffset = Schema.GetOffset(0x82D04A9971C0EE4F);
 
   public ref QAngle AngOffset {
-    get => ref _Handle.AsRef<QAngle>(_AngOffsetOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_AngOffsetOffset);
   }
-  private static readonly Lazy<nint> _AttachmentNameOffset = new(() => Schema.GetOffset(0x82D04A999CFCA76B), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentNameOffset = Schema.GetOffset(0x82D04A999CFCA76B);
 
   public string AttachmentName {
     get {
-      var ptr = _Handle.Read<nint>(_AttachmentNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttachmentNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttachmentNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttachmentNameOffset, value);
   } 
-  private static readonly Lazy<nint> _LocalAttachmentOffsetNameOffset = new(() => Schema.GetOffset(0x82D04A9934391DC1), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalAttachmentOffsetNameOffset = Schema.GetOffset(0x82D04A9934391DC1);
 
   public string LocalAttachmentOffsetName {
     get {
-      var ptr = _Handle.Read<nint>(_LocalAttachmentOffsetNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_LocalAttachmentOffsetNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LocalAttachmentOffsetNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _LocalAttachmentOffsetNameOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachmentTypeOffset = new(() => Schema.GetOffset(0x82D04A99EB2E2AA0), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentTypeOffset = Schema.GetOffset(0x82D04A99EB2E2AA0);
 
   public ref ModelConfigAttachmentType_t AttachmentType {
-    get => ref _Handle.AsRef<ModelConfigAttachmentType_t>(_AttachmentTypeOffset.Value);
+    get => ref _Handle.AsRef<ModelConfigAttachmentType_t>(_AttachmentTypeOffset);
   }
-  private static readonly Lazy<nint> _BoneMergeFlexOffset = new(() => Schema.GetOffset(0x82D04A998B6BC852), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneMergeFlexOffset = Schema.GetOffset(0x82D04A998B6BC852);
 
   public ref bool BoneMergeFlex {
-    get => ref _Handle.AsRef<bool>(_BoneMergeFlexOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BoneMergeFlexOffset);
   }
-  private static readonly Lazy<nint> _UserSpecifiedColorOffset = new(() => Schema.GetOffset(0x82D04A9952ADA09B), LazyThreadSafetyMode.None);
+  private static readonly nint _UserSpecifiedColorOffset = Schema.GetOffset(0x82D04A9952ADA09B);
 
   public ref bool UserSpecifiedColor {
-    get => ref _Handle.AsRef<bool>(_UserSpecifiedColorOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UserSpecifiedColorOffset);
   }
-  private static readonly Lazy<nint> _UserSpecifiedMaterialGroupOffset = new(() => Schema.GetOffset(0x82D04A99DBD8A8C4), LazyThreadSafetyMode.None);
+  private static readonly nint _UserSpecifiedMaterialGroupOffset = Schema.GetOffset(0x82D04A99DBD8A8C4);
 
   public ref bool UserSpecifiedMaterialGroup {
-    get => ref _Handle.AsRef<bool>(_UserSpecifiedMaterialGroupOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UserSpecifiedMaterialGroupOffset);
   }
-  private static readonly Lazy<nint> _AcceptParentMaterialDrivenDecalsOffset = new(() => Schema.GetOffset(0x82D04A996A2FFA80), LazyThreadSafetyMode.None);
+  private static readonly nint _AcceptParentMaterialDrivenDecalsOffset = Schema.GetOffset(0x82D04A996A2FFA80);
 
   public ref bool AcceptParentMaterialDrivenDecals {
-    get => ref _Handle.AsRef<bool>(_AcceptParentMaterialDrivenDecalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AcceptParentMaterialDrivenDecalsOffset);
   }
-  private static readonly Lazy<nint> _BodygroupOnOtherModelsOffset = new(() => Schema.GetOffset(0x82D04A994536DE3B), LazyThreadSafetyMode.None);
+  private static readonly nint _BodygroupOnOtherModelsOffset = Schema.GetOffset(0x82D04A994536DE3B);
 
   public string BodygroupOnOtherModels {
     get {
-      var ptr = _Handle.Read<nint>(_BodygroupOnOtherModelsOffset.Value);
+      var ptr = _Handle.Read<nint>(_BodygroupOnOtherModelsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BodygroupOnOtherModelsOffset.Value, value);
+    set => Schema.SetString(_Handle, _BodygroupOnOtherModelsOffset, value);
   } 
-  private static readonly Lazy<nint> _MaterialGroupOnOtherModelsOffset = new(() => Schema.GetOffset(0x82D04A9959E9920E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialGroupOnOtherModelsOffset = Schema.GetOffset(0x82D04A9959E9920E);
 
   public string MaterialGroupOnOtherModels {
     get {
-      var ptr = _Handle.Read<nint>(_MaterialGroupOnOtherModelsOffset.Value);
+      var ptr = _Handle.Read<nint>(_MaterialGroupOnOtherModelsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MaterialGroupOnOtherModelsOffset.Value, value);
+    set => Schema.SetString(_Handle, _MaterialGroupOnOtherModelsOffset, value);
   } 
 
 

@@ -17,25 +17,25 @@ internal partial class CSingleFrameUpdateNodeImpl : CLeafUpdateNodeImpl, CSingle
   public CSingleFrameUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActionsOffset = new(() => Schema.GetOffset(0x5A65D6168D622684), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionsOffset = Schema.GetOffset(0x5A65D6168D622684);
 
   public ref CUtlVector<SchemaUntypedField> Actions {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ActionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_ActionsOffset);
   }
-  private static readonly Lazy<nint> _PoseCacheHandleOffset = new(() => Schema.GetOffset(0x5A65D6164719447A), LazyThreadSafetyMode.None);
+  private static readonly nint _PoseCacheHandleOffset = Schema.GetOffset(0x5A65D6164719447A);
 
   public CPoseHandle PoseCacheHandle {
-    get => new CPoseHandleImpl(_Handle + _PoseCacheHandleOffset.Value);
+    get => new CPoseHandleImpl(_Handle + _PoseCacheHandleOffset);
   }
-  private static readonly Lazy<nint> _SequenceOffset = new(() => Schema.GetOffset(0x5A65D616E0A0598E), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceOffset = Schema.GetOffset(0x5A65D616E0A0598E);
 
   public HSequence Sequence {
-    get => new HSequenceImpl(_Handle + _SequenceOffset.Value);
+    get => new HSequenceImpl(_Handle + _SequenceOffset);
   }
-  private static readonly Lazy<nint> _CycleOffset = new(() => Schema.GetOffset(0x5A65D6160C77829F), LazyThreadSafetyMode.None);
+  private static readonly nint _CycleOffset = Schema.GetOffset(0x5A65D6160C77829F);
 
   public ref float Cycle {
-    get => ref _Handle.AsRef<float>(_CycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_CycleOffset);
   }
 
 

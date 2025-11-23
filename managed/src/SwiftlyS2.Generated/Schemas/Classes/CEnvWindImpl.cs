@@ -17,10 +17,10 @@ internal partial class CEnvWindImpl : CBaseEntityImpl, CEnvWind {
   public CEnvWindImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnvWindSharedOffset = new(() => Schema.GetOffset(0x39465FB775DDCB0F), LazyThreadSafetyMode.None);
+  private static readonly nint _EnvWindSharedOffset = Schema.GetOffset(0x39465FB775DDCB0F);
 
   public CEnvWindShared EnvWindShared {
-    get => new CEnvWindSharedImpl(_Handle + _EnvWindSharedOffset.Value);
+    get => new CEnvWindSharedImpl(_Handle + _EnvWindSharedOffset);
   }
 
   public void EnvWindSharedUpdated() {

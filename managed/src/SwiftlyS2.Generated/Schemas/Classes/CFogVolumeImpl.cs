@@ -17,42 +17,42 @@ internal partial class CFogVolumeImpl : CServerOnlyModelEntityImpl, CFogVolume {
   public CFogVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FogNameOffset = new(() => Schema.GetOffset(0x670FE9BC72E45F7C), LazyThreadSafetyMode.None);
+  private static readonly nint _FogNameOffset = Schema.GetOffset(0x670FE9BC72E45F7C);
 
   public string FogName {
     get {
-      var ptr = _Handle.Read<nint>(_FogNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FogNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FogNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FogNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PostProcessNameOffset = new(() => Schema.GetOffset(0x670FE9BCAA94630F), LazyThreadSafetyMode.None);
+  private static readonly nint _PostProcessNameOffset = Schema.GetOffset(0x670FE9BCAA94630F);
 
   public string PostProcessName {
     get {
-      var ptr = _Handle.Read<nint>(_PostProcessNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PostProcessNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PostProcessNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PostProcessNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ColorCorrectionNameOffset = new(() => Schema.GetOffset(0x670FE9BC0E26708B), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorCorrectionNameOffset = Schema.GetOffset(0x670FE9BC0E26708B);
 
   public string ColorCorrectionName {
     get {
-      var ptr = _Handle.Read<nint>(_ColorCorrectionNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ColorCorrectionNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ColorCorrectionNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ColorCorrectionNameOffset, value);
   } 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x670FE9BC3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x670FE9BC3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _InFogVolumesListOffset = new(() => Schema.GetOffset(0x670FE9BC8D7209DD), LazyThreadSafetyMode.None);
+  private static readonly nint _InFogVolumesListOffset = Schema.GetOffset(0x670FE9BC8D7209DD);
 
   public ref bool InFogVolumesList {
-    get => ref _Handle.AsRef<bool>(_InFogVolumesListOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InFogVolumesListOffset);
   }
 
 

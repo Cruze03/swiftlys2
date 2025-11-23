@@ -17,20 +17,20 @@ internal partial class C_OP_LerpEndCapVectorImpl : CParticleFunctionOperatorImpl
   public C_OP_LerpEndCapVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x4847E160E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x4847E160E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _OutputOffset = new(() => Schema.GetOffset(0x4847E16008B7FF64), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputOffset = Schema.GetOffset(0x4847E16008B7FF64);
 
   public ref Vector Output {
-    get => ref _Handle.AsRef<Vector>(_OutputOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutputOffset);
   }
-  private static readonly Lazy<nint> _LerpTimeOffset = new(() => Schema.GetOffset(0x4847E16054FD987F), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpTimeOffset = Schema.GetOffset(0x4847E16054FD987F);
 
   public ref float LerpTime {
-    get => ref _Handle.AsRef<float>(_LerpTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_LerpTimeOffset);
   }
 
 

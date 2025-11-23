@@ -17,64 +17,64 @@ internal partial class CLogicAutoImpl : CBaseEntityImpl, CLogicAuto {
   public CLogicAutoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnMapSpawnOffset = new(() => Schema.GetOffset(0x1FA33DC758EC03E5), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMapSpawnOffset = Schema.GetOffset(0x1FA33DC758EC03E5);
 
   public CEntityIOOutput OnMapSpawn {
-    get => new CEntityIOOutputImpl(_Handle + _OnMapSpawnOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMapSpawnOffset);
   }
-  private static readonly Lazy<nint> _OnDemoMapSpawnOffset = new(() => Schema.GetOffset(0x1FA33DC7798F0A72), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDemoMapSpawnOffset = Schema.GetOffset(0x1FA33DC7798F0A72);
 
   public CEntityIOOutput OnDemoMapSpawn {
-    get => new CEntityIOOutputImpl(_Handle + _OnDemoMapSpawnOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDemoMapSpawnOffset);
   }
-  private static readonly Lazy<nint> _OnNewGameOffset = new(() => Schema.GetOffset(0x1FA33DC7F77845A4), LazyThreadSafetyMode.None);
+  private static readonly nint _OnNewGameOffset = Schema.GetOffset(0x1FA33DC7F77845A4);
 
   public CEntityIOOutput OnNewGame {
-    get => new CEntityIOOutputImpl(_Handle + _OnNewGameOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnNewGameOffset);
   }
-  private static readonly Lazy<nint> _OnLoadGameOffset = new(() => Schema.GetOffset(0x1FA33DC748F2D9A6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLoadGameOffset = Schema.GetOffset(0x1FA33DC748F2D9A6);
 
   public CEntityIOOutput OnLoadGame {
-    get => new CEntityIOOutputImpl(_Handle + _OnLoadGameOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnLoadGameOffset);
   }
-  private static readonly Lazy<nint> _OnMapTransitionOffset = new(() => Schema.GetOffset(0x1FA33DC7EEE1CA9D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMapTransitionOffset = Schema.GetOffset(0x1FA33DC7EEE1CA9D);
 
   public CEntityIOOutput OnMapTransition {
-    get => new CEntityIOOutputImpl(_Handle + _OnMapTransitionOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMapTransitionOffset);
   }
-  private static readonly Lazy<nint> _OnBackgroundMapOffset = new(() => Schema.GetOffset(0x1FA33DC7FD54329A), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBackgroundMapOffset = Schema.GetOffset(0x1FA33DC7FD54329A);
 
   public CEntityIOOutput OnBackgroundMap {
-    get => new CEntityIOOutputImpl(_Handle + _OnBackgroundMapOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBackgroundMapOffset);
   }
-  private static readonly Lazy<nint> _OnMultiNewMapOffset = new(() => Schema.GetOffset(0x1FA33DC74D5DCA0D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMultiNewMapOffset = Schema.GetOffset(0x1FA33DC74D5DCA0D);
 
   public CEntityIOOutput OnMultiNewMap {
-    get => new CEntityIOOutputImpl(_Handle + _OnMultiNewMapOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMultiNewMapOffset);
   }
-  private static readonly Lazy<nint> _OnMultiNewRoundOffset = new(() => Schema.GetOffset(0x1FA33DC70D4B293F), LazyThreadSafetyMode.None);
+  private static readonly nint _OnMultiNewRoundOffset = Schema.GetOffset(0x1FA33DC70D4B293F);
 
   public CEntityIOOutput OnMultiNewRound {
-    get => new CEntityIOOutputImpl(_Handle + _OnMultiNewRoundOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnMultiNewRoundOffset);
   }
-  private static readonly Lazy<nint> _OnVREnabledOffset = new(() => Schema.GetOffset(0x1FA33DC79A1AB4C1), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVREnabledOffset = Schema.GetOffset(0x1FA33DC79A1AB4C1);
 
   public CEntityIOOutput OnVREnabled {
-    get => new CEntityIOOutputImpl(_Handle + _OnVREnabledOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVREnabledOffset);
   }
-  private static readonly Lazy<nint> _OnVRNotEnabledOffset = new(() => Schema.GetOffset(0x1FA33DC745E8A1DA), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVRNotEnabledOffset = Schema.GetOffset(0x1FA33DC745E8A1DA);
 
   public CEntityIOOutput OnVRNotEnabled {
-    get => new CEntityIOOutputImpl(_Handle + _OnVRNotEnabledOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVRNotEnabledOffset);
   }
-  private static readonly Lazy<nint> _GlobalstateOffset = new(() => Schema.GetOffset(0x1FA33DC777A86653), LazyThreadSafetyMode.None);
+  private static readonly nint _GlobalstateOffset = Schema.GetOffset(0x1FA33DC777A86653);
 
   public string Globalstate {
     get {
-      var ptr = _Handle.Read<nint>(_GlobalstateOffset.Value);
+      var ptr = _Handle.Read<nint>(_GlobalstateOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _GlobalstateOffset.Value, value);
+    set => Schema.SetString(_Handle, _GlobalstateOffset, value);
   } 
 
 

@@ -17,25 +17,25 @@ internal partial class CMaterialDrawDescriptor__RigidMeshPart_tImpl : SchemaClas
   public CMaterialDrawDescriptor__RigidMeshPart_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RigidBLASIndexOffset = new(() => Schema.GetOffset(0xD375EED8EE87873E), LazyThreadSafetyMode.None);
+  private static readonly nint _RigidBLASIndexOffset = Schema.GetOffset(0xD375EED8EE87873E);
 
   public ref ushort RigidBLASIndex {
-    get => ref _Handle.AsRef<ushort>(_RigidBLASIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_RigidBLASIndexOffset);
   }
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0xD375EED89F407B79), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0xD375EED89F407B79);
 
   public ref short BoneIndex {
-    get => ref _Handle.AsRef<short>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<short>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _StartIndexOffsetOffset = new(() => Schema.GetOffset(0xD375EED891EF1626), LazyThreadSafetyMode.None);
+  private static readonly nint _StartIndexOffsetOffset = Schema.GetOffset(0xD375EED891EF1626);
 
   public ref uint StartIndexOffset {
-    get => ref _Handle.AsRef<uint>(_StartIndexOffsetOffset.Value);
+    get => ref _Handle.AsRef<uint>(_StartIndexOffsetOffset);
   }
-  private static readonly Lazy<nint> _PrimitiveCountOffset = new(() => Schema.GetOffset(0xD375EED8B627A621), LazyThreadSafetyMode.None);
+  private static readonly nint _PrimitiveCountOffset = Schema.GetOffset(0xD375EED8B627A621);
 
   public ref uint PrimitiveCount {
-    get => ref _Handle.AsRef<uint>(_PrimitiveCountOffset.Value);
+    get => ref _Handle.AsRef<uint>(_PrimitiveCountOffset);
   }
 
 

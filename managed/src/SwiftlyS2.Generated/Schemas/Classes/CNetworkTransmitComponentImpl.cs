@@ -17,10 +17,10 @@ internal partial class CNetworkTransmitComponentImpl : SchemaClass, CNetworkTran
   public CNetworkTransmitComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TransmitStateOwnedCounterOffset = new(() => Schema.GetOffset(0x2D6BD23F6BC30751), LazyThreadSafetyMode.None);
+  private static readonly nint _TransmitStateOwnedCounterOffset = Schema.GetOffset(0x2D6BD23F6BC30751);
 
   public ref byte TransmitStateOwnedCounter {
-    get => ref _Handle.AsRef<byte>(_TransmitStateOwnedCounterOffset.Value);
+    get => ref _Handle.AsRef<byte>(_TransmitStateOwnedCounterOffset);
   }
 
 

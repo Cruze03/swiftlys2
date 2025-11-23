@@ -17,15 +17,15 @@ internal partial class GameAmmoTypeInfo_tImpl : AmmoTypeInfo_tImpl, GameAmmoType
   public GameAmmoTypeInfo_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BuySizeOffset = new(() => Schema.GetOffset(0x64034C7E8E17434E), LazyThreadSafetyMode.None);
+  private static readonly nint _BuySizeOffset = Schema.GetOffset(0x64034C7E8E17434E);
 
   public ref int BuySize {
-    get => ref _Handle.AsRef<int>(_BuySizeOffset.Value);
+    get => ref _Handle.AsRef<int>(_BuySizeOffset);
   }
-  private static readonly Lazy<nint> _CostOffset = new(() => Schema.GetOffset(0x64034C7E919660C4), LazyThreadSafetyMode.None);
+  private static readonly nint _CostOffset = Schema.GetOffset(0x64034C7E919660C4);
 
   public ref int Cost {
-    get => ref _Handle.AsRef<int>(_CostOffset.Value);
+    get => ref _Handle.AsRef<int>(_CostOffset);
   }
 
 

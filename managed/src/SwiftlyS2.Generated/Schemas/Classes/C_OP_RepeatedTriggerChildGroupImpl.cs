@@ -17,30 +17,30 @@ internal partial class C_OP_RepeatedTriggerChildGroupImpl : CParticleFunctionPre
   public C_OP_RepeatedTriggerChildGroupImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0x3D9A0D4E3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0x3D9A0D4E3F3C965);
 
   public ref int ChildGroupID {
-    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _ClusterRefireTimeOffset = new(() => Schema.GetOffset(0x3D9A0D47E6BEEAB), LazyThreadSafetyMode.None);
+  private static readonly nint _ClusterRefireTimeOffset = Schema.GetOffset(0x3D9A0D47E6BEEAB);
 
   public CParticleCollectionFloatInput ClusterRefireTime {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterRefireTimeOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterRefireTimeOffset);
   }
-  private static readonly Lazy<nint> _ClusterSizeOffset = new(() => Schema.GetOffset(0x3D9A0D4A7549FF6), LazyThreadSafetyMode.None);
+  private static readonly nint _ClusterSizeOffset = Schema.GetOffset(0x3D9A0D4A7549FF6);
 
   public CParticleCollectionFloatInput ClusterSize {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterSizeOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterSizeOffset);
   }
-  private static readonly Lazy<nint> _ClusterCooldownOffset = new(() => Schema.GetOffset(0x3D9A0D4753687EA), LazyThreadSafetyMode.None);
+  private static readonly nint _ClusterCooldownOffset = Schema.GetOffset(0x3D9A0D4753687EA);
 
   public CParticleCollectionFloatInput ClusterCooldown {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterCooldownOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ClusterCooldownOffset);
   }
-  private static readonly Lazy<nint> _LimitChildCountOffset = new(() => Schema.GetOffset(0x3D9A0D4EA978249), LazyThreadSafetyMode.None);
+  private static readonly nint _LimitChildCountOffset = Schema.GetOffset(0x3D9A0D4EA978249);
 
   public ref bool LimitChildCount {
-    get => ref _Handle.AsRef<bool>(_LimitChildCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LimitChildCountOffset);
   }
 
 

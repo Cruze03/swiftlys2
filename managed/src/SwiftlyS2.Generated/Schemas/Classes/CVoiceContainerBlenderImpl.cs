@@ -17,20 +17,20 @@ internal partial class CVoiceContainerBlenderImpl : CVoiceContainerBaseImpl, CVo
   public CVoiceContainerBlenderImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FirstSoundOffset = new(() => Schema.GetOffset(0xB05752DD666B0138), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstSoundOffset = Schema.GetOffset(0xB05752DD666B0138);
 
   public CSoundContainerReference FirstSound {
-    get => new CSoundContainerReferenceImpl(_Handle + _FirstSoundOffset.Value);
+    get => new CSoundContainerReferenceImpl(_Handle + _FirstSoundOffset);
   }
-  private static readonly Lazy<nint> _SecondSoundOffset = new(() => Schema.GetOffset(0xB05752DDA2BC3E5C), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondSoundOffset = Schema.GetOffset(0xB05752DDA2BC3E5C);
 
   public CSoundContainerReference SecondSound {
-    get => new CSoundContainerReferenceImpl(_Handle + _SecondSoundOffset.Value);
+    get => new CSoundContainerReferenceImpl(_Handle + _SecondSoundOffset);
   }
-  private static readonly Lazy<nint> _BlendFactorOffset = new(() => Schema.GetOffset(0xB05752DDFF4DA451), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendFactorOffset = Schema.GetOffset(0xB05752DDFF4DA451);
 
   public ref float BlendFactor {
-    get => ref _Handle.AsRef<float>(_BlendFactorOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendFactorOffset);
   }
 
 

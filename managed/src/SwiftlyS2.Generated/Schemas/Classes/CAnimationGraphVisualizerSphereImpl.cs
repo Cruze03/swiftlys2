@@ -17,20 +17,20 @@ internal partial class CAnimationGraphVisualizerSphereImpl : CAnimationGraphVisu
   public CAnimationGraphVisualizerSphereImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WsPositionOffset = new(() => Schema.GetOffset(0x85D725BDCA77AB88), LazyThreadSafetyMode.None);
+  private static readonly nint _WsPositionOffset = Schema.GetOffset(0x85D725BDCA77AB88);
 
   public ref Vector WsPosition {
-    get => ref _Handle.AsRef<Vector>(_WsPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WsPositionOffset);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x85D725BD5ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x85D725BD5ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x85D725BDD7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x85D725BDD7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
 
 

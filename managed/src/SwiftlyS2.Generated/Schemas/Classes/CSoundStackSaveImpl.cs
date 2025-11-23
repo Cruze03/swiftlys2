@@ -17,14 +17,14 @@ internal partial class CSoundStackSaveImpl : CLogicalEntityImpl, CSoundStackSave
   public CSoundStackSaveImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StackNameOffset = new(() => Schema.GetOffset(0xF9E7A22E3B3E9CD4), LazyThreadSafetyMode.None);
+  private static readonly nint _StackNameOffset = Schema.GetOffset(0xF9E7A22E3B3E9CD4);
 
   public string StackName {
     get {
-      var ptr = _Handle.Read<nint>(_StackNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StackNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StackNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StackNameOffset, value);
   } 
 
 

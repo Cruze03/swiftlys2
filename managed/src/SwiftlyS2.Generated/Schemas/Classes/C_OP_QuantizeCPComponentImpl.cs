@@ -17,25 +17,25 @@ internal partial class C_OP_QuantizeCPComponentImpl : CParticleFunctionPreEmissi
   public C_OP_QuantizeCPComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueOffset = new(() => Schema.GetOffset(0xDE980890EEDF8362), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueOffset = Schema.GetOffset(0xDE980890EEDF8362);
 
   public CParticleCollectionFloatInput InputValue {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _InputValueOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _InputValueOffset);
   }
-  private static readonly Lazy<nint> _CPOutputOffset = new(() => Schema.GetOffset(0xDE9808902077C953), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputOffset = Schema.GetOffset(0xDE9808902077C953);
 
   public ref int CPOutput {
-    get => ref _Handle.AsRef<int>(_CPOutputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputOffset);
   }
-  private static readonly Lazy<nint> _OutVectorFieldOffset = new(() => Schema.GetOffset(0xDE980890F9041E74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutVectorFieldOffset = Schema.GetOffset(0xDE980890F9041E74);
 
   public ref int OutVectorField {
-    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset);
   }
-  private static readonly Lazy<nint> _QuantizeValueOffset = new(() => Schema.GetOffset(0xDE98089065E1A349), LazyThreadSafetyMode.None);
+  private static readonly nint _QuantizeValueOffset = Schema.GetOffset(0xDE98089065E1A349);
 
   public CParticleCollectionFloatInput QuantizeValue {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _QuantizeValueOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _QuantizeValueOffset);
   }
 
 

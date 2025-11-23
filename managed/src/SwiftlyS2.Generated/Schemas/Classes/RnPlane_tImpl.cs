@@ -17,15 +17,15 @@ internal partial class RnPlane_tImpl : SchemaClass, RnPlane_t {
   public RnPlane_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NormalOffset = new(() => Schema.GetOffset(0xEAF5B7BAAFB36E96), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalOffset = Schema.GetOffset(0xEAF5B7BAAFB36E96);
 
   public ref Vector Normal {
-    get => ref _Handle.AsRef<Vector>(_NormalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_NormalOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xEAF5B7BA7F14BA34), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xEAF5B7BA7F14BA34);
 
   public ref float Offset {
-    get => ref _Handle.AsRef<float>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_OffsetOffset);
   }
 
 

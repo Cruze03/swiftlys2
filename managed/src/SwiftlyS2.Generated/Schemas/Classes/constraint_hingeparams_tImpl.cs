@@ -17,25 +17,25 @@ internal partial class constraint_hingeparams_tImpl : SchemaClass, constraint_hi
   public constraint_hingeparams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WorldPositionOffset = new(() => Schema.GetOffset(0x790804C3F16C2360), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldPositionOffset = Schema.GetOffset(0x790804C3F16C2360);
 
   public ref Vector WorldPosition {
-    get => ref _Handle.AsRef<Vector>(_WorldPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WorldPositionOffset);
   }
-  private static readonly Lazy<nint> _WorldAxisDirectionOffset = new(() => Schema.GetOffset(0x790804C3637CEB43), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldAxisDirectionOffset = Schema.GetOffset(0x790804C3637CEB43);
 
   public ref Vector WorldAxisDirection {
-    get => ref _Handle.AsRef<Vector>(_WorldAxisDirectionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_WorldAxisDirectionOffset);
   }
-  private static readonly Lazy<nint> _HingeAxisOffset = new(() => Schema.GetOffset(0x790804C33BD096FD), LazyThreadSafetyMode.None);
+  private static readonly nint _HingeAxisOffset = Schema.GetOffset(0x790804C33BD096FD);
 
   public constraint_axislimit_t HingeAxis {
-    get => new constraint_axislimit_tImpl(_Handle + _HingeAxisOffset.Value);
+    get => new constraint_axislimit_tImpl(_Handle + _HingeAxisOffset);
   }
-  private static readonly Lazy<nint> _ConstraintOffset = new(() => Schema.GetOffset(0x790804C3B822E25A), LazyThreadSafetyMode.None);
+  private static readonly nint _ConstraintOffset = Schema.GetOffset(0x790804C3B822E25A);
 
   public constraint_breakableparams_t Constraint {
-    get => new constraint_breakableparams_tImpl(_Handle + _ConstraintOffset.Value);
+    get => new constraint_breakableparams_tImpl(_Handle + _ConstraintOffset);
   }
 
 

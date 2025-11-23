@@ -17,35 +17,35 @@ internal partial class CSeqSynthAnimDescImpl : SchemaClass, CSeqSynthAnimDesc {
   public CSeqSynthAnimDescImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x7D8317C163D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x7D8317C163D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x7D8317C1DC74A14C), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x7D8317C1DC74A14C);
 
   public CSeqSeqDescFlag Flags {
-    get => new CSeqSeqDescFlagImpl(_Handle + _FlagsOffset.Value);
+    get => new CSeqSeqDescFlagImpl(_Handle + _FlagsOffset);
   }
-  private static readonly Lazy<nint> _TransitionOffset = new(() => Schema.GetOffset(0x7D8317C182B0A282), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionOffset = Schema.GetOffset(0x7D8317C182B0A282);
 
   public CSeqTransition Transition {
-    get => new CSeqTransitionImpl(_Handle + _TransitionOffset.Value);
+    get => new CSeqTransitionImpl(_Handle + _TransitionOffset);
   }
-  private static readonly Lazy<nint> _LocalBaseReferenceOffset = new(() => Schema.GetOffset(0x7D8317C1FE93178E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBaseReferenceOffset = Schema.GetOffset(0x7D8317C1FE93178E);
 
   public ref short LocalBaseReference {
-    get => ref _Handle.AsRef<short>(_LocalBaseReferenceOffset.Value);
+    get => ref _Handle.AsRef<short>(_LocalBaseReferenceOffset);
   }
-  private static readonly Lazy<nint> _LocalBoneMaskOffset = new(() => Schema.GetOffset(0x7D8317C191EDF3D2), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneMaskOffset = Schema.GetOffset(0x7D8317C191EDF3D2);
 
   public ref short LocalBoneMask {
-    get => ref _Handle.AsRef<short>(_LocalBoneMaskOffset.Value);
+    get => ref _Handle.AsRef<short>(_LocalBoneMaskOffset);
   }
-  private static readonly Lazy<nint> _ActivityArrayOffset = new(() => Schema.GetOffset(0x7D8317C138F0ACE1), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivityArrayOffset = Schema.GetOffset(0x7D8317C138F0ACE1);
 
   public ref CUtlVector<CAnimActivity> ActivityArray {
-    get => ref _Handle.AsRef<CUtlVector<CAnimActivity>>(_ActivityArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CAnimActivity>>(_ActivityArrayOffset);
   }
 
 

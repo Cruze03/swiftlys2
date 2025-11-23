@@ -17,30 +17,30 @@ internal partial class C_OP_ColorInterpolateImpl : CParticleFunctionOperatorImpl
   public C_OP_ColorInterpolateImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorFadeOffset = new(() => Schema.GetOffset(0x2F5E97470841572E), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorFadeOffset = Schema.GetOffset(0x2F5E97470841572E);
 
   public ref Color ColorFade {
-    get => ref _Handle.AsRef<Color>(_ColorFadeOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorFadeOffset);
   }
-  private static readonly Lazy<nint> _FadeStartTimeOffset = new(() => Schema.GetOffset(0x2F5E974786B28BFA), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeStartTimeOffset = Schema.GetOffset(0x2F5E974786B28BFA);
 
   public ref float FadeStartTime {
-    get => ref _Handle.AsRef<float>(_FadeStartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeStartTimeOffset);
   }
-  private static readonly Lazy<nint> _FadeEndTimeOffset = new(() => Schema.GetOffset(0x2F5E974700D5CA4F), LazyThreadSafetyMode.None);
+  private static readonly nint _FadeEndTimeOffset = Schema.GetOffset(0x2F5E974700D5CA4F);
 
   public ref float FadeEndTime {
-    get => ref _Handle.AsRef<float>(_FadeEndTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FadeEndTimeOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x2F5E9747E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x2F5E9747E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _EaseInOutOffset = new(() => Schema.GetOffset(0x2F5E97475172CF48), LazyThreadSafetyMode.None);
+  private static readonly nint _EaseInOutOffset = Schema.GetOffset(0x2F5E97475172CF48);
 
   public ref bool EaseInOut {
-    get => ref _Handle.AsRef<bool>(_EaseInOutOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EaseInOutOffset);
   }
 
 

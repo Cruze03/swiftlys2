@@ -17,30 +17,30 @@ internal partial class CEnvSparkImpl : CPointEntityImpl, CEnvSpark {
   public CEnvSparkImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DelayOffset = new(() => Schema.GetOffset(0x3BACCABA7D68FD6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DelayOffset = Schema.GetOffset(0x3BACCABA7D68FD6E);
 
   public ref float Delay {
-    get => ref _Handle.AsRef<float>(_DelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_DelayOffset);
   }
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x3BACCABA0C71BDF1), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x3BACCABA0C71BDF1);
 
   public ref int Magnitude {
-    get => ref _Handle.AsRef<int>(_MagnitudeOffset.Value);
+    get => ref _Handle.AsRef<int>(_MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _TrailLengthOffset = new(() => Schema.GetOffset(0x3BACCABA65AAB1A7), LazyThreadSafetyMode.None);
+  private static readonly nint _TrailLengthOffset = Schema.GetOffset(0x3BACCABA65AAB1A7);
 
   public ref int TrailLength {
-    get => ref _Handle.AsRef<int>(_TrailLengthOffset.Value);
+    get => ref _Handle.AsRef<int>(_TrailLengthOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x3BACCABA18853D59), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x3BACCABA18853D59);
 
   public ref int Type {
-    get => ref _Handle.AsRef<int>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _OnSparkOffset = new(() => Schema.GetOffset(0x3BACCABA67E1EE5D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnSparkOffset = Schema.GetOffset(0x3BACCABA67E1EE5D);
 
   public CEntityIOOutput OnSpark {
-    get => new CEntityIOOutputImpl(_Handle + _OnSparkOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnSparkOffset);
   }
 
 

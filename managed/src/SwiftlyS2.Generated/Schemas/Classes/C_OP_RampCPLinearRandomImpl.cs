@@ -17,20 +17,20 @@ internal partial class C_OP_RampCPLinearRandomImpl : CParticleFunctionPreEmissio
   public C_OP_RampCPLinearRandomImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OutControlPointNumberOffset = new(() => Schema.GetOffset(0xF3F4631CD021D73F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutControlPointNumberOffset = Schema.GetOffset(0xF3F4631CD021D73F);
 
   public ref int OutControlPointNumber {
-    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _RateMinOffset = new(() => Schema.GetOffset(0xF3F4631CB1C06501), LazyThreadSafetyMode.None);
+  private static readonly nint _RateMinOffset = Schema.GetOffset(0xF3F4631CB1C06501);
 
   public ref Vector RateMin {
-    get => ref _Handle.AsRef<Vector>(_RateMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RateMinOffset);
   }
-  private static readonly Lazy<nint> _RateMaxOffset = new(() => Schema.GetOffset(0xF3F4631CA3D569AF), LazyThreadSafetyMode.None);
+  private static readonly nint _RateMaxOffset = Schema.GetOffset(0xF3F4631CA3D569AF);
 
   public ref Vector RateMax {
-    get => ref _Handle.AsRef<Vector>(_RateMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_RateMaxOffset);
   }
 
 

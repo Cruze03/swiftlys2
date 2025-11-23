@@ -17,43 +17,43 @@ internal partial class RenderInputLayoutField_tImpl : SchemaClass, RenderInputLa
   public RenderInputLayoutField_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SemanticNameOffset = new(() => Schema.GetOffset(0x752C88F08F25E44C), LazyThreadSafetyMode.None);
+  private static readonly nint _SemanticNameOffset = Schema.GetOffset(0x752C88F08F25E44C);
 
   public string SemanticName {
     get {
-      var ptr = _Handle + _SemanticNameOffset.Value;
+      var ptr = _Handle + _SemanticNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _SemanticNameOffset.Value, value, 32);
+    set => Schema.SetFixedString(_Handle, _SemanticNameOffset, value, 32);
   } 
-  private static readonly Lazy<nint> _SemanticIndexOffset = new(() => Schema.GetOffset(0x752C88F0AAC99783), LazyThreadSafetyMode.None);
+  private static readonly nint _SemanticIndexOffset = Schema.GetOffset(0x752C88F0AAC99783);
 
   public ref byte SemanticIndex {
-    get => ref _Handle.AsRef<byte>(_SemanticIndexOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SemanticIndexOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x752C88F027734C8E), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x752C88F027734C8E);
 
   public ref short Offset {
-    get => ref _Handle.AsRef<short>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<short>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _SlotOffset = new(() => Schema.GetOffset(0x752C88F08A37D215), LazyThreadSafetyMode.None);
+  private static readonly nint _SlotOffset = Schema.GetOffset(0x752C88F08A37D215);
 
   public ref byte Slot {
-    get => ref _Handle.AsRef<byte>(_SlotOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SlotOffset);
   }
-  private static readonly Lazy<nint> _SlotTypeOffset = new(() => Schema.GetOffset(0x752C88F05072B95D), LazyThreadSafetyMode.None);
+  private static readonly nint _SlotTypeOffset = Schema.GetOffset(0x752C88F05072B95D);
 
   public ref RenderSlotType_t SlotType {
-    get => ref _Handle.AsRef<RenderSlotType_t>(_SlotTypeOffset.Value);
+    get => ref _Handle.AsRef<RenderSlotType_t>(_SlotTypeOffset);
   }
-  private static readonly Lazy<nint> _ShaderSemanticOffset = new(() => Schema.GetOffset(0x752C88F0897CAA95), LazyThreadSafetyMode.None);
+  private static readonly nint _ShaderSemanticOffset = Schema.GetOffset(0x752C88F0897CAA95);
 
   public string ShaderSemantic {
     get {
-      var ptr = _Handle + _ShaderSemanticOffset.Value;
+      var ptr = _Handle + _ShaderSemanticOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _ShaderSemanticOffset.Value, value, 32);
+    set => Schema.SetFixedString(_Handle, _ShaderSemanticOffset, value, 32);
   } 
 
 

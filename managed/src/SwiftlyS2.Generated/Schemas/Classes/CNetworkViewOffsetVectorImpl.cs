@@ -17,20 +17,20 @@ internal partial class CNetworkViewOffsetVectorImpl : SchemaClass, CNetworkViewO
   public CNetworkViewOffsetVectorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XOffset = new(() => Schema.GetOffset(0x178DD1B58FEB7867), LazyThreadSafetyMode.None);
+  private static readonly nint _XOffset = Schema.GetOffset(0x178DD1B58FEB7867);
 
   public ref CNetworkedQuantizedFloat X {
-    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_XOffset.Value);
+    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_XOffset);
   }
-  private static readonly Lazy<nint> _YOffset = new(() => Schema.GetOffset(0x178DD1B58EEB76D4), LazyThreadSafetyMode.None);
+  private static readonly nint _YOffset = Schema.GetOffset(0x178DD1B58EEB76D4);
 
   public ref CNetworkedQuantizedFloat Y {
-    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_YOffset.Value);
+    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_YOffset);
   }
-  private static readonly Lazy<nint> _ZOffset = new(() => Schema.GetOffset(0x178DD1B591EB7B8D), LazyThreadSafetyMode.None);
+  private static readonly nint _ZOffset = Schema.GetOffset(0x178DD1B591EB7B8D);
 
   public ref CNetworkedQuantizedFloat Z {
-    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_ZOffset.Value);
+    get => ref _Handle.AsRef<CNetworkedQuantizedFloat>(_ZOffset);
   }
 
   public void XUpdated() {

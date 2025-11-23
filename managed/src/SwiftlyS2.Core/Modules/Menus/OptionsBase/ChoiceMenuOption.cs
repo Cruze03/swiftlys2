@@ -9,7 +9,7 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class ChoiceMenuOption : MenuOptionBase
 {
-    private readonly ConcurrentDictionary<IPlayer, int> selectedIndices = new();
+    private readonly ConcurrentDictionary<int, int> selectedIndices = new();
     private readonly List<string> choices;
     private readonly int defaultIndex;
 
@@ -75,7 +75,7 @@ public sealed class ChoiceMenuOption : MenuOptionBase
     public override string GetDisplayText( IPlayer player, int displayLine = 0 )
     {
         var text = base.GetDisplayText(player, displayLine);
-        var index = selectedIndices.GetOrAdd(player, defaultIndex);
+        var index = selectedIndices.GetOrAdd(player.PlayerID, defaultIndex);
         var choice = choices[Math.Clamp(index, 0, choices.Count - 1)];
         return $"{text}: <font color='#FFFFFF'>[</font>{choice}<font color='#FF3333'>]</font>";
     }
@@ -87,7 +87,7 @@ public sealed class ChoiceMenuOption : MenuOptionBase
     /// <returns>The currently selected choice string.</returns>
     public string GetSelectedChoice( IPlayer player )
     {
-        var index = selectedIndices.GetOrAdd(player, defaultIndex);
+        var index = selectedIndices.GetOrAdd(player.PlayerID, defaultIndex);
         return choices[Math.Clamp(index, 0, choices.Count - 1)];
     }
 
@@ -101,14 +101,14 @@ public sealed class ChoiceMenuOption : MenuOptionBase
         var index = choices.IndexOf(choice);
         if (index >= 0)
         {
-            _ = selectedIndices.AddOrUpdate(player, index, ( _, _ ) => index);
+            _ = selectedIndices.AddOrUpdate(player.PlayerID, index, ( _, _ ) => index);
         }
     }
 
     private ValueTask OnChoiceClick( object? sender, MenuOptionClickEventArgs args )
     {
         var newIndex = selectedIndices.AddOrUpdate(
-            args.Player,
+            args.Player.PlayerID,
             (defaultIndex + 1) % choices.Count,
             ( _, current ) => (current + 1) % choices.Count
         );

@@ -17,30 +17,30 @@ internal partial class FollowAttachmentSettings_tImpl : SchemaClass, FollowAttac
   public FollowAttachmentSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttachmentOffset = new(() => Schema.GetOffset(0x94FFC64B2C5CA308), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentOffset = Schema.GetOffset(0x94FFC64B2C5CA308);
 
   public CAnimAttachment Attachment {
-    get => new CAnimAttachmentImpl(_Handle + _AttachmentOffset.Value);
+    get => new CAnimAttachmentImpl(_Handle + _AttachmentOffset);
   }
-  private static readonly Lazy<nint> _BoneIndexOffset = new(() => Schema.GetOffset(0x94FFC64B6AFA4155), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIndexOffset = Schema.GetOffset(0x94FFC64B6AFA4155);
 
   public ref int BoneIndex {
-    get => ref _Handle.AsRef<int>(_BoneIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIndexOffset);
   }
-  private static readonly Lazy<nint> _AttachmentHandleOffset = new(() => Schema.GetOffset(0x94FFC64BA203035E), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachmentHandleOffset = Schema.GetOffset(0x94FFC64BA203035E);
 
   public AttachmentHandle_t AttachmentHandle {
-    get => new AttachmentHandle_tImpl(_Handle + _AttachmentHandleOffset.Value);
+    get => new AttachmentHandle_tImpl(_Handle + _AttachmentHandleOffset);
   }
-  private static readonly Lazy<nint> _MatchTranslationOffset = new(() => Schema.GetOffset(0x94FFC64B96FCC779), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchTranslationOffset = Schema.GetOffset(0x94FFC64B96FCC779);
 
   public ref bool MatchTranslation {
-    get => ref _Handle.AsRef<bool>(_MatchTranslationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchTranslationOffset);
   }
-  private static readonly Lazy<nint> _MatchRotationOffset = new(() => Schema.GetOffset(0x94FFC64BA4FB561C), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchRotationOffset = Schema.GetOffset(0x94FFC64BA4FB561C);
 
   public ref bool MatchRotation {
-    get => ref _Handle.AsRef<bool>(_MatchRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MatchRotationOffset);
   }
 
 

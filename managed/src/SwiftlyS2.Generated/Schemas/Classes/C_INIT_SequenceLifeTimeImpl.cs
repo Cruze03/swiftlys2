@@ -17,10 +17,10 @@ internal partial class C_INIT_SequenceLifeTimeImpl : CParticleFunctionInitialize
   public C_INIT_SequenceLifeTimeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FramerateOffset = new(() => Schema.GetOffset(0xC4BD3FF8F4EAA666), LazyThreadSafetyMode.None);
+  private static readonly nint _FramerateOffset = Schema.GetOffset(0xC4BD3FF8F4EAA666);
 
   public ref float Framerate {
-    get => ref _Handle.AsRef<float>(_FramerateOffset.Value);
+    get => ref _Handle.AsRef<float>(_FramerateOffset);
   }
 
 

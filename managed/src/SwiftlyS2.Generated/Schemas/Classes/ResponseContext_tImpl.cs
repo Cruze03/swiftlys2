@@ -17,28 +17,28 @@ internal partial class ResponseContext_tImpl : SchemaClass, ResponseContext_t {
   public ResponseContext_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x8F5A90A274FF65FE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x8F5A90A274FF65FE);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x8F5A90A28044B702), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x8F5A90A28044B702);
 
   public string Value {
     get {
-      var ptr = _Handle.Read<nint>(_ValueOffset.Value);
+      var ptr = _Handle.Read<nint>(_ValueOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ValueOffset.Value, value);
+    set => Schema.SetString(_Handle, _ValueOffset, value);
   } 
-  private static readonly Lazy<nint> _ExpirationTimeOffset = new(() => Schema.GetOffset(0x8F5A90A20389142D), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpirationTimeOffset = Schema.GetOffset(0x8F5A90A20389142D);
 
   public GameTime_t ExpirationTime {
-    get => new GameTime_tImpl(_Handle + _ExpirationTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _ExpirationTimeOffset);
   }
 
 

@@ -17,10 +17,10 @@ internal partial class CNmOrNode__CDefinitionImpl : CNmBoolValueNode__CDefinitio
   public CNmOrNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConditionNodeIndicesOffset = new(() => Schema.GetOffset(0x9BF82E864A144D0F), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionNodeIndicesOffset = Schema.GetOffset(0x9BF82E864A144D0F);
 
   public SchemaUntypedField ConditionNodeIndices {
-    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ConditionNodeIndicesOffset);
   }
 
 

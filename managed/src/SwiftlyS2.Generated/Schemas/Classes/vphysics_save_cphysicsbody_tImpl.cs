@@ -17,10 +17,10 @@ internal partial class vphysics_save_cphysicsbody_tImpl : RnBodyDesc_tImpl, vphy
   public vphysics_save_cphysicsbody_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OldPointerOffset = new(() => Schema.GetOffset(0xC6818B0AA60623F3), LazyThreadSafetyMode.None);
+  private static readonly nint _OldPointerOffset = Schema.GetOffset(0xC6818B0AA60623F3);
 
   public ref ulong OldPointer {
-    get => ref _Handle.AsRef<ulong>(_OldPointerOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_OldPointerOffset);
   }
 
 

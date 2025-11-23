@@ -17,39 +17,39 @@ internal partial class CDSPMixgroupModifierImpl : SchemaClass, CDSPMixgroupModif
   public CDSPMixgroupModifierImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MixgroupOffset = new(() => Schema.GetOffset(0xDF83C91D89577218), LazyThreadSafetyMode.None);
+  private static readonly nint _MixgroupOffset = Schema.GetOffset(0xDF83C91D89577218);
 
   public string Mixgroup {
     get {
-      var ptr = _Handle.Read<nint>(_MixgroupOffset.Value);
+      var ptr = _Handle.Read<nint>(_MixgroupOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MixgroupOffset.Value, value);
+    set => Schema.SetString(_Handle, _MixgroupOffset, value);
   } 
-  private static readonly Lazy<nint> _ModifierOffset = new(() => Schema.GetOffset(0xDF83C91D55620FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _ModifierOffset = Schema.GetOffset(0xDF83C91D55620FB6);
 
   public ref float Modifier {
-    get => ref _Handle.AsRef<float>(_ModifierOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModifierOffset);
   }
-  private static readonly Lazy<nint> _ModifierMinOffset = new(() => Schema.GetOffset(0xDF83C91D62C9A002), LazyThreadSafetyMode.None);
+  private static readonly nint _ModifierMinOffset = Schema.GetOffset(0xDF83C91D62C9A002);
 
   public ref float ModifierMin {
-    get => ref _Handle.AsRef<float>(_ModifierMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_ModifierMinOffset);
   }
-  private static readonly Lazy<nint> _SourceModifierOffset = new(() => Schema.GetOffset(0xDF83C91D64BF2A67), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceModifierOffset = Schema.GetOffset(0xDF83C91D64BF2A67);
 
   public ref float SourceModifier {
-    get => ref _Handle.AsRef<float>(_SourceModifierOffset.Value);
+    get => ref _Handle.AsRef<float>(_SourceModifierOffset);
   }
-  private static readonly Lazy<nint> _SourceModifierMinOffset = new(() => Schema.GetOffset(0xDF83C91D59151DE1), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceModifierMinOffset = Schema.GetOffset(0xDF83C91D59151DE1);
 
   public ref float SourceModifierMin {
-    get => ref _Handle.AsRef<float>(_SourceModifierMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_SourceModifierMinOffset);
   }
-  private static readonly Lazy<nint> _ListenerReverbModifierWhenSourceReverbIsActiveOffset = new(() => Schema.GetOffset(0xDF83C91DC98A5029), LazyThreadSafetyMode.None);
+  private static readonly nint _ListenerReverbModifierWhenSourceReverbIsActiveOffset = Schema.GetOffset(0xDF83C91DC98A5029);
 
   public ref float ListenerReverbModifierWhenSourceReverbIsActive {
-    get => ref _Handle.AsRef<float>(_ListenerReverbModifierWhenSourceReverbIsActiveOffset.Value);
+    get => ref _Handle.AsRef<float>(_ListenerReverbModifierWhenSourceReverbIsActiveOffset);
   }
 
 

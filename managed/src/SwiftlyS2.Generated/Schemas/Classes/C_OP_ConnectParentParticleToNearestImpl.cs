@@ -17,30 +17,30 @@ internal partial class C_OP_ConnectParentParticleToNearestImpl : CParticleFuncti
   public C_OP_ConnectParentParticleToNearestImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FirstControlPointOffset = new(() => Schema.GetOffset(0x9C608BD072117650), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstControlPointOffset = Schema.GetOffset(0x9C608BD072117650);
 
   public ref int FirstControlPoint {
-    get => ref _Handle.AsRef<int>(_FirstControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_FirstControlPointOffset);
   }
-  private static readonly Lazy<nint> _SecondControlPointOffset = new(() => Schema.GetOffset(0x9C608BD04D8D2B44), LazyThreadSafetyMode.None);
+  private static readonly nint _SecondControlPointOffset = Schema.GetOffset(0x9C608BD04D8D2B44);
 
   public ref int SecondControlPoint {
-    get => ref _Handle.AsRef<int>(_SecondControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_SecondControlPointOffset);
   }
-  private static readonly Lazy<nint> _UseRadiusOffset = new(() => Schema.GetOffset(0x9C608BD0B7D98E6A), LazyThreadSafetyMode.None);
+  private static readonly nint _UseRadiusOffset = Schema.GetOffset(0x9C608BD0B7D98E6A);
 
   public ref bool UseRadius {
-    get => ref _Handle.AsRef<bool>(_UseRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseRadiusOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x9C608BD0A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x9C608BD0A7A20159);
 
   public CParticleCollectionFloatInput RadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _ParentRadiusScaleOffset = new(() => Schema.GetOffset(0x9C608BD0CD77EF69), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentRadiusScaleOffset = Schema.GetOffset(0x9C608BD0CD77EF69);
 
   public CParticleCollectionFloatInput ParentRadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ParentRadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ParentRadiusScaleOffset);
   }
 
 

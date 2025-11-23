@@ -34,6 +34,7 @@ class SwiftlyCore
 private:
     BridgeKind_t m_iKind;
     std::string m_sCorePath;
+    std::string m_sLogPath;
 
 public:
     bool Load(BridgeKind_t kind);

@@ -17,25 +17,25 @@ internal partial class CNmVectorCreateNode__CDefinitionImpl : CNmVectorValueNode
   public CNmVectorCreateNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputVectorValueNodeIdxOffset = new(() => Schema.GetOffset(0xA7AE86C01EF0C864), LazyThreadSafetyMode.None);
+  private static readonly nint _InputVectorValueNodeIdxOffset = Schema.GetOffset(0xA7AE86C01EF0C864);
 
   public ref short InputVectorValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputVectorValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputVectorValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InputValueXNodeIdxOffset = new(() => Schema.GetOffset(0xA7AE86C0F25367BB), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueXNodeIdxOffset = Schema.GetOffset(0xA7AE86C0F25367BB);
 
   public ref short InputValueXNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueXNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueXNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InputValueYNodeIdxOffset = new(() => Schema.GetOffset(0xA7AE86C0D056A5E2), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueYNodeIdxOffset = Schema.GetOffset(0xA7AE86C0D056A5E2);
 
   public ref short InputValueYNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueYNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueYNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _InputValueZNodeIdxOffset = new(() => Schema.GetOffset(0xA7AE86C05ED1BD45), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueZNodeIdxOffset = Schema.GetOffset(0xA7AE86C05ED1BD45);
 
   public ref short InputValueZNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueZNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueZNodeIdxOffset);
   }
 
 

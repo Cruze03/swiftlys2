@@ -17,20 +17,20 @@ internal partial class CModelConfigListImpl : SchemaClass, CModelConfigList {
   public CModelConfigListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _HideMaterialGroupInToolsOffset = new(() => Schema.GetOffset(0x5291D8D9214E9E53), LazyThreadSafetyMode.None);
+  private static readonly nint _HideMaterialGroupInToolsOffset = Schema.GetOffset(0x5291D8D9214E9E53);
 
   public ref bool HideMaterialGroupInTools {
-    get => ref _Handle.AsRef<bool>(_HideMaterialGroupInToolsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HideMaterialGroupInToolsOffset);
   }
-  private static readonly Lazy<nint> _HideRenderColorInToolsOffset = new(() => Schema.GetOffset(0x5291D8D9C25B2716), LazyThreadSafetyMode.None);
+  private static readonly nint _HideRenderColorInToolsOffset = Schema.GetOffset(0x5291D8D9C25B2716);
 
   public ref bool HideRenderColorInTools {
-    get => ref _Handle.AsRef<bool>(_HideRenderColorInToolsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HideRenderColorInToolsOffset);
   }
-  private static readonly Lazy<nint> _ConfigsOffset = new(() => Schema.GetOffset(0x5291D8D906111EDC), LazyThreadSafetyMode.None);
+  private static readonly nint _ConfigsOffset = Schema.GetOffset(0x5291D8D906111EDC);
 
   public ref CUtlVector<PointerTo<CModelConfig>> Configs {
-    get => ref _Handle.AsRef<CUtlVector<PointerTo<CModelConfig>>>(_ConfigsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointerTo<CModelConfig>>>(_ConfigsOffset);
   }
 
 

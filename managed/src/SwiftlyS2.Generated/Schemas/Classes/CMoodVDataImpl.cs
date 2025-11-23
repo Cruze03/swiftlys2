@@ -17,20 +17,20 @@ internal partial class CMoodVDataImpl : SchemaClass, CMoodVData {
   public CMoodVDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ModelNameOffset = new(() => Schema.GetOffset(0x3C9F4201002A227C), LazyThreadSafetyMode.None);
+  private static readonly nint _ModelNameOffset = Schema.GetOffset(0x3C9F4201002A227C);
 
   public SchemaUntypedField ModelName {
-    get => new SchemaUntypedField(_Handle + _ModelNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ModelNameOffset);
   }
-  private static readonly Lazy<nint> _MoodTypeOffset = new(() => Schema.GetOffset(0x3C9F42019039BEAA), LazyThreadSafetyMode.None);
+  private static readonly nint _MoodTypeOffset = Schema.GetOffset(0x3C9F42019039BEAA);
 
   public ref MoodType_t MoodType {
-    get => ref _Handle.AsRef<MoodType_t>(_MoodTypeOffset.Value);
+    get => ref _Handle.AsRef<MoodType_t>(_MoodTypeOffset);
   }
-  private static readonly Lazy<nint> _AnimationLayersOffset = new(() => Schema.GetOffset(0x3C9F420179729D37), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationLayersOffset = Schema.GetOffset(0x3C9F420179729D37);
 
   public ref CUtlVector<MoodAnimationLayer_t> AnimationLayers {
-    get => ref _Handle.AsRef<CUtlVector<MoodAnimationLayer_t>>(_AnimationLayersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<MoodAnimationLayer_t>>(_AnimationLayersOffset);
   }
 
 

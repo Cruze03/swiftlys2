@@ -17,30 +17,30 @@ internal partial class C_INIT_CreateAlongPathImpl : CParticleFunctionInitializer
   public C_INIT_CreateAlongPathImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MaxDistanceOffset = new(() => Schema.GetOffset(0x655F7B0C844E396A), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxDistanceOffset = Schema.GetOffset(0x655F7B0C844E396A);
 
   public ref float MaxDistance {
-    get => ref _Handle.AsRef<float>(_MaxDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxDistanceOffset);
   }
-  private static readonly Lazy<nint> _PathParamsOffset = new(() => Schema.GetOffset(0x655F7B0C3C10092C), LazyThreadSafetyMode.None);
+  private static readonly nint _PathParamsOffset = Schema.GetOffset(0x655F7B0C3C10092C);
 
   public CPathParameters PathParams {
-    get => new CPathParametersImpl(_Handle + _PathParamsOffset.Value);
+    get => new CPathParametersImpl(_Handle + _PathParamsOffset);
   }
-  private static readonly Lazy<nint> _UseRandomCPsOffset = new(() => Schema.GetOffset(0x655F7B0CA15D9A41), LazyThreadSafetyMode.None);
+  private static readonly nint _UseRandomCPsOffset = Schema.GetOffset(0x655F7B0CA15D9A41);
 
   public ref bool UseRandomCPs {
-    get => ref _Handle.AsRef<bool>(_UseRandomCPsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseRandomCPsOffset);
   }
-  private static readonly Lazy<nint> _EndOffsetOffset = new(() => Schema.GetOffset(0x655F7B0C5BBD1959), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffsetOffset = Schema.GetOffset(0x655F7B0C5BBD1959);
 
   public ref Vector EndOffset {
-    get => ref _Handle.AsRef<Vector>(_EndOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_EndOffsetOffset);
   }
-  private static readonly Lazy<nint> _SaveOffsetOffset = new(() => Schema.GetOffset(0x655F7B0C43F64E5B), LazyThreadSafetyMode.None);
+  private static readonly nint _SaveOffsetOffset = Schema.GetOffset(0x655F7B0C43F64E5B);
 
   public ref bool SaveOffset {
-    get => ref _Handle.AsRef<bool>(_SaveOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SaveOffsetOffset);
   }
 
 

@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmAnimationPoseNode__CDefinition : CNmPoseNode__CDefinition, ISchemaClass<CNmAnimationPoseNode__CDefinition> {
 
   static CNmAnimationPoseNode__CDefinition ISchemaClass<CNmAnimationPoseNode__CDefinition>.From(nint handle) => new CNmAnimationPoseNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmAnimationPoseNode__CDefinition>.Size => 32;
+  static int ISchemaClass<CNmAnimationPoseNode__CDefinition>.Size => 40;
   static string? ISchemaClass<CNmAnimationPoseNode__CDefinition>.ClassName => null;
 
   

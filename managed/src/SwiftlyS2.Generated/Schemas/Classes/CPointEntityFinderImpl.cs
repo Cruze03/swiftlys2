@@ -17,48 +17,48 @@ internal partial class CPointEntityFinderImpl : CBaseEntityImpl, CPointEntityFin
   public CPointEntityFinderImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EntityOffset = new(() => Schema.GetOffset(0xC59CB1336EBADCB0), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityOffset = Schema.GetOffset(0xC59CB1336EBADCB0);
 
   public ref CHandle<CBaseEntity> Entity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityOffset);
   }
-  private static readonly Lazy<nint> _FilterNameOffset = new(() => Schema.GetOffset(0xC59CB13309C86445), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterNameOffset = Schema.GetOffset(0xC59CB13309C86445);
 
   public string FilterName {
     get {
-      var ptr = _Handle.Read<nint>(_FilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0xC59CB13345D9E0B1), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0xC59CB13345D9E0B1);
 
   public ref CHandle<CBaseFilter> Filter {
-    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset);
   }
-  private static readonly Lazy<nint> _RefNameOffset = new(() => Schema.GetOffset(0xC59CB1339640D172), LazyThreadSafetyMode.None);
+  private static readonly nint _RefNameOffset = Schema.GetOffset(0xC59CB1339640D172);
 
   public string RefName {
     get {
-      var ptr = _Handle.Read<nint>(_RefNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_RefNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _RefNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _RefNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ReferenceOffset = new(() => Schema.GetOffset(0xC59CB1338100A1A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ReferenceOffset = Schema.GetOffset(0xC59CB1338100A1A4);
 
   public ref CHandle<CBaseEntity> Reference {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ReferenceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ReferenceOffset);
   }
-  private static readonly Lazy<nint> _FindMethodOffset = new(() => Schema.GetOffset(0xC59CB1331B37C627), LazyThreadSafetyMode.None);
+  private static readonly nint _FindMethodOffset = Schema.GetOffset(0xC59CB1331B37C627);
 
   public ref EntFinderMethod_t FindMethod {
-    get => ref _Handle.AsRef<EntFinderMethod_t>(_FindMethodOffset.Value);
+    get => ref _Handle.AsRef<EntFinderMethod_t>(_FindMethodOffset);
   }
-  private static readonly Lazy<nint> _OnFoundEntityOffset = new(() => Schema.GetOffset(0xC59CB133119B4E6F), LazyThreadSafetyMode.None);
+  private static readonly nint _OnFoundEntityOffset = Schema.GetOffset(0xC59CB133119B4E6F);
 
   public CEntityIOOutput OnFoundEntity {
-    get => new CEntityIOOutputImpl(_Handle + _OnFoundEntityOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnFoundEntityOffset);
   }
 
 

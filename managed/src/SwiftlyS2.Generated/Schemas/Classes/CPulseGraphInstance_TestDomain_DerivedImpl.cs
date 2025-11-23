@@ -17,10 +17,10 @@ internal partial class CPulseGraphInstance_TestDomain_DerivedImpl : CPulseGraphI
   public CPulseGraphInstance_TestDomain_DerivedImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InstanceValueXOffset = new(() => Schema.GetOffset(0x439D00CDD2DC0135), LazyThreadSafetyMode.None);
+  private static readonly nint _InstanceValueXOffset = Schema.GetOffset(0x439D00CDD2DC0135);
 
   public ref int InstanceValueX {
-    get => ref _Handle.AsRef<int>(_InstanceValueXOffset.Value);
+    get => ref _Handle.AsRef<int>(_InstanceValueXOffset);
   }
 
 

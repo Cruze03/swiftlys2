@@ -17,15 +17,15 @@ internal partial class CLogicNavigationImpl : CLogicalEntityImpl, CLogicNavigati
   public CLogicNavigationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IsOnOffset = new(() => Schema.GetOffset(0x8E444D6254B260A0), LazyThreadSafetyMode.None);
+  private static readonly nint _IsOnOffset = Schema.GetOffset(0x8E444D6254B260A0);
 
   public ref bool IsOn {
-    get => ref _Handle.AsRef<bool>(_IsOnOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsOnOffset);
   }
-  private static readonly Lazy<nint> _NavPropertyOffset = new(() => Schema.GetOffset(0x8E444D62C9E0B3E7), LazyThreadSafetyMode.None);
+  private static readonly nint _NavPropertyOffset = Schema.GetOffset(0x8E444D62C9E0B3E7);
 
   public ref navproperties_t NavProperty {
-    get => ref _Handle.AsRef<navproperties_t>(_NavPropertyOffset.Value);
+    get => ref _Handle.AsRef<navproperties_t>(_NavPropertyOffset);
   }
 
 

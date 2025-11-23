@@ -17,15 +17,15 @@ internal partial class ExtentImpl : SchemaClass, Extent {
   public ExtentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoOffset = new(() => Schema.GetOffset(0x6E8BE8394231C06C), LazyThreadSafetyMode.None);
+  private static readonly nint _LoOffset = Schema.GetOffset(0x6E8BE8394231C06C);
 
   public ref Vector Lo {
-    get => ref _Handle.AsRef<Vector>(_LoOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LoOffset);
   }
-  private static readonly Lazy<nint> _HiOffset = new(() => Schema.GetOffset(0x6E8BE839683AF69A), LazyThreadSafetyMode.None);
+  private static readonly nint _HiOffset = Schema.GetOffset(0x6E8BE839683AF69A);
 
   public ref Vector Hi {
-    get => ref _Handle.AsRef<Vector>(_HiOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_HiOffset);
   }
 
 

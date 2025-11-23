@@ -17,50 +17,50 @@ internal partial class TextureGroup_tImpl : SchemaClass, TextureGroup_t {
   public TextureGroup_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x3186D8346154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x3186D8346154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _ReplaceTextureWithGradientOffset = new(() => Schema.GetOffset(0x3186D8344E3CBC5A), LazyThreadSafetyMode.None);
+  private static readonly nint _ReplaceTextureWithGradientOffset = Schema.GetOffset(0x3186D8344E3CBC5A);
 
   public ref bool ReplaceTextureWithGradient {
-    get => ref _Handle.AsRef<bool>(_ReplaceTextureWithGradientOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReplaceTextureWithGradientOffset);
   }
-  private static readonly Lazy<nint> _TextureOffset = new(() => Schema.GetOffset(0x3186D8348C0A2FB6), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureOffset = Schema.GetOffset(0x3186D8348C0A2FB6);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> Texture {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_TextureOffset);
   }
-  private static readonly Lazy<nint> _GradientOffset = new(() => Schema.GetOffset(0x3186D83405C95F25), LazyThreadSafetyMode.None);
+  private static readonly nint _GradientOffset = Schema.GetOffset(0x3186D83405C95F25);
 
   public SchemaUntypedField Gradient {
-    get => new SchemaUntypedField(_Handle + _GradientOffset.Value);
+    get => new SchemaUntypedField(_Handle + _GradientOffset);
   }
-  private static readonly Lazy<nint> _TextureTypeOffset = new(() => Schema.GetOffset(0x3186D834499BE6C8), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureTypeOffset = Schema.GetOffset(0x3186D834499BE6C8);
 
   public ref SpriteCardTextureType_t TextureType {
-    get => ref _Handle.AsRef<SpriteCardTextureType_t>(_TextureTypeOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardTextureType_t>(_TextureTypeOffset);
   }
-  private static readonly Lazy<nint> _TextureChannelsOffset = new(() => Schema.GetOffset(0x3186D834AB4AA2E8), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureChannelsOffset = Schema.GetOffset(0x3186D834AB4AA2E8);
 
   public ref SpriteCardTextureChannel_t TextureChannels {
-    get => ref _Handle.AsRef<SpriteCardTextureChannel_t>(_TextureChannelsOffset.Value);
+    get => ref _Handle.AsRef<SpriteCardTextureChannel_t>(_TextureChannelsOffset);
   }
-  private static readonly Lazy<nint> _TextureBlendModeOffset = new(() => Schema.GetOffset(0x3186D83467D79D64), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureBlendModeOffset = Schema.GetOffset(0x3186D83467D79D64);
 
   public ref ParticleTextureLayerBlendType_t TextureBlendMode {
-    get => ref _Handle.AsRef<ParticleTextureLayerBlendType_t>(_TextureBlendModeOffset.Value);
+    get => ref _Handle.AsRef<ParticleTextureLayerBlendType_t>(_TextureBlendModeOffset);
   }
-  private static readonly Lazy<nint> _TextureBlendOffset = new(() => Schema.GetOffset(0x3186D8343577569D), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureBlendOffset = Schema.GetOffset(0x3186D8343577569D);
 
   public CParticleCollectionRendererFloatInput TextureBlend {
-    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _TextureBlendOffset.Value);
+    get => new CParticleCollectionRendererFloatInputImpl(_Handle + _TextureBlendOffset);
   }
-  private static readonly Lazy<nint> _TextureControlsOffset = new(() => Schema.GetOffset(0x3186D834AD3B9D2E), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureControlsOffset = Schema.GetOffset(0x3186D834AD3B9D2E);
 
   public TextureControls_t TextureControls {
-    get => new TextureControls_tImpl(_Handle + _TextureControlsOffset.Value);
+    get => new TextureControls_tImpl(_Handle + _TextureControlsOffset);
   }
 
 

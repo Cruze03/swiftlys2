@@ -17,60 +17,60 @@ internal partial class C_OP_CalculateVectorAttributeImpl : CParticleFunctionOper
   public C_OP_CalculateVectorAttributeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartValueOffset = new(() => Schema.GetOffset(0x447A59BC56F9B8E8), LazyThreadSafetyMode.None);
+  private static readonly nint _StartValueOffset = Schema.GetOffset(0x447A59BC56F9B8E8);
 
   public ref Vector StartValue {
-    get => ref _Handle.AsRef<Vector>(_StartValueOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_StartValueOffset);
   }
-  private static readonly Lazy<nint> _FieldInput1Offset = new(() => Schema.GetOffset(0x447A59BCFDDCEC88), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInput1Offset = Schema.GetOffset(0x447A59BCFDDCEC88);
 
   public ParticleAttributeIndex_t FieldInput1 {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInput1Offset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInput1Offset);
   }
-  private static readonly Lazy<nint> _InputScale1Offset = new(() => Schema.GetOffset(0x447A59BC66B56E68), LazyThreadSafetyMode.None);
+  private static readonly nint _InputScale1Offset = Schema.GetOffset(0x447A59BC66B56E68);
 
   public ref float InputScale1 {
-    get => ref _Handle.AsRef<float>(_InputScale1Offset.Value);
+    get => ref _Handle.AsRef<float>(_InputScale1Offset);
   }
-  private static readonly Lazy<nint> _FieldInput2Offset = new(() => Schema.GetOffset(0x447A59BC00DCF141), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInput2Offset = Schema.GetOffset(0x447A59BC00DCF141);
 
   public ParticleAttributeIndex_t FieldInput2 {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInput2Offset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInput2Offset);
   }
-  private static readonly Lazy<nint> _InputScale2Offset = new(() => Schema.GetOffset(0x447A59BC69B57321), LazyThreadSafetyMode.None);
+  private static readonly nint _InputScale2Offset = Schema.GetOffset(0x447A59BC69B57321);
 
   public ref float InputScale2 {
-    get => ref _Handle.AsRef<float>(_InputScale2Offset.Value);
+    get => ref _Handle.AsRef<float>(_InputScale2Offset);
   }
-  private static readonly Lazy<nint> _ControlPointInput1Offset = new(() => Schema.GetOffset(0x447A59BC2FE852C3), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointInput1Offset = Schema.GetOffset(0x447A59BC2FE852C3);
 
   public ControlPointReference_t ControlPointInput1 {
-    get => new ControlPointReference_tImpl(_Handle + _ControlPointInput1Offset.Value);
+    get => new ControlPointReference_tImpl(_Handle + _ControlPointInput1Offset);
   }
-  private static readonly Lazy<nint> _ControlPointScale1Offset = new(() => Schema.GetOffset(0x447A59BC863910DF), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointScale1Offset = Schema.GetOffset(0x447A59BC863910DF);
 
   public ref float ControlPointScale1 {
-    get => ref _Handle.AsRef<float>(_ControlPointScale1Offset.Value);
+    get => ref _Handle.AsRef<float>(_ControlPointScale1Offset);
   }
-  private static readonly Lazy<nint> _ControlPointInput2Offset = new(() => Schema.GetOffset(0x447A59BC30E85456), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointInput2Offset = Schema.GetOffset(0x447A59BC30E85456);
 
   public ControlPointReference_t ControlPointInput2 {
-    get => new ControlPointReference_tImpl(_Handle + _ControlPointInput2Offset.Value);
+    get => new ControlPointReference_tImpl(_Handle + _ControlPointInput2Offset);
   }
-  private static readonly Lazy<nint> _ControlPointScale2Offset = new(() => Schema.GetOffset(0x447A59BC87391272), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointScale2Offset = Schema.GetOffset(0x447A59BC87391272);
 
   public ref float ControlPointScale2 {
-    get => ref _Handle.AsRef<float>(_ControlPointScale2Offset.Value);
+    get => ref _Handle.AsRef<float>(_ControlPointScale2Offset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x447A59BCE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x447A59BCE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _FinalOutputScaleOffset = new(() => Schema.GetOffset(0x447A59BCADDD3664), LazyThreadSafetyMode.None);
+  private static readonly nint _FinalOutputScaleOffset = Schema.GetOffset(0x447A59BCADDD3664);
 
   public ref Vector FinalOutputScale {
-    get => ref _Handle.AsRef<Vector>(_FinalOutputScaleOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FinalOutputScaleOffset);
   }
 
 

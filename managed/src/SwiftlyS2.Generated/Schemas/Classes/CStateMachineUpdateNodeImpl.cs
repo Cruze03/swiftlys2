@@ -17,35 +17,35 @@ internal partial class CStateMachineUpdateNodeImpl : CAnimUpdateNodeBaseImpl, CS
   public CStateMachineUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StateMachineOffset = new(() => Schema.GetOffset(0xE2E7B91DBB7EEF2F), LazyThreadSafetyMode.None);
+  private static readonly nint _StateMachineOffset = Schema.GetOffset(0xE2E7B91DBB7EEF2F);
 
   public CAnimStateMachineUpdater StateMachine {
-    get => new CAnimStateMachineUpdaterImpl(_Handle + _StateMachineOffset.Value);
+    get => new CAnimStateMachineUpdaterImpl(_Handle + _StateMachineOffset);
   }
-  private static readonly Lazy<nint> _StateDataOffset = new(() => Schema.GetOffset(0xE2E7B91D765EA6D6), LazyThreadSafetyMode.None);
+  private static readonly nint _StateDataOffset = Schema.GetOffset(0xE2E7B91D765EA6D6);
 
   public ref CUtlVector<CStateNodeStateData> StateData {
-    get => ref _Handle.AsRef<CUtlVector<CStateNodeStateData>>(_StateDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStateNodeStateData>>(_StateDataOffset);
   }
-  private static readonly Lazy<nint> _TransitionDataOffset = new(() => Schema.GetOffset(0xE2E7B91D730EEA72), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionDataOffset = Schema.GetOffset(0xE2E7B91D730EEA72);
 
   public ref CUtlVector<CStateNodeTransitionData> TransitionData {
-    get => ref _Handle.AsRef<CUtlVector<CStateNodeTransitionData>>(_TransitionDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStateNodeTransitionData>>(_TransitionDataOffset);
   }
-  private static readonly Lazy<nint> _BlockWaningTagsOffset = new(() => Schema.GetOffset(0xE2E7B91DB6999F75), LazyThreadSafetyMode.None);
+  private static readonly nint _BlockWaningTagsOffset = Schema.GetOffset(0xE2E7B91DB6999F75);
 
   public ref bool BlockWaningTags {
-    get => ref _Handle.AsRef<bool>(_BlockWaningTagsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BlockWaningTagsOffset);
   }
-  private static readonly Lazy<nint> _LockStateWhenWaningOffset = new(() => Schema.GetOffset(0xE2E7B91D105A8C95), LazyThreadSafetyMode.None);
+  private static readonly nint _LockStateWhenWaningOffset = Schema.GetOffset(0xE2E7B91D105A8C95);
 
   public ref bool LockStateWhenWaning {
-    get => ref _Handle.AsRef<bool>(_LockStateWhenWaningOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LockStateWhenWaningOffset);
   }
-  private static readonly Lazy<nint> _ResetWhenActivatedOffset = new(() => Schema.GetOffset(0xE2E7B91DE7055CF7), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetWhenActivatedOffset = Schema.GetOffset(0xE2E7B91DE7055CF7);
 
   public ref bool ResetWhenActivated {
-    get => ref _Handle.AsRef<bool>(_ResetWhenActivatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ResetWhenActivatedOffset);
   }
 
 

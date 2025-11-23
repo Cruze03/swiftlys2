@@ -17,65 +17,65 @@ internal partial class CSmokeGrenadeProjectileImpl : CBaseCSGrenadeProjectileImp
   public CSmokeGrenadeProjectileImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SmokeEffectTickBeginOffset = new(() => Schema.GetOffset(0xE31DC1B8F5A25253), LazyThreadSafetyMode.None);
+  private static readonly nint _SmokeEffectTickBeginOffset = Schema.GetOffset(0xE31DC1B8F5A25253);
 
   public ref int SmokeEffectTickBegin {
-    get => ref _Handle.AsRef<int>(_SmokeEffectTickBeginOffset.Value);
+    get => ref _Handle.AsRef<int>(_SmokeEffectTickBeginOffset);
   }
-  private static readonly Lazy<nint> _DidSmokeEffectOffset = new(() => Schema.GetOffset(0xE31DC1B881A8B092), LazyThreadSafetyMode.None);
+  private static readonly nint _DidSmokeEffectOffset = Schema.GetOffset(0xE31DC1B881A8B092);
 
   public ref bool DidSmokeEffect {
-    get => ref _Handle.AsRef<bool>(_DidSmokeEffectOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DidSmokeEffectOffset);
   }
-  private static readonly Lazy<nint> _RandomSeedOffset = new(() => Schema.GetOffset(0xE31DC1B86388F067), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomSeedOffset = Schema.GetOffset(0xE31DC1B86388F067);
 
   public ref int RandomSeed {
-    get => ref _Handle.AsRef<int>(_RandomSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_RandomSeedOffset);
   }
-  private static readonly Lazy<nint> _SmokeColorOffset = new(() => Schema.GetOffset(0xE31DC1B87808EA9D), LazyThreadSafetyMode.None);
+  private static readonly nint _SmokeColorOffset = Schema.GetOffset(0xE31DC1B87808EA9D);
 
   public ref Vector SmokeColor {
-    get => ref _Handle.AsRef<Vector>(_SmokeColorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SmokeColorOffset);
   }
-  private static readonly Lazy<nint> _SmokeDetonationPosOffset = new(() => Schema.GetOffset(0xE31DC1B8743595D7), LazyThreadSafetyMode.None);
+  private static readonly nint _SmokeDetonationPosOffset = Schema.GetOffset(0xE31DC1B8743595D7);
 
   public ref Vector SmokeDetonationPos {
-    get => ref _Handle.AsRef<Vector>(_SmokeDetonationPosOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SmokeDetonationPosOffset);
   }
-  private static readonly Lazy<nint> _VoxelFrameDataOffset = new(() => Schema.GetOffset(0xE31DC1B8E854C6C4), LazyThreadSafetyMode.None);
+  private static readonly nint _VoxelFrameDataOffset = Schema.GetOffset(0xE31DC1B8E854C6C4);
 
   public ref CUtlVector<byte> VoxelFrameData {
-    get => ref _Handle.AsRef<CUtlVector<byte>>(_VoxelFrameDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<byte>>(_VoxelFrameDataOffset);
   }
-  private static readonly Lazy<nint> _VoxelFrameDataSizeOffset = new(() => Schema.GetOffset(0xE31DC1B8369FBFD9), LazyThreadSafetyMode.None);
+  private static readonly nint _VoxelFrameDataSizeOffset = Schema.GetOffset(0xE31DC1B8369FBFD9);
 
   public ref int VoxelFrameDataSize {
-    get => ref _Handle.AsRef<int>(_VoxelFrameDataSizeOffset.Value);
+    get => ref _Handle.AsRef<int>(_VoxelFrameDataSizeOffset);
   }
-  private static readonly Lazy<nint> _VoxelUpdateOffset = new(() => Schema.GetOffset(0xE31DC1B8EE30DA3A), LazyThreadSafetyMode.None);
+  private static readonly nint _VoxelUpdateOffset = Schema.GetOffset(0xE31DC1B8EE30DA3A);
 
   public ref int VoxelUpdate {
-    get => ref _Handle.AsRef<int>(_VoxelUpdateOffset.Value);
+    get => ref _Handle.AsRef<int>(_VoxelUpdateOffset);
   }
-  private static readonly Lazy<nint> _LastBounceOffset = new(() => Schema.GetOffset(0xE31DC1B8A4A556A7), LazyThreadSafetyMode.None);
+  private static readonly nint _LastBounceOffset = Schema.GetOffset(0xE31DC1B8A4A556A7);
 
   public GameTime_t LastBounce {
-    get => new GameTime_tImpl(_Handle + _LastBounceOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastBounceOffset);
   }
-  private static readonly Lazy<nint> _FllastSimulationTimeOffset = new(() => Schema.GetOffset(0xE31DC1B8F56D1EED), LazyThreadSafetyMode.None);
+  private static readonly nint _FllastSimulationTimeOffset = Schema.GetOffset(0xE31DC1B8F56D1EED);
 
   public GameTime_t FllastSimulationTime {
-    get => new GameTime_tImpl(_Handle + _FllastSimulationTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FllastSimulationTimeOffset);
   }
-  private static readonly Lazy<nint> _ExplodeFromInfernoOffset = new(() => Schema.GetOffset(0xE31DC1B879437D79), LazyThreadSafetyMode.None);
+  private static readonly nint _ExplodeFromInfernoOffset = Schema.GetOffset(0xE31DC1B879437D79);
 
   public ref bool ExplodeFromInferno {
-    get => ref _Handle.AsRef<bool>(_ExplodeFromInfernoOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ExplodeFromInfernoOffset);
   }
-  private static readonly Lazy<nint> _DidGroundScorchOffset = new(() => Schema.GetOffset(0xE31DC1B80AD64DF5), LazyThreadSafetyMode.None);
+  private static readonly nint _DidGroundScorchOffset = Schema.GetOffset(0xE31DC1B80AD64DF5);
 
   public ref bool DidGroundScorch {
-    get => ref _Handle.AsRef<bool>(_DidGroundScorchOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DidGroundScorchOffset);
   }
 
   public void SmokeEffectTickBeginUpdated() {

@@ -17,59 +17,59 @@ internal partial class CDestructiblePart_DamageLevelImpl : SchemaClass, CDestruc
   public CDestructiblePart_DamageLevelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xF69D69CB63D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xF69D69CB63D22D49);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _BreakablePieceNameOffset = new(() => Schema.GetOffset(0xF69D69CB88329BEA), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakablePieceNameOffset = Schema.GetOffset(0xF69D69CB88329BEA);
 
   public ref CGlobalSymbol BreakablePieceName {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_BreakablePieceNameOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_BreakablePieceNameOffset);
   }
-  private static readonly Lazy<nint> _BodyGroupValueOffset = new(() => Schema.GetOffset(0xF69D69CB90FF4BE9), LazyThreadSafetyMode.None);
+  private static readonly nint _BodyGroupValueOffset = Schema.GetOffset(0xF69D69CB90FF4BE9);
 
   public ref int BodyGroupValue {
-    get => ref _Handle.AsRef<int>(_BodyGroupValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_BodyGroupValueOffset);
   }
-  private static readonly Lazy<nint> _HealthOffset = new(() => Schema.GetOffset(0xF69D69CB6E9C4CC3), LazyThreadSafetyMode.None);
+  private static readonly nint _HealthOffset = Schema.GetOffset(0xF69D69CB6E9C4CC3);
 
   public CSkillInt Health {
-    get => new CSkillIntImpl(_Handle + _HealthOffset.Value);
+    get => new CSkillIntImpl(_Handle + _HealthOffset);
   }
-  private static readonly Lazy<nint> _CriticalDamagePercentOffset = new(() => Schema.GetOffset(0xF69D69CB4488F688), LazyThreadSafetyMode.None);
+  private static readonly nint _CriticalDamagePercentOffset = Schema.GetOffset(0xF69D69CB4488F688);
 
   public ref float CriticalDamagePercent {
-    get => ref _Handle.AsRef<float>(_CriticalDamagePercentOffset.Value);
+    get => ref _Handle.AsRef<float>(_CriticalDamagePercentOffset);
   }
-  private static readonly Lazy<nint> _DamagePassthroughTypeOffset = new(() => Schema.GetOffset(0xF69D69CB3D01100A), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagePassthroughTypeOffset = Schema.GetOffset(0xF69D69CB3D01100A);
 
   public ref EDestructiblePartDamagePassThroughType DamagePassthroughType {
-    get => ref _Handle.AsRef<EDestructiblePartDamagePassThroughType>(_DamagePassthroughTypeOffset.Value);
+    get => ref _Handle.AsRef<EDestructiblePartDamagePassThroughType>(_DamagePassthroughTypeOffset);
   }
-  private static readonly Lazy<nint> _DestructionDeathBehaviorOffset = new(() => Schema.GetOffset(0xF69D69CB41778385), LazyThreadSafetyMode.None);
+  private static readonly nint _DestructionDeathBehaviorOffset = Schema.GetOffset(0xF69D69CB41778385);
 
   public ref DestructiblePartDestructionDeathBehavior_t DestructionDeathBehavior {
-    get => ref _Handle.AsRef<DestructiblePartDestructionDeathBehavior_t>(_DestructionDeathBehaviorOffset.Value);
+    get => ref _Handle.AsRef<DestructiblePartDestructionDeathBehavior_t>(_DestructionDeathBehaviorOffset);
   }
-  private static readonly Lazy<nint> _CustomDeathHandshakeOffset = new(() => Schema.GetOffset(0xF69D69CBF17A0D42), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomDeathHandshakeOffset = Schema.GetOffset(0xF69D69CBF17A0D42);
 
   public ref CGlobalSymbol CustomDeathHandshake {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_CustomDeathHandshakeOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_CustomDeathHandshakeOffset);
   }
-  private static readonly Lazy<nint> _ShouldDestroyOnDeathOffset = new(() => Schema.GetOffset(0xF69D69CBC63DDDD5), LazyThreadSafetyMode.None);
+  private static readonly nint _ShouldDestroyOnDeathOffset = Schema.GetOffset(0xF69D69CBC63DDDD5);
 
   public ref bool ShouldDestroyOnDeath {
-    get => ref _Handle.AsRef<bool>(_ShouldDestroyOnDeathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ShouldDestroyOnDeathOffset);
   }
-  private static readonly Lazy<nint> _DeathDestroyTimeOffset = new(() => Schema.GetOffset(0xF69D69CB29D83EA2), LazyThreadSafetyMode.None);
+  private static readonly nint _DeathDestroyTimeOffset = Schema.GetOffset(0xF69D69CB29D83EA2);
 
   public CRangeFloat DeathDestroyTime {
-    get => new CRangeFloatImpl(_Handle + _DeathDestroyTimeOffset.Value);
+    get => new CRangeFloatImpl(_Handle + _DeathDestroyTimeOffset);
   }
 
 

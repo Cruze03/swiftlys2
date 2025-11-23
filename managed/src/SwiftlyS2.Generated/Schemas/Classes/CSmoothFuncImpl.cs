@@ -17,30 +17,30 @@ internal partial class CSmoothFuncImpl : SchemaClass, CSmoothFunc {
   public CSmoothFuncImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SmoothAmplitudeOffset = new(() => Schema.GetOffset(0x4C3907DAAB831D3A), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothAmplitudeOffset = Schema.GetOffset(0x4C3907DAAB831D3A);
 
   public ref float SmoothAmplitude {
-    get => ref _Handle.AsRef<float>(_SmoothAmplitudeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SmoothAmplitudeOffset);
   }
-  private static readonly Lazy<nint> _SmoothBiasOffset = new(() => Schema.GetOffset(0x4C3907DA8DF7120C), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothBiasOffset = Schema.GetOffset(0x4C3907DA8DF7120C);
 
   public ref float SmoothBias {
-    get => ref _Handle.AsRef<float>(_SmoothBiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_SmoothBiasOffset);
   }
-  private static readonly Lazy<nint> _SmoothDurationOffset = new(() => Schema.GetOffset(0x4C3907DA62F4C0D5), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothDurationOffset = Schema.GetOffset(0x4C3907DA62F4C0D5);
 
   public ref float SmoothDuration {
-    get => ref _Handle.AsRef<float>(_SmoothDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_SmoothDurationOffset);
   }
-  private static readonly Lazy<nint> _SmoothRemainingTimeOffset = new(() => Schema.GetOffset(0x4C3907DAB4D54372), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothRemainingTimeOffset = Schema.GetOffset(0x4C3907DAB4D54372);
 
   public ref float SmoothRemainingTime {
-    get => ref _Handle.AsRef<float>(_SmoothRemainingTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_SmoothRemainingTimeOffset);
   }
-  private static readonly Lazy<nint> _SmoothDirOffset = new(() => Schema.GetOffset(0x4C3907DAB90556AA), LazyThreadSafetyMode.None);
+  private static readonly nint _SmoothDirOffset = Schema.GetOffset(0x4C3907DAB90556AA);
 
   public ref int SmoothDir {
-    get => ref _Handle.AsRef<int>(_SmoothDirOffset.Value);
+    get => ref _Handle.AsRef<int>(_SmoothDirOffset);
   }
 
 

@@ -17,50 +17,50 @@ internal partial class CEconEntityImpl : CBaseFlexImpl, CEconEntity {
   public CEconEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttributeManagerOffset = new(() => Schema.GetOffset(0xCD91F684537B0586), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeManagerOffset = Schema.GetOffset(0xCD91F684537B0586);
 
   public CAttributeContainer AttributeManager {
-    get => new CAttributeContainerImpl(_Handle + _AttributeManagerOffset.Value);
+    get => new CAttributeContainerImpl(_Handle + _AttributeManagerOffset);
   }
-  private static readonly Lazy<nint> _OriginalOwnerXuidLowOffset = new(() => Schema.GetOffset(0xCD91F6843C990CE3), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalOwnerXuidLowOffset = Schema.GetOffset(0xCD91F6843C990CE3);
 
   public ref uint OriginalOwnerXuidLow {
-    get => ref _Handle.AsRef<uint>(_OriginalOwnerXuidLowOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OriginalOwnerXuidLowOffset);
   }
-  private static readonly Lazy<nint> _OriginalOwnerXuidHighOffset = new(() => Schema.GetOffset(0xCD91F6842628947F), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalOwnerXuidHighOffset = Schema.GetOffset(0xCD91F6842628947F);
 
   public ref uint OriginalOwnerXuidHigh {
-    get => ref _Handle.AsRef<uint>(_OriginalOwnerXuidHighOffset.Value);
+    get => ref _Handle.AsRef<uint>(_OriginalOwnerXuidHighOffset);
   }
-  private static readonly Lazy<nint> _FallbackPaintKitOffset = new(() => Schema.GetOffset(0xCD91F6840A12D48F), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackPaintKitOffset = Schema.GetOffset(0xCD91F6840A12D48F);
 
   public ref int FallbackPaintKit {
-    get => ref _Handle.AsRef<int>(_FallbackPaintKitOffset.Value);
+    get => ref _Handle.AsRef<int>(_FallbackPaintKitOffset);
   }
-  private static readonly Lazy<nint> _FallbackSeedOffset = new(() => Schema.GetOffset(0xCD91F684A1B165B2), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackSeedOffset = Schema.GetOffset(0xCD91F684A1B165B2);
 
   public ref int FallbackSeed {
-    get => ref _Handle.AsRef<int>(_FallbackSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_FallbackSeedOffset);
   }
-  private static readonly Lazy<nint> _FallbackWearOffset = new(() => Schema.GetOffset(0xCD91F68486253266), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackWearOffset = Schema.GetOffset(0xCD91F68486253266);
 
   public ref float FallbackWear {
-    get => ref _Handle.AsRef<float>(_FallbackWearOffset.Value);
+    get => ref _Handle.AsRef<float>(_FallbackWearOffset);
   }
-  private static readonly Lazy<nint> _FallbackStatTrakOffset = new(() => Schema.GetOffset(0xCD91F68467ECC1E7), LazyThreadSafetyMode.None);
+  private static readonly nint _FallbackStatTrakOffset = Schema.GetOffset(0xCD91F68467ECC1E7);
 
   public ref int FallbackStatTrak {
-    get => ref _Handle.AsRef<int>(_FallbackStatTrakOffset.Value);
+    get => ref _Handle.AsRef<int>(_FallbackStatTrakOffset);
   }
-  private static readonly Lazy<nint> _OldProvideeOffset = new(() => Schema.GetOffset(0xCD91F684289C89E0), LazyThreadSafetyMode.None);
+  private static readonly nint _OldProvideeOffset = Schema.GetOffset(0xCD91F684289C89E0);
 
   public ref CHandle<CBaseEntity> OldProvidee {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OldProvideeOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OldProvideeOffset);
   }
-  private static readonly Lazy<nint> _OldOwnerClassOffset = new(() => Schema.GetOffset(0xCD91F684D62FABE8), LazyThreadSafetyMode.None);
+  private static readonly nint _OldOwnerClassOffset = Schema.GetOffset(0xCD91F684D62FABE8);
 
   public ref int OldOwnerClass {
-    get => ref _Handle.AsRef<int>(_OldOwnerClassOffset.Value);
+    get => ref _Handle.AsRef<int>(_OldOwnerClassOffset);
   }
 
   public void AttributeManagerUpdated() {

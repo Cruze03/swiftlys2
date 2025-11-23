@@ -17,29 +17,29 @@ internal partial class CMaterialAttributeAnimTagImpl : CAnimTagBaseImpl, CMateri
   public CMaterialAttributeAnimTagImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttributeNameOffset = new(() => Schema.GetOffset(0x509D90A81408864C), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeNameOffset = Schema.GetOffset(0x509D90A81408864C);
 
   public string AttributeName {
     get {
-      var ptr = _Handle.Read<nint>(_AttributeNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_AttributeNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _AttributeNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _AttributeNameOffset, value);
   } 
-  private static readonly Lazy<nint> _AttributeTypeOffset = new(() => Schema.GetOffset(0x509D90A84243CC37), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeTypeOffset = Schema.GetOffset(0x509D90A84243CC37);
 
   public ref MatterialAttributeTagType_t AttributeType {
-    get => ref _Handle.AsRef<MatterialAttributeTagType_t>(_AttributeTypeOffset.Value);
+    get => ref _Handle.AsRef<MatterialAttributeTagType_t>(_AttributeTypeOffset);
   }
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0x509D90A88DFCB984), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0x509D90A88DFCB984);
 
   public ref float Value {
-    get => ref _Handle.AsRef<float>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<float>(_ValueOffset);
   }
-  private static readonly Lazy<nint> _ColorOffset = new(() => Schema.GetOffset(0x509D90A8D7D017D8), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorOffset = Schema.GetOffset(0x509D90A8D7D017D8);
 
   public ref Color Color {
-    get => ref _Handle.AsRef<Color>(_ColorOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorOffset);
   }
 
 

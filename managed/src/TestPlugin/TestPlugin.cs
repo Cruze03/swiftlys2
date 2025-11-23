@@ -95,6 +95,31 @@ public class TestPlugin : BasePlugin
         return HookResult.Continue;
     }
 
+    public override void OnAllPluginsLoaded()
+    {
+        base.OnAllPluginsLoaded();
+
+        for (var x = 0; x < 30; x++)
+        {
+            var builder = Core.MenusAPI
+                .CreateBuilder()
+                .Design.SetMenuTitle($"Test Menu {x + 1}");
+            for (var j = 0; j < 5; j++)
+            {
+                var optionText = $"Menu # {x + 1} - Option # {j + 1}";
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                button.Click += ( sender, args ) =>
+                {
+                    args.Player.SendChat($"Clicked: {optionText}");
+                    return ValueTask.CompletedTask;
+                };
+                _ = builder.AddOption(button);
+            }
+
+            var menu = builder.Build();
+        }
+    }
+
     public override void Load( bool hotReload )
     {
         // Core.Command.HookClientCommand((playerId, commandLine) =>
@@ -253,19 +278,19 @@ public class TestPlugin : BasePlugin
         };
 
         var convar = Core.ConVar.Find<float>("sv_cs_player_speed_has_hostage");
-        Core.Event.OnTick += () =>
-        {
-            var players = Core.PlayerManager.GetAllPlayers();
-            foreach (var player in players)
-            {
-                Core.Profiler.StartRecording("OnTick Send 1024 sv_cs_player_speed_has_hostage convar at player");
-                for (int i = 0; i < 1024; i++)
-                {
-                    convar!.ReplicateToClient(player.PlayerID, (float)Random.Shared.NextDouble());
-                }
-                Core.Profiler.StopRecording("OnTick Send 1024 sv_cs_player_speed_has_hostage convar at player");
-            }
-        };
+        // Core.Event.OnTick += () =>
+        // {
+        //     var players = Core.PlayerManager.GetAllPlayers();
+        //     foreach (var player in players)
+        //     {
+        //         Core.Profiler.StartRecording("OnTick Send 1024 sv_cs_player_speed_has_hostage convar at player");
+        //         for (int i = 0; i < 1024; i++)
+        //         {
+        //             convar!.ReplicateToClient(player.PlayerID, (float)Random.Shared.NextDouble());
+        //         }
+        //         Core.Profiler.StopRecording("OnTick Send 1024 sv_cs_player_speed_has_hostage convar at player");
+        //     }
+        // };
 
         // Core.Event.OnClientProcessUsercmds += (@event) => {
         //   foreach(var usercmd in @event.Usercmds) {
@@ -281,9 +306,12 @@ public class TestPlugin : BasePlugin
         //   return HookResult.Continue;
         // });
 
-        // Core.Event.OnEntityTakeDamage += (@event) => {
-        //   Console.WriteLine("TestPlugin OnEntityTakeDamage " + @event.Entity.Entity?.DesignerName + " " + @event.Info.HitGroupId);
-        // };
+        Core.Event.OnEntityTakeDamage += ( @event ) =>
+        {
+            Console.WriteLine(@event.Entity.DesignerName);
+            @event.Info.DamageFlags = TakeDamageFlags_t.DFLAG_SUPPRESS_BREAKABLES;
+            @event.Result = HookResult.Stop;
+        };
 
         // Core.Event.OnTick += () => {
 
@@ -352,8 +380,6 @@ public class TestPlugin : BasePlugin
     {
         var ret = SteamGameServerUGC.DownloadItem(new PublishedFileId_t(3596198331), true);
         Console.WriteLine(SteamGameServer.GetPublicIP().ToIPAddress());
-
-
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
@@ -362,8 +388,23 @@ public class TestPlugin : BasePlugin
 
     IUnmanagedFunction<DispatchSpawnDelegate>? _dispatchspawn;
 
+    [Command("h0")]
+    public void TestCommand0( ICommandContext _ )
+    {
+        var targetAddress = Core.Memory.GetAddressBySignature(Library.Server, "E8 ? ? ? ? 48 8B 46 ? 48 85 DB");
+        if (targetAddress.HasValue)
+        {
+            var unmanagedMemory = Core.Memory.GetUnmanagedMemoryByAddress(targetAddress.Value);
+            var hookId = unmanagedMemory.AddHook(( ref MidHookContext context ) =>
+            {
+                Console.WriteLine($"Mid-hook triggered at 0x{targetAddress.Value:X}");
+                Console.WriteLine($"RAX: 0x{context.RAX:X}, RCX: 0x{context.RCX:X}, RDX: 0x{context.RDX:X}");
+            });
+        }
+    }
+
     [Command("h1")]
-    public void TestCommand2( ICommandContext context )
+    public void TestCommand2( ICommandContext _ )
     {
         // var token = Core.Scheduler.DelayAndRepeat(500, 1000, () =>
         // {
@@ -371,8 +412,8 @@ public class TestPlugin : BasePlugin
         // });
 
         var addres = Core.GameData.GetSignature("CBaseEntity::DispatchSpawn");
-        var func = Core.Memory.GetUnmanagedFunctionByAddress<DispatchSpawnDelegate>(addres);
 
+        var func = Core.Memory.GetUnmanagedFunctionByAddress<DispatchSpawnDelegate>(addres);
         var guid = func.AddHook(( next ) =>
         {
             return ( pEntity, pKV ) =>
@@ -382,15 +423,20 @@ public class TestPlugin : BasePlugin
             };
         });
 
-        _dispatchspawn.AddHook(( next ) =>
+        var memory = Core.Memory.GetUnmanagedMemoryByAddress(addres);
+        var guid1 = memory.AddHook(( ref MidHookContext context ) =>
         {
-            return ( pEntity, pKV ) =>
-            {
-                Console.WriteLine("TestPlugin DispatchSpawn2 " + order++);
-                return next()(pEntity, pKV);
-            };
+            Core.Logger.LogInformation("MidHookContext:\n{Context}", context);
         });
 
+        // _dispatchspawn.AddHook(( next ) =>
+        // {
+        //     return ( pEntity, pKV ) =>
+        //     {
+        //         Console.WriteLine("TestPlugin DispatchSpawn2 " + order++);
+        //         return next()(pEntity, pKV);
+        //     };
+        // });
     }
 
     [EventListener<EventDelegates.OnEntityCreated>]
@@ -639,9 +685,43 @@ public class TestPlugin : BasePlugin
     // }
 
     [Command("ed")]
-    public void EndRoundCommand( ICommandContext _ )
+    public void EmitGrenadeCommand( ICommandContext context )
     {
         var smoke = CSmokeGrenadeProjectile.EmitGrenade(new(0, 0, 0), new(0, 0, 0), new(0, 0, 0), Team.CT, null);
+        smoke.Despawn();
+        smoke.SetTransmitState(true, context.Sender!.PlayerID);
+    }
+
+    [Command("hbw")]
+    public void HideBotWeapon( ICommandContext context )
+    {
+        Core.PlayerManager.GetAlive()
+            .Where(player => player.PlayerID != context.Sender!.PlayerID && player.IsValid && player.IsFakeClient)
+            .ToList()
+            .ForEach(player => player.PlayerPawn!.WeaponServices!.ActiveWeapon.Value!.SetTransmitState(false, context.Sender!.PlayerID));
+    }
+
+    [Command("sihb")]
+    public void ShowIfHideBot( ICommandContext context )
+    {
+        Core.PlayerManager.GetAlive()
+            .Where(player => player.PlayerID != context.Sender!.PlayerID && player.IsValid && player.IsFakeClient)
+            .ToList()
+            .ForEach(player => Console.WriteLine($"{player.Controller!.PlayerName} -> {(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID) ? "Hide" : "V")}"));
+    }
+
+    [Command("hb")]
+    public void HideBot( ICommandContext context )
+    {
+        Core.PlayerManager.GetAlive()
+            .Where(player => player.PlayerID != context.Sender!.PlayerID && player.IsValid && player.IsFakeClient)
+            .ToList()
+            .ForEach(player =>
+            {
+                // Console.WriteLine($"{player.Controller!.PlayerName}(B) -> {player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID)}({player.PlayerPawn!.IsTransmitting(player.PlayerID)})");
+                player.PlayerPawn!.SetTransmitState(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID), context.Sender!.PlayerID);
+                // Console.WriteLine($"{player.Controller!.PlayerName} -> {player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID)}({player.PlayerPawn!.IsTransmitting(player.PlayerID)})");
+            });
     }
 
     [Command("ss")]
@@ -670,7 +750,7 @@ public class TestPlugin : BasePlugin
     }
 
     [Command("tm")]
-    public void TestMenuCommand( ICommandContext context )
+    public void TestMenuCommand( ICommandContext _ )
     {
         var buyButton = new ButtonMenuOption("Purchase") { CloseAfterClick = true };
         buyButton.Click += async ( sender, args ) =>
@@ -961,6 +1041,56 @@ public class TestPlugin : BasePlugin
 
     //     Core.Menus.OpenMenu(player, menu);
     // }
+
+    [Command("mru")]
+    public void MenuResourceUsageCommand( ICommandContext context )
+    {
+        var menus = new List<IMenuAPI>();
+
+        for (var i = 0; i < 30; i++)
+        {
+            var builder = Core.MenusAPI
+                .CreateBuilder()
+                .Design.SetMenuTitle($"Test Menu {i + 1}");
+
+            for (var j = 0; j < 5; j++)
+            {
+                var optionText = $"Menu # {i + 1} - Option # {j + 1}";
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                button.Click += ( sender, args ) =>
+                {
+                    args.Player.SendChat($"Clicked: {optionText}");
+                    return ValueTask.CompletedTask;
+                };
+                _ = builder.AddOption(button);
+            }
+
+            menus.Add(builder.Build());
+        }
+
+        var mainMenu = Core.MenusAPI
+            .CreateBuilder()
+            .Design.SetMenuTitle("Menu");
+
+        for (var i = 0; i < menus.Count; i++)
+        {
+            var menuIndex = i;
+            _ = mainMenu.AddOption(new SubmenuMenuOption($"Menu #{i + 1}", menus[menuIndex]));
+        }
+
+        Core.MenusAPI.OpenMenuForPlayer(context.Sender!, mainMenu.Build());
+    }
+
+    [Command("tb2m")]
+    public void TeleportBotToMeCommand( ICommandContext context )
+    {
+        var player = context.Sender!;
+        Core.PlayerManager.GetAllPlayers()
+            .Where(p => p.IsValid && p.IsFakeClient)
+            .ToList()
+            .FirstOrDefault()
+            ?.Teleport(player.PlayerPawn!.AbsOrigin!.Value, player.PlayerPawn!.EyeAngles, Vector.Zero);
+    }
 
     public override void Unload()
     {

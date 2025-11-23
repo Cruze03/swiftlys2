@@ -17,50 +17,50 @@ internal partial class CEnvWindVolumeImpl : CBaseEntityImpl, CEnvWindVolume {
   public CEnvWindVolumeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActiveOffset = new(() => Schema.GetOffset(0xCD7AC5418334208F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveOffset = Schema.GetOffset(0xCD7AC5418334208F);
 
   public ref bool Active {
-    get => ref _Handle.AsRef<bool>(_ActiveOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveOffset);
   }
-  private static readonly Lazy<nint> _BoxMinsOffset = new(() => Schema.GetOffset(0xCD7AC541D8201373), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxMinsOffset = Schema.GetOffset(0xCD7AC541D8201373);
 
   public ref Vector BoxMins {
-    get => ref _Handle.AsRef<Vector>(_BoxMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoxMinsOffset);
   }
-  private static readonly Lazy<nint> _BoxMaxsOffset = new(() => Schema.GetOffset(0xCD7AC541817A3B31), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxMaxsOffset = Schema.GetOffset(0xCD7AC541817A3B31);
 
   public ref Vector BoxMaxs {
-    get => ref _Handle.AsRef<Vector>(_BoxMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_BoxMaxsOffset);
   }
-  private static readonly Lazy<nint> _StartDisabledOffset = new(() => Schema.GetOffset(0xCD7AC54161ED0C4F), LazyThreadSafetyMode.None);
+  private static readonly nint _StartDisabledOffset = Schema.GetOffset(0xCD7AC54161ED0C4F);
 
   public ref bool StartDisabled {
-    get => ref _Handle.AsRef<bool>(_StartDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartDisabledOffset);
   }
-  private static readonly Lazy<nint> _ShapeOffset = new(() => Schema.GetOffset(0xCD7AC54121208A02), LazyThreadSafetyMode.None);
+  private static readonly nint _ShapeOffset = Schema.GetOffset(0xCD7AC54121208A02);
 
   public ref int Shape {
-    get => ref _Handle.AsRef<int>(_ShapeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ShapeOffset);
   }
-  private static readonly Lazy<nint> _WindSpeedMultiplierOffset = new(() => Schema.GetOffset(0xCD7AC541A22A3F81), LazyThreadSafetyMode.None);
+  private static readonly nint _WindSpeedMultiplierOffset = Schema.GetOffset(0xCD7AC541A22A3F81);
 
   public ref float WindSpeedMultiplier {
-    get => ref _Handle.AsRef<float>(_WindSpeedMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindSpeedMultiplierOffset);
   }
-  private static readonly Lazy<nint> _WindTurbulenceMultiplierOffset = new(() => Schema.GetOffset(0xCD7AC54120DA30CD), LazyThreadSafetyMode.None);
+  private static readonly nint _WindTurbulenceMultiplierOffset = Schema.GetOffset(0xCD7AC54120DA30CD);
 
   public ref float WindTurbulenceMultiplier {
-    get => ref _Handle.AsRef<float>(_WindTurbulenceMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindTurbulenceMultiplierOffset);
   }
-  private static readonly Lazy<nint> _WindSpeedVariationMultiplierOffset = new(() => Schema.GetOffset(0xCD7AC5416B9AC20C), LazyThreadSafetyMode.None);
+  private static readonly nint _WindSpeedVariationMultiplierOffset = Schema.GetOffset(0xCD7AC5416B9AC20C);
 
   public ref float WindSpeedVariationMultiplier {
-    get => ref _Handle.AsRef<float>(_WindSpeedVariationMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindSpeedVariationMultiplierOffset);
   }
-  private static readonly Lazy<nint> _WindDirectionVariationMultiplierOffset = new(() => Schema.GetOffset(0xCD7AC5417F3AB3AA), LazyThreadSafetyMode.None);
+  private static readonly nint _WindDirectionVariationMultiplierOffset = Schema.GetOffset(0xCD7AC5417F3AB3AA);
 
   public ref float WindDirectionVariationMultiplier {
-    get => ref _Handle.AsRef<float>(_WindDirectionVariationMultiplierOffset.Value);
+    get => ref _Handle.AsRef<float>(_WindDirectionVariationMultiplierOffset);
   }
 
   public void ActiveUpdated() {

@@ -17,25 +17,25 @@ internal partial class C_OP_LerpToOtherAttributeImpl : CParticleFunctionOperator
   public C_OP_LerpToOtherAttributeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0x1F92A80BCF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0x1F92A80BCF55B987);
 
   public CPerParticleFloatInput Interpolation {
-    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset);
   }
-  private static readonly Lazy<nint> _FieldInputFromOffset = new(() => Schema.GetOffset(0x1F92A80BB0E75581), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputFromOffset = Schema.GetOffset(0x1F92A80BB0E75581);
 
   public ParticleAttributeIndex_t FieldInputFrom {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputFromOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputFromOffset);
   }
-  private static readonly Lazy<nint> _FieldInputOffset = new(() => Schema.GetOffset(0x1F92A80BAE775669), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldInputOffset = Schema.GetOffset(0x1F92A80BAE775669);
 
   public ParticleAttributeIndex_t FieldInput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldInputOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x1F92A80BE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x1F92A80BE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
 
 

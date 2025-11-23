@@ -17,25 +17,25 @@ internal partial class VMixPitchShiftDesc_tImpl : SchemaClass, VMixPitchShiftDes
   public VMixPitchShiftDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GrainSampleCountOffset = new(() => Schema.GetOffset(0xE7EEA08D6AA1D059), LazyThreadSafetyMode.None);
+  private static readonly nint _GrainSampleCountOffset = Schema.GetOffset(0xE7EEA08D6AA1D059);
 
   public ref int GrainSampleCount {
-    get => ref _Handle.AsRef<int>(_GrainSampleCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_GrainSampleCountOffset);
   }
-  private static readonly Lazy<nint> _PitchShiftOffset = new(() => Schema.GetOffset(0xE7EEA08DD8E35569), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchShiftOffset = Schema.GetOffset(0xE7EEA08DD8E35569);
 
   public ref float PitchShift {
-    get => ref _Handle.AsRef<float>(_PitchShiftOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchShiftOffset);
   }
-  private static readonly Lazy<nint> _QualityOffset = new(() => Schema.GetOffset(0xE7EEA08D60857B42), LazyThreadSafetyMode.None);
+  private static readonly nint _QualityOffset = Schema.GetOffset(0xE7EEA08D60857B42);
 
   public ref int Quality {
-    get => ref _Handle.AsRef<int>(_QualityOffset.Value);
+    get => ref _Handle.AsRef<int>(_QualityOffset);
   }
-  private static readonly Lazy<nint> _ProcTypeOffset = new(() => Schema.GetOffset(0xE7EEA08DB256235D), LazyThreadSafetyMode.None);
+  private static readonly nint _ProcTypeOffset = Schema.GetOffset(0xE7EEA08DB256235D);
 
   public ref int ProcType {
-    get => ref _Handle.AsRef<int>(_ProcTypeOffset.Value);
+    get => ref _Handle.AsRef<int>(_ProcTypeOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class FeDynKinLink_tImpl : SchemaClass, FeDynKinLink_t {
   public FeDynKinLink_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0xA0FBF6C40AABB9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0xA0FBF6C40AABB9D1);
 
   public ref ushort Parent {
-    get => ref _Handle.AsRef<ushort>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _ChildOffset = new(() => Schema.GetOffset(0xA0FBF6C4FE653481), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildOffset = Schema.GetOffset(0xA0FBF6C4FE653481);
 
   public ref ushort Child {
-    get => ref _Handle.AsRef<ushort>(_ChildOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_ChildOffset);
   }
 
 

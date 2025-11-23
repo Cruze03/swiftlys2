@@ -17,30 +17,30 @@ internal partial class CPulse_RegisterInfoImpl : SchemaClass, CPulse_RegisterInf
   public CPulse_RegisterInfoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RegOffset = new(() => Schema.GetOffset(0x8D60BE3D464A7749), LazyThreadSafetyMode.None);
+  private static readonly nint _RegOffset = Schema.GetOffset(0x8D60BE3D464A7749);
 
   public PulseRuntimeRegisterIndex_t Reg {
-    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _RegOffset.Value);
+    get => new PulseRuntimeRegisterIndex_tImpl(_Handle + _RegOffset);
   }
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x8D60BE3D8ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x8D60BE3D8ED6D5CD);
 
   public SchemaUntypedField Type {
-    get => new SchemaUntypedField(_Handle + _TypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TypeOffset);
   }
-  private static readonly Lazy<nint> _OriginNameOffset = new(() => Schema.GetOffset(0x8D60BE3D745ADAEC), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginNameOffset = Schema.GetOffset(0x8D60BE3D745ADAEC);
 
   public SchemaUntypedField OriginName {
-    get => new SchemaUntypedField(_Handle + _OriginNameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OriginNameOffset);
   }
-  private static readonly Lazy<nint> _WrittenByInstructionOffset = new(() => Schema.GetOffset(0x8D60BE3D5311609B), LazyThreadSafetyMode.None);
+  private static readonly nint _WrittenByInstructionOffset = Schema.GetOffset(0x8D60BE3D5311609B);
 
   public ref int WrittenByInstruction {
-    get => ref _Handle.AsRef<int>(_WrittenByInstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_WrittenByInstructionOffset);
   }
-  private static readonly Lazy<nint> _LastReadByInstructionOffset = new(() => Schema.GetOffset(0x8D60BE3D9D1961CC), LazyThreadSafetyMode.None);
+  private static readonly nint _LastReadByInstructionOffset = Schema.GetOffset(0x8D60BE3D9D1961CC);
 
   public ref int LastReadByInstruction {
-    get => ref _Handle.AsRef<int>(_LastReadByInstructionOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastReadByInstructionOffset);
   }
 
 

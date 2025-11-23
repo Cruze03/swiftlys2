@@ -17,25 +17,25 @@ internal partial class CIronSightControllerImpl : SchemaClass, CIronSightControl
   public CIronSightControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _IronSightAvailableOffset = new(() => Schema.GetOffset(0x9E147D3131BCE9D3), LazyThreadSafetyMode.None);
+  private static readonly nint _IronSightAvailableOffset = Schema.GetOffset(0x9E147D3131BCE9D3);
 
   public ref bool IronSightAvailable {
-    get => ref _Handle.AsRef<bool>(_IronSightAvailableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IronSightAvailableOffset);
   }
-  private static readonly Lazy<nint> _IronSightAmountOffset = new(() => Schema.GetOffset(0x9E147D31D64422F6), LazyThreadSafetyMode.None);
+  private static readonly nint _IronSightAmountOffset = Schema.GetOffset(0x9E147D31D64422F6);
 
   public ref float IronSightAmount {
-    get => ref _Handle.AsRef<float>(_IronSightAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_IronSightAmountOffset);
   }
-  private static readonly Lazy<nint> _IronSightAmountGainedOffset = new(() => Schema.GetOffset(0x9E147D316631E9A0), LazyThreadSafetyMode.None);
+  private static readonly nint _IronSightAmountGainedOffset = Schema.GetOffset(0x9E147D316631E9A0);
 
   public ref float IronSightAmountGained {
-    get => ref _Handle.AsRef<float>(_IronSightAmountGainedOffset.Value);
+    get => ref _Handle.AsRef<float>(_IronSightAmountGainedOffset);
   }
-  private static readonly Lazy<nint> _IronSightAmountBiasedOffset = new(() => Schema.GetOffset(0x9E147D31526716FA), LazyThreadSafetyMode.None);
+  private static readonly nint _IronSightAmountBiasedOffset = Schema.GetOffset(0x9E147D31526716FA);
 
   public ref float IronSightAmountBiased {
-    get => ref _Handle.AsRef<float>(_IronSightAmountBiasedOffset.Value);
+    get => ref _Handle.AsRef<float>(_IronSightAmountBiasedOffset);
   }
 
 

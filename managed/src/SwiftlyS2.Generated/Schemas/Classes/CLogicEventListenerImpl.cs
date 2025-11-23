@@ -17,29 +17,29 @@ internal partial class CLogicEventListenerImpl : CLogicalEntityImpl, CLogicEvent
   public CLogicEventListenerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StrEventNameOffset = new(() => Schema.GetOffset(0xD797C990BC41C13B), LazyThreadSafetyMode.None);
+  private static readonly nint _StrEventNameOffset = Schema.GetOffset(0xD797C990BC41C13B);
 
   public string StrEventName {
     get {
-      var ptr = _Handle.Read<nint>(_StrEventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrEventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrEventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrEventNameOffset, value);
   } 
-  private static readonly Lazy<nint> _IsEnabledOffset = new(() => Schema.GetOffset(0xD797C9905360D70E), LazyThreadSafetyMode.None);
+  private static readonly nint _IsEnabledOffset = Schema.GetOffset(0xD797C9905360D70E);
 
   public ref bool IsEnabled {
-    get => ref _Handle.AsRef<bool>(_IsEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsEnabledOffset);
   }
-  private static readonly Lazy<nint> _TeamOffset = new(() => Schema.GetOffset(0xD797C990BEB42230), LazyThreadSafetyMode.None);
+  private static readonly nint _TeamOffset = Schema.GetOffset(0xD797C990BEB42230);
 
   public ref int Team {
-    get => ref _Handle.AsRef<int>(_TeamOffset.Value);
+    get => ref _Handle.AsRef<int>(_TeamOffset);
   }
-  private static readonly Lazy<nint> _OnEventFiredOffset = new(() => Schema.GetOffset(0xD797C990E84EA158), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEventFiredOffset = Schema.GetOffset(0xD797C990E84EA158);
 
   public CEntityIOOutput OnEventFired {
-    get => new CEntityIOOutputImpl(_Handle + _OnEventFiredOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEventFiredOffset);
   }
 
 

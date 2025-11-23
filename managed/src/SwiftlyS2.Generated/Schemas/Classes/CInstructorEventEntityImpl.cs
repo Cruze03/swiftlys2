@@ -17,28 +17,28 @@ internal partial class CInstructorEventEntityImpl : CPointEntityImpl, CInstructo
   public CInstructorEventEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x6DE6628874FF65FE), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x6DE6628874FF65FE);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _HintTargetEntityOffset = new(() => Schema.GetOffset(0x6DE662880024C1BE), LazyThreadSafetyMode.None);
+  private static readonly nint _HintTargetEntityOffset = Schema.GetOffset(0x6DE662880024C1BE);
 
   public string HintTargetEntity {
     get {
-      var ptr = _Handle.Read<nint>(_HintTargetEntityOffset.Value);
+      var ptr = _Handle.Read<nint>(_HintTargetEntityOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _HintTargetEntityOffset.Value, value);
+    set => Schema.SetString(_Handle, _HintTargetEntityOffset, value);
   } 
-  private static readonly Lazy<nint> _TargetPlayerOffset = new(() => Schema.GetOffset(0x6DE66288BA425153), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetPlayerOffset = Schema.GetOffset(0x6DE66288BA425153);
 
   public ref CHandle<CBasePlayerPawn> TargetPlayer {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_TargetPlayerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerPawn>>(_TargetPlayerOffset);
   }
 
 

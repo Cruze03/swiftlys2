@@ -17,68 +17,68 @@ internal partial class CMoverPathNodeImpl : CPointEntityImpl, CMoverPathNode {
   public CMoverPathNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InTangentLocalOffset = new(() => Schema.GetOffset(0x5847AABC46C1388A), LazyThreadSafetyMode.None);
+  private static readonly nint _InTangentLocalOffset = Schema.GetOffset(0x5847AABC46C1388A);
 
   public ref Vector InTangentLocal {
-    get => ref _Handle.AsRef<Vector>(_InTangentLocalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_InTangentLocalOffset);
   }
-  private static readonly Lazy<nint> _OutTangentLocalOffset = new(() => Schema.GetOffset(0x5847AABC788EFFFB), LazyThreadSafetyMode.None);
+  private static readonly nint _OutTangentLocalOffset = Schema.GetOffset(0x5847AABC788EFFFB);
 
   public ref Vector OutTangentLocal {
-    get => ref _Handle.AsRef<Vector>(_OutTangentLocalOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OutTangentLocalOffset);
   }
-  private static readonly Lazy<nint> _ParentPathUniqueIDOffset = new(() => Schema.GetOffset(0x5847AABCC2958DE1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentPathUniqueIDOffset = Schema.GetOffset(0x5847AABCC2958DE1);
 
   public string ParentPathUniqueID {
     get {
-      var ptr = _Handle.Read<nint>(_ParentPathUniqueIDOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParentPathUniqueIDOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParentPathUniqueIDOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParentPathUniqueIDOffset, value);
   } 
-  private static readonly Lazy<nint> _PathNodeParameterOffset = new(() => Schema.GetOffset(0x5847AABC5B2492DE), LazyThreadSafetyMode.None);
+  private static readonly nint _PathNodeParameterOffset = Schema.GetOffset(0x5847AABC5B2492DE);
 
   public string PathNodeParameter {
     get {
-      var ptr = _Handle.Read<nint>(_PathNodeParameterOffset.Value);
+      var ptr = _Handle.Read<nint>(_PathNodeParameterOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PathNodeParameterOffset.Value, value);
+    set => Schema.SetString(_Handle, _PathNodeParameterOffset, value);
   } 
-  private static readonly Lazy<nint> _OnStartFromOrInSegmentOffset = new(() => Schema.GetOffset(0x5847AABC6622BECB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartFromOrInSegmentOffset = Schema.GetOffset(0x5847AABC6622BECB);
 
   public CEntityIOOutput OnStartFromOrInSegment {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartFromOrInSegmentOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartFromOrInSegmentOffset);
   }
-  private static readonly Lazy<nint> _OnStoppedAtOrInSegmentOffset = new(() => Schema.GetOffset(0x5847AABCBF4204DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStoppedAtOrInSegmentOffset = Schema.GetOffset(0x5847AABCBF4204DB);
 
   public CEntityIOOutput OnStoppedAtOrInSegment {
-    get => new CEntityIOOutputImpl(_Handle + _OnStoppedAtOrInSegmentOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStoppedAtOrInSegmentOffset);
   }
-  private static readonly Lazy<nint> _OnPassThroughOffset = new(() => Schema.GetOffset(0x5847AABC3A5F20B6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPassThroughOffset = Schema.GetOffset(0x5847AABC3A5F20B6);
 
   public CEntityIOOutput OnPassThrough {
-    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughOffset);
   }
-  private static readonly Lazy<nint> _OnPassThroughForwardOffset = new(() => Schema.GetOffset(0x5847AABCA62F443B), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPassThroughForwardOffset = Schema.GetOffset(0x5847AABCA62F443B);
 
   public CEntityIOOutput OnPassThroughForward {
-    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughForwardOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughForwardOffset);
   }
-  private static readonly Lazy<nint> _OnPassThroughReverseOffset = new(() => Schema.GetOffset(0x5847AABC37667FA8), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPassThroughReverseOffset = Schema.GetOffset(0x5847AABC37667FA8);
 
   public CEntityIOOutput OnPassThroughReverse {
-    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughReverseOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPassThroughReverseOffset);
   }
-  private static readonly Lazy<nint> _MoverOffset = new(() => Schema.GetOffset(0x5847AABC3629FA74), LazyThreadSafetyMode.None);
+  private static readonly nint _MoverOffset = Schema.GetOffset(0x5847AABC3629FA74);
 
   public ref CHandle<CPathMover> Mover {
-    get => ref _Handle.AsRef<CHandle<CPathMover>>(_MoverOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CPathMover>>(_MoverOffset);
   }
-  private static readonly Lazy<nint> _XWSPrevParentOffset = new(() => Schema.GetOffset(0x5847AABC2AEC980C), LazyThreadSafetyMode.None);
+  private static readonly nint _XWSPrevParentOffset = Schema.GetOffset(0x5847AABC2AEC980C);
 
   public ref CTransform XWSPrevParent {
-    get => ref _Handle.AsRef<CTransform>(_XWSPrevParentOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_XWSPrevParentOffset);
   }
 
 

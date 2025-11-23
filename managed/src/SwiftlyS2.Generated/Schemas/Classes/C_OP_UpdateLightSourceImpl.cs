@@ -17,35 +17,35 @@ internal partial class C_OP_UpdateLightSourceImpl : CParticleFunctionOperatorImp
   public C_OP_UpdateLightSourceImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ColorTintOffset = new(() => Schema.GetOffset(0x6611EEDD569A6EA9), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorTintOffset = Schema.GetOffset(0x6611EEDD569A6EA9);
 
   public ref Color ColorTint {
-    get => ref _Handle.AsRef<Color>(_ColorTintOffset.Value);
+    get => ref _Handle.AsRef<Color>(_ColorTintOffset);
   }
-  private static readonly Lazy<nint> _BrightnessScaleOffset = new(() => Schema.GetOffset(0x6611EEDD5EFC3AAE), LazyThreadSafetyMode.None);
+  private static readonly nint _BrightnessScaleOffset = Schema.GetOffset(0x6611EEDD5EFC3AAE);
 
   public ref float BrightnessScale {
-    get => ref _Handle.AsRef<float>(_BrightnessScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_BrightnessScaleOffset);
   }
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x6611EEDDA7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x6611EEDDA7A20159);
 
   public ref float RadiusScale {
-    get => ref _Handle.AsRef<float>(_RadiusScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _MinimumLightingRadiusOffset = new(() => Schema.GetOffset(0x6611EEDD946ABF7B), LazyThreadSafetyMode.None);
+  private static readonly nint _MinimumLightingRadiusOffset = Schema.GetOffset(0x6611EEDD946ABF7B);
 
   public ref float MinimumLightingRadius {
-    get => ref _Handle.AsRef<float>(_MinimumLightingRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinimumLightingRadiusOffset);
   }
-  private static readonly Lazy<nint> _MaximumLightingRadiusOffset = new(() => Schema.GetOffset(0x6611EEDD8804B57D), LazyThreadSafetyMode.None);
+  private static readonly nint _MaximumLightingRadiusOffset = Schema.GetOffset(0x6611EEDD8804B57D);
 
   public ref float MaximumLightingRadius {
-    get => ref _Handle.AsRef<float>(_MaximumLightingRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaximumLightingRadiusOffset);
   }
-  private static readonly Lazy<nint> _PositionDampingConstantOffset = new(() => Schema.GetOffset(0x6611EEDD074C2A6A), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionDampingConstantOffset = Schema.GetOffset(0x6611EEDD074C2A6A);
 
   public ref float PositionDampingConstant {
-    get => ref _Handle.AsRef<float>(_PositionDampingConstantOffset.Value);
+    get => ref _Handle.AsRef<float>(_PositionDampingConstantOffset);
   }
 
 

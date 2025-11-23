@@ -17,14 +17,14 @@ internal partial class CPulseCell_Step_SetAnimGraphParamImpl : CPulseCell_BaseFl
   public CPulseCell_Step_SetAnimGraphParamImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamNameOffset = new(() => Schema.GetOffset(0x7727698D230FDA59), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamNameOffset = Schema.GetOffset(0x7727698D230FDA59);
 
   public string ParamName {
     get {
-      var ptr = _Handle.Read<nint>(_ParamNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_ParamNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ParamNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _ParamNameOffset, value);
   } 
 
 

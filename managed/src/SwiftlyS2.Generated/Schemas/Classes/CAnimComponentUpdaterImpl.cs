@@ -17,29 +17,29 @@ internal partial class CAnimComponentUpdaterImpl : SchemaClass, CAnimComponentUp
   public CAnimComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x3E0F51C74D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x3E0F51C74D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _IdOffset = new(() => Schema.GetOffset(0x3E0F51C7B4B6E980), LazyThreadSafetyMode.None);
+  private static readonly nint _IdOffset = Schema.GetOffset(0x3E0F51C7B4B6E980);
 
   public AnimComponentID Id {
-    get => new AnimComponentIDImpl(_Handle + _IdOffset.Value);
+    get => new AnimComponentIDImpl(_Handle + _IdOffset);
   }
-  private static readonly Lazy<nint> _NetworkModeOffset = new(() => Schema.GetOffset(0x3E0F51C7E3307112), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkModeOffset = Schema.GetOffset(0x3E0F51C7E3307112);
 
   public ref AnimNodeNetworkMode NetworkMode {
-    get => ref _Handle.AsRef<AnimNodeNetworkMode>(_NetworkModeOffset.Value);
+    get => ref _Handle.AsRef<AnimNodeNetworkMode>(_NetworkModeOffset);
   }
-  private static readonly Lazy<nint> _StartEnabledOffset = new(() => Schema.GetOffset(0x3E0F51C7500D5C24), LazyThreadSafetyMode.None);
+  private static readonly nint _StartEnabledOffset = Schema.GetOffset(0x3E0F51C7500D5C24);
 
   public ref bool StartEnabled {
-    get => ref _Handle.AsRef<bool>(_StartEnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartEnabledOffset);
   }
 
 

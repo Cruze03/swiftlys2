@@ -17,100 +17,100 @@ internal partial class C_INIT_StatusEffectCitadelImpl : CParticleFunctionInitial
   public C_INIT_StatusEffectCitadelImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SFXColorWarpAmountOffset = new(() => Schema.GetOffset(0x6420071B7AE5DF43), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXColorWarpAmountOffset = Schema.GetOffset(0x6420071B7AE5DF43);
 
   public ref float SFXColorWarpAmount {
-    get => ref _Handle.AsRef<float>(_SFXColorWarpAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXColorWarpAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXNormalAmountOffset = new(() => Schema.GetOffset(0x6420071BACB8EED5), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXNormalAmountOffset = Schema.GetOffset(0x6420071BACB8EED5);
 
   public ref float SFXNormalAmount {
-    get => ref _Handle.AsRef<float>(_SFXNormalAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXNormalAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXMetalnessAmountOffset = new(() => Schema.GetOffset(0x6420071B02A1BB5A), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXMetalnessAmountOffset = Schema.GetOffset(0x6420071B02A1BB5A);
 
   public ref float SFXMetalnessAmount {
-    get => ref _Handle.AsRef<float>(_SFXMetalnessAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXMetalnessAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXRoughnessAmountOffset = new(() => Schema.GetOffset(0x6420071BC6E86EA4), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXRoughnessAmountOffset = Schema.GetOffset(0x6420071BC6E86EA4);
 
   public ref float SFXRoughnessAmount {
-    get => ref _Handle.AsRef<float>(_SFXRoughnessAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXRoughnessAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXSelfIllumAmountOffset = new(() => Schema.GetOffset(0x6420071B7BD60AE5), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSelfIllumAmountOffset = Schema.GetOffset(0x6420071B7BD60AE5);
 
   public ref float SFXSelfIllumAmount {
-    get => ref _Handle.AsRef<float>(_SFXSelfIllumAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSelfIllumAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXSScaleOffset = new(() => Schema.GetOffset(0x6420071BCA52F1F3), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSScaleOffset = Schema.GetOffset(0x6420071BCA52F1F3);
 
   public ref float SFXSScale {
-    get => ref _Handle.AsRef<float>(_SFXSScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSScaleOffset);
   }
-  private static readonly Lazy<nint> _SFXSScrollXOffset = new(() => Schema.GetOffset(0x6420071BF8557E0E), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSScrollXOffset = Schema.GetOffset(0x6420071BF8557E0E);
 
   public ref float SFXSScrollX {
-    get => ref _Handle.AsRef<float>(_SFXSScrollXOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSScrollXOffset);
   }
-  private static readonly Lazy<nint> _SFXSScrollYOffset = new(() => Schema.GetOffset(0x6420071BF9557FA1), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSScrollYOffset = Schema.GetOffset(0x6420071BF9557FA1);
 
   public ref float SFXSScrollY {
-    get => ref _Handle.AsRef<float>(_SFXSScrollYOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSScrollYOffset);
   }
-  private static readonly Lazy<nint> _SFXSScrollZOffset = new(() => Schema.GetOffset(0x6420071BF6557AE8), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSScrollZOffset = Schema.GetOffset(0x6420071BF6557AE8);
 
   public ref float SFXSScrollZ {
-    get => ref _Handle.AsRef<float>(_SFXSScrollZOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSScrollZOffset);
   }
-  private static readonly Lazy<nint> _SFXSOffsetXOffset = new(() => Schema.GetOffset(0x6420071BFA92D3C0), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSOffsetXOffset = Schema.GetOffset(0x6420071BFA92D3C0);
 
   public ref float SFXSOffsetX {
-    get => ref _Handle.AsRef<float>(_SFXSOffsetXOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSOffsetXOffset);
   }
-  private static readonly Lazy<nint> _SFXSOffsetYOffset = new(() => Schema.GetOffset(0x6420071BFB92D553), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSOffsetYOffset = Schema.GetOffset(0x6420071BFB92D553);
 
   public ref float SFXSOffsetY {
-    get => ref _Handle.AsRef<float>(_SFXSOffsetYOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSOffsetYOffset);
   }
-  private static readonly Lazy<nint> _SFXSOffsetZOffset = new(() => Schema.GetOffset(0x6420071BFC92D6E6), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSOffsetZOffset = Schema.GetOffset(0x6420071BFC92D6E6);
 
   public ref float SFXSOffsetZ {
-    get => ref _Handle.AsRef<float>(_SFXSOffsetZOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSOffsetZOffset);
   }
-  private static readonly Lazy<nint> _DetailComboOffset = new(() => Schema.GetOffset(0x6420071B928C6606), LazyThreadSafetyMode.None);
+  private static readonly nint _DetailComboOffset = Schema.GetOffset(0x6420071B928C6606);
 
   public ref DetailCombo_t DetailCombo {
-    get => ref _Handle.AsRef<DetailCombo_t>(_DetailComboOffset.Value);
+    get => ref _Handle.AsRef<DetailCombo_t>(_DetailComboOffset);
   }
-  private static readonly Lazy<nint> _SFXSDetailAmountOffset = new(() => Schema.GetOffset(0x6420071B5B8C7946), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSDetailAmountOffset = Schema.GetOffset(0x6420071B5B8C7946);
 
   public ref float SFXSDetailAmount {
-    get => ref _Handle.AsRef<float>(_SFXSDetailAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSDetailAmountOffset);
   }
-  private static readonly Lazy<nint> _SFXSDetailScaleOffset = new(() => Schema.GetOffset(0x6420071BCC4A4840), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSDetailScaleOffset = Schema.GetOffset(0x6420071BCC4A4840);
 
   public ref float SFXSDetailScale {
-    get => ref _Handle.AsRef<float>(_SFXSDetailScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSDetailScaleOffset);
   }
-  private static readonly Lazy<nint> _SFXSDetailScrollXOffset = new(() => Schema.GetOffset(0x6420071BF45EED31), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSDetailScrollXOffset = Schema.GetOffset(0x6420071BF45EED31);
 
   public ref float SFXSDetailScrollX {
-    get => ref _Handle.AsRef<float>(_SFXSDetailScrollXOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSDetailScrollXOffset);
   }
-  private static readonly Lazy<nint> _SFXSDetailScrollYOffset = new(() => Schema.GetOffset(0x6420071BF35EEB9E), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSDetailScrollYOffset = Schema.GetOffset(0x6420071BF35EEB9E);
 
   public ref float SFXSDetailScrollY {
-    get => ref _Handle.AsRef<float>(_SFXSDetailScrollYOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSDetailScrollYOffset);
   }
-  private static readonly Lazy<nint> _SFXSDetailScrollZOffset = new(() => Schema.GetOffset(0x6420071BF25EEA0B), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSDetailScrollZOffset = Schema.GetOffset(0x6420071BF25EEA0B);
 
   public ref float SFXSDetailScrollZ {
-    get => ref _Handle.AsRef<float>(_SFXSDetailScrollZOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSDetailScrollZOffset);
   }
-  private static readonly Lazy<nint> _SFXSUseModelUVsOffset = new(() => Schema.GetOffset(0x6420071B8F106179), LazyThreadSafetyMode.None);
+  private static readonly nint _SFXSUseModelUVsOffset = Schema.GetOffset(0x6420071B8F106179);
 
   public ref float SFXSUseModelUVs {
-    get => ref _Handle.AsRef<float>(_SFXSUseModelUVsOffset.Value);
+    get => ref _Handle.AsRef<float>(_SFXSUseModelUVsOffset);
   }
 
 

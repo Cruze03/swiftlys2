@@ -17,15 +17,15 @@ internal partial class CNmFloatCurveNode__CDefinitionImpl : CNmFloatValueNode__C
   public CNmFloatCurveNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueNodeIdxOffset = new(() => Schema.GetOffset(0x34D6839A95E89F27), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueNodeIdxOffset = Schema.GetOffset(0x34D6839A95E89F27);
 
   public ref short InputValueNodeIdx {
-    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_InputValueNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _CurveOffset = new(() => Schema.GetOffset(0x34D6839ABFFA0B34), LazyThreadSafetyMode.None);
+  private static readonly nint _CurveOffset = Schema.GetOffset(0x34D6839ABFFA0B34);
 
   public SchemaUntypedField Curve {
-    get => new SchemaUntypedField(_Handle + _CurveOffset.Value);
+    get => new SchemaUntypedField(_Handle + _CurveOffset);
   }
 
 

@@ -17,19 +17,19 @@ internal partial class CDirectPlaybackTagDataImpl : SchemaClass, CDirectPlayback
   public CDirectPlaybackTagDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0xAADCE162B4A24CB), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0xAADCE162B4A24CB);
 
   public string SequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _TagsOffset = new(() => Schema.GetOffset(0xAADCE16B46C8540), LazyThreadSafetyMode.None);
+  private static readonly nint _TagsOffset = Schema.GetOffset(0xAADCE16B46C8540);
 
   public ref CUtlVector<TagSpan_t> Tags {
-    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<TagSpan_t>>(_TagsOffset);
   }
 
 

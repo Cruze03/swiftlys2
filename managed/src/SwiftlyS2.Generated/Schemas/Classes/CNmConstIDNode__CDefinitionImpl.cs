@@ -17,10 +17,10 @@ internal partial class CNmConstIDNode__CDefinitionImpl : CNmIDValueNode__CDefini
   public CNmConstIDNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xF68AB5F96B99AEEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xF68AB5F96B99AEEA);
 
   public ref CGlobalSymbol Value {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_ValueOffset);
   }
 
 

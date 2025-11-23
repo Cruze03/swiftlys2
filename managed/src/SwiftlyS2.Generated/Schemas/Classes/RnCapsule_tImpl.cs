@@ -20,10 +20,10 @@ internal partial class RnCapsule_tImpl : SchemaClass, RnCapsule_t {
   public ISchemaFixedArray<Vector> Center {
     get => new SchemaFixedArray<Vector>(_Handle, 0xA2412C03C82A5908, 2, 12, 4);
   }
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0xA2412C035ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0xA2412C035ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
 
 

@@ -10,10 +10,10 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public sealed class InputMenuOption : MenuOptionBase
 {
-    private readonly ConcurrentDictionary<IPlayer, string> values = new();
-    private readonly ConcurrentDictionary<IPlayer, bool> waitingForInput = new();
-    private readonly ConcurrentDictionary<IPlayer, string> inputStates = new();
-    private readonly ConcurrentDictionary<IPlayer, CancellationTokenSource> statusClearTasks = new();
+    private readonly ConcurrentDictionary<int, string> values = new();
+    private readonly ConcurrentDictionary<int, bool> waitingForInput = new();
+    private readonly ConcurrentDictionary<int, string> inputStates = new();
+    private readonly ConcurrentDictionary<int, CancellationTokenSource> statusClearTasks = new();
     private readonly string defaultValue;
     private readonly string hintMessage;
     private readonly Func<string, bool>? validator;
@@ -85,13 +85,13 @@ public sealed class InputMenuOption : MenuOptionBase
 
     public override string GetDisplayText( IPlayer player, int displayLine = 0 )
     {
-        if (inputStates.TryGetValue(player, out var state))
+        if (inputStates.TryGetValue(player.PlayerID, out var state))
         {
             return state;
         }
 
         var text = base.GetDisplayText(player, displayLine);
-        var value = values.GetOrAdd(player, defaultValue);
+        var value = values.GetOrAdd(player.PlayerID, defaultValue);
         var displayValue = string.IsNullOrEmpty(value) ? $"<font color='{Menu?.Configuration.DisabledColor ?? "#666666"}'>(empty)</font>" : $"<font color='#FFFFFF'>{value}</font>";
         return $"{text}: {displayValue}";
     }
@@ -103,7 +103,7 @@ public sealed class InputMenuOption : MenuOptionBase
     /// <returns>The current input value.</returns>
     public string GetValue( IPlayer player )
     {
-        return values.GetOrAdd(player, defaultValue);
+        return values.GetOrAdd(player.PlayerID, defaultValue);
     }
 
     /// <summary>
@@ -124,8 +124,8 @@ public sealed class InputMenuOption : MenuOptionBase
             return false;
         }
 
-        var oldValue = values.GetOrAdd(player, defaultValue);
-        _ = values.AddOrUpdate(player, value, ( _, _ ) => value);
+        var oldValue = values.GetOrAdd(player.PlayerID, defaultValue);
+        _ = values.AddOrUpdate(player.PlayerID, value, ( _, _ ) => value);
 
         ValueChanged?.Invoke(this, new MenuOptionValueChangedEventArgs<string> {
             Player = player,
@@ -144,24 +144,24 @@ public sealed class InputMenuOption : MenuOptionBase
             chatHookGuid = Menu.MenuManager.Core.Command.HookClientChat(OnChatInput);
         }
 
-        if (statusClearTasks.TryGetValue(args.Player, out var oldCts))
+        if (statusClearTasks.TryGetValue(args.Player.PlayerID, out var oldCts))
         {
             oldCts.Cancel();
             oldCts.Dispose();
-            _ = statusClearTasks.TryRemove(args.Player, out _);
+            _ = statusClearTasks.TryRemove(args.Player.PlayerID, out _);
         }
 
-        if (waitingForInput.ContainsKey(args.Player))
+        if (waitingForInput.ContainsKey(args.Player.PlayerID))
         {
-            _ = waitingForInput.TryRemove(args.Player, out _);
-            _ = inputStates.TryRemove(args.Player, out _);
+            _ = waitingForInput.TryRemove(args.Player.PlayerID, out _);
+            _ = inputStates.TryRemove(args.Player.PlayerID, out _);
             return ValueTask.CompletedTask;
         }
 
-        _ = inputStates.AddOrUpdate(args.Player, $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)", ( _, _ ) => $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)");
+        _ = inputStates.AddOrUpdate(args.Player.PlayerID, $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)", ( _, _ ) => $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)");
         args.Player.SendMessage(MessageType.Chat, hintMessage);
 
-        _ = waitingForInput.AddOrUpdate(args.Player, true, ( _, _ ) => true);
+        _ = waitingForInput.AddOrUpdate(args.Player.PlayerID, true, ( _, _ ) => true);
 
         return ValueTask.CompletedTask;
     }
@@ -169,35 +169,35 @@ public sealed class InputMenuOption : MenuOptionBase
     private HookResult OnChatInput( int playerId, string text, bool teamonly )
     {
         var player = Menu?.MenuManager.Core.PlayerManager.GetPlayer(playerId);
-        if (player == null || !waitingForInput.ContainsKey(player))
+        if (player == null || !waitingForInput.ContainsKey(player.PlayerID))
         {
             return HookResult.Continue;
         }
 
         var input = text.Trim();
 
-        _ = waitingForInput.TryRemove(player, out _);
+        _ = waitingForInput.TryRemove(player.PlayerID, out _);
 
         var statusMessage = string.IsNullOrWhiteSpace(input) || !SetValue(player, input) ? "<font color='#FF0000'>Invalid input</font>" : $"<font color='#00FF00'>Accepted</font>";
 
-        _ = inputStates.AddOrUpdate(player, statusMessage, ( _, _ ) => statusMessage);
+        _ = inputStates.AddOrUpdate(player.PlayerID, statusMessage, ( _, _ ) => statusMessage);
 
-        if (statusClearTasks.TryGetValue(player, out var oldCts))
+        if (statusClearTasks.TryGetValue(player.PlayerID, out var oldCts))
         {
             oldCts.Cancel();
             oldCts.Dispose();
         }
 
         var cts = new CancellationTokenSource();
-        _ = statusClearTasks.AddOrUpdate(player, cts, ( _, _ ) => cts);
+        _ = statusClearTasks.AddOrUpdate(player.PlayerID, cts, ( _, _ ) => cts);
 
         _ = Task.Run(async () =>
         {
             try
             {
                 await Task.Delay(2000, cts.Token);
-                _ = inputStates.TryRemove(player, out _);
-                if (statusClearTasks.TryRemove(player, out var completedCts))
+                _ = inputStates.TryRemove(player.PlayerID, out _);
+                if (statusClearTasks.TryRemove(player.PlayerID, out var completedCts))
                 {
                     completedCts.Dispose();
                 }

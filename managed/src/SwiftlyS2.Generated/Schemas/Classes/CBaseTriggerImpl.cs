@@ -17,69 +17,69 @@ internal partial class CBaseTriggerImpl : CBaseToggleImpl, CBaseTrigger {
   public CBaseTriggerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnStartTouchOffset = new(() => Schema.GetOffset(0x96DE10B1B4E38193), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartTouchOffset = Schema.GetOffset(0x96DE10B1B4E38193);
 
   public CEntityIOOutput OnStartTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchOffset);
   }
-  private static readonly Lazy<nint> _OnStartTouchAllOffset = new(() => Schema.GetOffset(0x96DE10B1BE1133C6), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartTouchAllOffset = Schema.GetOffset(0x96DE10B1BE1133C6);
 
   public CEntityIOOutput OnStartTouchAll {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchAllOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartTouchAllOffset);
   }
-  private static readonly Lazy<nint> _OnEndTouchOffset = new(() => Schema.GetOffset(0x96DE10B15D181B48), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEndTouchOffset = Schema.GetOffset(0x96DE10B15D181B48);
 
   public CEntityIOOutput OnEndTouch {
-    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchOffset);
   }
-  private static readonly Lazy<nint> _OnEndTouchAllOffset = new(() => Schema.GetOffset(0x96DE10B1A5526E0B), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEndTouchAllOffset = Schema.GetOffset(0x96DE10B1A5526E0B);
 
   public CEntityIOOutput OnEndTouchAll {
-    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchAllOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEndTouchAllOffset);
   }
-  private static readonly Lazy<nint> _OnTouchingOffset = new(() => Schema.GetOffset(0x96DE10B1CD69EB01), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTouchingOffset = Schema.GetOffset(0x96DE10B1CD69EB01);
 
   public CEntityIOOutput OnTouching {
-    get => new CEntityIOOutputImpl(_Handle + _OnTouchingOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTouchingOffset);
   }
-  private static readonly Lazy<nint> _OnTouchingEachEntityOffset = new(() => Schema.GetOffset(0x96DE10B1CBC29227), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTouchingEachEntityOffset = Schema.GetOffset(0x96DE10B1CBC29227);
 
   public CEntityIOOutput OnTouchingEachEntity {
-    get => new CEntityIOOutputImpl(_Handle + _OnTouchingEachEntityOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnTouchingEachEntityOffset);
   }
-  private static readonly Lazy<nint> _OnNotTouchingOffset = new(() => Schema.GetOffset(0x96DE10B19603AF34), LazyThreadSafetyMode.None);
+  private static readonly nint _OnNotTouchingOffset = Schema.GetOffset(0x96DE10B19603AF34);
 
   public CEntityIOOutput OnNotTouching {
-    get => new CEntityIOOutputImpl(_Handle + _OnNotTouchingOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnNotTouchingOffset);
   }
-  private static readonly Lazy<nint> _TouchingEntitiesOffset = new(() => Schema.GetOffset(0x96DE10B1070A5E2D), LazyThreadSafetyMode.None);
+  private static readonly nint _TouchingEntitiesOffset = Schema.GetOffset(0x96DE10B1070A5E2D);
 
   public ref CUtlVector<CHandle<CBaseEntity>> TouchingEntities {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_TouchingEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_TouchingEntitiesOffset);
   }
-  private static readonly Lazy<nint> _FilterNameOffset = new(() => Schema.GetOffset(0x96DE10B109C86445), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterNameOffset = Schema.GetOffset(0x96DE10B109C86445);
 
   public string FilterName {
     get {
-      var ptr = _Handle.Read<nint>(_FilterNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_FilterNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _FilterNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _FilterNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FilterOffset = new(() => Schema.GetOffset(0x96DE10B145D9E0B1), LazyThreadSafetyMode.None);
+  private static readonly nint _FilterOffset = Schema.GetOffset(0x96DE10B145D9E0B1);
 
   public ref CHandle<CBaseFilter> Filter {
-    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFilter>>(_FilterOffset);
   }
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x96DE10B13A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x96DE10B13A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _UseAsyncQueriesOffset = new(() => Schema.GetOffset(0x96DE10B1DDD8EB18), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAsyncQueriesOffset = Schema.GetOffset(0x96DE10B1DDD8EB18);
 
   public ref bool UseAsyncQueries {
-    get => ref _Handle.AsRef<bool>(_UseAsyncQueriesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAsyncQueriesOffset);
   }
 
   public void DisabledUpdated() {

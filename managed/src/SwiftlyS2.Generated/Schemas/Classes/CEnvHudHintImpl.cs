@@ -17,14 +17,14 @@ internal partial class CEnvHudHintImpl : CPointEntityImpl, CEnvHudHint {
   public CEnvHudHintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MessageOffset = new(() => Schema.GetOffset(0xD3D49C23CC5243DC), LazyThreadSafetyMode.None);
+  private static readonly nint _MessageOffset = Schema.GetOffset(0xD3D49C23CC5243DC);
 
   public string Message {
     get {
-      var ptr = _Handle.Read<nint>(_MessageOffset.Value);
+      var ptr = _Handle.Read<nint>(_MessageOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MessageOffset.Value, value);
+    set => Schema.SetString(_Handle, _MessageOffset, value);
   } 
 
 

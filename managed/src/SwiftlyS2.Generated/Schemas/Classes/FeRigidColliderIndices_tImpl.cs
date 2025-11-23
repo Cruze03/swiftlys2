@@ -17,30 +17,30 @@ internal partial class FeRigidColliderIndices_tImpl : SchemaClass, FeRigidCollid
   public FeRigidColliderIndices_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TaperedCapsuleRigidIndexOffset = new(() => Schema.GetOffset(0x3411B17B4168EBCE), LazyThreadSafetyMode.None);
+  private static readonly nint _TaperedCapsuleRigidIndexOffset = Schema.GetOffset(0x3411B17B4168EBCE);
 
   public ref ushort TaperedCapsuleRigidIndex {
-    get => ref _Handle.AsRef<ushort>(_TaperedCapsuleRigidIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_TaperedCapsuleRigidIndexOffset);
   }
-  private static readonly Lazy<nint> _SphereRigidIndexOffset = new(() => Schema.GetOffset(0x3411B17B3AA961B5), LazyThreadSafetyMode.None);
+  private static readonly nint _SphereRigidIndexOffset = Schema.GetOffset(0x3411B17B3AA961B5);
 
   public ref ushort SphereRigidIndex {
-    get => ref _Handle.AsRef<ushort>(_SphereRigidIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_SphereRigidIndexOffset);
   }
-  private static readonly Lazy<nint> _BoxRigidIndexOffset = new(() => Schema.GetOffset(0x3411B17B46589173), LazyThreadSafetyMode.None);
+  private static readonly nint _BoxRigidIndexOffset = Schema.GetOffset(0x3411B17B46589173);
 
   public ref ushort BoxRigidIndex {
-    get => ref _Handle.AsRef<ushort>(_BoxRigidIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_BoxRigidIndexOffset);
   }
-  private static readonly Lazy<nint> _SDFRigidIndexOffset = new(() => Schema.GetOffset(0x3411B17BCE5B5E19), LazyThreadSafetyMode.None);
+  private static readonly nint _SDFRigidIndexOffset = Schema.GetOffset(0x3411B17BCE5B5E19);
 
   public ref ushort SDFRigidIndex {
-    get => ref _Handle.AsRef<ushort>(_SDFRigidIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_SDFRigidIndexOffset);
   }
-  private static readonly Lazy<nint> _CollisionPlaneIndexOffset = new(() => Schema.GetOffset(0x3411B17B7638A2B9), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionPlaneIndexOffset = Schema.GetOffset(0x3411B17B7638A2B9);
 
   public ref ushort CollisionPlaneIndex {
-    get => ref _Handle.AsRef<ushort>(_CollisionPlaneIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_CollisionPlaneIndexOffset);
   }
 
 

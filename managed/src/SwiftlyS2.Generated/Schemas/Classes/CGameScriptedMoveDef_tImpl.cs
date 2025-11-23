@@ -17,50 +17,50 @@ internal partial class CGameScriptedMoveDef_tImpl : SchemaClass, CGameScriptedMo
   public CGameScriptedMoveDef_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DestOffsetOffset = new(() => Schema.GetOffset(0x278F5D457DA34A6E), LazyThreadSafetyMode.None);
+  private static readonly nint _DestOffsetOffset = Schema.GetOffset(0x278F5D457DA34A6E);
 
   public ref Vector DestOffset {
-    get => ref _Handle.AsRef<Vector>(_DestOffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DestOffsetOffset);
   }
-  private static readonly Lazy<nint> _DestEntityOffset = new(() => Schema.GetOffset(0x278F5D45A1CF74EC), LazyThreadSafetyMode.None);
+  private static readonly nint _DestEntityOffset = Schema.GetOffset(0x278F5D45A1CF74EC);
 
   public ref CHandle<CBaseEntity> DestEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_DestEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_DestEntityOffset);
   }
-  private static readonly Lazy<nint> _DestOffset = new(() => Schema.GetOffset(0x278F5D45B61266D7), LazyThreadSafetyMode.None);
+  private static readonly nint _DestOffset = Schema.GetOffset(0x278F5D45B61266D7);
 
   public ref QAngle Dest {
-    get => ref _Handle.AsRef<QAngle>(_DestOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_DestOffset);
   }
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x278F5D45BC5E3BAB), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x278F5D45BC5E3BAB);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _AngRateOffset = new(() => Schema.GetOffset(0x278F5D4525A03D83), LazyThreadSafetyMode.None);
+  private static readonly nint _AngRateOffset = Schema.GetOffset(0x278F5D4525A03D83);
 
   public ref float AngRate {
-    get => ref _Handle.AsRef<float>(_AngRateOffset.Value);
+    get => ref _Handle.AsRef<float>(_AngRateOffset);
   }
-  private static readonly Lazy<nint> _MoveSpeedOffset = new(() => Schema.GetOffset(0x278F5D4566D18279), LazyThreadSafetyMode.None);
+  private static readonly nint _MoveSpeedOffset = Schema.GetOffset(0x278F5D4566D18279);
 
   public ref float MoveSpeed {
-    get => ref _Handle.AsRef<float>(_MoveSpeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_MoveSpeedOffset);
   }
-  private static readonly Lazy<nint> _AimDisabledOffset = new(() => Schema.GetOffset(0x278F5D457E2FBF2E), LazyThreadSafetyMode.None);
+  private static readonly nint _AimDisabledOffset = Schema.GetOffset(0x278F5D457E2FBF2E);
 
   public ref bool AimDisabled {
-    get => ref _Handle.AsRef<bool>(_AimDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AimDisabledOffset);
   }
-  private static readonly Lazy<nint> _IgnoreRotationOffset = new(() => Schema.GetOffset(0x278F5D45C7A0F33D), LazyThreadSafetyMode.None);
+  private static readonly nint _IgnoreRotationOffset = Schema.GetOffset(0x278F5D45C7A0F33D);
 
   public ref bool IgnoreRotation {
-    get => ref _Handle.AsRef<bool>(_IgnoreRotationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IgnoreRotationOffset);
   }
-  private static readonly Lazy<nint> _ForcedCrouchStateOffset = new(() => Schema.GetOffset(0x278F5D4571B1ABC7), LazyThreadSafetyMode.None);
+  private static readonly nint _ForcedCrouchStateOffset = Schema.GetOffset(0x278F5D4571B1ABC7);
 
   public ref ForcedCrouchState_t ForcedCrouchState {
-    get => ref _Handle.AsRef<ForcedCrouchState_t>(_ForcedCrouchStateOffset.Value);
+    get => ref _Handle.AsRef<ForcedCrouchState_t>(_ForcedCrouchStateOffset);
   }
 
 

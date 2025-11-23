@@ -17,20 +17,20 @@ internal partial class EngineCountdownTimerImpl : SchemaClass, EngineCountdownTi
   public EngineCountdownTimerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DurationOffset = new(() => Schema.GetOffset(0x3F0C5A433D9FF5AD), LazyThreadSafetyMode.None);
+  private static readonly nint _DurationOffset = Schema.GetOffset(0x3F0C5A433D9FF5AD);
 
   public ref float Duration {
-    get => ref _Handle.AsRef<float>(_DurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_DurationOffset);
   }
-  private static readonly Lazy<nint> _TimestampOffset = new(() => Schema.GetOffset(0x3F0C5A43B6C56F43), LazyThreadSafetyMode.None);
+  private static readonly nint _TimestampOffset = Schema.GetOffset(0x3F0C5A43B6C56F43);
 
   public ref float Timestamp {
-    get => ref _Handle.AsRef<float>(_TimestampOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimestampOffset);
   }
-  private static readonly Lazy<nint> _TimescaleOffset = new(() => Schema.GetOffset(0x3F0C5A438A240BBE), LazyThreadSafetyMode.None);
+  private static readonly nint _TimescaleOffset = Schema.GetOffset(0x3F0C5A438A240BBE);
 
   public ref float Timescale {
-    get => ref _Handle.AsRef<float>(_TimescaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TimescaleOffset);
   }
 
   public void DurationUpdated() {

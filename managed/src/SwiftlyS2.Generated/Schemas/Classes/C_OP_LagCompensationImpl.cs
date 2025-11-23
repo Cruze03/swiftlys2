@@ -17,25 +17,25 @@ internal partial class C_OP_LagCompensationImpl : CParticleFunctionOperatorImpl,
   public C_OP_LagCompensationImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DesiredVelocityCPOffset = new(() => Schema.GetOffset(0x21277E4532AACEC5), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredVelocityCPOffset = Schema.GetOffset(0x21277E4532AACEC5);
 
   public ref int DesiredVelocityCP {
-    get => ref _Handle.AsRef<int>(_DesiredVelocityCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_DesiredVelocityCPOffset);
   }
-  private static readonly Lazy<nint> _LatencyCPOffset = new(() => Schema.GetOffset(0x21277E45B100FE8E), LazyThreadSafetyMode.None);
+  private static readonly nint _LatencyCPOffset = Schema.GetOffset(0x21277E45B100FE8E);
 
   public ref int LatencyCP {
-    get => ref _Handle.AsRef<int>(_LatencyCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_LatencyCPOffset);
   }
-  private static readonly Lazy<nint> _LatencyCPFieldOffset = new(() => Schema.GetOffset(0x21277E458E1CEB3A), LazyThreadSafetyMode.None);
+  private static readonly nint _LatencyCPFieldOffset = Schema.GetOffset(0x21277E458E1CEB3A);
 
   public ref int LatencyCPField {
-    get => ref _Handle.AsRef<int>(_LatencyCPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_LatencyCPFieldOffset);
   }
-  private static readonly Lazy<nint> _DesiredVelocityCPFieldOffset = new(() => Schema.GetOffset(0x21277E45B59E9007), LazyThreadSafetyMode.None);
+  private static readonly nint _DesiredVelocityCPFieldOffset = Schema.GetOffset(0x21277E45B59E9007);
 
   public ref int DesiredVelocityCPField {
-    get => ref _Handle.AsRef<int>(_DesiredVelocityCPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_DesiredVelocityCPFieldOffset);
   }
 
 

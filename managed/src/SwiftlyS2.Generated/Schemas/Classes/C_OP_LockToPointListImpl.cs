@@ -17,30 +17,30 @@ internal partial class C_OP_LockToPointListImpl : CParticleFunctionOperatorImpl,
   public C_OP_LockToPointListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xC9237E67E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xC9237E67E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _PointListOffset = new(() => Schema.GetOffset(0xC9237E67976AB4FD), LazyThreadSafetyMode.None);
+  private static readonly nint _PointListOffset = Schema.GetOffset(0xC9237E67976AB4FD);
 
   public ref CUtlVector<PointDefinition_t> PointList {
-    get => ref _Handle.AsRef<CUtlVector<PointDefinition_t>>(_PointListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PointDefinition_t>>(_PointListOffset);
   }
-  private static readonly Lazy<nint> _PlaceAlongPathOffset = new(() => Schema.GetOffset(0xC9237E6781CF2E1A), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaceAlongPathOffset = Schema.GetOffset(0xC9237E6781CF2E1A);
 
   public ref bool PlaceAlongPath {
-    get => ref _Handle.AsRef<bool>(_PlaceAlongPathOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PlaceAlongPathOffset);
   }
-  private static readonly Lazy<nint> _ClosedLoopOffset = new(() => Schema.GetOffset(0xC9237E677C20D1AB), LazyThreadSafetyMode.None);
+  private static readonly nint _ClosedLoopOffset = Schema.GetOffset(0xC9237E677C20D1AB);
 
   public ref bool ClosedLoop {
-    get => ref _Handle.AsRef<bool>(_ClosedLoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ClosedLoopOffset);
   }
-  private static readonly Lazy<nint> _NumPointsAlongPathOffset = new(() => Schema.GetOffset(0xC9237E67ACB5FC8A), LazyThreadSafetyMode.None);
+  private static readonly nint _NumPointsAlongPathOffset = Schema.GetOffset(0xC9237E67ACB5FC8A);
 
   public ref int NumPointsAlongPath {
-    get => ref _Handle.AsRef<int>(_NumPointsAlongPathOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumPointsAlongPathOffset);
   }
 
 

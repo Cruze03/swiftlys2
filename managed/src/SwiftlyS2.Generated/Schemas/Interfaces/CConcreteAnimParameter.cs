@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CConcreteAnimParameter : CAnimParameterBase, ISchemaClass<CConcreteAnimParameter> {
 
   static CConcreteAnimParameter ISchemaClass<CConcreteAnimParameter>.From(nint handle) => new CConcreteAnimParameterImpl(handle);
-  static int ISchemaClass<CConcreteAnimParameter>.Size => 120;
+  static int ISchemaClass<CConcreteAnimParameter>.Size => 128;
   static string? ISchemaClass<CConcreteAnimParameter>.ClassName => null;
 
   

@@ -17,14 +17,14 @@ internal partial class CLogicGameEventImpl : CLogicalEntityImpl, CLogicGameEvent
   public CLogicGameEventImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EventNameOffset = new(() => Schema.GetOffset(0xBED9751E78114A54), LazyThreadSafetyMode.None);
+  private static readonly nint _EventNameOffset = Schema.GetOffset(0xBED9751E78114A54);
 
   public string EventName {
     get {
-      var ptr = _Handle.Read<nint>(_EventNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EventNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EventNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EventNameOffset, value);
   } 
 
 

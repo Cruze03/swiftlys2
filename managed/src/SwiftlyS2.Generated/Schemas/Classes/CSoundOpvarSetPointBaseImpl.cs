@@ -17,66 +17,66 @@ internal partial class CSoundOpvarSetPointBaseImpl : CBaseEntityImpl, CSoundOpva
   public CSoundOpvarSetPointBaseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x6C95A3E03A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x6C95A3E03A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _SourceOffset = new(() => Schema.GetOffset(0x6C95A3E033D3CD82), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceOffset = Schema.GetOffset(0x6C95A3E033D3CD82);
 
   public ref CHandle<CEntityInstance> Source {
-    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_SourceOffset);
   }
-  private static readonly Lazy<nint> _SourceEntityNameOffset = new(() => Schema.GetOffset(0x6C95A3E06C1387C0), LazyThreadSafetyMode.None);
+  private static readonly nint _SourceEntityNameOffset = Schema.GetOffset(0x6C95A3E06C1387C0);
 
   public string SourceEntityName {
     get {
-      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SourceEntityNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SourceEntityNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SourceEntityNameOffset, value);
   } 
-  private static readonly Lazy<nint> _LastPositionOffset = new(() => Schema.GetOffset(0x6C95A3E0A5B68002), LazyThreadSafetyMode.None);
+  private static readonly nint _LastPositionOffset = Schema.GetOffset(0x6C95A3E0A5B68002);
 
   public ref Vector LastPosition {
-    get => ref _Handle.AsRef<Vector>(_LastPositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LastPositionOffset);
   }
-  private static readonly Lazy<nint> _StackNameOffset = new(() => Schema.GetOffset(0x6C95A3E03B3E9CD4), LazyThreadSafetyMode.None);
+  private static readonly nint _StackNameOffset = Schema.GetOffset(0x6C95A3E03B3E9CD4);
 
   public string StackName {
     get {
-      var ptr = _Handle.Read<nint>(_StackNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_StackNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StackNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _StackNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OperatorNameOffset = new(() => Schema.GetOffset(0x6C95A3E0F6140996), LazyThreadSafetyMode.None);
+  private static readonly nint _OperatorNameOffset = Schema.GetOffset(0x6C95A3E0F6140996);
 
   public string OperatorName {
     get {
-      var ptr = _Handle.Read<nint>(_OperatorNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OperatorNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OperatorNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OperatorNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OpvarNameOffset = new(() => Schema.GetOffset(0x6C95A3E02CAEFF3C), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarNameOffset = Schema.GetOffset(0x6C95A3E02CAEFF3C);
 
   public string OpvarName {
     get {
-      var ptr = _Handle.Read<nint>(_OpvarNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_OpvarNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _OpvarNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _OpvarNameOffset, value);
   } 
-  private static readonly Lazy<nint> _OpvarIndexOffset = new(() => Schema.GetOffset(0x6C95A3E0BC170C34), LazyThreadSafetyMode.None);
+  private static readonly nint _OpvarIndexOffset = Schema.GetOffset(0x6C95A3E0BC170C34);
 
   public ref int OpvarIndex {
-    get => ref _Handle.AsRef<int>(_OpvarIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_OpvarIndexOffset);
   }
-  private static readonly Lazy<nint> _UseAutoCompareOffset = new(() => Schema.GetOffset(0x6C95A3E0E8C88ED2), LazyThreadSafetyMode.None);
+  private static readonly nint _UseAutoCompareOffset = Schema.GetOffset(0x6C95A3E0E8C88ED2);
 
   public ref bool UseAutoCompare {
-    get => ref _Handle.AsRef<bool>(_UseAutoCompareOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseAutoCompareOffset);
   }
 
   public void StackNameUpdated() {

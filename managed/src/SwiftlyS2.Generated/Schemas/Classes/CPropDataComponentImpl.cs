@@ -17,63 +17,63 @@ internal partial class CPropDataComponentImpl : CEntityComponentImpl, CPropDataC
   public CPropDataComponentImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DmgModBulletOffset = new(() => Schema.GetOffset(0x1CFE413EBB77495F), LazyThreadSafetyMode.None);
+  private static readonly nint _DmgModBulletOffset = Schema.GetOffset(0x1CFE413EBB77495F);
 
   public ref float DmgModBullet {
-    get => ref _Handle.AsRef<float>(_DmgModBulletOffset.Value);
+    get => ref _Handle.AsRef<float>(_DmgModBulletOffset);
   }
-  private static readonly Lazy<nint> _DmgModClubOffset = new(() => Schema.GetOffset(0x1CFE413E1C404FB7), LazyThreadSafetyMode.None);
+  private static readonly nint _DmgModClubOffset = Schema.GetOffset(0x1CFE413E1C404FB7);
 
   public ref float DmgModClub {
-    get => ref _Handle.AsRef<float>(_DmgModClubOffset.Value);
+    get => ref _Handle.AsRef<float>(_DmgModClubOffset);
   }
-  private static readonly Lazy<nint> _DmgModExplosiveOffset = new(() => Schema.GetOffset(0x1CFE413E0E90F97E), LazyThreadSafetyMode.None);
+  private static readonly nint _DmgModExplosiveOffset = Schema.GetOffset(0x1CFE413E0E90F97E);
 
   public ref float DmgModExplosive {
-    get => ref _Handle.AsRef<float>(_DmgModExplosiveOffset.Value);
+    get => ref _Handle.AsRef<float>(_DmgModExplosiveOffset);
   }
-  private static readonly Lazy<nint> _DmgModFireOffset = new(() => Schema.GetOffset(0x1CFE413E7E842D23), LazyThreadSafetyMode.None);
+  private static readonly nint _DmgModFireOffset = Schema.GetOffset(0x1CFE413E7E842D23);
 
   public ref float DmgModFire {
-    get => ref _Handle.AsRef<float>(_DmgModFireOffset.Value);
+    get => ref _Handle.AsRef<float>(_DmgModFireOffset);
   }
-  private static readonly Lazy<nint> _PhysicsDamageTableNameOffset = new(() => Schema.GetOffset(0x1CFE413E7A45F0E2), LazyThreadSafetyMode.None);
+  private static readonly nint _PhysicsDamageTableNameOffset = Schema.GetOffset(0x1CFE413E7A45F0E2);
 
   public string PhysicsDamageTableName {
     get {
-      var ptr = _Handle.Read<nint>(_PhysicsDamageTableNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PhysicsDamageTableNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PhysicsDamageTableNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PhysicsDamageTableNameOffset, value);
   } 
-  private static readonly Lazy<nint> _BasePropDataOffset = new(() => Schema.GetOffset(0x1CFE413EBF60E2A1), LazyThreadSafetyMode.None);
+  private static readonly nint _BasePropDataOffset = Schema.GetOffset(0x1CFE413EBF60E2A1);
 
   public string BasePropData {
     get {
-      var ptr = _Handle.Read<nint>(_BasePropDataOffset.Value);
+      var ptr = _Handle.Read<nint>(_BasePropDataOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BasePropDataOffset.Value, value);
+    set => Schema.SetString(_Handle, _BasePropDataOffset, value);
   } 
-  private static readonly Lazy<nint> _InteractionsOffset = new(() => Schema.GetOffset(0x1CFE413EE8050E44), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractionsOffset = Schema.GetOffset(0x1CFE413EE8050E44);
 
   public ref int Interactions {
-    get => ref _Handle.AsRef<int>(_InteractionsOffset.Value);
+    get => ref _Handle.AsRef<int>(_InteractionsOffset);
   }
-  private static readonly Lazy<nint> _SpawnMotionDisabledOffset = new(() => Schema.GetOffset(0x1CFE413E87EB2E82), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnMotionDisabledOffset = Schema.GetOffset(0x1CFE413E87EB2E82);
 
   public ref bool SpawnMotionDisabled {
-    get => ref _Handle.AsRef<bool>(_SpawnMotionDisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SpawnMotionDisabledOffset);
   }
-  private static readonly Lazy<nint> _DisableTakePhysicsDamageSpawnFlagOffset = new(() => Schema.GetOffset(0x1CFE413E5D3DCAE1), LazyThreadSafetyMode.None);
+  private static readonly nint _DisableTakePhysicsDamageSpawnFlagOffset = Schema.GetOffset(0x1CFE413E5D3DCAE1);
 
   public ref int DisableTakePhysicsDamageSpawnFlag {
-    get => ref _Handle.AsRef<int>(_DisableTakePhysicsDamageSpawnFlagOffset.Value);
+    get => ref _Handle.AsRef<int>(_DisableTakePhysicsDamageSpawnFlagOffset);
   }
-  private static readonly Lazy<nint> _MotionDisabledSpawnFlagOffset = new(() => Schema.GetOffset(0x1CFE413ECBDEA450), LazyThreadSafetyMode.None);
+  private static readonly nint _MotionDisabledSpawnFlagOffset = Schema.GetOffset(0x1CFE413ECBDEA450);
 
   public ref int MotionDisabledSpawnFlag {
-    get => ref _Handle.AsRef<int>(_MotionDisabledSpawnFlagOffset.Value);
+    get => ref _Handle.AsRef<int>(_MotionDisabledSpawnFlagOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class CStanceOverrideUpdateNodeImpl : CUnaryUpdateNodeImpl, CSt
   public CStanceOverrideUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FootStanceInfoOffset = new(() => Schema.GetOffset(0x322EE1B7D5687289), LazyThreadSafetyMode.None);
+  private static readonly nint _FootStanceInfoOffset = Schema.GetOffset(0x322EE1B7D5687289);
 
   public ref CUtlVector<StanceInfo_t> FootStanceInfo {
-    get => ref _Handle.AsRef<CUtlVector<StanceInfo_t>>(_FootStanceInfoOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<StanceInfo_t>>(_FootStanceInfoOffset);
   }
-  private static readonly Lazy<nint> _StanceSourceNodeOffset = new(() => Schema.GetOffset(0x322EE1B7D25DA07A), LazyThreadSafetyMode.None);
+  private static readonly nint _StanceSourceNodeOffset = Schema.GetOffset(0x322EE1B7D25DA07A);
 
   public CAnimUpdateNodeRef StanceSourceNode {
-    get => new CAnimUpdateNodeRefImpl(_Handle + _StanceSourceNodeOffset.Value);
+    get => new CAnimUpdateNodeRefImpl(_Handle + _StanceSourceNodeOffset);
   }
-  private static readonly Lazy<nint> _ParameterOffset = new(() => Schema.GetOffset(0x322EE1B70C7008F6), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterOffset = Schema.GetOffset(0x322EE1B70C7008F6);
 
   public CAnimParamHandle Parameter {
-    get => new CAnimParamHandleImpl(_Handle + _ParameterOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParameterOffset);
   }
-  private static readonly Lazy<nint> _ModeOffset = new(() => Schema.GetOffset(0x322EE1B71050A633), LazyThreadSafetyMode.None);
+  private static readonly nint _ModeOffset = Schema.GetOffset(0x322EE1B71050A633);
 
   public ref StanceOverrideMode Mode {
-    get => ref _Handle.AsRef<StanceOverrideMode>(_ModeOffset.Value);
+    get => ref _Handle.AsRef<StanceOverrideMode>(_ModeOffset);
   }
 
 

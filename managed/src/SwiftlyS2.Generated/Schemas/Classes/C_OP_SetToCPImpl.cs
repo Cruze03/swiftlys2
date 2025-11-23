@@ -17,20 +17,20 @@ internal partial class C_OP_SetToCPImpl : CParticleFunctionOperatorImpl, C_OP_Se
   public C_OP_SetToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0xF80ACA353F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0xF80ACA353F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0xF80ACA35BD25CC2A), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0xF80ACA35BD25CC2A);
 
   public ref Vector Offset {
-    get => ref _Handle.AsRef<Vector>(_OffsetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_OffsetOffset);
   }
-  private static readonly Lazy<nint> _OffsetLocalOffset = new(() => Schema.GetOffset(0xF80ACA35F07D31C1), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetLocalOffset = Schema.GetOffset(0xF80ACA35F07D31C1);
 
   public ref bool OffsetLocal {
-    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetLocalOffset);
   }
 
 

@@ -17,25 +17,25 @@ internal partial class C_OP_PlaneCullImpl : CParticleFunctionOperatorImpl, C_OP_
   public C_OP_PlaneCullImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PlaneControlPointOffset = new(() => Schema.GetOffset(0x352AAF45E621E9BC), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaneControlPointOffset = Schema.GetOffset(0x352AAF45E621E9BC);
 
   public ref int PlaneControlPoint {
-    get => ref _Handle.AsRef<int>(_PlaneControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_PlaneControlPointOffset);
   }
-  private static readonly Lazy<nint> _PlaneDirectionOffset = new(() => Schema.GetOffset(0x352AAF45B00A585A), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaneDirectionOffset = Schema.GetOffset(0x352AAF45B00A585A);
 
   public ref Vector PlaneDirection {
-    get => ref _Handle.AsRef<Vector>(_PlaneDirectionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_PlaneDirectionOffset);
   }
-  private static readonly Lazy<nint> _LocalSpaceOffset = new(() => Schema.GetOffset(0x352AAF4562418E6E), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSpaceOffset = Schema.GetOffset(0x352AAF4562418E6E);
 
   public ref bool LocalSpace {
-    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LocalSpaceOffset);
   }
-  private static readonly Lazy<nint> _PlaneOffsetOffset = new(() => Schema.GetOffset(0x352AAF45D394676C), LazyThreadSafetyMode.None);
+  private static readonly nint _PlaneOffsetOffset = Schema.GetOffset(0x352AAF45D394676C);
 
   public ref float PlaneOffset {
-    get => ref _Handle.AsRef<float>(_PlaneOffsetOffset.Value);
+    get => ref _Handle.AsRef<float>(_PlaneOffsetOffset);
   }
 
 

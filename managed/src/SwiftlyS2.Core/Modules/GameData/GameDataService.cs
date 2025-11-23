@@ -33,12 +33,17 @@ internal class GameDataService : IGameDataService
     var offsetPath = Path.Combine(_Context.BaseDirectory, "resources", "gamedata", "offsets.jsonc");
     var patchPath = Path.Combine(_Context.BaseDirectory, "resources", "gamedata", "patches.jsonc");
 
+    var options = new JsonSerializerOptions() {
+      AllowTrailingCommas = true,
+      ReadCommentHandling = JsonCommentHandling.Skip,
+    };
+
     try
     {
 
       if (File.Exists(signaturePath))
       {
-        var signatures = JsonSerializer.Deserialize<Dictionary<string, Signature>>(File.ReadAllText(signaturePath))!;
+        var signatures = JsonSerializer.Deserialize<Dictionary<string, Signature>>(File.ReadAllText(signaturePath), options)!;
         foreach (var signature in signatures)
         {
           nint? value = null;
@@ -61,7 +66,7 @@ internal class GameDataService : IGameDataService
 
       if (File.Exists(offsetPath))
       {
-        var offsets = JsonSerializer.Deserialize<Dictionary<string, Offset>>(File.ReadAllText(offsetPath))!;
+        var offsets = JsonSerializer.Deserialize<Dictionary<string, Offset>>(File.ReadAllText(offsetPath), options)!;
         foreach (var offset in offsets)
         {
           if (_Platform == OSPlatform.Windows)
@@ -77,7 +82,7 @@ internal class GameDataService : IGameDataService
 
       if (File.Exists(patchPath))
       {
-        var patches = JsonSerializer.Deserialize<Dictionary<string, Patch>>(File.ReadAllText(patchPath))!;
+        var patches = JsonSerializer.Deserialize<Dictionary<string, Patch>>(File.ReadAllText(patchPath), options)!;
         foreach (var patch in patches)
         {
           _Patches.TryAdd(patch.Key, patch.Value);

@@ -17,25 +17,25 @@ internal partial class CNmStateMachineNode__TransitionDefinition_tImpl : SchemaC
   public CNmStateMachineNode__TransitionDefinition_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetStateIdxOffset = new(() => Schema.GetOffset(0x9404D2C4E5C0218C), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetStateIdxOffset = Schema.GetOffset(0x9404D2C4E5C0218C);
 
   public ref short TargetStateIdx {
-    get => ref _Handle.AsRef<short>(_TargetStateIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TargetStateIdxOffset);
   }
-  private static readonly Lazy<nint> _ConditionNodeIdxOffset = new(() => Schema.GetOffset(0x9404D2C4773FE641), LazyThreadSafetyMode.None);
+  private static readonly nint _ConditionNodeIdxOffset = Schema.GetOffset(0x9404D2C4773FE641);
 
   public ref short ConditionNodeIdx {
-    get => ref _Handle.AsRef<short>(_ConditionNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_ConditionNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TransitionNodeIdxOffset = new(() => Schema.GetOffset(0x9404D2C40D5CDE45), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionNodeIdxOffset = Schema.GetOffset(0x9404D2C40D5CDE45);
 
   public ref short TransitionNodeIdx {
-    get => ref _Handle.AsRef<short>(_TransitionNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_TransitionNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _CanBeForcedOffset = new(() => Schema.GetOffset(0x9404D2C4B6EB0555), LazyThreadSafetyMode.None);
+  private static readonly nint _CanBeForcedOffset = Schema.GetOffset(0x9404D2C4B6EB0555);
 
   public ref bool CanBeForced {
-    get => ref _Handle.AsRef<bool>(_CanBeForcedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CanBeForcedOffset);
   }
 
 

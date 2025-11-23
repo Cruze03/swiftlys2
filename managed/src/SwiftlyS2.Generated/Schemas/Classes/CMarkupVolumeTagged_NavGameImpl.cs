@@ -17,20 +17,20 @@ internal partial class CMarkupVolumeTagged_NavGameImpl : CMarkupVolumeWithRefImp
   public CMarkupVolumeTagged_NavGameImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScopesOffset = new(() => Schema.GetOffset(0xFB4AC8A49E6C8A44), LazyThreadSafetyMode.None);
+  private static readonly nint _ScopesOffset = Schema.GetOffset(0xFB4AC8A49E6C8A44);
 
   public ref NavScopeFlags_t Scopes {
-    get => ref _Handle.AsRef<NavScopeFlags_t>(_ScopesOffset.Value);
+    get => ref _Handle.AsRef<NavScopeFlags_t>(_ScopesOffset);
   }
-  private static readonly Lazy<nint> _FloodFillAttributeOffset = new(() => Schema.GetOffset(0xFB4AC8A4ECF24446), LazyThreadSafetyMode.None);
+  private static readonly nint _FloodFillAttributeOffset = Schema.GetOffset(0xFB4AC8A4ECF24446);
 
   public ref bool FloodFillAttribute {
-    get => ref _Handle.AsRef<bool>(_FloodFillAttributeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_FloodFillAttributeOffset);
   }
-  private static readonly Lazy<nint> _SplitNavSpaceOffset = new(() => Schema.GetOffset(0xFB4AC8A438B16FC2), LazyThreadSafetyMode.None);
+  private static readonly nint _SplitNavSpaceOffset = Schema.GetOffset(0xFB4AC8A438B16FC2);
 
   public ref bool SplitNavSpace {
-    get => ref _Handle.AsRef<bool>(_SplitNavSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SplitNavSpaceOffset);
   }
 
 

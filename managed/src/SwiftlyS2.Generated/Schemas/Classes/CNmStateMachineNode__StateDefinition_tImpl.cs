@@ -17,20 +17,20 @@ internal partial class CNmStateMachineNode__StateDefinition_tImpl : SchemaClass,
   public CNmStateMachineNode__StateDefinition_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StateNodeIdxOffset = new(() => Schema.GetOffset(0x539BB818074CB7A1), LazyThreadSafetyMode.None);
+  private static readonly nint _StateNodeIdxOffset = Schema.GetOffset(0x539BB818074CB7A1);
 
   public ref short StateNodeIdx {
-    get => ref _Handle.AsRef<short>(_StateNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_StateNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EntryConditionNodeIdxOffset = new(() => Schema.GetOffset(0x539BB8180B262993), LazyThreadSafetyMode.None);
+  private static readonly nint _EntryConditionNodeIdxOffset = Schema.GetOffset(0x539BB8180B262993);
 
   public ref short EntryConditionNodeIdx {
-    get => ref _Handle.AsRef<short>(_EntryConditionNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EntryConditionNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _TransitionDefinitionsOffset = new(() => Schema.GetOffset(0x539BB818F02EF580), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionDefinitionsOffset = Schema.GetOffset(0x539BB818F02EF580);
 
   public SchemaUntypedField TransitionDefinitions {
-    get => new SchemaUntypedField(_Handle + _TransitionDefinitionsOffset.Value);
+    get => new SchemaUntypedField(_Handle + _TransitionDefinitionsOffset);
   }
 
 

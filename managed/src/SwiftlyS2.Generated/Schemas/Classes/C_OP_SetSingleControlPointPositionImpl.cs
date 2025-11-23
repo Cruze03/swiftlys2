@@ -17,25 +17,25 @@ internal partial class C_OP_SetSingleControlPointPositionImpl : CParticleFunctio
   public C_OP_SetSingleControlPointPositionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SetOnceOffset = new(() => Schema.GetOffset(0xFE0B7A4D6B261086), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOnceOffset = Schema.GetOffset(0xFE0B7A4D6B261086);
 
   public ref bool SetOnce {
-    get => ref _Handle.AsRef<bool>(_SetOnceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOnceOffset);
   }
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0xFE0B7A4DD4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0xFE0B7A4DD4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _CP1PosOffset = new(() => Schema.GetOffset(0xFE0B7A4D408288D9), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1PosOffset = Schema.GetOffset(0xFE0B7A4D408288D9);
 
   public CParticleCollectionVecInput CP1Pos {
-    get => new CParticleCollectionVecInputImpl(_Handle + _CP1PosOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _CP1PosOffset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0xFE0B7A4D3A9ED669), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0xFE0B7A4D3A9ED669);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
 
 

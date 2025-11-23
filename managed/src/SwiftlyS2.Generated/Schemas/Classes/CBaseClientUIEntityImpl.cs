@@ -17,87 +17,87 @@ internal partial class CBaseClientUIEntityImpl : CBaseModelEntityImpl, CBaseClie
   public CBaseClientUIEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnabledOffset = new(() => Schema.GetOffset(0x51A22D116154EB7E), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledOffset = Schema.GetOffset(0x51A22D116154EB7E);
 
   public ref bool Enabled {
-    get => ref _Handle.AsRef<bool>(_EnabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_EnabledOffset);
   }
-  private static readonly Lazy<nint> _DialogXMLNameOffset = new(() => Schema.GetOffset(0x51A22D11D13858C9), LazyThreadSafetyMode.None);
+  private static readonly nint _DialogXMLNameOffset = Schema.GetOffset(0x51A22D11D13858C9);
 
   public string DialogXMLName {
     get {
-      var ptr = _Handle.Read<nint>(_DialogXMLNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_DialogXMLNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DialogXMLNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _DialogXMLNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PanelClassNameOffset = new(() => Schema.GetOffset(0x51A22D115C958CBC), LazyThreadSafetyMode.None);
+  private static readonly nint _PanelClassNameOffset = Schema.GetOffset(0x51A22D115C958CBC);
 
   public string PanelClassName {
     get {
-      var ptr = _Handle.Read<nint>(_PanelClassNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PanelClassNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PanelClassNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PanelClassNameOffset, value);
   } 
-  private static readonly Lazy<nint> _PanelIDOffset = new(() => Schema.GetOffset(0x51A22D1107A4EF60), LazyThreadSafetyMode.None);
+  private static readonly nint _PanelIDOffset = Schema.GetOffset(0x51A22D1107A4EF60);
 
   public string PanelID {
     get {
-      var ptr = _Handle.Read<nint>(_PanelIDOffset.Value);
+      var ptr = _Handle.Read<nint>(_PanelIDOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PanelIDOffset.Value, value);
+    set => Schema.SetString(_Handle, _PanelIDOffset, value);
   } 
-  private static readonly Lazy<nint> _CustomOutput0Offset = new(() => Schema.GetOffset(0x51A22D119AA5C775), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput0Offset = Schema.GetOffset(0x51A22D119AA5C775);
 
   public CEntityIOOutput CustomOutput0 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput0Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput0Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput1Offset = new(() => Schema.GetOffset(0x51A22D1199A5C5E2), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput1Offset = Schema.GetOffset(0x51A22D1199A5C5E2);
 
   public CEntityIOOutput CustomOutput1 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput1Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput1Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput2Offset = new(() => Schema.GetOffset(0x51A22D1198A5C44F), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput2Offset = Schema.GetOffset(0x51A22D1198A5C44F);
 
   public CEntityIOOutput CustomOutput2 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput2Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput2Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput3Offset = new(() => Schema.GetOffset(0x51A22D1197A5C2BC), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput3Offset = Schema.GetOffset(0x51A22D1197A5C2BC);
 
   public CEntityIOOutput CustomOutput3 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput3Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput3Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput4Offset = new(() => Schema.GetOffset(0x51A22D1196A5C129), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput4Offset = Schema.GetOffset(0x51A22D1196A5C129);
 
   public CEntityIOOutput CustomOutput4 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput4Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput4Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput5Offset = new(() => Schema.GetOffset(0x51A22D1195A5BF96), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput5Offset = Schema.GetOffset(0x51A22D1195A5BF96);
 
   public CEntityIOOutput CustomOutput5 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput5Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput5Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput6Offset = new(() => Schema.GetOffset(0x51A22D1194A5BE03), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput6Offset = Schema.GetOffset(0x51A22D1194A5BE03);
 
   public CEntityIOOutput CustomOutput6 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput6Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput6Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput7Offset = new(() => Schema.GetOffset(0x51A22D1193A5BC70), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput7Offset = Schema.GetOffset(0x51A22D1193A5BC70);
 
   public CEntityIOOutput CustomOutput7 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput7Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput7Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput8Offset = new(() => Schema.GetOffset(0x51A22D11A2A5D40D), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput8Offset = Schema.GetOffset(0x51A22D11A2A5D40D);
 
   public CEntityIOOutput CustomOutput8 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput8Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput8Offset);
   }
-  private static readonly Lazy<nint> _CustomOutput9Offset = new(() => Schema.GetOffset(0x51A22D11A1A5D27A), LazyThreadSafetyMode.None);
+  private static readonly nint _CustomOutput9Offset = Schema.GetOffset(0x51A22D11A1A5D27A);
 
   public CEntityIOOutput CustomOutput9 {
-    get => new CEntityIOOutputImpl(_Handle + _CustomOutput9Offset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _CustomOutput9Offset);
   }
 
   public void EnabledUpdated() {

@@ -17,10 +17,10 @@ internal partial class CPointGiveAmmoImpl : CPointEntityImpl, CPointGiveAmmo {
   public CPointGiveAmmoImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActivatorOffset = new(() => Schema.GetOffset(0x2A4FB25F9C480B5A), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatorOffset = Schema.GetOffset(0x2A4FB25F9C480B5A);
 
   public ref CHandle<CBaseEntity> Activator {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset);
   }
 
 

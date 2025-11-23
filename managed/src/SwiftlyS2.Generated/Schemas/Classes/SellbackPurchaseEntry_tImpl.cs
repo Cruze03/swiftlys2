@@ -17,30 +17,30 @@ internal partial class SellbackPurchaseEntry_tImpl : SchemaClass, SellbackPurcha
   public SellbackPurchaseEntry_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DefIdxOffset = new(() => Schema.GetOffset(0xAC9E0914F02DD274), LazyThreadSafetyMode.None);
+  private static readonly nint _DefIdxOffset = Schema.GetOffset(0xAC9E0914F02DD274);
 
   public ref ushort DefIdx {
-    get => ref _Handle.AsRef<ushort>(_DefIdxOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_DefIdxOffset);
   }
-  private static readonly Lazy<nint> _CostOffset = new(() => Schema.GetOffset(0xAC9E0914919660C4), LazyThreadSafetyMode.None);
+  private static readonly nint _CostOffset = Schema.GetOffset(0xAC9E0914919660C4);
 
   public ref int Cost {
-    get => ref _Handle.AsRef<int>(_CostOffset.Value);
+    get => ref _Handle.AsRef<int>(_CostOffset);
   }
-  private static readonly Lazy<nint> _PrevArmorOffset = new(() => Schema.GetOffset(0xAC9E09143A18A19B), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevArmorOffset = Schema.GetOffset(0xAC9E09143A18A19B);
 
   public ref int PrevArmor {
-    get => ref _Handle.AsRef<int>(_PrevArmorOffset.Value);
+    get => ref _Handle.AsRef<int>(_PrevArmorOffset);
   }
-  private static readonly Lazy<nint> _PrevHelmetOffset = new(() => Schema.GetOffset(0xAC9E0914DA638D65), LazyThreadSafetyMode.None);
+  private static readonly nint _PrevHelmetOffset = Schema.GetOffset(0xAC9E0914DA638D65);
 
   public ref bool PrevHelmet {
-    get => ref _Handle.AsRef<bool>(_PrevHelmetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PrevHelmetOffset);
   }
-  private static readonly Lazy<nint> _ItemOffset = new(() => Schema.GetOffset(0xAC9E091452FF0710), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemOffset = Schema.GetOffset(0xAC9E091452FF0710);
 
   public ref CHandle<CEntityInstance> Item {
-    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_ItemOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CEntityInstance>>(_ItemOffset);
   }
 
   public void DefIdxUpdated() {

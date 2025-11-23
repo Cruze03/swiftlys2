@@ -17,35 +17,35 @@ internal partial class CCSPlayerController_InGameMoneyServicesImpl : CPlayerCont
   public CCSPlayerController_InGameMoneyServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ReceivesMoneyNextRoundOffset = new(() => Schema.GetOffset(0x6C87CBFDB54DB07C), LazyThreadSafetyMode.None);
+  private static readonly nint _ReceivesMoneyNextRoundOffset = Schema.GetOffset(0x6C87CBFDB54DB07C);
 
   public ref bool ReceivesMoneyNextRound {
-    get => ref _Handle.AsRef<bool>(_ReceivesMoneyNextRoundOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ReceivesMoneyNextRoundOffset);
   }
-  private static readonly Lazy<nint> _MoneyEarnedForNextRoundOffset = new(() => Schema.GetOffset(0x6C87CBFDAB17AAC1), LazyThreadSafetyMode.None);
+  private static readonly nint _MoneyEarnedForNextRoundOffset = Schema.GetOffset(0x6C87CBFDAB17AAC1);
 
   public ref int MoneyEarnedForNextRound {
-    get => ref _Handle.AsRef<int>(_MoneyEarnedForNextRoundOffset.Value);
+    get => ref _Handle.AsRef<int>(_MoneyEarnedForNextRoundOffset);
   }
-  private static readonly Lazy<nint> _AccountOffset = new(() => Schema.GetOffset(0x6C87CBFDF7F4E98B), LazyThreadSafetyMode.None);
+  private static readonly nint _AccountOffset = Schema.GetOffset(0x6C87CBFDF7F4E98B);
 
   public ref int Account {
-    get => ref _Handle.AsRef<int>(_AccountOffset.Value);
+    get => ref _Handle.AsRef<int>(_AccountOffset);
   }
-  private static readonly Lazy<nint> _StartAccountOffset = new(() => Schema.GetOffset(0x6C87CBFD6433FAB7), LazyThreadSafetyMode.None);
+  private static readonly nint _StartAccountOffset = Schema.GetOffset(0x6C87CBFD6433FAB7);
 
   public ref int StartAccount {
-    get => ref _Handle.AsRef<int>(_StartAccountOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartAccountOffset);
   }
-  private static readonly Lazy<nint> _TotalCashSpentOffset = new(() => Schema.GetOffset(0x6C87CBFDD4977327), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalCashSpentOffset = Schema.GetOffset(0x6C87CBFDD4977327);
 
   public ref int TotalCashSpent {
-    get => ref _Handle.AsRef<int>(_TotalCashSpentOffset.Value);
+    get => ref _Handle.AsRef<int>(_TotalCashSpentOffset);
   }
-  private static readonly Lazy<nint> _CashSpentThisRoundOffset = new(() => Schema.GetOffset(0x6C87CBFDFB4284AB), LazyThreadSafetyMode.None);
+  private static readonly nint _CashSpentThisRoundOffset = Schema.GetOffset(0x6C87CBFDFB4284AB);
 
   public ref int CashSpentThisRound {
-    get => ref _Handle.AsRef<int>(_CashSpentThisRoundOffset.Value);
+    get => ref _Handle.AsRef<int>(_CashSpentThisRoundOffset);
   }
 
   public void AccountUpdated() {

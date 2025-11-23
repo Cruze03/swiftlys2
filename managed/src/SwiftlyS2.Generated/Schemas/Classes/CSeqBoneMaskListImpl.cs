@@ -17,30 +17,30 @@ internal partial class CSeqBoneMaskListImpl : SchemaClass, CSeqBoneMaskList {
   public CSeqBoneMaskListImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xCD7B4EF763D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xCD7B4EF763D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _LocalBoneArrayOffset = new(() => Schema.GetOffset(0xCD7B4EF70B8EFD6B), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneArrayOffset = Schema.GetOffset(0xCD7B4EF70B8EFD6B);
 
   public ref CUtlVector<short> LocalBoneArray {
-    get => ref _Handle.AsRef<CUtlVector<short>>(_LocalBoneArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<short>>(_LocalBoneArrayOffset);
   }
-  private static readonly Lazy<nint> _BoneWeightArrayOffset = new(() => Schema.GetOffset(0xCD7B4EF747E1E612), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneWeightArrayOffset = Schema.GetOffset(0xCD7B4EF747E1E612);
 
   public ref CUtlVector<float> BoneWeightArray {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneWeightArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneWeightArrayOffset);
   }
-  private static readonly Lazy<nint> _DefaultMorphCtrlWeightOffset = new(() => Schema.GetOffset(0xCD7B4EF7AA0F3843), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultMorphCtrlWeightOffset = Schema.GetOffset(0xCD7B4EF7AA0F3843);
 
   public ref float DefaultMorphCtrlWeight {
-    get => ref _Handle.AsRef<float>(_DefaultMorphCtrlWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_DefaultMorphCtrlWeightOffset);
   }
-  private static readonly Lazy<nint> _MorphCtrlWeightArrayOffset = new(() => Schema.GetOffset(0xCD7B4EF72C45A089), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphCtrlWeightArrayOffset = Schema.GetOffset(0xCD7B4EF72C45A089);
 
   public ref CUtlVector<SchemaUntypedField> MorphCtrlWeightArray {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MorphCtrlWeightArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_MorphCtrlWeightArrayOffset);
   }
 
 

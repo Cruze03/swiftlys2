@@ -17,10 +17,10 @@ internal partial class CSpeedScaleUpdateNodeImpl : CUnaryUpdateNodeImpl, CSpeedS
   public CSpeedScaleUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParamIndexOffset = new(() => Schema.GetOffset(0xD43012BC61990A86), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamIndexOffset = Schema.GetOffset(0xD43012BC61990A86);
 
   public CAnimParamHandle ParamIndex {
-    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamIndexOffset);
   }
 
 

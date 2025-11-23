@@ -17,45 +17,45 @@ internal partial class CTestPulseIOImpl : CLogicalEntityImpl, CTestPulseIO {
   public CTestPulseIOImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OnVariantVoidOffset = new(() => Schema.GetOffset(0x3CAD66134B0C5D73), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantVoidOffset = Schema.GetOffset(0x3CAD66134B0C5D73);
 
   public CEntityIOOutput OnVariantVoid {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantVoidOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantVoidOffset);
   }
-  private static readonly Lazy<nint> _OnVariantBoolOffset = new(() => Schema.GetOffset(0x3CAD66138350E481), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantBoolOffset = Schema.GetOffset(0x3CAD66138350E481);
 
   public CEntityIOOutput OnVariantBool {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantBoolOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantBoolOffset);
   }
-  private static readonly Lazy<nint> _OnVariantIntOffset = new(() => Schema.GetOffset(0x3CAD66131C6BA682), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantIntOffset = Schema.GetOffset(0x3CAD66131C6BA682);
 
   public CEntityIOOutput OnVariantInt {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantIntOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantIntOffset);
   }
-  private static readonly Lazy<nint> _OnVariantFloatOffset = new(() => Schema.GetOffset(0x3CAD661378E46379), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantFloatOffset = Schema.GetOffset(0x3CAD661378E46379);
 
   public CEntityIOOutput OnVariantFloat {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantFloatOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantFloatOffset);
   }
-  private static readonly Lazy<nint> _OnVariantStringOffset = new(() => Schema.GetOffset(0x3CAD6613DE2E3E5C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantStringOffset = Schema.GetOffset(0x3CAD6613DE2E3E5C);
 
   public CEntityIOOutput OnVariantString {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantStringOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantStringOffset);
   }
-  private static readonly Lazy<nint> _OnVariantColorOffset = new(() => Schema.GetOffset(0x3CAD66139A1362C4), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantColorOffset = Schema.GetOffset(0x3CAD66139A1362C4);
 
   public CEntityIOOutput OnVariantColor {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantColorOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantColorOffset);
   }
-  private static readonly Lazy<nint> _OnVariantVectorOffset = new(() => Schema.GetOffset(0x3CAD6613A6D8BE1E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnVariantVectorOffset = Schema.GetOffset(0x3CAD6613A6D8BE1E);
 
   public CEntityIOOutput OnVariantVector {
-    get => new CEntityIOOutputImpl(_Handle + _OnVariantVectorOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnVariantVectorOffset);
   }
-  private static readonly Lazy<nint> _AllowEmptyInputsOffset = new(() => Schema.GetOffset(0x3CAD661342A93BD2), LazyThreadSafetyMode.None);
+  private static readonly nint _AllowEmptyInputsOffset = Schema.GetOffset(0x3CAD661342A93BD2);
 
   public ref bool AllowEmptyInputs {
-    get => ref _Handle.AsRef<bool>(_AllowEmptyInputsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AllowEmptyInputsOffset);
   }
 
 

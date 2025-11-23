@@ -106,21 +106,23 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     // public event EventHandler<MenuEventArgs>? OptionLeaving;
 
     private readonly ISwiftlyCore core;
-    private readonly List<IMenuOption> options = new();
+    private readonly List<IMenuOption> options = [];
     private readonly Lock optionsLock = new(); // Lock for synchronizing modifications to the `options`
-    private readonly ConcurrentDictionary<IPlayer, int> selectedOptionIndex = new(); // Stores the currently selected option index for each player
+    private readonly ConcurrentDictionary<int, int> selectedOptionIndex = new(); // Stores the currently selected option index for each player
     // NOTE: Menu selection movement is entirely driven by changes to `desiredOptionIndex` (independent of any other variables)
-    private readonly ConcurrentDictionary<IPlayer, int> desiredOptionIndex = new(); // Stores the desired option index for each player
+    private readonly ConcurrentDictionary<int, int> desiredOptionIndex = new(); // Stores the desired option index for each player
     private int maxOptions = 0;
-    // private readonly ConcurrentDictionary<IPlayer, int> selectedDisplayLine = new(); // Stores the currently selected display line index for each player (some options may span multiple lines)
+    // private readonly ConcurrentDictionary<int, int> selectedDisplayLine = new(); // Stores the currently selected display line index for each player (some options may span multiple lines)
     // private int maxDisplayLines = 0;
-    // private readonly ConcurrentDictionary<IPlayer, IReadOnlyList<IMenuOption>> visibleOptionsCache = new();
-    private readonly ConcurrentDictionary<IPlayer, CancellationTokenSource> autoCloseCancelTokens = new();
+    // private readonly ConcurrentDictionary<int, IReadOnlyList<IMenuOption>> visibleOptionsCache = new();
+    private readonly ConcurrentDictionary<int, CancellationTokenSource> autoCloseCancelTokens = new();
 
-    // private readonly ConcurrentDictionary<IPlayer, string> renderCache = new();
-    private readonly CancellationTokenSource renderLoopCancellationTokenSource = new();
+    // private readonly ConcurrentDictionary<int, string> renderCache = new();
+    private readonly ConcurrentDictionary<Task, CancellationTokenSource> renderLoopTasks = new();
+    private readonly Lock viewersLock = new();
+    private readonly HashSet<int> viewers = [];
 
-    private volatile bool disposed;
+    private volatile bool disposed = false;
 
     // [SetsRequiredMembers]
     public MenuAPI( ISwiftlyCore core, MenuConfiguration configuration, MenuKeybindOverrides keybindOverrides, IMenuBuilderAPI? builder = null/*, IMenuAPI? parent = null*/, MenuOptionScrollStyle optionScrollStyle = MenuOptionScrollStyle.CenterFixed/*, MenuOptionTextStyle optionTextStyle = MenuOptionTextStyle.TruncateEnd*/ )
@@ -152,27 +154,6 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         // maxDisplayLines = 0;
 
         // core.Event.OnTick += OnTick;
-
-        _ = Task.Run(async () =>
-        {
-            var token = renderLoopCancellationTokenSource.Token;
-            var delayMilliseconds = (int)(1000f / 64f / 2f);
-            while (!token.IsCancellationRequested || disposed)
-            {
-                try
-                {
-                    OnRender();
-                    await Task.Delay(delayMilliseconds, token);
-                }
-                catch (OperationCanceledException)
-                {
-                    break;
-                }
-                catch
-                {
-                }
-            }
-        }, renderLoopCancellationTokenSource.Token);
     }
 
     ~MenuAPI()
@@ -187,16 +168,21 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        disposed = true;
+        GC.SuppressFinalize(this);
+
+        if (core == null) return;
+
         // Console.WriteLine($"{GetType().Name} has been disposed.");
         core.PlayerManager
             .GetAllPlayers()
-            .Where(player => player.IsValid && (selectedOptionIndex.TryGetValue(player, out var _) || desiredOptionIndex.TryGetValue(player, out var _)))
+            .Where(player => player.IsValid && (selectedOptionIndex.TryGetValue(player.PlayerID, out var _) || desiredOptionIndex.TryGetValue(player.PlayerID, out var _)))
             .ToList()
             .ForEach(player =>
             {
                 NativePlayer.ClearCenterMenuRender(player.PlayerID);
                 SetFreezeState(player, false);
-                if (autoCloseCancelTokens.TryGetValue(player, out var token))
+                if (autoCloseCancelTokens.TryGetValue(player.PlayerID, out var token))
                 {
                     token.Cancel();
                     token.Dispose();
@@ -220,11 +206,15 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
         // core.Event.OnTick -= OnTick;
 
-        renderLoopCancellationTokenSource?.Cancel();
-        renderLoopCancellationTokenSource?.Dispose();
-
-        disposed = true;
-        GC.SuppressFinalize(this);
+        renderLoopTasks.Keys.ToList().ForEach(task =>
+        {
+            if (renderLoopTasks.TryRemove(task, out var cts))
+            {
+                cts.Cancel();
+                cts.Dispose();
+            }
+        });
+        renderLoopTasks.Clear();
     }
 
     // private void OnTick()
@@ -253,13 +243,35 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        var now = DateTime.UtcNow;
+        lock (optionsLock)
+        {
+            try
+            {
+                // const string category = "MenuAPI::UpdateDynamicText";
+                // core.Profiler.StartRecording(category);
+
+                foreach (var option in options)
+                {
+                    if (option is OptionsBase.MenuOptionBase optionBase)
+                    {
+                        optionBase.UpdateDynamicText(now);
+                    }
+                }
+
+                // core.Profiler.StopRecording(category);
+            }
+            catch
+            { }
+        }
+
         var playerStates = core.PlayerManager
             .GetAllPlayers()
             .Where(player => player.IsValid && !player.IsFakeClient)
             .Select(player => (
                 Player: player,
-                DesiredIndex: desiredOptionIndex.TryGetValue(player, out var desired) ? desired : -1,
-                SelectedIndex: selectedOptionIndex.TryGetValue(player, out var selected) ? selected : -1
+                DesiredIndex: desiredOptionIndex.TryGetValue(player.PlayerID, out var desired) ? desired : -1,
+                SelectedIndex: selectedOptionIndex.TryGetValue(player.PlayerID, out var selected) ? selected : -1
             ))
             .Where(state => state.DesiredIndex >= 0 && state.SelectedIndex >= 0)
             .ToList();
@@ -311,10 +323,10 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
             if (currentOriginalIndex != selectedIndex)
             {
-                var updateResult = selectedOptionIndex.TryUpdate(player, currentOriginalIndex, selectedIndex);
+                var updateResult = selectedOptionIndex.TryUpdate(player.PlayerID, currentOriginalIndex, selectedIndex);
                 if (updateResult && currentOriginalIndex != desiredIndex)
                 {
-                    _ = desiredOptionIndex.TryUpdate(player, currentOriginalIndex, desiredIndex);
+                    _ = desiredOptionIndex.TryUpdate(player.PlayerID, currentOriginalIndex, desiredIndex);
                 }
             }
         }
@@ -438,8 +450,8 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     public void ShowForPlayer( IPlayer player )
     {
-        _ = selectedOptionIndex.AddOrUpdate(player, 0, ( _, _ ) => 0);
-        _ = desiredOptionIndex.AddOrUpdate(player, 0, ( _, _ ) => 0);
+        _ = selectedOptionIndex.AddOrUpdate(player.PlayerID, 0, ( _, _ ) => 0);
+        _ = desiredOptionIndex.AddOrUpdate(player.PlayerID, 0, ( _, _ ) => 0);
         // _ = selectedDisplayLine.AddOrUpdate(player, 0, ( _, _ ) => 0);
 
         if (!player.IsValid || player.IsFakeClient)
@@ -447,12 +459,58 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        // Add viewer, resume animations if first viewer
+        lock (viewersLock)
+        {
+            _ = viewers.Add(player.PlayerID);
+
+            if (viewers.Count == 1)
+            {
+                renderLoopTasks.Keys.ToList().ForEach(task =>
+                {
+                    if (renderLoopTasks.TryRemove(task, out var cts))
+                    {
+                        cts.Cancel();
+                        cts.Dispose();
+                    }
+                });
+
+                var cts = new CancellationTokenSource();
+                var token = cts.Token;
+                var delayMilliseconds = (int)(1000f / 64f);
+                var task = Task.Run(async () =>
+                {
+                    while (!token.IsCancellationRequested && !disposed)
+                    {
+                        try
+                        {
+                            OnRender();
+                            await Task.Delay(delayMilliseconds, token);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            break;
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }, token);
+                _ = renderLoopTasks.TryAdd(task, cts);
+
+                lock (optionsLock)
+                {
+                    options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.ResumeTextAnimation());
+                }
+            }
+        }
+
         SetFreezeState(player, Configuration.FreezePlayer);
 
         if (Configuration.AutoCloseAfter > 0)
         {
             _ = autoCloseCancelTokens.AddOrUpdate(
-                player,
+                player.PlayerID,
                 _ => core.Scheduler.DelayBySeconds(Configuration.AutoCloseAfter, () => core.MenusAPI.CloseMenuForPlayer(player, this)),
                 ( _, oldToken ) =>
                 {
@@ -466,12 +524,12 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     public void HideForPlayer( IPlayer player )
     {
-        var removedFromSelected = selectedOptionIndex.TryRemove(player, out _);
-        var removedFromDesired = desiredOptionIndex.TryRemove(player, out _);
+        var removedFromSelected = selectedOptionIndex.TryRemove(player.PlayerID, out _);
+        var removedFromDesired = desiredOptionIndex.TryRemove(player.PlayerID, out _);
         // var removedFromDisplayLine = selectedDisplayLine.TryRemove(player, out _);
         var keyExists = removedFromSelected || removedFromDesired/* || removedFromDisplayLine*/;
 
-        if (!player.IsValid || player.IsFakeClient)
+        if (player.IsFakeClient || !(player.Controller?.IsValid ?? false) || !(player.PlayerPawn?.IsValid ?? false))
         {
             return;
         }
@@ -479,13 +537,37 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         if (keyExists)
         {
             NativePlayer.ClearCenterMenuRender(player.PlayerID);
+            core.Scheduler.NextTick(() => NativePlayer.ClearCenterMenuRender(player.PlayerID));
+
+            // Remove viewer, pause animations if no viewers left
+            lock (viewersLock)
+            {
+                _ = viewers.Remove(player.PlayerID);
+
+                if (viewers.Count == 0)
+                {
+                    renderLoopTasks.Keys.ToList().ForEach(task =>
+                    {
+                        if (renderLoopTasks.TryRemove(task, out var cts))
+                        {
+                            cts.Cancel();
+                            cts.Dispose();
+                        }
+                    });
+
+                    lock (optionsLock)
+                    {
+                        options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.PauseTextAnimation());
+                    }
+                }
+            }
         }
 
         SetFreezeState(player, false);
 
         // _ = renderCache.TryRemove(player, out _);
 
-        if (autoCloseCancelTokens.TryRemove(player, out var token))
+        if (autoCloseCancelTokens.TryRemove(player.PlayerID, out var token))
         {
             token.Cancel();
             token.Dispose();
@@ -546,7 +628,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     public bool MoveToOptionIndex( IPlayer player, int index )
     {
 
-        if (maxOptions == 0 || !desiredOptionIndex.TryGetValue(player, out var oldIndex))
+        if (maxOptions == 0 || !desiredOptionIndex.TryGetValue(player.PlayerID, out var oldIndex))
         {
             return false;
         }
@@ -564,7 +646,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 .Select(i => (((targetIndex + (i * direction)) % maxOptions) + maxOptions) % maxOptions)
                 .FirstOrDefault(idx => options[idx].Visible && options[idx].GetVisible(player), -1);
 
-            return visibleIndex >= 0 && desiredOptionIndex.TryUpdate(player, visibleIndex, oldIndex);
+            return visibleIndex >= 0 && desiredOptionIndex.TryUpdate(player.PlayerID, visibleIndex, oldIndex);
         }
     }
 
@@ -572,13 +654,13 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     {
         lock (optionsLock)
         {
-            return selectedOptionIndex.TryGetValue(player, out var index) ? options[index] : null;
+            return selectedOptionIndex.TryGetValue(player.PlayerID, out var index) ? options[index] : null;
         }
     }
 
     public int GetCurrentOptionIndex( IPlayer player )
     {
-        return selectedOptionIndex.TryGetValue(player, out var index) ? index : -1;
+        return selectedOptionIndex.TryGetValue(player.PlayerID, out var index) ? index : -1;
     }
 
     // public int GetCurrentOptionDisplayLine( IPlayer player )

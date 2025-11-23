@@ -17,85 +17,85 @@ internal partial class CPointAngularVelocitySensorImpl : CPointEntityImpl, CPoin
   public CPointAngularVelocitySensorImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TargetEntityOffset = new(() => Schema.GetOffset(0x5B09D8F25D042A9), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetEntityOffset = Schema.GetOffset(0x5B09D8F25D042A9);
 
   public ref CHandle<CBaseEntity> TargetEntity {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetEntityOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_TargetEntityOffset);
   }
-  private static readonly Lazy<nint> _ThresholdOffset = new(() => Schema.GetOffset(0x5B09D8F7872FFEA), LazyThreadSafetyMode.None);
+  private static readonly nint _ThresholdOffset = Schema.GetOffset(0x5B09D8F7872FFEA);
 
   public ref float Threshold {
-    get => ref _Handle.AsRef<float>(_ThresholdOffset.Value);
+    get => ref _Handle.AsRef<float>(_ThresholdOffset);
   }
-  private static readonly Lazy<nint> _LastCompareResultOffset = new(() => Schema.GetOffset(0x5B09D8F696B400D), LazyThreadSafetyMode.None);
+  private static readonly nint _LastCompareResultOffset = Schema.GetOffset(0x5B09D8F696B400D);
 
   public ref int LastCompareResult {
-    get => ref _Handle.AsRef<int>(_LastCompareResultOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastCompareResultOffset);
   }
-  private static readonly Lazy<nint> _LastFireResultOffset = new(() => Schema.GetOffset(0x5B09D8FBC50E238), LazyThreadSafetyMode.None);
+  private static readonly nint _LastFireResultOffset = Schema.GetOffset(0x5B09D8FBC50E238);
 
   public ref int LastFireResult {
-    get => ref _Handle.AsRef<int>(_LastFireResultOffset.Value);
+    get => ref _Handle.AsRef<int>(_LastFireResultOffset);
   }
-  private static readonly Lazy<nint> _FireTimeOffset = new(() => Schema.GetOffset(0x5B09D8F873CD172), LazyThreadSafetyMode.None);
+  private static readonly nint _FireTimeOffset = Schema.GetOffset(0x5B09D8F873CD172);
 
   public GameTime_t FireTime {
-    get => new GameTime_tImpl(_Handle + _FireTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _FireTimeOffset);
   }
-  private static readonly Lazy<nint> _FireIntervalOffset = new(() => Schema.GetOffset(0x5B09D8F1B1AA6D2), LazyThreadSafetyMode.None);
+  private static readonly nint _FireIntervalOffset = Schema.GetOffset(0x5B09D8F1B1AA6D2);
 
   public ref float FireInterval {
-    get => ref _Handle.AsRef<float>(_FireIntervalOffset.Value);
+    get => ref _Handle.AsRef<float>(_FireIntervalOffset);
   }
-  private static readonly Lazy<nint> _LastAngVelocityOffset = new(() => Schema.GetOffset(0x5B09D8F10D82166), LazyThreadSafetyMode.None);
+  private static readonly nint _LastAngVelocityOffset = Schema.GetOffset(0x5B09D8F10D82166);
 
   public ref float LastAngVelocity {
-    get => ref _Handle.AsRef<float>(_LastAngVelocityOffset.Value);
+    get => ref _Handle.AsRef<float>(_LastAngVelocityOffset);
   }
-  private static readonly Lazy<nint> _LastOrientationOffset = new(() => Schema.GetOffset(0x5B09D8FBB4E87E5), LazyThreadSafetyMode.None);
+  private static readonly nint _LastOrientationOffset = Schema.GetOffset(0x5B09D8FBB4E87E5);
 
   public ref QAngle LastOrientation {
-    get => ref _Handle.AsRef<QAngle>(_LastOrientationOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_LastOrientationOffset);
   }
-  private static readonly Lazy<nint> _AxisOffset = new(() => Schema.GetOffset(0x5B09D8F0AF9CE54), LazyThreadSafetyMode.None);
+  private static readonly nint _AxisOffset = Schema.GetOffset(0x5B09D8F0AF9CE54);
 
   public ref Vector Axis {
-    get => ref _Handle.AsRef<Vector>(_AxisOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AxisOffset);
   }
-  private static readonly Lazy<nint> _UseHelperOffset = new(() => Schema.GetOffset(0x5B09D8F7370F54C), LazyThreadSafetyMode.None);
+  private static readonly nint _UseHelperOffset = Schema.GetOffset(0x5B09D8F7370F54C);
 
   public ref bool UseHelper {
-    get => ref _Handle.AsRef<bool>(_UseHelperOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseHelperOffset);
   }
-  private static readonly Lazy<nint> _AngularVelocityOffset = new(() => Schema.GetOffset(0x5B09D8FA4D9E2BE), LazyThreadSafetyMode.None);
+  private static readonly nint _AngularVelocityOffset = Schema.GetOffset(0x5B09D8FA4D9E2BE);
 
   public SchemaUntypedField AngularVelocity {
-    get => new SchemaUntypedField(_Handle + _AngularVelocityOffset.Value);
+    get => new SchemaUntypedField(_Handle + _AngularVelocityOffset);
   }
-  private static readonly Lazy<nint> _OnLessThanOffset = new(() => Schema.GetOffset(0x5B09D8FB6AC02FE), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLessThanOffset = Schema.GetOffset(0x5B09D8FB6AC02FE);
 
   public CEntityIOOutput OnLessThan {
-    get => new CEntityIOOutputImpl(_Handle + _OnLessThanOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnLessThanOffset);
   }
-  private static readonly Lazy<nint> _OnLessThanOrEqualToOffset = new(() => Schema.GetOffset(0x5B09D8F28E696D8), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLessThanOrEqualToOffset = Schema.GetOffset(0x5B09D8F28E696D8);
 
   public CEntityIOOutput OnLessThanOrEqualTo {
-    get => new CEntityIOOutputImpl(_Handle + _OnLessThanOrEqualToOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnLessThanOrEqualToOffset);
   }
-  private static readonly Lazy<nint> _OnGreaterThanOffset = new(() => Schema.GetOffset(0x5B09D8F50BD472D), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGreaterThanOffset = Schema.GetOffset(0x5B09D8F50BD472D);
 
   public CEntityIOOutput OnGreaterThan {
-    get => new CEntityIOOutputImpl(_Handle + _OnGreaterThanOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnGreaterThanOffset);
   }
-  private static readonly Lazy<nint> _OnGreaterThanOrEqualToOffset = new(() => Schema.GetOffset(0x5B09D8F6483CABD), LazyThreadSafetyMode.None);
+  private static readonly nint _OnGreaterThanOrEqualToOffset = Schema.GetOffset(0x5B09D8F6483CABD);
 
   public CEntityIOOutput OnGreaterThanOrEqualTo {
-    get => new CEntityIOOutputImpl(_Handle + _OnGreaterThanOrEqualToOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnGreaterThanOrEqualToOffset);
   }
-  private static readonly Lazy<nint> _OnEqualToOffset = new(() => Schema.GetOffset(0x5B09D8F87EEC581), LazyThreadSafetyMode.None);
+  private static readonly nint _OnEqualToOffset = Schema.GetOffset(0x5B09D8F87EEC581);
 
   public CEntityIOOutput OnEqualTo {
-    get => new CEntityIOOutputImpl(_Handle + _OnEqualToOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnEqualToOffset);
   }
 
 

@@ -17,120 +17,120 @@ internal partial class C_OP_RenderCablesImpl : CParticleFunctionRendererImpl, C_
   public C_OP_RenderCablesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusScaleOffset = new(() => Schema.GetOffset(0x16498877A7A20159), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusScaleOffset = Schema.GetOffset(0x16498877A7A20159);
 
   public CParticleCollectionFloatInput RadiusScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _RadiusScaleOffset);
   }
-  private static readonly Lazy<nint> _AlphaScaleOffset = new(() => Schema.GetOffset(0x16498877EC6D3C25), LazyThreadSafetyMode.None);
+  private static readonly nint _AlphaScaleOffset = Schema.GetOffset(0x16498877EC6D3C25);
 
   public CParticleCollectionFloatInput AlphaScale {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _AlphaScaleOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _AlphaScaleOffset);
   }
-  private static readonly Lazy<nint> _ColorScaleOffset = new(() => Schema.GetOffset(0x164988779F9BB8BA), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorScaleOffset = Schema.GetOffset(0x164988779F9BB8BA);
 
   public CParticleCollectionVecInput ColorScale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ColorScaleOffset);
   }
-  private static readonly Lazy<nint> _ColorBlendTypeOffset = new(() => Schema.GetOffset(0x16498877DBC6EFCF), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorBlendTypeOffset = Schema.GetOffset(0x16498877DBC6EFCF);
 
   public ref ParticleColorBlendType_t ColorBlendType {
-    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleColorBlendType_t>(_ColorBlendTypeOffset);
   }
-  private static readonly Lazy<nint> _MaterialOffset = new(() => Schema.GetOffset(0x16498877888CE42E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialOffset = Schema.GetOffset(0x16498877888CE42E);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> Material {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialOffset);
   }
-  private static readonly Lazy<nint> _TextureRepetitionModeOffset = new(() => Schema.GetOffset(0x164988777CB37DBC), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureRepetitionModeOffset = Schema.GetOffset(0x164988777CB37DBC);
 
   public ref TextureRepetitionMode_t TextureRepetitionMode {
-    get => ref _Handle.AsRef<TextureRepetitionMode_t>(_TextureRepetitionModeOffset.Value);
+    get => ref _Handle.AsRef<TextureRepetitionMode_t>(_TextureRepetitionModeOffset);
   }
-  private static readonly Lazy<nint> _TextureRepeatsPerSegmentOffset = new(() => Schema.GetOffset(0x164988774C265576), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureRepeatsPerSegmentOffset = Schema.GetOffset(0x164988774C265576);
 
   public CParticleCollectionFloatInput TextureRepeatsPerSegment {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _TextureRepeatsPerSegmentOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _TextureRepeatsPerSegmentOffset);
   }
-  private static readonly Lazy<nint> _TextureRepeatsCircumferenceOffset = new(() => Schema.GetOffset(0x1649887730DF1DF3), LazyThreadSafetyMode.None);
+  private static readonly nint _TextureRepeatsCircumferenceOffset = Schema.GetOffset(0x1649887730DF1DF3);
 
   public CParticleCollectionFloatInput TextureRepeatsCircumference {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _TextureRepeatsCircumferenceOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _TextureRepeatsCircumferenceOffset);
   }
-  private static readonly Lazy<nint> _ColorMapOffsetVOffset = new(() => Schema.GetOffset(0x164988773012E667), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorMapOffsetVOffset = Schema.GetOffset(0x164988773012E667);
 
   public CParticleCollectionFloatInput ColorMapOffsetV {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ColorMapOffsetVOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ColorMapOffsetVOffset);
   }
-  private static readonly Lazy<nint> _ColorMapOffsetUOffset = new(() => Schema.GetOffset(0x164988773112E7FA), LazyThreadSafetyMode.None);
+  private static readonly nint _ColorMapOffsetUOffset = Schema.GetOffset(0x164988773112E7FA);
 
   public CParticleCollectionFloatInput ColorMapOffsetU {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ColorMapOffsetUOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ColorMapOffsetUOffset);
   }
-  private static readonly Lazy<nint> _NormalMapOffsetVOffset = new(() => Schema.GetOffset(0x164988775228495D), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalMapOffsetVOffset = Schema.GetOffset(0x164988775228495D);
 
   public CParticleCollectionFloatInput NormalMapOffsetV {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _NormalMapOffsetVOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _NormalMapOffsetVOffset);
   }
-  private static readonly Lazy<nint> _NormalMapOffsetUOffset = new(() => Schema.GetOffset(0x164988774F2844A4), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalMapOffsetUOffset = Schema.GetOffset(0x164988774F2844A4);
 
   public CParticleCollectionFloatInput NormalMapOffsetU {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _NormalMapOffsetUOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _NormalMapOffsetUOffset);
   }
-  private static readonly Lazy<nint> _DrawCableCapsOffset = new(() => Schema.GetOffset(0x164988773CBBA5F9), LazyThreadSafetyMode.None);
+  private static readonly nint _DrawCableCapsOffset = Schema.GetOffset(0x164988773CBBA5F9);
 
   public ref bool DrawCableCaps {
-    get => ref _Handle.AsRef<bool>(_DrawCableCapsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DrawCableCapsOffset);
   }
-  private static readonly Lazy<nint> _CapRoundnessOffset = new(() => Schema.GetOffset(0x164988775B126564), LazyThreadSafetyMode.None);
+  private static readonly nint _CapRoundnessOffset = Schema.GetOffset(0x164988775B126564);
 
   public ref float CapRoundness {
-    get => ref _Handle.AsRef<float>(_CapRoundnessOffset.Value);
+    get => ref _Handle.AsRef<float>(_CapRoundnessOffset);
   }
-  private static readonly Lazy<nint> _CapOffsetAmountOffset = new(() => Schema.GetOffset(0x1649887729E8FA5E), LazyThreadSafetyMode.None);
+  private static readonly nint _CapOffsetAmountOffset = Schema.GetOffset(0x1649887729E8FA5E);
 
   public ref float CapOffsetAmount {
-    get => ref _Handle.AsRef<float>(_CapOffsetAmountOffset.Value);
+    get => ref _Handle.AsRef<float>(_CapOffsetAmountOffset);
   }
-  private static readonly Lazy<nint> _TessScaleOffset = new(() => Schema.GetOffset(0x16498877EE9C9570), LazyThreadSafetyMode.None);
+  private static readonly nint _TessScaleOffset = Schema.GetOffset(0x16498877EE9C9570);
 
   public ref float TessScale {
-    get => ref _Handle.AsRef<float>(_TessScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_TessScaleOffset);
   }
-  private static readonly Lazy<nint> _MinTesselationOffset = new(() => Schema.GetOffset(0x16498877ECCEE8B4), LazyThreadSafetyMode.None);
+  private static readonly nint _MinTesselationOffset = Schema.GetOffset(0x16498877ECCEE8B4);
 
   public ref int MinTesselation {
-    get => ref _Handle.AsRef<int>(_MinTesselationOffset.Value);
+    get => ref _Handle.AsRef<int>(_MinTesselationOffset);
   }
-  private static readonly Lazy<nint> _MaxTesselationOffset = new(() => Schema.GetOffset(0x16498877B609C442), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxTesselationOffset = Schema.GetOffset(0x16498877B609C442);
 
   public ref int MaxTesselation {
-    get => ref _Handle.AsRef<int>(_MaxTesselationOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxTesselationOffset);
   }
-  private static readonly Lazy<nint> _RoundnessOffset = new(() => Schema.GetOffset(0x1649887761078EC0), LazyThreadSafetyMode.None);
+  private static readonly nint _RoundnessOffset = Schema.GetOffset(0x1649887761078EC0);
 
   public ref int Roundness {
-    get => ref _Handle.AsRef<int>(_RoundnessOffset.Value);
+    get => ref _Handle.AsRef<int>(_RoundnessOffset);
   }
-  private static readonly Lazy<nint> _ForceRoundnessFixedOffset = new(() => Schema.GetOffset(0x16498877D74D29BF), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceRoundnessFixedOffset = Schema.GetOffset(0x16498877D74D29BF);
 
   public ref bool ForceRoundnessFixed {
-    get => ref _Handle.AsRef<bool>(_ForceRoundnessFixedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ForceRoundnessFixedOffset);
   }
-  private static readonly Lazy<nint> _LightingTransformOffset = new(() => Schema.GetOffset(0x164988776557F58F), LazyThreadSafetyMode.None);
+  private static readonly nint _LightingTransformOffset = Schema.GetOffset(0x164988776557F58F);
 
   public CParticleTransformInput LightingTransform {
-    get => new CParticleTransformInputImpl(_Handle + _LightingTransformOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _LightingTransformOffset);
   }
-  private static readonly Lazy<nint> _MaterialFloatVarsOffset = new(() => Schema.GetOffset(0x164988777A7B4D6C), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialFloatVarsOffset = Schema.GetOffset(0x164988777A7B4D6C);
 
   public ref CUtlLeanVector<FloatInputMaterialVariable_t, int> MaterialFloatVars {
-    get => ref _Handle.AsRef<CUtlLeanVector<FloatInputMaterialVariable_t, int>>(_MaterialFloatVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<FloatInputMaterialVariable_t, int>>(_MaterialFloatVarsOffset);
   }
-  private static readonly Lazy<nint> _MaterialVecVarsOffset = new(() => Schema.GetOffset(0x16498877E670B944), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialVecVarsOffset = Schema.GetOffset(0x16498877E670B944);
 
   public ref CUtlLeanVector<VecInputMaterialVariable_t, int> MaterialVecVars {
-    get => ref _Handle.AsRef<CUtlLeanVector<VecInputMaterialVariable_t, int>>(_MaterialVecVarsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<VecInputMaterialVariable_t, int>>(_MaterialVecVarsOffset);
   }
 
 

@@ -17,15 +17,15 @@ internal partial class C_INIT_InitFromParentKilledImpl : CParticleFunctionInitia
   public C_INIT_InitFromParentKilledImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _AttributeToCopyOffset = new(() => Schema.GetOffset(0x4CE3F9811953739B), LazyThreadSafetyMode.None);
+  private static readonly nint _AttributeToCopyOffset = Schema.GetOffset(0x4CE3F9811953739B);
 
   public ParticleAttributeIndex_t AttributeToCopy {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToCopyOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _AttributeToCopyOffset);
   }
-  private static readonly Lazy<nint> _EventTypeOffset = new(() => Schema.GetOffset(0x4CE3F981E1F9AA93), LazyThreadSafetyMode.None);
+  private static readonly nint _EventTypeOffset = Schema.GetOffset(0x4CE3F981E1F9AA93);
 
   public ref EventTypeSelection_t EventType {
-    get => ref _Handle.AsRef<EventTypeSelection_t>(_EventTypeOffset.Value);
+    get => ref _Handle.AsRef<EventTypeSelection_t>(_EventTypeOffset);
   }
 
 

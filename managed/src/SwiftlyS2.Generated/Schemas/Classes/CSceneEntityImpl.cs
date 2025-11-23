@@ -17,392 +17,392 @@ internal partial class CSceneEntityImpl : CPointEntityImpl, CSceneEntity {
   public CSceneEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SceneFileOffset = new(() => Schema.GetOffset(0x1099B7011ED89EC5), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneFileOffset = Schema.GetOffset(0x1099B7011ED89EC5);
 
   public string SceneFile {
     get {
-      var ptr = _Handle.Read<nint>(_SceneFileOffset.Value);
+      var ptr = _Handle.Read<nint>(_SceneFileOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SceneFileOffset.Value, value);
+    set => Schema.SetString(_Handle, _SceneFileOffset, value);
   } 
-  private static readonly Lazy<nint> _ResumeSceneFileOffset = new(() => Schema.GetOffset(0x1099B701B722F1C4), LazyThreadSafetyMode.None);
+  private static readonly nint _ResumeSceneFileOffset = Schema.GetOffset(0x1099B701B722F1C4);
 
   public string ResumeSceneFile {
     get {
-      var ptr = _Handle.Read<nint>(_ResumeSceneFileOffset.Value);
+      var ptr = _Handle.Read<nint>(_ResumeSceneFileOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ResumeSceneFileOffset.Value, value);
+    set => Schema.SetString(_Handle, _ResumeSceneFileOffset, value);
   } 
-  private static readonly Lazy<nint> _Target1Offset = new(() => Schema.GetOffset(0x1099B701FC55D183), LazyThreadSafetyMode.None);
+  private static readonly nint _Target1Offset = Schema.GetOffset(0x1099B701FC55D183);
 
   public string Target1 {
     get {
-      var ptr = _Handle.Read<nint>(_Target1Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target1Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target1Offset, value);
   } 
-  private static readonly Lazy<nint> _Target2Offset = new(() => Schema.GetOffset(0x1099B701FD55D316), LazyThreadSafetyMode.None);
+  private static readonly nint _Target2Offset = Schema.GetOffset(0x1099B701FD55D316);
 
   public string Target2 {
     get {
-      var ptr = _Handle.Read<nint>(_Target2Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target2Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target2Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target2Offset, value);
   } 
-  private static readonly Lazy<nint> _Target3Offset = new(() => Schema.GetOffset(0x1099B701FE55D4A9), LazyThreadSafetyMode.None);
+  private static readonly nint _Target3Offset = Schema.GetOffset(0x1099B701FE55D4A9);
 
   public string Target3 {
     get {
-      var ptr = _Handle.Read<nint>(_Target3Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target3Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target3Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target3Offset, value);
   } 
-  private static readonly Lazy<nint> _Target4Offset = new(() => Schema.GetOffset(0x1099B701FF55D63C), LazyThreadSafetyMode.None);
+  private static readonly nint _Target4Offset = Schema.GetOffset(0x1099B701FF55D63C);
 
   public string Target4 {
     get {
-      var ptr = _Handle.Read<nint>(_Target4Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target4Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target4Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target4Offset, value);
   } 
-  private static readonly Lazy<nint> _Target5Offset = new(() => Schema.GetOffset(0x1099B7010055D7CF), LazyThreadSafetyMode.None);
+  private static readonly nint _Target5Offset = Schema.GetOffset(0x1099B7010055D7CF);
 
   public string Target5 {
     get {
-      var ptr = _Handle.Read<nint>(_Target5Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target5Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target5Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target5Offset, value);
   } 
-  private static readonly Lazy<nint> _Target6Offset = new(() => Schema.GetOffset(0x1099B7010155D962), LazyThreadSafetyMode.None);
+  private static readonly nint _Target6Offset = Schema.GetOffset(0x1099B7010155D962);
 
   public string Target6 {
     get {
-      var ptr = _Handle.Read<nint>(_Target6Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target6Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target6Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target6Offset, value);
   } 
-  private static readonly Lazy<nint> _Target7Offset = new(() => Schema.GetOffset(0x1099B7010255DAF5), LazyThreadSafetyMode.None);
+  private static readonly nint _Target7Offset = Schema.GetOffset(0x1099B7010255DAF5);
 
   public string Target7 {
     get {
-      var ptr = _Handle.Read<nint>(_Target7Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target7Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target7Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target7Offset, value);
   } 
-  private static readonly Lazy<nint> _Target8Offset = new(() => Schema.GetOffset(0x1099B7010355DC88), LazyThreadSafetyMode.None);
+  private static readonly nint _Target8Offset = Schema.GetOffset(0x1099B7010355DC88);
 
   public string Target8 {
     get {
-      var ptr = _Handle.Read<nint>(_Target8Offset.Value);
+      var ptr = _Handle.Read<nint>(_Target8Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _Target8Offset.Value, value);
+    set => Schema.SetString(_Handle, _Target8Offset, value);
   } 
-  private static readonly Lazy<nint> _Target11Offset = new(() => Schema.GetOffset(0x1099B701C951F3B1), LazyThreadSafetyMode.None);
+  private static readonly nint _Target11Offset = Schema.GetOffset(0x1099B701C951F3B1);
 
   public ref CHandle<CBaseEntity> Target11 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target11Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target11Offset);
   }
-  private static readonly Lazy<nint> _Target22Offset = new(() => Schema.GetOffset(0x1099B701C651EEF8), LazyThreadSafetyMode.None);
+  private static readonly nint _Target22Offset = Schema.GetOffset(0x1099B701C651EEF8);
 
   public ref CHandle<CBaseEntity> Target22 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target22Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target22Offset);
   }
-  private static readonly Lazy<nint> _Target33Offset = new(() => Schema.GetOffset(0x1099B701C751F08B), LazyThreadSafetyMode.None);
+  private static readonly nint _Target33Offset = Schema.GetOffset(0x1099B701C751F08B);
 
   public ref CHandle<CBaseEntity> Target33 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target33Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target33Offset);
   }
-  private static readonly Lazy<nint> _Target44Offset = new(() => Schema.GetOffset(0x1099B701CC51F86A), LazyThreadSafetyMode.None);
+  private static readonly nint _Target44Offset = Schema.GetOffset(0x1099B701CC51F86A);
 
   public ref CHandle<CBaseEntity> Target44 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target44Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target44Offset);
   }
-  private static readonly Lazy<nint> _Target55Offset = new(() => Schema.GetOffset(0x1099B701CD51F9FD), LazyThreadSafetyMode.None);
+  private static readonly nint _Target55Offset = Schema.GetOffset(0x1099B701CD51F9FD);
 
   public ref CHandle<CBaseEntity> Target55 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target55Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target55Offset);
   }
-  private static readonly Lazy<nint> _Target66Offset = new(() => Schema.GetOffset(0x1099B701CA51F544), LazyThreadSafetyMode.None);
+  private static readonly nint _Target66Offset = Schema.GetOffset(0x1099B701CA51F544);
 
   public ref CHandle<CBaseEntity> Target66 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target66Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target66Offset);
   }
-  private static readonly Lazy<nint> _Target77Offset = new(() => Schema.GetOffset(0x1099B701CB51F6D7), LazyThreadSafetyMode.None);
+  private static readonly nint _Target77Offset = Schema.GetOffset(0x1099B701CB51F6D7);
 
   public ref CHandle<CBaseEntity> Target77 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target77Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target77Offset);
   }
-  private static readonly Lazy<nint> _Target88Offset = new(() => Schema.GetOffset(0x1099B701C051E586), LazyThreadSafetyMode.None);
+  private static readonly nint _Target88Offset = Schema.GetOffset(0x1099B701C051E586);
 
   public ref CHandle<CBaseEntity> Target88 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target88Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_Target88Offset);
   }
-  private static readonly Lazy<nint> _TargetAttachmentOffset = new(() => Schema.GetOffset(0x1099B701FCD6246E), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetAttachmentOffset = Schema.GetOffset(0x1099B701FCD6246E);
 
   public string TargetAttachment {
     get {
-      var ptr = _Handle.Read<nint>(_TargetAttachmentOffset.Value);
+      var ptr = _Handle.Read<nint>(_TargetAttachmentOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _TargetAttachmentOffset.Value, value);
+    set => Schema.SetString(_Handle, _TargetAttachmentOffset, value);
   } 
-  private static readonly Lazy<nint> _IsPlayingBackOffset = new(() => Schema.GetOffset(0x1099B70133D9EB62), LazyThreadSafetyMode.None);
+  private static readonly nint _IsPlayingBackOffset = Schema.GetOffset(0x1099B70133D9EB62);
 
   public ref bool IsPlayingBack {
-    get => ref _Handle.AsRef<bool>(_IsPlayingBackOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsPlayingBackOffset);
   }
-  private static readonly Lazy<nint> _PausedOffset = new(() => Schema.GetOffset(0x1099B7016E4C592B), LazyThreadSafetyMode.None);
+  private static readonly nint _PausedOffset = Schema.GetOffset(0x1099B7016E4C592B);
 
   public ref bool Paused {
-    get => ref _Handle.AsRef<bool>(_PausedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PausedOffset);
   }
-  private static readonly Lazy<nint> _MultiplayerOffset = new(() => Schema.GetOffset(0x1099B70140E33A8B), LazyThreadSafetyMode.None);
+  private static readonly nint _MultiplayerOffset = Schema.GetOffset(0x1099B70140E33A8B);
 
   public ref bool Multiplayer {
-    get => ref _Handle.AsRef<bool>(_MultiplayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MultiplayerOffset);
   }
-  private static readonly Lazy<nint> _AutogeneratedOffset = new(() => Schema.GetOffset(0x1099B701CD800D57), LazyThreadSafetyMode.None);
+  private static readonly nint _AutogeneratedOffset = Schema.GetOffset(0x1099B701CD800D57);
 
   public ref bool Autogenerated {
-    get => ref _Handle.AsRef<bool>(_AutogeneratedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutogeneratedOffset);
   }
-  private static readonly Lazy<nint> _ForceClientTimeOffset = new(() => Schema.GetOffset(0x1099B7010AE43350), LazyThreadSafetyMode.None);
+  private static readonly nint _ForceClientTimeOffset = Schema.GetOffset(0x1099B7010AE43350);
 
   public ref float ForceClientTime {
-    get => ref _Handle.AsRef<float>(_ForceClientTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForceClientTimeOffset);
   }
-  private static readonly Lazy<nint> _CurrentTimeOffset = new(() => Schema.GetOffset(0x1099B701C4610999), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentTimeOffset = Schema.GetOffset(0x1099B701C4610999);
 
   public ref float CurrentTime {
-    get => ref _Handle.AsRef<float>(_CurrentTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_CurrentTimeOffset);
   }
-  private static readonly Lazy<nint> _FrameTimeOffset = new(() => Schema.GetOffset(0x1099B701659DF875), LazyThreadSafetyMode.None);
+  private static readonly nint _FrameTimeOffset = Schema.GetOffset(0x1099B701659DF875);
 
   public ref float FrameTime {
-    get => ref _Handle.AsRef<float>(_FrameTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_FrameTimeOffset);
   }
-  private static readonly Lazy<nint> _CancelAtNextInterruptOffset = new(() => Schema.GetOffset(0x1099B70136826B5E), LazyThreadSafetyMode.None);
+  private static readonly nint _CancelAtNextInterruptOffset = Schema.GetOffset(0x1099B70136826B5E);
 
   public ref bool CancelAtNextInterrupt {
-    get => ref _Handle.AsRef<bool>(_CancelAtNextInterruptOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CancelAtNextInterruptOffset);
   }
-  private static readonly Lazy<nint> _PitchOffset = new(() => Schema.GetOffset(0x1099B701C2997925), LazyThreadSafetyMode.None);
+  private static readonly nint _PitchOffset = Schema.GetOffset(0x1099B701C2997925);
 
   public ref float Pitch {
-    get => ref _Handle.AsRef<float>(_PitchOffset.Value);
+    get => ref _Handle.AsRef<float>(_PitchOffset);
   }
-  private static readonly Lazy<nint> _AutomatedOffset = new(() => Schema.GetOffset(0x1099B7012F7E23ED), LazyThreadSafetyMode.None);
+  private static readonly nint _AutomatedOffset = Schema.GetOffset(0x1099B7012F7E23ED);
 
   public ref bool Automated {
-    get => ref _Handle.AsRef<bool>(_AutomatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutomatedOffset);
   }
-  private static readonly Lazy<nint> _AutomatedActionOffset = new(() => Schema.GetOffset(0x1099B701249A46FB), LazyThreadSafetyMode.None);
+  private static readonly nint _AutomatedActionOffset = Schema.GetOffset(0x1099B701249A46FB);
 
   public ref int AutomatedAction {
-    get => ref _Handle.AsRef<int>(_AutomatedActionOffset.Value);
+    get => ref _Handle.AsRef<int>(_AutomatedActionOffset);
   }
-  private static readonly Lazy<nint> _AutomationDelayOffset = new(() => Schema.GetOffset(0x1099B701DBCC1E77), LazyThreadSafetyMode.None);
+  private static readonly nint _AutomationDelayOffset = Schema.GetOffset(0x1099B701DBCC1E77);
 
   public ref float AutomationDelay {
-    get => ref _Handle.AsRef<float>(_AutomationDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_AutomationDelayOffset);
   }
-  private static readonly Lazy<nint> _AutomationTimeOffset = new(() => Schema.GetOffset(0x1099B70111D56B91), LazyThreadSafetyMode.None);
+  private static readonly nint _AutomationTimeOffset = Schema.GetOffset(0x1099B70111D56B91);
 
   public ref float AutomationTime {
-    get => ref _Handle.AsRef<float>(_AutomationTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_AutomationTimeOffset);
   }
-  private static readonly Lazy<nint> _SpeechPriorityOffset = new(() => Schema.GetOffset(0x1099B701A055E60B), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeechPriorityOffset = Schema.GetOffset(0x1099B701A055E60B);
 
   public ref int SpeechPriority {
-    get => ref _Handle.AsRef<int>(_SpeechPriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_SpeechPriorityOffset);
   }
-  private static readonly Lazy<nint> _WaitingForThisResumeSceneOffset = new(() => Schema.GetOffset(0x1099B7011B4B617A), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitingForThisResumeSceneOffset = Schema.GetOffset(0x1099B7011B4B617A);
 
   public ref CHandle<CBaseEntity> WaitingForThisResumeScene {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_WaitingForThisResumeSceneOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_WaitingForThisResumeSceneOffset);
   }
-  private static readonly Lazy<nint> _WaitingForResumeSceneOffset = new(() => Schema.GetOffset(0x1099B701F33D29C4), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitingForResumeSceneOffset = Schema.GetOffset(0x1099B701F33D29C4);
 
   public ref bool WaitingForResumeScene {
-    get => ref _Handle.AsRef<bool>(_WaitingForResumeSceneOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitingForResumeSceneOffset);
   }
-  private static readonly Lazy<nint> _PausedViaInputOffset = new(() => Schema.GetOffset(0x1099B70194DAAEC7), LazyThreadSafetyMode.None);
+  private static readonly nint _PausedViaInputOffset = Schema.GetOffset(0x1099B70194DAAEC7);
 
   public ref bool PausedViaInput {
-    get => ref _Handle.AsRef<bool>(_PausedViaInputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PausedViaInputOffset);
   }
-  private static readonly Lazy<nint> _PauseAtNextInterruptOffset = new(() => Schema.GetOffset(0x1099B7017110D1BC), LazyThreadSafetyMode.None);
+  private static readonly nint _PauseAtNextInterruptOffset = Schema.GetOffset(0x1099B7017110D1BC);
 
   public ref bool PauseAtNextInterrupt {
-    get => ref _Handle.AsRef<bool>(_PauseAtNextInterruptOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PauseAtNextInterruptOffset);
   }
-  private static readonly Lazy<nint> _WaitingForActorOffset = new(() => Schema.GetOffset(0x1099B701A8A67CC4), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitingForActorOffset = Schema.GetOffset(0x1099B701A8A67CC4);
 
   public ref bool WaitingForActor {
-    get => ref _Handle.AsRef<bool>(_WaitingForActorOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitingForActorOffset);
   }
-  private static readonly Lazy<nint> _WaitingForInterruptOffset = new(() => Schema.GetOffset(0x1099B7015FF93F72), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitingForInterruptOffset = Schema.GetOffset(0x1099B7015FF93F72);
 
   public ref bool WaitingForInterrupt {
-    get => ref _Handle.AsRef<bool>(_WaitingForInterruptOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitingForInterruptOffset);
   }
-  private static readonly Lazy<nint> _InterruptedActorsScenesOffset = new(() => Schema.GetOffset(0x1099B7016CE93DF2), LazyThreadSafetyMode.None);
+  private static readonly nint _InterruptedActorsScenesOffset = Schema.GetOffset(0x1099B7016CE93DF2);
 
   public ref bool InterruptedActorsScenes {
-    get => ref _Handle.AsRef<bool>(_InterruptedActorsScenesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterruptedActorsScenesOffset);
   }
-  private static readonly Lazy<nint> _BreakOnNonIdleOffset = new(() => Schema.GetOffset(0x1099B7012DF0ACFA), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakOnNonIdleOffset = Schema.GetOffset(0x1099B7012DF0ACFA);
 
   public ref bool BreakOnNonIdle {
-    get => ref _Handle.AsRef<bool>(_BreakOnNonIdleOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BreakOnNonIdleOffset);
   }
-  private static readonly Lazy<nint> _SceneFinishedOffset = new(() => Schema.GetOffset(0x1099B701B78EE50D), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneFinishedOffset = Schema.GetOffset(0x1099B701B78EE50D);
 
   public ref bool SceneFinished {
-    get => ref _Handle.AsRef<bool>(_SceneFinishedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SceneFinishedOffset);
   }
-  private static readonly Lazy<nint> _ActorListOffset = new(() => Schema.GetOffset(0x1099B701ABF34ACC), LazyThreadSafetyMode.None);
+  private static readonly nint _ActorListOffset = Schema.GetOffset(0x1099B701ABF34ACC);
 
   public ref CUtlVector<CHandle<CBaseFlex>> ActorList {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseFlex>>>(_ActorListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseFlex>>>(_ActorListOffset);
   }
-  private static readonly Lazy<nint> _RemoveActorListOffset = new(() => Schema.GetOffset(0x1099B701C08C1458), LazyThreadSafetyMode.None);
+  private static readonly nint _RemoveActorListOffset = Schema.GetOffset(0x1099B701C08C1458);
 
   public ref CUtlVector<CHandle<CBaseEntity>> RemoveActorList {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_RemoveActorListOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_RemoveActorListOffset);
   }
-  private static readonly Lazy<nint> _SceneFlushCounterOffset = new(() => Schema.GetOffset(0x1099B701E744BD85), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneFlushCounterOffset = Schema.GetOffset(0x1099B701E744BD85);
 
   public ref int SceneFlushCounter {
-    get => ref _Handle.AsRef<int>(_SceneFlushCounterOffset.Value);
+    get => ref _Handle.AsRef<int>(_SceneFlushCounterOffset);
   }
-  private static readonly Lazy<nint> _SceneStringIndexOffset = new(() => Schema.GetOffset(0x1099B7014B743F7E), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneStringIndexOffset = Schema.GetOffset(0x1099B7014B743F7E);
 
   public ref ushort SceneStringIndex {
-    get => ref _Handle.AsRef<ushort>(_SceneStringIndexOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_SceneStringIndexOffset);
   }
-  private static readonly Lazy<nint> _OnStartOffset = new(() => Schema.GetOffset(0x1099B701C3FE848C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnStartOffset = Schema.GetOffset(0x1099B701C3FE848C);
 
   public CEntityIOOutput OnStart {
-    get => new CEntityIOOutputImpl(_Handle + _OnStartOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnStartOffset);
   }
-  private static readonly Lazy<nint> _OnCompletionOffset = new(() => Schema.GetOffset(0x1099B7010EADA43E), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCompletionOffset = Schema.GetOffset(0x1099B7010EADA43E);
 
   public CEntityIOOutput OnCompletion {
-    get => new CEntityIOOutputImpl(_Handle + _OnCompletionOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCompletionOffset);
   }
-  private static readonly Lazy<nint> _OnCanceledOffset = new(() => Schema.GetOffset(0x1099B701F02162DB), LazyThreadSafetyMode.None);
+  private static readonly nint _OnCanceledOffset = Schema.GetOffset(0x1099B701F02162DB);
 
   public CEntityIOOutput OnCanceled {
-    get => new CEntityIOOutputImpl(_Handle + _OnCanceledOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnCanceledOffset);
   }
-  private static readonly Lazy<nint> _OnPausedOffset = new(() => Schema.GetOffset(0x1099B70191D78012), LazyThreadSafetyMode.None);
+  private static readonly nint _OnPausedOffset = Schema.GetOffset(0x1099B70191D78012);
 
   public CEntityIOOutput OnPaused {
-    get => new CEntityIOOutputImpl(_Handle + _OnPausedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnPausedOffset);
   }
-  private static readonly Lazy<nint> _OnResumedOffset = new(() => Schema.GetOffset(0x1099B701CCA87325), LazyThreadSafetyMode.None);
+  private static readonly nint _OnResumedOffset = Schema.GetOffset(0x1099B701CCA87325);
 
   public CEntityIOOutput OnResumed {
-    get => new CEntityIOOutputImpl(_Handle + _OnResumedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnResumedOffset);
   }
-  private static readonly Lazy<nint> _OnTriggerOffset = new(() => Schema.GetOffset(0x1099B70181E0BFEC), LazyThreadSafetyMode.None);
+  private static readonly nint _OnTriggerOffset = Schema.GetOffset(0x1099B70181E0BFEC);
 
   public SchemaUntypedField OnTrigger {
-    get => new SchemaUntypedField(_Handle + _OnTriggerOffset.Value);
+    get => new SchemaUntypedField(_Handle + _OnTriggerOffset);
   }
-  private static readonly Lazy<nint> _InterruptSceneOffset = new(() => Schema.GetOffset(0x1099B7019B121B62), LazyThreadSafetyMode.None);
+  private static readonly nint _InterruptSceneOffset = Schema.GetOffset(0x1099B7019B121B62);
 
   public ref CHandle<CSceneEntity> InterruptScene {
-    get => ref _Handle.AsRef<CHandle<CSceneEntity>>(_InterruptSceneOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CSceneEntity>>(_InterruptSceneOffset);
   }
-  private static readonly Lazy<nint> _InterruptCountOffset = new(() => Schema.GetOffset(0x1099B70114AAD933), LazyThreadSafetyMode.None);
+  private static readonly nint _InterruptCountOffset = Schema.GetOffset(0x1099B70114AAD933);
 
   public ref int InterruptCount {
-    get => ref _Handle.AsRef<int>(_InterruptCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_InterruptCountOffset);
   }
-  private static readonly Lazy<nint> _SceneMissingOffset = new(() => Schema.GetOffset(0x1099B7018E7EBF31), LazyThreadSafetyMode.None);
+  private static readonly nint _SceneMissingOffset = Schema.GetOffset(0x1099B7018E7EBF31);
 
   public ref bool SceneMissing {
-    get => ref _Handle.AsRef<bool>(_SceneMissingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SceneMissingOffset);
   }
-  private static readonly Lazy<nint> _InterruptedOffset = new(() => Schema.GetOffset(0x1099B701ECF7A431), LazyThreadSafetyMode.None);
+  private static readonly nint _InterruptedOffset = Schema.GetOffset(0x1099B701ECF7A431);
 
   public ref bool Interrupted {
-    get => ref _Handle.AsRef<bool>(_InterruptedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterruptedOffset);
   }
-  private static readonly Lazy<nint> _CompletedEarlyOffset = new(() => Schema.GetOffset(0x1099B701DDF4B191), LazyThreadSafetyMode.None);
+  private static readonly nint _CompletedEarlyOffset = Schema.GetOffset(0x1099B701DDF4B191);
 
   public ref bool CompletedEarly {
-    get => ref _Handle.AsRef<bool>(_CompletedEarlyOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CompletedEarlyOffset);
   }
-  private static readonly Lazy<nint> _InterruptSceneFinishedOffset = new(() => Schema.GetOffset(0x1099B701FA6A4266), LazyThreadSafetyMode.None);
+  private static readonly nint _InterruptSceneFinishedOffset = Schema.GetOffset(0x1099B701FA6A4266);
 
   public ref bool InterruptSceneFinished {
-    get => ref _Handle.AsRef<bool>(_InterruptSceneFinishedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InterruptSceneFinishedOffset);
   }
-  private static readonly Lazy<nint> _RestoringOffset = new(() => Schema.GetOffset(0x1099B70103F03702), LazyThreadSafetyMode.None);
+  private static readonly nint _RestoringOffset = Schema.GetOffset(0x1099B70103F03702);
 
   public ref bool Restoring {
-    get => ref _Handle.AsRef<bool>(_RestoringOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RestoringOffset);
   }
-  private static readonly Lazy<nint> _NotifySceneCompletionOffset = new(() => Schema.GetOffset(0x1099B70111F17358), LazyThreadSafetyMode.None);
+  private static readonly nint _NotifySceneCompletionOffset = Schema.GetOffset(0x1099B70111F17358);
 
   public ref CUtlVector<CHandle<CSceneEntity>> NotifySceneCompletion {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CSceneEntity>>>(_NotifySceneCompletionOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CSceneEntity>>>(_NotifySceneCompletionOffset);
   }
-  private static readonly Lazy<nint> _ListManagersOffset = new(() => Schema.GetOffset(0x1099B701AD7882DF), LazyThreadSafetyMode.None);
+  private static readonly nint _ListManagersOffset = Schema.GetOffset(0x1099B701AD7882DF);
 
   public ref CUtlVector<CHandle<CSceneListManager>> ListManagers {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CSceneListManager>>>(_ListManagersOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CSceneListManager>>>(_ListManagersOffset);
   }
-  private static readonly Lazy<nint> _SoundNameOffset = new(() => Schema.GetOffset(0x1099B701B17EB157), LazyThreadSafetyMode.None);
+  private static readonly nint _SoundNameOffset = Schema.GetOffset(0x1099B701B17EB157);
 
   public string SoundName {
     get {
-      var ptr = _Handle.Read<nint>(_SoundNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SoundNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SoundNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SoundNameOffset, value);
   } 
-  private static readonly Lazy<nint> _SequenceNameOffset = new(() => Schema.GetOffset(0x1099B701A55BC593), LazyThreadSafetyMode.None);
+  private static readonly nint _SequenceNameOffset = Schema.GetOffset(0x1099B701A55BC593);
 
   public string SequenceName {
     get {
-      var ptr = _Handle.Read<nint>(_SequenceNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SequenceNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SequenceNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SequenceNameOffset, value);
   } 
-  private static readonly Lazy<nint> _ActorOffset = new(() => Schema.GetOffset(0x1099B701C0FFC404), LazyThreadSafetyMode.None);
+  private static readonly nint _ActorOffset = Schema.GetOffset(0x1099B701C0FFC404);
 
   public ref CHandle<CBaseFlex> Actor {
-    get => ref _Handle.AsRef<CHandle<CBaseFlex>>(_ActorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseFlex>>(_ActorOffset);
   }
-  private static readonly Lazy<nint> _ActivatorOffset = new(() => Schema.GetOffset(0x1099B701AB093BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatorOffset = Schema.GetOffset(0x1099B701AB093BB2);
 
   public ref CHandle<CBaseEntity> Activator {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_ActivatorOffset);
   }
-  private static readonly Lazy<nint> _BusyActorOffset = new(() => Schema.GetOffset(0x1099B70124F0E411), LazyThreadSafetyMode.None);
+  private static readonly nint _BusyActorOffset = Schema.GetOffset(0x1099B70124F0E411);
 
   public ref int BusyActor {
-    get => ref _Handle.AsRef<int>(_BusyActorOffset.Value);
+    get => ref _Handle.AsRef<int>(_BusyActorOffset);
   }
-  private static readonly Lazy<nint> _PlayerDeathBehaviorOffset = new(() => Schema.GetOffset(0x1099B701C6ECC93B), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerDeathBehaviorOffset = Schema.GetOffset(0x1099B701C6ECC93B);
 
   public ref SceneOnPlayerDeath_t PlayerDeathBehavior {
-    get => ref _Handle.AsRef<SceneOnPlayerDeath_t>(_PlayerDeathBehaviorOffset.Value);
+    get => ref _Handle.AsRef<SceneOnPlayerDeath_t>(_PlayerDeathBehaviorOffset);
   }
 
   public void IsPlayingBackUpdated() {

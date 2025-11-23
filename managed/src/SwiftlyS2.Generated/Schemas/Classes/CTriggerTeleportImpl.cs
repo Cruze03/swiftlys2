@@ -17,29 +17,29 @@ internal partial class CTriggerTeleportImpl : CBaseTriggerImpl, CTriggerTeleport
   public CTriggerTeleportImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LandmarkOffset = new(() => Schema.GetOffset(0xA6381755DF022EC4), LazyThreadSafetyMode.None);
+  private static readonly nint _LandmarkOffset = Schema.GetOffset(0xA6381755DF022EC4);
 
   public string Landmark {
     get {
-      var ptr = _Handle.Read<nint>(_LandmarkOffset.Value);
+      var ptr = _Handle.Read<nint>(_LandmarkOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LandmarkOffset.Value, value);
+    set => Schema.SetString(_Handle, _LandmarkOffset, value);
   } 
-  private static readonly Lazy<nint> _UseLandmarkAnglesOffset = new(() => Schema.GetOffset(0xA638175528C3B2F4), LazyThreadSafetyMode.None);
+  private static readonly nint _UseLandmarkAnglesOffset = Schema.GetOffset(0xA638175528C3B2F4);
 
   public ref bool UseLandmarkAngles {
-    get => ref _Handle.AsRef<bool>(_UseLandmarkAnglesOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseLandmarkAnglesOffset);
   }
-  private static readonly Lazy<nint> _MirrorPlayerOffset = new(() => Schema.GetOffset(0xA638175563293A1B), LazyThreadSafetyMode.None);
+  private static readonly nint _MirrorPlayerOffset = Schema.GetOffset(0xA638175563293A1B);
 
   public ref bool MirrorPlayer {
-    get => ref _Handle.AsRef<bool>(_MirrorPlayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_MirrorPlayerOffset);
   }
-  private static readonly Lazy<nint> _CheckDestIfClearForPlayerOffset = new(() => Schema.GetOffset(0xA638175514792115), LazyThreadSafetyMode.None);
+  private static readonly nint _CheckDestIfClearForPlayerOffset = Schema.GetOffset(0xA638175514792115);
 
   public ref bool CheckDestIfClearForPlayer {
-    get => ref _Handle.AsRef<bool>(_CheckDestIfClearForPlayerOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CheckDestIfClearForPlayerOffset);
   }
 
 

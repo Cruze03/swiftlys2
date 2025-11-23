@@ -17,10 +17,10 @@ internal partial class CNmBlend1DNode__CDefinitionImpl : CNmParameterizedBlendNo
   public CNmBlend1DNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParameterizationOffset = new(() => Schema.GetOffset(0xA5E668CDE173A928), LazyThreadSafetyMode.None);
+  private static readonly nint _ParameterizationOffset = Schema.GetOffset(0xA5E668CDE173A928);
 
   public CNmParameterizedBlendNode__Parameterization_t Parameterization {
-    get => new CNmParameterizedBlendNode__Parameterization_tImpl(_Handle + _ParameterizationOffset.Value);
+    get => new CNmParameterizedBlendNode__Parameterization_tImpl(_Handle + _ParameterizationOffset);
   }
 
 

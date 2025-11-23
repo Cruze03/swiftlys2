@@ -17,51 +17,51 @@ internal partial class CPulseGraphInstance_ServerEntityImpl : CBasePulseGraphIns
   public CPulseGraphInstance_ServerEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OwnerOffset = new(() => Schema.GetOffset(0x6DFF458BF6D89572), LazyThreadSafetyMode.None);
+  private static readonly nint _OwnerOffset = Schema.GetOffset(0x6DFF458BF6D89572);
 
   public ref CHandle<CBaseEntity> Owner {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_OwnerOffset);
   }
-  private static readonly Lazy<nint> _ActivatedOffset = new(() => Schema.GetOffset(0x6DFF458BF8E37A5C), LazyThreadSafetyMode.None);
+  private static readonly nint _ActivatedOffset = Schema.GetOffset(0x6DFF458BF8E37A5C);
 
   public ref bool Activated {
-    get => ref _Handle.AsRef<bool>(_ActivatedOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActivatedOffset);
   }
-  private static readonly Lazy<nint> _NameFixupStaticPrefixOffset = new(() => Schema.GetOffset(0x6DFF458BFFD2D6AB), LazyThreadSafetyMode.None);
+  private static readonly nint _NameFixupStaticPrefixOffset = Schema.GetOffset(0x6DFF458BFFD2D6AB);
 
   public string NameFixupStaticPrefix {
     get {
-      var ptr = _Handle.Read<nint>(_NameFixupStaticPrefixOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameFixupStaticPrefixOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameFixupStaticPrefixOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameFixupStaticPrefixOffset, value);
   } 
-  private static readonly Lazy<nint> _NameFixupParentOffset = new(() => Schema.GetOffset(0x6DFF458B7B08ECF1), LazyThreadSafetyMode.None);
+  private static readonly nint _NameFixupParentOffset = Schema.GetOffset(0x6DFF458B7B08ECF1);
 
   public string NameFixupParent {
     get {
-      var ptr = _Handle.Read<nint>(_NameFixupParentOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameFixupParentOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameFixupParentOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameFixupParentOffset, value);
   } 
-  private static readonly Lazy<nint> _NameFixupLocalOffset = new(() => Schema.GetOffset(0x6DFF458B508F29A4), LazyThreadSafetyMode.None);
+  private static readonly nint _NameFixupLocalOffset = Schema.GetOffset(0x6DFF458B508F29A4);
 
   public string NameFixupLocal {
     get {
-      var ptr = _Handle.Read<nint>(_NameFixupLocalOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameFixupLocalOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameFixupLocalOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameFixupLocalOffset, value);
   } 
-  private static readonly Lazy<nint> _ProceduralWorldNameForRelaysOffset = new(() => Schema.GetOffset(0x6DFF458B05373F31), LazyThreadSafetyMode.None);
+  private static readonly nint _ProceduralWorldNameForRelaysOffset = Schema.GetOffset(0x6DFF458B05373F31);
 
   public string ProceduralWorldNameForRelays {
     get {
-      var ptr = _Handle.Read<nint>(_ProceduralWorldNameForRelaysOffset.Value);
+      var ptr = _Handle.Read<nint>(_ProceduralWorldNameForRelaysOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ProceduralWorldNameForRelaysOffset.Value, value);
+    set => Schema.SetString(_Handle, _ProceduralWorldNameForRelaysOffset, value);
   } 
 
 

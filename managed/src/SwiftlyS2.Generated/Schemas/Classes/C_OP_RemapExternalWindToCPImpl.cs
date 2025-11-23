@@ -17,30 +17,30 @@ internal partial class C_OP_RemapExternalWindToCPImpl : CParticleFunctionPreEmis
   public C_OP_RemapExternalWindToCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPOffset = new(() => Schema.GetOffset(0x19366DF9EB661472), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOffset = Schema.GetOffset(0x19366DF9EB661472);
 
   public ref int CP {
-    get => ref _Handle.AsRef<int>(_CPOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOffset);
   }
-  private static readonly Lazy<nint> _CPOutputOffset = new(() => Schema.GetOffset(0x19366DF92077C953), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputOffset = Schema.GetOffset(0x19366DF92077C953);
 
   public ref int CPOutput {
-    get => ref _Handle.AsRef<int>(_CPOutputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputOffset);
   }
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x19366DF95F596B51), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x19366DF95F596B51);
 
   public CParticleCollectionVecInput Scale {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ScaleOffset);
   }
-  private static readonly Lazy<nint> _SetMagnitudeOffset = new(() => Schema.GetOffset(0x19366DF9B87FB05F), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMagnitudeOffset = Schema.GetOffset(0x19366DF9B87FB05F);
 
   public ref bool SetMagnitude {
-    get => ref _Handle.AsRef<bool>(_SetMagnitudeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetMagnitudeOffset);
   }
-  private static readonly Lazy<nint> _OutVectorFieldOffset = new(() => Schema.GetOffset(0x19366DF9F9041E74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutVectorFieldOffset = Schema.GetOffset(0x19366DF9F9041E74);
 
   public ref int OutVectorField {
-    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_OutVectorFieldOffset);
   }
 
 

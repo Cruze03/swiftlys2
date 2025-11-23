@@ -20,21 +20,31 @@
 
 void MFunctionHook::SetHookFunction(void* addr, void* callback)
 {
-    if (!addr || !callback) return;
+    if (!addr || !callback)
+    {
+        return;
+    }
 
-    m_oHook = safetyhook::create_mid(addr, (safetyhook::MidHookFn)callback, safetyhook::MidHook::StartDisabled);
+    auto callbackFunc = (void (*)(safetyhook::Context&))callback;
+    m_oHook = safetyhook::create_mid(addr, callbackFunc, safetyhook::MidHook::StartDisabled);
 }
 
 void MFunctionHook::Enable()
 {
-    if (m_oHook.enabled()) return;
-    m_oHook.enable();
+    if (m_oHook.enabled())
+    {
+        return;
+    }
+    (void)m_oHook.enable();
 }
+
 void MFunctionHook::Disable()
 {
-    if (!m_oHook.enabled()) return;
-
-    m_oHook.disable();
+    if (!m_oHook.enabled())
+    {
+        return;
+    }
+    (void)m_oHook.disable();
 }
 
 bool MFunctionHook::IsEnabled()

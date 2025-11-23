@@ -17,19 +17,19 @@ internal partial class CMorphDataImpl : SchemaClass, CMorphData {
   public CMorphDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x603F8C4D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x603F8C4D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _MorphRectDatasOffset = new(() => Schema.GetOffset(0x603F8CB92C9674), LazyThreadSafetyMode.None);
+  private static readonly nint _MorphRectDatasOffset = Schema.GetOffset(0x603F8CB92C9674);
 
   public ref CUtlVector<CMorphRectData> MorphRectDatas {
-    get => ref _Handle.AsRef<CUtlVector<CMorphRectData>>(_MorphRectDatasOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CMorphRectData>>(_MorphRectDatasOffset);
   }
 
 

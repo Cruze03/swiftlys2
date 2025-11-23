@@ -17,34 +17,34 @@ internal partial class CTriggerProximityImpl : CBaseTriggerImpl, CTriggerProximi
   public CTriggerProximityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MeasureTargetOffset = new(() => Schema.GetOffset(0x98F0621FF81BC1A8), LazyThreadSafetyMode.None);
+  private static readonly nint _MeasureTargetOffset = Schema.GetOffset(0x98F0621FF81BC1A8);
 
   public ref CHandle<CBaseEntity> MeasureTarget {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureTargetOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_MeasureTargetOffset);
   }
-  private static readonly Lazy<nint> _MeasureTarget1Offset = new(() => Schema.GetOffset(0x98F0621F29C47B3A), LazyThreadSafetyMode.None);
+  private static readonly nint _MeasureTarget1Offset = Schema.GetOffset(0x98F0621F29C47B3A);
 
   public string MeasureTarget1 {
     get {
-      var ptr = _Handle.Read<nint>(_MeasureTarget1Offset.Value);
+      var ptr = _Handle.Read<nint>(_MeasureTarget1Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MeasureTarget1Offset.Value, value);
+    set => Schema.SetString(_Handle, _MeasureTarget1Offset, value);
   } 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x98F0621F2E1F6E07), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x98F0621F2E1F6E07);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _TouchersOffset = new(() => Schema.GetOffset(0x98F0621FA0F3A2B0), LazyThreadSafetyMode.None);
+  private static readonly nint _TouchersOffset = Schema.GetOffset(0x98F0621FA0F3A2B0);
 
   public ref int Touchers {
-    get => ref _Handle.AsRef<int>(_TouchersOffset.Value);
+    get => ref _Handle.AsRef<int>(_TouchersOffset);
   }
-  private static readonly Lazy<nint> _NearestEntityDistanceOffset = new(() => Schema.GetOffset(0x98F0621F28AD73D5), LazyThreadSafetyMode.None);
+  private static readonly nint _NearestEntityDistanceOffset = Schema.GetOffset(0x98F0621F28AD73D5);
 
   public SchemaUntypedField NearestEntityDistance {
-    get => new SchemaUntypedField(_Handle + _NearestEntityDistanceOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NearestEntityDistanceOffset);
   }
 
 

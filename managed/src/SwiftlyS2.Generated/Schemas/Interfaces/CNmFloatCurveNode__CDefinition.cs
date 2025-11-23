@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmFloatCurveNode__CDefinition : CNmFloatValueNode__CDefinition, ISchemaClass<CNmFloatCurveNode__CDefinition> {
 
   static CNmFloatCurveNode__CDefinition ISchemaClass<CNmFloatCurveNode__CDefinition>.From(nint handle) => new CNmFloatCurveNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmFloatCurveNode__CDefinition>.Size => 80;
+  static int ISchemaClass<CNmFloatCurveNode__CDefinition>.Size => 88;
   static string? ISchemaClass<CNmFloatCurveNode__CDefinition>.ClassName => null;
 
   

@@ -17,71 +17,71 @@ internal partial class CRR_ResponseImpl : SchemaClass, CRR_Response {
   public CRR_ResponseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TypeOffset = new(() => Schema.GetOffset(0x7B8008788ED6D5CD), LazyThreadSafetyMode.None);
+  private static readonly nint _TypeOffset = Schema.GetOffset(0x7B8008788ED6D5CD);
 
   public ref byte Type {
-    get => ref _Handle.AsRef<byte>(_TypeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_TypeOffset);
   }
-  private static readonly Lazy<nint> _ResponseNameOffset = new(() => Schema.GetOffset(0x7B800878C2716964), LazyThreadSafetyMode.None);
+  private static readonly nint _ResponseNameOffset = Schema.GetOffset(0x7B800878C2716964);
 
   public string ResponseName {
     get {
-      var ptr = _Handle + _ResponseNameOffset.Value;
+      var ptr = _Handle + _ResponseNameOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _ResponseNameOffset.Value, value, 192);
+    set => Schema.SetFixedString(_Handle, _ResponseNameOffset, value, 192);
   } 
-  private static readonly Lazy<nint> _MatchingRuleOffset = new(() => Schema.GetOffset(0x7B80087820850239), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchingRuleOffset = Schema.GetOffset(0x7B80087820850239);
 
   public string MatchingRule {
     get {
-      var ptr = _Handle + _MatchingRuleOffset.Value;
+      var ptr = _Handle + _MatchingRuleOffset;
       return Schema.GetString(ptr);
     }
-    set => Schema.SetFixedString(_Handle, _MatchingRuleOffset.Value, value, 128);
+    set => Schema.SetFixedString(_Handle, _MatchingRuleOffset, value, 128);
   } 
-  private static readonly Lazy<nint> _ParamsOffset = new(() => Schema.GetOffset(0x7B800878900020D3), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamsOffset = Schema.GetOffset(0x7B800878900020D3);
 
   public ResponseParams Params {
-    get => new ResponseParamsImpl(_Handle + _ParamsOffset.Value);
+    get => new ResponseParamsImpl(_Handle + _ParamsOffset);
   }
-  private static readonly Lazy<nint> _MatchScoreOffset = new(() => Schema.GetOffset(0x7B80087861BE6F08), LazyThreadSafetyMode.None);
+  private static readonly nint _MatchScoreOffset = Schema.GetOffset(0x7B80087861BE6F08);
 
   public ref float MatchScore {
-    get => ref _Handle.AsRef<float>(_MatchScoreOffset.Value);
+    get => ref _Handle.AsRef<float>(_MatchScoreOffset);
   }
-  private static readonly Lazy<nint> _AnyMatchingRulesInCooldownOffset = new(() => Schema.GetOffset(0x7B800878579F1BE7), LazyThreadSafetyMode.None);
+  private static readonly nint _AnyMatchingRulesInCooldownOffset = Schema.GetOffset(0x7B800878579F1BE7);
 
   public ref bool AnyMatchingRulesInCooldown {
-    get => ref _Handle.AsRef<bool>(_AnyMatchingRulesInCooldownOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AnyMatchingRulesInCooldownOffset);
   }
-  private static readonly Lazy<nint> _SpeakerContextOffset = new(() => Schema.GetOffset(0x7B80087877C70A38), LazyThreadSafetyMode.None);
+  private static readonly nint _SpeakerContextOffset = Schema.GetOffset(0x7B80087877C70A38);
 
   public string SpeakerContext {
     get {
-      var ptr = _Handle.Read<nint>(_SpeakerContextOffset.Value);
+      var ptr = _Handle.Read<nint>(_SpeakerContextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SpeakerContextOffset.Value, value);
+    set => Schema.SetString(_Handle, _SpeakerContextOffset, value);
   } 
-  private static readonly Lazy<nint> _WorldContextOffset = new(() => Schema.GetOffset(0x7B8008781DC998DF), LazyThreadSafetyMode.None);
+  private static readonly nint _WorldContextOffset = Schema.GetOffset(0x7B8008781DC998DF);
 
   public string WorldContext {
     get {
-      var ptr = _Handle.Read<nint>(_WorldContextOffset.Value);
+      var ptr = _Handle.Read<nint>(_WorldContextOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _WorldContextOffset.Value, value);
+    set => Schema.SetString(_Handle, _WorldContextOffset, value);
   } 
-  private static readonly Lazy<nint> _FollowupOffset = new(() => Schema.GetOffset(0x7B800878B1F72BFD), LazyThreadSafetyMode.None);
+  private static readonly nint _FollowupOffset = Schema.GetOffset(0x7B800878B1F72BFD);
 
   public ResponseFollowup Followup {
-    get => new ResponseFollowupImpl(_Handle + _FollowupOffset.Value);
+    get => new ResponseFollowupImpl(_Handle + _FollowupOffset);
   }
-  private static readonly Lazy<nint> _RecipientFilterOffset = new(() => Schema.GetOffset(0x7B800878CC301E4A), LazyThreadSafetyMode.None);
+  private static readonly nint _RecipientFilterOffset = Schema.GetOffset(0x7B800878CC301E4A);
 
   public SchemaUntypedField RecipientFilter {
-    get => new SchemaUntypedField(_Handle + _RecipientFilterOffset.Value);
+    get => new SchemaUntypedField(_Handle + _RecipientFilterOffset);
   }
 
 

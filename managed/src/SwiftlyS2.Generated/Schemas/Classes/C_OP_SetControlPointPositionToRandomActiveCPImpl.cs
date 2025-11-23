@@ -17,25 +17,25 @@ internal partial class C_OP_SetControlPointPositionToRandomActiveCPImpl : CParti
   public C_OP_SetControlPointPositionToRandomActiveCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CP1Offset = new(() => Schema.GetOffset(0x7B108D36D4B1E579), LazyThreadSafetyMode.None);
+  private static readonly nint _CP1Offset = Schema.GetOffset(0x7B108D36D4B1E579);
 
   public ref int CP1 {
-    get => ref _Handle.AsRef<int>(_CP1Offset.Value);
+    get => ref _Handle.AsRef<int>(_CP1Offset);
   }
-  private static readonly Lazy<nint> _HeadLocationMinOffset = new(() => Schema.GetOffset(0x7B108D360E904014), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadLocationMinOffset = Schema.GetOffset(0x7B108D360E904014);
 
   public ref int HeadLocationMin {
-    get => ref _Handle.AsRef<int>(_HeadLocationMinOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadLocationMinOffset);
   }
-  private static readonly Lazy<nint> _HeadLocationMaxOffset = new(() => Schema.GetOffset(0x7B108D36FCA53E76), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadLocationMaxOffset = Schema.GetOffset(0x7B108D36FCA53E76);
 
   public ref int HeadLocationMax {
-    get => ref _Handle.AsRef<int>(_HeadLocationMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadLocationMaxOffset);
   }
-  private static readonly Lazy<nint> _ResetRateOffset = new(() => Schema.GetOffset(0x7B108D369E741FFC), LazyThreadSafetyMode.None);
+  private static readonly nint _ResetRateOffset = Schema.GetOffset(0x7B108D369E741FFC);
 
   public CParticleCollectionFloatInput ResetRate {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _ResetRateOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _ResetRateOffset);
   }
 
 

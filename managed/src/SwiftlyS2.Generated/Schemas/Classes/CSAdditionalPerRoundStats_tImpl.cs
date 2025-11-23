@@ -17,35 +17,35 @@ internal partial class CSAdditionalPerRoundStats_tImpl : SchemaClass, CSAddition
   public CSAdditionalPerRoundStats_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NumChickensKilledOffset = new(() => Schema.GetOffset(0x719C617993548CDE), LazyThreadSafetyMode.None);
+  private static readonly nint _NumChickensKilledOffset = Schema.GetOffset(0x719C617993548CDE);
 
   public ref int NumChickensKilled {
-    get => ref _Handle.AsRef<int>(_NumChickensKilledOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumChickensKilledOffset);
   }
-  private static readonly Lazy<nint> _KillsWhileBlindOffset = new(() => Schema.GetOffset(0x719C61794FEC6186), LazyThreadSafetyMode.None);
+  private static readonly nint _KillsWhileBlindOffset = Schema.GetOffset(0x719C61794FEC6186);
 
   public ref int KillsWhileBlind {
-    get => ref _Handle.AsRef<int>(_KillsWhileBlindOffset.Value);
+    get => ref _Handle.AsRef<int>(_KillsWhileBlindOffset);
   }
-  private static readonly Lazy<nint> _BombCarrierkillsOffset = new(() => Schema.GetOffset(0x719C617913457A30), LazyThreadSafetyMode.None);
+  private static readonly nint _BombCarrierkillsOffset = Schema.GetOffset(0x719C617913457A30);
 
   public ref int BombCarrierkills {
-    get => ref _Handle.AsRef<int>(_BombCarrierkillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_BombCarrierkillsOffset);
   }
-  private static readonly Lazy<nint> _BurnDamageInflictedOffset = new(() => Schema.GetOffset(0x719C6179ADDF061F), LazyThreadSafetyMode.None);
+  private static readonly nint _BurnDamageInflictedOffset = Schema.GetOffset(0x719C6179ADDF061F);
 
   public ref float BurnDamageInflicted {
-    get => ref _Handle.AsRef<float>(_BurnDamageInflictedOffset.Value);
+    get => ref _Handle.AsRef<float>(_BurnDamageInflictedOffset);
   }
-  private static readonly Lazy<nint> _BlastDamageInflictedOffset = new(() => Schema.GetOffset(0x719C6179FDBAB060), LazyThreadSafetyMode.None);
+  private static readonly nint _BlastDamageInflictedOffset = Schema.GetOffset(0x719C6179FDBAB060);
 
   public ref float BlastDamageInflicted {
-    get => ref _Handle.AsRef<float>(_BlastDamageInflictedOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlastDamageInflictedOffset);
   }
-  private static readonly Lazy<nint> _DinksOffset = new(() => Schema.GetOffset(0x719C617910BCE83D), LazyThreadSafetyMode.None);
+  private static readonly nint _DinksOffset = Schema.GetOffset(0x719C617910BCE83D);
 
   public ref int Dinks {
-    get => ref _Handle.AsRef<int>(_DinksOffset.Value);
+    get => ref _Handle.AsRef<int>(_DinksOffset);
   }
 
 

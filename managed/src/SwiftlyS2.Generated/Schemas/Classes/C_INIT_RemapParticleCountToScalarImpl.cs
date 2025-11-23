@@ -17,65 +17,65 @@ internal partial class C_INIT_RemapParticleCountToScalarImpl : CParticleFunction
   public C_INIT_RemapParticleCountToScalarImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0xC0411DA9E5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0xC0411DA9E5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _InputMinOffset = new(() => Schema.GetOffset(0xC0411DA985E92181), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMinOffset = Schema.GetOffset(0xC0411DA985E92181);
 
   public ref int InputMin {
-    get => ref _Handle.AsRef<int>(_InputMinOffset.Value);
+    get => ref _Handle.AsRef<int>(_InputMinOffset);
   }
-  private static readonly Lazy<nint> _InputMaxOffset = new(() => Schema.GetOffset(0xC0411DA977FE262F), LazyThreadSafetyMode.None);
+  private static readonly nint _InputMaxOffset = Schema.GetOffset(0xC0411DA977FE262F);
 
   public ref int InputMax {
-    get => ref _Handle.AsRef<int>(_InputMaxOffset.Value);
+    get => ref _Handle.AsRef<int>(_InputMaxOffset);
   }
-  private static readonly Lazy<nint> _ScaleControlPointOffset = new(() => Schema.GetOffset(0xC0411DA9B0577A70), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleControlPointOffset = Schema.GetOffset(0xC0411DA9B0577A70);
 
   public ref int ScaleControlPoint {
-    get => ref _Handle.AsRef<int>(_ScaleControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleControlPointOffset);
   }
-  private static readonly Lazy<nint> _ScaleControlPointFieldOffset = new(() => Schema.GetOffset(0xC0411DA9360C613C), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleControlPointFieldOffset = Schema.GetOffset(0xC0411DA9360C613C);
 
   public ref int ScaleControlPointField {
-    get => ref _Handle.AsRef<int>(_ScaleControlPointFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_ScaleControlPointFieldOffset);
   }
-  private static readonly Lazy<nint> _OutputMinOffset = new(() => Schema.GetOffset(0xC0411DA95F8D7716), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMinOffset = Schema.GetOffset(0xC0411DA95F8D7716);
 
   public ref float OutputMin {
-    get => ref _Handle.AsRef<float>(_OutputMinOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMinOffset);
   }
-  private static readonly Lazy<nint> _OutputMaxOffset = new(() => Schema.GetOffset(0xC0411DA951A0E8C4), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputMaxOffset = Schema.GetOffset(0xC0411DA951A0E8C4);
 
   public ref float OutputMax {
-    get => ref _Handle.AsRef<float>(_OutputMaxOffset.Value);
+    get => ref _Handle.AsRef<float>(_OutputMaxOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0xC0411DA9FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0xC0411DA9FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _ActiveRangeOffset = new(() => Schema.GetOffset(0xC0411DA93FA53B84), LazyThreadSafetyMode.None);
+  private static readonly nint _ActiveRangeOffset = Schema.GetOffset(0xC0411DA93FA53B84);
 
   public ref bool ActiveRange {
-    get => ref _Handle.AsRef<bool>(_ActiveRangeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ActiveRangeOffset);
   }
-  private static readonly Lazy<nint> _InvertOffset = new(() => Schema.GetOffset(0xC0411DA9959F6101), LazyThreadSafetyMode.None);
+  private static readonly nint _InvertOffset = Schema.GetOffset(0xC0411DA9959F6101);
 
   public ref bool Invert {
-    get => ref _Handle.AsRef<bool>(_InvertOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InvertOffset);
   }
-  private static readonly Lazy<nint> _WrapOffset = new(() => Schema.GetOffset(0xC0411DA94C8CA005), LazyThreadSafetyMode.None);
+  private static readonly nint _WrapOffset = Schema.GetOffset(0xC0411DA94C8CA005);
 
   public ref bool Wrap {
-    get => ref _Handle.AsRef<bool>(_WrapOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WrapOffset);
   }
-  private static readonly Lazy<nint> _RemapBiasOffset = new(() => Schema.GetOffset(0xC0411DA9490D7325), LazyThreadSafetyMode.None);
+  private static readonly nint _RemapBiasOffset = Schema.GetOffset(0xC0411DA9490D7325);
 
   public ref float RemapBias {
-    get => ref _Handle.AsRef<float>(_RemapBiasOffset.Value);
+    get => ref _Handle.AsRef<float>(_RemapBiasOffset);
   }
 
 

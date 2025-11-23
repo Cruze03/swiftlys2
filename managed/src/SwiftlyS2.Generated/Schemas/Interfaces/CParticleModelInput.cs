@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CParticleModelInput : CParticleInput, ISchemaClass<CParticleModelInput> {
 
   static CParticleModelInput ISchemaClass<CParticleModelInput>.From(nint handle) => new CParticleModelInputImpl(handle);
-  static int ISchemaClass<CParticleModelInput>.Size => 88;
+  static int ISchemaClass<CParticleModelInput>.Size => 96;
   static string? ISchemaClass<CParticleModelInput>.ClassName => null;
 
   

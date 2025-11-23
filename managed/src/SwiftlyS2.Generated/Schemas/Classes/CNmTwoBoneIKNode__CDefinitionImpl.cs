@@ -17,35 +17,35 @@ internal partial class CNmTwoBoneIKNode__CDefinitionImpl : CNmPassthroughNode__C
   public CNmTwoBoneIKNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EffectorBoneIDOffset = new(() => Schema.GetOffset(0x4D36C61F7F221CB6), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectorBoneIDOffset = Schema.GetOffset(0x4D36C61F7F221CB6);
 
   public ref CGlobalSymbol EffectorBoneID {
-    get => ref _Handle.AsRef<CGlobalSymbol>(_EffectorBoneIDOffset.Value);
+    get => ref _Handle.AsRef<CGlobalSymbol>(_EffectorBoneIDOffset);
   }
-  private static readonly Lazy<nint> _EffectorTargetNodeIdxOffset = new(() => Schema.GetOffset(0x4D36C61FD6B9B943), LazyThreadSafetyMode.None);
+  private static readonly nint _EffectorTargetNodeIdxOffset = Schema.GetOffset(0x4D36C61FD6B9B943);
 
   public ref short EffectorTargetNodeIdx {
-    get => ref _Handle.AsRef<short>(_EffectorTargetNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EffectorTargetNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _EnabledNodeIdxOffset = new(() => Schema.GetOffset(0x4D36C61FF7CDF5E9), LazyThreadSafetyMode.None);
+  private static readonly nint _EnabledNodeIdxOffset = Schema.GetOffset(0x4D36C61FF7CDF5E9);
 
   public ref short EnabledNodeIdx {
-    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset.Value);
+    get => ref _Handle.AsRef<short>(_EnabledNodeIdxOffset);
   }
-  private static readonly Lazy<nint> _BlendTimeSecondsOffset = new(() => Schema.GetOffset(0x4D36C61F6D3A08FC), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendTimeSecondsOffset = Schema.GetOffset(0x4D36C61F6D3A08FC);
 
   public ref float BlendTimeSeconds {
-    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendTimeSecondsOffset);
   }
-  private static readonly Lazy<nint> _BlendModeOffset = new(() => Schema.GetOffset(0x4D36C61F8D5006AB), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendModeOffset = Schema.GetOffset(0x4D36C61F8D5006AB);
 
   public ref NmIKBlendMode_t BlendMode {
-    get => ref _Handle.AsRef<NmIKBlendMode_t>(_BlendModeOffset.Value);
+    get => ref _Handle.AsRef<NmIKBlendMode_t>(_BlendModeOffset);
   }
-  private static readonly Lazy<nint> _IsTargetInWorldSpaceOffset = new(() => Schema.GetOffset(0x4D36C61F5F56E0C5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsTargetInWorldSpaceOffset = Schema.GetOffset(0x4D36C61F5F56E0C5);
 
   public ref bool IsTargetInWorldSpace {
-    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset);
   }
 
 

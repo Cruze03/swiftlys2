@@ -17,25 +17,25 @@ internal partial class C_OP_InheritFromParentParticlesImpl : CParticleFunctionOp
   public C_OP_InheritFromParentParticlesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ScaleOffset = new(() => Schema.GetOffset(0x4310722BB731A42F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScaleOffset = Schema.GetOffset(0x4310722BB731A42F);
 
   public ref float Scale {
-    get => ref _Handle.AsRef<float>(_ScaleOffset.Value);
+    get => ref _Handle.AsRef<float>(_ScaleOffset);
   }
-  private static readonly Lazy<nint> _FieldOutputOffset = new(() => Schema.GetOffset(0x4310722BE5729606), LazyThreadSafetyMode.None);
+  private static readonly nint _FieldOutputOffset = Schema.GetOffset(0x4310722BE5729606);
 
   public ParticleAttributeIndex_t FieldOutput {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _FieldOutputOffset);
   }
-  private static readonly Lazy<nint> _IncrementOffset = new(() => Schema.GetOffset(0x4310722B2359F182), LazyThreadSafetyMode.None);
+  private static readonly nint _IncrementOffset = Schema.GetOffset(0x4310722B2359F182);
 
   public ref int Increment {
-    get => ref _Handle.AsRef<int>(_IncrementOffset.Value);
+    get => ref _Handle.AsRef<int>(_IncrementOffset);
   }
-  private static readonly Lazy<nint> _RandomDistributionOffset = new(() => Schema.GetOffset(0x4310722B830F6B38), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomDistributionOffset = Schema.GetOffset(0x4310722B830F6B38);
 
   public ref bool RandomDistribution {
-    get => ref _Handle.AsRef<bool>(_RandomDistributionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomDistributionOffset);
   }
 
 

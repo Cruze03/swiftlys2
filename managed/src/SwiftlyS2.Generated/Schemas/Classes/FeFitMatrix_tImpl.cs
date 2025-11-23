@@ -17,30 +17,30 @@ internal partial class FeFitMatrix_tImpl : SchemaClass, FeFitMatrix_t {
   public FeFitMatrix_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneOffset = new(() => Schema.GetOffset(0xB8804215DB90E18F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneOffset = Schema.GetOffset(0xB8804215DB90E18F);
 
   public ref CTransform Bone {
-    get => ref _Handle.AsRef<CTransform>(_BoneOffset.Value);
+    get => ref _Handle.AsRef<CTransform>(_BoneOffset);
   }
-  private static readonly Lazy<nint> _CenterOffset = new(() => Schema.GetOffset(0xB88042157CA60028), LazyThreadSafetyMode.None);
+  private static readonly nint _CenterOffset = Schema.GetOffset(0xB88042157CA60028);
 
   public ref Vector Center {
-    get => ref _Handle.AsRef<Vector>(_CenterOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_CenterOffset);
   }
-  private static readonly Lazy<nint> _EndOffset = new(() => Schema.GetOffset(0xB8804215FE4CFBD6), LazyThreadSafetyMode.None);
+  private static readonly nint _EndOffset = Schema.GetOffset(0xB8804215FE4CFBD6);
 
   public ref ushort End {
-    get => ref _Handle.AsRef<ushort>(_EndOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_EndOffset);
   }
-  private static readonly Lazy<nint> _NodeOffset = new(() => Schema.GetOffset(0xB8804215CD6694B9), LazyThreadSafetyMode.None);
+  private static readonly nint _NodeOffset = Schema.GetOffset(0xB8804215CD6694B9);
 
   public ref ushort Node {
-    get => ref _Handle.AsRef<ushort>(_NodeOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_NodeOffset);
   }
-  private static readonly Lazy<nint> _BeginDynamicOffset = new(() => Schema.GetOffset(0xB88042153F6B5607), LazyThreadSafetyMode.None);
+  private static readonly nint _BeginDynamicOffset = Schema.GetOffset(0xB88042153F6B5607);
 
   public ref ushort BeginDynamic {
-    get => ref _Handle.AsRef<ushort>(_BeginDynamicOffset.Value);
+    get => ref _Handle.AsRef<ushort>(_BeginDynamicOffset);
   }
 
 

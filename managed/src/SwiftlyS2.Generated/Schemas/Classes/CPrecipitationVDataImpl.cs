@@ -17,44 +17,44 @@ internal partial class CPrecipitationVDataImpl : CEntitySubclassVDataBaseImpl, C
   public CPrecipitationVDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ParticlePrecipitationEffectOffset = new(() => Schema.GetOffset(0x4F75C25D9E8770E0), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticlePrecipitationEffectOffset = Schema.GetOffset(0x4F75C25D9E8770E0);
 
   public SchemaUntypedField ParticlePrecipitationEffect {
-    get => new SchemaUntypedField(_Handle + _ParticlePrecipitationEffectOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ParticlePrecipitationEffectOffset);
   }
-  private static readonly Lazy<nint> _InnerDistanceOffset = new(() => Schema.GetOffset(0x4F75C25D29845276), LazyThreadSafetyMode.None);
+  private static readonly nint _InnerDistanceOffset = Schema.GetOffset(0x4F75C25D29845276);
 
   public ref float InnerDistance {
-    get => ref _Handle.AsRef<float>(_InnerDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_InnerDistanceOffset);
   }
-  private static readonly Lazy<nint> _AttachTypeOffset = new(() => Schema.GetOffset(0x4F75C25DC8613038), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachTypeOffset = Schema.GetOffset(0x4F75C25DC8613038);
 
   public ref ParticleAttachment_t AttachType {
-    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachTypeOffset.Value);
+    get => ref _Handle.AsRef<ParticleAttachment_t>(_AttachTypeOffset);
   }
-  private static readonly Lazy<nint> _BatchSameVolumeTypeOffset = new(() => Schema.GetOffset(0x4F75C25DDE7F21F7), LazyThreadSafetyMode.None);
+  private static readonly nint _BatchSameVolumeTypeOffset = Schema.GetOffset(0x4F75C25DDE7F21F7);
 
   public ref bool BatchSameVolumeType {
-    get => ref _Handle.AsRef<bool>(_BatchSameVolumeTypeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BatchSameVolumeTypeOffset);
   }
-  private static readonly Lazy<nint> _RTEnvCPOffset = new(() => Schema.GetOffset(0x4F75C25D01881731), LazyThreadSafetyMode.None);
+  private static readonly nint _RTEnvCPOffset = Schema.GetOffset(0x4F75C25D01881731);
 
   public ref int RTEnvCP {
-    get => ref _Handle.AsRef<int>(_RTEnvCPOffset.Value);
+    get => ref _Handle.AsRef<int>(_RTEnvCPOffset);
   }
-  private static readonly Lazy<nint> _RTEnvCPComponentOffset = new(() => Schema.GetOffset(0x4F75C25D968B054C), LazyThreadSafetyMode.None);
+  private static readonly nint _RTEnvCPComponentOffset = Schema.GetOffset(0x4F75C25D968B054C);
 
   public ref int RTEnvCPComponent {
-    get => ref _Handle.AsRef<int>(_RTEnvCPComponentOffset.Value);
+    get => ref _Handle.AsRef<int>(_RTEnvCPComponentOffset);
   }
-  private static readonly Lazy<nint> _ModifierOffset = new(() => Schema.GetOffset(0x4F75C25D2742E611), LazyThreadSafetyMode.None);
+  private static readonly nint _ModifierOffset = Schema.GetOffset(0x4F75C25D2742E611);
 
   public string Modifier {
     get {
-      var ptr = _Handle.Read<nint>(_ModifierOffset.Value);
+      var ptr = _Handle.Read<nint>(_ModifierOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ModifierOffset.Value, value);
+    set => Schema.SetString(_Handle, _ModifierOffset, value);
   } 
 
 

@@ -17,15 +17,15 @@ internal partial class TraceSettings_tImpl : SchemaClass, TraceSettings_t {
   public TraceSettings_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TraceHeightOffset = new(() => Schema.GetOffset(0x6983A048EFB858CF), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceHeightOffset = Schema.GetOffset(0x6983A048EFB858CF);
 
   public ref float TraceHeight {
-    get => ref _Handle.AsRef<float>(_TraceHeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_TraceHeightOffset);
   }
-  private static readonly Lazy<nint> _TraceRadiusOffset = new(() => Schema.GetOffset(0x6983A0489A33E452), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceRadiusOffset = Schema.GetOffset(0x6983A0489A33E452);
 
   public ref float TraceRadius {
-    get => ref _Handle.AsRef<float>(_TraceRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_TraceRadiusOffset);
   }
 
 

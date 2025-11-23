@@ -17,75 +17,75 @@ internal partial class CSequenceGroupDataImpl : SchemaClass, CSequenceGroupData 
   public CSequenceGroupDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xF2F9B8263D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xF2F9B8263D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0xF2F9B82CE6E9C28), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0xF2F9B82CE6E9C28);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
-  private static readonly Lazy<nint> _LocalSequenceNameArrayOffset = new(() => Schema.GetOffset(0xF2F9B820E9F09FF), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSequenceNameArrayOffset = Schema.GetOffset(0xF2F9B820E9F09FF);
 
   public ref CUtlVector<CBufferString> LocalSequenceNameArray {
-    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_LocalSequenceNameArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_LocalSequenceNameArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalS1SeqDescArrayOffset = new(() => Schema.GetOffset(0xF2F9B828BEF5ECB), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalS1SeqDescArrayOffset = Schema.GetOffset(0xF2F9B828BEF5ECB);
 
   public ref CUtlVector<CSeqS1SeqDesc> LocalS1SeqDescArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqS1SeqDesc>>(_LocalS1SeqDescArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqS1SeqDesc>>(_LocalS1SeqDescArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalMultiSeqDescArrayOffset = new(() => Schema.GetOffset(0xF2F9B82DC0E5EC6), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalMultiSeqDescArrayOffset = Schema.GetOffset(0xF2F9B82DC0E5EC6);
 
   public ref CUtlVector<CSeqS1SeqDesc> LocalMultiSeqDescArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqS1SeqDesc>>(_LocalMultiSeqDescArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqS1SeqDesc>>(_LocalMultiSeqDescArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalSynthAnimDescArrayOffset = new(() => Schema.GetOffset(0xF2F9B82BD6C1F83), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalSynthAnimDescArrayOffset = Schema.GetOffset(0xF2F9B82BD6C1F83);
 
   public ref CUtlVector<CSeqSynthAnimDesc> LocalSynthAnimDescArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqSynthAnimDesc>>(_LocalSynthAnimDescArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqSynthAnimDesc>>(_LocalSynthAnimDescArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalCmdSeqDescArrayOffset = new(() => Schema.GetOffset(0xF2F9B822371FDAB), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalCmdSeqDescArrayOffset = Schema.GetOffset(0xF2F9B822371FDAB);
 
   public ref CUtlVector<CSeqCmdSeqDesc> LocalCmdSeqDescArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqCmdSeqDesc>>(_LocalCmdSeqDescArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqCmdSeqDesc>>(_LocalCmdSeqDescArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalBoneMaskArrayOffset = new(() => Schema.GetOffset(0xF2F9B82C880268F), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneMaskArrayOffset = Schema.GetOffset(0xF2F9B82C880268F);
 
   public ref CUtlVector<CSeqBoneMaskList> LocalBoneMaskArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqBoneMaskList>>(_LocalBoneMaskArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqBoneMaskList>>(_LocalBoneMaskArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalScaleSetArrayOffset = new(() => Schema.GetOffset(0xF2F9B8241FDCDAB), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalScaleSetArrayOffset = Schema.GetOffset(0xF2F9B8241FDCDAB);
 
   public ref CUtlVector<CSeqScaleSet> LocalScaleSetArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqScaleSet>>(_LocalScaleSetArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqScaleSet>>(_LocalScaleSetArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalBoneNameArrayOffset = new(() => Schema.GetOffset(0xF2F9B82B86CAC56), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneNameArrayOffset = Schema.GetOffset(0xF2F9B82B86CAC56);
 
   public ref CUtlVector<CBufferString> LocalBoneNameArray {
-    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_LocalBoneNameArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CBufferString>>(_LocalBoneNameArrayOffset);
   }
-  private static readonly Lazy<nint> _LocalNodeNameOffset = new(() => Schema.GetOffset(0xF2F9B82EDCB530F), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalNodeNameOffset = Schema.GetOffset(0xF2F9B82EDCB530F);
 
   public ref CBufferString LocalNodeName {
-    get => ref _Handle.AsRef<CBufferString>(_LocalNodeNameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_LocalNodeNameOffset);
   }
-  private static readonly Lazy<nint> _LocalPoseParamArrayOffset = new(() => Schema.GetOffset(0xF2F9B82FF654A73), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalPoseParamArrayOffset = Schema.GetOffset(0xF2F9B82FF654A73);
 
   public ref CUtlVector<CSeqPoseParamDesc> LocalPoseParamArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqPoseParamDesc>>(_LocalPoseParamArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqPoseParamDesc>>(_LocalPoseParamArrayOffset);
   }
-  private static readonly Lazy<nint> _KeyValuesOffset = new(() => Schema.GetOffset(0xF2F9B8221578BC2), LazyThreadSafetyMode.None);
+  private static readonly nint _KeyValuesOffset = Schema.GetOffset(0xF2F9B8221578BC2);
 
   public SchemaUntypedField KeyValues {
-    get => new SchemaUntypedField(_Handle + _KeyValuesOffset.Value);
+    get => new SchemaUntypedField(_Handle + _KeyValuesOffset);
   }
-  private static readonly Lazy<nint> _LocalIKAutoplayLockArrayOffset = new(() => Schema.GetOffset(0xF2F9B82AD4D3FFB), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalIKAutoplayLockArrayOffset = Schema.GetOffset(0xF2F9B82AD4D3FFB);
 
   public ref CUtlVector<CSeqIKLock> LocalIKAutoplayLockArray {
-    get => ref _Handle.AsRef<CUtlVector<CSeqIKLock>>(_LocalIKAutoplayLockArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CSeqIKLock>>(_LocalIKAutoplayLockArrayOffset);
   }
 
 

@@ -17,76 +17,76 @@ internal partial class CPlayer_MovementServicesImpl : CPlayerPawnComponentImpl, 
   public CPlayer_MovementServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ImpulseOffset = new(() => Schema.GetOffset(0xD5BDF2892107CA68), LazyThreadSafetyMode.None);
+  private static readonly nint _ImpulseOffset = Schema.GetOffset(0xD5BDF2892107CA68);
 
   public ref int Impulse {
-    get => ref _Handle.AsRef<int>(_ImpulseOffset.Value);
+    get => ref _Handle.AsRef<int>(_ImpulseOffset);
   }
-  private static readonly Lazy<nint> _ButtonsOffset = new(() => Schema.GetOffset(0xD5BDF28998CCEF82), LazyThreadSafetyMode.None);
+  private static readonly nint _ButtonsOffset = Schema.GetOffset(0xD5BDF28998CCEF82);
 
   public CInButtonState Buttons {
-    get => new CInButtonStateImpl(_Handle + _ButtonsOffset.Value);
+    get => new CInButtonStateImpl(_Handle + _ButtonsOffset);
   }
-  private static readonly Lazy<nint> _QueuedButtonDownMaskOffset = new(() => Schema.GetOffset(0xD5BDF28939CFB260), LazyThreadSafetyMode.None);
+  private static readonly nint _QueuedButtonDownMaskOffset = Schema.GetOffset(0xD5BDF28939CFB260);
 
   public ref ulong QueuedButtonDownMask {
-    get => ref _Handle.AsRef<ulong>(_QueuedButtonDownMaskOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_QueuedButtonDownMaskOffset);
   }
-  private static readonly Lazy<nint> _QueuedButtonChangeMaskOffset = new(() => Schema.GetOffset(0xD5BDF289FC832F1C), LazyThreadSafetyMode.None);
+  private static readonly nint _QueuedButtonChangeMaskOffset = Schema.GetOffset(0xD5BDF289FC832F1C);
 
   public ref ulong QueuedButtonChangeMask {
-    get => ref _Handle.AsRef<ulong>(_QueuedButtonChangeMaskOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_QueuedButtonChangeMaskOffset);
   }
-  private static readonly Lazy<nint> _ButtonDoublePressedOffset = new(() => Schema.GetOffset(0xD5BDF289E6C8CA6E), LazyThreadSafetyMode.None);
+  private static readonly nint _ButtonDoublePressedOffset = Schema.GetOffset(0xD5BDF289E6C8CA6E);
 
   public ref ulong ButtonDoublePressed {
-    get => ref _Handle.AsRef<ulong>(_ButtonDoublePressedOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_ButtonDoublePressedOffset);
   }
   public ISchemaFixedArray<uint> ButtonPressedCmdNumber {
     get => new SchemaFixedArray<uint>(_Handle, 0xD5BDF289A7854580, 64, 4, 4);
   }
-  private static readonly Lazy<nint> _LastCommandNumberProcessedOffset = new(() => Schema.GetOffset(0xD5BDF2899927F73D), LazyThreadSafetyMode.None);
+  private static readonly nint _LastCommandNumberProcessedOffset = Schema.GetOffset(0xD5BDF2899927F73D);
 
   public ref uint LastCommandNumberProcessed {
-    get => ref _Handle.AsRef<uint>(_LastCommandNumberProcessedOffset.Value);
+    get => ref _Handle.AsRef<uint>(_LastCommandNumberProcessedOffset);
   }
-  private static readonly Lazy<nint> _ToggleButtonDownMaskOffset = new(() => Schema.GetOffset(0xD5BDF28907E86F99), LazyThreadSafetyMode.None);
+  private static readonly nint _ToggleButtonDownMaskOffset = Schema.GetOffset(0xD5BDF28907E86F99);
 
   public ref ulong ToggleButtonDownMask {
-    get => ref _Handle.AsRef<ulong>(_ToggleButtonDownMaskOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_ToggleButtonDownMaskOffset);
   }
-  private static readonly Lazy<nint> _MaxspeedOffset = new(() => Schema.GetOffset(0xD5BDF289468F90F2), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxspeedOffset = Schema.GetOffset(0xD5BDF289468F90F2);
 
   public ref float Maxspeed {
-    get => ref _Handle.AsRef<float>(_MaxspeedOffset.Value);
+    get => ref _Handle.AsRef<float>(_MaxspeedOffset);
   }
   public ISchemaFixedArray<float> ForceSubtickMoveWhen {
     get => new SchemaFixedArray<float>(_Handle, 0xD5BDF28999115A07, 4, 4, 4);
   }
-  private static readonly Lazy<nint> _ForwardMoveOffset = new(() => Schema.GetOffset(0xD5BDF289806C78A9), LazyThreadSafetyMode.None);
+  private static readonly nint _ForwardMoveOffset = Schema.GetOffset(0xD5BDF289806C78A9);
 
   public ref float ForwardMove {
-    get => ref _Handle.AsRef<float>(_ForwardMoveOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForwardMoveOffset);
   }
-  private static readonly Lazy<nint> _LeftMoveOffset = new(() => Schema.GetOffset(0xD5BDF289C4CF0D13), LazyThreadSafetyMode.None);
+  private static readonly nint _LeftMoveOffset = Schema.GetOffset(0xD5BDF289C4CF0D13);
 
   public ref float LeftMove {
-    get => ref _Handle.AsRef<float>(_LeftMoveOffset.Value);
+    get => ref _Handle.AsRef<float>(_LeftMoveOffset);
   }
-  private static readonly Lazy<nint> _UpMoveOffset = new(() => Schema.GetOffset(0xD5BDF289B1E2D2B7), LazyThreadSafetyMode.None);
+  private static readonly nint _UpMoveOffset = Schema.GetOffset(0xD5BDF289B1E2D2B7);
 
   public ref float UpMove {
-    get => ref _Handle.AsRef<float>(_UpMoveOffset.Value);
+    get => ref _Handle.AsRef<float>(_UpMoveOffset);
   }
-  private static readonly Lazy<nint> _LastMovementImpulsesOffset = new(() => Schema.GetOffset(0xD5BDF2890B87214C), LazyThreadSafetyMode.None);
+  private static readonly nint _LastMovementImpulsesOffset = Schema.GetOffset(0xD5BDF2890B87214C);
 
   public ref Vector LastMovementImpulses {
-    get => ref _Handle.AsRef<Vector>(_LastMovementImpulsesOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LastMovementImpulsesOffset);
   }
-  private static readonly Lazy<nint> _OldViewAnglesOffset = new(() => Schema.GetOffset(0xD5BDF28935A27A27), LazyThreadSafetyMode.None);
+  private static readonly nint _OldViewAnglesOffset = Schema.GetOffset(0xD5BDF28935A27A27);
 
   public ref QAngle OldViewAngles {
-    get => ref _Handle.AsRef<QAngle>(_OldViewAnglesOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_OldViewAnglesOffset);
   }
 
   public void ToggleButtonDownMaskUpdated() {

@@ -17,29 +17,29 @@ internal partial class CBaseConstraintImpl : CBoneConstraintBaseImpl, CBaseConst
   public CBaseConstraintImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0xE972C2844D8F5786), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0xE972C2844D8F5786);
 
   public string Name {
     get {
-      var ptr = _Handle.Read<nint>(_NameOffset.Value);
+      var ptr = _Handle.Read<nint>(_NameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _NameOffset.Value, value);
+    set => Schema.SetString(_Handle, _NameOffset, value);
   } 
-  private static readonly Lazy<nint> _UpVectorOffset = new(() => Schema.GetOffset(0xE972C28487645F1B), LazyThreadSafetyMode.None);
+  private static readonly nint _UpVectorOffset = Schema.GetOffset(0xE972C28487645F1B);
 
   public ref Vector UpVector {
-    get => ref _Handle.AsRef<Vector>(_UpVectorOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_UpVectorOffset);
   }
-  private static readonly Lazy<nint> _SlavesOffset = new(() => Schema.GetOffset(0xE972C284A62BA9E9), LazyThreadSafetyMode.None);
+  private static readonly nint _SlavesOffset = Schema.GetOffset(0xE972C284A62BA9E9);
 
   public ref CUtlLeanVector<CConstraintSlave, int> Slaves {
-    get => ref _Handle.AsRef<CUtlLeanVector<CConstraintSlave, int>>(_SlavesOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CConstraintSlave, int>>(_SlavesOffset);
   }
-  private static readonly Lazy<nint> _TargetsOffset = new(() => Schema.GetOffset(0xE972C28436A2FF01), LazyThreadSafetyMode.None);
+  private static readonly nint _TargetsOffset = Schema.GetOffset(0xE972C28436A2FF01);
 
   public ref CUtlVector<CConstraintTarget> Targets {
-    get => ref _Handle.AsRef<CUtlVector<CConstraintTarget>>(_TargetsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CConstraintTarget>>(_TargetsOffset);
   }
 
 

@@ -17,40 +17,40 @@ internal partial class CSlopeComponentUpdaterImpl : CAnimComponentUpdaterImpl, C
   public CSlopeComponentUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TraceDistanceOffset = new(() => Schema.GetOffset(0xC0FC4829B2F3B0F7), LazyThreadSafetyMode.None);
+  private static readonly nint _TraceDistanceOffset = Schema.GetOffset(0xC0FC4829B2F3B0F7);
 
   public ref float TraceDistance {
-    get => ref _Handle.AsRef<float>(_TraceDistanceOffset.Value);
+    get => ref _Handle.AsRef<float>(_TraceDistanceOffset);
   }
-  private static readonly Lazy<nint> _SlopeAngleOffset = new(() => Schema.GetOffset(0xC0FC4829ED49556D), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeAngleOffset = Schema.GetOffset(0xC0FC4829ED49556D);
 
   public CAnimParamHandle SlopeAngle {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleOffset);
   }
-  private static readonly Lazy<nint> _SlopeAngleFrontOffset = new(() => Schema.GetOffset(0xC0FC48291ED54070), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeAngleFrontOffset = Schema.GetOffset(0xC0FC48291ED54070);
 
   public CAnimParamHandle SlopeAngleFront {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleFrontOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleFrontOffset);
   }
-  private static readonly Lazy<nint> _SlopeAngleSideOffset = new(() => Schema.GetOffset(0xC0FC4829E6ADA076), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeAngleSideOffset = Schema.GetOffset(0xC0FC4829E6ADA076);
 
   public CAnimParamHandle SlopeAngleSide {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleSideOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeAngleSideOffset);
   }
-  private static readonly Lazy<nint> _SlopeHeadingOffset = new(() => Schema.GetOffset(0xC0FC482945A85028), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeHeadingOffset = Schema.GetOffset(0xC0FC482945A85028);
 
   public CAnimParamHandle SlopeHeading {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeHeadingOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeHeadingOffset);
   }
-  private static readonly Lazy<nint> _SlopeNormalOffset = new(() => Schema.GetOffset(0xC0FC48292A185DE5), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeNormalOffset = Schema.GetOffset(0xC0FC48292A185DE5);
 
   public CAnimParamHandle SlopeNormal {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeNormalOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeNormalOffset);
   }
-  private static readonly Lazy<nint> _SlopeNormal_WorldSpaceOffset = new(() => Schema.GetOffset(0xC0FC48290CCD648C), LazyThreadSafetyMode.None);
+  private static readonly nint _SlopeNormal_WorldSpaceOffset = Schema.GetOffset(0xC0FC48290CCD648C);
 
   public CAnimParamHandle SlopeNormal_WorldSpace {
-    get => new CAnimParamHandleImpl(_Handle + _SlopeNormal_WorldSpaceOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _SlopeNormal_WorldSpaceOffset);
   }
 
 

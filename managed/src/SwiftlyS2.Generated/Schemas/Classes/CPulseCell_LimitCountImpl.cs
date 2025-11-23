@@ -17,10 +17,10 @@ internal partial class CPulseCell_LimitCountImpl : CPulseCell_BaseRequirementImp
   public CPulseCell_LimitCountImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LimitCountOffset = new(() => Schema.GetOffset(0x879D9892603807FF), LazyThreadSafetyMode.None);
+  private static readonly nint _LimitCountOffset = Schema.GetOffset(0x879D9892603807FF);
 
   public ref int LimitCount {
-    get => ref _Handle.AsRef<int>(_LimitCountOffset.Value);
+    get => ref _Handle.AsRef<int>(_LimitCountOffset);
   }
 
 

@@ -17,60 +17,60 @@ internal partial class CNmChainLookatTaskImpl : CNmPoseTaskImpl, CNmChainLookatT
   public CNmChainLookatTaskImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChainEndBoneIdxOffset = new(() => Schema.GetOffset(0x4021FFEBC513D7B8), LazyThreadSafetyMode.None);
+  private static readonly nint _ChainEndBoneIdxOffset = Schema.GetOffset(0x4021FFEBC513D7B8);
 
   public ref int ChainEndBoneIdx {
-    get => ref _Handle.AsRef<int>(_ChainEndBoneIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChainEndBoneIdxOffset);
   }
-  private static readonly Lazy<nint> _NumBonesInChainOffset = new(() => Schema.GetOffset(0x4021FFEBCAD2EB3E), LazyThreadSafetyMode.None);
+  private static readonly nint _NumBonesInChainOffset = Schema.GetOffset(0x4021FFEBCAD2EB3E);
 
   public ref int NumBonesInChain {
-    get => ref _Handle.AsRef<int>(_NumBonesInChainOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumBonesInChainOffset);
   }
-  private static readonly Lazy<nint> _ChainForwardDirOffset = new(() => Schema.GetOffset(0x4021FFEB98A5355A), LazyThreadSafetyMode.None);
+  private static readonly nint _ChainForwardDirOffset = Schema.GetOffset(0x4021FFEB98A5355A);
 
   public ref Vector ChainForwardDir {
-    get => ref _Handle.AsRef<Vector>(_ChainForwardDirOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_ChainForwardDirOffset);
   }
-  private static readonly Lazy<nint> _BlendWeightOffset = new(() => Schema.GetOffset(0x4021FFEBE5D6B9CE), LazyThreadSafetyMode.None);
+  private static readonly nint _BlendWeightOffset = Schema.GetOffset(0x4021FFEBE5D6B9CE);
 
   public ref float BlendWeight {
-    get => ref _Handle.AsRef<float>(_BlendWeightOffset.Value);
+    get => ref _Handle.AsRef<float>(_BlendWeightOffset);
   }
-  private static readonly Lazy<nint> _HorizontalAngleLimitDegreesOffset = new(() => Schema.GetOffset(0x4021FFEB0D028F1E), LazyThreadSafetyMode.None);
+  private static readonly nint _HorizontalAngleLimitDegreesOffset = Schema.GetOffset(0x4021FFEB0D028F1E);
 
   public ref float HorizontalAngleLimitDegrees {
-    get => ref _Handle.AsRef<float>(_HorizontalAngleLimitDegreesOffset.Value);
+    get => ref _Handle.AsRef<float>(_HorizontalAngleLimitDegreesOffset);
   }
-  private static readonly Lazy<nint> _VerticalAngleLimitDegreesOffset = new(() => Schema.GetOffset(0x4021FFEBC3214250), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticalAngleLimitDegreesOffset = Schema.GetOffset(0x4021FFEBC3214250);
 
   public ref float VerticalAngleLimitDegrees {
-    get => ref _Handle.AsRef<float>(_VerticalAngleLimitDegreesOffset.Value);
+    get => ref _Handle.AsRef<float>(_VerticalAngleLimitDegreesOffset);
   }
-  private static readonly Lazy<nint> _LookatTargetOffset = new(() => Schema.GetOffset(0x4021FFEBBD59D4D6), LazyThreadSafetyMode.None);
+  private static readonly nint _LookatTargetOffset = Schema.GetOffset(0x4021FFEBBD59D4D6);
 
   public ref Vector LookatTarget {
-    get => ref _Handle.AsRef<Vector>(_LookatTargetOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_LookatTargetOffset);
   }
-  private static readonly Lazy<nint> _IsTargetInWorldSpaceOffset = new(() => Schema.GetOffset(0x4021FFEB5F56E0C5), LazyThreadSafetyMode.None);
+  private static readonly nint _IsTargetInWorldSpaceOffset = Schema.GetOffset(0x4021FFEB5F56E0C5);
 
   public ref bool IsTargetInWorldSpace {
-    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsTargetInWorldSpaceOffset);
   }
-  private static readonly Lazy<nint> _IsRunningFromDeserializedDataOffset = new(() => Schema.GetOffset(0x4021FFEB4791111D), LazyThreadSafetyMode.None);
+  private static readonly nint _IsRunningFromDeserializedDataOffset = Schema.GetOffset(0x4021FFEB4791111D);
 
   public ref bool IsRunningFromDeserializedData {
-    get => ref _Handle.AsRef<bool>(_IsRunningFromDeserializedDataOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsRunningFromDeserializedDataOffset);
   }
-  private static readonly Lazy<nint> _HorizontalAngleDegreesOffset = new(() => Schema.GetOffset(0x4021FFEB25C3867F), LazyThreadSafetyMode.None);
+  private static readonly nint _HorizontalAngleDegreesOffset = Schema.GetOffset(0x4021FFEB25C3867F);
 
   public ref float HorizontalAngleDegrees {
-    get => ref _Handle.AsRef<float>(_HorizontalAngleDegreesOffset.Value);
+    get => ref _Handle.AsRef<float>(_HorizontalAngleDegreesOffset);
   }
-  private static readonly Lazy<nint> _VerticalAngleDegreesOffset = new(() => Schema.GetOffset(0x4021FFEBF1DC7205), LazyThreadSafetyMode.None);
+  private static readonly nint _VerticalAngleDegreesOffset = Schema.GetOffset(0x4021FFEBF1DC7205);
 
   public ref float VerticalAngleDegrees {
-    get => ref _Handle.AsRef<float>(_VerticalAngleDegreesOffset.Value);
+    get => ref _Handle.AsRef<float>(_VerticalAngleDegreesOffset);
   }
 
 

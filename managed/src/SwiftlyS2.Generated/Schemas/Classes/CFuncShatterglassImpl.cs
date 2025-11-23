@@ -17,151 +17,151 @@ internal partial class CFuncShatterglassImpl : CBaseModelEntityImpl, CFuncShatte
   public CFuncShatterglassImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MatPanelTransformOffset = new(() => Schema.GetOffset(0xB755F0FB82550F23), LazyThreadSafetyMode.None);
+  private static readonly nint _MatPanelTransformOffset = Schema.GetOffset(0xB755F0FB82550F23);
 
   public ref matrix3x4_t MatPanelTransform {
-    get => ref _Handle.AsRef<matrix3x4_t>(_MatPanelTransformOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_MatPanelTransformOffset);
   }
-  private static readonly Lazy<nint> _MatPanelTransformWsTempOffset = new(() => Schema.GetOffset(0xB755F0FB74E9192F), LazyThreadSafetyMode.None);
+  private static readonly nint _MatPanelTransformWsTempOffset = Schema.GetOffset(0xB755F0FB74E9192F);
 
   public ref matrix3x4_t MatPanelTransformWsTemp {
-    get => ref _Handle.AsRef<matrix3x4_t>(_MatPanelTransformWsTempOffset.Value);
+    get => ref _Handle.AsRef<matrix3x4_t>(_MatPanelTransformWsTempOffset);
   }
-  private static readonly Lazy<nint> _ShatterGlassShardsOffset = new(() => Schema.GetOffset(0xB755F0FBCC0BC437), LazyThreadSafetyMode.None);
+  private static readonly nint _ShatterGlassShardsOffset = Schema.GetOffset(0xB755F0FBCC0BC437);
 
   public ref CUtlVector<uint> ShatterGlassShards {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_ShatterGlassShardsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_ShatterGlassShardsOffset);
   }
-  private static readonly Lazy<nint> _PanelSizeOffset = new(() => Schema.GetOffset(0xB755F0FBC54D327C), LazyThreadSafetyMode.None);
+  private static readonly nint _PanelSizeOffset = Schema.GetOffset(0xB755F0FBC54D327C);
 
   public ref Vector2D PanelSize {
-    get => ref _Handle.AsRef<Vector2D>(_PanelSizeOffset.Value);
+    get => ref _Handle.AsRef<Vector2D>(_PanelSizeOffset);
   }
-  private static readonly Lazy<nint> _LastShatterSoundEmitTimeOffset = new(() => Schema.GetOffset(0xB755F0FB1708F9B9), LazyThreadSafetyMode.None);
+  private static readonly nint _LastShatterSoundEmitTimeOffset = Schema.GetOffset(0xB755F0FB1708F9B9);
 
   public GameTime_t LastShatterSoundEmitTime {
-    get => new GameTime_tImpl(_Handle + _LastShatterSoundEmitTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastShatterSoundEmitTimeOffset);
   }
-  private static readonly Lazy<nint> _LastCleanupTimeOffset = new(() => Schema.GetOffset(0xB755F0FBB24E6FB0), LazyThreadSafetyMode.None);
+  private static readonly nint _LastCleanupTimeOffset = Schema.GetOffset(0xB755F0FBB24E6FB0);
 
   public GameTime_t LastCleanupTime {
-    get => new GameTime_tImpl(_Handle + _LastCleanupTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastCleanupTimeOffset);
   }
-  private static readonly Lazy<nint> _InitAtTimeOffset = new(() => Schema.GetOffset(0xB755F0FBBBC7C1A5), LazyThreadSafetyMode.None);
+  private static readonly nint _InitAtTimeOffset = Schema.GetOffset(0xB755F0FBBBC7C1A5);
 
   public GameTime_t InitAtTime {
-    get => new GameTime_tImpl(_Handle + _InitAtTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _InitAtTimeOffset);
   }
-  private static readonly Lazy<nint> _GlassThicknessOffset = new(() => Schema.GetOffset(0xB755F0FB59A7355D), LazyThreadSafetyMode.None);
+  private static readonly nint _GlassThicknessOffset = Schema.GetOffset(0xB755F0FB59A7355D);
 
   public ref float GlassThickness {
-    get => ref _Handle.AsRef<float>(_GlassThicknessOffset.Value);
+    get => ref _Handle.AsRef<float>(_GlassThicknessOffset);
   }
-  private static readonly Lazy<nint> _SpawnInvulnerabilityOffset = new(() => Schema.GetOffset(0xB755F0FB2B3B17C1), LazyThreadSafetyMode.None);
+  private static readonly nint _SpawnInvulnerabilityOffset = Schema.GetOffset(0xB755F0FB2B3B17C1);
 
   public ref float SpawnInvulnerability {
-    get => ref _Handle.AsRef<float>(_SpawnInvulnerabilityOffset.Value);
+    get => ref _Handle.AsRef<float>(_SpawnInvulnerabilityOffset);
   }
-  private static readonly Lazy<nint> _BreakSilentOffset = new(() => Schema.GetOffset(0xB755F0FB87C0E711), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakSilentOffset = Schema.GetOffset(0xB755F0FB87C0E711);
 
   public ref bool BreakSilent {
-    get => ref _Handle.AsRef<bool>(_BreakSilentOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BreakSilentOffset);
   }
-  private static readonly Lazy<nint> _BreakShardlessOffset = new(() => Schema.GetOffset(0xB755F0FBC509E199), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakShardlessOffset = Schema.GetOffset(0xB755F0FBC509E199);
 
   public ref bool BreakShardless {
-    get => ref _Handle.AsRef<bool>(_BreakShardlessOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BreakShardlessOffset);
   }
-  private static readonly Lazy<nint> _BrokenOffset = new(() => Schema.GetOffset(0xB755F0FB06654200), LazyThreadSafetyMode.None);
+  private static readonly nint _BrokenOffset = Schema.GetOffset(0xB755F0FB06654200);
 
   public ref bool Broken {
-    get => ref _Handle.AsRef<bool>(_BrokenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BrokenOffset);
   }
-  private static readonly Lazy<nint> _GlassNavIgnoreOffset = new(() => Schema.GetOffset(0xB755F0FBD9034606), LazyThreadSafetyMode.None);
+  private static readonly nint _GlassNavIgnoreOffset = Schema.GetOffset(0xB755F0FBD9034606);
 
   public ref bool GlassNavIgnore {
-    get => ref _Handle.AsRef<bool>(_GlassNavIgnoreOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlassNavIgnoreOffset);
   }
-  private static readonly Lazy<nint> _GlassInFrameOffset = new(() => Schema.GetOffset(0xB755F0FBEB8CF645), LazyThreadSafetyMode.None);
+  private static readonly nint _GlassInFrameOffset = Schema.GetOffset(0xB755F0FBEB8CF645);
 
   public ref bool GlassInFrame {
-    get => ref _Handle.AsRef<bool>(_GlassInFrameOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GlassInFrameOffset);
   }
-  private static readonly Lazy<nint> _StartBrokenOffset = new(() => Schema.GetOffset(0xB755F0FBEA039156), LazyThreadSafetyMode.None);
+  private static readonly nint _StartBrokenOffset = Schema.GetOffset(0xB755F0FBEA039156);
 
   public ref bool StartBroken {
-    get => ref _Handle.AsRef<bool>(_StartBrokenOffset.Value);
+    get => ref _Handle.AsRef<bool>(_StartBrokenOffset);
   }
-  private static readonly Lazy<nint> _InitialDamageTypeOffset = new(() => Schema.GetOffset(0xB755F0FBED01D1E1), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialDamageTypeOffset = Schema.GetOffset(0xB755F0FBED01D1E1);
 
   public ref byte InitialDamageType {
-    get => ref _Handle.AsRef<byte>(_InitialDamageTypeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_InitialDamageTypeOffset);
   }
-  private static readonly Lazy<nint> _DamagePositioningEntityName01Offset = new(() => Schema.GetOffset(0xB755F0FBADF2770D), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagePositioningEntityName01Offset = Schema.GetOffset(0xB755F0FBADF2770D);
 
   public string DamagePositioningEntityName01 {
     get {
-      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName01Offset.Value);
+      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName01Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DamagePositioningEntityName01Offset.Value, value);
+    set => Schema.SetString(_Handle, _DamagePositioningEntityName01Offset, value);
   } 
-  private static readonly Lazy<nint> _DamagePositioningEntityName02Offset = new(() => Schema.GetOffset(0xB755F0FBAAF27254), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagePositioningEntityName02Offset = Schema.GetOffset(0xB755F0FBAAF27254);
 
   public string DamagePositioningEntityName02 {
     get {
-      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName02Offset.Value);
+      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName02Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DamagePositioningEntityName02Offset.Value, value);
+    set => Schema.SetString(_Handle, _DamagePositioningEntityName02Offset, value);
   } 
-  private static readonly Lazy<nint> _DamagePositioningEntityName03Offset = new(() => Schema.GetOffset(0xB755F0FBABF273E7), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagePositioningEntityName03Offset = Schema.GetOffset(0xB755F0FBABF273E7);
 
   public string DamagePositioningEntityName03 {
     get {
-      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName03Offset.Value);
+      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName03Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DamagePositioningEntityName03Offset.Value, value);
+    set => Schema.SetString(_Handle, _DamagePositioningEntityName03Offset, value);
   } 
-  private static readonly Lazy<nint> _DamagePositioningEntityName04Offset = new(() => Schema.GetOffset(0xB755F0FBA8F26F2E), LazyThreadSafetyMode.None);
+  private static readonly nint _DamagePositioningEntityName04Offset = Schema.GetOffset(0xB755F0FBA8F26F2E);
 
   public string DamagePositioningEntityName04 {
     get {
-      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName04Offset.Value);
+      var ptr = _Handle.Read<nint>(_DamagePositioningEntityName04Offset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DamagePositioningEntityName04Offset.Value, value);
+    set => Schema.SetString(_Handle, _DamagePositioningEntityName04Offset, value);
   } 
-  private static readonly Lazy<nint> _InitialDamagePositionsOffset = new(() => Schema.GetOffset(0xB755F0FB6D8C7F56), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialDamagePositionsOffset = Schema.GetOffset(0xB755F0FB6D8C7F56);
 
   public ref CUtlVector<Vector> InitialDamagePositions {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_InitialDamagePositionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_InitialDamagePositionsOffset);
   }
-  private static readonly Lazy<nint> _ExtraDamagePositionsOffset = new(() => Schema.GetOffset(0xB755F0FB94D38DA0), LazyThreadSafetyMode.None);
+  private static readonly nint _ExtraDamagePositionsOffset = Schema.GetOffset(0xB755F0FB94D38DA0);
 
   public ref CUtlVector<Vector> ExtraDamagePositions {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_ExtraDamagePositionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_ExtraDamagePositionsOffset);
   }
-  private static readonly Lazy<nint> _InitialPanelVerticesOffset = new(() => Schema.GetOffset(0xB755F0FB39117F58), LazyThreadSafetyMode.None);
+  private static readonly nint _InitialPanelVerticesOffset = Schema.GetOffset(0xB755F0FB39117F58);
 
   public ref CUtlVector<Vector4D> InitialPanelVertices {
-    get => ref _Handle.AsRef<CUtlVector<Vector4D>>(_InitialPanelVerticesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector4D>>(_InitialPanelVerticesOffset);
   }
-  private static readonly Lazy<nint> _OnBrokenOffset = new(() => Schema.GetOffset(0xB755F0FB961F60E5), LazyThreadSafetyMode.None);
+  private static readonly nint _OnBrokenOffset = Schema.GetOffset(0xB755F0FB961F60E5);
 
   public CEntityIOOutput OnBroken {
-    get => new CEntityIOOutputImpl(_Handle + _OnBrokenOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnBrokenOffset);
   }
-  private static readonly Lazy<nint> _SurfaceTypeOffset = new(() => Schema.GetOffset(0xB755F0FB3A6DDFE7), LazyThreadSafetyMode.None);
+  private static readonly nint _SurfaceTypeOffset = Schema.GetOffset(0xB755F0FB3A6DDFE7);
 
   public ref byte SurfaceType {
-    get => ref _Handle.AsRef<byte>(_SurfaceTypeOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SurfaceTypeOffset);
   }
-  private static readonly Lazy<nint> _MaterialDamageBaseOffset = new(() => Schema.GetOffset(0xB755F0FB3000A1C6), LazyThreadSafetyMode.None);
+  private static readonly nint _MaterialDamageBaseOffset = Schema.GetOffset(0xB755F0FB3000A1C6);
 
   public ref CStrongHandle<InfoForResourceTypeIMaterial2> MaterialDamageBase {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialDamageBaseOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeIMaterial2>>(_MaterialDamageBaseOffset);
   }
 
 

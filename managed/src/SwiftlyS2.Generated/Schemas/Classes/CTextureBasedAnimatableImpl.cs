@@ -17,45 +17,45 @@ internal partial class CTextureBasedAnimatableImpl : CBaseModelEntityImpl, CText
   public CTextureBasedAnimatableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LoopOffset = new(() => Schema.GetOffset(0xDB45ABACC668A4CB), LazyThreadSafetyMode.None);
+  private static readonly nint _LoopOffset = Schema.GetOffset(0xDB45ABACC668A4CB);
 
   public ref bool Loop {
-    get => ref _Handle.AsRef<bool>(_LoopOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LoopOffset);
   }
-  private static readonly Lazy<nint> _FPSOffset = new(() => Schema.GetOffset(0xDB45ABAC38CAA4F6), LazyThreadSafetyMode.None);
+  private static readonly nint _FPSOffset = Schema.GetOffset(0xDB45ABAC38CAA4F6);
 
   public ref float FPS {
-    get => ref _Handle.AsRef<float>(_FPSOffset.Value);
+    get => ref _Handle.AsRef<float>(_FPSOffset);
   }
-  private static readonly Lazy<nint> _PositionKeysOffset = new(() => Schema.GetOffset(0xDB45ABACE6515850), LazyThreadSafetyMode.None);
+  private static readonly nint _PositionKeysOffset = Schema.GetOffset(0xDB45ABACE6515850);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> PositionKeys {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_PositionKeysOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_PositionKeysOffset);
   }
-  private static readonly Lazy<nint> _RotationKeysOffset = new(() => Schema.GetOffset(0xDB45ABACDAC30C39), LazyThreadSafetyMode.None);
+  private static readonly nint _RotationKeysOffset = Schema.GetOffset(0xDB45ABACDAC30C39);
 
   public ref CStrongHandle<InfoForResourceTypeCTextureBase> RotationKeys {
-    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_RotationKeysOffset.Value);
+    get => ref _Handle.AsRef<CStrongHandle<InfoForResourceTypeCTextureBase>>(_RotationKeysOffset);
   }
-  private static readonly Lazy<nint> _AnimationBoundsMinOffset = new(() => Schema.GetOffset(0xDB45ABAC8BDB4B58), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationBoundsMinOffset = Schema.GetOffset(0xDB45ABAC8BDB4B58);
 
   public ref Vector AnimationBoundsMin {
-    get => ref _Handle.AsRef<Vector>(_AnimationBoundsMinOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AnimationBoundsMinOffset);
   }
-  private static readonly Lazy<nint> _AnimationBoundsMaxOffset = new(() => Schema.GetOffset(0xDB45ABACA1EEF5B2), LazyThreadSafetyMode.None);
+  private static readonly nint _AnimationBoundsMaxOffset = Schema.GetOffset(0xDB45ABACA1EEF5B2);
 
   public ref Vector AnimationBoundsMax {
-    get => ref _Handle.AsRef<Vector>(_AnimationBoundsMaxOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_AnimationBoundsMaxOffset);
   }
-  private static readonly Lazy<nint> _StartTimeOffset = new(() => Schema.GetOffset(0xDB45ABAC67FE9DC4), LazyThreadSafetyMode.None);
+  private static readonly nint _StartTimeOffset = Schema.GetOffset(0xDB45ABAC67FE9DC4);
 
   public ref float StartTime {
-    get => ref _Handle.AsRef<float>(_StartTimeOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartTimeOffset);
   }
-  private static readonly Lazy<nint> _StartFrameOffset = new(() => Schema.GetOffset(0xDB45ABACB534B906), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFrameOffset = Schema.GetOffset(0xDB45ABACB534B906);
 
   public ref float StartFrame {
-    get => ref _Handle.AsRef<float>(_StartFrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFrameOffset);
   }
 
   public void LoopUpdated() {

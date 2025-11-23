@@ -17,24 +17,24 @@ internal partial class CSoundOpvarSetPathCornerEntityImpl : CSoundOpvarSetPointE
   public CSoundOpvarSetPathCornerEntityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DistMinSqrOffset = new(() => Schema.GetOffset(0x368409543D1989CD), LazyThreadSafetyMode.None);
+  private static readonly nint _DistMinSqrOffset = Schema.GetOffset(0x368409543D1989CD);
 
   public ref float DistMinSqr {
-    get => ref _Handle.AsRef<float>(_DistMinSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistMinSqrOffset);
   }
-  private static readonly Lazy<nint> _DistMaxSqrOffset = new(() => Schema.GetOffset(0x36840954993EE3BF), LazyThreadSafetyMode.None);
+  private static readonly nint _DistMaxSqrOffset = Schema.GetOffset(0x36840954993EE3BF);
 
   public ref float DistMaxSqr {
-    get => ref _Handle.AsRef<float>(_DistMaxSqrOffset.Value);
+    get => ref _Handle.AsRef<float>(_DistMaxSqrOffset);
   }
-  private static readonly Lazy<nint> _PathCornerEntityNameOffset = new(() => Schema.GetOffset(0x36840954EF6D6403), LazyThreadSafetyMode.None);
+  private static readonly nint _PathCornerEntityNameOffset = Schema.GetOffset(0x36840954EF6D6403);
 
   public string PathCornerEntityName {
     get {
-      var ptr = _Handle.Read<nint>(_PathCornerEntityNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PathCornerEntityNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PathCornerEntityNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PathCornerEntityNameOffset, value);
   } 
 
 

@@ -17,10 +17,10 @@ internal partial class CNmConstBoolNode__CDefinitionImpl : CNmBoolValueNode__CDe
   public CNmConstBoolNode__CDefinitionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ValueOffset = new(() => Schema.GetOffset(0xDEAA315605AAB4AA), LazyThreadSafetyMode.None);
+  private static readonly nint _ValueOffset = Schema.GetOffset(0xDEAA315605AAB4AA);
 
   public ref bool Value {
-    get => ref _Handle.AsRef<bool>(_ValueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ValueOffset);
   }
 
 

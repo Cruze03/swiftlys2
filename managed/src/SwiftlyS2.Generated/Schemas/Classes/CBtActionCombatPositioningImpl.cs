@@ -17,33 +17,33 @@ internal partial class CBtActionCombatPositioningImpl : CBtNodeImpl, CBtActionCo
   public CBtActionCombatPositioningImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SensorInputKeyOffset = new(() => Schema.GetOffset(0x3FB29123D2B0D4C1), LazyThreadSafetyMode.None);
+  private static readonly nint _SensorInputKeyOffset = Schema.GetOffset(0x3FB29123D2B0D4C1);
 
   public string SensorInputKey {
     get {
-      var ptr = _Handle.Read<nint>(_SensorInputKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_SensorInputKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SensorInputKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _SensorInputKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _IsAttackingKeyOffset = new(() => Schema.GetOffset(0x3FB29123BFC6462B), LazyThreadSafetyMode.None);
+  private static readonly nint _IsAttackingKeyOffset = Schema.GetOffset(0x3FB29123BFC6462B);
 
   public string IsAttackingKey {
     get {
-      var ptr = _Handle.Read<nint>(_IsAttackingKeyOffset.Value);
+      var ptr = _Handle.Read<nint>(_IsAttackingKeyOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _IsAttackingKeyOffset.Value, value);
+    set => Schema.SetString(_Handle, _IsAttackingKeyOffset, value);
   } 
-  private static readonly Lazy<nint> _ActionTimerOffset = new(() => Schema.GetOffset(0x3FB291238777F414), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionTimerOffset = Schema.GetOffset(0x3FB291238777F414);
 
   public CountdownTimer ActionTimer {
-    get => new CountdownTimerImpl(_Handle + _ActionTimerOffset.Value);
+    get => new CountdownTimerImpl(_Handle + _ActionTimerOffset);
   }
-  private static readonly Lazy<nint> _CrouchingOffset = new(() => Schema.GetOffset(0x3FB291232DA51BAD), LazyThreadSafetyMode.None);
+  private static readonly nint _CrouchingOffset = Schema.GetOffset(0x3FB291232DA51BAD);
 
   public ref bool Crouching {
-    get => ref _Handle.AsRef<bool>(_CrouchingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_CrouchingOffset);
   }
 
 

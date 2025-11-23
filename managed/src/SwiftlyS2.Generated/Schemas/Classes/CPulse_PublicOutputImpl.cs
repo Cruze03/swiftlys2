@@ -17,24 +17,24 @@ internal partial class CPulse_PublicOutputImpl : SchemaClass, CPulse_PublicOutpu
   public CPulse_PublicOutputImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x74B3BCA4CAE8A266), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x74B3BCA4CAE8A266);
 
   public SchemaUntypedField Name {
-    get => new SchemaUntypedField(_Handle + _NameOffset.Value);
+    get => new SchemaUntypedField(_Handle + _NameOffset);
   }
-  private static readonly Lazy<nint> _DescriptionOffset = new(() => Schema.GetOffset(0x74B3BCA4678744E9), LazyThreadSafetyMode.None);
+  private static readonly nint _DescriptionOffset = Schema.GetOffset(0x74B3BCA4678744E9);
 
   public string Description {
     get {
-      var ptr = _Handle.Read<nint>(_DescriptionOffset.Value);
+      var ptr = _Handle.Read<nint>(_DescriptionOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _DescriptionOffset.Value, value);
+    set => Schema.SetString(_Handle, _DescriptionOffset, value);
   } 
-  private static readonly Lazy<nint> _ArgsOffset = new(() => Schema.GetOffset(0x74B3BCA4DAB98BBC), LazyThreadSafetyMode.None);
+  private static readonly nint _ArgsOffset = Schema.GetOffset(0x74B3BCA4DAB98BBC);
 
   public ref CUtlLeanVector<CPulseRuntimeMethodArg, int> Args {
-    get => ref _Handle.AsRef<CUtlLeanVector<CPulseRuntimeMethodArg, int>>(_ArgsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CPulseRuntimeMethodArg, int>>(_ArgsOffset);
   }
 
 

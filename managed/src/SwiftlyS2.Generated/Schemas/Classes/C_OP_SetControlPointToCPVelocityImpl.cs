@@ -17,35 +17,35 @@ internal partial class C_OP_SetControlPointToCPVelocityImpl : CParticleFunctionP
   public C_OP_SetControlPointToCPVelocityImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CPInputOffset = new(() => Schema.GetOffset(0x8D70A057FB805736), LazyThreadSafetyMode.None);
+  private static readonly nint _CPInputOffset = Schema.GetOffset(0x8D70A057FB805736);
 
   public ref int CPInput {
-    get => ref _Handle.AsRef<int>(_CPInputOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPInputOffset);
   }
-  private static readonly Lazy<nint> _CPOutputVelOffset = new(() => Schema.GetOffset(0x8D70A0576AC86D06), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputVelOffset = Schema.GetOffset(0x8D70A0576AC86D06);
 
   public ref int CPOutputVel {
-    get => ref _Handle.AsRef<int>(_CPOutputVelOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputVelOffset);
   }
-  private static readonly Lazy<nint> _NormalizeOffset = new(() => Schema.GetOffset(0x8D70A05748BC424C), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizeOffset = Schema.GetOffset(0x8D70A05748BC424C);
 
   public ref bool Normalize {
-    get => ref _Handle.AsRef<bool>(_NormalizeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizeOffset);
   }
-  private static readonly Lazy<nint> _CPOutputMagOffset = new(() => Schema.GetOffset(0x8D70A05704FD82D2), LazyThreadSafetyMode.None);
+  private static readonly nint _CPOutputMagOffset = Schema.GetOffset(0x8D70A05704FD82D2);
 
   public ref int CPOutputMag {
-    get => ref _Handle.AsRef<int>(_CPOutputMagOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPOutputMagOffset);
   }
-  private static readonly Lazy<nint> _CPFieldOffset = new(() => Schema.GetOffset(0x8D70A05750B79876), LazyThreadSafetyMode.None);
+  private static readonly nint _CPFieldOffset = Schema.GetOffset(0x8D70A05750B79876);
 
   public ref int CPField {
-    get => ref _Handle.AsRef<int>(_CPFieldOffset.Value);
+    get => ref _Handle.AsRef<int>(_CPFieldOffset);
   }
-  private static readonly Lazy<nint> _ComparisonVelocityOffset = new(() => Schema.GetOffset(0x8D70A05723BF409F), LazyThreadSafetyMode.None);
+  private static readonly nint _ComparisonVelocityOffset = Schema.GetOffset(0x8D70A05723BF409F);
 
   public CParticleCollectionVecInput ComparisonVelocity {
-    get => new CParticleCollectionVecInputImpl(_Handle + _ComparisonVelocityOffset.Value);
+    get => new CParticleCollectionVecInputImpl(_Handle + _ComparisonVelocityOffset);
   }
 
 

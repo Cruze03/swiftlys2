@@ -17,30 +17,30 @@ internal partial class C_OP_SetParentControlPointsToChildCPImpl : CParticleFunct
   public C_OP_SetParentControlPointsToChildCPImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ChildGroupIDOffset = new(() => Schema.GetOffset(0x9A9F20B7E3F3C965), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildGroupIDOffset = Schema.GetOffset(0x9A9F20B7E3F3C965);
 
   public ref int ChildGroupID {
-    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildGroupIDOffset);
   }
-  private static readonly Lazy<nint> _ChildControlPointOffset = new(() => Schema.GetOffset(0x9A9F20B78DDB3CFC), LazyThreadSafetyMode.None);
+  private static readonly nint _ChildControlPointOffset = Schema.GetOffset(0x9A9F20B78DDB3CFC);
 
   public ref int ChildControlPoint {
-    get => ref _Handle.AsRef<int>(_ChildControlPointOffset.Value);
+    get => ref _Handle.AsRef<int>(_ChildControlPointOffset);
   }
-  private static readonly Lazy<nint> _NumControlPointsOffset = new(() => Schema.GetOffset(0x9A9F20B7551EBC4F), LazyThreadSafetyMode.None);
+  private static readonly nint _NumControlPointsOffset = Schema.GetOffset(0x9A9F20B7551EBC4F);
 
   public ref int NumControlPoints {
-    get => ref _Handle.AsRef<int>(_NumControlPointsOffset.Value);
+    get => ref _Handle.AsRef<int>(_NumControlPointsOffset);
   }
-  private static readonly Lazy<nint> _FirstSourcePointOffset = new(() => Schema.GetOffset(0x9A9F20B79D7DC18E), LazyThreadSafetyMode.None);
+  private static readonly nint _FirstSourcePointOffset = Schema.GetOffset(0x9A9F20B79D7DC18E);
 
   public ref int FirstSourcePoint {
-    get => ref _Handle.AsRef<int>(_FirstSourcePointOffset.Value);
+    get => ref _Handle.AsRef<int>(_FirstSourcePointOffset);
   }
-  private static readonly Lazy<nint> _SetOrientationOffset = new(() => Schema.GetOffset(0x9A9F20B7E1390E37), LazyThreadSafetyMode.None);
+  private static readonly nint _SetOrientationOffset = Schema.GetOffset(0x9A9F20B7E1390E37);
 
   public ref bool SetOrientation {
-    get => ref _Handle.AsRef<bool>(_SetOrientationOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetOrientationOffset);
   }
 
 

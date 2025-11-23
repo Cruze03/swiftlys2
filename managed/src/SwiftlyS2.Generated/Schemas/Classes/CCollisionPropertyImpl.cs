@@ -17,90 +17,90 @@ internal partial class CCollisionPropertyImpl : SchemaClass, CCollisionProperty 
   public CCollisionPropertyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _CollisionAttributeOffset = new(() => Schema.GetOffset(0x794D87F77E1AEF05), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionAttributeOffset = Schema.GetOffset(0x794D87F77E1AEF05);
 
   public VPhysicsCollisionAttribute_t CollisionAttribute {
-    get => new VPhysicsCollisionAttribute_tImpl(_Handle + _CollisionAttributeOffset.Value);
+    get => new VPhysicsCollisionAttribute_tImpl(_Handle + _CollisionAttributeOffset);
   }
-  private static readonly Lazy<nint> _MinsOffset = new(() => Schema.GetOffset(0x794D87F70E57F80C), LazyThreadSafetyMode.None);
+  private static readonly nint _MinsOffset = Schema.GetOffset(0x794D87F70E57F80C);
 
   public ref Vector Mins {
-    get => ref _Handle.AsRef<Vector>(_MinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MinsOffset);
   }
-  private static readonly Lazy<nint> _MaxsOffset = new(() => Schema.GetOffset(0x794D87F77D388D3E), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxsOffset = Schema.GetOffset(0x794D87F77D388D3E);
 
   public ref Vector Maxs {
-    get => ref _Handle.AsRef<Vector>(_MaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_MaxsOffset);
   }
-  private static readonly Lazy<nint> _SolidFlagsOffset = new(() => Schema.GetOffset(0x794D87F7B21D0CFB), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidFlagsOffset = Schema.GetOffset(0x794D87F7B21D0CFB);
 
   public ref byte SolidFlags {
-    get => ref _Handle.AsRef<byte>(_SolidFlagsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_SolidFlagsOffset);
   }
-  private static readonly Lazy<nint> _SolidTypeOffset = new(() => Schema.GetOffset(0x794D87F7BE0FC0E8), LazyThreadSafetyMode.None);
+  private static readonly nint _SolidTypeOffset = Schema.GetOffset(0x794D87F7BE0FC0E8);
 
   public ref SolidType_t SolidType {
-    get => ref _Handle.AsRef<SolidType_t>(_SolidTypeOffset.Value);
+    get => ref _Handle.AsRef<SolidType_t>(_SolidTypeOffset);
   }
-  private static readonly Lazy<nint> _TriggerBloatOffset = new(() => Schema.GetOffset(0x794D87F789A6F5C3), LazyThreadSafetyMode.None);
+  private static readonly nint _TriggerBloatOffset = Schema.GetOffset(0x794D87F789A6F5C3);
 
   public ref byte TriggerBloat {
-    get => ref _Handle.AsRef<byte>(_TriggerBloatOffset.Value);
+    get => ref _Handle.AsRef<byte>(_TriggerBloatOffset);
   }
-  private static readonly Lazy<nint> _SurroundTypeOffset = new(() => Schema.GetOffset(0x794D87F725FA3137), LazyThreadSafetyMode.None);
+  private static readonly nint _SurroundTypeOffset = Schema.GetOffset(0x794D87F725FA3137);
 
   public ref SurroundingBoundsType_t SurroundType {
-    get => ref _Handle.AsRef<SurroundingBoundsType_t>(_SurroundTypeOffset.Value);
+    get => ref _Handle.AsRef<SurroundingBoundsType_t>(_SurroundTypeOffset);
   }
-  private static readonly Lazy<nint> _CollisionGroupOffset = new(() => Schema.GetOffset(0x794D87F791BF7016), LazyThreadSafetyMode.None);
+  private static readonly nint _CollisionGroupOffset = Schema.GetOffset(0x794D87F791BF7016);
 
   public ref byte CollisionGroup {
-    get => ref _Handle.AsRef<byte>(_CollisionGroupOffset.Value);
+    get => ref _Handle.AsRef<byte>(_CollisionGroupOffset);
   }
-  private static readonly Lazy<nint> _EnablePhysicsOffset = new(() => Schema.GetOffset(0x794D87F7BCD6B6BB), LazyThreadSafetyMode.None);
+  private static readonly nint _EnablePhysicsOffset = Schema.GetOffset(0x794D87F7BCD6B6BB);
 
   public ref byte EnablePhysics {
-    get => ref _Handle.AsRef<byte>(_EnablePhysicsOffset.Value);
+    get => ref _Handle.AsRef<byte>(_EnablePhysicsOffset);
   }
-  private static readonly Lazy<nint> _BoundingRadiusOffset = new(() => Schema.GetOffset(0x794D87F74C638611), LazyThreadSafetyMode.None);
+  private static readonly nint _BoundingRadiusOffset = Schema.GetOffset(0x794D87F74C638611);
 
   public ref float BoundingRadius {
-    get => ref _Handle.AsRef<float>(_BoundingRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_BoundingRadiusOffset);
   }
-  private static readonly Lazy<nint> _SpecifiedSurroundingMinsOffset = new(() => Schema.GetOffset(0x794D87F71406E000), LazyThreadSafetyMode.None);
+  private static readonly nint _SpecifiedSurroundingMinsOffset = Schema.GetOffset(0x794D87F71406E000);
 
   public ref Vector SpecifiedSurroundingMins {
-    get => ref _Handle.AsRef<Vector>(_SpecifiedSurroundingMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SpecifiedSurroundingMinsOffset);
   }
-  private static readonly Lazy<nint> _SpecifiedSurroundingMaxsOffset = new(() => Schema.GetOffset(0x794D87F792FCA91A), LazyThreadSafetyMode.None);
+  private static readonly nint _SpecifiedSurroundingMaxsOffset = Schema.GetOffset(0x794D87F792FCA91A);
 
   public ref Vector SpecifiedSurroundingMaxs {
-    get => ref _Handle.AsRef<Vector>(_SpecifiedSurroundingMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SpecifiedSurroundingMaxsOffset);
   }
-  private static readonly Lazy<nint> _SurroundingMaxsOffset = new(() => Schema.GetOffset(0x794D87F7F5AED3D6), LazyThreadSafetyMode.None);
+  private static readonly nint _SurroundingMaxsOffset = Schema.GetOffset(0x794D87F7F5AED3D6);
 
   public ref Vector SurroundingMaxs {
-    get => ref _Handle.AsRef<Vector>(_SurroundingMaxsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SurroundingMaxsOffset);
   }
-  private static readonly Lazy<nint> _SurroundingMinsOffset = new(() => Schema.GetOffset(0x794D87F7749A0F94), LazyThreadSafetyMode.None);
+  private static readonly nint _SurroundingMinsOffset = Schema.GetOffset(0x794D87F7749A0F94);
 
   public ref Vector SurroundingMins {
-    get => ref _Handle.AsRef<Vector>(_SurroundingMinsOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_SurroundingMinsOffset);
   }
-  private static readonly Lazy<nint> _CapsuleCenter1Offset = new(() => Schema.GetOffset(0x794D87F7A5E81978), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleCenter1Offset = Schema.GetOffset(0x794D87F7A5E81978);
 
   public ref Vector CapsuleCenter1 {
-    get => ref _Handle.AsRef<Vector>(_CapsuleCenter1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_CapsuleCenter1Offset);
   }
-  private static readonly Lazy<nint> _CapsuleCenter2Offset = new(() => Schema.GetOffset(0x794D87F7A8E81E31), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleCenter2Offset = Schema.GetOffset(0x794D87F7A8E81E31);
 
   public ref Vector CapsuleCenter2 {
-    get => ref _Handle.AsRef<Vector>(_CapsuleCenter2Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_CapsuleCenter2Offset);
   }
-  private static readonly Lazy<nint> _CapsuleRadiusOffset = new(() => Schema.GetOffset(0x794D87F7A1A593D0), LazyThreadSafetyMode.None);
+  private static readonly nint _CapsuleRadiusOffset = Schema.GetOffset(0x794D87F7A1A593D0);
 
   public ref float CapsuleRadius {
-    get => ref _Handle.AsRef<float>(_CapsuleRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_CapsuleRadiusOffset);
   }
 
   public void CollisionAttributeUpdated() {

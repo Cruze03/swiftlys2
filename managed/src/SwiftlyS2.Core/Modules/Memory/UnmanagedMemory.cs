@@ -1,57 +1,70 @@
 using Microsoft.Extensions.Logging;
 using SwiftlyS2.Core.Hooks;
-using SwiftlyS2.Core.Natives.NativeObjects;
 using SwiftlyS2.Shared.Memory;
+using SwiftlyS2.Core.Natives.NativeObjects;
 
 namespace SwiftlyS2.Core.Memory;
 
 internal class UnmanagedMemory : NativeHandle, IUnmanagedMemory, IDisposable
 {
     public new nint Address { get; private set; }
-    private HookManager _HookManager { get; set; }
-    private ILogger<UnmanagedMemory> _Logger { get; set; }
-    public List<Guid> Hooks { get; } = new();
+    public List<Guid> Hooks { get; init; }
+    private readonly Lock hooksLock;
+    private readonly HookManager hookManager;
+    private readonly ILogger<UnmanagedMemory> logger;
 
     public UnmanagedMemory( nint address, HookManager hookManager, ILoggerFactory loggerFactory ) : base(address)
     {
-        Address = address;
-        _HookManager = hookManager;
-        _Logger = loggerFactory.CreateLogger<UnmanagedMemory>();
+        this.Address = address;
+        this.Hooks = [];
+
+        this.hooksLock = new();
+        this.hookManager = hookManager;
+        this.logger = loggerFactory.CreateLogger<UnmanagedMemory>();
     }
 
     public Guid AddHook( MidHookDelegate callback )
     {
         try
         {
-            var id = _HookManager.AddMidHook(Address, callback);
-            Hooks.Add(id);
-            return id;
+            lock (hooksLock)
+            {
+                var id = hookManager.AddMidHook(Address, callback);
+                Hooks.Add(id);
+                return id;
+            }
         }
         catch (Exception e)
         {
             if (!GlobalExceptionHandler.Handle(e)) return Guid.Empty;
-            _Logger.LogError(e, "Failed to add midhook to function {0}.", Address);
+            logger.LogError(e, "Failed to add midhook to function {Address}.", Address);
             return Guid.Empty;
         }
     }
 
     public void Dispose()
     {
-        _HookManager.Remove(Hooks);
-        Hooks.Clear();
+        lock (hooksLock)
+        {
+            hookManager.Remove(Hooks);
+            Hooks.Clear();
+        }
     }
 
     public void RemoveHook( Guid id )
     {
         try
         {
-            _HookManager.RemoveMidHook(new List<Guid> { id });
-            Hooks.Remove(id);
+            lock (hooksLock)
+            {
+                hookManager.RemoveMidHook([id]);
+                _ = Hooks.Remove(id);
+            }
         }
         catch (Exception e)
         {
             if (!GlobalExceptionHandler.Handle(e)) return;
-            _Logger.LogError(e, "Failed to remove midhook {0} from function {1}.", id, Address);
+            logger.LogError(e, "Failed to remove midhook {Id} from function {Address}.", id, Address);
         }
     }
 }

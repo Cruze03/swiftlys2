@@ -17,20 +17,20 @@ internal partial class VMixOscDesc_tImpl : SchemaClass, VMixOscDesc_t {
   public VMixOscDesc_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OscTypeOffset = new(() => Schema.GetOffset(0x414F0016106B4054), LazyThreadSafetyMode.None);
+  private static readonly nint _OscTypeOffset = Schema.GetOffset(0x414F0016106B4054);
 
   public ref VMixLFOShape_t OscType {
-    get => ref _Handle.AsRef<VMixLFOShape_t>(_OscTypeOffset.Value);
+    get => ref _Handle.AsRef<VMixLFOShape_t>(_OscTypeOffset);
   }
-  private static readonly Lazy<nint> _FreqOffset = new(() => Schema.GetOffset(0x414F00164E0B0897), LazyThreadSafetyMode.None);
+  private static readonly nint _FreqOffset = Schema.GetOffset(0x414F00164E0B0897);
 
   public ref float Freq {
-    get => ref _Handle.AsRef<float>(_FreqOffset.Value);
+    get => ref _Handle.AsRef<float>(_FreqOffset);
   }
-  private static readonly Lazy<nint> _PhaseOffset = new(() => Schema.GetOffset(0x414F00163C22A9CA), LazyThreadSafetyMode.None);
+  private static readonly nint _PhaseOffset = Schema.GetOffset(0x414F00163C22A9CA);
 
   public ref float Phase {
-    get => ref _Handle.AsRef<float>(_PhaseOffset.Value);
+    get => ref _Handle.AsRef<float>(_PhaseOffset);
   }
 
 

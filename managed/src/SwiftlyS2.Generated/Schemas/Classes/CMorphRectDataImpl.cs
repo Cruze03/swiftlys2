@@ -17,30 +17,30 @@ internal partial class CMorphRectDataImpl : SchemaClass, CMorphRectData {
   public CMorphRectDataImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _XLeftDstOffset = new(() => Schema.GetOffset(0xB12257C224FC92D5), LazyThreadSafetyMode.None);
+  private static readonly nint _XLeftDstOffset = Schema.GetOffset(0xB12257C224FC92D5);
 
   public ref short XLeftDst {
-    get => ref _Handle.AsRef<short>(_XLeftDstOffset.Value);
+    get => ref _Handle.AsRef<short>(_XLeftDstOffset);
   }
-  private static readonly Lazy<nint> _YTopDstOffset = new(() => Schema.GetOffset(0xB12257C291EBF0D2), LazyThreadSafetyMode.None);
+  private static readonly nint _YTopDstOffset = Schema.GetOffset(0xB12257C291EBF0D2);
 
   public ref short YTopDst {
-    get => ref _Handle.AsRef<short>(_YTopDstOffset.Value);
+    get => ref _Handle.AsRef<short>(_YTopDstOffset);
   }
-  private static readonly Lazy<nint> _UWidthSrcOffset = new(() => Schema.GetOffset(0xB12257C29F37ECB8), LazyThreadSafetyMode.None);
+  private static readonly nint _UWidthSrcOffset = Schema.GetOffset(0xB12257C29F37ECB8);
 
   public ref float UWidthSrc {
-    get => ref _Handle.AsRef<float>(_UWidthSrcOffset.Value);
+    get => ref _Handle.AsRef<float>(_UWidthSrcOffset);
   }
-  private static readonly Lazy<nint> _VHeightSrcOffset = new(() => Schema.GetOffset(0xB12257C230C84BA2), LazyThreadSafetyMode.None);
+  private static readonly nint _VHeightSrcOffset = Schema.GetOffset(0xB12257C230C84BA2);
 
   public ref float VHeightSrc {
-    get => ref _Handle.AsRef<float>(_VHeightSrcOffset.Value);
+    get => ref _Handle.AsRef<float>(_VHeightSrcOffset);
   }
-  private static readonly Lazy<nint> _BundleDatasOffset = new(() => Schema.GetOffset(0xB12257C255A3B6A2), LazyThreadSafetyMode.None);
+  private static readonly nint _BundleDatasOffset = Schema.GetOffset(0xB12257C255A3B6A2);
 
   public ref CUtlVector<CMorphBundleData> BundleDatas {
-    get => ref _Handle.AsRef<CUtlVector<CMorphBundleData>>(_BundleDatasOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CMorphBundleData>>(_BundleDatasOffset);
   }
 
 

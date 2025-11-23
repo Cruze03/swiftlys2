@@ -17,20 +17,20 @@ internal partial class C_OP_RenderClientPhysicsImpulseImpl : CParticleFunctionRe
   public C_OP_RenderClientPhysicsImpulseImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x618F365ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x618F365ACFC08D);
 
   public CPerParticleFloatInput Radius {
-    get => new CPerParticleFloatInputImpl(_Handle + _RadiusOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _RadiusOffset);
   }
-  private static readonly Lazy<nint> _MagnitudeOffset = new(() => Schema.GetOffset(0x618F36ED0A1D8B), LazyThreadSafetyMode.None);
+  private static readonly nint _MagnitudeOffset = Schema.GetOffset(0x618F36ED0A1D8B);
 
   public CPerParticleFloatInput Magnitude {
-    get => new CPerParticleFloatInputImpl(_Handle + _MagnitudeOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _MagnitudeOffset);
   }
-  private static readonly Lazy<nint> _SimIdFilterOffset = new(() => Schema.GetOffset(0x618F36C5FA023F), LazyThreadSafetyMode.None);
+  private static readonly nint _SimIdFilterOffset = Schema.GetOffset(0x618F36C5FA023F);
 
   public ref int SimIdFilter {
-    get => ref _Handle.AsRef<int>(_SimIdFilterOffset.Value);
+    get => ref _Handle.AsRef<int>(_SimIdFilterOffset);
   }
 
 

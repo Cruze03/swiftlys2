@@ -17,41 +17,41 @@ internal partial class CEnvLaserImpl : CBeamImpl, CEnvLaser {
   public CEnvLaserImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LaserTargetOffset = new(() => Schema.GetOffset(0x83A2D3C8C257F4D), LazyThreadSafetyMode.None);
+  private static readonly nint _LaserTargetOffset = Schema.GetOffset(0x83A2D3C8C257F4D);
 
   public string LaserTarget {
     get {
-      var ptr = _Handle.Read<nint>(_LaserTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_LaserTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LaserTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _LaserTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _SpriteOffset = new(() => Schema.GetOffset(0x83A2D3CEFBFA166), LazyThreadSafetyMode.None);
+  private static readonly nint _SpriteOffset = Schema.GetOffset(0x83A2D3CEFBFA166);
 
   public CSprite? Sprite {
     get {
-      var ptr = _Handle.Read<nint>(_SpriteOffset.Value);
+      var ptr = _Handle.Read<nint>(_SpriteOffset);
       return ptr.IsValidPtr() ? new CSpriteImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _SpriteNameOffset = new(() => Schema.GetOffset(0x83A2D3C096530FF), LazyThreadSafetyMode.None);
+  private static readonly nint _SpriteNameOffset = Schema.GetOffset(0x83A2D3C096530FF);
 
   public string SpriteName {
     get {
-      var ptr = _Handle.Read<nint>(_SpriteNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_SpriteNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SpriteNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _SpriteNameOffset, value);
   } 
-  private static readonly Lazy<nint> _FirePositionOffset = new(() => Schema.GetOffset(0x83A2D3C2A7C404E), LazyThreadSafetyMode.None);
+  private static readonly nint _FirePositionOffset = Schema.GetOffset(0x83A2D3C2A7C404E);
 
   public ref Vector FirePosition {
-    get => ref _Handle.AsRef<Vector>(_FirePositionOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_FirePositionOffset);
   }
-  private static readonly Lazy<nint> _StartFrameOffset = new(() => Schema.GetOffset(0x83A2D3CB534B906), LazyThreadSafetyMode.None);
+  private static readonly nint _StartFrameOffset = Schema.GetOffset(0x83A2D3CB534B906);
 
   public ref float StartFrame {
-    get => ref _Handle.AsRef<float>(_StartFrameOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartFrameOffset);
   }
 
 

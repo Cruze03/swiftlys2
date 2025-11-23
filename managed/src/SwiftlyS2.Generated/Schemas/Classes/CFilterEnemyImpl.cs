@@ -17,38 +17,38 @@ internal partial class CFilterEnemyImpl : CBaseFilterImpl, CFilterEnemy {
   public CFilterEnemyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _EnemyNameOffset = new(() => Schema.GetOffset(0x23F92540C9E922A8), LazyThreadSafetyMode.None);
+  private static readonly nint _EnemyNameOffset = Schema.GetOffset(0x23F92540C9E922A8);
 
   public string EnemyName {
     get {
-      var ptr = _Handle.Read<nint>(_EnemyNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_EnemyNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _EnemyNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _EnemyNameOffset, value);
   } 
-  private static readonly Lazy<nint> _RadiusOffset = new(() => Schema.GetOffset(0x23F925405ACFC08D), LazyThreadSafetyMode.None);
+  private static readonly nint _RadiusOffset = Schema.GetOffset(0x23F925405ACFC08D);
 
   public ref float Radius {
-    get => ref _Handle.AsRef<float>(_RadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_RadiusOffset);
   }
-  private static readonly Lazy<nint> _OuterRadiusOffset = new(() => Schema.GetOffset(0x23F925407B66A818), LazyThreadSafetyMode.None);
+  private static readonly nint _OuterRadiusOffset = Schema.GetOffset(0x23F925407B66A818);
 
   public ref float OuterRadius {
-    get => ref _Handle.AsRef<float>(_OuterRadiusOffset.Value);
+    get => ref _Handle.AsRef<float>(_OuterRadiusOffset);
   }
-  private static readonly Lazy<nint> _MaxSquadmatesPerEnemyOffset = new(() => Schema.GetOffset(0x23F925407AA226A0), LazyThreadSafetyMode.None);
+  private static readonly nint _MaxSquadmatesPerEnemyOffset = Schema.GetOffset(0x23F925407AA226A0);
 
   public ref int MaxSquadmatesPerEnemy {
-    get => ref _Handle.AsRef<int>(_MaxSquadmatesPerEnemyOffset.Value);
+    get => ref _Handle.AsRef<int>(_MaxSquadmatesPerEnemyOffset);
   }
-  private static readonly Lazy<nint> _PlayerNameOffset = new(() => Schema.GetOffset(0x23F92540DE61DD3B), LazyThreadSafetyMode.None);
+  private static readonly nint _PlayerNameOffset = Schema.GetOffset(0x23F92540DE61DD3B);
 
   public string PlayerName {
     get {
-      var ptr = _Handle.Read<nint>(_PlayerNameOffset.Value);
+      var ptr = _Handle.Read<nint>(_PlayerNameOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PlayerNameOffset.Value, value);
+    set => Schema.SetString(_Handle, _PlayerNameOffset, value);
   } 
 
 

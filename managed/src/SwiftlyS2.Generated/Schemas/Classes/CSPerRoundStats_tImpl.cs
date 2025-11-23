@@ -17,70 +17,70 @@ internal partial class CSPerRoundStats_tImpl : SchemaClass, CSPerRoundStats_t {
   public CSPerRoundStats_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _KillsOffset = new(() => Schema.GetOffset(0xA16B85EA0E456FE5), LazyThreadSafetyMode.None);
+  private static readonly nint _KillsOffset = Schema.GetOffset(0xA16B85EA0E456FE5);
 
   public ref int Kills {
-    get => ref _Handle.AsRef<int>(_KillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_KillsOffset);
   }
-  private static readonly Lazy<nint> _DeathsOffset = new(() => Schema.GetOffset(0xA16B85EAAF18870F), LazyThreadSafetyMode.None);
+  private static readonly nint _DeathsOffset = Schema.GetOffset(0xA16B85EAAF18870F);
 
   public ref int Deaths {
-    get => ref _Handle.AsRef<int>(_DeathsOffset.Value);
+    get => ref _Handle.AsRef<int>(_DeathsOffset);
   }
-  private static readonly Lazy<nint> _AssistsOffset = new(() => Schema.GetOffset(0xA16B85EAB792DB50), LazyThreadSafetyMode.None);
+  private static readonly nint _AssistsOffset = Schema.GetOffset(0xA16B85EAB792DB50);
 
   public ref int Assists {
-    get => ref _Handle.AsRef<int>(_AssistsOffset.Value);
+    get => ref _Handle.AsRef<int>(_AssistsOffset);
   }
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0xA16B85EA0DEE4DB5), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0xA16B85EA0DEE4DB5);
 
   public ref int Damage {
-    get => ref _Handle.AsRef<int>(_DamageOffset.Value);
+    get => ref _Handle.AsRef<int>(_DamageOffset);
   }
-  private static readonly Lazy<nint> _EquipmentValueOffset = new(() => Schema.GetOffset(0xA16B85EA1B2CADDD), LazyThreadSafetyMode.None);
+  private static readonly nint _EquipmentValueOffset = Schema.GetOffset(0xA16B85EA1B2CADDD);
 
   public ref int EquipmentValue {
-    get => ref _Handle.AsRef<int>(_EquipmentValueOffset.Value);
+    get => ref _Handle.AsRef<int>(_EquipmentValueOffset);
   }
-  private static readonly Lazy<nint> _MoneySavedOffset = new(() => Schema.GetOffset(0xA16B85EAC85DB77B), LazyThreadSafetyMode.None);
+  private static readonly nint _MoneySavedOffset = Schema.GetOffset(0xA16B85EAC85DB77B);
 
   public ref int MoneySaved {
-    get => ref _Handle.AsRef<int>(_MoneySavedOffset.Value);
+    get => ref _Handle.AsRef<int>(_MoneySavedOffset);
   }
-  private static readonly Lazy<nint> _KillRewardOffset = new(() => Schema.GetOffset(0xA16B85EA9C813A23), LazyThreadSafetyMode.None);
+  private static readonly nint _KillRewardOffset = Schema.GetOffset(0xA16B85EA9C813A23);
 
   public ref int KillReward {
-    get => ref _Handle.AsRef<int>(_KillRewardOffset.Value);
+    get => ref _Handle.AsRef<int>(_KillRewardOffset);
   }
-  private static readonly Lazy<nint> _LiveTimeOffset = new(() => Schema.GetOffset(0xA16B85EAD956D2F7), LazyThreadSafetyMode.None);
+  private static readonly nint _LiveTimeOffset = Schema.GetOffset(0xA16B85EAD956D2F7);
 
   public ref int LiveTime {
-    get => ref _Handle.AsRef<int>(_LiveTimeOffset.Value);
+    get => ref _Handle.AsRef<int>(_LiveTimeOffset);
   }
-  private static readonly Lazy<nint> _HeadShotKillsOffset = new(() => Schema.GetOffset(0xA16B85EA2C61AFF3), LazyThreadSafetyMode.None);
+  private static readonly nint _HeadShotKillsOffset = Schema.GetOffset(0xA16B85EA2C61AFF3);
 
   public ref int HeadShotKills {
-    get => ref _Handle.AsRef<int>(_HeadShotKillsOffset.Value);
+    get => ref _Handle.AsRef<int>(_HeadShotKillsOffset);
   }
-  private static readonly Lazy<nint> _ObjectiveOffset = new(() => Schema.GetOffset(0xA16B85EA14FC52D7), LazyThreadSafetyMode.None);
+  private static readonly nint _ObjectiveOffset = Schema.GetOffset(0xA16B85EA14FC52D7);
 
   public ref int Objective {
-    get => ref _Handle.AsRef<int>(_ObjectiveOffset.Value);
+    get => ref _Handle.AsRef<int>(_ObjectiveOffset);
   }
-  private static readonly Lazy<nint> _CashEarnedOffset = new(() => Schema.GetOffset(0xA16B85EA8BEB3100), LazyThreadSafetyMode.None);
+  private static readonly nint _CashEarnedOffset = Schema.GetOffset(0xA16B85EA8BEB3100);
 
   public ref int CashEarned {
-    get => ref _Handle.AsRef<int>(_CashEarnedOffset.Value);
+    get => ref _Handle.AsRef<int>(_CashEarnedOffset);
   }
-  private static readonly Lazy<nint> _UtilityDamageOffset = new(() => Schema.GetOffset(0xA16B85EAC91A82E5), LazyThreadSafetyMode.None);
+  private static readonly nint _UtilityDamageOffset = Schema.GetOffset(0xA16B85EAC91A82E5);
 
   public ref int UtilityDamage {
-    get => ref _Handle.AsRef<int>(_UtilityDamageOffset.Value);
+    get => ref _Handle.AsRef<int>(_UtilityDamageOffset);
   }
-  private static readonly Lazy<nint> _EnemiesFlashedOffset = new(() => Schema.GetOffset(0xA16B85EA460AB70F), LazyThreadSafetyMode.None);
+  private static readonly nint _EnemiesFlashedOffset = Schema.GetOffset(0xA16B85EA460AB70F);
 
   public ref int EnemiesFlashed {
-    get => ref _Handle.AsRef<int>(_EnemiesFlashedOffset.Value);
+    get => ref _Handle.AsRef<int>(_EnemiesFlashedOffset);
   }
 
   public void KillsUpdated() {

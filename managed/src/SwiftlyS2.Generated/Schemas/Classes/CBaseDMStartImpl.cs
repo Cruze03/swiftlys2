@@ -17,14 +17,14 @@ internal partial class CBaseDMStartImpl : CPointEntityImpl, CBaseDMStart {
   public CBaseDMStartImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MasterOffset = new(() => Schema.GetOffset(0x4182FA98392E77B3), LazyThreadSafetyMode.None);
+  private static readonly nint _MasterOffset = Schema.GetOffset(0x4182FA98392E77B3);
 
   public string Master {
     get {
-      var ptr = _Handle.Read<nint>(_MasterOffset.Value);
+      var ptr = _Handle.Read<nint>(_MasterOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MasterOffset.Value, value);
+    set => Schema.SetString(_Handle, _MasterOffset, value);
   } 
 
 

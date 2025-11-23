@@ -17,20 +17,20 @@ internal partial class CAnimStateMachineUpdaterImpl : SchemaClass, CAnimStateMac
   public CAnimStateMachineUpdaterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StatesOffset = new(() => Schema.GetOffset(0xD25DFB766F284CFF), LazyThreadSafetyMode.None);
+  private static readonly nint _StatesOffset = Schema.GetOffset(0xD25DFB766F284CFF);
 
   public ref CUtlVector<CStateUpdateData> States {
-    get => ref _Handle.AsRef<CUtlVector<CStateUpdateData>>(_StatesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CStateUpdateData>>(_StatesOffset);
   }
-  private static readonly Lazy<nint> _TransitionsOffset = new(() => Schema.GetOffset(0xD25DFB76AD108163), LazyThreadSafetyMode.None);
+  private static readonly nint _TransitionsOffset = Schema.GetOffset(0xD25DFB76AD108163);
 
   public ref CUtlVector<CTransitionUpdateData> Transitions {
-    get => ref _Handle.AsRef<CUtlVector<CTransitionUpdateData>>(_TransitionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CTransitionUpdateData>>(_TransitionsOffset);
   }
-  private static readonly Lazy<nint> _StartStateIndexOffset = new(() => Schema.GetOffset(0xD25DFB762881C68C), LazyThreadSafetyMode.None);
+  private static readonly nint _StartStateIndexOffset = Schema.GetOffset(0xD25DFB762881C68C);
 
   public ref int StartStateIndex {
-    get => ref _Handle.AsRef<int>(_StartStateIndexOffset.Value);
+    get => ref _Handle.AsRef<int>(_StartStateIndexOffset);
   }
 
 

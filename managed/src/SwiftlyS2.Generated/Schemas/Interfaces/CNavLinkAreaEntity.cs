@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNavLinkAreaEntity : CPointEntity, ISchemaClass<CNavLinkAreaEntity> {
 
   static CNavLinkAreaEntity ISchemaClass<CNavLinkAreaEntity>.From(nint handle) => new CNavLinkAreaEntityImpl(handle);
-  static int ISchemaClass<CNavLinkAreaEntity>.Size => 2216;
+  static int ISchemaClass<CNavLinkAreaEntity>.Size => 1472;
   static string? ISchemaClass<CNavLinkAreaEntity>.ClassName => "ai_nav_link_area";
 
   

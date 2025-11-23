@@ -17,65 +17,65 @@ internal partial class C_OP_MovementSkinnedPositionFromCPSnapshotImpl : CParticl
   public C_OP_MovementSkinnedPositionFromCPSnapshotImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SnapshotControlPointNumberOffset = new(() => Schema.GetOffset(0x6BA7A3C29D3EEDD), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapshotControlPointNumberOffset = Schema.GetOffset(0x6BA7A3C29D3EEDD);
 
   public ref int SnapshotControlPointNumber {
-    get => ref _Handle.AsRef<int>(_SnapshotControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_SnapshotControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _ControlPointNumberOffset = new(() => Schema.GetOffset(0x6BA7A3C3F31A6BD), LazyThreadSafetyMode.None);
+  private static readonly nint _ControlPointNumberOffset = Schema.GetOffset(0x6BA7A3C3F31A6BD);
 
   public ref int ControlPointNumber {
-    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset.Value);
+    get => ref _Handle.AsRef<int>(_ControlPointNumberOffset);
   }
-  private static readonly Lazy<nint> _RandomOffset = new(() => Schema.GetOffset(0x6BA7A3CD13B9DC2), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomOffset = Schema.GetOffset(0x6BA7A3CD13B9DC2);
 
   public ref bool Random {
-    get => ref _Handle.AsRef<bool>(_RandomOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RandomOffset);
   }
-  private static readonly Lazy<nint> _RandomSeedOffset = new(() => Schema.GetOffset(0x6BA7A3C6388F067), LazyThreadSafetyMode.None);
+  private static readonly nint _RandomSeedOffset = Schema.GetOffset(0x6BA7A3C6388F067);
 
   public ref int RandomSeed {
-    get => ref _Handle.AsRef<int>(_RandomSeedOffset.Value);
+    get => ref _Handle.AsRef<int>(_RandomSeedOffset);
   }
-  private static readonly Lazy<nint> _SetNormalOffset = new(() => Schema.GetOffset(0x6BA7A3C542722AC), LazyThreadSafetyMode.None);
+  private static readonly nint _SetNormalOffset = Schema.GetOffset(0x6BA7A3C542722AC);
 
   public ref bool SetNormal {
-    get => ref _Handle.AsRef<bool>(_SetNormalOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetNormalOffset);
   }
-  private static readonly Lazy<nint> _SetRadiusOffset = new(() => Schema.GetOffset(0x6BA7A3C918808D1), LazyThreadSafetyMode.None);
+  private static readonly nint _SetRadiusOffset = Schema.GetOffset(0x6BA7A3C918808D1);
 
   public ref bool SetRadius {
-    get => ref _Handle.AsRef<bool>(_SetRadiusOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SetRadiusOffset);
   }
-  private static readonly Lazy<nint> _IndexTypeOffset = new(() => Schema.GetOffset(0x6BA7A3CDEEB271F), LazyThreadSafetyMode.None);
+  private static readonly nint _IndexTypeOffset = Schema.GetOffset(0x6BA7A3CDEEB271F);
 
   public ref SnapshotIndexType_t IndexType {
-    get => ref _Handle.AsRef<SnapshotIndexType_t>(_IndexTypeOffset.Value);
+    get => ref _Handle.AsRef<SnapshotIndexType_t>(_IndexTypeOffset);
   }
-  private static readonly Lazy<nint> _ReadIndexOffset = new(() => Schema.GetOffset(0x6BA7A3C7E9602C9), LazyThreadSafetyMode.None);
+  private static readonly nint _ReadIndexOffset = Schema.GetOffset(0x6BA7A3C7E9602C9);
 
   public CPerParticleFloatInput ReadIndex {
-    get => new CPerParticleFloatInputImpl(_Handle + _ReadIndexOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ReadIndexOffset);
   }
-  private static readonly Lazy<nint> _IncrementOffset = new(() => Schema.GetOffset(0x6BA7A3CB3721674), LazyThreadSafetyMode.None);
+  private static readonly nint _IncrementOffset = Schema.GetOffset(0x6BA7A3CB3721674);
 
   public CParticleCollectionFloatInput Increment {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _IncrementOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _IncrementOffset);
   }
-  private static readonly Lazy<nint> _FullLoopIncrementOffset = new(() => Schema.GetOffset(0x6BA7A3C278D3497), LazyThreadSafetyMode.None);
+  private static readonly nint _FullLoopIncrementOffset = Schema.GetOffset(0x6BA7A3C278D3497);
 
   public CParticleCollectionFloatInput FullLoopIncrement {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _FullLoopIncrementOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _FullLoopIncrementOffset);
   }
-  private static readonly Lazy<nint> _SnapShotStartPointOffset = new(() => Schema.GetOffset(0x6BA7A3CA7DF116B), LazyThreadSafetyMode.None);
+  private static readonly nint _SnapShotStartPointOffset = Schema.GetOffset(0x6BA7A3CA7DF116B);
 
   public CParticleCollectionFloatInput SnapShotStartPoint {
-    get => new CParticleCollectionFloatInputImpl(_Handle + _SnapShotStartPointOffset.Value);
+    get => new CParticleCollectionFloatInputImpl(_Handle + _SnapShotStartPointOffset);
   }
-  private static readonly Lazy<nint> _InterpolationOffset = new(() => Schema.GetOffset(0x6BA7A3CCF55B987), LazyThreadSafetyMode.None);
+  private static readonly nint _InterpolationOffset = Schema.GetOffset(0x6BA7A3CCF55B987);
 
   public CPerParticleFloatInput Interpolation {
-    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _InterpolationOffset);
   }
 
 

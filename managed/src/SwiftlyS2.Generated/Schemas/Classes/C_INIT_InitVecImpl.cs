@@ -17,30 +17,30 @@ internal partial class C_INIT_InitVecImpl : CParticleFunctionInitializerImpl, C_
   public C_INIT_InitVecImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InputValueOffset = new(() => Schema.GetOffset(0x60C95B0234445438), LazyThreadSafetyMode.None);
+  private static readonly nint _InputValueOffset = Schema.GetOffset(0x60C95B0234445438);
 
   public CPerParticleVecInput InputValue {
-    get => new CPerParticleVecInputImpl(_Handle + _InputValueOffset.Value);
+    get => new CPerParticleVecInputImpl(_Handle + _InputValueOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x60C95B02324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x60C95B02324F6F74);
 
   public ParticleAttributeIndex_t OutputField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x60C95B02FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x60C95B02FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
-  private static readonly Lazy<nint> _NormalizedOutputOffset = new(() => Schema.GetOffset(0x60C95B020AA98C55), LazyThreadSafetyMode.None);
+  private static readonly nint _NormalizedOutputOffset = Schema.GetOffset(0x60C95B020AA98C55);
 
   public ref bool NormalizedOutput {
-    get => ref _Handle.AsRef<bool>(_NormalizedOutputOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NormalizedOutputOffset);
   }
-  private static readonly Lazy<nint> _WritePreviousPositionOffset = new(() => Schema.GetOffset(0x60C95B02EA635776), LazyThreadSafetyMode.None);
+  private static readonly nint _WritePreviousPositionOffset = Schema.GetOffset(0x60C95B02EA635776);
 
   public ref bool WritePreviousPosition {
-    get => ref _Handle.AsRef<bool>(_WritePreviousPositionOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WritePreviousPositionOffset);
   }
 
 

@@ -17,40 +17,40 @@ internal partial class ModelSkeletonData_tImpl : SchemaClass, ModelSkeletonData_
   public ModelSkeletonData_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneNameOffset = new(() => Schema.GetOffset(0x8349B622FDEE0E0C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneNameOffset = Schema.GetOffset(0x8349B622FDEE0E0C);
 
   public ref CUtlVector<CUtlString> BoneName {
-    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNameOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CUtlString>>(_BoneNameOffset);
   }
-  private static readonly Lazy<nint> _ParentOffset = new(() => Schema.GetOffset(0x8349B6220AABB9D1), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentOffset = Schema.GetOffset(0x8349B6220AABB9D1);
 
   public ref CUtlVector<short> Parent {
-    get => ref _Handle.AsRef<CUtlVector<short>>(_ParentOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<short>>(_ParentOffset);
   }
-  private static readonly Lazy<nint> _BoneSphereOffset = new(() => Schema.GetOffset(0x8349B6222F22FB5A), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneSphereOffset = Schema.GetOffset(0x8349B6222F22FB5A);
 
   public ref CUtlVector<float> BoneSphere {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneSphereOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneSphereOffset);
   }
-  private static readonly Lazy<nint> _FlagOffset = new(() => Schema.GetOffset(0x8349B622CED32C4B), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagOffset = Schema.GetOffset(0x8349B622CED32C4B);
 
   public ref CUtlVector<uint> Flag {
-    get => ref _Handle.AsRef<CUtlVector<uint>>(_FlagOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<uint>>(_FlagOffset);
   }
-  private static readonly Lazy<nint> _BonePosParentOffset = new(() => Schema.GetOffset(0x8349B622E59E127F), LazyThreadSafetyMode.None);
+  private static readonly nint _BonePosParentOffset = Schema.GetOffset(0x8349B622E59E127F);
 
   public ref CUtlVector<Vector> BonePosParent {
-    get => ref _Handle.AsRef<CUtlVector<Vector>>(_BonePosParentOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<Vector>>(_BonePosParentOffset);
   }
-  private static readonly Lazy<nint> _BoneRotParentOffset = new(() => Schema.GetOffset(0x8349B622A6E3A10C), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneRotParentOffset = Schema.GetOffset(0x8349B622A6E3A10C);
 
   public ref CUtlVector<SchemaUntypedField> BoneRotParent {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_BoneRotParentOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_BoneRotParentOffset);
   }
-  private static readonly Lazy<nint> _BoneScaleParentOffset = new(() => Schema.GetOffset(0x8349B622FA2ED87F), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneScaleParentOffset = Schema.GetOffset(0x8349B622FA2ED87F);
 
   public ref CUtlVector<float> BoneScaleParent {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneScaleParentOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneScaleParentOffset);
   }
 
 

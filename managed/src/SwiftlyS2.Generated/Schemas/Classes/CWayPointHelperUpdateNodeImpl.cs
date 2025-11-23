@@ -17,30 +17,30 @@ internal partial class CWayPointHelperUpdateNodeImpl : CUnaryUpdateNodeImpl, CWa
   public CWayPointHelperUpdateNodeImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _StartCycleOffset = new(() => Schema.GetOffset(0x109BD628ABB46051), LazyThreadSafetyMode.None);
+  private static readonly nint _StartCycleOffset = Schema.GetOffset(0x109BD628ABB46051);
 
   public ref float StartCycle {
-    get => ref _Handle.AsRef<float>(_StartCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartCycleOffset);
   }
-  private static readonly Lazy<nint> _EndCycleOffset = new(() => Schema.GetOffset(0x109BD628176E8F62), LazyThreadSafetyMode.None);
+  private static readonly nint _EndCycleOffset = Schema.GetOffset(0x109BD628176E8F62);
 
   public ref float EndCycle {
-    get => ref _Handle.AsRef<float>(_EndCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndCycleOffset);
   }
-  private static readonly Lazy<nint> _OnlyGoalsOffset = new(() => Schema.GetOffset(0x109BD6283526BA11), LazyThreadSafetyMode.None);
+  private static readonly nint _OnlyGoalsOffset = Schema.GetOffset(0x109BD6283526BA11);
 
   public ref bool OnlyGoals {
-    get => ref _Handle.AsRef<bool>(_OnlyGoalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OnlyGoalsOffset);
   }
-  private static readonly Lazy<nint> _PreventOvershootOffset = new(() => Schema.GetOffset(0x109BD628B161EADA), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventOvershootOffset = Schema.GetOffset(0x109BD628B161EADA);
 
   public ref bool PreventOvershoot {
-    get => ref _Handle.AsRef<bool>(_PreventOvershootOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventOvershootOffset);
   }
-  private static readonly Lazy<nint> _PreventUndershootOffset = new(() => Schema.GetOffset(0x109BD628C22276F8), LazyThreadSafetyMode.None);
+  private static readonly nint _PreventUndershootOffset = Schema.GetOffset(0x109BD628C22276F8);
 
   public ref bool PreventUndershoot {
-    get => ref _Handle.AsRef<bool>(_PreventUndershootOffset.Value);
+    get => ref _Handle.AsRef<bool>(_PreventUndershootOffset);
   }
 
 

@@ -17,35 +17,35 @@ internal partial class WorldBuilderParams_tImpl : SchemaClass, WorldBuilderParam
   public WorldBuilderParams_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _MinDrawVolumeSizeOffset = new(() => Schema.GetOffset(0x37270ACBA9648390), LazyThreadSafetyMode.None);
+  private static readonly nint _MinDrawVolumeSizeOffset = Schema.GetOffset(0x37270ACBA9648390);
 
   public ref float MinDrawVolumeSize {
-    get => ref _Handle.AsRef<float>(_MinDrawVolumeSizeOffset.Value);
+    get => ref _Handle.AsRef<float>(_MinDrawVolumeSizeOffset);
   }
-  private static readonly Lazy<nint> _BuildBakedLightingOffset = new(() => Schema.GetOffset(0x37270ACBCF369FF6), LazyThreadSafetyMode.None);
+  private static readonly nint _BuildBakedLightingOffset = Schema.GetOffset(0x37270ACBCF369FF6);
 
   public ref bool BuildBakedLighting {
-    get => ref _Handle.AsRef<bool>(_BuildBakedLightingOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BuildBakedLightingOffset);
   }
-  private static readonly Lazy<nint> _AggregateInstanceStreamsOffset = new(() => Schema.GetOffset(0x37270ACB36B2AE78), LazyThreadSafetyMode.None);
+  private static readonly nint _AggregateInstanceStreamsOffset = Schema.GetOffset(0x37270ACB36B2AE78);
 
   public ref bool AggregateInstanceStreams {
-    get => ref _Handle.AsRef<bool>(_AggregateInstanceStreamsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AggregateInstanceStreamsOffset);
   }
-  private static readonly Lazy<nint> _BakedLightingInfoOffset = new(() => Schema.GetOffset(0x37270ACBC2128E04), LazyThreadSafetyMode.None);
+  private static readonly nint _BakedLightingInfoOffset = Schema.GetOffset(0x37270ACBC2128E04);
 
   public BakedLightingInfo_t BakedLightingInfo {
-    get => new BakedLightingInfo_tImpl(_Handle + _BakedLightingInfoOffset.Value);
+    get => new BakedLightingInfo_tImpl(_Handle + _BakedLightingInfoOffset);
   }
-  private static readonly Lazy<nint> _CompileTimestampOffset = new(() => Schema.GetOffset(0x37270ACB1CAADE3A), LazyThreadSafetyMode.None);
+  private static readonly nint _CompileTimestampOffset = Schema.GetOffset(0x37270ACB1CAADE3A);
 
   public ref ulong CompileTimestamp {
-    get => ref _Handle.AsRef<ulong>(_CompileTimestampOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_CompileTimestampOffset);
   }
-  private static readonly Lazy<nint> _CompileFingerprintOffset = new(() => Schema.GetOffset(0x37270ACB98F6F58A), LazyThreadSafetyMode.None);
+  private static readonly nint _CompileFingerprintOffset = Schema.GetOffset(0x37270ACB98F6F58A);
 
   public ref ulong CompileFingerprint {
-    get => ref _Handle.AsRef<ulong>(_CompileFingerprintOffset.Value);
+    get => ref _Handle.AsRef<ulong>(_CompileFingerprintOffset);
   }
 
 

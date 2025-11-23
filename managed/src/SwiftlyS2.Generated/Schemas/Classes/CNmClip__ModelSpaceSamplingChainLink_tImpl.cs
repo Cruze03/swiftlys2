@@ -17,20 +17,20 @@ internal partial class CNmClip__ModelSpaceSamplingChainLink_tImpl : SchemaClass,
   public CNmClip__ModelSpaceSamplingChainLink_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BoneIdxOffset = new(() => Schema.GetOffset(0xAFAB55410E26A9C2), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneIdxOffset = Schema.GetOffset(0xAFAB55410E26A9C2);
 
   public ref int BoneIdx {
-    get => ref _Handle.AsRef<int>(_BoneIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_BoneIdxOffset);
   }
-  private static readonly Lazy<nint> _ParentBoneIdxOffset = new(() => Schema.GetOffset(0xAFAB554185076542), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentBoneIdxOffset = Schema.GetOffset(0xAFAB554185076542);
 
   public ref int ParentBoneIdx {
-    get => ref _Handle.AsRef<int>(_ParentBoneIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentBoneIdxOffset);
   }
-  private static readonly Lazy<nint> _ParentChainLinkIdxOffset = new(() => Schema.GetOffset(0xAFAB5541DB4E7C5D), LazyThreadSafetyMode.None);
+  private static readonly nint _ParentChainLinkIdxOffset = Schema.GetOffset(0xAFAB5541DB4E7C5D);
 
   public ref int ParentChainLinkIdx {
-    get => ref _Handle.AsRef<int>(_ParentChainLinkIdxOffset.Value);
+    get => ref _Handle.AsRef<int>(_ParentChainLinkIdxOffset);
   }
 
 

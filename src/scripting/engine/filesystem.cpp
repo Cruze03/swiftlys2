@@ -125,6 +125,13 @@ bool Bridge_FileSystem_SetFileWritable(char* fileName, char* pathId, bool writab
     return filesystem->SetFileWritable(fileName, writable, pathId);
 }
 
+void Bridge_FileSystem_FindFileAbsoluteList(void* outVector, const char* wildcard, const char* pathId)
+{
+    static auto filesystem = g_ifaceService.FetchInterface<IFileSystem>(FILESYSTEM_INTERFACE_VERSION);
+
+    filesystem->FindFileAbsoluteList(*reinterpret_cast<CUtlVector<CUtlString>*>(outVector), wildcard, pathId);
+}
+
 DEFINE_NATIVE("FileSystem.GetSearchPath", Bridge_FileSystem_GetSearchPath);
 DEFINE_NATIVE("FileSystem.FileExists", Bridge_FileSystem_FileExists);
 DEFINE_NATIVE("FileSystem.AddSearchPath", Bridge_FileSystem_AddSearchPath);
@@ -137,3 +144,4 @@ DEFINE_NATIVE("FileSystem.GetFileSize", Bridge_FileSystem_GetFileSize);
 DEFINE_NATIVE("FileSystem.PrecacheFile", Bridge_FileSystem_PrecacheFile);
 DEFINE_NATIVE("FileSystem.IsFileWritable", Bridge_FileSystem_IsFileWritable);
 DEFINE_NATIVE("FileSystem.SetFileWritable", Bridge_FileSystem_SetFileWritable);
+DEFINE_NATIVE("FileSystem.FindFileAbsoluteList", Bridge_FileSystem_FindFileAbsoluteList);

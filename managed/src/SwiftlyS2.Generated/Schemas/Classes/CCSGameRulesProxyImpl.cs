@@ -17,11 +17,11 @@ internal partial class CCSGameRulesProxyImpl : CGameRulesProxyImpl, CCSGameRules
   public CCSGameRulesProxyImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _GameRulesOffset = new(() => Schema.GetOffset(0x242D3ADB925C1F40), LazyThreadSafetyMode.None);
+  private static readonly nint _GameRulesOffset = Schema.GetOffset(0x242D3ADB925C1F40);
 
   public CCSGameRules? GameRules {
     get {
-      var ptr = _Handle.Read<nint>(_GameRulesOffset.Value);
+      var ptr = _Handle.Read<nint>(_GameRulesOffset);
       return ptr.IsValidPtr() ? new CCSGameRulesImpl(ptr) : null;
     }
   }

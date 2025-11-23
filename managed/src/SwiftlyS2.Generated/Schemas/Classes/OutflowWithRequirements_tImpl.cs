@@ -17,25 +17,25 @@ internal partial class OutflowWithRequirements_tImpl : SchemaClass, OutflowWithR
   public OutflowWithRequirements_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ConnectionOffset = new(() => Schema.GetOffset(0x5BFC4DD4D4CD5F59), LazyThreadSafetyMode.None);
+  private static readonly nint _ConnectionOffset = Schema.GetOffset(0x5BFC4DD4D4CD5F59);
 
   public CPulse_OutflowConnection Connection {
-    get => new CPulse_OutflowConnectionImpl(_Handle + _ConnectionOffset.Value);
+    get => new CPulse_OutflowConnectionImpl(_Handle + _ConnectionOffset);
   }
-  private static readonly Lazy<nint> _DestinationFlowNodeIDOffset = new(() => Schema.GetOffset(0x5BFC4DD4C986A186), LazyThreadSafetyMode.None);
+  private static readonly nint _DestinationFlowNodeIDOffset = Schema.GetOffset(0x5BFC4DD4C986A186);
 
   public PulseDocNodeID_t DestinationFlowNodeID {
-    get => new PulseDocNodeID_tImpl(_Handle + _DestinationFlowNodeIDOffset.Value);
+    get => new PulseDocNodeID_tImpl(_Handle + _DestinationFlowNodeIDOffset);
   }
-  private static readonly Lazy<nint> _RequirementNodeIDsOffset = new(() => Schema.GetOffset(0x5BFC4DD47DAC9EFE), LazyThreadSafetyMode.None);
+  private static readonly nint _RequirementNodeIDsOffset = Schema.GetOffset(0x5BFC4DD47DAC9EFE);
 
   public ref CUtlVector<PulseDocNodeID_t> RequirementNodeIDs {
-    get => ref _Handle.AsRef<CUtlVector<PulseDocNodeID_t>>(_RequirementNodeIDsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<PulseDocNodeID_t>>(_RequirementNodeIDsOffset);
   }
-  private static readonly Lazy<nint> _CursorStateBlockIndexOffset = new(() => Schema.GetOffset(0x5BFC4DD46CECC07B), LazyThreadSafetyMode.None);
+  private static readonly nint _CursorStateBlockIndexOffset = Schema.GetOffset(0x5BFC4DD46CECC07B);
 
   public ref CUtlVector<int> CursorStateBlockIndex {
-    get => ref _Handle.AsRef<CUtlVector<int>>(_CursorStateBlockIndexOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<int>>(_CursorStateBlockIndexOffset);
   }
 
 

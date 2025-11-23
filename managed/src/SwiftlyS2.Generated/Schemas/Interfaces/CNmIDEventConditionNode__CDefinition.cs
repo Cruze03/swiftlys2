@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CNmIDEventConditionNode__CDefinition : CNmBoolValueNode__CDefinition, ISchemaClass<CNmIDEventConditionNode__CDefinition> {
 
   static CNmIDEventConditionNode__CDefinition ISchemaClass<CNmIDEventConditionNode__CDefinition>.From(nint handle) => new CNmIDEventConditionNode__CDefinitionImpl(handle);
-  static int ISchemaClass<CNmIDEventConditionNode__CDefinition>.Size => 80;
+  static int ISchemaClass<CNmIDEventConditionNode__CDefinition>.Size => 88;
   static string? ISchemaClass<CNmIDEventConditionNode__CDefinition>.ClassName => null;
 
   

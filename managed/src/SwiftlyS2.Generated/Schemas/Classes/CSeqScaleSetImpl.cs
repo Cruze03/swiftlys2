@@ -17,30 +17,30 @@ internal partial class CSeqScaleSetImpl : SchemaClass, CSeqScaleSet {
   public CSeqScaleSetImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _NameOffset = new(() => Schema.GetOffset(0x34C951AB63D22D49), LazyThreadSafetyMode.None);
+  private static readonly nint _NameOffset = Schema.GetOffset(0x34C951AB63D22D49);
 
   public ref CBufferString Name {
-    get => ref _Handle.AsRef<CBufferString>(_NameOffset.Value);
+    get => ref _Handle.AsRef<CBufferString>(_NameOffset);
   }
-  private static readonly Lazy<nint> _RootOffsetOffset = new(() => Schema.GetOffset(0x34C951ABEE69828A), LazyThreadSafetyMode.None);
+  private static readonly nint _RootOffsetOffset = Schema.GetOffset(0x34C951ABEE69828A);
 
   public ref bool RootOffset {
-    get => ref _Handle.AsRef<bool>(_RootOffsetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_RootOffsetOffset);
   }
-  private static readonly Lazy<nint> _RootOffset1Offset = new(() => Schema.GetOffset(0x34C951ABA62E010E), LazyThreadSafetyMode.None);
+  private static readonly nint _RootOffset1Offset = Schema.GetOffset(0x34C951ABA62E010E);
 
   public ref Vector RootOffset1 {
-    get => ref _Handle.AsRef<Vector>(_RootOffset1Offset.Value);
+    get => ref _Handle.AsRef<Vector>(_RootOffset1Offset);
   }
-  private static readonly Lazy<nint> _LocalBoneArrayOffset = new(() => Schema.GetOffset(0x34C951AB0B8EFD6B), LazyThreadSafetyMode.None);
+  private static readonly nint _LocalBoneArrayOffset = Schema.GetOffset(0x34C951AB0B8EFD6B);
 
   public ref CUtlVector<short> LocalBoneArray {
-    get => ref _Handle.AsRef<CUtlVector<short>>(_LocalBoneArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<short>>(_LocalBoneArrayOffset);
   }
-  private static readonly Lazy<nint> _BoneScaleArrayOffset = new(() => Schema.GetOffset(0x34C951ABC4BD868A), LazyThreadSafetyMode.None);
+  private static readonly nint _BoneScaleArrayOffset = Schema.GetOffset(0x34C951ABC4BD868A);
 
   public ref CUtlVector<float> BoneScaleArray {
-    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneScaleArrayOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<float>>(_BoneScaleArrayOffset);
   }
 
 

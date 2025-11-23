@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPointTemplate : CLogicalEntity, ISchemaClass<CPointTemplate> {
 
   static CPointTemplate ISchemaClass<CPointTemplate>.From(nint handle) => new CPointTemplateImpl(handle);
-  static int ISchemaClass<CPointTemplate>.Size => 2112;
+  static int ISchemaClass<CPointTemplate>.Size => 1368;
   static string? ISchemaClass<CPointTemplate>.ClassName => "point_template";
 
   

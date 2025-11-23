@@ -17,25 +17,25 @@ internal partial class CPropDoorRotatingBreakableImpl : CPropDoorRotatingImpl, C
   public CPropDoorRotatingBreakableImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _BreakableOffset = new(() => Schema.GetOffset(0xCB925ACA549B5310), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakableOffset = Schema.GetOffset(0xCB925ACA549B5310);
 
   public ref bool Breakable {
-    get => ref _Handle.AsRef<bool>(_BreakableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_BreakableOffset);
   }
-  private static readonly Lazy<nint> _IsAbleToCloseAreaPortalsOffset = new(() => Schema.GetOffset(0xCB925ACAAC381C84), LazyThreadSafetyMode.None);
+  private static readonly nint _IsAbleToCloseAreaPortalsOffset = Schema.GetOffset(0xCB925ACAAC381C84);
 
   public ref bool IsAbleToCloseAreaPortals {
-    get => ref _Handle.AsRef<bool>(_IsAbleToCloseAreaPortalsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_IsAbleToCloseAreaPortalsOffset);
   }
-  private static readonly Lazy<nint> _CurrentDamageStateOffset = new(() => Schema.GetOffset(0xCB925ACA29591458), LazyThreadSafetyMode.None);
+  private static readonly nint _CurrentDamageStateOffset = Schema.GetOffset(0xCB925ACA29591458);
 
   public ref int CurrentDamageState {
-    get => ref _Handle.AsRef<int>(_CurrentDamageStateOffset.Value);
+    get => ref _Handle.AsRef<int>(_CurrentDamageStateOffset);
   }
-  private static readonly Lazy<nint> _DamageStatesOffset = new(() => Schema.GetOffset(0xCB925ACA4FD16F52), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageStatesOffset = Schema.GetOffset(0xCB925ACA4FD16F52);
 
   public ref CUtlVector<SchemaUntypedField> DamageStates {
-    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_DamageStatesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_DamageStatesOffset);
   }
 
 

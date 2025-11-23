@@ -17,113 +17,113 @@ internal partial class CPhysSurfacePropertiesSoundNamesImpl : SchemaClass, CPhys
   public CPhysSurfacePropertiesSoundNamesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ImpactSoftOffset = new(() => Schema.GetOffset(0xF2658A3949E7237B), LazyThreadSafetyMode.None);
+  private static readonly nint _ImpactSoftOffset = Schema.GetOffset(0xF2658A3949E7237B);
 
   public string ImpactSoft {
     get {
-      var ptr = _Handle.Read<nint>(_ImpactSoftOffset.Value);
+      var ptr = _Handle.Read<nint>(_ImpactSoftOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ImpactSoftOffset.Value, value);
+    set => Schema.SetString(_Handle, _ImpactSoftOffset, value);
   } 
-  private static readonly Lazy<nint> _ImpactHardOffset = new(() => Schema.GetOffset(0xF2658A3934A77BB2), LazyThreadSafetyMode.None);
+  private static readonly nint _ImpactHardOffset = Schema.GetOffset(0xF2658A3934A77BB2);
 
   public string ImpactHard {
     get {
-      var ptr = _Handle.Read<nint>(_ImpactHardOffset.Value);
+      var ptr = _Handle.Read<nint>(_ImpactHardOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ImpactHardOffset.Value, value);
+    set => Schema.SetString(_Handle, _ImpactHardOffset, value);
   } 
-  private static readonly Lazy<nint> _ScrapeSmoothOffset = new(() => Schema.GetOffset(0xF2658A3902EA935F), LazyThreadSafetyMode.None);
+  private static readonly nint _ScrapeSmoothOffset = Schema.GetOffset(0xF2658A3902EA935F);
 
   public string ScrapeSmooth {
     get {
-      var ptr = _Handle.Read<nint>(_ScrapeSmoothOffset.Value);
+      var ptr = _Handle.Read<nint>(_ScrapeSmoothOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ScrapeSmoothOffset.Value, value);
+    set => Schema.SetString(_Handle, _ScrapeSmoothOffset, value);
   } 
-  private static readonly Lazy<nint> _ScrapeRoughOffset = new(() => Schema.GetOffset(0xF2658A39CE764A7E), LazyThreadSafetyMode.None);
+  private static readonly nint _ScrapeRoughOffset = Schema.GetOffset(0xF2658A39CE764A7E);
 
   public string ScrapeRough {
     get {
-      var ptr = _Handle.Read<nint>(_ScrapeRoughOffset.Value);
+      var ptr = _Handle.Read<nint>(_ScrapeRoughOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ScrapeRoughOffset.Value, value);
+    set => Schema.SetString(_Handle, _ScrapeRoughOffset, value);
   } 
-  private static readonly Lazy<nint> _BulletImpactOffset = new(() => Schema.GetOffset(0xF2658A3943E056BB), LazyThreadSafetyMode.None);
+  private static readonly nint _BulletImpactOffset = Schema.GetOffset(0xF2658A3943E056BB);
 
   public string BulletImpact {
     get {
-      var ptr = _Handle.Read<nint>(_BulletImpactOffset.Value);
+      var ptr = _Handle.Read<nint>(_BulletImpactOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BulletImpactOffset.Value, value);
+    set => Schema.SetString(_Handle, _BulletImpactOffset, value);
   } 
-  private static readonly Lazy<nint> _RollingOffset = new(() => Schema.GetOffset(0xF2658A39E0171912), LazyThreadSafetyMode.None);
+  private static readonly nint _RollingOffset = Schema.GetOffset(0xF2658A39E0171912);
 
   public string Rolling {
     get {
-      var ptr = _Handle.Read<nint>(_RollingOffset.Value);
+      var ptr = _Handle.Read<nint>(_RollingOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _RollingOffset.Value, value);
+    set => Schema.SetString(_Handle, _RollingOffset, value);
   } 
-  private static readonly Lazy<nint> _BreakOffset = new(() => Schema.GetOffset(0xF2658A39382B2298), LazyThreadSafetyMode.None);
+  private static readonly nint _BreakOffset = Schema.GetOffset(0xF2658A39382B2298);
 
   public string Break {
     get {
-      var ptr = _Handle.Read<nint>(_BreakOffset.Value);
+      var ptr = _Handle.Read<nint>(_BreakOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _BreakOffset.Value, value);
+    set => Schema.SetString(_Handle, _BreakOffset, value);
   } 
-  private static readonly Lazy<nint> _StrainOffset = new(() => Schema.GetOffset(0xF2658A397EDA2E10), LazyThreadSafetyMode.None);
+  private static readonly nint _StrainOffset = Schema.GetOffset(0xF2658A397EDA2E10);
 
   public string Strain {
     get {
-      var ptr = _Handle.Read<nint>(_StrainOffset.Value);
+      var ptr = _Handle.Read<nint>(_StrainOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _StrainOffset.Value, value);
+    set => Schema.SetString(_Handle, _StrainOffset, value);
   } 
-  private static readonly Lazy<nint> _MeleeImpactOffset = new(() => Schema.GetOffset(0xF2658A3976A52491), LazyThreadSafetyMode.None);
+  private static readonly nint _MeleeImpactOffset = Schema.GetOffset(0xF2658A3976A52491);
 
   public string MeleeImpact {
     get {
-      var ptr = _Handle.Read<nint>(_MeleeImpactOffset.Value);
+      var ptr = _Handle.Read<nint>(_MeleeImpactOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _MeleeImpactOffset.Value, value);
+    set => Schema.SetString(_Handle, _MeleeImpactOffset, value);
   } 
-  private static readonly Lazy<nint> _PushOffOffset = new(() => Schema.GetOffset(0xF2658A39C825B1A2), LazyThreadSafetyMode.None);
+  private static readonly nint _PushOffOffset = Schema.GetOffset(0xF2658A39C825B1A2);
 
   public string PushOff {
     get {
-      var ptr = _Handle.Read<nint>(_PushOffOffset.Value);
+      var ptr = _Handle.Read<nint>(_PushOffOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _PushOffOffset.Value, value);
+    set => Schema.SetString(_Handle, _PushOffOffset, value);
   } 
-  private static readonly Lazy<nint> _SkidStopOffset = new(() => Schema.GetOffset(0xF2658A3976C778AE), LazyThreadSafetyMode.None);
+  private static readonly nint _SkidStopOffset = Schema.GetOffset(0xF2658A3976C778AE);
 
   public string SkidStop {
     get {
-      var ptr = _Handle.Read<nint>(_SkidStopOffset.Value);
+      var ptr = _Handle.Read<nint>(_SkidStopOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _SkidStopOffset.Value, value);
+    set => Schema.SetString(_Handle, _SkidStopOffset, value);
   } 
-  private static readonly Lazy<nint> _ResonantOffset = new(() => Schema.GetOffset(0xF2658A396BA8FAF5), LazyThreadSafetyMode.None);
+  private static readonly nint _ResonantOffset = Schema.GetOffset(0xF2658A396BA8FAF5);
 
   public string Resonant {
     get {
-      var ptr = _Handle.Read<nint>(_ResonantOffset.Value);
+      var ptr = _Handle.Read<nint>(_ResonantOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _ResonantOffset.Value, value);
+    set => Schema.SetString(_Handle, _ResonantOffset, value);
   } 
 
 

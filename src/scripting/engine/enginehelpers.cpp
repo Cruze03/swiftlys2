@@ -86,7 +86,8 @@ void* Bridge_EngineHelpers_FindGameSystemByName(const char* name)
 
 void Bridge_EngineHelpers_SendMessageToConsole(const char* message)
 {
-    g_SwiftlyCore.SendConsoleMessage(TerminalProcessColor(message));
+    std::string msg(message);
+    g_SwiftlyCore.SendConsoleMessage(TerminalProcessColor(msg));
 }
 
 void* g_pTraceManager = nullptr;

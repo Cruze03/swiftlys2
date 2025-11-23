@@ -17,160 +17,160 @@ internal partial class CBasePlayerPawnImpl : CBaseCombatCharacterImpl, CBasePlay
   public CBasePlayerPawnImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _WeaponServicesOffset = new(() => Schema.GetOffset(0xCA2EED0451B23A93), LazyThreadSafetyMode.None);
+  private static readonly nint _WeaponServicesOffset = Schema.GetOffset(0xCA2EED0451B23A93);
 
   public CPlayer_WeaponServices? WeaponServices {
     get {
-      var ptr = _Handle.Read<nint>(_WeaponServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_WeaponServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_WeaponServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _ItemServicesOffset = new(() => Schema.GetOffset(0xCA2EED04AABBB9B8), LazyThreadSafetyMode.None);
+  private static readonly nint _ItemServicesOffset = Schema.GetOffset(0xCA2EED04AABBB9B8);
 
   public CPlayer_ItemServices? ItemServices {
     get {
-      var ptr = _Handle.Read<nint>(_ItemServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_ItemServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_ItemServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _AutoaimServicesOffset = new(() => Schema.GetOffset(0xCA2EED0413209115), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoaimServicesOffset = Schema.GetOffset(0xCA2EED0413209115);
 
   public CPlayer_AutoaimServices? AutoaimServices {
     get {
-      var ptr = _Handle.Read<nint>(_AutoaimServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_AutoaimServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_AutoaimServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _ObserverServicesOffset = new(() => Schema.GetOffset(0xCA2EED044ED1A579), LazyThreadSafetyMode.None);
+  private static readonly nint _ObserverServicesOffset = Schema.GetOffset(0xCA2EED044ED1A579);
 
   public CPlayer_ObserverServices? ObserverServices {
     get {
-      var ptr = _Handle.Read<nint>(_ObserverServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_ObserverServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_ObserverServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _WaterServicesOffset = new(() => Schema.GetOffset(0xCA2EED04A5653452), LazyThreadSafetyMode.None);
+  private static readonly nint _WaterServicesOffset = Schema.GetOffset(0xCA2EED04A5653452);
 
   public CPlayer_WaterServices? WaterServices {
     get {
-      var ptr = _Handle.Read<nint>(_WaterServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_WaterServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_WaterServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _UseServicesOffset = new(() => Schema.GetOffset(0xCA2EED04A87C910A), LazyThreadSafetyMode.None);
+  private static readonly nint _UseServicesOffset = Schema.GetOffset(0xCA2EED04A87C910A);
 
   public CPlayer_UseServices? UseServices {
     get {
-      var ptr = _Handle.Read<nint>(_UseServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_UseServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_UseServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _FlashlightServicesOffset = new(() => Schema.GetOffset(0xCA2EED046CF76641), LazyThreadSafetyMode.None);
+  private static readonly nint _FlashlightServicesOffset = Schema.GetOffset(0xCA2EED046CF76641);
 
   public CPlayer_FlashlightServices? FlashlightServices {
     get {
-      var ptr = _Handle.Read<nint>(_FlashlightServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_FlashlightServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_FlashlightServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _CameraServicesOffset = new(() => Schema.GetOffset(0xCA2EED043B7DFD20), LazyThreadSafetyMode.None);
+  private static readonly nint _CameraServicesOffset = Schema.GetOffset(0xCA2EED043B7DFD20);
 
   public CPlayer_CameraServices? CameraServices {
     get {
-      var ptr = _Handle.Read<nint>(_CameraServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_CameraServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_CameraServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _MovementServicesOffset = new(() => Schema.GetOffset(0xCA2EED04CF73E28A), LazyThreadSafetyMode.None);
+  private static readonly nint _MovementServicesOffset = Schema.GetOffset(0xCA2EED04CF73E28A);
 
   public CPlayer_MovementServices? MovementServices {
     get {
-      var ptr = _Handle.Read<nint>(_MovementServicesOffset.Value);
+      var ptr = _Handle.Read<nint>(_MovementServicesOffset);
       return ptr.IsValidPtr() ? new CPlayer_MovementServicesImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _ServerViewAngleChangesOffset = new(() => Schema.GetOffset(0xCA2EED049182F3B7), LazyThreadSafetyMode.None);
+  private static readonly nint _ServerViewAngleChangesOffset = Schema.GetOffset(0xCA2EED049182F3B7);
 
   public ref CUtlVector<ViewAngleServerChange_t> ServerViewAngleChanges {
-    get => ref _Handle.AsRef<CUtlVector<ViewAngleServerChange_t>>(_ServerViewAngleChangesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ViewAngleServerChange_t>>(_ServerViewAngleChangesOffset);
   }
-  private static readonly Lazy<nint> _V_angleOffset = new(() => Schema.GetOffset(0xCA2EED0413C45A71), LazyThreadSafetyMode.None);
+  private static readonly nint _V_angleOffset = Schema.GetOffset(0xCA2EED0413C45A71);
 
   public ref QAngle V_angle {
-    get => ref _Handle.AsRef<QAngle>(_V_angleOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_V_angleOffset);
   }
-  private static readonly Lazy<nint> _V_anglePreviousOffset = new(() => Schema.GetOffset(0xCA2EED0406B54DD4), LazyThreadSafetyMode.None);
+  private static readonly nint _V_anglePreviousOffset = Schema.GetOffset(0xCA2EED0406B54DD4);
 
   public ref QAngle V_anglePrevious {
-    get => ref _Handle.AsRef<QAngle>(_V_anglePreviousOffset.Value);
+    get => ref _Handle.AsRef<QAngle>(_V_anglePreviousOffset);
   }
-  private static readonly Lazy<nint> _HideHUDOffset = new(() => Schema.GetOffset(0xCA2EED040627E4A5), LazyThreadSafetyMode.None);
+  private static readonly nint _HideHUDOffset = Schema.GetOffset(0xCA2EED040627E4A5);
 
   public ref uint HideHUD {
-    get => ref _Handle.AsRef<uint>(_HideHUDOffset.Value);
+    get => ref _Handle.AsRef<uint>(_HideHUDOffset);
   }
-  private static readonly Lazy<nint> _Skybox3dOffset = new(() => Schema.GetOffset(0xCA2EED0451DA4DBC), LazyThreadSafetyMode.None);
+  private static readonly nint _Skybox3dOffset = Schema.GetOffset(0xCA2EED0451DA4DBC);
 
   public sky3dparams_t Skybox3d {
-    get => new sky3dparams_tImpl(_Handle + _Skybox3dOffset.Value);
+    get => new sky3dparams_tImpl(_Handle + _Skybox3dOffset);
   }
-  private static readonly Lazy<nint> _TimeLastHurtOffset = new(() => Schema.GetOffset(0xCA2EED048FA4AFB1), LazyThreadSafetyMode.None);
+  private static readonly nint _TimeLastHurtOffset = Schema.GetOffset(0xCA2EED048FA4AFB1);
 
   public GameTime_t TimeLastHurt {
-    get => new GameTime_tImpl(_Handle + _TimeLastHurtOffset.Value);
+    get => new GameTime_tImpl(_Handle + _TimeLastHurtOffset);
   }
-  private static readonly Lazy<nint> _DeathTimeOffset = new(() => Schema.GetOffset(0xCA2EED0407F7A70A), LazyThreadSafetyMode.None);
+  private static readonly nint _DeathTimeOffset = Schema.GetOffset(0xCA2EED0407F7A70A);
 
   public GameTime_t DeathTime {
-    get => new GameTime_tImpl(_Handle + _DeathTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _DeathTimeOffset);
   }
-  private static readonly Lazy<nint> _NextSuicideTimeOffset = new(() => Schema.GetOffset(0xCA2EED04735FDC79), LazyThreadSafetyMode.None);
+  private static readonly nint _NextSuicideTimeOffset = Schema.GetOffset(0xCA2EED04735FDC79);
 
   public GameTime_t NextSuicideTime {
-    get => new GameTime_tImpl(_Handle + _NextSuicideTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _NextSuicideTimeOffset);
   }
-  private static readonly Lazy<nint> _InitHUDOffset = new(() => Schema.GetOffset(0xCA2EED04BA12A114), LazyThreadSafetyMode.None);
+  private static readonly nint _InitHUDOffset = Schema.GetOffset(0xCA2EED04BA12A114);
 
   public ref bool InitHUD {
-    get => ref _Handle.AsRef<bool>(_InitHUDOffset.Value);
+    get => ref _Handle.AsRef<bool>(_InitHUDOffset);
   }
-  private static readonly Lazy<nint> _ExpresserOffset = new(() => Schema.GetOffset(0xCA2EED04697CAC2A), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpresserOffset = Schema.GetOffset(0xCA2EED04697CAC2A);
 
   public CAI_Expresser? Expresser {
     get {
-      var ptr = _Handle.Read<nint>(_ExpresserOffset.Value);
+      var ptr = _Handle.Read<nint>(_ExpresserOffset);
       return ptr.IsValidPtr() ? new CAI_ExpresserImpl(ptr) : null;
     }
   }
-  private static readonly Lazy<nint> _ControllerOffset = new(() => Schema.GetOffset(0xCA2EED0429882A6B), LazyThreadSafetyMode.None);
+  private static readonly nint _ControllerOffset = Schema.GetOffset(0xCA2EED0429882A6B);
 
   public ref CHandle<CBasePlayerController> Controller {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerController>>(_ControllerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerController>>(_ControllerOffset);
   }
-  private static readonly Lazy<nint> _DefaultControllerOffset = new(() => Schema.GetOffset(0xCA2EED04A623A4A8), LazyThreadSafetyMode.None);
+  private static readonly nint _DefaultControllerOffset = Schema.GetOffset(0xCA2EED04A623A4A8);
 
   public ref CHandle<CBasePlayerController> DefaultController {
-    get => ref _Handle.AsRef<CHandle<CBasePlayerController>>(_DefaultControllerOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBasePlayerController>>(_DefaultControllerOffset);
   }
-  private static readonly Lazy<nint> _HltvReplayDelayOffset = new(() => Schema.GetOffset(0xCA2EED043108CD5F), LazyThreadSafetyMode.None);
+  private static readonly nint _HltvReplayDelayOffset = Schema.GetOffset(0xCA2EED043108CD5F);
 
   public ref float HltvReplayDelay {
-    get => ref _Handle.AsRef<float>(_HltvReplayDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_HltvReplayDelayOffset);
   }
-  private static readonly Lazy<nint> _HltvReplayEndOffset = new(() => Schema.GetOffset(0xCA2EED0479F16CD5), LazyThreadSafetyMode.None);
+  private static readonly nint _HltvReplayEndOffset = Schema.GetOffset(0xCA2EED0479F16CD5);
 
   public ref float HltvReplayEnd {
-    get => ref _Handle.AsRef<float>(_HltvReplayEndOffset.Value);
+    get => ref _Handle.AsRef<float>(_HltvReplayEndOffset);
   }
-  private static readonly Lazy<nint> _HltvReplayEntityOffset = new(() => Schema.GetOffset(0xCA2EED04ADF32E26), LazyThreadSafetyMode.None);
+  private static readonly nint _HltvReplayEntityOffset = Schema.GetOffset(0xCA2EED04ADF32E26);
 
   public ref uint HltvReplayEntity {
-    get => ref _Handle.AsRef<uint>(_HltvReplayEntityOffset.Value);
+    get => ref _Handle.AsRef<uint>(_HltvReplayEntityOffset);
   }
-  private static readonly Lazy<nint> _SndOpvarLatchDataOffset = new(() => Schema.GetOffset(0xCA2EED046B36858E), LazyThreadSafetyMode.None);
+  private static readonly nint _SndOpvarLatchDataOffset = Schema.GetOffset(0xCA2EED046B36858E);
 
   public ref CUtlVector<sndopvarlatchdata_t> SndOpvarLatchData {
-    get => ref _Handle.AsRef<CUtlVector<sndopvarlatchdata_t>>(_SndOpvarLatchDataOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<sndopvarlatchdata_t>>(_SndOpvarLatchDataOffset);
   }
 
   public void WeaponServicesUpdated() {

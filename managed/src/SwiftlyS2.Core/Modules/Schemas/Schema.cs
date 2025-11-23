@@ -45,7 +45,7 @@ internal static class Schema
     0xCD91F68467ECC1E7, // CEconEntity.m_nFallbackStatTrak
   };
 
-  private static readonly bool isFollowingServerGuidelines = NativeServerHelpers.IsFollowingServerGuidelines();
+  public static bool isFollowingServerGuidelines = NativeServerHelpers.IsFollowingServerGuidelines();
 
   [MethodImpl(MethodImplOptions.AggressiveInlining)]
   public static nint GetOffset( ulong hash )

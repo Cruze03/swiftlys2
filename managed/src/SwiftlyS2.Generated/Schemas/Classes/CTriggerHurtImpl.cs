@@ -17,75 +17,75 @@ internal partial class CTriggerHurtImpl : CBaseTriggerImpl, CTriggerHurt {
   public CTriggerHurtImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _OriginalDamageOffset = new(() => Schema.GetOffset(0x8D02278785B50515), LazyThreadSafetyMode.None);
+  private static readonly nint _OriginalDamageOffset = Schema.GetOffset(0x8D02278785B50515);
 
   public ref float OriginalDamage {
-    get => ref _Handle.AsRef<float>(_OriginalDamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_OriginalDamageOffset);
   }
-  private static readonly Lazy<nint> _DamageOffset = new(() => Schema.GetOffset(0x8D022787DC60E53E), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageOffset = Schema.GetOffset(0x8D022787DC60E53E);
 
   public ref float Damage {
-    get => ref _Handle.AsRef<float>(_DamageOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamageOffset);
   }
-  private static readonly Lazy<nint> _DamageCapOffset = new(() => Schema.GetOffset(0x8D022787AED58F86), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageCapOffset = Schema.GetOffset(0x8D022787AED58F86);
 
   public ref float DamageCap {
-    get => ref _Handle.AsRef<float>(_DamageCapOffset.Value);
+    get => ref _Handle.AsRef<float>(_DamageCapOffset);
   }
-  private static readonly Lazy<nint> _LastDmgTimeOffset = new(() => Schema.GetOffset(0x8D022787BF3F1360), LazyThreadSafetyMode.None);
+  private static readonly nint _LastDmgTimeOffset = Schema.GetOffset(0x8D022787BF3F1360);
 
   public GameTime_t LastDmgTime {
-    get => new GameTime_tImpl(_Handle + _LastDmgTimeOffset.Value);
+    get => new GameTime_tImpl(_Handle + _LastDmgTimeOffset);
   }
-  private static readonly Lazy<nint> _ForgivenessDelayOffset = new(() => Schema.GetOffset(0x8D022787112B0E13), LazyThreadSafetyMode.None);
+  private static readonly nint _ForgivenessDelayOffset = Schema.GetOffset(0x8D022787112B0E13);
 
   public ref float ForgivenessDelay {
-    get => ref _Handle.AsRef<float>(_ForgivenessDelayOffset.Value);
+    get => ref _Handle.AsRef<float>(_ForgivenessDelayOffset);
   }
-  private static readonly Lazy<nint> _BitsDamageInflictOffset = new(() => Schema.GetOffset(0x8D0227876F0ADA0F), LazyThreadSafetyMode.None);
+  private static readonly nint _BitsDamageInflictOffset = Schema.GetOffset(0x8D0227876F0ADA0F);
 
   public ref DamageTypes_t BitsDamageInflict {
-    get => ref _Handle.AsRef<DamageTypes_t>(_BitsDamageInflictOffset.Value);
+    get => ref _Handle.AsRef<DamageTypes_t>(_BitsDamageInflictOffset);
   }
-  private static readonly Lazy<nint> _DamageModelOffset = new(() => Schema.GetOffset(0x8D022787076F74AD), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageModelOffset = Schema.GetOffset(0x8D022787076F74AD);
 
   public ref int DamageModel {
-    get => ref _Handle.AsRef<int>(_DamageModelOffset.Value);
+    get => ref _Handle.AsRef<int>(_DamageModelOffset);
   }
-  private static readonly Lazy<nint> _NoDmgForceOffset = new(() => Schema.GetOffset(0x8D0227878236F03D), LazyThreadSafetyMode.None);
+  private static readonly nint _NoDmgForceOffset = Schema.GetOffset(0x8D0227878236F03D);
 
   public ref bool NoDmgForce {
-    get => ref _Handle.AsRef<bool>(_NoDmgForceOffset.Value);
+    get => ref _Handle.AsRef<bool>(_NoDmgForceOffset);
   }
-  private static readonly Lazy<nint> _DamageForceOffset = new(() => Schema.GetOffset(0x8D022787B66401B7), LazyThreadSafetyMode.None);
+  private static readonly nint _DamageForceOffset = Schema.GetOffset(0x8D022787B66401B7);
 
   public ref Vector DamageForce {
-    get => ref _Handle.AsRef<Vector>(_DamageForceOffset.Value);
+    get => ref _Handle.AsRef<Vector>(_DamageForceOffset);
   }
-  private static readonly Lazy<nint> _ThinkAlwaysOffset = new(() => Schema.GetOffset(0x8D02278776BDBDDA), LazyThreadSafetyMode.None);
+  private static readonly nint _ThinkAlwaysOffset = Schema.GetOffset(0x8D02278776BDBDDA);
 
   public ref bool ThinkAlways {
-    get => ref _Handle.AsRef<bool>(_ThinkAlwaysOffset.Value);
+    get => ref _Handle.AsRef<bool>(_ThinkAlwaysOffset);
   }
-  private static readonly Lazy<nint> _HurtThinkPeriodOffset = new(() => Schema.GetOffset(0x8D022787C98165F1), LazyThreadSafetyMode.None);
+  private static readonly nint _HurtThinkPeriodOffset = Schema.GetOffset(0x8D022787C98165F1);
 
   public ref float HurtThinkPeriod {
-    get => ref _Handle.AsRef<float>(_HurtThinkPeriodOffset.Value);
+    get => ref _Handle.AsRef<float>(_HurtThinkPeriodOffset);
   }
-  private static readonly Lazy<nint> _OnHurtOffset = new(() => Schema.GetOffset(0x8D022787361573C1), LazyThreadSafetyMode.None);
+  private static readonly nint _OnHurtOffset = Schema.GetOffset(0x8D022787361573C1);
 
   public CEntityIOOutput OnHurt {
-    get => new CEntityIOOutputImpl(_Handle + _OnHurtOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnHurtOffset);
   }
-  private static readonly Lazy<nint> _OnHurtPlayerOffset = new(() => Schema.GetOffset(0x8D02278771C2F34C), LazyThreadSafetyMode.None);
+  private static readonly nint _OnHurtPlayerOffset = Schema.GetOffset(0x8D02278771C2F34C);
 
   public CEntityIOOutput OnHurtPlayer {
-    get => new CEntityIOOutputImpl(_Handle + _OnHurtPlayerOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnHurtPlayerOffset);
   }
-  private static readonly Lazy<nint> _HurtEntitiesOffset = new(() => Schema.GetOffset(0x8D0227874E045AC3), LazyThreadSafetyMode.None);
+  private static readonly nint _HurtEntitiesOffset = Schema.GetOffset(0x8D0227874E045AC3);
 
   public ref CUtlVector<CHandle<CBaseEntity>> HurtEntities {
-    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_HurtEntitiesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<CHandle<CBaseEntity>>>(_HurtEntitiesOffset);
   }
 
 

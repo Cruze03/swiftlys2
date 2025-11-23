@@ -17,28 +17,28 @@ internal partial class CFuncInteractionLayerClipImpl : CBaseModelEntityImpl, CFu
   public CFuncInteractionLayerClipImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DisabledOffset = new(() => Schema.GetOffset(0x5A9288DF3A7C5965), LazyThreadSafetyMode.None);
+  private static readonly nint _DisabledOffset = Schema.GetOffset(0x5A9288DF3A7C5965);
 
   public ref bool Disabled {
-    get => ref _Handle.AsRef<bool>(_DisabledOffset.Value);
+    get => ref _Handle.AsRef<bool>(_DisabledOffset);
   }
-  private static readonly Lazy<nint> _InteractsAsOffset = new(() => Schema.GetOffset(0x5A9288DF488FC5DC), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractsAsOffset = Schema.GetOffset(0x5A9288DF488FC5DC);
 
   public string InteractsAs {
     get {
-      var ptr = _Handle.Read<nint>(_InteractsAsOffset.Value);
+      var ptr = _Handle.Read<nint>(_InteractsAsOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InteractsAsOffset.Value, value);
+    set => Schema.SetString(_Handle, _InteractsAsOffset, value);
   } 
-  private static readonly Lazy<nint> _InteractsWithOffset = new(() => Schema.GetOffset(0x5A9288DF84AB4214), LazyThreadSafetyMode.None);
+  private static readonly nint _InteractsWithOffset = Schema.GetOffset(0x5A9288DF84AB4214);
 
   public string InteractsWith {
     get {
-      var ptr = _Handle.Read<nint>(_InteractsWithOffset.Value);
+      var ptr = _Handle.Read<nint>(_InteractsWithOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _InteractsWithOffset.Value, value);
+    set => Schema.SetString(_Handle, _InteractsWithOffset, value);
   } 
 
 

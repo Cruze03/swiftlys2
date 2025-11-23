@@ -17,35 +17,35 @@ internal partial class CConcreteAnimParameterImpl : CAnimParameterBaseImpl, CCon
   public CConcreteAnimParameterImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _PreviewButtonOffset = new(() => Schema.GetOffset(0xFB67B7E37D0352C7), LazyThreadSafetyMode.None);
+  private static readonly nint _PreviewButtonOffset = Schema.GetOffset(0xFB67B7E37D0352C7);
 
   public ref AnimParamButton_t PreviewButton {
-    get => ref _Handle.AsRef<AnimParamButton_t>(_PreviewButtonOffset.Value);
+    get => ref _Handle.AsRef<AnimParamButton_t>(_PreviewButtonOffset);
   }
-  private static readonly Lazy<nint> _NetworkSettingOffset = new(() => Schema.GetOffset(0xFB67B7E3EEBF9DD2), LazyThreadSafetyMode.None);
+  private static readonly nint _NetworkSettingOffset = Schema.GetOffset(0xFB67B7E3EEBF9DD2);
 
   public ref AnimParamNetworkSetting NetworkSetting {
-    get => ref _Handle.AsRef<AnimParamNetworkSetting>(_NetworkSettingOffset.Value);
+    get => ref _Handle.AsRef<AnimParamNetworkSetting>(_NetworkSettingOffset);
   }
-  private static readonly Lazy<nint> _UseMostRecentValueOffset = new(() => Schema.GetOffset(0xFB67B7E37693B669), LazyThreadSafetyMode.None);
+  private static readonly nint _UseMostRecentValueOffset = Schema.GetOffset(0xFB67B7E37693B669);
 
   public ref bool UseMostRecentValue {
-    get => ref _Handle.AsRef<bool>(_UseMostRecentValueOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseMostRecentValueOffset);
   }
-  private static readonly Lazy<nint> _AutoResetOffset = new(() => Schema.GetOffset(0xFB67B7E3EBC32499), LazyThreadSafetyMode.None);
+  private static readonly nint _AutoResetOffset = Schema.GetOffset(0xFB67B7E3EBC32499);
 
   public ref bool AutoReset {
-    get => ref _Handle.AsRef<bool>(_AutoResetOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AutoResetOffset);
   }
-  private static readonly Lazy<nint> _GameWritableOffset = new(() => Schema.GetOffset(0xFB67B7E3FB2CA7F7), LazyThreadSafetyMode.None);
+  private static readonly nint _GameWritableOffset = Schema.GetOffset(0xFB67B7E3FB2CA7F7);
 
   public ref bool GameWritable {
-    get => ref _Handle.AsRef<bool>(_GameWritableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GameWritableOffset);
   }
-  private static readonly Lazy<nint> _GraphWritableOffset = new(() => Schema.GetOffset(0xFB67B7E30633E7B7), LazyThreadSafetyMode.None);
+  private static readonly nint _GraphWritableOffset = Schema.GetOffset(0xFB67B7E30633E7B7);
 
   public ref bool GraphWritable {
-    get => ref _Handle.AsRef<bool>(_GraphWritableOffset.Value);
+    get => ref _Handle.AsRef<bool>(_GraphWritableOffset);
   }
 
 

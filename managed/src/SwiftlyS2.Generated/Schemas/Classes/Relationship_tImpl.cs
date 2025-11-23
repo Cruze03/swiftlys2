@@ -17,15 +17,15 @@ internal partial class Relationship_tImpl : SchemaClass, Relationship_t {
   public Relationship_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _DispositionOffset = new(() => Schema.GetOffset(0xD0FE62280D365234), LazyThreadSafetyMode.None);
+  private static readonly nint _DispositionOffset = Schema.GetOffset(0xD0FE62280D365234);
 
   public ref Disposition_t Disposition {
-    get => ref _Handle.AsRef<Disposition_t>(_DispositionOffset.Value);
+    get => ref _Handle.AsRef<Disposition_t>(_DispositionOffset);
   }
-  private static readonly Lazy<nint> _PriorityOffset = new(() => Schema.GetOffset(0xD0FE622894E4E309), LazyThreadSafetyMode.None);
+  private static readonly nint _PriorityOffset = Schema.GetOffset(0xD0FE622894E4E309);
 
   public ref int Priority {
-    get => ref _Handle.AsRef<int>(_PriorityOffset.Value);
+    get => ref _Handle.AsRef<int>(_PriorityOffset);
   }
 
 

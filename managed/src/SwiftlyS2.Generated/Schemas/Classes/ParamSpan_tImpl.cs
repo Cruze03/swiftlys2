@@ -17,30 +17,30 @@ internal partial class ParamSpan_tImpl : SchemaClass, ParamSpan_t {
   public ParamSpan_tImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _SamplesOffset = new(() => Schema.GetOffset(0x5EE209D9364CA9DC), LazyThreadSafetyMode.None);
+  private static readonly nint _SamplesOffset = Schema.GetOffset(0x5EE209D9364CA9DC);
 
   public ref CUtlVector<ParamSpanSample_t> Samples {
-    get => ref _Handle.AsRef<CUtlVector<ParamSpanSample_t>>(_SamplesOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<ParamSpanSample_t>>(_SamplesOffset);
   }
-  private static readonly Lazy<nint> _ParamOffset = new(() => Schema.GetOffset(0x5EE209D9679286A4), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamOffset = Schema.GetOffset(0x5EE209D9679286A4);
 
   public CAnimParamHandle Param {
-    get => new CAnimParamHandleImpl(_Handle + _ParamOffset.Value);
+    get => new CAnimParamHandleImpl(_Handle + _ParamOffset);
   }
-  private static readonly Lazy<nint> _ParamTypeOffset = new(() => Schema.GetOffset(0x5EE209D9F05DFDD9), LazyThreadSafetyMode.None);
+  private static readonly nint _ParamTypeOffset = Schema.GetOffset(0x5EE209D9F05DFDD9);
 
   public ref AnimParamType_t ParamType {
-    get => ref _Handle.AsRef<AnimParamType_t>(_ParamTypeOffset.Value);
+    get => ref _Handle.AsRef<AnimParamType_t>(_ParamTypeOffset);
   }
-  private static readonly Lazy<nint> _StartCycleOffset = new(() => Schema.GetOffset(0x5EE209D9ABB46051), LazyThreadSafetyMode.None);
+  private static readonly nint _StartCycleOffset = Schema.GetOffset(0x5EE209D9ABB46051);
 
   public ref float StartCycle {
-    get => ref _Handle.AsRef<float>(_StartCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_StartCycleOffset);
   }
-  private static readonly Lazy<nint> _EndCycleOffset = new(() => Schema.GetOffset(0x5EE209D9176E8F62), LazyThreadSafetyMode.None);
+  private static readonly nint _EndCycleOffset = Schema.GetOffset(0x5EE209D9176E8F62);
 
   public ref float EndCycle {
-    get => ref _Handle.AsRef<float>(_EndCycleOffset.Value);
+    get => ref _Handle.AsRef<float>(_EndCycleOffset);
   }
 
 

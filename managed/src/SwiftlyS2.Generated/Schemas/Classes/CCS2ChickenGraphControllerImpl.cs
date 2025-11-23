@@ -17,55 +17,55 @@ internal partial class CCS2ChickenGraphControllerImpl : CAnimGraphControllerBase
   public CCS2ChickenGraphControllerImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ActionOffset = new(() => Schema.GetOffset(0xC887F1577918619F), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionOffset = Schema.GetOffset(0xC887F1577918619F);
 
   public SchemaUntypedField Action {
-    get => new SchemaUntypedField(_Handle + _ActionOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionOffset);
   }
-  private static readonly Lazy<nint> _ActionSubtypeOffset = new(() => Schema.GetOffset(0xC887F157FC94FE0B), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionSubtypeOffset = Schema.GetOffset(0xC887F157FC94FE0B);
 
   public SchemaUntypedField ActionSubtype {
-    get => new SchemaUntypedField(_Handle + _ActionSubtypeOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionSubtypeOffset);
   }
-  private static readonly Lazy<nint> _ActionResetOffset = new(() => Schema.GetOffset(0xC887F157580F422E), LazyThreadSafetyMode.None);
+  private static readonly nint _ActionResetOffset = Schema.GetOffset(0xC887F157580F422E);
 
   public SchemaUntypedField ActionReset {
-    get => new SchemaUntypedField(_Handle + _ActionResetOffset.Value);
+    get => new SchemaUntypedField(_Handle + _ActionResetOffset);
   }
-  private static readonly Lazy<nint> _IdleVariationOffset = new(() => Schema.GetOffset(0xC887F157CF0EF118), LazyThreadSafetyMode.None);
+  private static readonly nint _IdleVariationOffset = Schema.GetOffset(0xC887F157CF0EF118);
 
   public SchemaUntypedField IdleVariation {
-    get => new SchemaUntypedField(_Handle + _IdleVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _IdleVariationOffset);
   }
-  private static readonly Lazy<nint> _RunVariationOffset = new(() => Schema.GetOffset(0xC887F1575E32595B), LazyThreadSafetyMode.None);
+  private static readonly nint _RunVariationOffset = Schema.GetOffset(0xC887F1575E32595B);
 
   public SchemaUntypedField RunVariation {
-    get => new SchemaUntypedField(_Handle + _RunVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _RunVariationOffset);
   }
-  private static readonly Lazy<nint> _PanicVariationOffset = new(() => Schema.GetOffset(0xC887F157802F1EA1), LazyThreadSafetyMode.None);
+  private static readonly nint _PanicVariationOffset = Schema.GetOffset(0xC887F157802F1EA1);
 
   public SchemaUntypedField PanicVariation {
-    get => new SchemaUntypedField(_Handle + _PanicVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _PanicVariationOffset);
   }
-  private static readonly Lazy<nint> _SquatVariationOffset = new(() => Schema.GetOffset(0xC887F15791127162), LazyThreadSafetyMode.None);
+  private static readonly nint _SquatVariationOffset = Schema.GetOffset(0xC887F15791127162);
 
   public SchemaUntypedField SquatVariation {
-    get => new SchemaUntypedField(_Handle + _SquatVariationOffset.Value);
+    get => new SchemaUntypedField(_Handle + _SquatVariationOffset);
   }
-  private static readonly Lazy<nint> _InWaterOffset = new(() => Schema.GetOffset(0xC887F157E47F9BA9), LazyThreadSafetyMode.None);
+  private static readonly nint _InWaterOffset = Schema.GetOffset(0xC887F157E47F9BA9);
 
   public SchemaUntypedField InWater {
-    get => new SchemaUntypedField(_Handle + _InWaterOffset.Value);
+    get => new SchemaUntypedField(_Handle + _InWaterOffset);
   }
-  private static readonly Lazy<nint> _HasActionCompletedEventOffset = new(() => Schema.GetOffset(0xC887F157CD4A37EA), LazyThreadSafetyMode.None);
+  private static readonly nint _HasActionCompletedEventOffset = Schema.GetOffset(0xC887F157CD4A37EA);
 
   public ref bool HasActionCompletedEvent {
-    get => ref _Handle.AsRef<bool>(_HasActionCompletedEventOffset.Value);
+    get => ref _Handle.AsRef<bool>(_HasActionCompletedEventOffset);
   }
-  private static readonly Lazy<nint> _WaitingForCompletedEventOffset = new(() => Schema.GetOffset(0xC887F15754876F98), LazyThreadSafetyMode.None);
+  private static readonly nint _WaitingForCompletedEventOffset = Schema.GetOffset(0xC887F15754876F98);
 
   public ref bool WaitingForCompletedEvent {
-    get => ref _Handle.AsRef<bool>(_WaitingForCompletedEventOffset.Value);
+    get => ref _Handle.AsRef<bool>(_WaitingForCompletedEventOffset);
   }
 
 

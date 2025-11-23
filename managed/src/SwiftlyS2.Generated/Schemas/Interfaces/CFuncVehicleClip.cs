@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CFuncVehicleClip : CBaseModelEntity, ISchemaClass<CFuncVehicleClip> {
 
   static CFuncVehicleClip ISchemaClass<CFuncVehicleClip>.From(nint handle) => new CFuncVehicleClipImpl(handle);
-  static int ISchemaClass<CFuncVehicleClip>.Size => 2752;
+  static int ISchemaClass<CFuncVehicleClip>.Size => 2008;
   static string? ISchemaClass<CFuncVehicleClip>.ClassName => "func_vehicleclip";
 
 

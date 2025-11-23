@@ -11,7 +11,7 @@ namespace SwiftlyS2.Shared.SchemaDefinitions;
 public partial interface CPhysMotor : CLogicalEntity, ISchemaClass<CPhysMotor> {
 
   static CPhysMotor ISchemaClass<CPhysMotor>.From(nint handle) => new CPhysMotorImpl(handle);
-  static int ISchemaClass<CPhysMotor>.Size => 2112;
+  static int ISchemaClass<CPhysMotor>.Size => 1368;
   static string? ISchemaClass<CPhysMotor>.ClassName => "phys_motor";
 
   

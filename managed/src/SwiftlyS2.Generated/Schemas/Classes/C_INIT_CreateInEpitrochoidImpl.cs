@@ -17,55 +17,55 @@ internal partial class C_INIT_CreateInEpitrochoidImpl : CParticleFunctionInitial
   public C_INIT_CreateInEpitrochoidImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _Component1Offset = new(() => Schema.GetOffset(0x3B16C41F125ABCA7), LazyThreadSafetyMode.None);
+  private static readonly nint _Component1Offset = Schema.GetOffset(0x3B16C41F125ABCA7);
 
   public ref int Component1 {
-    get => ref _Handle.AsRef<int>(_Component1Offset.Value);
+    get => ref _Handle.AsRef<int>(_Component1Offset);
   }
-  private static readonly Lazy<nint> _Component2Offset = new(() => Schema.GetOffset(0x3B16C41F135ABE3A), LazyThreadSafetyMode.None);
+  private static readonly nint _Component2Offset = Schema.GetOffset(0x3B16C41F135ABE3A);
 
   public ref int Component2 {
-    get => ref _Handle.AsRef<int>(_Component2Offset.Value);
+    get => ref _Handle.AsRef<int>(_Component2Offset);
   }
-  private static readonly Lazy<nint> _TransformInputOffset = new(() => Schema.GetOffset(0x3B16C41FB3FDC289), LazyThreadSafetyMode.None);
+  private static readonly nint _TransformInputOffset = Schema.GetOffset(0x3B16C41FB3FDC289);
 
   public CParticleTransformInput TransformInput {
-    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset.Value);
+    get => new CParticleTransformInputImpl(_Handle + _TransformInputOffset);
   }
-  private static readonly Lazy<nint> _ParticleDensityOffset = new(() => Schema.GetOffset(0x3B16C41FF720B9EF), LazyThreadSafetyMode.None);
+  private static readonly nint _ParticleDensityOffset = Schema.GetOffset(0x3B16C41FF720B9EF);
 
   public CPerParticleFloatInput ParticleDensity {
-    get => new CPerParticleFloatInputImpl(_Handle + _ParticleDensityOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _ParticleDensityOffset);
   }
-  private static readonly Lazy<nint> _OffsetOffset = new(() => Schema.GetOffset(0x3B16C41F7F14BA34), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetOffset = Schema.GetOffset(0x3B16C41F7F14BA34);
 
   public CPerParticleFloatInput Offset {
-    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _OffsetOffset);
   }
-  private static readonly Lazy<nint> _Radius1Offset = new(() => Schema.GetOffset(0x3B16C41FB10C67F4), LazyThreadSafetyMode.None);
+  private static readonly nint _Radius1Offset = Schema.GetOffset(0x3B16C41FB10C67F4);
 
   public CPerParticleFloatInput Radius1 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Radius1Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Radius1Offset);
   }
-  private static readonly Lazy<nint> _Radius2Offset = new(() => Schema.GetOffset(0x3B16C41FB40C6CAD), LazyThreadSafetyMode.None);
+  private static readonly nint _Radius2Offset = Schema.GetOffset(0x3B16C41FB40C6CAD);
 
   public CPerParticleFloatInput Radius2 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Radius2Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Radius2Offset);
   }
-  private static readonly Lazy<nint> _UseCountOffset = new(() => Schema.GetOffset(0x3B16C41F8836B9AB), LazyThreadSafetyMode.None);
+  private static readonly nint _UseCountOffset = Schema.GetOffset(0x3B16C41F8836B9AB);
 
   public ref bool UseCount {
-    get => ref _Handle.AsRef<bool>(_UseCountOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseCountOffset);
   }
-  private static readonly Lazy<nint> _UseLocalCoordsOffset = new(() => Schema.GetOffset(0x3B16C41F8AB11575), LazyThreadSafetyMode.None);
+  private static readonly nint _UseLocalCoordsOffset = Schema.GetOffset(0x3B16C41F8AB11575);
 
   public ref bool UseLocalCoords {
-    get => ref _Handle.AsRef<bool>(_UseLocalCoordsOffset.Value);
+    get => ref _Handle.AsRef<bool>(_UseLocalCoordsOffset);
   }
-  private static readonly Lazy<nint> _OffsetExistingPosOffset = new(() => Schema.GetOffset(0x3B16C41F79DD329B), LazyThreadSafetyMode.None);
+  private static readonly nint _OffsetExistingPosOffset = Schema.GetOffset(0x3B16C41F79DD329B);
 
   public ref bool OffsetExistingPos {
-    get => ref _Handle.AsRef<bool>(_OffsetExistingPosOffset.Value);
+    get => ref _Handle.AsRef<bool>(_OffsetExistingPosOffset);
   }
 
 

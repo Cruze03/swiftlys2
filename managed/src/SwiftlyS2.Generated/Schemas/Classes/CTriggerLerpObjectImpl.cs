@@ -17,96 +17,96 @@ internal partial class CTriggerLerpObjectImpl : CBaseTriggerImpl, CTriggerLerpOb
   public CTriggerLerpObjectImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _LerpTargetOffset = new(() => Schema.GetOffset(0x42FE8EA4853F2479), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpTargetOffset = Schema.GetOffset(0x42FE8EA4853F2479);
 
   public string LerpTarget {
     get {
-      var ptr = _Handle.Read<nint>(_LerpTargetOffset.Value);
+      var ptr = _Handle.Read<nint>(_LerpTargetOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LerpTargetOffset.Value, value);
+    set => Schema.SetString(_Handle, _LerpTargetOffset, value);
   } 
-  private static readonly Lazy<nint> _LerpTarget1Offset = new(() => Schema.GetOffset(0x42FE8EA4BAB18AEF), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpTarget1Offset = Schema.GetOffset(0x42FE8EA4BAB18AEF);
 
   public ref CHandle<CBaseEntity> LerpTarget1 {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LerpTarget1Offset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_LerpTarget1Offset);
   }
-  private static readonly Lazy<nint> _LerpTargetAttachmentOffset = new(() => Schema.GetOffset(0x42FE8EA4C1E312BC), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpTargetAttachmentOffset = Schema.GetOffset(0x42FE8EA4C1E312BC);
 
   public string LerpTargetAttachment {
     get {
-      var ptr = _Handle.Read<nint>(_LerpTargetAttachmentOffset.Value);
+      var ptr = _Handle.Read<nint>(_LerpTargetAttachmentOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LerpTargetAttachmentOffset.Value, value);
+    set => Schema.SetString(_Handle, _LerpTargetAttachmentOffset, value);
   } 
-  private static readonly Lazy<nint> _LerpTargetAttachment2Offset = new(() => Schema.GetOffset(0x42FE8EA4FC3162AA), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpTargetAttachment2Offset = Schema.GetOffset(0x42FE8EA4FC3162AA);
 
   public AttachmentHandle_t LerpTargetAttachment2 {
-    get => new AttachmentHandle_tImpl(_Handle + _LerpTargetAttachment2Offset.Value);
+    get => new AttachmentHandle_tImpl(_Handle + _LerpTargetAttachment2Offset);
   }
-  private static readonly Lazy<nint> _LerpDurationOffset = new(() => Schema.GetOffset(0x42FE8EA4B5F8D70A), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpDurationOffset = Schema.GetOffset(0x42FE8EA4B5F8D70A);
 
   public ref float LerpDuration {
-    get => ref _Handle.AsRef<float>(_LerpDurationOffset.Value);
+    get => ref _Handle.AsRef<float>(_LerpDurationOffset);
   }
-  private static readonly Lazy<nint> _LerpRestoreMoveTypeOffset = new(() => Schema.GetOffset(0x42FE8EA4C501C93F), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpRestoreMoveTypeOffset = Schema.GetOffset(0x42FE8EA4C501C93F);
 
   public ref bool LerpRestoreMoveType {
-    get => ref _Handle.AsRef<bool>(_LerpRestoreMoveTypeOffset.Value);
+    get => ref _Handle.AsRef<bool>(_LerpRestoreMoveTypeOffset);
   }
-  private static readonly Lazy<nint> _SingleLerpObjectOffset = new(() => Schema.GetOffset(0x42FE8EA4EC72477B), LazyThreadSafetyMode.None);
+  private static readonly nint _SingleLerpObjectOffset = Schema.GetOffset(0x42FE8EA4EC72477B);
 
   public ref bool SingleLerpObject {
-    get => ref _Handle.AsRef<bool>(_SingleLerpObjectOffset.Value);
+    get => ref _Handle.AsRef<bool>(_SingleLerpObjectOffset);
   }
-  private static readonly Lazy<nint> _LerpingObjectsOffset = new(() => Schema.GetOffset(0x42FE8EA40128714C), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpingObjectsOffset = Schema.GetOffset(0x42FE8EA40128714C);
 
   public ref CUtlVector<lerpdata_t> LerpingObjects {
-    get => ref _Handle.AsRef<CUtlVector<lerpdata_t>>(_LerpingObjectsOffset.Value);
+    get => ref _Handle.AsRef<CUtlVector<lerpdata_t>>(_LerpingObjectsOffset);
   }
-  private static readonly Lazy<nint> _LerpEffectOffset = new(() => Schema.GetOffset(0x42FE8EA4EEECF881), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpEffectOffset = Schema.GetOffset(0x42FE8EA4EEECF881);
 
   public string LerpEffect {
     get {
-      var ptr = _Handle.Read<nint>(_LerpEffectOffset.Value);
+      var ptr = _Handle.Read<nint>(_LerpEffectOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LerpEffectOffset.Value, value);
+    set => Schema.SetString(_Handle, _LerpEffectOffset, value);
   } 
-  private static readonly Lazy<nint> _LerpSoundOffset = new(() => Schema.GetOffset(0x42FE8EA46CA9EE5F), LazyThreadSafetyMode.None);
+  private static readonly nint _LerpSoundOffset = Schema.GetOffset(0x42FE8EA46CA9EE5F);
 
   public string LerpSound {
     get {
-      var ptr = _Handle.Read<nint>(_LerpSoundOffset.Value);
+      var ptr = _Handle.Read<nint>(_LerpSoundOffset);
       return Schema.GetString(ptr);
     }
-    set => Schema.SetString(_Handle, _LerpSoundOffset.Value, value);
+    set => Schema.SetString(_Handle, _LerpSoundOffset, value);
   } 
-  private static readonly Lazy<nint> _AttachTouchingObjectOffset = new(() => Schema.GetOffset(0x42FE8EA4569C11D2), LazyThreadSafetyMode.None);
+  private static readonly nint _AttachTouchingObjectOffset = Schema.GetOffset(0x42FE8EA4569C11D2);
 
   public ref bool AttachTouchingObject {
-    get => ref _Handle.AsRef<bool>(_AttachTouchingObjectOffset.Value);
+    get => ref _Handle.AsRef<bool>(_AttachTouchingObjectOffset);
   }
-  private static readonly Lazy<nint> _EntityToWaitForDisconnectOffset = new(() => Schema.GetOffset(0x42FE8EA4E8928591), LazyThreadSafetyMode.None);
+  private static readonly nint _EntityToWaitForDisconnectOffset = Schema.GetOffset(0x42FE8EA4E8928591);
 
   public ref CHandle<CBaseEntity> EntityToWaitForDisconnect {
-    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityToWaitForDisconnectOffset.Value);
+    get => ref _Handle.AsRef<CHandle<CBaseEntity>>(_EntityToWaitForDisconnectOffset);
   }
-  private static readonly Lazy<nint> _OnLerpStartedOffset = new(() => Schema.GetOffset(0x42FE8EA4AE5EB5AA), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLerpStartedOffset = Schema.GetOffset(0x42FE8EA4AE5EB5AA);
 
   public CEntityIOOutput OnLerpStarted {
-    get => new CEntityIOOutputImpl(_Handle + _OnLerpStartedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnLerpStartedOffset);
   }
-  private static readonly Lazy<nint> _OnLerpFinishedOffset = new(() => Schema.GetOffset(0x42FE8EA4FBCC57F7), LazyThreadSafetyMode.None);
+  private static readonly nint _OnLerpFinishedOffset = Schema.GetOffset(0x42FE8EA4FBCC57F7);
 
   public CEntityIOOutput OnLerpFinished {
-    get => new CEntityIOOutputImpl(_Handle + _OnLerpFinishedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnLerpFinishedOffset);
   }
-  private static readonly Lazy<nint> _OnDetachedOffset = new(() => Schema.GetOffset(0x42FE8EA465BAE906), LazyThreadSafetyMode.None);
+  private static readonly nint _OnDetachedOffset = Schema.GetOffset(0x42FE8EA465BAE906);
 
   public CEntityIOOutput OnDetached {
-    get => new CEntityIOOutputImpl(_Handle + _OnDetachedOffset.Value);
+    get => new CEntityIOOutputImpl(_Handle + _OnDetachedOffset);
   }
 
 

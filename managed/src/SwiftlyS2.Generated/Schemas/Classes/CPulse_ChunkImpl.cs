@@ -17,20 +17,20 @@ internal partial class CPulse_ChunkImpl : SchemaClass, CPulse_Chunk {
   public CPulse_ChunkImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _InstructionsOffset = new(() => Schema.GetOffset(0x816932094D358BC4), LazyThreadSafetyMode.None);
+  private static readonly nint _InstructionsOffset = Schema.GetOffset(0x816932094D358BC4);
 
   public ref CUtlLeanVector<PGDInstruction_t, int> Instructions {
-    get => ref _Handle.AsRef<CUtlLeanVector<PGDInstruction_t, int>>(_InstructionsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<PGDInstruction_t, int>>(_InstructionsOffset);
   }
-  private static readonly Lazy<nint> _RegistersOffset = new(() => Schema.GetOffset(0x81693209BB828A49), LazyThreadSafetyMode.None);
+  private static readonly nint _RegistersOffset = Schema.GetOffset(0x81693209BB828A49);
 
   public ref CUtlLeanVector<CPulse_RegisterInfo, int> Registers {
-    get => ref _Handle.AsRef<CUtlLeanVector<CPulse_RegisterInfo, int>>(_RegistersOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<CPulse_RegisterInfo, int>>(_RegistersOffset);
   }
-  private static readonly Lazy<nint> _InstructionEditorIDsOffset = new(() => Schema.GetOffset(0x81693209236D8B64), LazyThreadSafetyMode.None);
+  private static readonly nint _InstructionEditorIDsOffset = Schema.GetOffset(0x81693209236D8B64);
 
   public ref CUtlLeanVector<PulseDocNodeID_t, int> InstructionEditorIDs {
-    get => ref _Handle.AsRef<CUtlLeanVector<PulseDocNodeID_t, int>>(_InstructionEditorIDsOffset.Value);
+    get => ref _Handle.AsRef<CUtlLeanVector<PulseDocNodeID_t, int>>(_InstructionEditorIDsOffset);
   }
 
 

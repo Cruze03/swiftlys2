@@ -17,10 +17,10 @@ internal partial class CCSPlayer_BulletServicesImpl : CPlayerPawnComponentImpl, 
   public CCSPlayer_BulletServicesImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _TotalHitsOnServerOffset = new(() => Schema.GetOffset(0x39B0E99E8006CF29), LazyThreadSafetyMode.None);
+  private static readonly nint _TotalHitsOnServerOffset = Schema.GetOffset(0x39B0E99E8006CF29);
 
   public ref int TotalHitsOnServer {
-    get => ref _Handle.AsRef<int>(_TotalHitsOnServerOffset.Value);
+    get => ref _Handle.AsRef<int>(_TotalHitsOnServerOffset);
   }
 
   public void TotalHitsOnServerUpdated() {

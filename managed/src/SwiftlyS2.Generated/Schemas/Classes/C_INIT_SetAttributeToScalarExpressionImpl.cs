@@ -17,35 +17,35 @@ internal partial class C_INIT_SetAttributeToScalarExpressionImpl : CParticleFunc
   public C_INIT_SetAttributeToScalarExpressionImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _ExpressionOffset = new(() => Schema.GetOffset(0x7B168019160B2427), LazyThreadSafetyMode.None);
+  private static readonly nint _ExpressionOffset = Schema.GetOffset(0x7B168019160B2427);
 
   public ref ScalarExpressionType_t Expression {
-    get => ref _Handle.AsRef<ScalarExpressionType_t>(_ExpressionOffset.Value);
+    get => ref _Handle.AsRef<ScalarExpressionType_t>(_ExpressionOffset);
   }
-  private static readonly Lazy<nint> _Input1Offset = new(() => Schema.GetOffset(0x7B168019E9DA2E24), LazyThreadSafetyMode.None);
+  private static readonly nint _Input1Offset = Schema.GetOffset(0x7B168019E9DA2E24);
 
   public CPerParticleFloatInput Input1 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Input1Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Input1Offset);
   }
-  private static readonly Lazy<nint> _Input2Offset = new(() => Schema.GetOffset(0x7B168019ECDA32DD), LazyThreadSafetyMode.None);
+  private static readonly nint _Input2Offset = Schema.GetOffset(0x7B168019ECDA32DD);
 
   public CPerParticleFloatInput Input2 {
-    get => new CPerParticleFloatInputImpl(_Handle + _Input2Offset.Value);
+    get => new CPerParticleFloatInputImpl(_Handle + _Input2Offset);
   }
-  private static readonly Lazy<nint> _OutputRemapOffset = new(() => Schema.GetOffset(0x7B1680191239396F), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputRemapOffset = Schema.GetOffset(0x7B1680191239396F);
 
   public CParticleRemapFloatInput OutputRemap {
-    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset.Value);
+    get => new CParticleRemapFloatInputImpl(_Handle + _OutputRemapOffset);
   }
-  private static readonly Lazy<nint> _OutputFieldOffset = new(() => Schema.GetOffset(0x7B168019324F6F74), LazyThreadSafetyMode.None);
+  private static readonly nint _OutputFieldOffset = Schema.GetOffset(0x7B168019324F6F74);
 
   public ParticleAttributeIndex_t OutputField {
-    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset.Value);
+    get => new ParticleAttributeIndex_tImpl(_Handle + _OutputFieldOffset);
   }
-  private static readonly Lazy<nint> _SetMethodOffset = new(() => Schema.GetOffset(0x7B168019FB53C31E), LazyThreadSafetyMode.None);
+  private static readonly nint _SetMethodOffset = Schema.GetOffset(0x7B168019FB53C31E);
 
   public ref ParticleSetMethod_t SetMethod {
-    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset.Value);
+    get => ref _Handle.AsRef<ParticleSetMethod_t>(_SetMethodOffset);
   }
 
 

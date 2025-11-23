@@ -17,10 +17,10 @@ internal partial class CNmBitFlagsImpl : SchemaClass, CNmBitFlags {
   public CNmBitFlagsImpl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _FlagsOffset = new(() => Schema.GetOffset(0x2D0B9CC1DC74A14C), LazyThreadSafetyMode.None);
+  private static readonly nint _FlagsOffset = Schema.GetOffset(0x2D0B9CC1DC74A14C);
 
   public ref uint Flags {
-    get => ref _Handle.AsRef<uint>(_FlagsOffset.Value);
+    get => ref _Handle.AsRef<uint>(_FlagsOffset);
   }
 
 

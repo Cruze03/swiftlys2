@@ -17,10 +17,10 @@ internal partial class PARTICLE_EHANDLE__Impl : SchemaClass, PARTICLE_EHANDLE__ 
   public PARTICLE_EHANDLE__Impl(nint handle) : base(handle) {
   }
 
-  private static readonly Lazy<nint> _UnusedOffset = new(() => Schema.GetOffset(0x7E4CC5CF85CF281B), LazyThreadSafetyMode.None);
+  private static readonly nint _UnusedOffset = Schema.GetOffset(0x7E4CC5CF85CF281B);
 
   public ref int Unused {
-    get => ref _Handle.AsRef<int>(_UnusedOffset.Value);
+    get => ref _Handle.AsRef<int>(_UnusedOffset);
   }
 
 
