@@ -213,6 +213,7 @@ void CheckTransmitHook(void* _this, CCheckTransmitInfo** ppInfoList, int infoCou
         {
             continue;
         }
+
         auto player = playermanager->GetPlayer(playerid);
         if (!player)
         {
@@ -223,10 +224,27 @@ void CheckTransmitHook(void* _this, CCheckTransmitInfo** ppInfoList, int infoCou
         uint64_t* base = reinterpret_cast<uint64_t*>(pInfo->m_pTransmitEntity->Base());
         auto& activeMasks = blockedBits.activeMasks;
 
+        // NUM_MASKS_ACTIVE ops = NUM_MASKS_ACTIVE*64 bits -> 64 players -> NUM_MASKS_ACTIVE*64 ops
         for (auto& dword : activeMasks)
         {
             base[dword] &= ~blockedBits.blockedMask[dword];
         }
+
+        // 512 ops = 16k bits -> 64 players -> 32k ops
+        // for (int i = pInfo->m_pTransmitEntity->GetNumDWords() - 1; i >= 0; i--) {
+        //     uint32_t& word = base[i];
+        //     uint32_t& wordAlways = baseAlways[i];
+
+        //     word &= ~blockedBase[i];
+        //     wordAlways &= ~blockedBase[i];
+        // }
+
+        // 16k ops = 16k bits -> 64 players -> 1M ops
+        /*
+        for (int i = 0; i < 16384; i++)
+            if (blockedBits.IsBitSet(i))
+                pInfo->m_pTransmitEntity->Clear(i);
+        */
     }
 }
 
