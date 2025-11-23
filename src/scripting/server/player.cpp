@@ -200,15 +200,19 @@ void Bridge_Player_ShouldBlockTransmitEntity(int playerid, int entityidx, bool s
 bool Bridge_Player_IsTransmitEntityBlocked(int playerid, int entityidx)
 {
     if (playerid + 1 == entityidx)
+    {
         return false;
+    }
 
     static auto playerManager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     auto player = playerManager->GetPlayer(playerid);
     if (!player)
+    {
         return false;
+    }
 
     auto& bv = player->GetBlockedTransmittingBits();
-    return (bv.blockedMask[entityidx / 64] & (1 << (entityidx % 64))) != 0;
+    return (bv.blockedMask[entityidx / 64] & (1ULL << (entityidx % 64))) != 0;
 }
 
 void Bridge_Player_ClearTransmitEntityBlocked(int playerid)
