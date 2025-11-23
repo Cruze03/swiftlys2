@@ -18,29 +18,6 @@
 
 #include "mfunction.h"
 
-std::unordered_map<void*, MFunctionHook*> MFunctionHook::s_instances;
-std::shared_mutex MFunctionHook::s_instancesMutex;
-
-static void MidHookWrapper(safetyhook::Context& ctx)
-{
-    std::shared_lock<std::shared_mutex> lock(MFunctionHook::s_instancesMutex);
-
-    for (const auto& pair : MFunctionHook::s_instances)
-    {
-        MFunctionHook* instance = pair.second;
-        if (instance && instance->IsEnabled() && instance->m_userCallback)
-        {
-            // Release lock before calling into managed code to avoid deadlocks
-            lock.unlock();
-
-            auto callback = (void (*)(void*))instance->m_userCallback;
-            callback(&ctx);
-
-            return;
-        }
-    }
-}
-
 void MFunctionHook::SetHookFunction(void* addr, void* callback)
 {
     if (!addr || !callback)
@@ -48,16 +25,8 @@ void MFunctionHook::SetHookFunction(void* addr, void* callback)
         return;
     }
 
-    m_hookAddress = addr;
-    m_userCallback = callback;
-
-    // Register this instance in global map
-    {
-        std::unique_lock<std::shared_mutex> lock(s_instancesMutex);
-        s_instances[addr] = this;
-    }
-
-    m_oHook = safetyhook::create_mid(addr, MidHookWrapper, safetyhook::MidHook::StartDisabled);
+    auto callbackFunc = (void (*)(safetyhook::Context&))callback;
+    m_oHook = safetyhook::create_mid(addr, callbackFunc, safetyhook::MidHook::StartDisabled);
 }
 
 void MFunctionHook::Enable()

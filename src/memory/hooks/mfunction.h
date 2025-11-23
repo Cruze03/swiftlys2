@@ -21,33 +21,15 @@
 
 #include <api/memory/hooks/mfunction.h>
 #include <safetyhook/safetyhook.hpp>
-#include <shared_mutex>
-#include <unordered_map>
 
 class MFunctionHook : public IMFunctionHook
 {
 public:
-    MFunctionHook() = default;
-    ~MFunctionHook()
-    {
-        if (m_hookAddress)
-        {
-            std::unique_lock<std::shared_mutex> lock(s_instancesMutex);
-            s_instances.erase(m_hookAddress);
-        }
-    }
-
     virtual void SetHookFunction(void* addr, void* callback) override;
 
     virtual void Enable() override;
     virtual void Disable() override;
     virtual bool IsEnabled() override;
-
-    static std::unordered_map<void*, MFunctionHook*> s_instances;
-    static std::shared_mutex s_instancesMutex;
-
-    void* m_hookAddress = nullptr;
-    void* m_userCallback = nullptr;
 
 private:
     SafetyHookMid m_oHook;
