@@ -337,6 +337,38 @@ public class TestPlugin : BasePlugin
     CEntityKeyValues kv { get; set; }
     CEntityInstance entity { get; set; }
 
+
+    [Command("hh")]
+    public void TestCommandHH( ICommandContext _ )
+    {
+        var filter = new CTraceFilter
+        {
+            IterateEntities = true,
+            QueryShapeAttributes = new()
+            {
+                InteractsWith = MaskTrace.Player,
+                InteractsExclude = MaskTrace.Sky,
+                InteractsAs = MaskTrace.Player,
+                CollisionGroup = CollisionGroup.PlayerMovement,
+                ObjectSetMask = RnQueryObjectSet.All,
+                HitSolid = true
+            }
+        };
+
+        var start = new Vector(0, 0, 0);
+        var end = new Vector(0, 0, 100);
+
+        Console.WriteLine("AAA");
+        var ray = new Ray_t();
+        var trace = new CGameTrace();
+        Console.WriteLine("AAA");
+        Core.Trace.TraceShape(start, end, ray, filter, ref trace);
+
+        Console.WriteLine(trace.Entity.IsValid);
+
+
+    }
+
     [Command("tt")]
     public void TestCommand( ICommandContext context )
     {
