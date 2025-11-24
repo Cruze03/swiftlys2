@@ -18,6 +18,7 @@ internal class CommandService : ICommandService, IDisposable
   private IContextedProfilerService _Profiler { get; init; }
   private IPlayerManagerService _PlayerManagerService { get; init; }
   private IPermissionManager _PermissionManager { get; init; }
+  private List<ulong> _Aliases = new();
 
   private Lock _lock = new();
 
@@ -43,7 +44,10 @@ internal class CommandService : ICommandService, IDisposable
 
   public void RegisterCommandAlias( string commandName, string alias, bool registerRaw = false )
   {
-    NativeCommands.RegisterAlias(alias, commandName, registerRaw);
+    lock (_lock)
+    {
+      _Aliases.Add(NativeCommands.RegisterAlias(alias, commandName, registerRaw));
+    }
   }
 
   public void UnregisterCommand( Guid guid )
@@ -139,6 +143,11 @@ internal class CommandService : ICommandService, IDisposable
         callback.Dispose();
       }
       _callbacks.Clear();
+      foreach (var alias in _Aliases)
+      {
+        NativeCommands.UnregisterAlias(alias);
+      }
+      _Aliases.Clear();
     }
   }
 }
