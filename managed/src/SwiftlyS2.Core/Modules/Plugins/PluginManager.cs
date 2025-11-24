@@ -572,7 +572,7 @@ internal class PluginManager
                 continue;
             }
 
-            if (dirName.Trim().Equals("disable", StringComparison.OrdinalIgnoreCase) || dirName.Trim().Equals("_", StringComparison.OrdinalIgnoreCase))
+            if (dirName.Trim().Equals("disable", StringComparison.OrdinalIgnoreCase) || dirName.Trim().Equals("disabled", StringComparison.OrdinalIgnoreCase) || dirName.Trim().Equals("_", StringComparison.OrdinalIgnoreCase))
             {
                 continue;
             }
