@@ -73,10 +73,11 @@ public class TestPlugin : BasePlugin
     }
 
     [Command("be")]
+    [CommandAlias("beh", false)]
     public void Test2Command( ICommandContext context )
     {
-        BenchContext.Controller = context.Sender!.RequiredController;
-        BenchmarkRunner.Run<PlayerBenchmarks>(new InProcessConfig());
+        Console.WriteLine("hello world");
+        Console.WriteLine("\n");
     }
 
     [GameEventHandler(HookMode.Pre)]
@@ -341,11 +342,9 @@ public class TestPlugin : BasePlugin
     [Command("hh")]
     public void TestCommandHH( ICommandContext _ )
     {
-        var filter = new CTraceFilter
-        {
+        var filter = new CTraceFilter {
             IterateEntities = true,
-            QueryShapeAttributes = new()
-            {
+            QueryShapeAttributes = new() {
                 InteractsWith = MaskTrace.Player,
                 InteractsExclude = MaskTrace.Sky,
                 InteractsAs = MaskTrace.Player,
