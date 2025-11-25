@@ -50,7 +50,9 @@ internal sealed class DynamicTextUpdater : IDisposable
             return;
         }
 
+        // Console.WriteLine($"{GetType().Name} has been disposed.");
         disposed = true;
+
         processor.Dispose();
 
         GC.SuppressFinalize(this);

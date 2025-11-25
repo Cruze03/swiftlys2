@@ -168,13 +168,10 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
-        disposed = true;
-        GC.SuppressFinalize(this);
-
-        if (core == null) return;
-
         // Console.WriteLine($"{GetType().Name} has been disposed.");
-        core.PlayerManager
+        disposed = true;
+
+        core?.PlayerManager
             .GetAllPlayers()
             .Where(player => player.IsValid && (selectedOptionIndex.TryGetValue(player.PlayerID, out var _) || desiredOptionIndex.TryGetValue(player.PlayerID, out var _)))
             .ToList()
@@ -215,6 +212,8 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             }
         });
         renderLoopTasks.Clear();
+
+        GC.SuppressFinalize(this);
     }
 
     // private void OnTick()
