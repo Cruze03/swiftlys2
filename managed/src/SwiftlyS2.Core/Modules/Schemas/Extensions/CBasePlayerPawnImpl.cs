@@ -42,7 +42,7 @@ internal partial class CBasePlayerPawnImpl : CBasePlayerPawn
             );
 
             var trace = new CGameTrace();
-            TraceManager.SimpleTrace(start, end, RayType_t.RAY_TYPE_HULL, RnQueryObjectSet.All, MaskTrace.Sky, MaskTrace.Empty, MaskTrace.Empty, CollisionGroup.Always, ref trace, Address, nint.Zero);
+            TraceManager.SimpleTrace(start, end, RayType_t.RAY_TYPE_LINE, RnQueryObjectSet.All, MaskTrace.Sky, MaskTrace.Empty, MaskTrace.Empty, CollisionGroup.Always, ref trace, Address, nint.Zero);
             return trace.Distance;
         }
     }
