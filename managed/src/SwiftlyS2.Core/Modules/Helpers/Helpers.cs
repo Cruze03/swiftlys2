@@ -102,12 +102,12 @@ internal class HelpersService : IHelpers
 
     public CCSWeaponBaseVData? GetWeaponCSDataFromKey( int itemDefinitionIndex )
     {
-        return GetWeaponCSDataFromKey(-1, GetClassnameByDefinitionIndex(itemDefinitionIndex) ?? string.Empty);
+        return GetWeaponCSDataFromKey(-1, itemDefinitionIndex.ToString());
     }
 
     public CCSWeaponBaseVData? GetWeaponCSDataFromKey( ItemDefinitionIndex itemDefinitionIndex )
     {
-        return GetWeaponCSDataFromKey(-1, GetClassnameByDefinitionIndex((int)itemDefinitionIndex) ?? string.Empty);
+        return GetWeaponCSDataFromKey((int)itemDefinitionIndex);
     }
 
     public string? GetClassnameByDefinitionIndex( int itemDefinitionIndex )
