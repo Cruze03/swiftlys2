@@ -50,6 +50,7 @@ internal static class EventPublisher
             NativeEvents.RegisterOnClientProcessUsercmdsCallback((nint)(delegate* unmanaged< int, nint, int, byte, float, void >)&OnClientProcessUsercmds);
             NativeEvents.RegisterOnEntityTakeDamageCallback((nint)(delegate* unmanaged< nint, nint, nint, byte >)&OnEntityTakeDamage);
             NativeEvents.RegisterOnPrecacheResourceCallback((nint)(delegate* unmanaged< nint, void >)&OnPrecacheResource);
+            NativeEvents.RegisterOnStartupServerCallback((nint)(delegate* unmanaged< void >)&OnStartupServer);
             NativeConvars.AddConvarCreatedListener((nint)(delegate* unmanaged< nint, void >)&OnConVarCreated);
             NativeConvars.AddConCommandCreatedListener((nint)(delegate* unmanaged< nint, void >)&OnConCommandCreated);
             NativeConvars.AddGlobalChangeListener((nint)(delegate* unmanaged< nint, int, nint, nint, void >)&OnConVarValueChanged);
@@ -527,6 +528,24 @@ internal static class EventPublisher
                 subscriber.InvokeOnPrecacheResource(@event);
             }
         }
+        catch (Exception e)
+        {
+            if (!GlobalExceptionHandler.Handle(e)) return;
+            AnsiConsole.WriteException(e);
+        }
+    }
+
+    [UnmanagedCallersOnly]
+    public static void OnStartupServer( )
+    {
+        if (_subscribers.Count == 0) return;
+        try
+        {
+            foreach (var subscriber in _subscribers)
+            {
+                subscriber.InvokeOnStartupServer();
+            }
+        } 
         catch (Exception e)
         {
             if (!GlobalExceptionHandler.Handle(e)) return;

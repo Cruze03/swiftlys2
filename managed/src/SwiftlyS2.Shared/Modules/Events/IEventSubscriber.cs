@@ -166,4 +166,9 @@ public interface IEventSubscriber
     /// Called when an entity identity accept input hook is triggered.
     /// </summary>
     public event EventDelegates.OnEntityIdentityAcceptInputHook? OnEntityIdentityAcceptInputHook;
+
+    /// <summary>
+    /// Called when the server is started.
+    /// </summary>
+    public event EventDelegates.OnStartupServer? OnStartupServer;
 }

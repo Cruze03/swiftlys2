@@ -166,4 +166,9 @@ public class EventDelegates
     /// Called when an entity identity accept input hook is triggered.
     /// </summary>
     public delegate void OnEntityIdentityAcceptInputHook( IOnEntityIdentityAcceptInputHookEvent @event );
+
+    /// <summary>
+    /// Called when the server is started.
+    /// </summary>
+    public delegate void OnStartupServer();
 }

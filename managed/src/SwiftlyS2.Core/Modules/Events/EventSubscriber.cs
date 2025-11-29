@@ -59,6 +59,7 @@ internal class EventSubscriber : IEventSubscriber, IDisposable
     public event EventDelegates.OnMovementServicesRunCommandHook? OnMovementServicesRunCommandHook;
     public event EventDelegates.OnPlayerPawnPostThink? OnPlayerPawnPostThink;
     public event EventDelegates.OnEntityIdentityAcceptInputHook? OnEntityIdentityAcceptInputHook;
+    public event EventDelegates.OnStartupServer? OnStartupServer;
 
     public void Dispose()
     {
@@ -636,6 +637,24 @@ internal class EventSubscriber : IEventSubscriber, IDisposable
         finally
         {
             _Profiler.StopRecording("Event::OnEntityIdentityAcceptInput");
+        }
+    }
+
+    public void InvokeOnStartupServer()
+    {
+        try
+        {
+            if (OnStartupServer == null) return;
+            _Profiler.StartRecording("Event::OnStartupServer");
+            OnStartupServer?.Invoke();
+        }
+        catch (Exception e)
+        {
+            if (GlobalExceptionHandler.Handle(e)) _Logger.LogError(e, "Error invoking OnStartupServer.");
+        }
+        finally
+        {
+            _Profiler.StopRecording("Event::OnStartupServer");
         }
     }
 }
