@@ -86,6 +86,11 @@ internal class CommandService : ICommandService, IDisposable
         }
     }
 
+    public bool IsCommandRegistered( string commandName )
+    {
+        return NativeCommands.IsCommandRegistered(commandName);
+    }
+
     public Guid HookClientCommand( ICommandService.ClientCommandHandler handler )
     {
         var callback = new ClientCommandListenerCallback(handler, loggerFactory, profiler);

@@ -58,6 +58,13 @@ public interface ICommandService
     public void UnregisterCommand( string commandName );
 
     /// <summary>
+    /// Checks if a command is registered.
+    /// </summary>
+    /// <param name="commandName">The command name.</param>
+    /// <returns>Whether the command is registered.</returns>
+    public bool IsCommandRegistered( string commandName );
+
+    /// <summary>
     /// Hooks client commands, will be fired when a player sends any command.
     /// </summary>
     /// <param name="handler">The handler callback for the client command.</param>

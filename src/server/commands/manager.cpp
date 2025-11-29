@@ -318,6 +318,23 @@ void CServerCommands::UnregisterCommand(uint64_t commandId)
     delete conCommand;
 }
 
+bool CServerCommands::IsCommandRegistered(std::string commandName)
+{
+    std::transform(commandName.begin(), commandName.end(), commandName.begin(), ::tolower);
+    if (commandHandlers.contains(commandName))
+    {
+        return true;
+    }
+
+    commandName = "sw_" + commandName;
+    if (commandHandlers.contains(commandName))
+    {
+        return true;
+    }
+
+    return false;
+}
+
 uint64_t CServerCommands::RegisterAlias(std::string aliasCommand, std::string commandName, bool registerRaw)
 {
     std::transform(commandName.begin(), commandName.end(), commandName.begin(), ::tolower);

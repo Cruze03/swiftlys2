@@ -65,6 +65,12 @@ void Bridge_Commands_UnregisterCommand(uint64_t callbackID)
     servercommands->UnregisterCommand(callbackID);
 }
 
+uint8_t Bridge_Commands_IsCommandRegistered(const char* commandName)
+{
+    auto servercommands = g_ifaceService.FetchInterface<IServerCommands>(SERVERCOMMANDS_INTERFACE_VERSION);
+    return servercommands->IsCommandRegistered(commandName) ? 1 : 0;
+}
+
 uint64_t Bridge_Commands_RegisterAlias(const char* alias, const char* command, bool registerRaw)
 {
     auto servercommands = g_ifaceService.FetchInterface<IServerCommands>(SERVERCOMMANDS_INTERFACE_VERSION);
