@@ -170,7 +170,7 @@ public interface ISwiftlyCore
     /// <summary>
     /// Plugin manager.
     /// </summary>
-    public IPluginManager PluginManager { get; }
+    // public IPluginManager PluginManager { get; }
 
     /// <summary>
     /// Gets the file path to the plugin directory.
