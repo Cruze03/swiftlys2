@@ -17,9 +17,7 @@ public abstract class BasePlugin : IPlugin
 
     AppDomain.CurrentDomain.UnhandledException += ( sender, e ) =>
     {
-      var trace = new StackTrace(true);
       Core.Logger.LogCritical(e.ExceptionObject as Exception, "CRITICAL: Unhandled exception in plugin. Aborting.");
-      Core.Logger.LogCritical("Stack trace:" + string.Join("", trace.GetFrames().Select(f => $"\n  at {f.GetMethod()} in {f.GetFileName()}:line {f.GetFileLineNumber()}")));
     };
 
     TaskScheduler.UnobservedTaskException += ( sender, e ) =>
