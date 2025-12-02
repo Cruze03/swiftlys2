@@ -20,6 +20,8 @@ internal class Player : IPlayer
 
     public int Slot { get; }
 
+    public int UserID => NativePlayer.GetUserID(Slot);
+
     public bool IsFakeClient => NativePlayer.IsFakeClient(Slot);
 
     public bool IsAuthorized => NativePlayer.IsAuthorized(Slot);

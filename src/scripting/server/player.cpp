@@ -355,6 +355,12 @@ uint8_t Bridge_Player_IsFirstSpawn(int playerid)
     return player->IsFirstSpawn() ? 1 : 0;
 }
 
+int Bridge_Player_GetUserID(int playerid)
+{
+    static auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
+    return engine->GetPlayerUserId(CPlayerSlot(playerid)).Get();
+}
+
 DEFINE_NATIVE("Player.SendMessage", Bridge_Player_SendMessage);
 DEFINE_NATIVE("Player.IsFakeClient", Bridge_Player_IsFakeClient);
 DEFINE_NATIVE("Player.IsAuthorized", Bridge_Player_IsAuthorized);
@@ -381,3 +387,4 @@ DEFINE_NATIVE("Player.ClearCenterMenuRender", Bridge_Player_ClearCenterMenuRende
 DEFINE_NATIVE("Player.HasMenuShown", Bridge_Player_HasMenuShown);
 DEFINE_NATIVE("Player.ExecuteCommand", Bridge_Player_ExecuteCommand);
 DEFINE_NATIVE("Player.IsFirstSpawn", Bridge_Player_IsFirstSpawn);
+DEFINE_NATIVE("Player.GetUserID", Bridge_Player_GetUserID);

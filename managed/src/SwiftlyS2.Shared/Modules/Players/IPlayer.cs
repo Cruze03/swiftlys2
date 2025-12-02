@@ -40,6 +40,11 @@ public interface IPlayer : IEquatable<IPlayer>
     public int PlayerID { get; }
 
     /// <summary>
+    /// Gets the user ID for the player.
+    /// </summary>
+    public int UserID { get; }
+
+    /// <summary>
     /// Gets the slot of the player. Equals to the player ID.
     /// </summary>
     public int Slot { get; }

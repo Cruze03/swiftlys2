@@ -234,4 +234,11 @@ internal static class NativePlayer {
     var ret = _IsFirstSpawn(playerid);
     return ret == 1;
   }
+
+  private unsafe static delegate* unmanaged<int, int> _GetUserID;
+
+  public unsafe static int GetUserID(int playerid) {
+    var ret = _GetUserID(playerid);
+    return ret;
+  }
 }
