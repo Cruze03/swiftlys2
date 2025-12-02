@@ -84,7 +84,7 @@ public interface IPlayerManagerService
     /// <param name="playerid">The unique identifier of the player to retrieve. Must be a valid player ID.</param>
     /// <returns>An <see cref="IPlayer"/> instance representing the player with the specified ID, or <c>null</c> if no such
     /// player exists.</returns>
-    public IPlayer GetPlayer( int playerid );
+    public IPlayer? GetPlayer( int playerid );
 
     /// <summary>
     /// Retrieves all players currently online.

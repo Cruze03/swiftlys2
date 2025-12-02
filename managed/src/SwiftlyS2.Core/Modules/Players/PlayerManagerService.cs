@@ -18,8 +18,9 @@ internal class PlayerManagerService : IPlayerManagerService
         NativePlayerManager.ClearAllBlockedTransmitEntity();
     }
 
-    public IPlayer GetPlayer( int playerid )
+    public IPlayer? GetPlayer( int playerid )
     {
+        if (!IsPlayerOnline(playerid)) return null;
         return new Player(playerid);
     }
 
