@@ -177,10 +177,10 @@ public class TestPlugin : BasePlugin
         //     Console.WriteLine($"PostThink -> {@event.PlayerPawn.OriginalController.Value?.PlayerName}");
         // };
 
-        Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) =>
-        {
-            Console.WriteLine($"pong: {buffer}");
-        });
+        // Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) =>
+        // {
+        //     Console.WriteLine($"pong: {buffer}");
+        // });
 
         Core.GameEvent.HookPre<EventShowSurvivalRespawnStatus>(@event =>
         {
@@ -318,12 +318,12 @@ public class TestPlugin : BasePlugin
         //   return HookResult.Continue;
         // });
 
-        Core.Event.OnEntityTakeDamage += ( @event ) =>
-        {
-            Console.WriteLine(@event.Entity.DesignerName);
-            @event.Info.DamageFlags = TakeDamageFlags_t.DFLAG_SUPPRESS_BREAKABLES;
-            @event.Result = HookResult.Stop;
-        };
+        // Core.Event.OnEntityTakeDamage += ( @event ) =>
+        // {
+        //     Console.WriteLine(@event.Entity.DesignerName);
+        //     @event.Info.DamageFlags = TakeDamageFlags_t.DFLAG_SUPPRESS_BREAKABLES;
+        //     @event.Result = HookResult.Stop;
+        // };
 
         // Core.Event.OnTick += () => {
 
@@ -888,7 +888,7 @@ public class TestPlugin : BasePlugin
             .EnableExit()
             .SetPlayerFrozen(false)
             .Design.SetMaxVisibleItems(5)
-            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
+            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("SwiftlyS2", "#00FA9A", "#F5FFFA")}")
             .Design.SetMenuTitleVisible(true)
             .Design.SetMenuFooterVisible(true)
             .Design.SetMenuFooterColor("#0F0")
@@ -900,7 +900,7 @@ public class TestPlugin : BasePlugin
             .AddOption(new TextMenuOption("1") { Visible = false })
             .AddOption(toggle)
             .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
-            .AddOption(new SliderMenuOption("1234"))
+            .AddOption(new SliderMenuOption("1234") { Comment = "This is a slider" })
             .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
             .AddOption(new SubmenuMenuOption("123456", async () =>
             {
@@ -912,7 +912,7 @@ public class TestPlugin : BasePlugin
                     .Build();
                 return menu;
             }))
-            .AddOption(new InputMenuOption("1234567"))
+            .AddOption(new SelectorMenuOption<string>(["1234567", "一二三四五六七", "いちにさんよん", "One Two Three", "Один Два Три", "하나 둘 셋", "αβγδεζη"]) { TextStyle = MenuOptionTextStyle.TruncateBothEnds })
             .AddOption(new TextMenuOption() { Text = "12345678", TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
             .AddOption(new TextMenuOption("123456789"))
             .AddOption(new TextMenuOption("1234567890") { Visible = false })
@@ -942,6 +942,7 @@ public class TestPlugin : BasePlugin
             .AddOption(new TextMenuOption("1") { Visible = false })
             .Build();
 
+        // menu.DefaultComment = "No specific comment";
         Core.MenusAPI.OpenMenu(menu);
         // Core.MenusAPI.OpenMenuForPlayer(player, menu);
     }
