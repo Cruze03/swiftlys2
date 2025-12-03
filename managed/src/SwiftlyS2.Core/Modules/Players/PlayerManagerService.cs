@@ -50,13 +50,9 @@ internal class PlayerManagerService : IPlayerManagerService
     {
         IEnumerable<IPlayer> allPlayers = [];
 
-        for (int i = 0; i < PlayerCap; i++)
+        var players = GetAllPlayers();
+        foreach (var targetPlayer in players)
         {
-            if (!IsPlayerOnline(i))
-                continue;
-
-            IPlayer targetPlayer = GetPlayer(i);
-
             if (searchMode.HasFlag(TargetSearchMode.NoBots) && targetPlayer.IsFakeClient)
                 continue;
 
@@ -113,7 +109,7 @@ internal class PlayerManagerService : IPlayerManagerService
                     var entIndex = pickerEntity.OriginalController.Value?.Entity?.EntityHandle.EntityIndex;
                     if (entIndex.HasValue)
                     {
-                        allPlayers = allPlayers.Append(GetPlayer((int)entIndex.Value - 1));
+                        allPlayers = allPlayers.Append(GetPlayer((int)entIndex.Value - 1)!);
                     }
                 }
             }
