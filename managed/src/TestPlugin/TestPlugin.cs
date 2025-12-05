@@ -411,8 +411,18 @@ public class TestPlugin : BasePlugin
     [Command("w")]
     public void TestCommand1( ICommandContext context )
     {
-        var ret = SteamGameServerUGC.DownloadItem(new PublishedFileId_t(3596198331), true);
-        Console.WriteLine(SteamGameServer.GetPublicIP().ToIPAddress());
+        var player = context.Sender!;
+        for (int i = 0; i < 10000; i++)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(100);
+                Core.Scheduler.NextTick(() =>
+                {
+                    player.PlayerPawn.SetModel("characters/models/tm_jumpsuit/tm_jumpsuit_varianta.vmdl");
+                });
+            });
+        }
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

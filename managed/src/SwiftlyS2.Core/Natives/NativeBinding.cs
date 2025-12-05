@@ -11,6 +11,14 @@ internal class NativeBinding
 
     public static bool IsMainThread => Thread.CurrentThread.ManagedThreadId == MainThreadID;
 
+    public static void ThrowIfNonMainThread()
+    {
+        if (!IsMainThread)
+        {
+            throw new InvalidOperationException("This method can only be called from the main thread.");
+        }
+    }
+
     public static void BindNatives( IntPtr nativeTable, int nativeTableSize )
     {
         unsafe
