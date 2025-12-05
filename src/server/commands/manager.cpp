@@ -278,6 +278,7 @@ uint64_t CServerCommands::RegisterCommand(std::string commandName, std::function
         conCommandCreated[commandName] = new ConCommand(commandName.c_str(), CommandsCallback, "SwiftlyS2 registered command", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND);
         conCommandMapping[++commandId] = commandName;
         commandHandlers[commandName] = handler;
+        conCommandCreated[commandName]->RemoveFlags(FCVAR_SERVER_CAN_EXECUTE);
     }
     return commandId;
 }
