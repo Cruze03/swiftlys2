@@ -1,4 +1,5 @@
 ﻿using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Scheduler;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.Natives;
@@ -65,6 +66,11 @@ internal class Player : IPlayer
         NativePlayer.ChangeTeam(Slot, (byte)team);
     }
 
+    public Task ChangeTeamAsync( Team team )
+    {
+        return SchedulerManager.QueueOrNow(() => ChangeTeam(team));
+    }
+
     public void ClearTransmitEntityBlocks()
     {
         NativePlayer.ClearTransmitEntityBlocked(Slot);
@@ -85,9 +91,19 @@ internal class Player : IPlayer
         NativePlayer.Kick(Slot, reason, (int)gameReason);
     }
 
+    public Task KickAsync( string reason, ENetworkDisconnectionReason gameReason )
+    {
+        return SchedulerManager.QueueOrNow(() => Kick(reason, gameReason));
+    }
+
     public void SendMessage( MessageType kind, string message )
     {
         NativePlayer.SendMessage(Slot, (int)kind, message, 5000);
+    }
+
+    public Task SendMessageAsync( MessageType kind, string message )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, message));
     }
 
     public void SetListenOverride( int player, ListenOverride listenOverride )
@@ -105,6 +121,11 @@ internal class Player : IPlayer
         NativePlayer.SwitchTeam(Slot, (byte)team);
     }
 
+    public Task SwitchTeamAsync( Team team )
+    {
+        return SchedulerManager.QueueOrNow(() => SwitchTeam(team));
+    }
+
     public void TakeDamage( CTakeDamageInfo damageInfo )
     {
         unsafe
@@ -113,9 +134,19 @@ internal class Player : IPlayer
         }
     }
 
+    public Task TakeDamageAsync( CTakeDamageInfo damageInfo )
+    {
+        return SchedulerManager.QueueOrNow(() => TakeDamage(damageInfo));
+    }
+
     public void Teleport( Vector pos, QAngle angle, Vector velocity )
     {
         NativePlayer.Teleport(Slot, pos, angle, velocity);
+    }
+
+    public Task TeleportAsync( Vector pos, QAngle angle, Vector velocity )
+    {
+        return SchedulerManager.QueueOrNow(() => Teleport(pos, angle, velocity));
     }
 
     public void Respawn()
@@ -126,6 +157,11 @@ internal class Player : IPlayer
     public void ExecuteCommand( string command )
     {
         NativePlayer.ExecuteCommand(Slot, command);
+    }
+
+    public Task ExecuteCommandAsync( string command )
+    {
+        return SchedulerManager.QueueOrNow(() => ExecuteCommand(command));
     }
 
     public bool Equals( IPlayer? other )
@@ -148,9 +184,19 @@ internal class Player : IPlayer
         NativePlayer.SendMessage(Slot, (int)kind, message, htmlDuration);
     }
 
+    public Task SendMessageAsync( MessageType kind, string message, int htmlDuration = 5000 )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, message, htmlDuration));
+    }
+
     public void SendNotify( string message )
     {
         SendMessage(MessageType.Notify, message);
+    }
+
+    public Task SendNotifyAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Notify, message);
     }
 
     public void SendConsole( string message )
@@ -158,9 +204,19 @@ internal class Player : IPlayer
         SendMessage(MessageType.Console, message);
     }
 
+    public Task SendConsoleAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Console, message);
+    }
+
     public void SendChat( string message )
     {
         SendMessage(MessageType.Chat, message);
+    }
+
+    public Task SendChatAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Chat, message);
     }
 
     public void SendCenter( string message )
@@ -168,9 +224,19 @@ internal class Player : IPlayer
         SendMessage(MessageType.Center, message);
     }
 
+    public Task SendCenterAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Center, message);
+    }
+
     public void SendAlert( string message )
     {
         SendMessage(MessageType.Alert, message);
+    }
+
+    public Task SendAlertAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Alert, message);
     }
 
     public void SendCenterHTML( string message, int duration = 5000 )
@@ -178,9 +244,19 @@ internal class Player : IPlayer
         SendMessage(MessageType.CenterHTML, message, duration);
     }
 
+    public Task SendCenterHTMLAsync( string message, int duration = 5000 )
+    {
+        return SendMessageAsync(MessageType.CenterHTML, message, duration);
+    }
+
     public void SendChatEOT( string message )
     {
         SendMessage(MessageType.ChatEOT, message);
+    }
+
+    public Task SendChatEOTAsync( string message )
+    {
+        return SendMessageAsync(MessageType.ChatEOT, message);
     }
 
     public static bool operator ==( Player? left, Player? right )
