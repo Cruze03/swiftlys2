@@ -155,7 +155,8 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
         if (!engine)
             return;
 
-        engine->ClientPrintf(CPlayerSlot(m_iPlayerId), msg.c_str());
+        std::string with_newline = msg + "\n";
+        engine->ClientPrintf(CPlayerSlot(m_iPlayerId), with_newline.c_str());
     }
     else
     {

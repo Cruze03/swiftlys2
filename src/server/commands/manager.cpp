@@ -275,7 +275,7 @@ uint64_t CServerCommands::RegisterCommand(std::string commandName, std::function
     if (!conCommandCreated.contains(commandName))
     {
         // printf("RegisterCommand -> commandName: %s, handler: %p, registerRaw: %d\n", commandName.c_str(), handler, registerRaw);
-        conCommandCreated[commandName] = new ConCommand(commandName.c_str(), CommandsCallback, "SwiftlyS2 registered command", (1 << 25) | (1 << 0) | (1 << 24));
+        conCommandCreated[commandName] = new ConCommand(commandName.c_str(), CommandsCallback, "SwiftlyS2 registered command", FCVAR_CLIENT_CAN_EXECUTE | FCVAR_LINKED_CONCOMMAND);
         conCommandMapping[++commandId] = commandName;
         commandHandlers[commandName] = handler;
     }
