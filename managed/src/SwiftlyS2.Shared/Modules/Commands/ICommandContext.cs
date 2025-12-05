@@ -39,4 +39,10 @@ public interface ICommandContext
     /// </summary>
     /// <param name="message">The message to send as a reply.</param>
     public void Reply( string message );
+
+    /// <summary>
+    /// Sends a reply message to the command sender asynchronously.
+    /// </summary>
+    /// <param name="message">The message to send as a reply.</param>
+    public void ReplyAsync( string message );
 }

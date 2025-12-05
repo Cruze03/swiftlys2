@@ -1,5 +1,6 @@
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Core.Players;
+using SwiftlyS2.Core.Scheduler;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.Commands;
 
@@ -31,6 +32,11 @@ internal class CommandContext : ICommandContext
         }
     }
 
+    public void ReplyAsync( string message )
+    {
+        SchedulerManager.QueueOrNow(() => Reply(message));
+    }
+
     public CommandContext( int playerId, string[] args, string commandName, string prefix, bool slient )
     {
         IsSentByPlayer = playerId != -1;
@@ -43,6 +49,7 @@ internal class CommandContext : ICommandContext
 
     public override string ToString()
     {
-        return $"CommandContext {{ Sender: {(IsSentByPlayer ? $"Player: {Sender?.Controller.PlayerName ?? "Unknown"}" : "Console")}, Command: {Prefix}{CommandName}, Args: [{(Args.Length > 0 ? string.Join(" ", Args) : "None")}], Mode: {(IsSlient ? "Silent" : "Normal")} }}";
+        return
+            $"CommandContext {{ Sender: {(IsSentByPlayer ? $"Player: {Sender?.Controller.PlayerName ?? "Unknown"}" : "Console")}, Command: {Prefix}{CommandName}, Args: [{(Args.Length > 0 ? string.Join(" ", Args) : "None")}], Mode: {(IsSlient ? "Silent" : "Normal")} }}";
     }
 }
