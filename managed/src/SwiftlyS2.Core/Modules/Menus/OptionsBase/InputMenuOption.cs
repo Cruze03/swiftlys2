@@ -159,7 +159,7 @@ public sealed class InputMenuOption : MenuOptionBase
         }
 
         _ = inputStates.AddOrUpdate(args.Player.PlayerID, $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)", ( _, _ ) => $"<font color='#C0FF3E'>Waiting</font> (click again to cancel)");
-        args.Player.SendMessage(MessageType.Chat, hintMessage);
+        args.Player.SendMessageAsync(MessageType.Chat, hintMessage);
 
         _ = waitingForInput.AddOrUpdate(args.Player.PlayerID, true, ( _, _ ) => true);
 
