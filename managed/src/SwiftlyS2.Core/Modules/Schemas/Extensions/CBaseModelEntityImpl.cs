@@ -19,6 +19,7 @@ internal partial class CBaseModelEntityImpl : CBaseModelEntity
 
     public void SetBodygroupByName(string group, int value)
     {
+        NativeBinding.ThrowIfNonMainThread();
         AcceptInput("SetBodygroup", $"{group},{value}");
     }
 
