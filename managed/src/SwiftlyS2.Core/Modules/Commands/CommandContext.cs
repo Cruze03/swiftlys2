@@ -32,9 +32,9 @@ internal class CommandContext : ICommandContext
         }
     }
 
-    public void ReplyAsync( string message )
+    public Task ReplyAsync( string message )
     {
-        SchedulerManager.QueueOrNow(() => Reply(message));
+        return SchedulerManager.QueueOrNow(() => Reply(message));
     }
 
     public CommandContext( int playerId, string[] args, string commandName, string prefix, bool slient )

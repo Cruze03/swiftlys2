@@ -44,5 +44,5 @@ public interface ICommandContext
     /// Sends a reply message to the command sender asynchronously.
     /// </summary>
     /// <param name="message">The message to send as a reply.</param>
-    public void ReplyAsync( string message );
+    public Task ReplyAsync( string message );
 }
