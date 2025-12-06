@@ -15,6 +15,14 @@ public struct CTraceFilter
     {
         _pVTable = checkIgnoredEntities ? CTraceFilterVTable.pCTraceFilterShouldHitFunctionCall : CTraceFilterVTable.pCTraceFilterVTable;
     }
+
+    internal void EnsureValid()
+    {
+        if (this._pVTable == 0)
+        {
+            _pVTable = CTraceFilterVTable.pCTraceFilterShouldHitFunctionCall;
+        }
+    }
 }
 
 internal static class CTraceFilterVTable

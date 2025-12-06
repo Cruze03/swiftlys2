@@ -1,4 +1,4 @@
-using SwiftlyS2.Core.Natives;
+﻿using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.Services;
 using SwiftlyS2.Core.SchemaDefinitions;
@@ -25,6 +25,7 @@ internal class TraceManager : ITraceManager
         {
             fixed (CGameTrace* tracePtr = &trace)
             {
+                filter.EnsureValid();
                 GameFunctions.TraceShape(NativeEngineHelpers.GetTraceManager(), &ray, start, end, &filter, tracePtr);
             }
         }
