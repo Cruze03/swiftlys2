@@ -86,6 +86,8 @@ public interface IEngineService
 
     /// <summary>
     /// Dispatches a particle effect to the specified recipients.
+    ///
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <param name="particleName">The name of the particle effect.</param>
     /// <param name="attachmentType">The type of attachment for the particle effect.</param>
@@ -95,5 +97,23 @@ public interface IEngineService
     /// <param name="resetAllParticlesOnEntity">Whether to reset all particles on the entity.</param>
     /// <param name="splitScreenSlot">The split screen slot for the particle effect.</param>
     /// <param name="entity">The entity to attach the particle effect to.</param>
-    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null );
+    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint,
+        CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false,
+        int splitScreenSlot = 0, CBaseEntity? entity = null );
+
+    /// <summary>
+    /// Dispatches a particle effect to the specified recipients asynchronously.
+    /// </summary>
+    /// <param name="particleName">The name of the particle effect.</param>
+    /// <param name="attachmentType">The type of attachment for the particle effect.</param>
+    /// <param name="attachmentPoint">The attachment point for the particle effect.</param>
+    /// <param name="attachmentName">The name of the attachment for the particle effect.</param>
+    /// <param name="filter">The recipient filter for the particle effect.</param>
+    /// <param name="resetAllParticlesOnEntity">Whether to reset all particles on the entity.</param>
+    /// <param name="splitScreenSlot">The split screen slot for the particle effect.</param>
+    /// <param name="entity">The entity to attach the particle effect to.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    public Task DispatchParticleEffectAsync( string particleName, ParticleAttachment_t attachmentType,
+        byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter,
+        bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null );
 }

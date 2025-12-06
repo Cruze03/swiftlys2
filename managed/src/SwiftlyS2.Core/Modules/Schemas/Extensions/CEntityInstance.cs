@@ -1,5 +1,6 @@
 using SwiftlyS2.Core.EntitySystem;
 using SwiftlyS2.Shared.EntitySystem;
+using SwiftlyS2.Shared.Misc;
 
 namespace SwiftlyS2.Shared.SchemaDefinitions;
 
@@ -19,6 +20,8 @@ public partial interface CEntityInstance
 
   /// <summary>
   /// Fire an input to the entity.
+  /// 
+  /// Thread unsafe, use async variant instead for non-main thread context.
   /// </summary>
   /// <typeparam name="T">Param type. Support bool, int, uint, long, ulong, float, double, string, Vector, Vector2D, Vector4D, QAngle, Color</typeparam>
   /// <param name="input">Input name.</param>
@@ -26,6 +29,7 @@ public partial interface CEntityInstance
   /// <param name="activator">Activator entity. Nullable.</param>
   /// <param name="caller">Caller entity. Nullable.</param>
   /// <param name="outputID">Output ID.</param>
+  [ThreadUnsafe]
   public void AcceptInput<T>( string input, T? value, CEntityInstance? activator = null, CEntityInstance? caller = null, int outputID = 0 );
 
   /// <summary>
@@ -41,6 +45,8 @@ public partial interface CEntityInstance
 
   /// <summary>
   /// Add an entity IO event to the entity.
+  /// 
+  /// Thread unsafe, use async variant instead for non-main thread context.
   /// </summary>
   /// <typeparam name="T">Param type. Support bool, int, uint, long, ulong, float, double, string, Vector, Vector2D, Vector4D, QAngle, Color</typeparam>
   /// <param name="input">Input name.</param>
@@ -48,6 +54,7 @@ public partial interface CEntityInstance
   /// <param name="activator">Activator entity. Nullable.</param>
   /// <param name="caller">Caller entity. Nullable.</param>
   /// <param name="delay">Delay in seconds.</param>x
+  [ThreadUnsafe]
   public void AddEntityIOEvent<T>( string input, T? value, CEntityInstance? activator = null, CEntityInstance? caller = null, float delay = 0f );
 
   /// <summary>
@@ -63,8 +70,11 @@ public partial interface CEntityInstance
   
   /// <summary>
   /// Dispatch a spawn event to the entity.
+  /// 
+  /// Thread unsafe, use async variant instead for non-main thread context.
   /// </summary>
   /// <param name="entityKV">Entity key values. Nullable.</param>
+  [ThreadUnsafe]
   public void DispatchSpawn( CEntityKeyValues? entityKV = null );
 
   /// <summary>
@@ -94,7 +104,10 @@ public partial interface CEntityInstance
 
   /// <summary>
   /// Despawn the entity.
-  /// </summary>    
+  /// 
+  /// Thread unsafe, use async variant instead for non-main thread context.
+  /// </summary>
+  [ThreadUnsafe]
   public void Despawn();
 
   /// <summary>

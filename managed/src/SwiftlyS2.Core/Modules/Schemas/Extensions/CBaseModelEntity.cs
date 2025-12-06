@@ -1,11 +1,16 @@
-﻿namespace SwiftlyS2.Shared.SchemaDefinitions;
+﻿using SwiftlyS2.Shared.Misc;
+
+namespace SwiftlyS2.Shared.SchemaDefinitions;
 
 public partial interface CBaseModelEntity
 {
     /// <summary>
     /// Sets the model to the entity.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <param name="model">The model path to be used.</param>
+    [ThreadUnsafe]
     public void SetModel(string model);
 
     /// <summary>
@@ -16,7 +21,10 @@ public partial interface CBaseModelEntity
 
     /// <summary>
     /// Sets the bodygroup to the entity.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
+    [ThreadUnsafe]
     public void SetBodygroupByName(string group, int value);
 
     /// <summary>

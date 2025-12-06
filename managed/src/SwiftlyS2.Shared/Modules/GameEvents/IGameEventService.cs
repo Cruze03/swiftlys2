@@ -52,15 +52,21 @@ public interface IGameEventService
 
     /// <summary>
     /// Fires an event to all players.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>
+    [ThreadUnsafe]
     void Fire<T>() where T : IGameEvent<T>;
 
     /// <summary>
     /// Fires an event to all players with a configured event.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// <param name="configureEvent">The action to configure the event.</param>
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>
+    [ThreadUnsafe]
     void Fire<T>( Action<T> configureEvent ) where T : IGameEvent<T>;
 
     /// <summary>
@@ -77,17 +83,23 @@ public interface IGameEventService
 
     /// <summary>
     /// Fires an event to a player.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>
     /// <param name="slot">The player slot.</param>
+    [ThreadUnsafe]
     void FireToPlayer<T>( int slot ) where T : IGameEvent<T>;
 
     /// <summary>
     /// Fires an event to a player with a configured event.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>
     /// <param name="slot">The player slot.</param>
     /// <param name="configureEvent">The action to configure the event.</param>
+    [ThreadUnsafe]
     void FireToPlayer<T>( int slot, Action<T> configureEvent ) where T : IGameEvent<T>;
 
     /// <summary>
@@ -107,15 +119,21 @@ public interface IGameEventService
 
     /// <summary>
     /// Fires an event to the server.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [ThreadUnsafe]
     void FireToServer<T>() where T : IGameEvent<T>;
 
     /// <summary>
     /// Fires an event to the server with a configured event.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
     /// <typeparam name="T">The event type.</typeparam>
     /// <param name="configureEvent">The action to configure the event.</param>
+    [ThreadUnsafe]
     void FireToServer<T>( Action<T> configureEvent ) where T : IGameEvent<T>;
 
     /// <summary>

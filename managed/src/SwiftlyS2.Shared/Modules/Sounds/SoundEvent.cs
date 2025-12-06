@@ -1,5 +1,6 @@
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Core.Scheduler;
+using SwiftlyS2.Shared.Misc;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.SchemaDefinitions;
 
@@ -137,8 +138,10 @@ public class SoundEvent : IDisposable
     /// <summary>
     /// Emit the sound event.
     /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
     /// <returns>The emitted sound event guid.</returns>
     /// </summary>
+    [ThreadUnsafe]
     public uint Emit()
     {
         NativeSounds.SetClients(Address, Recipients.ToMask());

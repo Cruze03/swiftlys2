@@ -1,4 +1,5 @@
 ﻿using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Scheduler;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
@@ -8,9 +9,7 @@ namespace SwiftlyS2.Core.SchemaDefinitions;
 internal partial class CBaseEntityImpl : CBaseEntity
 {
     public CEntitySubclassVDataBase VData {
-        get {
-            return new CEntitySubclassVDataBaseImpl(NativeSchema.GetVData(_Handle));
-        }
+        get { return new CEntitySubclassVDataBaseImpl(NativeSchema.GetVData(_Handle)); }
     }
 
     public Vector? AbsOrigin {
@@ -23,6 +22,7 @@ internal partial class CBaseEntityImpl : CBaseEntity
             return CBodyComponent?.SceneNode?.AbsOrigin;
         }
     }
+
     public QAngle? AbsRotation {
         get {
             if (CBodyComponent == null) return null;

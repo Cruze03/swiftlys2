@@ -65,8 +65,11 @@ internal class EngineService : IEngineService
         return handle == nint.Zero ? null : handle;
     }
 
-    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null )
+    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint,
+        CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false,
+        int splitScreenSlot = 0, CBaseEntity? entity = null )
     {
+        NativeBinding.ThrowIfNonMainThread();
         GameFunctions.DispatchParticleEffect(
             particleName,
             (uint)attachmentType,
@@ -77,5 +80,13 @@ internal class EngineService : IEngineService
             splitScreenSlot,
             filter
         );
+    }
+
+    public Task DispatchParticleEffectAsync( string particleName, ParticleAttachment_t attachmentType,
+        byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter,
+        bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null )
+    {
+        return SchedulerManager.QueueOrNow(() => DispatchParticleEffect(particleName, attachmentType, attachmentPoint,
+            attachmentName, filter, resetAllParticlesOnEntity, splitScreenSlot, entity));
     }
 }

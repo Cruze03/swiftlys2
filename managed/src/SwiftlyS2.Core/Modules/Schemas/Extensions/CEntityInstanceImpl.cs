@@ -16,6 +16,7 @@ internal partial class CEntityInstanceImpl : CEntityInstance
     public unsafe void AcceptInput<T>( string input, T? value, CEntityInstance? activator = null,
         CEntityInstance? caller = null, int outputID = 0 )
     {
+        NativeBinding.ThrowIfNonMainThread();
         var variant = new CVariant();
         switch (value)
         {
@@ -97,6 +98,7 @@ internal partial class CEntityInstanceImpl : CEntityInstance
     public unsafe void AddEntityIOEvent<T>( string input, T? value, CEntityInstance? activator = null,
         CEntityInstance? caller = null, float delay = 0f )
     {
+        NativeBinding.ThrowIfNonMainThread();
         var variant = new CVariant();
         switch (value)
         {
