@@ -152,10 +152,6 @@
         "windows": 0,
         "linux": 0
     },
-    "ILoopMode::LoopShutdown": {
-        "windows": 1,
-        "linux": 1
-    },
     "IGameEventManager2::FireEvent": {
         "windows": 7,
         "linux": 8
