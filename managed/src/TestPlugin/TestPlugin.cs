@@ -41,6 +41,45 @@ using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
 
 namespace TestPlugin;
 
+public enum HostStateRequestType_t : int
+{
+    HSR_IDLE = 1,
+    HSR_GAME,
+    HSR_SOURCETV_RELAY,
+    HSR_QUIT
+};
+
+public enum HostStateRequestMode_t : int
+{
+    HM_LEVEL_LOAD_SERVER = 1,
+    HM_CONNECT,
+    HM_CHANGE_LEVEL,
+    HM_LEVEL_LOAD_LISTEN,
+    HM_LOAD_SAVE,
+    HM_PLAY_DEMO,
+    HM_SOURCETV_RELAY,
+    HM_ADDON_DOWNLOAD
+};
+
+[StructLayout(LayoutKind.Sequential)]
+public struct CHostStateRequest
+{
+    public HostStateRequestType_t Type;
+    public CUtlString LoopModeType;
+    public CUtlString Desc;
+    public byte Active;
+    public uint ID;
+    public HostStateRequestMode_t Mode;
+    public CUtlString LevelName;
+    public byte Changelevel;
+    public CUtlString SaveGame;
+    public CUtlString Address;
+    public CUtlString DemoFile;
+    public byte LoadMap;
+    public CUtlString Addons;
+    public nint pKV;
+}
+
 public class TestConfig
 {
     public string Name { get; set; }
@@ -116,8 +155,7 @@ public class TestPlugin : BasePlugin
             for (var j = 0; j < 5; j++)
             {
                 var optionText = $"Menu # {x + 1} - Option # {j + 1}";
-                var button = new ButtonMenuOption(optionText)
-                    { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
                 button.Click += ( sender, args ) =>
                 {
                     args.Player.SendChat($"Clicked: {optionText}");
@@ -130,8 +168,39 @@ public class TestPlugin : BasePlugin
         }
     }
 
+    public unsafe delegate void SetPendingHostStateRequestDelegate( nint hostStateManager, CHostStateRequest* pRequest );
+    private IUnmanagedFunction<SetPendingHostStateRequestDelegate>? _SetPendingHostStateRequestDelegate;
+
     public override void Load( bool hotReload )
     {
+        _SetPendingHostStateRequestDelegate = Core.Memory.GetUnmanagedFunctionByAddress<SetPendingHostStateRequestDelegate>(
+            Core.Memory.GetAddressBySignature(
+                Library.Engine,
+                "48 89 74 24 ? 57 48 83 EC ? 33 F6 48 8B FA 48 39 35"
+            )!.Value
+        );
+
+        _ = _SetPendingHostStateRequestDelegate.AddHook(( next ) =>
+        {
+            unsafe
+            {
+                return ( pHostStateManager, pRequest ) =>
+                {
+                    if (pRequest->pKV != 0)
+                    {
+                        var kv = (KeyValues*)pRequest->pKV;
+                        Console.WriteLine($"Name '{kv->GetName()}'");
+
+                        for (var subKey = kv->GetFirstSubKey(); subKey != null; subKey = subKey->GetNextKey())
+                        {
+                            Console.WriteLine($"  {subKey->GetName()} {(kv->GetName() == "map_workshop" ? kv->GetString("customgamemode", "") : string.Empty)}");
+                        }
+                    }
+
+                    next()(pHostStateManager, pRequest);
+                };
+            }
+        });
         // Core.Command.HookClientCommand((playerId, commandLine) =>
         // {
         //   Console.WriteLine("TestPlugin HookClientCommand " + playerId + " " + commandLine);
@@ -1122,8 +1191,7 @@ public class TestPlugin : BasePlugin
             for (var j = 0; j < 5; j++)
             {
                 var optionText = $"Menu # {i + 1} - Option # {j + 1}";
-                var button = new ButtonMenuOption(optionText)
-                    { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
+                var button = new ButtonMenuOption(optionText) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop, MaxWidth = 16f };
                 button.Click += ( sender, args ) =>
                 {
                     args.Player.SendChat($"Clicked: {optionText}");

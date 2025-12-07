@@ -312,10 +312,11 @@ void GameServerSteamAPIDeactivatedHook(void* _this)
 }
 
 std::string workshop_map = "";
+std::string current_map = "";
 
 bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry)
 {
-    g_SwiftlyCore.OnMapUnload();
+    if (current_map != "") g_SwiftlyCore.OnMapUnload();
 
     bool ret = reinterpret_cast<decltype(&LoopInitHook)>(g_pLoopInitHook->GetOriginal())(_this, pKeyValues, pRegistry);
 
@@ -333,7 +334,6 @@ bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry)
     return ret;
 }
 
-std::string current_map = "";
 extern void* g_pOnMapLoadCallback;
 extern void* g_pOnMapUnloadCallback;
 
