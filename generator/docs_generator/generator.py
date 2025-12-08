@@ -178,9 +178,9 @@ def generate_markdown(yaml_data):
                     if inherit_url.endswith('.html'):
                         inherit_url = "/docs/api/" + convert_to_path(inherit_url)
                         inherit_url = inherit_url.replace('/api/shared/', '/api/').replace('/api/core/', '/api/')
-                    md += f"- [{escape_generics_in_link_text(inherit_text)}]({inherit_url})\n"
+                    md += f"[{escape_generics_in_link_text(inherit_text)}]({inherit_url})\n"
                 else:
-                    md += f"- {inherit_text}\n"
+                    md += f"{inherit_text}\n"
             md += "\n"
         
         if 'list' in item:
@@ -191,9 +191,9 @@ def generate_markdown(yaml_data):
                     if list_url.endswith('.html'):
                         list_url = "/docs/api/" + convert_to_path(list_url)
                         list_url = list_url.replace('/api/shared/', '/api/').replace('/api/core/', '/api/')
-                    md += f"- [{escape_generics_in_link_text(list_text)}]({list_url})\n"
+                    md += f"[{escape_generics_in_link_text(list_text)}]({list_url})\n"
                 else:
-                    md += f"- {list_text}\n"
+                    md += f"{list_text}\n"
             md += "\n"
         
         if 'parameters' in item:
@@ -219,11 +219,11 @@ def generate_markdown(yaml_data):
                 api_param = f"<ApiParam {' '.join(parts)} />"
                 
                 if param_description:
-                    md += f"- {api_param} — {fix_html_for_jsx(param_description)}\n"
+                    md += f"{api_param} — {fix_html_for_jsx(param_description)}\n"
                 elif param_default != '':
-                    md += f"- {api_param} = {param_default}\n"
+                    md += f"{api_param} = {param_default}\n"
                 else:
-                    md += f"- {api_param}\n"
+                    md += f"{api_param}\n"
             md += "\n"
         
         if 'api3' in item:
