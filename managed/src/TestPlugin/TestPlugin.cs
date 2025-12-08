@@ -80,10 +80,61 @@ public struct CHostStateRequest
     public nint pKV;
 }
 
-public class TestConfig
+/// <summary>
+/// Main config for K4-Arenas
+/// </summary>
+public sealed class PluginConfig
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    /// <summary>DB connection name (from SwiftlyS2's database.jsonc)</summary>
+    public string DatabaseConnection { get; set; } = "host";
+
+    /// <summary>Days to keep inactive player records (0 = forever)</summary>
+    public int DatabasePurgeDays { get; set; } = 30;
+
+    /// <summary>Apply arena-friendly game config on load</summary>
+    public bool UsePredefinedConfig { get; set; } = true;
+
+    /// <summary>Command settings</summary>
+    public CommandSettings Commands { get; set; } = new();
+
+    /// <summary>Compatibility and behavior settings</summary>
+    public CompatibilitySettings Compatibility { get; set; } = new();
+}
+
+/// <summary>
+/// Command aliases config
+/// </summary>
+public sealed class CommandSettings
+{
+    /// <summary>Commands to open gun menu</summary>
+    public List<string> GunsCommands { get; set; } = ["guns", "gunpref", "weaponpref", "weps", "weapons"];
+
+    /// <summary>Commands to open rounds menu</summary>
+    public List<string> RoundsCommands { get; set; } = ["rounds", "roundpref"];
+
+    /// <summary>Commands to check queue position</summary>
+    public List<string> QueueCommands { get; set; } = ["queue"];
+
+    /// <summary>Commands to toggle AFK</summary>
+    public List<string> AfkCommands { get; set; } = ["afk"];
+}
+
+/// <summary>
+/// Compatibility and gameplay tweaks
+/// </summary>
+public sealed class CompatibilitySettings
+{
+    /// <summary>Block flash grenades from blinding other arena players</summary>
+    public bool BlockFlashOfNotOpponent { get; set; } = false;
+
+    /// <summary>Block damage to other arena players</summary>
+    public bool BlockDamageOfNotOpponent { get; set; } = false;
+
+    /// <summary>Disable clan tags entirely</summary>
+    public bool DisableClantags { get; set; } = false;
+
+    /// <summary>Random winner on draw instead of tie</summary>
+    public bool PreventDrawRounds { get; set; } = true;
 }
 
 public class InProcessConfig : ManualConfig
@@ -261,7 +312,8 @@ public class TestPlugin : BasePlugin
         });
 
         Core.Configuration
-            .InitializeJsonWithModel<TestConfig>("test.jsonc", "Main")
+            .InitializeJsonWithModel<PluginConfig>("test.jsonc", "Main")
+            .InitializeTomlWithModel<PluginConfig>("test.toml", "Main")
             .Configure(( builder ) =>
             {
                 builder.AddJsonFile("test.jsonc", optional: false, reloadOnChange: true);
@@ -428,30 +480,28 @@ public class TestPlugin : BasePlugin
     }
 
     [Command("hh")]
-    public void TestCommandHH( ICommandContext _ )
+    public unsafe void TestCommandHH( ICommandContext context )
     {
-        var filter = new CTraceFilter {
-            IterateEntities = true,
-            QueryShapeAttributes = new() {
-                InteractsWith = MaskTrace.Player,
-                InteractsExclude = MaskTrace.Sky,
-                InteractsAs = MaskTrace.Player,
-                CollisionGroup = CollisionGroup.PlayerMovement,
-                ObjectSetMask = RnQueryObjectSet.All,
-                HitSolid = true
-            }
-        };
+        var player = context.Sender!;
 
-        var start = new Vector(0, 0, 0);
-        var end = new Vector(0, 0, 100);
+        var targetPlayer = Core.PlayerManager.FindTargettedPlayers(player, "@aim", TargetSearchMode.IncludeSelf).FirstOrDefault();
 
-        Console.WriteLine("AAA");
-        var ray = new Ray_t();
+        var coords = player.Pawn!.AbsOrigin;
+        var otherCoords = targetPlayer!.Pawn!.AbsOrigin;
+
         var trace = new CGameTrace();
-        Console.WriteLine("AAA");
-        Core.Trace.TraceShape(start, end, ray, filter, ref trace);
+        Core.Trace.SimpleTrace(coords!.Value, otherCoords!.Value, RayType_t.RAY_TYPE_LINE, RnQueryObjectSet.AllGameEntities, MaskTrace.Player | MaskTrace.Solid, MaskTrace.Empty, MaskTrace.Solid, CollisionGroup.Player, ref trace);
 
-        Console.WriteLine(trace.Entity.IsValid);
+        Console.WriteLine(trace.pEntity != null ? $"! Hit Entity: {trace.Entity.DesignerName}" : "! No entity hit");
+        Console.WriteLine(
+            $"! SurfaceProperties: {(nint)trace.SurfaceProperties}, pEntity: {(nint)trace.pEntity}, HitBox: {(nint)trace.HitBox}({trace.HitBox->m_name.Value}), Body: {(nint)trace.Body}, Shape: {(nint)trace.Shape}, Contents: {trace.Contents}");
+        Console.WriteLine(
+            $"! StartPos: {trace.StartPos}, EndPos: {trace.EndPos}, HitNormal: {trace.HitNormal}, HitPoint: {trace.HitPoint}");
+        Console.WriteLine(
+            $"! HitOffset: {trace.HitOffset}, Fraction: {trace.Fraction}, Triangle: {trace.Triangle}, HitboxBoneIndex: {trace.HitboxBoneIndex}");
+        Console.WriteLine(
+            $"! RayType: {trace.RayType}, StartInSolid: {trace.StartInSolid}, ExactHitPoint: {trace.ExactHitPoint}");
+        Console.WriteLine("\n");
     }
 
     [Command("tt")]
