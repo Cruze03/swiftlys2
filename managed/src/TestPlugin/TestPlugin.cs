@@ -706,6 +706,14 @@ public class TestPlugin : BasePlugin
         return HookResult.Continue;
     }
 
+    [ServerNetMessageInternalHandler]
+    public HookResult TestSignonMessage( CNETMsg_SignonState msg, int playerid )
+    {
+        Console.WriteLine("HELLO MA MEN\n");
+        Console.WriteLine(msg.SignonState.ToString(), playerid);
+        return HookResult.Continue;
+    }
+
     [ServerNetMessageHandler]
     public HookResult TestServerNetMessageHandler( CCSUsrMsg_SendPlayerItemDrops msg )
     {

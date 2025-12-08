@@ -80,3 +80,5 @@ uint64 AddNetMessageServerHook = ptr callback // the callback should receive the
 void RemoveNetMessageServerHook = uint64 callbackID
 uint64 AddNetMessageClientHook = ptr callback // the callback should receive the following: int32 playerid, int netmessage_id, void* netmsg, return bool (true -> ignored, false -> supercede)
 void RemoveNetMessageClientHook = uint64 callbackID
+uint64 AddNetMessageServerHookInternal = ptr callback // callback should receive the following: int32 playerid, int netmessage_id, void* netmsg, return bool (true -> ignored, false -> supercede)
+void RemoveNetMessageServerHookInternal = uint64 callbackID

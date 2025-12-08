@@ -4,14 +4,17 @@ using SwiftlyS2.Shared.NetMessages;
 
 namespace SwiftlyS2.Core.AttributeParsers;
 
-internal static class NetMessageAttributeParser {
-  public static void ParseFromObject(this INetMessageService self, object instance) {
+internal static class NetMessageAttributeParser
+{
+  public static void ParseFromObject( this INetMessageService self, object instance )
+  {
     var type = instance.GetType();
     var methods = type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
     foreach (var method in methods)
     {
       var serverNetMessageHandlerAttribute = method.GetCustomAttribute<ServerNetMessageHandler>();
+      var serverNetMessageInternalHandlerAttribute = method.GetCustomAttribute<ServerNetMessageInternalHandler>();
       var clientNetMessageHandlerAttribute = method.GetCustomAttribute<ClientNetMessageHandler>();
 
       if (serverNetMessageHandlerAttribute != null)
@@ -26,7 +29,22 @@ internal static class NetMessageAttributeParser {
         var hookMethodGeneric = hookMethod.MakeGenericMethod(msgType);
         var handlerType = typeof(INetMessageService.ServerNetMessageHandler<>).MakeGenericType(msgType);
         var handler = method.CreateDelegate(handlerType, instance);
-        hookMethodGeneric.Invoke(self, new object[] { handler });
+        hookMethodGeneric.Invoke(self, [handler]);
+      }
+
+      if (serverNetMessageInternalHandlerAttribute != null)
+      {
+        var msgType = method.GetParameters()[0].ParameterType;
+        if (!msgType.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(INetMessage<>)))
+        {
+          throw new InvalidOperationException($"Type {msgType.Name} is not a valid net message type");
+        }
+
+        var hookMethod = typeof(INetMessageService).GetMethod("HookServerMessageInternal")!;
+        var hookMethodGeneric = hookMethod.MakeGenericMethod(msgType);
+        var handlerType = typeof(INetMessageService.ServerNetMessageInternalHandler<>).MakeGenericType(msgType);
+        var handler = method.CreateDelegate(handlerType, instance);
+        hookMethodGeneric.Invoke(self, [handler]);
       }
 
       if (clientNetMessageHandlerAttribute != null)
@@ -41,8 +59,8 @@ internal static class NetMessageAttributeParser {
         var hookMethodGeneric = hookMethod.MakeGenericMethod(msgType);
         var handlerType = typeof(INetMessageService.ClientNetMessageHandler<>).MakeGenericType(msgType);
         var handler = method.CreateDelegate(handlerType, instance);
-        hookMethodGeneric.Invoke(self, new object[] { handler });
+        hookMethodGeneric.Invoke(self, [handler]);
       }
     }
   }
-} 
+}

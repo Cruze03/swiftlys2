@@ -160,6 +160,10 @@
         "windows": 7,
         "linux": 7
     },
+    "CServerSideClient::SendNetMessage": {
+        "windows": 15,
+        "linux": 16
+    },
     "CServerSideClient::ProcessRespondCvarValue": {
         "windows": 38,
         "linux": 40

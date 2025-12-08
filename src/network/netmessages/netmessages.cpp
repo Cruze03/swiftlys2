@@ -29,15 +29,19 @@
 
 std::map<uint64_t, std::function<int(uint64_t*, int, void*)>> g_mServerMessageSendCallbacks;
 std::map<uint64_t, std::function<int(int, int, void*)>> g_mClientMessageSendCallbacks;
+std::map<uint64_t, std::function<int(int, int, void*)>> g_mServerMessageInternalSendCallbacks;
 
 IFunctionHook* g_pFilterMessageHook = nullptr;
 IVFunctionHook* g_pPostEventAbstractHook = nullptr;
+IVFunctionHook* g_pSendNetMessageHook = nullptr;
 
 bool bypassPostEventAbstractHook = false;
 
 bool FilterMessage(INetworkMessageProcessingPreFilterCustom* client, CNetMessage* cMsg, INetChannel* netchan);
 void PostEventAbstractHook(void* _this, CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients,
     INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType);
+
+bool SendNetMessage(CServerSideClient* client, CNetMessage* pData, NetChannelBufType_t bufType);
 
 void CNetMessages::Initialize()
 {
@@ -54,6 +58,13 @@ void CNetMessages::Initialize()
     g_pPostEventAbstractHook = hooksmanager->CreateVFunctionHook();
     g_pPostEventAbstractHook->SetHookFunction(gameEventSystem, gamedata->GetOffsets()->Fetch("IGameEventSystem::PostEventAbstract"), (void*)PostEventAbstractHook, true);
     g_pPostEventAbstractHook->Enable();
+
+    void* serverSideClientVTable = nullptr;
+    s2binlib_find_vtable("engine2", "CServerSideClient", &serverSideClientVTable);
+
+    g_pSendNetMessageHook = hooksmanager->CreateVFunctionHook();
+    g_pSendNetMessageHook->SetHookFunction(serverSideClientVTable, gamedata->GetOffsets()->Fetch("CServerSideClient::SendNetMessage"), (void*)SendNetMessage, true);
+    g_pSendNetMessageHook->Enable();
 }
 
 void CNetMessages::Shutdown()
@@ -64,6 +75,24 @@ void CNetMessages::Shutdown()
     auto hooksmanager = g_ifaceService.FetchInterface<IHooksManager>(HOOKSMANAGER_INTERFACE_VERSION);
     hooksmanager->DestroyFunctionHook(g_pFilterMessageHook);
     hooksmanager->DestroyVFunctionHook(g_pPostEventAbstractHook);
+    hooksmanager->DestroyVFunctionHook(g_pSendNetMessageHook);
+}
+
+bool SendNetMessage(CServerSideClient* client, CNetMessage* pData, NetChannelBufType_t bufType)
+{
+    if (!client) return reinterpret_cast<decltype(&SendNetMessage)>(g_pSendNetMessageHook->GetOriginal())(client, pData, bufType);
+    if (!pData) return reinterpret_cast<decltype(&SendNetMessage)>(g_pSendNetMessageHook->GetOriginal())(client, pData, bufType);
+
+    auto playerid = client->GetPlayerSlot().Get();
+    int msgid = pData->GetNetMessage()->GetNetMessageInfo()->m_MessageId;
+
+    for (const auto& [id, callback] : g_mServerMessageInternalSendCallbacks) {
+        auto res = callback(playerid, msgid, pData);
+        if (res == 1) return true;
+        else if (res == 2) break;
+    }
+
+    return reinterpret_cast<decltype(&SendNetMessage)>(g_pSendNetMessageHook->GetOriginal())(client, pData, bufType);
 }
 
 bool FilterMessage(INetworkMessageProcessingPreFilterCustom* client, CNetMessage* cMsg, INetChannel* netchan)
@@ -122,4 +151,16 @@ uint64_t CNetMessages::AddClientMessageSendCallback(std::function<int(int, int, 
 void CNetMessages::RemoveClientMessageSendCallback(uint64_t callbackID)
 {
     g_mClientMessageSendCallbacks.erase(callbackID);
+}
+
+uint64_t CNetMessages::AddServerMessageInternalSendCallback(std::function<int(int, int, void*)> callback)
+{
+    static uint64_t s_CallbackID = 0;
+    g_mServerMessageInternalSendCallbacks[s_CallbackID++] = callback;
+    return s_CallbackID - 1;
+}
+
+void CNetMessages::RemoveServerMessageInternalSendCallback(uint64_t callbackID)
+{
+    g_mServerMessageInternalSendCallbacks.erase(callbackID);
 }

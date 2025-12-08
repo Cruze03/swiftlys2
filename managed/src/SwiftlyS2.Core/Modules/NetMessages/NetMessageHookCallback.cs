@@ -134,3 +134,51 @@ internal class NetMessageServerHookCallback<T> : NetMessageHookCallback where T 
   }
 
 }
+
+internal class NetMessageServerInternalHookCallback<T> : NetMessageHookCallback where T : ITypedProtobuf<T>, INetMessage<T>, IDisposable
+{
+
+  private INetMessageService.ServerNetMessageInternalHandler<T> _callback;
+  private NetMessageClientHookCallbackDelegate _unmanagedCallback;
+  private nint _unmanagedCallbackPtr;
+  private ulong _nativeListenerId;
+  private ILogger<NetMessageServerInternalHookCallback<T>> _logger;
+
+
+  public NetMessageServerInternalHookCallback( INetMessageService.ServerNetMessageInternalHandler<T> callback, ILoggerFactory loggerFactory, IContextedProfilerService profiler ) : base(loggerFactory, profiler)
+  {
+    Guid = Guid.NewGuid();
+    _logger = LoggerFactory.CreateLogger<NetMessageServerInternalHookCallback<T>>();
+
+    _callback = callback;
+
+    _unmanagedCallback = ( playerId, msgId, pMessage ) =>
+    {
+      try
+      {
+        if (msgId != T.MessageId) return HookResult.Continue;
+        var category = "NetMessageServerInternalHookCallback::" + typeof(T).Name;
+        Profiler.StartRecording(category);
+        var msg = T.Wrap(pMessage, false);
+        var result = _callback(msg, playerId);
+        Profiler.StopRecording(category);
+        return result;
+      }
+      catch (Exception e)
+      {
+        if (!GlobalExceptionHandler.Handle(e)) return HookResult.Continue;
+        _logger.LogError(e, "Error in net message server internal hook callback for {MessageType}", typeof(T).Name);
+        return HookResult.Continue;
+      }
+    };
+    _unmanagedCallbackPtr = Marshal.GetFunctionPointerForDelegate(_unmanagedCallback);
+    _nativeListenerId = NativeNetMessages.AddNetMessageServerHookInternal(_unmanagedCallbackPtr);
+
+  }
+
+  public override void Dispose()
+  {
+    NativeNetMessages.RemoveNetMessageServerHookInternal(_nativeListenerId);
+  }
+
+}
