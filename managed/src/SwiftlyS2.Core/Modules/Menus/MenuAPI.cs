@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Menus.OptionsBase;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
 
@@ -40,6 +41,11 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     /// The builder used to construct and configure this menu.
     /// </summary>
     public IMenuBuilderAPI? Builder { get; init; }
+
+    /// <summary>
+    /// Gets or sets the default comment text to use when a menu option's Comment is not set.
+    /// </summary>
+    public string DefaultComment { get; set; } = $"Powered by <font color='#ff3c00'>❤️</font> {HtmlGradient.GenerateGradientText("SwiftlyS2", "#ffffff", "#96d5ff")}";
 
     /// <summary>
     /// Gets or sets an object that contains data about this menu.
@@ -252,9 +258,10 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
                 foreach (var option in options)
                 {
-                    if (option is OptionsBase.MenuOptionBase optionBase)
+                    if (option is MenuOptionBase optionBase)
                     {
                         optionBase.UpdateDynamicText(now);
+                        optionBase.UpdateCustomAnimations(now);
                     }
                 }
 
@@ -365,8 +372,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 .Skip(startIndex)
                 .Take(maxVisibleItems)
                 .ToList()
-                .AsReadOnly()
-            ;
+                .AsReadOnly();
 
         return (visibleOptions, arrowPosition);
     }
@@ -418,22 +424,47 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             option.GetDisplayText(player, 0)
         )));
 
+        var currentOption = visibleOptions.Count > 0 ? visibleOptions[arrowPosition] : null;
+        var optionBase = currentOption as MenuOptionBase;
+
+        var comment = !string.IsNullOrWhiteSpace(optionBase?.Comment)
+            ? string.Concat(
+                "<br>",
+                guideLine,
+                "<br>",
+                $"<font class='fontSize-s'>{optionBase.Comment}</font><br>"
+            )
+            : string.Concat(
+                "<br>",
+                guideLine,
+                "<br>",
+                $"<font class='fontSize-s'>{DefaultComment}</font><br>"
+            );
+
+        var claimInfo = optionBase?.InputClaimInfo ?? MenuInputClaimInfo.Empty;
+
         var footerSection = Configuration.HideFooter ? string.Empty :
             core.MenusAPI.Configuration.InputMode switch {
                 "wasd" => string.Concat(
-                    "<br>", guideLine, "<br>",
                     "<font class='fontSize-s' color='#FFFFFF'>",
                     $"<font color='{footerColor}'>Move:</font> W/S",
-                    $" | <font color='{footerColor}'>Use:</font> D",
-                    Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> A",
+                    claimInfo.ClaimsUse
+                        ? $" | <font color='{footerColor}'>{claimInfo.UseLabel ?? "Use"}:</font> D"
+                        : $" | <font color='{footerColor}'>Use:</font> D",
+                    claimInfo.ClaimsExit
+                        ? $" | <font color='{footerColor}'>{claimInfo.ExitLabel ?? "Exit"}:</font> A"
+                        : (Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> A"),
                     "</font>"
                 ),
                 _ => string.Concat(
-                    "<br>", guideLine, "<br>",
                     "<font class='fontSize-s' color='#FFFFFF'>",
                     $"<font color='{footerColor}'>Move:</font> {KeybindOverrides.Move?.ToString() ?? core.MenusAPI.Configuration.ButtonsScroll.ToUpper()}/{KeybindOverrides.MoveBack?.ToString() ?? core.MenusAPI.Configuration.ButtonsScrollBack.ToUpper()}",
-                    $" | <font color='{footerColor}'>Use:</font> {KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse.ToUpper()}",
-                    Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}",
+                    claimInfo.ClaimsUse
+                        ? $" | <font color='{footerColor}'>{claimInfo.UseLabel ?? "Use"}:</font> {KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse.ToUpper()}"
+                        : $" | <font color='{footerColor}'>Use:</font> {KeybindOverrides.Select?.ToString() ?? core.MenusAPI.Configuration.ButtonsUse.ToUpper()}",
+                    claimInfo.ClaimsExit
+                        ? $" | <font color='{footerColor}'>{claimInfo.ExitLabel ?? "Exit"}:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}"
+                        : (Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}"),
                     "</font>"
                 )
             };
@@ -443,6 +474,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             "<font color='#FFFFFF' class='fontSize-sm'>",
             menuItems,
             "</font>",
+            comment,
             footerSection
         );
     }
@@ -499,7 +531,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
                 lock (optionsLock)
                 {
-                    options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.ResumeTextAnimation());
+                    options.OfType<MenuOptionBase>().ToList().ForEach(option => option.ResumeTextAnimation());
                 }
             }
         }
@@ -556,7 +588,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
                     lock (optionsLock)
                     {
-                        options.OfType<OptionsBase.MenuOptionBase>().ToList().ForEach(option => option.PauseTextAnimation());
+                        options.OfType<MenuOptionBase>().ToList().ForEach(option => option.PauseTextAnimation());
                     }
                 }
             }
@@ -588,7 +620,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             // {
             //     submenuOption.SubmenuRequested += OnSubmenuRequested;
             // }
-            if (option is OptionsBase.MenuOptionBase baseOption)
+            if (option is MenuOptionBase baseOption)
             {
                 baseOption.Menu = this;
             }
@@ -667,17 +699,20 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     //     return selectedDisplayLine.TryGetValue(player, out var line) ? line : -1;
     // }
 
-    private static void SetFreezeState( IPlayer player, bool freeze )
+    private void SetFreezeState( IPlayer player, bool freeze )
     {
         if (!player.IsValid || player.IsFakeClient || !(player.PlayerPawn?.IsValid ?? false))
         {
             return;
         }
 
-        var moveType = freeze ? MoveType_t.MOVETYPE_NONE : MoveType_t.MOVETYPE_WALK;
-        player.PlayerPawn.MoveType = moveType;
-        player.PlayerPawn.ActualMoveType = moveType;
-        player.PlayerPawn.MoveTypeUpdated();
+        core.Scheduler.NextTick(() =>
+        {
+            var moveType = freeze ? MoveType_t.MOVETYPE_NONE : MoveType_t.MOVETYPE_WALK;
+            player.PlayerPawn.MoveType = moveType;
+            player.PlayerPawn.ActualMoveType = moveType;
+            player.PlayerPawn.MoveTypeUpdated();
+        });
     }
 
     // private ValueTask OnOptionClick( object? sender, MenuOptionClickEventArgs args )

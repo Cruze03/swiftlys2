@@ -116,3 +116,4 @@ DEFINE_NATIVE("Commands.RegisterClientCommandsListener", Bridge_Commands_Registe
 DEFINE_NATIVE("Commands.UnregisterClientCommandsListener", Bridge_Commands_UnregisterClientCommandsListener);
 DEFINE_NATIVE("Commands.RegisterClientChatListener", Bridge_Commands_RegisterClientChatListener);
 DEFINE_NATIVE("Commands.UnregisterClientChatListener", Bridge_Commands_UnregisterClientChatListener);
+DEFINE_NATIVE("Commands.IsCommandRegistered", Bridge_Commands_IsCommandRegistered);

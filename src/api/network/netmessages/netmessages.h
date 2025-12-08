@@ -35,6 +35,10 @@ public:
     // playerid, netmessageid, pmsg, return true -> ignore, false -> supercede
     virtual uint64_t AddClientMessageSendCallback(std::function<int(int, int, void*)> callback) = 0;
     virtual void RemoveClientMessageSendCallback(uint64_t callbackID) = 0;
+
+    // playerid, netmessageid, pmsg, return true -> ignore, false -> supercede
+    virtual uint64_t AddServerMessageInternalSendCallback(std::function<int(int, int, void*)> callback) = 0;
+    virtual void RemoveServerMessageInternalSendCallback(uint64_t callbackID) = 0;
 };
 
 #endif

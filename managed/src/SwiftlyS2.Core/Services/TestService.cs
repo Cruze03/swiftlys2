@@ -48,27 +48,13 @@ internal class TestService {
     _Logger.LogWarning("TestService created");
     _Logger.LogWarning("TestService created");
 
-    Test2();
+    Test();
   }
 
 
   public void Test()
   {
-    _Core.Event.OnEntityCreated += (@event) =>
-    {
-      var name = _Core.Memory.GetObjectPtrVtableName(@event.Entity.Address);
-      Console.WriteLine("Entity spawned: " + name);
-      var hasVtable = _Core.Memory.ObjectPtrHasVtable(@event.Entity.Address + 1);
-      Console.WriteLine("Has vtable: " + hasVtable);
-      var vtable = _Core.Memory.ObjectPtrHasBaseClass(@event.Entity.Address, "CBaseEntity");
-      Console.WriteLine("Has base class: " + vtable);
-      var handle = _Core.EntitySystem.GetRefEHandle(@event.Entity);
-    };
-    // _Core.Event.OnItemServicesCanAcquireHook += (@event) => {
-    //   Console.WriteLine(@event.EconItemView.ItemDefinitionIndex);
-
-    //   @event.SetAcquireResult(AcquireResult.NotAllowedByProhibition);
-    // };
+    
 
 
   }

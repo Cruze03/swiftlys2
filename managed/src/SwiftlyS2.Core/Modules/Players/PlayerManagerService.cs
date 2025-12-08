@@ -1,14 +1,23 @@
 ﻿using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Scheduler;
 using SwiftlyS2.Core.SchemaDefinitions;
+using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Players;
 using SwiftlyS2.Shared.SchemaDefinitions;
-using SwiftlyS2.Shared.Services;
 using SwiftlyS2.Shared.SteamAPI;
+using SwiftlyS2.Shared.Translation;
 
 namespace SwiftlyS2.Core.Players;
 
 internal class PlayerManagerService : IPlayerManagerService
 {
+    private ITranslationService _translationService;
+
+    public PlayerManagerService( ITranslationService translationService )
+    {
+        _translationService = translationService;
+    }
+
     public int PlayerCount => NativePlayerManager.GetPlayerCount();
 
     public int PlayerCap => NativePlayerManager.GetPlayerCap();
@@ -18,8 +27,9 @@ internal class PlayerManagerService : IPlayerManagerService
         NativePlayerManager.ClearAllBlockedTransmitEntity();
     }
 
-    public IPlayer GetPlayer( int playerid )
+    public IPlayer? GetPlayer( int playerid )
     {
+        if (!IsPlayerOnline(playerid)) return null;
         return new Player(playerid);
     }
 
@@ -33,6 +43,11 @@ internal class PlayerManagerService : IPlayerManagerService
         NativePlayerManager.SendMessage((int)kind, message, 5000);
     }
 
+    public Task SendMessageAsync( MessageType kind, string message )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, message));
+    }
+
     public void ShouldBlockTransmitEntity( int entityid, bool shouldBlockTransmit )
     {
         NativePlayerManager.ShouldBlockTransmitEntity(entityid, shouldBlockTransmit);
@@ -42,36 +57,36 @@ internal class PlayerManagerService : IPlayerManagerService
     {
         return Enumerable.Range(0, PlayerCap)
             .Where(IsPlayerOnline)
-            .Select(GetPlayer);
+            .Select(( pid ) => GetPlayer(pid)!);
     }
 
-    public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode, StringComparison nameComparison = StringComparison.OrdinalIgnoreCase )
+    public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode,
+        StringComparison nameComparison = StringComparison.OrdinalIgnoreCase )
     {
         IEnumerable<IPlayer> allPlayers = [];
 
-        for (int i = 0; i < PlayerCap; i++)
+        var players = GetAllPlayers();
+        foreach (var targetPlayer in players)
         {
-            if (!IsPlayerOnline(i))
-                continue;
-
-            IPlayer targetPlayer = GetPlayer(i);
-
             if (searchMode.HasFlag(TargetSearchMode.NoBots) && targetPlayer.IsFakeClient)
                 continue;
 
             if (searchMode.HasFlag(TargetSearchMode.IncludeSelf) == false && targetPlayer.PlayerID == player.PlayerID)
                 continue;
 
-            if (searchMode.HasFlag(TargetSearchMode.Alive) && targetPlayer.Pawn?.LifeState != (byte)LifeState_t.LIFE_ALIVE)
+            if (searchMode.HasFlag(TargetSearchMode.Alive) &&
+                targetPlayer.Pawn?.LifeState != (byte)LifeState_t.LIFE_ALIVE)
                 continue;
 
-            if (searchMode.HasFlag(TargetSearchMode.Dead) && targetPlayer.Pawn?.LifeState != (byte)LifeState_t.LIFE_DEAD)
+            if (searchMode.HasFlag(TargetSearchMode.Dead) &&
+                targetPlayer.Pawn?.LifeState != (byte)LifeState_t.LIFE_DEAD)
                 continue;
 
             if (searchMode.HasFlag(TargetSearchMode.TeamOnly) && targetPlayer.Pawn?.TeamNum != player.Pawn?.TeamNum)
                 continue;
 
-            if (searchMode.HasFlag(TargetSearchMode.OppositeTeamOnly) && targetPlayer.Pawn?.TeamNum == player.Pawn?.TeamNum)
+            if (searchMode.HasFlag(TargetSearchMode.OppositeTeamOnly) &&
+                targetPlayer.Pawn?.TeamNum == player.Pawn?.TeamNum)
                 continue;
 
             if (target == "@all")
@@ -112,7 +127,7 @@ internal class PlayerManagerService : IPlayerManagerService
                     var entIndex = pickerEntity.OriginalController.Value?.Entity?.EntityHandle.EntityIndex;
                     if (entIndex.HasValue)
                     {
-                        allPlayers = allPlayers.Append(GetPlayer((int)entIndex.Value - 1));
+                        allPlayers = allPlayers.Append(GetPlayer((int)entIndex.Value - 1)!);
                     }
                 }
             }
@@ -139,7 +154,8 @@ internal class PlayerManagerService : IPlayerManagerService
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
-            else if (new CSteamID(target) is var steamId && steamId.IsValid() && steamId.GetSteamID64() == targetPlayer.SteamID)
+            else if (new CSteamID(target) is var steamId && steamId.IsValid() &&
+                     steamId.GetSteamID64() == targetPlayer.SteamID)
             {
                 allPlayers = allPlayers.Append(targetPlayer);
             }
@@ -152,33 +168,42 @@ internal class PlayerManagerService : IPlayerManagerService
     {
         return GetAllPlayers().Where(p => p.IsFakeClient);
     }
+
     public IEnumerable<IPlayer> GetAlive()
     {
         return GetAllPlayers().Where(p => p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
     }
+
     public IEnumerable<IPlayer> GetCT()
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.CT);
     }
+
     public IEnumerable<IPlayer> GetT()
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.T);
     }
+
     public IEnumerable<IPlayer> GetSpectators()
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.Spectator);
     }
+
     public IEnumerable<IPlayer> GetInTeam( Team team )
     {
         return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)team);
     }
+
     public IEnumerable<IPlayer> GetTAlive()
     {
-        return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.T && p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
+        return GetAllPlayers().Where(p =>
+            p.Pawn?.TeamNum == (int)Team.T && p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
     }
+
     public IEnumerable<IPlayer> GetCTAlive()
     {
-        return GetAllPlayers().Where(p => p.Pawn?.TeamNum == (int)Team.CT && p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
+        return GetAllPlayers().Where(p =>
+            p.Pawn?.TeamNum == (int)Team.CT && p.Pawn?.LifeState == (byte)LifeState_t.LIFE_ALIVE);
     }
 
     public void SendMessage( MessageType kind, string message, int htmlDuration = 5000 )
@@ -186,9 +211,19 @@ internal class PlayerManagerService : IPlayerManagerService
         NativePlayerManager.SendMessage((int)kind, message, htmlDuration);
     }
 
+    public Task SendMessageAsync( MessageType kind, string message, int htmlDuration = 5000 )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, message, htmlDuration));
+    }
+
     public void SendNotify( string message )
     {
         SendMessage(MessageType.Notify, message);
+    }
+
+    public Task SendNotifyAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Notify, message);
     }
 
     public void SendConsole( string message )
@@ -196,9 +231,19 @@ internal class PlayerManagerService : IPlayerManagerService
         SendMessage(MessageType.Console, message);
     }
 
+    public Task SendConsoleAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Console, message);
+    }
+
     public void SendChat( string message )
     {
         SendMessage(MessageType.Chat, message);
+    }
+
+    public Task SendChatAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Chat, message);
     }
 
     public void SendCenter( string message )
@@ -206,9 +251,19 @@ internal class PlayerManagerService : IPlayerManagerService
         SendMessage(MessageType.Center, message);
     }
 
+    public Task SendCenterAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Center, message);
+    }
+
     public void SendAlert( string message )
     {
         SendMessage(MessageType.Alert, message);
+    }
+
+    public Task SendAlertAsync( string message )
+    {
+        return SendMessageAsync(MessageType.Alert, message);
     }
 
     public void SendCenterHTML( string message, int duration = 5000 )
@@ -216,8 +271,48 @@ internal class PlayerManagerService : IPlayerManagerService
         SendMessage(MessageType.CenterHTML, message, duration);
     }
 
+    public Task SendCenterHTMLAsync( string message, int duration = 5000 )
+    {
+        return SendMessageAsync(MessageType.CenterHTML, message, duration);
+    }
+
     public void SendChatEOT( string message )
     {
         SendMessage(MessageType.ChatEOT, message);
+    }
+
+    public Task SendChatEOTAsync( string message )
+    {
+        return SendMessageAsync(MessageType.ChatEOT, message);
+    }
+
+    public void SendMessage( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback )
+    {
+        var players = GetAllPlayers();
+        foreach (var player in players)
+        {
+            var localizer = _translationService.GetPlayerLocalizer(player);
+            player.SendMessage(kind, messageCallback(player, localizer));
+        }
+    }
+
+    public void SendMessage( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback, int htmlDuration = 5000 )
+    {
+        var players = GetAllPlayers();
+        foreach (var player in players)
+        {
+            var localizer = _translationService.GetPlayerLocalizer(player);
+            player.SendMessage(kind, messageCallback(player, localizer), htmlDuration);
+        }
+    }
+
+    public Task SendMessageAsync( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, messageCallback));
+    }
+
+    public Task SendMessageAsync( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback, int htmlDuration = 5000 )
+    {
+        return SchedulerManager.QueueOrNow(() => SendMessage(kind, messageCallback, htmlDuration));
     }
 }

@@ -40,6 +40,7 @@ internal static class Bootstrap
     public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath )
     {
         Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_ROOT", basePath);
+        Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_LOG", logPath);
         NativeBinding.BindNatives(nativeTable, nativeTableSize);
         NativeLibrary.SetDllImportResolver(typeof(NativeMethods).Assembly, SteamAPIDLLResolver);
 
@@ -76,7 +77,6 @@ internal static class Bootstrap
                     .AddTestService()
                     .AddRootDirService()
                     .AddDataDirectoryService()
-                    .AddPlayerManagerService()
                     .AddPluginManager()
                     .AddHookManager()
                     .AddTraceManagerService()

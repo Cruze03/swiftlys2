@@ -1123,6 +1123,9 @@ internal static class NativeNetMessages {
   private unsafe static delegate* unmanaged<nint, int, int, void> _SendMessage;
 
   public unsafe static void SendMessage(nint netmsg, int msgid, int playerid) {
+    if (Thread.CurrentThread.ManagedThreadId != _MainThreadID) {
+      throw new InvalidOperationException("This method can only be called from the main thread.");
+    }
     _SendMessage(netmsg, msgid, playerid);
   }
 
@@ -1132,6 +1135,9 @@ internal static class NativeNetMessages {
   /// each bit in player_mask represents a playerid
   /// </summary>
   public unsafe static void SendMessageToPlayers(nint netmsg, int msgid, ulong playermask) {
+    if (Thread.CurrentThread.ManagedThreadId != _MainThreadID) {
+      throw new InvalidOperationException("This method can only be called from the main thread.");
+    }
     _SendMessageToPlayers(netmsg, msgid, playermask);
   }
 
@@ -1165,5 +1171,21 @@ internal static class NativeNetMessages {
 
   public unsafe static void RemoveNetMessageClientHook(ulong callbackID) {
     _RemoveNetMessageClientHook(callbackID);
+  }
+
+  private unsafe static delegate* unmanaged<nint, ulong> _AddNetMessageServerHookInternal;
+
+  /// <summary>
+  /// callback should receive the following: int32 playerid, int netmessage_id, void* netmsg, return bool (true -> ignored, false -> supercede)
+  /// </summary>
+  public unsafe static ulong AddNetMessageServerHookInternal(nint callback) {
+    var ret = _AddNetMessageServerHookInternal(callback);
+    return ret;
+  }
+
+  private unsafe static delegate* unmanaged<ulong, void> _RemoveNetMessageServerHookInternal;
+
+  public unsafe static void RemoveNetMessageServerHookInternal(ulong callbackID) {
+    _RemoveNetMessageServerHookInternal(callbackID);
   }
 }

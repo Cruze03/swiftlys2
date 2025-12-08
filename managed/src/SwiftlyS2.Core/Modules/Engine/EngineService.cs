@@ -6,6 +6,7 @@ using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.SteamAPI;
 using Spectre.Console;
+using SwiftlyS2.Core.Scheduler;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -37,10 +38,20 @@ internal class EngineService : IEngineService
         NativeEngineHelpers.ExecuteCommand(command);
     }
 
+    public Task ExecuteCommandAsync( string command )
+    {
+        return SchedulerManager.QueueOrNow(() => ExecuteCommand(command));
+    }
+
     public void ExecuteCommandWithBuffer( string command, Action<string> bufferCallback )
     {
         _commandTrackedManager.EnqueueCommand(bufferCallback);
         NativeEngineHelpers.ExecuteCommand($"^wb^{command}");
+    }
+
+    public Task ExecuteCommandWithBufferAsync( string command, Action<string> bufferCallback )
+    {
+        return SchedulerManager.QueueOrNow(() => ExecuteCommandWithBuffer(command, bufferCallback));
     }
 
     public bool IsMapValid( string map )
@@ -54,8 +65,11 @@ internal class EngineService : IEngineService
         return handle == nint.Zero ? null : handle;
     }
 
-    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null )
+    public void DispatchParticleEffect( string particleName, ParticleAttachment_t attachmentType, byte attachmentPoint,
+        CUtlSymbolLarge attachmentName, CRecipientFilter filter, bool resetAllParticlesOnEntity = false,
+        int splitScreenSlot = 0, CBaseEntity? entity = null )
     {
+        NativeBinding.ThrowIfNonMainThread();
         GameFunctions.DispatchParticleEffect(
             particleName,
             (uint)attachmentType,
@@ -66,5 +80,13 @@ internal class EngineService : IEngineService
             splitScreenSlot,
             filter
         );
+    }
+
+    public Task DispatchParticleEffectAsync( string particleName, ParticleAttachment_t attachmentType,
+        byte attachmentPoint, CUtlSymbolLarge attachmentName, CRecipientFilter filter,
+        bool resetAllParticlesOnEntity = false, int splitScreenSlot = 0, CBaseEntity? entity = null )
+    {
+        return SchedulerManager.QueueOrNow(() => DispatchParticleEffect(particleName, attachmentType, attachmentPoint,
+            attachmentName, filter, resetAllParticlesOnEntity, splitScreenSlot, entity));
     }
 }

@@ -60,7 +60,6 @@ IVFunctionHook* g_pGameServerSteamAPIActivated = nullptr;
 IVFunctionHook* g_pGameServerSteamAPIDeactivated = nullptr;
 
 IVFunctionHook* g_pLoopInitHook = nullptr;
-IVFunctionHook* g_pLoopShutdownHook = nullptr;
 
 // // Simple benchmark function for P/Invoke testing
 // #ifdef _WIN32
@@ -76,7 +75,6 @@ void GameServerSteamAPIActivatedHook(void* _this);
 void GameServerSteamAPIDeactivatedHook(void* _this);
 
 bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry);
-void LoopShutdownHook(void* _this);
 
 extern ICvar* g_pCVar;
 
@@ -220,10 +218,6 @@ bool SwiftlyCore::Load(BridgeKind_t kind)
     g_pLoopInitHook->SetHookFunction(loopmodeLevelLoad, gamedata->GetOffsets()->Fetch("ILoopMode::LoopInit"), (void*)LoopInitHook, true);
     g_pLoopInitHook->Enable();
 
-    g_pLoopShutdownHook = hooksmanager->CreateVFunctionHook();
-    g_pLoopShutdownHook->SetHookFunction(loopmodeLevelLoad, gamedata->GetOffsets()->Fetch("ILoopMode::LoopShutdown"), (void*)LoopShutdownHook, true);
-    g_pLoopShutdownHook->Enable();
-
     void* servervtable = nullptr;
     s2binlib_find_vtable("server", "CSource2Server", &servervtable);
 
@@ -318,12 +312,16 @@ void GameServerSteamAPIDeactivatedHook(void* _this)
 }
 
 std::string workshop_map = "";
+std::string current_map = "";
 
 bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry)
 {
+    if (current_map != "") g_SwiftlyCore.OnMapUnload();
+
     bool ret = reinterpret_cast<decltype(&LoopInitHook)>(g_pLoopInitHook->GetOriginal())(_this, pKeyValues, pRegistry);
 
     g_SwiftlyCore.OnMapLoad(pKeyValues->GetString("levelname"));
+
     if (pKeyValues->FindKey("customgamemode"))
     {
         workshop_map = pKeyValues->GetString("customgamemode");
@@ -336,14 +334,6 @@ bool LoopInitHook(void* _this, KeyValues* pKeyValues, void* pRegistry)
     return ret;
 }
 
-void LoopShutdownHook(void* _this)
-{
-    reinterpret_cast<decltype(&LoopShutdownHook)>(g_pLoopShutdownHook->GetOriginal())(_this);
-
-    g_SwiftlyCore.OnMapUnload();
-}
-
-std::string current_map = "";
 extern void* g_pOnMapLoadCallback;
 extern void* g_pOnMapUnloadCallback;
 
@@ -429,7 +419,7 @@ void* SwiftlyCore::GetInterface(const std::string& interface_name)
 
     if (ifaceptr != nullptr)
     {
-        g_mInterfacesCache.insert({interface_name, ifaceptr});
+        g_mInterfacesCache.insert({ interface_name, ifaceptr });
     }
 
     return ifaceptr;

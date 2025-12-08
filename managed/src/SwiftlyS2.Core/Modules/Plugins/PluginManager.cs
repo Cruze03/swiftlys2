@@ -150,9 +150,23 @@ internal class PluginManager : IPluginManager
                 ? Assembly.GetExecutingAssembly()
                 : AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => loadingAssemblyName == a.GetName().Name);
         };
+    }
 
+    /// <summary>
+    /// Must be called after DI container is fully built to avoid circular dependency.
+    /// </summary>
+    internal void Initialize()
+    {
         LoadExports();
-        LoadPlugins();
+        if (!NativeCore.PluginManualLoadState()) LoadPlugins();
+        else
+        {
+            var plugins = NativeCore.PluginLoadOrder().Split('\x01');
+            foreach (var plugin in plugins)
+            {
+                _ = LoadPluginById(plugin, silent: false);
+            }
+        }
     }
 
     public IReadOnlyList<PluginContext> GetPlugins() => plugins.AsReadOnly();

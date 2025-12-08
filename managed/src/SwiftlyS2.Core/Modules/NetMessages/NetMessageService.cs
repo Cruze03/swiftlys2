@@ -42,6 +42,16 @@ internal class NetMessageService : INetMessageService, IDisposable
     return hook.Guid;
   }
 
+  public Guid HookServerMessageInternal<T>( INetMessageService.ServerNetMessageInternalHandler<T> callback ) where T : ITypedProtobuf<T>, INetMessage<T>, IDisposable
+  {
+    var hook = new NetMessageServerInternalHookCallback<T>(callback, _loggerFactory, _profiler);
+    lock (_lock)
+    {
+      _callbacks.Add(hook);
+    }
+    return hook.Guid;
+  }
+
   public void Unhook( Guid guid )
   {
     lock (_lock)
@@ -83,6 +93,22 @@ internal class NetMessageService : INetMessageService, IDisposable
         if (callback is NetMessageServerHookCallback<T> serverHook)
         {
           serverHook.Dispose();
+          return true;
+        }
+        return false;
+      });
+    }
+  }
+
+  public void UnhookServerMessageInternal<T>() where T : ITypedProtobuf<T>, INetMessage<T>, IDisposable
+  {
+    lock (_lock)
+    {
+      _callbacks.RemoveAll(callback =>
+      {
+        if (callback is NetMessageServerInternalHookCallback<T> serverInternalHook)
+        {
+          serverInternalHook.Dispose();
           return true;
         }
         return false;

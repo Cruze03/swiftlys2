@@ -18,21 +18,34 @@
 
 #include "gamesystem.h"
 
+#include <s2binlib/s2binlib.h>
 #include <api/interfaces/manager.h>
 
 CBaseGameSystemFactory** CBaseGameSystemFactory::sm_pFirst = nullptr;
+extern void* g_pOnPrecacheResourceCallback;
 
-CGameSystem g_GameSystem;
-IGameSystemFactory* CGameSystem::sm_Factory = nullptr;
+IVFunctionHook* pOnPrecacheResourceCallbackHook = nullptr;
+
+void BuildGameSessionManifestHook(void* _this, EventBuildGameSessionManifest_t* msg)
+{
+    reinterpret_cast<decltype(&BuildGameSessionManifestHook)>(pOnPrecacheResourceCallbackHook->GetOriginal())(_this, msg);
+
+    IEntityResourceManifest* pResourceManifest = msg->m_pResourceManifest;
+    if (g_pOnPrecacheResourceCallback) reinterpret_cast<void(*)(void*)>(g_pOnPrecacheResourceCallback)(pResourceManifest);
+}
 
 bool InitGameSystem()
 {
-    /*
-    taken straight from CS2Fixes, thanks for the code S2ZE
-    <https://github.com/Source2ZE/CS2Fixes/blob/adceddd585420a6e32a70ea9bef7731963c6431d/src/gamesystem.cpp#L47-L74>
-    */
+    auto hooksmanager = g_ifaceService.FetchInterface<IHooksManager>(HOOKSMANAGER_INTERFACE_VERSION);
     auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
     auto gamedata = g_ifaceService.FetchInterface<IGameDataManager>(GAMEDATA_INTERFACE_VERSION);
+
+    void* gameRulesGameSystemVTable = nullptr;
+    s2binlib_find_vtable("server", "CGameRulesGameSystem", &gameRulesGameSystemVTable);
+
+    pOnPrecacheResourceCallbackHook = hooksmanager->CreateVFunctionHook();
+    pOnPrecacheResourceCallbackHook->SetHookFunction(gameRulesGameSystemVTable, gamedata->GetOffsets()->Fetch("IGameSystem::BuildGameSessionManifest"), (void*)BuildGameSessionManifestHook, true);
+    pOnPrecacheResourceCallbackHook->Enable();
 
     void* ptr = gamedata->GetSignatures()->Fetch("IGameSystem::InitAllSystems->pFirst");
     if (!ptr) {
@@ -50,97 +63,18 @@ bool InitGameSystem()
 
     CBaseGameSystemFactory::sm_pFirst = (CBaseGameSystemFactory**)(pAddr + offset);
 
-    CGameSystem::sm_Factory = new CGameSystemStaticFactory<CGameSystem>("SwiftlyS2_GameSystem", &g_GameSystem);
-
     return true;
 }
 
 bool ShutdownGameSystem()
 {
-    /*
-    taken straight from CS2Fixes, thanks for the code S2ZE
-    <https://github.com/Source2ZE/CS2Fixes/blob/adceddd585420a6e32a70ea9bef7731963c6431d/src/gamesystem.cpp#L76-L156>
-    */
-    auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
-    auto gamedata = g_ifaceService.FetchInterface<IGameDataManager>(GAMEDATA_INTERFACE_VERSION);
+    auto hooksmanager = g_ifaceService.FetchInterface<IHooksManager>(HOOKSMANAGER_INTERFACE_VERSION);
 
-    void* ptr = gamedata->GetSignatures()->Fetch("IGameSystem::LoopPostInitAllSystems->pEventDispatcher");
-    if (!ptr) {
-        logger->Error("Game System", "Couldn't find signature for 'IGameSystem::LoopPostInitAllSystems->pEventDispatcher'!\n");
-        return false;
-    }
-
-    uintptr_t pAddr = (uintptr_t)ptr;
-
-    pAddr += 3;
-
-    uint32_t offset = *(uint32_t*)pAddr;
-
-    pAddr += 4;
-
-    CGameSystemEventDispatcher** ppDispatchers = (CGameSystemEventDispatcher**)(pAddr + offset);
-
-    ptr = gamedata->GetSignatures()->Fetch("IGameSystem::LoopDestroyAllSystems->s_GameSystems");
-    if (!ptr) {
-        logger->Error("Game System", "Couldn't find signature for 'IGameSystem::LoopDestroyAllSystems->s_GameSystems'!\n");
-        return false;
-    }
-
-    pAddr += 2;
-
-    offset = *(uint32*)pAddr;
-
-    pAddr += 4;
-
-    CUtlVector<AddedGameSystem_t>* pGameSystems = (CUtlVector<AddedGameSystem_t>*)(pAddr + offset);
-
-    auto* pDispatcher = *ppDispatchers;
-
-    if (!pDispatcher || !pGameSystems)
+    if (pOnPrecacheResourceCallbackHook != nullptr)
     {
-        logger->Error("Game System", "Gamesystems and/or dispatchers is null, server is probably shutting down\n");
-        return false;
+        pOnPrecacheResourceCallbackHook->Disable();
+        hooksmanager->DestroyVFunctionHook(pOnPrecacheResourceCallbackHook);
+        pOnPrecacheResourceCallbackHook = nullptr;
     }
-
-    auto& funcListeners = *pDispatcher->m_funcListeners;
-    auto& gameSystems = *pGameSystems;
-
-    FOR_EACH_VEC_BACK(gameSystems, i)
-    {
-        if (&g_GameSystem == gameSystems[i].m_pGameSystem)
-        {
-            gameSystems.FastRemove(i);
-            break;
-        }
-    }
-
-    FOR_EACH_VEC_BACK(funcListeners, i)
-    {
-        auto& vecListeners = funcListeners[i];
-
-        FOR_EACH_VEC_BACK(vecListeners, j)
-        {
-            if (&g_GameSystem == vecListeners[j])
-            {
-                vecListeners.FastRemove(j);
-
-                break;
-            }
-        }
-
-        if (!vecListeners.Count())
-            funcListeners.FastRemove(i);
-    }
-
-    CGameSystem::sm_Factory->DestroyGameSystem(&g_GameSystem);
-
     return true;
-}
-
-extern void* g_pOnPrecacheResourceCallback;
-
-GS_EVENT_MEMBER(CGameSystem, BuildGameSessionManifest)
-{
-    IEntityResourceManifest* pResourceManifest = msg->m_pResourceManifest;
-    if (g_pOnPrecacheResourceCallback) reinterpret_cast<void(*)(void*)>(g_pOnPrecacheResourceCallback)(pResourceManifest);
 }

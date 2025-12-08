@@ -14,6 +14,7 @@ using SwiftlyS2.Shared.Plugins;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.ProtobufDefinitions;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.Memory;
@@ -39,6 +40,45 @@ using System.Reflection.Metadata;
 using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
 
 namespace TestPlugin;
+
+public enum HostStateRequestType_t : int
+{
+    HSR_IDLE = 1,
+    HSR_GAME,
+    HSR_SOURCETV_RELAY,
+    HSR_QUIT
+};
+
+public enum HostStateRequestMode_t : int
+{
+    HM_LEVEL_LOAD_SERVER = 1,
+    HM_CONNECT,
+    HM_CHANGE_LEVEL,
+    HM_LEVEL_LOAD_LISTEN,
+    HM_LOAD_SAVE,
+    HM_PLAY_DEMO,
+    HM_SOURCETV_RELAY,
+    HM_ADDON_DOWNLOAD
+};
+
+[StructLayout(LayoutKind.Sequential)]
+public struct CHostStateRequest
+{
+    public HostStateRequestType_t Type;
+    public CUtlString LoopModeType;
+    public CUtlString Desc;
+    public byte Active;
+    public uint ID;
+    public HostStateRequestMode_t Mode;
+    public CUtlString LevelName;
+    public byte Changelevel;
+    public CUtlString SaveGame;
+    public CUtlString Address;
+    public CUtlString DemoFile;
+    public byte LoadMap;
+    public CUtlString Addons;
+    public nint pKV;
+}
 
 public class TestConfig
 {
@@ -68,7 +108,6 @@ public class TestPlugin : BasePlugin
         Core.Event.OnWeaponServicesCanUseHook += ( @event ) =>
         {
             // Console.WriteLine($"WeaponServicesCanUse: {@event.Weapon.WeaponBaseVData.AttackMovespeedFactor} {@event.OriginalResult}");
-
         };
     }
 
@@ -93,12 +132,14 @@ public class TestPlugin : BasePlugin
         {
             return HookResult.Continue;
         }
+
         var player = @event.UserIdPlayer.RequiredController;
         if (player.InGameMoneyServices?.IsValid == true)
         {
             player.InGameMoneyServices.Account = Core.ConVar.Find<int>("mp_maxmoney")?.Value ?? 16000;
             player.InGameMoneyServices.AccountUpdated();
         }
+
         return HookResult.Continue;
     }
 
@@ -127,8 +168,39 @@ public class TestPlugin : BasePlugin
         }
     }
 
+    public unsafe delegate void SetPendingHostStateRequestDelegate( nint hostStateManager, CHostStateRequest* pRequest );
+    private IUnmanagedFunction<SetPendingHostStateRequestDelegate>? _SetPendingHostStateRequestDelegate;
+
     public override void Load( bool hotReload )
     {
+        _SetPendingHostStateRequestDelegate = Core.Memory.GetUnmanagedFunctionByAddress<SetPendingHostStateRequestDelegate>(
+            Core.Memory.GetAddressBySignature(
+                Library.Engine,
+                "48 89 74 24 ? 57 48 83 EC ? 33 F6 48 8B FA 48 39 35"
+            )!.Value
+        );
+
+        _ = _SetPendingHostStateRequestDelegate.AddHook(( next ) =>
+        {
+            unsafe
+            {
+                return ( pHostStateManager, pRequest ) =>
+                {
+                    if (pRequest->pKV != 0)
+                    {
+                        var kv = (KeyValues*)pRequest->pKV;
+                        Console.WriteLine($"Name '{kv->GetName()}'");
+
+                        for (var subKey = kv->GetFirstSubKey(); subKey != null; subKey = subKey->GetNextKey())
+                        {
+                            Console.WriteLine($"  {subKey->GetName()} {(kv->GetName() == "map_workshop" ? kv->GetString("customgamemode", "") : string.Empty)}");
+                        }
+                    }
+
+                    next()(pHostStateManager, pRequest);
+                };
+            }
+        });
         // Core.Command.HookClientCommand((playerId, commandLine) =>
         // {
         //   Console.WriteLine("TestPlugin HookClientCommand " + playerId + " " + commandLine);
@@ -177,10 +249,10 @@ public class TestPlugin : BasePlugin
         //     Console.WriteLine($"PostThink -> {@event.PlayerPawn.OriginalController.Value?.PlayerName}");
         // };
 
-        Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) =>
-        {
-            Console.WriteLine($"pong: {buffer}");
-        });
+        // Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) =>
+        // {
+        //     Console.WriteLine($"pong: {buffer}");
+        // });
 
         Core.GameEvent.HookPre<EventShowSurvivalRespawnStatus>(@event =>
         {
@@ -201,19 +273,18 @@ public class TestPlugin : BasePlugin
         services
             .AddSwiftly(Core);
 
-        Core.Event.OnPrecacheResource += ( @event ) =>
-        {
-            @event.AddItem("soundevents/mvp_anthem.vsndevts");
-        };
+        Core.Event.OnPrecacheResource += ( @event ) => { @event.AddItem("soundevents/mvp_anthem.vsndevts"); };
 
         Core.Event.OnConVarValueChanged += ( @event ) =>
         {
-            Console.WriteLine($"ConVar {@event.ConVarName} changed from {@event.OldValue} to {@event.NewValue} by player {@event.PlayerId}");
+            Console.WriteLine(
+                $"ConVar {@event.ConVarName} changed from {@event.OldValue} to {@event.NewValue} by player {@event.PlayerId}");
         };
 
         Core.Event.OnEntityIdentityAcceptInputHook += ( @event ) =>
         {
-            Console.WriteLine($"EntityIdentityAcceptInput: {@event.EntityInstance.DesignerName} - {@event.InputName}");
+            Console.WriteLine(
+                $"EntityIdentityAcceptInput: {@event.EntityInstance.DesignerName} - {@event.InputName}");
         };
 
 
@@ -318,12 +389,12 @@ public class TestPlugin : BasePlugin
         //   return HookResult.Continue;
         // });
 
-        Core.Event.OnEntityTakeDamage += ( @event ) =>
-        {
-            Console.WriteLine(@event.Entity.DesignerName);
-            @event.Info.DamageFlags = TakeDamageFlags_t.DFLAG_SUPPRESS_BREAKABLES;
-            @event.Result = HookResult.Stop;
-        };
+        // Core.Event.OnEntityTakeDamage += ( @event ) =>
+        // {
+        //     Console.WriteLine(@event.Entity.DesignerName);
+        //     @event.Info.DamageFlags = TakeDamageFlags_t.DFLAG_SUPPRESS_BREAKABLES;
+        //     @event.Result = HookResult.Stop;
+        // };
 
         // Core.Event.OnTick += () => {
 
@@ -381,8 +452,6 @@ public class TestPlugin : BasePlugin
         Core.Trace.TraceShape(start, end, ray, filter, ref trace);
 
         Console.WriteLine(trace.Entity.IsValid);
-
-
     }
 
     [Command("tt")]
@@ -411,12 +480,23 @@ public class TestPlugin : BasePlugin
     [Command("w")]
     public void TestCommand1( ICommandContext context )
     {
-        var ret = SteamGameServerUGC.DownloadItem(new PublishedFileId_t(3596198331), true);
-        Console.WriteLine(SteamGameServer.GetPublicIP().ToIPAddress());
+        var player = context.Sender!;
+        for (int i = 0; i < 10000; i++)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(100);
+                Core.Scheduler.NextTick(() =>
+                {
+                    player.PlayerPawn.SetModel("characters/models/tm_jumpsuit/tm_jumpsuit_varianta.vmdl");
+                });
+            });
+        }
     }
 
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     delegate nint DispatchSpawnDelegate( nint pEntity, nint pKV );
+
     int order = 0;
 
     IUnmanagedFunction<DispatchSpawnDelegate>? _dispatchspawn;
@@ -439,37 +519,24 @@ public class TestPlugin : BasePlugin
     [Command("h1")]
     public void TestCommand2( ICommandContext _ )
     {
-        // var token = Core.Scheduler.DelayAndRepeat(500, 1000, () =>
-        // {
-
-        // });
-
-        var addres = Core.GameData.GetSignature("CBaseEntity::DispatchSpawn");
-
-        var func = Core.Memory.GetUnmanagedFunctionByAddress<DispatchSpawnDelegate>(addres);
-        var guid = func.AddHook(( next ) =>
+        Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine("\n");
+        Console.WriteLine(Core.Engine.GlobalVars.TickCount);
+        Console.WriteLine("\n");
+        Console.WriteLine("END");
+        var sender = _.Sender!;
+        var cvar = Core.ConVar.FindAsString("sv_enablebunnyhopping");
+        for (int i = 0; i < 1000; i++)
         {
-            return ( pEntity, pKV ) =>
+            Task.Run(async () =>
             {
-                Console.WriteLine("TestPlugin DispatchSpawn " + order++);
-                return next()(pEntity, pKV);
-            };
-        });
+                await Task.Delay(100);
+                Console.WriteLine("Setting cvar value");
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+                cvar.DefaultValueAsString = "1";
+            });
 
-        var memory = Core.Memory.GetUnmanagedMemoryByAddress(addres);
-        var guid1 = memory.AddHook(( ref MidHookContext context ) =>
-        {
-            Core.Logger.LogInformation("MidHookContext:\n{Context}", context);
-        });
-
-        // _dispatchspawn.AddHook(( next ) =>
-        // {
-        //     return ( pEntity, pKV ) =>
-        //     {
-        //         Console.WriteLine("TestPlugin DispatchSpawn2 " + order++);
-        //         return next()(pEntity, pKV);
-        //     };
-        // });
+        }
     }
 
     [EventListener<EventDelegates.OnEntityCreated>]
@@ -529,7 +596,10 @@ public class TestPlugin : BasePlugin
         kv.Set<uint>("m_spawnflags", 256);
         ent.DispatchSpawn(kv);
         ent.SetModel("weapons/models/grenade/incendiary/weapon_incendiarygrenade.vmdl");
-        ent.Teleport(new Vector(context.Sender!.PlayerPawn!.AbsOrigin!.Value.X + 50, context.Sender!.PlayerPawn!.AbsOrigin!.Value.Y + 50, context.Sender!.PlayerPawn!.AbsOrigin!.Value.Z + 30), QAngle.Zero, Vector.Zero);
+        ent.Teleport(
+            new Vector(context.Sender!.PlayerPawn!.AbsOrigin!.Value.X + 50,
+                context.Sender!.PlayerPawn!.AbsOrigin!.Value.Y + 50,
+                context.Sender!.PlayerPawn!.AbsOrigin!.Value.Z + 30), QAngle.Zero, Vector.Zero);
     }
 
     [Command("tt4")]
@@ -560,10 +630,7 @@ public class TestPlugin : BasePlugin
     [Command("tt7")]
     public void TestCommand7( ICommandContext context )
     {
-        Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) =>
-        {
-            Console.WriteLine($"pong: {buffer}");
-        });
+        Core.Engine.ExecuteCommandWithBuffer("@ping", ( buffer ) => { Console.WriteLine($"pong: {buffer}"); });
     }
 
     [Command("tt8")]
@@ -621,10 +688,14 @@ public class TestPlugin : BasePlugin
         Core.Trace.TraceShape(origin, targetOrigin, ray, filter, ref trace);
 
         Console.WriteLine(trace.pEntity != null ? $"! Hit Entity: {trace.Entity.DesignerName}" : "! No entity hit");
-        Console.WriteLine($"! SurfaceProperties: {(nint)trace.SurfaceProperties}, pEntity: {(nint)trace.pEntity}, HitBox: {(nint)trace.HitBox}({trace.HitBox->m_name.Value}), Body: {(nint)trace.Body}, Shape: {(nint)trace.Shape}, Contents: {trace.Contents}");
-        Console.WriteLine($"! StartPos: {trace.StartPos}, EndPos: {trace.EndPos}, HitNormal: {trace.HitNormal}, HitPoint: {trace.HitPoint}");
-        Console.WriteLine($"! HitOffset: {trace.HitOffset}, Fraction: {trace.Fraction}, Triangle: {trace.Triangle}, HitboxBoneIndex: {trace.HitboxBoneIndex}");
-        Console.WriteLine($"! RayType: {trace.RayType}, StartInSolid: {trace.StartInSolid}, ExactHitPoint: {trace.ExactHitPoint}");
+        Console.WriteLine(
+            $"! SurfaceProperties: {(nint)trace.SurfaceProperties}, pEntity: {(nint)trace.pEntity}, HitBox: {(nint)trace.HitBox}({trace.HitBox->m_name.Value}), Body: {(nint)trace.Body}, Shape: {(nint)trace.Shape}, Contents: {trace.Contents}");
+        Console.WriteLine(
+            $"! StartPos: {trace.StartPos}, EndPos: {trace.EndPos}, HitNormal: {trace.HitNormal}, HitPoint: {trace.HitPoint}");
+        Console.WriteLine(
+            $"! HitOffset: {trace.HitOffset}, Fraction: {trace.Fraction}, Triangle: {trace.Triangle}, HitboxBoneIndex: {trace.HitboxBoneIndex}");
+        Console.WriteLine(
+            $"! RayType: {trace.RayType}, StartInSolid: {trace.StartInSolid}, ExactHitPoint: {trace.ExactHitPoint}");
         Console.WriteLine("\n");
     }
 
@@ -632,6 +703,14 @@ public class TestPlugin : BasePlugin
     public HookResult TestGameEventHandler( EventPlayerJump @e )
     {
         Console.WriteLine(@e.UserIdController.PlayerName);
+        return HookResult.Continue;
+    }
+
+    [ServerNetMessageInternalHandler]
+    public HookResult TestSignonMessage( CNETMsg_SignonState msg, int playerid )
+    {
+        Console.WriteLine("HELLO MA MEN\n");
+        Console.WriteLine(msg.SignonState.ToString(), playerid);
         return HookResult.Continue;
     }
 
@@ -649,6 +728,18 @@ public class TestPlugin : BasePlugin
     {
         Console.WriteLine("TestPlugin OnSteamAPIActivated");
         _authTicketResponse = Callback<GCMessageAvailable_t>.Create(AuthResponse);
+    }
+
+    [Command("testmsg")]
+    public void TestMsgCommand( ICommandContext _ )
+    {
+        Core.PlayerManager.SendMessage(MessageType.Chat, ( player, localizer ) =>
+        {
+            Console.WriteLine(player.PlayerID);
+            Console.WriteLine(localizer.ToString());
+            Console.WriteLine("\n");
+            return "hello world";
+        });
     }
 
     public void AuthResponse( GCMessageAvailable_t param )
@@ -731,7 +822,9 @@ public class TestPlugin : BasePlugin
         Core.PlayerManager.GetAlive()
             .Where(player => player.PlayerID != context.Sender!.PlayerID && player.IsValid && player.IsFakeClient)
             .ToList()
-            .ForEach(player => player.PlayerPawn!.WeaponServices!.ActiveWeapon.Value!.SetTransmitState(false, context.Sender!.PlayerID));
+            .ForEach(player =>
+                player.PlayerPawn!.WeaponServices!.ActiveWeapon.Value!.SetTransmitState(false,
+                    context.Sender!.PlayerID));
     }
 
     [Command("sihb")]
@@ -740,7 +833,9 @@ public class TestPlugin : BasePlugin
         Core.PlayerManager.GetAlive()
             .Where(player => player.PlayerID != context.Sender!.PlayerID && player.IsValid && player.IsFakeClient)
             .ToList()
-            .ForEach(player => Console.WriteLine($"{player.Controller!.PlayerName} -> {(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID) ? "Hide" : "V")}"));
+            .ForEach(player =>
+                Console.WriteLine(
+                    $"{player.Controller!.PlayerName} -> {(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID) ? "Hide" : "V")}"));
     }
 
     [Command("hb")]
@@ -752,7 +847,8 @@ public class TestPlugin : BasePlugin
             .ForEach(player =>
             {
                 // Console.WriteLine($"{player.Controller!.PlayerName}(B) -> {player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID)}({player.PlayerPawn!.IsTransmitting(player.PlayerID)})");
-                player.PlayerPawn!.SetTransmitState(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID), context.Sender!.PlayerID);
+                player.PlayerPawn!.SetTransmitState(!player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID),
+                    context.Sender!.PlayerID);
                 // Console.WriteLine($"{player.Controller!.PlayerName} -> {player.PlayerPawn!.IsTransmitting(context.Sender!.PlayerID)}({player.PlayerPawn!.IsTransmitting(player.PlayerID)})");
             });
     }
@@ -841,10 +937,11 @@ public class TestPlugin : BasePlugin
             }))
             .Build();
 
-        Core.MenusAPI.OpenMenu(mainMenu, ( player, menu ) =>
-        {
-            Console.WriteLine($"{menu.Configuration.Title} closed for player: {player.Controller.PlayerName}");
-        });
+        Core.MenusAPI.OpenMenu(mainMenu,
+            ( player, menu ) =>
+            {
+                Console.WriteLine($"{menu.Configuration.Title} closed for player: {player.Controller.PlayerName}");
+            });
 
         // Core.MenusAPI.OpenMenuForPlayer(context.Sender!, menu, ( player, menu ) =>
         // {
@@ -860,26 +957,47 @@ public class TestPlugin : BasePlugin
         // };
     }
 
+    private string? boundText = null;
+
+    [Command("cbt")]
+    public void ChangeBoundText( ICommandContext _ )
+    {
+        boundText = Guid.NewGuid().ToString();
+    }
+
     [Command("rmt")]
     public void RefactoredMenuTestCommand( ICommandContext context )
     {
-        var button = new ButtonMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 向这广袤世界致以温柔问候", "#FFE4E1", "#FFC0CB", "#FF69B4")) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop/*, CloseAfterClick = true*/ };
-        button.Click += ( sender, args ) =>
+        var mtoggle = new ToggleMenuOption("12");
+        mtoggle.ValueChanged += ( sender, args ) =>
         {
-            args.Player.SendMessage(MessageType.Chat, "Swiftlys2 向这广袤世界致以温柔问候");
-            button.Enabled = false;
-            _ = Task.Run(async () =>
+            args.Player.SendChat($"OldValue: {args.OldValue}({args.OldValue.GetType().Name}), NewValue: {args.NewValue}({args.NewValue.GetType().Name})");
+        };
+
+        var mtext = new TextMenuOption("123456789") { Enabled = true, BindingText = () => boundText };
+        mtext.Click += ( sender, args ) =>
+        {
+            boundText = null;
+            if (sender is MenuOptionBase option)
             {
-                await Task.Delay(1000);
-                button.Enabled = true;
-            });
+                option.Text = $"-> {Guid.NewGuid()}";
+            }
             return ValueTask.CompletedTask;
         };
 
-        var toggle = new ToggleMenuOption("12");
-        toggle.ValueChanged += ( sender, args ) =>
+        var mbutton = new ButtonMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 向这广袤世界致以温柔问候", "#FFE4E1", "#FFC0CB", "#FF69B4")) { TextStyle = MenuOptionTextStyle.ScrollLeftLoop/*, CloseAfterClick = true*/ };
+        mbutton.Click += ( sender, args ) =>
         {
-            args.Player.SendChat($"OldValue: {args.OldValue}({args.OldValue.GetType().Name}), NewValue: {args.NewValue}({args.NewValue.GetType().Name})");
+            Core.Scheduler.NextTick(() => args.Player.SendMessage(MessageType.Chat, "Swiftlys2 向这广袤世界致以温柔问候"));
+
+            mbutton.Enabled = false;
+            _ = Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                mbutton.Enabled = true;
+            });
+
+            return ValueTask.CompletedTask;
         };
 
         var player = context.Sender!;
@@ -888,7 +1006,7 @@ public class TestPlugin : BasePlugin
             .EnableExit()
             .SetPlayerFrozen(false)
             .Design.SetMaxVisibleItems(5)
-            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("Redesigned Menu", "#00FA9A", "#F5FFFA")}")
+            .Design.SetMenuTitle($"{HtmlGradient.GenerateGradientText("SwiftlyS2", "#00FA9A", "#F5FFFA")}")
             .Design.SetMenuTitleVisible(true)
             .Design.SetMenuFooterVisible(true)
             .Design.SetMenuFooterColor("#0F0")
@@ -898,9 +1016,9 @@ public class TestPlugin : BasePlugin
             .Design.EnableAutoAdjustVisibleItems()
             .Design.SetGlobalScrollStyle(MenuOptionScrollStyle.WaitingCenter)
             .AddOption(new TextMenuOption("1") { Visible = false })
-            .AddOption(toggle)
+            .AddOption(mtoggle)
             .AddOption(new ChoiceMenuOption("123", ["Option 1", "Option 2", "Option 3"]))
-            .AddOption(new SliderMenuOption("1234"))
+            .AddOption(new SliderMenuOption("1234") { Comment = "This is a slider" })
             .AddOption(new ProgressBarMenuOption("12345", () => (float)new Random().NextDouble(), multiLine: false))
             .AddOption(new SubmenuMenuOption("123456", async () =>
             {
@@ -912,11 +1030,13 @@ public class TestPlugin : BasePlugin
                     .Build();
                 return menu;
             }))
-            .AddOption(new InputMenuOption("1234567"))
+            .AddOption(new SelectorMenuOption<string>([
+                "1234567", "一二三四五六七", "いちにさんよん", "One Two Three", "Один Два Три", "하나 둘 셋", "αβγδεζη"
+            ]) { TextStyle = MenuOptionTextStyle.TruncateBothEnds })
             .AddOption(new TextMenuOption() { Text = "12345678", TextStyle = MenuOptionTextStyle.ScrollLeftLoop })
-            .AddOption(new TextMenuOption("123456789"))
+            .AddOption(mtext)
             .AddOption(new TextMenuOption("1234567890") { Visible = false })
-            .AddOption(button)
+            .AddOption(mbutton)
             .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 からこの広大なる世界へ温かい挨拶を", "#FFE5CC", "#FFAB91", "#FF7043")) { TextStyle = MenuOptionTextStyle.ScrollRightLoop })
             .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 가 이 넓은 세상에 따뜻한 인사를 전합니다", "#E6E6FA", "#00FFFF", "#FF1493")) { TextStyle = MenuOptionTextStyle.ScrollLeftFade })
             .AddOption(new TextMenuOption(HtmlGradient.GenerateGradientText("Swiftlys2 приветствует этот прекрасный мир", "#AFEEEE", "#7FFFD4", "#40E0D0")) { TextStyle = MenuOptionTextStyle.ScrollRightFade })
@@ -942,6 +1062,7 @@ public class TestPlugin : BasePlugin
             .AddOption(new TextMenuOption("1") { Visible = false })
             .Build();
 
+        // menu.DefaultComment = "No specific comment";
         Core.MenusAPI.OpenMenu(menu);
         // Core.MenusAPI.OpenMenuForPlayer(player, menu);
     }
@@ -1133,7 +1254,121 @@ public class TestPlugin : BasePlugin
         Core.PlayerManager.GetAlive()
             .Where(p => p.PlayerID != player.PlayerID)
             .ToList()
-            .ForEach(targetPlayer => context.Reply($"Line of sight to {targetPlayer.Controller!.PlayerName}: {player.PlayerPawn!.HasLineOfSight(targetPlayer.PlayerPawn!)}"));
+            .ForEach(targetPlayer =>
+                context.Reply(
+                    $"Line of sight to {targetPlayer.Controller!.PlayerName}: {player.PlayerPawn!.HasLineOfSight(targetPlayer.PlayerPawn!)}"));
+    }
+
+    [Command("cmt")]
+    [CommandAlias("cmat")]
+    public void CommandTestCommand( ICommandContext context )
+    {
+        Console.WriteLine(context);
+    }
+
+    [Command("ex1")]
+    public void DeepExceptionCommand( ICommandContext _ )
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel1()
+        {
+            ThrowLevel2();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel2()
+        {
+            ThrowLevel3();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel3()
+        {
+            ThrowLevel4();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel4()
+        {
+            ThrowLevel5();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel5()
+        {
+            ThrowLevel6();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel6()
+        {
+            ThrowLevel7();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel7()
+        {
+            ThrowLevel8();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel8()
+        {
+            ThrowLevel9();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel9()
+        {
+            ThrowLevel10();
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowLevel10()
+        {
+            try
+            {
+                ThrowInnerLevel1();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Deep nested exception from level 10", ex);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowInnerLevel1()
+        {
+            try
+            {
+                ThrowInnerLevel2();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Inner exception level 1", ex);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowInnerLevel2()
+        {
+            try
+            {
+                ThrowInnerLevel3();
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException("Inner exception level 2", ex);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        void ThrowInnerLevel3()
+        {
+            throw new NullReferenceException("Root cause exception");
+        }
+
+        ThrowLevel1();
     }
 
     public override void Unload()

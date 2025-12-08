@@ -79,6 +79,9 @@ internal static class NativeSchema {
   private unsafe static delegate* unmanaged<nint, ulong, nint, uint, void> _WritePropPtr;
 
   public unsafe static void WritePropPtr(nint entity, ulong hash, nint value, uint size) {
+    if (Thread.CurrentThread.ManagedThreadId != _MainThreadID) {
+      throw new InvalidOperationException("This method can only be called from the main thread.");
+    }
     _WritePropPtr(entity, hash, value, size);
   }
 

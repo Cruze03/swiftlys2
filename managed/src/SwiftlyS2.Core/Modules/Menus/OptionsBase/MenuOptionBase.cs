@@ -11,17 +11,11 @@ namespace SwiftlyS2.Core.Menus.OptionsBase;
 /// </summary>
 public abstract partial class MenuOptionBase : IMenuOption, IDisposable
 {
-    private string text = string.Empty;
     private string? dynamicText = null;
-    private float maxWidth = 26f;
-    private MenuOptionTextStyle textStyle = MenuOptionTextStyle.TruncateEnd;
-    private bool visible = true;
-    private bool enabled = true;
     private readonly DynamicTextUpdater? dynamicTextUpdater;
     private readonly ConcurrentDictionary<int, bool> playerVisible = new();
     private readonly ConcurrentDictionary<int, bool> playerEnabled = new();
     private readonly ConcurrentDictionary<int, Task> playerClickTask = new();
-
     private volatile bool disposed;
 
     /// <summary>
@@ -61,9 +55,9 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
         }
 
         dynamicTextUpdater = new DynamicTextUpdater(
-            () => text,
-            () => textStyle,
-            () => maxWidth,
+            () => Text,
+            () => TextStyle,
+            () => MaxWidth,
             value => dynamicText = value,
             Math.Max((int)(1 / 64f * 1000), updateIntervalMs),
             Math.Max((int)(1 / 64f * 1000), pauseIntervalMs)
@@ -93,7 +87,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <summary>
     /// Pauses the dynamic text animation.
     /// </summary>
-    public void PauseTextAnimation()
+    public virtual void PauseTextAnimation()
     {
         dynamicTextUpdater?.Pause();
     }
@@ -101,7 +95,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <summary>
     /// Resumes the dynamic text animation.
     /// </summary>
-    public void ResumeTextAnimation()
+    public virtual void ResumeTextAnimation()
     {
         dynamicTextUpdater?.Resume();
     }
@@ -121,33 +115,98 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     public virtual int LineCount => 1;
 
     /// <summary>
-    /// Gets or sets the text content displayed for this menu option.
+    /// Gets or sets a function that dynamically provides the text content for this menu option.
     /// </summary>
     /// <remarks>
-    /// This is a global property. Changing it will affect what all players see.
+    /// <para>
+    /// When this property is set to a non-null function, the <see cref="Text"/> property's getter will invoke it
+    /// to retrieve the current text value on each access. This enables automatic tracking of external string sources.
+    /// The function can return null to indicate that it wants to fall back to the static <see cref="Text"/> value,
+    /// or return an empty string to display nothing.
+    /// </para>
+    /// <para>
+    /// Setting this property to null will revert to using only the static <see cref="Text"/> value stored in the backing field.
+    /// </para>
+    /// <para>
+    /// Example usage:
+    /// <code>
+    /// string myText = "Hello";
+    /// option.BindingText = () => myText;
+    /// myText = "World";  // option.Text now returns "World"
+    /// 
+    /// // Return null to use fallback Text
+    /// option.BindingText = () => condition ? playerName : null;
+    /// </code>
+    /// </para>
     /// </remarks>
-    public string Text {
-        get => text;
+    public Func<string?>? BindingText {
+        get;
         set {
-            if (text == value)
+            if (field == value)
             {
                 return;
             }
 
-            text = value;
-            // dynamicText = null;
+            field = value;
+            TextChanged?.Invoke(this, new MenuOptionEventArgs { Player = null!, Option = this });
+        }
+    } = null;
+
+    /// <summary>
+    /// Gets or sets the text content displayed for this menu option.
+    /// </summary>
+    /// <remarks>
+    /// <para>This is a global property. Changing it will affect what all players see.</para>
+    /// <para>
+    /// When <see cref="BindingText"/> is set to a non-null function, the getter will invoke that function
+    /// to retrieve the current text value dynamically. If the function returns null, it falls back to this property's static value.
+    /// Otherwise, it returns the static value stored in the backing field.
+    /// </para>
+    /// <para>
+    /// Setting this property directly will update the static fallback value without clearing any <see cref="BindingText"/> binding.
+    /// This allows <see cref="BindingText"/> and static text to coexist, with <see cref="BindingText"/> taking priority.
+    /// The function is allowed to return an empty string, which will be displayed as-is.
+    /// </para>
+    /// </remarks>
+    public string Text {
+        get {
+            if (BindingText != null)
+            {
+                var boundValue = BindingText.Invoke();
+                if (boundValue != null)
+                {
+                    return boundValue;
+                }
+            }
+            return field;
+        }
+        set {
+            if (field == value)
+            {
+                return;
+            }
+
+            field = value;
 
             TextChanged?.Invoke(this, new MenuOptionEventArgs { Player = null!, Option = this });
         }
-    }
+    } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the comment content displayed for this menu option.
+    /// </summary>
+    /// <remarks>
+    /// This is a global property. Changing it will affect what all players see.
+    /// </remarks>
+    public string Comment { get; set; }
 
     /// <summary>
     /// The maximum display width for menu option text in relative units.
     /// </summary>
     public float MaxWidth {
-        get => maxWidth;
+        get;
         set {
-            if (maxWidth == value)
+            if (field == value)
             {
                 return;
             }
@@ -157,10 +216,10 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
                 Spectre.Console.AnsiConsole.WriteException(new ArgumentOutOfRangeException(nameof(MaxWidth), $"MaxWidth: value {value:F3} is out of range."));
             }
 
-            maxWidth = Math.Max(value, 1f);
+            field = Math.Max(value, 1f);
             // dynamicText = null;
         }
-    }
+    } = 26f;
 
     /// <summary>
     /// Gets or sets a value indicating whether this option is visible in the menu.
@@ -169,17 +228,17 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// This is a global property. Changing it will affect what all players see.
     /// </remarks>
     public bool Visible {
-        get => visible;
+        get;
         set {
-            if (visible == value)
+            if (field == value)
             {
                 return;
             }
 
-            visible = value;
+            field = value;
             VisibilityChanged?.Invoke(this, new MenuOptionEventArgs { Player = null!, Option = this });
         }
-    }
+    } = true;
 
     /// <summary>
     /// Gets or sets a value indicating whether this option can be interacted with.
@@ -188,17 +247,17 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// This is a global property. Changing it will affect what all players see.
     /// </remarks>
     public bool Enabled {
-        get => enabled;
+        get;
         set {
-            if (enabled == value)
+            if (field == value)
             {
                 return;
             }
 
-            enabled = value;
+            field = value;
             EnabledChanged?.Invoke(this, new MenuOptionEventArgs { Player = null!, Option = this });
         }
-    }
+    } = true;
 
     /// <summary>
     /// Gets or sets a value indicating whether the menu should be closed after handling the click.
@@ -219,17 +278,17 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// Gets or sets the text overflow style for this option.
     /// </summary>
     public MenuOptionTextStyle TextStyle {
-        get => textStyle;
+        get;
         set {
-            if (textStyle == value)
+            if (field == value)
             {
                 return;
             }
 
-            textStyle = value;
+            field = value;
             // dynamicText = null;
         }
-    }
+    } = MenuOptionTextStyle.TruncateEnd;
 
     /// <summary>
     /// Gets or sets a value indicating whether a sound should play when this option is selected.
@@ -478,7 +537,7 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public virtual async ValueTask OnClickAsync( IPlayer player )
     {
-        if (!visible || !enabled || !GetVisible(player) || !GetEnabled(player))
+        if (!Visible || !Enabled || !GetVisible(player) || !GetEnabled(player))
         {
             return;
         }
@@ -529,12 +588,41 @@ public abstract partial class MenuOptionBase : IMenuOption, IDisposable
     // }
 
     /// <summary>
+    /// Gets the input claim information for this option.
+    /// This is used internally to determine which keys this option claims for custom handling.
+    /// </summary>
+    internal MenuInputClaimInfo InputClaimInfo { get; set; } = MenuInputClaimInfo.Empty;
+
+    /// <summary>
+    /// Called when the claimed Exit key is pressed while this option is selected.
+    /// Override this method to handle custom Exit key behavior.
+    /// This method MUST be synchronous to ensure immediate UI feedback.
+    /// </summary>
+    /// <param name="player">The player who pressed the key.</param>
+    internal virtual void OnClaimedExit( IPlayer player ) { }
+
+    /// <summary>
+    /// Called when the claimed Use key is pressed while this option is selected.
+    /// Override this method to handle custom Use key behavior.
+    /// This method MUST be synchronous to ensure immediate UI feedback.
+    /// </summary>
+    /// <param name="player">The player who pressed the key.</param>
+    internal virtual void OnClaimedUse( IPlayer player ) { }
+
+    /// <summary>
+    /// Called to update custom animations for this option.
+    /// Override this method to implement custom animation logic.
+    /// </summary>
+    /// <param name="now">The current time.</param>
+    internal virtual void UpdateCustomAnimations( DateTime now ) { }
+
+    /// <summary>
     /// Updates dynamic text.
     /// </summary>
     /// <remarks>
     /// Called by MenuAPI's render loop.
     /// </remarks>
-    internal void UpdateDynamicText( DateTime now )
+    internal virtual void UpdateDynamicText( DateTime now )
     {
         dynamicTextUpdater?.TryUpdate(now);
     }

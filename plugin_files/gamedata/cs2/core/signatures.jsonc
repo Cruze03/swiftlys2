@@ -118,20 +118,6 @@
         "windows": "48 8B 1D ? ? ? ? 48 85 DB 0F 84 ? ? ? ? BD",
         "linux": "4C 8B 35 ? ? ? ? 4D 85 F6 75 ? E9"
     },
-    // Windows: "%s:  IGameSystem::LoopPostInitAllSystems(start)\n"
-    // Linux: "%s:  IGameSystem::LoopInitAllSystems(start)"
-    "IGameSystem::LoopPostInitAllSystems->pEventDispatcher": {
-        "lib": "server",
-        "windows": "48 39 1D ? ? ? ? 74 ? 39 05",
-        "linux": "4C 8B 25 ? ? ? ? 48 8B 05 ? ? ? ? 8B 35"
-    },
-    // Search for string "--CLoopModeGame::SetWorldSession". In the function with the string,
-    // a number is checked if it's positive, and then the function is called
-    "IGameSystem::LoopDestroyAllSystems->s_GameSystems": {
-        "lib": "server",
-        "windows": "8B 05 ? ? ? ? 83 E8 ? 48 63 F8 0F 88",
-        "linux": "8B 05 ? ? ? ? 89 C2 83 EA ? 0F 88 ? ? ? ? 4C 8D 3D"
-    },
     // Find string "%sRecv usercmd %d.  Margin:%5.1fms net +%2d queue =%5.1f total\n"
     "CCSPlayerController::ProcessUserCmd": {
         "lib": "server",
