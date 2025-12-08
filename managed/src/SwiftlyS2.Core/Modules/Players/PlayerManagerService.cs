@@ -122,7 +122,7 @@ internal class PlayerManagerService : IPlayerManagerService
                 var ccsgamerules = new CCSGameRulesImpl(NativeEntitySystem.GetGameRules());
                 var pickerEntity = ccsgamerules.FindPickerEntity<CCSPlayerPawn>(player.Controller);
 
-                if (pickerEntity != null && pickerEntity.DesignerName == "player")
+                if (pickerEntity != null && pickerEntity.IsValid && pickerEntity.DesignerName == "player")
                 {
                     var entIndex = pickerEntity.OriginalController.Value?.Entity?.EntityHandle.EntityIndex;
                     if (entIndex.HasValue)
