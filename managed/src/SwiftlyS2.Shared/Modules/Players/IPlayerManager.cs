@@ -98,6 +98,40 @@ public interface IPlayerManagerService
     public Task SendMessageAsync( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback, int htmlDuration = 5000 );
 
     /// <summary>
+    /// Sends a message of the specified type to the players asynchronously.
+    /// </summary>
+    /// <param name="kind">The type of message to send. Determines how the message is processed or displayed.</param>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendMessageAsync( MessageType kind, string message );
+
+    /// <summary>
+    /// Sends a message of the specified type to the players asynchronously with a custom HTML duration.
+    /// </summary>
+    /// <param name="kind">The type of message to send. Determines how the message is processed or displayed.</param>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    /// <param name="htmlDuration">The duration, in milliseconds, for which the message should be displayed in HTML format.</param>
+    public Task SendMessageAsync( MessageType kind, string message, int htmlDuration = 5000 );
+
+    /// <summary>
+    /// Broadcasts a message to players using different display methods based on the message type.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
+    /// </summary>
+    /// <param name="kind">The type of message display.</param>
+    /// <param name="messageCallback">The text callback to send to players.</param>
+    public Task SendMessageAsync( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback );
+
+    /// <summary>
+    /// Sends a message of the specified type to the players with a custom HTML duration.
+    /// 
+    /// Thread unsafe, use async variant instead for non-main thread context.
+    /// </summary>
+    /// <param name="kind">The type of message to send. Determines how the message is processed or displayed.</param>
+    /// <param name="messageCallback">The callback of the message to send. Cannot be null.</param>
+    /// <param name="htmlDuration">The duration, in milliseconds, for which the message should be displayed in HTML format.</param>
+    public Task SendMessageAsync( MessageType kind, Func<IPlayer, ILocalizer, string> messageCallback, int htmlDuration = 5000 );
+
+    /// <summary>
     /// Sends a notify message to the players.
     /// 
     /// Thread unsafe, use async variant instead for non-main thread context.
@@ -105,6 +139,12 @@ public interface IPlayerManagerService
     /// <param name="message">The content of the message to send. Cannot be null.</param>
     [ThreadUnsafe]
     public void SendNotify( string message );
+
+    /// <summary>
+    /// Sends a notify message to the players asynchronously.
+    /// </summary>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendNotifyAsync( string message );
 
     /// <summary>
     /// Sends a notify message to the players asynchronously.
@@ -128,6 +168,12 @@ public interface IPlayerManagerService
     public Task SendConsoleAsync( string message );
 
     /// <summary>
+    /// Sends a console message to the players asynchronously.
+    /// </summary>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendConsoleAsync( string message );
+
+    /// <summary>
     /// Sends a chat message to the players.
     /// 
     /// Thread unsafe, use async variant instead for non-main thread context.
@@ -135,6 +181,12 @@ public interface IPlayerManagerService
     /// <param name="message">The content of the message to send. Cannot be null.</param>
     [ThreadUnsafe]
     public void SendChat( string message );
+
+    /// <summary>
+    /// Sends a chat message to the players asynchronously.
+    /// </summary>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendChatAsync( string message );
 
     /// <summary>
     /// Sends a chat message to the players asynchronously.
@@ -158,6 +210,12 @@ public interface IPlayerManagerService
     public Task SendCenterAsync( string message );
 
     /// <summary>
+    /// Sends a center message to the players asynchronously.
+    /// </summary>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendCenterAsync( string message );
+
+    /// <summary>
     /// Sends an alert message to the players.
     /// 
     /// Thread unsafe, use async variant instead for non-main thread context.
@@ -165,6 +223,12 @@ public interface IPlayerManagerService
     /// <param name="message">The content of the message to send. Cannot be null.</param>
     [ThreadUnsafe]
     public void SendAlert( string message );
+
+    /// <summary>
+    /// Sends an alert message to the players asynchronously.
+    /// </summary>
+    /// <param name="message">The content of the message to send. Cannot be null.</param>
+    public Task SendAlertAsync( string message );
 
     /// <summary>
     /// Sends an alert message to the players asynchronously.
