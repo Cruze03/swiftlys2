@@ -28,77 +28,80 @@ internal delegate nint DispatchSpawnHook( nint entity, nint kv );
 
 internal class TestService
 {
+    private ILogger<TestService> _Logger { get; init; }
+    private ProfileService _ProfileService { get; init; }
+    private ISwiftlyCore _Core { get; init; }
 
-  private ILogger<TestService> _Logger { get; init; }
-  private ProfileService _ProfileService { get; init; }
-  private ISwiftlyCore _Core { get; init; }
-  public unsafe TestService(
-    ILogger<TestService> logger,
-    ProfileService profileService,
-    ISwiftlyCore core
-  )
-  {
-    _ProfileService = profileService;
-    _Core = core;
-    _Logger = logger;
-
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-    _Logger.LogWarning("TestService created");
-
-    Test();
-  }
-
-  static void PrintStructFields<T>( T obj ) where T : struct
-  {
-    Type type = typeof(T);
-    FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-    foreach (FieldInfo field in fields)
+    public unsafe TestService(
+        ILogger<TestService> logger,
+        ProfileService profileService,
+        ISwiftlyCore core
+    )
     {
-      object value = field.GetValue(obj);
-      Console.WriteLine($"{field.Name}: {value}");
+        _ProfileService = profileService;
+        _Core = core;
+        _Logger = logger;
+
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+        _Logger.LogWarning("TestService created");
+
+        Test2();
     }
-  }
 
-
-  public void Test()
-  {
-    _ = _Core.Scheduler.RepeatBySeconds(1.0f, () =>
+    static void PrintStructFields<T>( T obj ) where T : struct
     {
-      var gameServer = NativeEngineHelpers.GetNetworkGameServer();
-      unsafe
-      {
-        ref var array = ref gameServer.AsRef<CUtlVector<nint>>(624);
-        foreach (var client in array)
+        Type type = typeof(T);
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+
+        foreach (FieldInfo field in fields)
         {
-          if (client == 0)
-            continue;
-
-          ref var serversideClient = ref client.AsRef<CServerSideClient>();
-          PrintStructFields(serversideClient.Base);
+            object value = field.GetValue(obj);
+            Console.WriteLine($"{field.Name}: {value}");
         }
-      }
-    });
-  }
-  public void Test2()
-  {
-    _Core.Event.OnMovementServicesRunCommandHook += ( @event ) =>
+    }
+
+
+    public void Test()
     {
-      @event.UserCmdPB.Base.ClientTick -= 100;
-    };
-    // _Core.Event.OnItemServicesCanAcquireHook += (@event) => {
-    //   Console.WriteLine(@event.EconItemView.ItemDefinitionIndex);
+        _ = _Core.Scheduler.RepeatBySeconds(1.0f, () =>
+        {
+            var gameServer = NativeEngineHelpers.GetNetworkGameServer();
+            unsafe
+            {
+                ref var array = ref gameServer.AsRef<CUtlVector<nint>>(624);
+                foreach (var client in array)
+                {
+                    if (client == 0)
+                        continue;
 
-    //   @event.SetAcquireResult(AcquireResult.NotAllowedByProhibition);
-    // };
+                    ref var serversideClient = ref client.AsRef<CServerSideClient>();
+                    PrintStructFields(serversideClient.Base);
+                }
+            }
+        });
+    }
 
+    public void Test2()
+    {
+        _Core.GameEvent.HookPost<EventPlayerPing>(@event =>
+        {
+            var slots = @event.UserIdPawn.PingServices.PlayerPingTokens;
 
-  }
+            _Core.Logger.LogInformation($"Slots Count: {slots.ElementCount}");
+            for (int i = 0; i < slots.ElementCount; i++)
+            {
+                var slot = slots[i];
+                _Core.Logger.LogInformation($"Slot {i}: {slot.Value}");
+            }
+
+            return HookResult.Continue;
+        });
+    }
 }
