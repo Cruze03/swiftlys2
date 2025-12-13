@@ -55,6 +55,7 @@ public:
     virtual void SendMsg(MessageType type, const std::string& message, int duration) = 0;
 
     virtual bool IsFakeClient() = 0;
+    virtual void SetFakeClient(bool state) = 0;
     virtual bool IsAuthorized() = 0;
 
     virtual uint32_t GetConnectedTime() = 0;

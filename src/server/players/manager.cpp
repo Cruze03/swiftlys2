@@ -292,6 +292,7 @@ bool ClientConnectHook(void* _this, CPlayerSlot slot, const char* pszName, uint6
     }
 
     player->SetUnauthorizedSteamID(xuid);
+    player->SetFakeClient(xuid == 0);
 
     if (g_pOnClientConnectCallback)
     {
@@ -311,7 +312,8 @@ void OnClientConnectedHook(void* _this, CPlayerSlot slot, const char* pszName, u
     auto playerid = slot.Get();
     if (bFakePlayer)
     {
-        playermanager->RegisterPlayer(playerid);
+        auto player = playermanager->RegisterPlayer(playerid);
+        player->SetFakeClient(true);
         // player->Initialize(playerid);
     }
 
