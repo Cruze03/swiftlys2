@@ -296,6 +296,11 @@ bool ClientConnectHook(void* _this, CPlayerSlot slot, const char* pszName, uint6
     player->SetUnauthorizedSteamID(xuid);
     player->SetFakeClient(xuid == 0);
 
+    if (g_mSteamAuthorizedCacheMap.find(player->GetUnauthorizedSteamID()) != g_mSteamAuthorizedCacheMap.end())
+    {
+        player->ChangeAuthorizationState(g_mSteamAuthorizedCacheMap[player->GetUnauthorizedSteamID()]);
+    }
+
     if (g_pOnClientConnectCallback)
     {
         if (reinterpret_cast<bool (*)(int)>(g_pOnClientConnectCallback)(playerid) == false)
@@ -348,11 +353,6 @@ IPlayer* CPlayerManager::RegisterPlayer(int playerid)
     auto player = new CPlayer();
     player->Initialize(playerid);
     g_Players[playerid] = player;
-
-    if (g_mSteamAuthorizedCacheMap.find(player->GetUnauthorizedSteamID()) != g_mSteamAuthorizedCacheMap.end())
-    {
-        player->ChangeAuthorizationState(g_mSteamAuthorizedCacheMap[player->GetUnauthorizedSteamID()]);
-    }
 
     return player;
 }
