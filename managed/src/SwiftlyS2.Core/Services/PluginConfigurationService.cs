@@ -57,7 +57,6 @@ internal class PluginConfigurationService : IPluginConfigurationService
     {
       Directory.CreateDirectory(dir);
     }
-    File.Create(configPath).Close();
 
     var templateAbsPath = Path.Combine(_Id.BaseDirectory, "resources", "templates", templatePath);
 
