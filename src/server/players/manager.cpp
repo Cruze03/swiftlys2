@@ -39,6 +39,8 @@ public:
 #endif
 };
 
+std::map<uint64_t, bool> g_mSteamAuthorizedCacheMap;
+
 IFunctionHook* g_pProcessUserCmdsHook = nullptr;
 IVFunctionHook* g_pOnGameFramePlayerHook = nullptr;
 
@@ -347,6 +349,11 @@ IPlayer* CPlayerManager::RegisterPlayer(int playerid)
     player->Initialize(playerid);
     g_Players[playerid] = player;
 
+    if (g_mSteamAuthorizedCacheMap.find(player->GetUnauthorizedSteamID()) != g_mSteamAuthorizedCacheMap.end())
+    {
+        player->ChangeAuthorizationState(g_mSteamAuthorizedCacheMap[player->GetUnauthorizedSteamID()]);
+    }
+
     return player;
 }
 
@@ -430,6 +437,7 @@ void CPlayerManager::OnValidateAuthTicket(ValidateAuthTicketResponse_t* response
             continue;
 
         player->ChangeAuthorizationState(response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
+        g_mSteamAuthorizedCacheMap[steamid] = (response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
         break;
     }
 }
