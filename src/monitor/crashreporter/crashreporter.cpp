@@ -37,8 +37,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <ctime>
+#include <filesystem>
 #include <fstream>
 #include <string>
+#include <thread>
+
+#include "tracer.h"
 
 #ifdef _WIN32
 #include <DbgHelp.h>
@@ -65,7 +69,6 @@ static ucontext_t* g_linuxContext = nullptr;
 
 static std::string g_dumpPath;
 static bool g_dumpWritten = false;
-static char g_managedStackBuffer[32768];
 
 void RegisterCrashHandlers();
 void UnregisterCrashHandlers();
@@ -83,6 +86,15 @@ void CrashReporter::Init()
         }
     }
 
+    if (!Files::ExistsPath(g_SwiftlyCore.GetCorePath() + std::string("dumps") + WIN_LINUX("\\", "/") + "crashreport"))
+    {
+        if (!Files::CreateDir(g_SwiftlyCore.GetCorePath() + std::string("dumps") + WIN_LINUX("\\", "/") + "crashreport"))
+        {
+            logger->Error("Crash Listener", "Couldn't create dumps crashreport folder.\n");
+            return;
+        }
+    }
+
     if (!Files::ExistsPath(g_SwiftlyCore.GetCorePath() + "dumps/prevention"))
     {
         if (!Files::CreateDir(g_SwiftlyCore.GetCorePath() + "dumps/prevention"))
@@ -92,8 +104,7 @@ void CrashReporter::Init()
         }
     }
 
-    g_dumpPath = Files::GeneratePath(g_SwiftlyCore.GetCorePath() + "dumps");
-    memset(g_managedStackBuffer, 0, sizeof(g_managedStackBuffer));
+    g_dumpPath = Files::GeneratePath(g_SwiftlyCore.GetCorePath() + std::string("dumps") + WIN_LINUX("\\", "/") + "crashreport");
 
     RegisterCrashHandlers();
 }
@@ -101,6 +112,29 @@ void CrashReporter::Init()
 void CrashReporter::Shutdown()
 {
     UnregisterCrashHandlers();
+}
+
+void CrashReporter::EnableDotnetCrashTracer(int level)
+{
+    auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
+    logger->Warning("Crash Reporter", fmt::format("Dotnet crash tracer level set to: {}\n", level));
+
+    m_tracerLevel = level;
+    if (level <= 0)
+    {
+        return;
+    }
+
+    setEnvVar("CORECLR_ENABLE_PROFILING", "1");
+    setEnvVar("CORECLR_PROFILER", "{a2648b53-a560-486c-9e56-c3922a330182}");
+    auto tracerPath = Files::GeneratePath(g_SwiftlyCore.GetCorePath() + WIN_LINUX("bin\\win64\\sw2tracer.dll", "bin/linuxsteamrt64/libsw2tracer.so"));
+    printf("%s\n", tracerPath.c_str());
+    setEnvVar("CORECLR_PROFILER_PATH", tracerPath);
+}
+
+int CrashReporter::GetDotnetCrashTracerLevel()
+{
+    return m_tracerLevel;
 }
 
 void CrashReporter::ReportPreventionIncident(std::string category, std::string reason)
@@ -131,8 +165,17 @@ void CrashReporter::ReportPreventionIncident(std::string category, std::string r
     logger->Warning("Crash Prevention", fmt::format("A log file has been created at: {}\n", file_path));
 }
 
-inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo)
+inline void ReportCrashIncident(const std::string& crashDir, void* exceptionInfo, uint64_t processIdOverride = 0, uint64_t threadIdOverride = 0)
 {
+    auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
+    auto tracerLevel = g_ifaceService.FetchInterface<ICrashReporter>(CRASHREPORTER_INTERFACE_VERSION)->GetDotnetCrashTracerLevel();
+    if (tracerLevel > 0)
+    {
+        std::string tracerPath = crashDir + WIN_LINUX("\\", "/") + "managedtrace.txt";
+        logger->Warning("Crash Reporter", fmt::format("Dumping managed trace to: {}\n", tracerPath));
+        TracerDump(g_SwiftlyCore.GetCorePath(), tracerPath.c_str());
+    }
+
     try
     {
         nlohmann::json crashReport;
@@ -167,8 +210,8 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
         crashReport["timestampUTC"] = static_cast<uint64_t>(timestamp);
 
 #ifdef _WIN32
-        crashReport["processId"] = GetCurrentProcessId();
-        crashReport["threadId"] = GetCurrentThreadId();
+        crashReport["processId"] = processIdOverride ? processIdOverride : static_cast<uint64_t>(GetCurrentProcessId());
+        crashReport["threadId"] = threadIdOverride ? threadIdOverride : static_cast<uint64_t>(GetCurrentThreadId());
 
         auto* pExceptionPointers = static_cast<PEXCEPTION_POINTERS>(exceptionInfo);
         if (pExceptionPointers && pExceptionPointers->ExceptionRecord)
@@ -403,33 +446,6 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
             const int maxFrames = 64;
             int frameCount = 0;
             auto& frames = nativeStack["frames"];
-
-            // Capture managed (.NET) stack trace
-            auto& managedStack = callStack["managed"];
-            if (IsManagedStackCaptureAvailable())
-            {
-                int len = GetManagedStackTraceJson(g_managedStackBuffer, sizeof(g_managedStackBuffer));
-                if (len > 0)
-                {
-                    try
-                    {
-                        managedStack = nlohmann::json::parse(g_managedStackBuffer);
-                    }
-                    catch (const nlohmann::json::parse_error&)
-                    {
-                        managedStack["raw"] = g_managedStackBuffer;
-                        managedStack["parseError"] = true;
-                    }
-                }
-                else
-                {
-                    managedStack["error"] = "Failed to capture managed stack trace";
-                }
-            }
-            else
-            {
-                managedStack["error"] = "Managed stack capture not initialized";
-            }
 
             // Walk the stack
             while (frameCount < maxFrames)
@@ -794,34 +810,6 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
                 frames.push_back(frame);
             }
 
-            // Capture managed (.NET) stack trace
-            auto& managedStack = callStack["managed"];
-            // if (IsManagedStackCaptureAvailable())
-            // {
-            //     int len = GetManagedStackTraceJson(g_managedStackBuffer, sizeof(g_managedStackBuffer));
-            //     if (len > 0)
-            //     {
-            //         try
-            //         {
-            //             managedStack = nlohmann::json::parse(g_managedStackBuffer);
-            //         }
-            //         catch (const nlohmann::json::parse_error&)
-            //         {
-            //             managedStack["raw"] = g_managedStackBuffer;
-            //             managedStack["parseError"] = true;
-            //         }
-            //     }
-            //     else
-            //     {
-            //         managedStack["error"] = "Failed to capture managed stack trace";
-            //     }
-            // }
-            // else
-            // {
-            //     managedStack["error"] = "Managed stack capture not initialized";
-            // }
-            managedStack["error"] = "Managed stack capture is not supported";
-
             // Stack memory dump
             auto& stackMemory = crashReport["stackMemory"];
             uint64_t rspVal = static_cast<uint64_t>(gregs[REG_RSP]);
@@ -934,7 +922,7 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
         }
 #endif
 
-        std::string jsonPath = basePath + ".json";
+        std::string jsonPath = crashDir + WIN_LINUX("\\", "/") + "crashinfo.json";
         std::ofstream jsonFile(jsonPath);
         if (jsonFile.is_open())
         {
@@ -946,13 +934,11 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
             _write(_fileno(stdout), msg, strlen(msg));
             _write(_fileno(stdout), jsonPath.c_str(), jsonPath.size());
             _write(_fileno(stdout), "\n", 1);
-            _exit(1);
 #else
             const char* msg = "[CrashReporter] Wrote crash report JSON to: ";
             write(STDOUT_FILENO, msg, strlen(msg));
             write(STDOUT_FILENO, jsonPath.c_str(), jsonPath.size());
             write(STDOUT_FILENO, "\n", 1);
-            _exit(1);
 #endif
         }
     }
@@ -963,13 +949,11 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
         _write(_fileno(stdout), msg, strlen(msg));
         _write(_fileno(stdout), e.what(), strlen(e.what()));
         _write(_fileno(stdout), "\n", 1);
-        _exit(1);
 #else
         const char* msg = "[CrashReporter] Exception while generating crash report: ";
         write(STDOUT_FILENO, msg, strlen(msg));
         write(STDOUT_FILENO, e.what(), strlen(e.what()));
         write(STDOUT_FILENO, "\n", 1);
-        _exit(1);
 #endif
     }
     catch (...)
@@ -977,11 +961,9 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
 #ifdef _WIN32
         const char* msg = "[CrashReporter] Unknown exception while generating crash report!\n";
         _write(_fileno(stdout), msg, strlen(msg));
-        _exit(1);
 #else
         const char* msg = "[CrashReporter] Unknown exception while generating crash report!\n";
         write(STDOUT_FILENO, msg, strlen(msg));
-        _exit(1);
 #endif
     }
 }
@@ -989,7 +971,7 @@ inline void ReportCrashIncident(const std::string& basePath, void* exceptionInfo
 #ifdef _WIN32
 static PVOID g_vehHandle = nullptr;
 
-void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
+static void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
 {
     if (g_dumpWritten)
     {
@@ -997,24 +979,37 @@ void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
     }
     g_dumpWritten = true;
 
-    std::string fileBaseName = g_dumpPath + "\\" + get_uuid();
-    std::wstring dumpFile = StringWide(fileBaseName + ".dmp");
+    uint64_t pid = static_cast<uint64_t>(GetCurrentProcessId());
+    uint64_t tid = static_cast<uint64_t>(GetCurrentThreadId());
 
+    std::string uuid = get_uuid();
+    std::string crashDir = g_dumpPath + "\\" + uuid;
+    std::error_code ec;
+    std::filesystem::create_directories(crashDir, ec);
+
+    std::wstring dumpFile = StringWide(crashDir + "\\minidump.dmp");
     HANDLE hFile = CreateFileW(dumpFile.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (hFile == INVALID_HANDLE_VALUE)
     {
         const char* msg = "[CrashReporter] Failed to create dump file!\n";
         _write(_fileno(stdout), msg, strlen(msg));
-        return;
+        _exit(1);
     }
 
     MINIDUMP_EXCEPTION_INFORMATION mei;
-    mei.ThreadId = GetCurrentThreadId();
+    mei.ThreadId = static_cast<DWORD>(tid);
     mei.ExceptionPointers = exceptionInfo;
     mei.ClientPointers = FALSE;
 
-    BOOL result = MiniDumpWriteDump(GetCurrentProcess(), GetCurrentProcessId(), hFile, static_cast<MINIDUMP_TYPE>(MiniDumpWithDataSegs | MiniDumpWithHandleData | MiniDumpWithThreadInfo | MiniDumpWithUnloadedModules), &mei, nullptr, nullptr);
-
+    MINIDUMP_TYPE type = static_cast<MINIDUMP_TYPE>(
+          MiniDumpWithDataSegs 
+        | MiniDumpNormal
+        | MiniDumpWithHandleData 
+        | MiniDumpWithThreadInfo 
+        | MiniDumpWithUnloadedModules
+        | MiniDumpWithFullMemoryInfo
+    );
+    BOOL result = MiniDumpWriteDump(GetCurrentProcess(), static_cast<DWORD>(pid), hFile, type, &mei, nullptr, nullptr);
     CloseHandle(hFile);
 
     if (result)
@@ -1025,16 +1020,17 @@ void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
         _write(_fileno(stdout), path.c_str(), path.size());
         _write(_fileno(stdout), "\n", 1);
 
-        ReportCrashIncident(fileBaseName, exceptionInfo);
+        std::thread worker([crashDir, exceptionInfo, pid, tid]()
+        {
+            ReportCrashIncident(crashDir, exceptionInfo, pid, tid);
+        });
+        worker.join();
+        _exit(1);
     }
-    else
-    {
-        const char* msg = "[CrashReporter] Failed to write minidump to: ";
-        _write(_fileno(stdout), msg, strlen(msg));
-        std::string path = StringTight(dumpFile);
-        _write(_fileno(stdout), path.c_str(), path.size());
-        _write(_fileno(stdout), "\n", 1);
-    }
+
+    const char* msg = "[CrashReporter] Failed to write minidump!\n";
+    _write(_fileno(stdout), msg, strlen(msg));
+    _exit(1);
 }
 
 LONG CALLBACK VectoredExceptionHandler(PEXCEPTION_POINTERS exceptionInfo)
@@ -1134,8 +1130,29 @@ static bool BreakpadDumpCallback(const google_breakpad::MinidumpDescriptor& desc
         sys_write(STDOUT_FILENO, "\n", 1);
 
         std::string dumpPath = descriptor.path();
-        std::string basePath = dumpPath.substr(0, dumpPath.rfind(".dmp"));
-        ReportCrashIncident(basePath, nullptr);
+        std::string dumpRoot = g_dumpPath;
+        std::thread worker([dumpPath, dumpRoot]()
+        {
+            auto sep = dumpPath.find_last_of("/\\");
+            std::string file = (sep == std::string::npos) ? dumpPath : dumpPath.substr(sep + 1);
+            auto dot = file.rfind(".dmp");
+            std::string uuid = (dot == std::string::npos) ? file : file.substr(0, dot);
+
+            std::string crashDir = dumpRoot + "/" + uuid;
+            std::error_code ec;
+            std::filesystem::create_directories(crashDir, ec);
+
+            std::string newDumpPath = crashDir + "/minidump.dmp";
+            if (std::rename(dumpPath.c_str(), newDumpPath.c_str()) != 0)
+            {
+                std::filesystem::copy_file(dumpPath, newDumpPath, std::filesystem::copy_options::overwrite_existing, ec);
+                std::filesystem::remove(dumpPath, ec);
+            }
+
+            ReportCrashIncident(crashDir, nullptr);
+        });
+        worker.join();
+        _exit(1);
     }
     else
     {

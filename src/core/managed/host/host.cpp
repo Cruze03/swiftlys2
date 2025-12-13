@@ -49,38 +49,6 @@ get_plugin_memory_fn getMemory = nullptr;
 execute_function_fn execFunction = nullptr;
 state_fn set_state = nullptr;
 
-typedef int(CORECLR_DELEGATE_CALLTYPE* GetStackTraceJsonFn)(char* buffer, int bufferSize);
-static GetStackTraceJsonFn g_getStackTraceJson = nullptr;
-static bool g_stackCaptureInitialized = false;
-
-extern "C" void SetManagedStackTraceCallback(GetStackTraceJsonFn callback)
-{
-    g_getStackTraceJson = callback;
-    g_stackCaptureInitialized = (callback != nullptr);
-}
-
-bool IsManagedStackCaptureAvailable()
-{
-    return g_stackCaptureInitialized && g_getStackTraceJson != nullptr;
-}
-
-int GetManagedStackTraceJson(char* buffer, int bufferSize)
-{
-    if (!IsManagedStackCaptureAvailable() || buffer == nullptr || bufferSize <= 0)
-    {
-        return 0;
-    }
-
-    try
-    {
-        return g_getStackTraceJson(buffer, bufferSize);
-    }
-    catch (...)
-    {
-        return 0;
-    }
-}
-
 bool InitializeHostFXR(std::string origin_path)
 {
 #ifdef _WIN32
@@ -201,7 +169,7 @@ bool InitializeHostFXR(std::string origin_path)
 
 bool InitializeDotNetAPI(void* scripting_table, int scripting_table_size, std::string log_path)
 {
-    typedef void(CORECLR_DELEGATE_CALLTYPE * custom_loader_fn)(void*, int, const char*, const char*, void*);
+    typedef void(CORECLR_DELEGATE_CALLTYPE * custom_loader_fn)(void*, int, const char*, const char*);
     static custom_loader_fn custom_loader = nullptr;
 
     if (custom_loader == nullptr)
@@ -224,7 +192,7 @@ bool InitializeDotNetAPI(void* scripting_table, int scripting_table_size, std::s
         static std::string s = log_path;
 
         // Pass the callback setter function pointer to C#
-        custom_loader(scripting_table, scripting_table_size, original_path.c_str(), s.c_str(), (void*)&SetManagedStackTraceCallback);
+        custom_loader(scripting_table, scripting_table_size, original_path.c_str(), s.c_str());
     }
 
     return true;

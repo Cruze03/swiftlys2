@@ -7,11 +7,11 @@ namespace SwiftlyS2;
 internal class Entrypoint
 {
     [UnmanagedCallersOnly]
-    public static unsafe void Start( IntPtr nativeTable, int nativeTableSize, IntPtr basePath, IntPtr logsPath, IntPtr setStackTraceCallbackPtr )
+    public static unsafe void Start( IntPtr nativeTable, int nativeTableSize, IntPtr basePath, IntPtr logsPath)
     {
         try
         {
-            Bootstrap.Start(nativeTable, nativeTableSize, Marshal.PtrToStringUTF8(basePath)!, Marshal.PtrToStringUTF8(logsPath)!, setStackTraceCallbackPtr);
+            Bootstrap.Start(nativeTable, nativeTableSize, Marshal.PtrToStringUTF8(basePath)!, Marshal.PtrToStringUTF8(logsPath)!);
         }
         catch (Exception e)
         {

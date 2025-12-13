@@ -11,7 +11,6 @@ using SwiftlyS2.Core.Hosting;
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Core.Services;
 using SwiftlyS2.Shared.SteamAPI;
-using SwiftlyS2.Core.Diagnostics;
 
 namespace SwiftlyS2.Core;
 
@@ -39,17 +38,8 @@ internal static class Bootstrap
         return IntPtr.Zero;
     }
 
-    public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath, IntPtr setStackTraceCallbackPtr )
+    public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath)
     {
-        if (setStackTraceCallbackPtr != IntPtr.Zero)
-        {
-            var setCallback = Marshal.GetDelegateForFunctionPointer<SetStackTraceCallbackDelegate>(setStackTraceCallbackPtr);
-            unsafe
-            {
-                setCallback(&StackTraceExport.GetStackTraceJson);
-            }
-        }
-
         Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_ROOT", basePath);
         Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_LOG", logPath);
         NativeBinding.BindNatives(nativeTable, nativeTableSize);

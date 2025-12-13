@@ -169,6 +169,15 @@ bool SwiftlyCore::Load(BridgeKind_t kind)
         return false;
     }
 
+    if (int* level = std::get_if<int>(&configuration->GetValue("core.DotnetCrashTracerLevel")))
+    {
+        if (*level > 0)
+        {
+            auto crashreporter = g_ifaceService.FetchInterface<ICrashReporter>(CRASHREPORTER_INTERFACE_VERSION);
+            crashreporter->EnableDotnetCrashTracer(*level);
+        }
+    }
+
     auto sdkclass = g_ifaceService.FetchInterface<ISDKSchema>(SDKSCHEMA_INTERFACE_VERSION);
     sdkclass->Load();
 
