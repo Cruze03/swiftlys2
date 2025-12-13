@@ -127,7 +127,8 @@ internal class PluginConfigurationService : IPluginConfigurationService
     };
 
     var tomlModelOptions = new TomlModelOptions {
-      ConvertPropertyName = name => name
+      ConvertPropertyName = name => name,
+      IgnoreMissingProperties = true
     };
 
     var tomlString = Toml.FromModel(wrapped, tomlModelOptions);
