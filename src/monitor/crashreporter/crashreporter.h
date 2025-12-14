@@ -23,10 +23,14 @@
 
 class CrashReporter : public ICrashReporter
 {
+private:
+    int m_tracerLevel;
 public:
     virtual void Init() override;
     virtual void Shutdown() override;
 
+    virtual void EnableDotnetCrashTracer(int level) override;
+    virtual int GetDotnetCrashTracerLevel() override;
     virtual void ReportPreventionIncident(std::string category, std::string reason) override;
 };
 

@@ -18,6 +18,7 @@ internal static class Bootstrap
 {
     // how tf i forgot services can be collected hahahahahahahhaahhahaa FUCK
     private static IHost? sw2Host;
+    private unsafe delegate void SetStackTraceCallbackDelegate( delegate* unmanaged< byte*, int, int > callback );
 
     private static IntPtr SteamAPIDLLResolver( string libraryName, Assembly assembly, DllImportSearchPath? searchPath )
     {
@@ -37,7 +38,7 @@ internal static class Bootstrap
         return IntPtr.Zero;
     }
 
-    public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath )
+    public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath)
     {
         
         AppDomain.CurrentDomain.UnhandledException += ( sender, e ) =>
@@ -106,6 +107,5 @@ internal static class Bootstrap
             .Build();
 
         sw2Host.Start();
-        // provider.UseTestService();
     }
 }
