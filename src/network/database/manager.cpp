@@ -29,6 +29,8 @@
 
 #include <fmt/format.h>
 
+#include <public/tier1/strtools.h>
+
 using json = nlohmann::json;
 
 DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
@@ -69,7 +71,7 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
             if (colonPos != std::string::npos)
             {
                 conn.host = hostPort.substr(0, colonPos);
-                conn.port = static_cast<uint16_t>(std::stoi(hostPort.substr(colonPos + 1)));
+                conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(colonPos + 1).c_str(), 3306));
             }
             else
             {
@@ -104,7 +106,7 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
         if (portColonPos != std::string::npos)
         {
             conn.host = hostPort.substr(0, portColonPos);
-            conn.port = static_cast<uint16_t>(std::stoi(hostPort.substr(portColonPos + 1)));
+            conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(portColonPos + 1).c_str(), 3306));
         }
         else
         {
