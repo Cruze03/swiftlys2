@@ -3,7 +3,6 @@ using System.Data.SQLite;
 using System.Collections.Concurrent;
 using Microsoft.Extensions.Logging;
 using Npgsql;
-using SQLitePCL;
 using MySqlConnector;
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Database;
@@ -17,7 +16,6 @@ internal class DatabaseService : IDatabaseService
 
     static DatabaseService()
     {
-        Batteries.Init();
     }
 
     public DatabaseService( ILogger<DatabaseService> logger )
