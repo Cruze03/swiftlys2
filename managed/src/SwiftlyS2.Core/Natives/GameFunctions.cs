@@ -1,5 +1,6 @@
 using System.Text;
 using System.Buffers;
+using System.Runtime.InteropServices;
 using Spectre.Console;
 using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Shared.Players;
@@ -263,7 +264,12 @@ internal static class GameFunctions
         {
             unsafe
             {
-                pTracePlayerBBox(&vecStart, &vecEnd, &bounds, pFilter, pTrace);
+                var size = (nuint)sizeof(CGameTrace);
+                var pAligned = NativeMemory.AlignedAlloc(size, 16);
+                NativeMemory.Copy(pTrace, pAligned, size);
+                pTracePlayerBBox(&vecStart, &vecEnd, &bounds, pFilter, (CGameTrace*)pAligned);
+                NativeMemory.Copy(pAligned, pTrace, size);
+                NativeMemory.Free(pAligned);
             }
         }
         catch (Exception e)
@@ -285,7 +291,12 @@ internal static class GameFunctions
         {
             unsafe
             {
-                pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, pTrace);
+                var size = (nuint)sizeof(CGameTrace);
+                var pAligned = NativeMemory.AlignedAlloc(size, 16);
+                NativeMemory.Copy(pTrace, pAligned,  size);
+                pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, (CGameTrace*)pAligned);
+                NativeMemory.Copy(pAligned, pTrace, size);
+                NativeMemory.Free(pAligned);
             }
         }
         catch (Exception e)
