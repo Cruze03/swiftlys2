@@ -35,6 +35,7 @@ using SwiftlyS2.Shared.Menus;
 using SwiftlyS2.Shared.SteamAPI;
 using SwiftlyS2.Core.Menus.OptionsBase;
 using System.Collections.Concurrent;
+using SwiftlyS2.Shared.Database;
 using Dia2Lib;
 using System.Reflection.Metadata;
 using Microsoft.Diagnostics.Tracing.Parsers.MicrosoftWindowsTCPIP;
@@ -174,6 +175,32 @@ public class TestPlugin : BasePlugin
     public void CommandAliasTest( ICommandContext context )
     {
         context.Reply("CommandAliasTest\n");
+    }
+
+    [Command("dbtest")]
+    public void DatabaseTestCommand( ICommandContext context )
+    {
+        var connectionName = context.Args.Length > 0 ? context.Args[0] : "default";
+        var connectionInfo = Core.Database.GetConnectionInfo(connectionName);
+        Core.Logger.LogInformation("[Database] Connection info: {Info}", connectionInfo);
+
+        try
+        {
+            using var connection = Core.Database.GetConnection(connectionName);
+            connection.Open();
+            Core.Logger.LogInformation("[Database] Connection opened successfully!");
+
+            // Simple query test
+            var result = connection.QueryFirstOrDefault<int>("SELECT 1");
+            Core.Logger.LogInformation("[Database] Query 'SELECT 1' returned: {Result}", result);
+
+            connection.Close();
+            Core.Logger.LogInformation("[Database] Connection closed.");
+        }
+        catch (Exception ex)
+        {
+            Core.Logger.LogError(ex, "[Database] Connection failed: {Message}", ex.Message);
+        }
     }
 
     [GameEventHandler(HookMode.Pre)]
