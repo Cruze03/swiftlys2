@@ -65,6 +65,10 @@
 #include <unistd.h>
 static siginfo_t* g_linuxSigInfo = nullptr;
 static ucontext_t* g_linuxContext = nullptr;
+
+static void* g_linuxBacktraceAddrs[128];
+static volatile sig_atomic_t g_linuxBacktraceCount = 0;
+static volatile sig_atomic_t g_linuxBacktraceCaptured = 0;
 #endif
 
 static std::string g_dumpPath;
@@ -765,10 +769,21 @@ inline void ReportCrashIncident(const std::string& crashDir, void* exceptionInfo
             // Call stack using backtrace
             auto& callStack = crashReport["callstack"];
             auto& nativeStack = callStack["native"];
-            nativeStack["captureMethod"] = "backtrace + dladdr";
+            void* bufferLocal[128];
+            void** buffer = bufferLocal;
+            int nptrs = 0;
 
-            void* buffer[128];
-            int nptrs = backtrace(buffer, 128);
+            if (g_linuxBacktraceCaptured && g_linuxBacktraceCount > 0)
+            {
+                nativeStack["captureMethod"] = "backtrace (captured in signal handler) + dladdr";
+                buffer = g_linuxBacktraceAddrs;
+                nptrs = static_cast<int>(g_linuxBacktraceCount);
+            }
+            else
+            {
+                nativeStack["captureMethod"] = "backtrace (fallback) + dladdr";
+                nptrs = backtrace(bufferLocal, 128);
+            }
 
             nativeStack["frameCount"] = nptrs;
 
@@ -872,10 +887,21 @@ inline void ReportCrashIncident(const std::string& crashDir, void* exceptionInfo
 
             auto& callStack = crashReport["callstack"];
             auto& nativeStack = callStack["native"];
-            nativeStack["captureMethod"] = "backtrace (no context)";
+            void* bufferLocal[128];
+            void** buffer = bufferLocal;
+            int nptrs = 0;
 
-            void* buffer[128];
-            int nptrs = backtrace(buffer, 128);
+            if (g_linuxBacktraceCaptured && g_linuxBacktraceCount > 0)
+            {
+                nativeStack["captureMethod"] = "backtrace (captured in signal handler, no ucontext) + dladdr";
+                buffer = g_linuxBacktraceAddrs;
+                nptrs = static_cast<int>(g_linuxBacktraceCount);
+            }
+            else
+            {
+                nativeStack["captureMethod"] = "backtrace (no context) + dladdr";
+                nptrs = backtrace(bufferLocal, 128);
+            }
             nativeStack["frameCount"] = nptrs;
 
             auto& frames = nativeStack["frames"];
@@ -1108,6 +1134,17 @@ static void CrashSignalHandler(int sig, siginfo_t* info, void* uctx)
         g_linuxContext = &g_savedContext;
     }
 
+    // Capture backtrace addresses on the crashing thread (often the main thread).
+    // IMPORTANT: backtrace() is not guaranteed async-signal-safe, but this is the only
+    // reliable way here to avoid capturing a worker thread stack later.
+    if (!g_linuxBacktraceCaptured)
+    {
+        int n = backtrace(g_linuxBacktraceAddrs, static_cast<int>(sizeof(g_linuxBacktraceAddrs) / sizeof(g_linuxBacktraceAddrs[0])));
+        if (n < 0) n = 0;
+        g_linuxBacktraceCount = n;
+        g_linuxBacktraceCaptured = 1;
+    }
+
     // Let Breakpad handle the actual crash
     if (g_exceptionHandler)
     {
@@ -1206,5 +1243,7 @@ void UnregisterCrashHandlers()
 
     g_linuxSigInfo = nullptr;
     g_linuxContext = nullptr;
+    g_linuxBacktraceCaptured = 0;
+    g_linuxBacktraceCount = 0;
 }
 #endif
