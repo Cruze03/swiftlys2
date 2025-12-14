@@ -39,6 +39,20 @@ internal static class Bootstrap
 
     public static void Start( IntPtr nativeTable, int nativeTableSize, string basePath, string logPath )
     {
+        
+        AppDomain.CurrentDomain.UnhandledException += ( sender, e ) =>
+        {
+            Console.WriteLine("CRITICAL: Unhandled exception. Aborting.");
+            Console.WriteLine((e.ExceptionObject as Exception).ToString());
+        };
+
+        TaskScheduler.UnobservedTaskException += ( sender, e ) =>
+        {
+            Console.WriteLine("CRITICAL: Unobserved task exception. Aborting.");
+            Console.WriteLine(e.Exception.ToString());
+            e.SetObserved();
+        };
+
         Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_ROOT", basePath);
         Environment.SetEnvironmentVariable("SWIFTLY_MANAGED_LOG", logPath);
         NativeBinding.BindNatives(nativeTable, nativeTableSize);

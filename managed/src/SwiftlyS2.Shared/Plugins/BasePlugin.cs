@@ -12,19 +12,7 @@ public abstract class BasePlugin : IPlugin
 
   public BasePlugin( ISwiftlyCore core )
   {
-
     Core = core;
-
-    AppDomain.CurrentDomain.UnhandledException += ( sender, e ) =>
-    {
-      Core.Logger.LogCritical(e.ExceptionObject as Exception, "CRITICAL: Unhandled exception in plugin. Aborting.");
-    };
-
-    TaskScheduler.UnobservedTaskException += ( sender, e ) =>
-    {
-      Core.Logger.LogCritical(e.Exception, "CRITICAL: Unobserved task exception in plugin. Aborting.");
-      e.SetObserved();
-    };
 
     Console.SetOut(new ConsoleRedirector());
     Console.SetError(new ConsoleRedirector());
