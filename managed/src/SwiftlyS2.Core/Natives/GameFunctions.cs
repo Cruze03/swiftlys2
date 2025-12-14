@@ -313,11 +313,11 @@ internal static class GameFunctions
         {
             unsafe
             {
+                CheckPtr(pEngineTrace, nameof(pEngineTrace));
+                CheckPtr(pTrace, nameof(pTrace));
                 var size = (nuint)sizeof(CGameTrace);
                 var pAligned = NativeMemory.AlignedAlloc(size, 16);
                 NativeMemory.Copy(pTrace, pAligned,  size);
-                CheckPtr(pEngineTrace, nameof(pEngineTrace));
-                CheckPtr(pTrace, nameof(pTrace));
                 pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, (CGameTrace*)pAligned);
                 NativeMemory.Copy(pAligned, pTrace, size);
                 NativeMemory.Free(pAligned);
