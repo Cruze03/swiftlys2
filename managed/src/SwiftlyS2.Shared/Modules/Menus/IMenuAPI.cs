@@ -37,6 +37,8 @@ public record class MenuConfiguration
     /// </summary>
     public bool PlaySound { get; set; } = true;
 
+    public bool HideTitleItemCount { get; set; } = false;
+
     /// <summary>
     /// Maximum number of menu options displayed on screen at once.
     /// </summary>
