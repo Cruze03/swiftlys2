@@ -50,11 +50,18 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
     std::string rest = uri.substr(protoEnd + 3);
 
     // Helper lambda to get default port for a driver
-    auto getDefaultPort = [](const std::string& driver) -> uint16_t {
-        if (driver == "mysql" || driver == "mariadb") return 3306;
-        if (driver == "postgresql" || driver == "postgres") return 5432;
+    auto getDefaultPort = [](const std::string& driver) -> uint16_t
+    {
+        if (driver == "mysql" || driver == "mariadb")
+        {
+            return 3306;
+        }
+        if (driver == "postgresql" || driver == "postgres")
+        {
+            return 5432;
+        }
         return 0;
-        };
+    };
 
     // Handle SQLite specially (no host/user/pass)
     if (conn.driver == "sqlite")
