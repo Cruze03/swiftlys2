@@ -49,6 +49,13 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
     conn.driver = uri.substr(0, protoEnd);
     std::string rest = uri.substr(protoEnd + 3);
 
+    // Helper lambda to get default port for a driver
+    auto getDefaultPort = [](const std::string& driver) -> uint16_t {
+        if (driver == "mysql" || driver == "mariadb") return 3306;
+        if (driver == "postgresql" || driver == "postgres") return 5432;
+        return 0;
+        };
+
     // Handle SQLite specially (no host/user/pass)
     if (conn.driver == "sqlite")
     {
@@ -71,11 +78,12 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
             if (colonPos != std::string::npos)
             {
                 conn.host = hostPort.substr(0, colonPos);
-                conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(colonPos + 1).c_str(), 3306));
+                conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(colonPos + 1).c_str(), getDefaultPort(conn.driver)));
             }
             else
             {
                 conn.host = hostPort;
+                conn.port = getDefaultPort(conn.driver);
             }
         }
         return conn;
@@ -106,11 +114,12 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
         if (portColonPos != std::string::npos)
         {
             conn.host = hostPort.substr(0, portColonPos);
-            conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(portColonPos + 1).c_str(), 3306));
+            conn.port = static_cast<uint16_t>(V_StringToInt16(hostPort.substr(portColonPos + 1).c_str(), getDefaultPort(conn.driver)));
         }
         else
         {
             conn.host = hostPort;
+            conn.port = getDefaultPort(conn.driver);
         }
     }
 
