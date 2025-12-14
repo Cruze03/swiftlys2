@@ -222,10 +222,7 @@ internal class PluginManager : IPluginManager
         }
         catch
         {
-            if (!silent)
-            {
-                logger.LogWarning("Failed to unload plugin by id: {Id}", id);
-            }
+            logger.LogWarning("Failed to unload plugin by id: {Id}", id);
             if (context != null)
             {
                 context.Status = PluginStatus.Indeterminate;
@@ -243,10 +240,7 @@ internal class PluginManager : IPluginManager
         var pluginDir = FindPluginDirectoryByDllName(dllName);
         if (string.IsNullOrWhiteSpace(pluginDir))
         {
-            if (!silent)
-            {
-                logger.LogWarning("Failed to find plugin by name: {DllName}", dllName);
-            }
+            logger.LogWarning("Failed to find plugin by name: {DllName}", dllName);
             return false;
         }
 
@@ -256,10 +250,7 @@ internal class PluginManager : IPluginManager
 
         if (string.IsNullOrWhiteSpace(context?.Metadata?.Id))
         {
-            if (!silent)
-            {
-                logger.LogWarning("Failed to find plugin by name: {DllName}", dllName);
-            }
+            logger.LogWarning("Failed to find plugin by name: {DllName}", dllName);
             return false;
         }
 
@@ -274,10 +265,7 @@ internal class PluginManager : IPluginManager
 
         if (string.IsNullOrWhiteSpace(context?.PluginDirectory))
         {
-            if (!silent)
-            {
-                logger.LogWarning("Failed to load plugin by id: {Id}", id);
-            }
+            logger.LogWarning("Failed to load plugin by id: {Id}", id);
             return false;
         }
 
@@ -289,10 +277,7 @@ internal class PluginManager : IPluginManager
         var pluginDir = FindPluginDirectoryByDllName(dllName);
         if (string.IsNullOrWhiteSpace(pluginDir))
         {
-            if (!silent)
-            {
-                logger.LogWarning("Failed to load plugin by name: {DllName}", dllName);
-            }
+            logger.LogWarning("Failed to load plugin by name: {DllName}", dllName);
             return false;
         }
 
@@ -323,10 +308,7 @@ internal class PluginManager : IPluginManager
             {
                 return false;
             }
-            if (!silent)
-            {
-                logger.LogWarning(e, "Failed to load plugin by name: {Path}", pluginDir);
-            }
+            logger.LogWarning(e, "Failed to load plugin by name: {Path}", pluginDir);
             if (newContext != null)
             {
                 newContext.Status = PluginStatus.Indeterminate;
@@ -486,10 +468,7 @@ internal class PluginManager : IPluginManager
     {
         PluginContext? FailWithError( PluginContext context, string message )
         {
-            if (!silent)
-            {
-                logger.LogWarning("{Message}", message);
-            }
+            logger.LogWarning("{Message}", message);
             context.Status = PluginStatus.Error;
             return null;
         }
