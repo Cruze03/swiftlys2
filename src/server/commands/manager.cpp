@@ -205,7 +205,7 @@ int CServerCommands::HandleCommand(int playerid, const std::string& text, bool d
             return 0;
         }
 
-        if (!dryrun) commandHandlers[commandName](playerid, cmdString, originalCommandName, selectedPrefix, isSilentCommand);
+        commandHandlers[commandName](playerid, cmdString, originalCommandName, selectedPrefix, isSilentCommand);
     }
 
     if (isCommand)
@@ -396,10 +396,6 @@ void DispatchConCommand(void* thisPtr, ConCommandRef cmd, const CCommandContext&
     static auto playermanager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     static auto eventmanager = g_ifaceService.FetchInterface<IEventManager>(GAMEEVENTMANAGER_INTERFACE_VERSION);
 
-    bool hideMessage = false;
-    bool executeCommand = false;
-    std::string txt = "";
-
     if (slot.Get() != -1)
     {
         if (!servercommands->HandleClientCommand(slot.Get(), args.GetCommandString()))
@@ -436,18 +432,13 @@ void DispatchConCommand(void* thisPtr, ConCommandRef cmd, const CCommandContext&
                 }
             }
 
-            int handleCommandReturn = servercommands->HandleCommand(slot.Get(), text, true);
+            int handleCommandReturn = servercommands->HandleCommand(slot.Get(), text, false);
             if (handleCommandReturn == 2 || !servercommands->HandleClientChat(slot.Get(), text, teamonly))
             {
-                hideMessage = true;
+                return;
             }
-
-            executeCommand = true;
-            txt = text;
         }
     }
 
-    if (hideMessage) reinterpret_cast<decltype(&DispatchConCommand)>(dispatchConCommandHook->GetOriginal())(thisPtr, cmd, ctx, args);
-
-    servercommands->HandleCommand(slot.Get(), txt, false);
+    return reinterpret_cast<decltype(&DispatchConCommand)>(dispatchConCommandHook->GetOriginal())(thisPtr, cmd, ctx, args);
 }
