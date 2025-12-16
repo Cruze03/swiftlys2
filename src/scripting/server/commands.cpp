@@ -29,7 +29,7 @@ int Bridge_Commands_HandleCommandForPlayer(int playerid, const char* command)
         return -1;
     }
 
-    return servercommands->HandleCommand(playerid, command);
+    return servercommands->HandleCommand(playerid, command, false);
 }
 
 uint64_t Bridge_Commands_RegisterCommand(const char* commandName, void* callback, bool registerRaw)

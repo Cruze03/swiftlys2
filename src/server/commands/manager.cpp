@@ -112,7 +112,7 @@ void CServerCommands::Shutdown()
 // @returns 2 - command is silent
 // @returns -1 - invalid controller
 // @returns 0 - is not command
-int CServerCommands::HandleCommand(int playerid, const std::string& text)
+int CServerCommands::HandleCommand(int playerid, const std::string& text, bool dryrun)
 {
     if (text == "" || text.size() == 0)
     {
@@ -205,7 +205,7 @@ int CServerCommands::HandleCommand(int playerid, const std::string& text)
             return 0;
         }
 
-        commandHandlers[commandName](playerid, cmdString, originalCommandName, selectedPrefix, isSilentCommand);
+        if (!dryrun) commandHandlers[commandName](playerid, cmdString, originalCommandName, selectedPrefix, isSilentCommand);
     }
 
     if (isCommand)
@@ -396,6 +396,10 @@ void DispatchConCommand(void* thisPtr, ConCommandRef cmd, const CCommandContext&
     static auto playermanager = g_ifaceService.FetchInterface<IPlayerManager>(PLAYERMANAGER_INTERFACE_VERSION);
     static auto eventmanager = g_ifaceService.FetchInterface<IEventManager>(GAMEEVENTMANAGER_INTERFACE_VERSION);
 
+    bool hideMessage = false;
+    bool executeCommand = false;
+    std::string txt = "";
+
     if (slot.Get() != -1)
     {
         if (!servercommands->HandleClientCommand(slot.Get(), args.GetCommandString()))
@@ -432,13 +436,18 @@ void DispatchConCommand(void* thisPtr, ConCommandRef cmd, const CCommandContext&
                 }
             }
 
-            int handleCommandReturn = servercommands->HandleCommand(slot.Get(), text);
+            int handleCommandReturn = servercommands->HandleCommand(slot.Get(), text, true);
             if (handleCommandReturn == 2 || !servercommands->HandleClientChat(slot.Get(), text, teamonly))
             {
-                return;
+                hideMessage = true;
             }
+
+            executeCommand = true;
+            txt = text;
         }
     }
 
-    return reinterpret_cast<decltype(&DispatchConCommand)>(dispatchConCommandHook->GetOriginal())(thisPtr, cmd, ctx, args);
+    if (hideMessage) reinterpret_cast<decltype(&DispatchConCommand)>(dispatchConCommandHook->GetOriginal())(thisPtr, cmd, ctx, args);
+
+    servercommands->HandleCommand(slot.Get(), txt, false);
 }

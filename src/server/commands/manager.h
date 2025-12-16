@@ -28,7 +28,7 @@ public:
     virtual void Initialize() override;
     virtual void Shutdown() override;
 
-    virtual int HandleCommand(int playerid, const std::string& text) override;
+    virtual int HandleCommand(int playerid, const std::string& text, bool dryrun) override;
     virtual bool HandleClientCommand(int playerid, const std::string& text) override;
     virtual bool HandleClientChat(int playerid, const std::string& text, bool teamonly) override;
 

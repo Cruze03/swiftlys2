@@ -30,7 +30,7 @@ public:
     virtual void Initialize() = 0;
     virtual void Shutdown() = 0;
 
-    virtual int HandleCommand(int playerid, const std::string& text) = 0;
+    virtual int HandleCommand(int playerid, const std::string& text, bool dryrun) = 0;
     virtual bool HandleClientCommand(int playerid, const std::string& text) = 0;
     virtual bool HandleClientChat(int playerid, const std::string& text, bool teamonly) = 0;
 
