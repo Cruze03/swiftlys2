@@ -39,8 +39,6 @@ public:
 #endif
 };
 
-std::map<uint64_t, bool> g_mSteamAuthorizedCacheMap;
-
 IFunctionHook* g_pProcessUserCmdsHook = nullptr;
 IVFunctionHook* g_pOnGameFramePlayerHook = nullptr;
 
@@ -296,11 +294,6 @@ bool ClientConnectHook(void* _this, CPlayerSlot slot, const char* pszName, uint6
     player->SetUnauthorizedSteamID(xuid);
     player->SetFakeClient(xuid == 0);
 
-    if (g_mSteamAuthorizedCacheMap.find(player->GetUnauthorizedSteamID()) != g_mSteamAuthorizedCacheMap.end())
-    {
-        player->ChangeAuthorizationState(g_mSteamAuthorizedCacheMap[player->GetUnauthorizedSteamID()]);
-    }
-
     if (g_pOnClientConnectCallback)
     {
         if (reinterpret_cast<bool (*)(int)>(g_pOnClientConnectCallback)(playerid) == false)
@@ -437,7 +430,6 @@ void CPlayerManager::OnValidateAuthTicket(ValidateAuthTicketResponse_t* response
             continue;
 
         player->ChangeAuthorizationState(response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
-        g_mSteamAuthorizedCacheMap[steamid] = (response->m_eAuthSessionResponse == k_EAuthSessionResponseOK);
         break;
     }
 }
