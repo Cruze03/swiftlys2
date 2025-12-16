@@ -1014,6 +1014,16 @@ public class TestPlugin : BasePlugin
             }))
             .Build();
 
+        mainMenu.OptionHovered += ( sender, args ) =>
+        {
+            Console.WriteLine($"{args.Options?[0].Text} hovered for player: {args.Player?.Controller.PlayerName}");
+        };
+
+        mainMenu.OptionSelected += ( sender, args ) =>
+        {
+            Console.WriteLine($"{(sender as IMenuAPI)?.Configuration.Title} selected for player: {args.Player?.Controller.PlayerName}");
+        };
+
         Core.MenusAPI.OpenMenu(mainMenu,
             ( player, menu ) =>
             {

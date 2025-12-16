@@ -99,7 +99,23 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     /// <summary>
     /// Fired when the selection pointer is hovering over an option.
     /// </summary>
+    /// <remarks>
+    /// This event is fired once per render frame.
+    /// </remarks>
     public event EventHandler<MenuEventArgs>? OptionHovering;
+
+    /// <summary>
+    /// Fired when a different option is hovered.
+    /// </summary>
+    /// <remarks>
+    /// This event is only fired when the hovered option changes.
+    /// </remarks>
+    public event EventHandler<MenuEventArgs>? OptionHovered;
+
+    /// <summary>
+    /// Fired when a menu option is selected (activated) by the player.
+    /// </summary>
+    public event EventHandler<MenuEventArgs>? OptionSelected;
 
     // /// <summary>
     // /// Fired when an option is about to enter the visible viewport.
@@ -490,6 +506,8 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
             return;
         }
 
+        _ = MoveToOptionIndex(player, 0);
+
         // Add viewer, resume animations if first viewer
         lock (viewersLock)
         {
@@ -658,7 +676,6 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
     public bool MoveToOptionIndex( IPlayer player, int index )
     {
-
         if (maxOptions == 0 || !desiredOptionIndex.TryGetValue(player.PlayerID, out var oldIndex))
         {
             return false;
@@ -677,7 +694,17 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 .Select(i => (((targetIndex + (i * direction)) % maxOptions) + maxOptions) % maxOptions)
                 .FirstOrDefault(idx => options[idx].Visible && options[idx].GetVisible(player), -1);
 
-            return visibleIndex >= 0 && desiredOptionIndex.TryUpdate(player.PlayerID, visibleIndex, oldIndex);
+            if (visibleIndex >= 0 && desiredOptionIndex.TryUpdate(player.PlayerID, visibleIndex, oldIndex))
+            {
+                OptionHovered?.Invoke(this, new MenuEventArgs {
+                    Player = player,
+                    Options = new List<IMenuOption> { options[visibleIndex] }.AsReadOnly()
+                });
+
+                return true;
+            }
+
+            return false;
         }
     }
 
@@ -698,6 +725,14 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
     // {
     //     return selectedDisplayLine.TryGetValue(player, out var line) ? line : -1;
     // }
+
+    internal void InvokeOptionSelected( IPlayer player, IMenuOption option )
+    {
+        OptionSelected?.Invoke(this, new MenuEventArgs {
+            Player = player,
+            Options = new List<IMenuOption> { option }.AsReadOnly()
+        });
+    }
 
     private void SetFreezeState( IPlayer player, bool freeze )
     {
