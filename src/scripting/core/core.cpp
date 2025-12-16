@@ -40,5 +40,16 @@ int Bridge_Core_PluginLoadOrder(char* out)
     return 0;
 }
 
+uint8_t Bridge_Core_EnableProfilerByDefault()
+{
+    static auto config = g_ifaceService.FetchInterface<IConfiguration>(CONFIGURATION_INTERFACE_VERSION);
+    if (bool* b = std::get_if<bool>(&config->GetValue("core.EnableProfiler")))
+    {
+        return *b ? 1 : 0;
+    }
+    return 0;
+}
+
 DEFINE_NATIVE("Core.PluginManualLoadState", Bridge_Core_PluginManualLoadState);
 DEFINE_NATIVE("Core.PluginLoadOrder", Bridge_Core_PluginLoadOrder);
+DEFINE_NATIVE("Core.EnableProfilerByDefault", Bridge_Core_EnableProfilerByDefault);
