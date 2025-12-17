@@ -19,12 +19,12 @@ internal partial class thinkfunc_tImpl : SchemaClass, thinkfunc_t {
 
   private static nint? _FnOffset;
 
-  public SchemaUntypedField Fn {
+  public ref HSCRIPTHandler Fn {
     get {
       if (_FnOffset == null) {
         _FnOffset = Schema.GetOffset(0x8ED693FAD922E237);
       }
-      return new SchemaUntypedField(_Handle + _FnOffset!.Value);
+      return ref _Handle.AsRef<HSCRIPTHandler>(_FnOffset!.Value);
     }
   }
   private static nint? _ContextOffset;

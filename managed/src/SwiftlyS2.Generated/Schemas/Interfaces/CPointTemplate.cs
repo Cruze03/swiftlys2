@@ -33,11 +33,9 @@ public partial interface CPointTemplate : CLogicalEntity, ISchemaClass<CPointTem
   
   public ref CUtlVector<CHandle<CEntityInstance>> SpawnedEntityHandles { get; }
   
-  // HSCRIPT
-  public SchemaUntypedField ScriptSpawnCallback { get; }
+  public ref HSCRIPTHandler ScriptSpawnCallback { get; }
   
-  // HSCRIPT
-  public SchemaUntypedField ScriptCallbackScope { get; }
+  public ref HSCRIPTHandler ScriptCallbackScope { get; }
 
 
 }

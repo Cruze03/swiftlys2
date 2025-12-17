@@ -27,8 +27,7 @@ public partial interface FeNodeBase_t : ISchemaClass<FeNodeBase_t> {
   
   public ref ushort NodeY1 { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField Adjust { get; }
+  public ref QuaternionStorage Adjust { get; }
 
 
 }

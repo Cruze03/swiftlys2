@@ -69,12 +69,12 @@ internal partial class ModelSkeletonData_tImpl : SchemaClass, ModelSkeletonData_
   }
   private static nint? _BoneRotParentOffset;
 
-  public ref CUtlVector<SchemaUntypedField> BoneRotParent {
+  public ref CUtlVector<QuaternionStorage> BoneRotParent {
     get {
       if (_BoneRotParentOffset == null) {
         _BoneRotParentOffset = Schema.GetOffset(0x8349B622A6E3A10C);
       }
-      return ref _Handle.AsRef<CUtlVector<SchemaUntypedField>>(_BoneRotParentOffset!.Value);
+      return ref _Handle.AsRef<CUtlVector<QuaternionStorage>>(_BoneRotParentOffset!.Value);
     }
   }
   private static nint? _BoneScaleParentOffset;

@@ -19,8 +19,7 @@ public partial interface RnBodyDesc_t : ISchemaClass<RnBodyDesc_t> {
   
   public ref Vector Position { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField Orientation { get; }
+  public ref QuaternionStorage Orientation { get; }
   
   public ref Vector LinearVelocity { get; }
   

@@ -46,12 +46,12 @@ internal partial class RnBodyDesc_tImpl : SchemaClass, RnBodyDesc_t {
   }
   private static nint? _OrientationOffset;
 
-  public SchemaUntypedField Orientation {
+  public ref QuaternionStorage Orientation {
     get {
       if (_OrientationOffset == null) {
         _OrientationOffset = Schema.GetOffset(0xB8BC9637B94C5DF6);
       }
-      return new SchemaUntypedField(_Handle + _OrientationOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_OrientationOffset!.Value);
     }
   }
   private static nint? _LinearVelocityOffset;

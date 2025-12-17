@@ -25,8 +25,7 @@ public partial interface VPhysXConstraintParams_t : ISchemaClass<VPhysXConstrain
   
   public ISchemaFixedArray<Vector> Anchor { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField Axes { get; }
+  public ISchemaFixedArray<QuaternionStorage> Axes { get; }
   
   public ref float MaxForce { get; }
   
@@ -74,8 +73,7 @@ public partial interface VPhysXConstraintParams_t : ISchemaClass<VPhysXConstrain
   
   public ref Vector GoalPosition { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField GoalOrientation { get; }
+  public ref QuaternionStorage GoalOrientation { get; }
   
   public ref Vector GoalAngularVelocity { get; }
   

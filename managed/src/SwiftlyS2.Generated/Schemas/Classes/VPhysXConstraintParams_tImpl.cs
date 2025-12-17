@@ -60,15 +60,8 @@ internal partial class VPhysXConstraintParams_tImpl : SchemaClass, VPhysXConstra
   public ISchemaFixedArray<Vector> Anchor {
     get => new SchemaFixedArray<Vector>(_Handle, 0xF2BDF6AD23E10E54, 2, 12, 4);
   }
-  private static nint? _AxesOffset;
-
-  public SchemaUntypedField Axes {
-    get {
-      if (_AxesOffset == null) {
-        _AxesOffset = Schema.GetOffset(0xF2BDF6AD23115F58);
-      }
-      return new SchemaUntypedField(_Handle + _AxesOffset!.Value);
-    }
+  public ISchemaFixedArray<QuaternionStorage> Axes {
+    get => new SchemaFixedArray<QuaternionStorage>(_Handle, 0xF2BDF6AD23115F58, 2, 16, 4);
   }
   private static nint? _MaxForceOffset;
 
@@ -302,12 +295,12 @@ internal partial class VPhysXConstraintParams_tImpl : SchemaClass, VPhysXConstra
   }
   private static nint? _GoalOrientationOffset;
 
-  public SchemaUntypedField GoalOrientation {
+  public ref QuaternionStorage GoalOrientation {
     get {
       if (_GoalOrientationOffset == null) {
         _GoalOrientationOffset = Schema.GetOffset(0xF2BDF6ADA64626A8);
       }
-      return new SchemaUntypedField(_Handle + _GoalOrientationOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_GoalOrientationOffset!.Value);
     }
   }
   private static nint? _GoalAngularVelocityOffset;

@@ -25,7 +25,7 @@ public partial interface ModelSkeletonData_t : ISchemaClass<ModelSkeletonData_t>
   
   public ref CUtlVector<Vector> BonePosParent { get; }
   
-  public ref CUtlVector<SchemaUntypedField> BoneRotParent { get; }
+  public ref CUtlVector<QuaternionStorage> BoneRotParent { get; }
   
   public ref CUtlVector<float> BoneScaleParent { get; }
 

@@ -72,12 +72,12 @@ internal partial class FeNodeBase_tImpl : SchemaClass, FeNodeBase_t {
   }
   private static nint? _AdjustOffset;
 
-  public SchemaUntypedField Adjust {
+  public ref QuaternionStorage Adjust {
     get {
       if (_AdjustOffset == null) {
         _AdjustOffset = Schema.GetOffset(0x74CA29BE0F6C0983);
       }
-      return new SchemaUntypedField(_Handle + _AdjustOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_AdjustOffset!.Value);
     }
   }
 

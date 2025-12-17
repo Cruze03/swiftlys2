@@ -109,12 +109,12 @@ internal partial class CSchemaSystemInternalRegistrationImpl : SchemaClass, CSch
   }
   private static nint? _QuaternionStorageOffset;
 
-  public SchemaUntypedField QuaternionStorage {
+  public ref QuaternionStorage QuaternionStorage {
     get {
       if (_QuaternionStorageOffset == null) {
         _QuaternionStorageOffset = Schema.GetOffset(0xDDD6CA303C6C2D0E);
       }
-      return new SchemaUntypedField(_Handle + _QuaternionStorageOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_QuaternionStorageOffset!.Value);
     }
   }
   private static nint? _Matrix3x4_tOffset;

@@ -130,22 +130,22 @@ internal partial class CPointTemplateImpl : CLogicalEntityImpl, CPointTemplate {
   }
   private static nint? _ScriptSpawnCallbackOffset;
 
-  public SchemaUntypedField ScriptSpawnCallback {
+  public ref HSCRIPTHandler ScriptSpawnCallback {
     get {
       if (_ScriptSpawnCallbackOffset == null) {
         _ScriptSpawnCallbackOffset = Schema.GetOffset(0x7085DB4EAD74D892);
       }
-      return new SchemaUntypedField(_Handle + _ScriptSpawnCallbackOffset!.Value);
+      return ref _Handle.AsRef<HSCRIPTHandler>(_ScriptSpawnCallbackOffset!.Value);
     }
   }
   private static nint? _ScriptCallbackScopeOffset;
 
-  public SchemaUntypedField ScriptCallbackScope {
+  public ref HSCRIPTHandler ScriptCallbackScope {
     get {
       if (_ScriptCallbackScopeOffset == null) {
         _ScriptCallbackScopeOffset = Schema.GetOffset(0x7085DB4E3B18B033);
       }
-      return new SchemaUntypedField(_Handle + _ScriptCallbackScopeOffset!.Value);
+      return ref _Handle.AsRef<HSCRIPTHandler>(_ScriptCallbackScopeOffset!.Value);
     }
   }
 

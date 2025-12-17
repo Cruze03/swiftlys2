@@ -21,13 +21,11 @@ public partial interface CAnimBone : ISchemaClass<CAnimBone> {
   
   public ref Vector Pos { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField Quat { get; }
+  public ref QuaternionStorage Quat { get; }
   
   public ref float Scale { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField Alignment { get; }
+  public ref QuaternionStorage Alignment { get; }
   
   public ref int Flags { get; }
 

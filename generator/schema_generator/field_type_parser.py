@@ -50,7 +50,9 @@ unmanaged_type_maps = {
   "CTakeDamageInfo": "CTakeDamageInfo",
   "CTakeDamageResult": "CTakeDamageResult",
   "ChangeAccessorFieldPathIndex_t": "ChangeAccessorFieldPathIndex_t",
-  "CNetworkVarChainer": "CNetworkVarChainer"
+  "CNetworkVarChainer": "CNetworkVarChainer",
+  "HSCRIPT": "HSCRIPTHandler",
+  "QuaternionStorage": "QuaternionStorage",
 }
 
 blacklisted_types = [
@@ -60,20 +62,19 @@ blacklisted_types = [
   "CStrongHandleVoid",
   "CUtlVectorFixedGrowable",
   "CUtlLeanVectorFixedGrowable",
-  "QuaternionStorage",
   "CWeakHandle",
   "DegreeEuler",
   "CTypedBitVec",
   "CUtlSymbol",
+  "CUtlOrderedMap",
+  "CUtlMap",
   "CSmartPtr",
   "CUtlHashtable",
-  "CUtlOrderedMap",
   "CPulseValueFullType",
   "PulseSymbol_t",
   "CColorGradient",
   "CPiecewiseCurve",
   "CAnimGraph2ParamOptionalRef",
-  "HSCRIPT",
   "Range_t",
   "CAnimGraphParamRef",
   "bitfield",
@@ -186,8 +187,6 @@ def convert_field_type(type, kind, all_class_names, all_enum_names, interface = 
   if kind == "ptr" and type == "char": # char*
     return (f"CString", True)
   
-
-
   for key, value in unmanaged_type_maps.items():
     if type.startswith(key):
 
@@ -202,7 +201,7 @@ def convert_field_type(type, kind, all_class_names, all_enum_names, interface = 
         if kind == "fixed_array":
           return (f"{prefix}SchemaFixedArray<{name}>", False)
         return (name, is_value_type)
-    
+      
       if kind == "fixed_array":
         if type == "char":
           return (f"{prefix}SchemaFixedString", False)

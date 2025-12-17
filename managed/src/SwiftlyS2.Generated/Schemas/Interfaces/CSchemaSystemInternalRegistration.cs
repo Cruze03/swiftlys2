@@ -35,8 +35,7 @@ public partial interface CSchemaSystemInternalRegistration : ISchemaClass<CSchem
   // DegreeEuler
   public SchemaUntypedField DegreeEuler { get; }
   
-  // QuaternionStorage
-  public SchemaUntypedField QuaternionStorage { get; }
+  public ref QuaternionStorage QuaternionStorage { get; }
   
   public ref matrix3x4_t Matrix3x4_t { get; }
   

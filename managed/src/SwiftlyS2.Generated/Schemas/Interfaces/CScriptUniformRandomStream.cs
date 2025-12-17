@@ -15,8 +15,7 @@ public partial interface CScriptUniformRandomStream : ISchemaClass<CScriptUnifor
   static string? ISchemaClass<CScriptUniformRandomStream>.ClassName => null;
 
   
-  // HSCRIPT
-  public SchemaUntypedField ScriptScope { get; }
+  public ref HSCRIPTHandler ScriptScope { get; }
   
   public ref int InitialSeed { get; }
 

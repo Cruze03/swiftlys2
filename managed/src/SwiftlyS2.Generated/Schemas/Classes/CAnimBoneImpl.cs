@@ -49,12 +49,12 @@ internal partial class CAnimBoneImpl : SchemaClass, CAnimBone {
   }
   private static nint? _QuatOffset;
 
-  public SchemaUntypedField Quat {
+  public ref QuaternionStorage Quat {
     get {
       if (_QuatOffset == null) {
         _QuatOffset = Schema.GetOffset(0x891F6AB9157658BE);
       }
-      return new SchemaUntypedField(_Handle + _QuatOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_QuatOffset!.Value);
     }
   }
   private static nint? _ScaleOffset;
@@ -69,12 +69,12 @@ internal partial class CAnimBoneImpl : SchemaClass, CAnimBone {
   }
   private static nint? _AlignmentOffset;
 
-  public SchemaUntypedField Alignment {
+  public ref QuaternionStorage Alignment {
     get {
       if (_AlignmentOffset == null) {
         _AlignmentOffset = Schema.GetOffset(0x891F6AB9CA0E45D1);
       }
-      return new SchemaUntypedField(_Handle + _AlignmentOffset!.Value);
+      return ref _Handle.AsRef<QuaternionStorage>(_AlignmentOffset!.Value);
     }
   }
   private static nint? _FlagsOffset;
