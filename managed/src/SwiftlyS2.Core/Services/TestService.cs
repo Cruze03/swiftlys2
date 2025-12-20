@@ -19,6 +19,7 @@ using SwiftlyS2.Shared.GameEventDefinitions;
 using SwiftlyS2.Shared.GameEvents;
 using SwiftlyS2.Shared.Misc;
 using SwiftlyS2.Shared.Natives;
+using SwiftlyS2.Shared.NetMessages;
 using SwiftlyS2.Shared.ProtobufDefinitions;
 using SwiftlyS2.Shared.SchemaDefinitions;
 
@@ -92,6 +93,7 @@ internal class TestService
 
     public void Test2()
     {
+        IProtobufRepeatedFieldSubMessageType<IProtobufMessage> message = new CVariant<CVariantDefaultAllocator>(100);
         CVariant<CVariantDefaultAllocator> variant = new CVariant<CVariantDefaultAllocator>(100);
         Console.WriteLine(variant.ToString());
         variant.SetString("LOL");

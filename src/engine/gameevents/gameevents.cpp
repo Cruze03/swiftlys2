@@ -60,7 +60,7 @@ bool g_bEventsLoaded = false;
 int g_uLoadEventFromFileHookID = 0;
 
 IGameEventManager2* g_gameEventManager = nullptr;
-IVFunctionHook* g_GameFrameHookEventManager = nullptr;
+IFunctionHook* g_GameFrameHookEventManager = nullptr;
 
 IVFunctionHook* g_PreworldUpdateHook = nullptr;
 void PreworldUpdateHook(void* _this, bool simulate);
@@ -103,8 +103,10 @@ void CEventManager::Initialize(std::string game_name)
     void* servervtable = nullptr;
     s2binlib_find_vtable("server", "CSource2Server", &servervtable);
 
-    g_GameFrameHookEventManager = hooksmanager->CreateVFunctionHook();
-    g_GameFrameHookEventManager->SetHookFunction(servervtable, gamedata->GetOffsets()->Fetch("IServerGameDLL::GameFrame"), reinterpret_cast<void*>(GameFrameEventManager), true);
+    void* gameFrameAddr;
+    s2binlib_find_vfunc_by_vtbname("server", "CSource2Server", gamedata->GetOffsets()->Fetch("IServerGameDLL::GameFrame"), &gameFrameAddr);
+    g_GameFrameHookEventManager = hooksmanager->CreateFunctionHook();
+    g_GameFrameHookEventManager->SetHookFunction(gameFrameAddr, reinterpret_cast<void*>(GameFrameEventManager));
     g_GameFrameHookEventManager->Enable();
 
     g_PreworldUpdateHook = hooksmanager->CreateVFunctionHook();
@@ -157,7 +159,7 @@ void CEventManager::Shutdown()
     if (g_GameFrameHookEventManager)
     {
         g_GameFrameHookEventManager->Disable();
-        hooksmanager->DestroyVFunctionHook(g_GameFrameHookEventManager);
+        hooksmanager->DestroyFunctionHook(g_GameFrameHookEventManager);
         g_GameFrameHookEventManager = nullptr;
     }
 
