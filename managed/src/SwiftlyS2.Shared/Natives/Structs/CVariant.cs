@@ -135,14 +135,15 @@ internal unsafe struct CVariantData
     }
 }
 
-[StructLayout(LayoutKind.Explicit, Size = 0x10)]
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct CVariant<TAllocator> where TAllocator : IVariantAllocator
 {
-    [FieldOffset(0x0)] private CVariantData Data;            // 8 bytes (union)
-    [FieldOffset(0x8)] public VariantFieldType DataType;    // 1 byte (uint8 enum)
-    // 1 byte padding
-    [FieldOffset(0xA)] public CVFlags Flags;                 // 2 bytes
+    private CVariantData Data;            // 8 bytes (union)
+    public VariantFieldType DataType;    // 1 byte (uint8 enum)
+    private byte _padding;
+    public CVFlags Flags;                 // 2 bytes
     // 4 bytes padding for alignment
+    private unsafe fixed byte _padding2[4];
 
     public CVariant() : this(null)
     {

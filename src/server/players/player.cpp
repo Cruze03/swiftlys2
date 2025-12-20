@@ -145,22 +145,14 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
             centerMessageText = message;
         }
     }
-    else if (type == MessageType::Console)
-    {
-        if (message.size() == 0)
-            return;
-
-        auto msg = ClearColors(message);
-        auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
-        if (!engine)
-            return;
-
-        std::string with_newline = msg + "\n";
-        engine->ClientPrintf(CPlayerSlot(m_iPlayerId), with_newline.c_str());
-    }
     else
     {
         auto msg = RemoveHtmlTags(message);
+        if (type == MessageType::Console)
+        {
+            msg = ClearColors(msg);
+            msg += "\n";
+        }
         if (msg.size() > 0)
         {
             if (msg.ends_with("\n"))
