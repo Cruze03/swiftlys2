@@ -1,6 +1,6 @@
 /************************************************************************************************
  *  SwiftlyS2 is a scripting framework for Source2-based games.
- *  Copyright (C) 2025 Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
+ *  Copyright (C) 2023-2026Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -76,7 +76,7 @@ void CEntityIOOutput_FireOutputInternal_Hook(CEntityIOOutput* pThis, CEntityInst
 {
     const char* outputName = pThis->m_pDesc->m_pName;
     const char* callerClassName = pCaller ? pCaller->GetClassname() : "(null)";
-    std::vector searchOutputs{((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const(outputName)), ((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const("*"))};
+    std::vector searchOutputs{ ((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const(outputName)), ((uint64_t)hash_32_fnv1a_const("*") << 32 | hash_32_fnv1a_const("*")) };
 
     if (pCaller)
     {

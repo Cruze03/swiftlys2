@@ -1,6 +1,6 @@
 /************************************************************************************************
  *  SwiftlyS2 is a scripting framework for Source2-based games.
- *  Copyright (C) 2025 Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
+ *  Copyright (C) 2023-2026Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -341,7 +341,7 @@ void __fastcall PreloadDLLHook(HMODULE hModule)
 
     if (hModule)
     {
-        char modulePath[MAX_PATH] = {0};
+        char modulePath[MAX_PATH] = { 0 };
         DWORD len = GetModuleFileNameA(hModule, modulePath, MAX_PATH);
         if (len > 0 && len < MAX_PATH)
         {

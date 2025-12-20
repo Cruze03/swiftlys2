@@ -1,6 +1,6 @@
 /************************************************************************************************
  * SwiftlyS2 is a scripting framework for Source2-based games.
- * Copyright (C) 2025 Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
+ * Copyright (C) 2023-2026Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -563,7 +563,7 @@ void Bridge_NetMessages_AddString(void* pmsg, const char* fieldName, const char*
 Vector2D Bridge_NetMessages_GetVector2D(void* pmsg, const char* fieldName)
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
-    Vector2D vec{0.0f, 0.0f};
+    Vector2D vec{ 0.0f, 0.0f };
     GETCHECK_FIELD(vec);
     CHECK_FIELD_NOT_REPEATED(vec);
 
@@ -577,7 +577,7 @@ Vector2D Bridge_NetMessages_GetRepeatedVector2D(void* pmsg, const char* fieldNam
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
 
-    Vector2D vec{0.0f, 0.0f};
+    Vector2D vec{ 0.0f, 0.0f };
     GETCHECK_FIELD(vec);
     CHECK_FIELD_REPEATED(vec);
     CHECK_REPEATED_ELEMENT(index, vec);
@@ -625,7 +625,7 @@ void Bridge_NetMessages_AddVector2D(void* pmsg, const char* fieldName, Vector2D 
 Vector Bridge_NetMessages_GetVector(void* pmsg, const char* fieldName)
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
-    Vector vec{0.0f, 0.0f, 0.0f};
+    Vector vec{ 0.0f, 0.0f, 0.0f };
     GETCHECK_FIELD(vec);
     CHECK_FIELD_NOT_REPEATED(vec);
 
@@ -640,7 +640,7 @@ Vector Bridge_NetMessages_GetRepeatedVector(void* pmsg, const char* fieldName, i
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
 
-    Vector vec{0.0f, 0.0f, 0.0f};
+    Vector vec{ 0.0f, 0.0f, 0.0f };
     GETCHECK_FIELD(vec);
     CHECK_FIELD_REPEATED(vec);
     CHECK_REPEATED_ELEMENT(index, vec);
@@ -692,7 +692,7 @@ void Bridge_NetMessages_AddVector(void* pmsg, const char* fieldName, Vector valu
 Color Bridge_NetMessages_GetColor(void* pmsg, const char* fieldName)
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
-    Color color{255, 255, 255, 255};
+    Color color{ 255, 255, 255, 255 };
     GETCHECK_FIELD(color);
     CHECK_FIELD_NOT_REPEATED(color);
 
@@ -705,7 +705,7 @@ Color Bridge_NetMessages_GetRepeatedColor(void* pmsg, const char* fieldName, int
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
 
-    Color color{255, 255, 255, 255};
+    Color color{ 255, 255, 255, 255 };
     GETCHECK_FIELD(color);
     CHECK_FIELD_REPEATED(color);
     CHECK_REPEATED_ELEMENT(index, color);
@@ -758,7 +758,7 @@ void Bridge_NetMessages_AddColor(void* pmsg, const char* fieldName, Color value)
 QAngle Bridge_NetMessages_GetQAngle(void* pmsg, const char* fieldName)
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
-    QAngle angle{0.0f, 0.0f, 0.0f};
+    QAngle angle{ 0.0f, 0.0f, 0.0f };
     GETCHECK_FIELD(angle);
     CHECK_FIELD_NOT_REPEATED(angle);
 
@@ -773,7 +773,7 @@ QAngle Bridge_NetMessages_GetRepeatedQAngle(void* pmsg, const char* fieldName, i
 {
     google::protobuf::Message* msg = (google::protobuf::Message*)pmsg;
 
-    QAngle angle{0.0f, 0.0f, 0.0f};
+    QAngle angle{ 0.0f, 0.0f, 0.0f };
     GETCHECK_FIELD(angle);
     CHECK_FIELD_REPEATED(angle);
     CHECK_REPEATED_ELEMENT(index, angle);

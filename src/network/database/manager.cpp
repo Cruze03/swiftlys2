@@ -1,6 +1,6 @@
 /************************************************************************************************
  * SwiftlyS2 is a scripting framework for Source2-based games.
- * Copyright (C) 2025 Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
+ * Copyright (C) 2023-2026Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,17 +51,17 @@ DatabaseConnection CDatabaseManager::ParseUri(const std::string& uri)
 
     // Helper lambda to get default port for a driver
     auto getDefaultPort = [](const std::string& driver) -> uint16_t
-    {
-        if (driver == "mysql" || driver == "mariadb")
         {
-            return 3306;
-        }
-        if (driver == "postgresql" || driver == "postgres")
-        {
-            return 5432;
-        }
-        return 0;
-    };
+            if (driver == "mysql" || driver == "mariadb")
+            {
+                return 3306;
+            }
+            if (driver == "postgresql" || driver == "postgres")
+            {
+                return 5432;
+            }
+            return 0;
+        };
 
     // Handle SQLite specially (no host/user/pass)
     if (conn.driver == "sqlite")

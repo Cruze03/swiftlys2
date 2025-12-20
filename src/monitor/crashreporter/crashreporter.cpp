@@ -1,6 +1,6 @@
 /************************************************************************************************
  *  SwiftlyS2 is a scripting framework for Source2-based games.
- *  Copyright (C) 2025 Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
+ *  Copyright (C) 2023-2026Swiftly Solution SRL via Sava Andrei-Sebastian and it's contributors
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -223,55 +223,55 @@ inline void ReportCrashIncident(const std::string& crashDir, void* exceptionInfo
             auto* record = pExceptionPointers->ExceptionRecord;
 
             auto GetExceptionCodeString = [](DWORD code) -> std::string
-            {
-                switch (code)
                 {
-                case EXCEPTION_ACCESS_VIOLATION:
-                    return "EXCEPTION_ACCESS_VIOLATION";
-                case EXCEPTION_STACK_OVERFLOW:
-                    return "EXCEPTION_STACK_OVERFLOW";
-                case EXCEPTION_ILLEGAL_INSTRUCTION:
-                    return "EXCEPTION_ILLEGAL_INSTRUCTION";
-                case EXCEPTION_INT_DIVIDE_BY_ZERO:
-                    return "EXCEPTION_INT_DIVIDE_BY_ZERO";
-                case EXCEPTION_INT_OVERFLOW:
-                    return "EXCEPTION_INT_OVERFLOW";
-                case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-                    return "EXCEPTION_ARRAY_BOUNDS_EXCEEDED";
-                case EXCEPTION_FLT_DENORMAL_OPERAND:
-                    return "EXCEPTION_FLT_DENORMAL_OPERAND";
-                case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-                    return "EXCEPTION_FLT_DIVIDE_BY_ZERO";
-                case EXCEPTION_FLT_INEXACT_RESULT:
-                    return "EXCEPTION_FLT_INEXACT_RESULT";
-                case EXCEPTION_FLT_INVALID_OPERATION:
-                    return "EXCEPTION_FLT_INVALID_OPERATION";
-                case EXCEPTION_FLT_OVERFLOW:
-                    return "EXCEPTION_FLT_OVERFLOW";
-                case EXCEPTION_FLT_STACK_CHECK:
-                    return "EXCEPTION_FLT_STACK_CHECK";
-                case EXCEPTION_FLT_UNDERFLOW:
-                    return "EXCEPTION_FLT_UNDERFLOW";
-                case EXCEPTION_DATATYPE_MISALIGNMENT:
-                    return "EXCEPTION_DATATYPE_MISALIGNMENT";
-                case EXCEPTION_IN_PAGE_ERROR:
-                    return "EXCEPTION_IN_PAGE_ERROR";
-                case EXCEPTION_INVALID_DISPOSITION:
-                    return "EXCEPTION_INVALID_DISPOSITION";
-                case EXCEPTION_NONCONTINUABLE_EXCEPTION:
-                    return "EXCEPTION_NONCONTINUABLE_EXCEPTION";
-                case EXCEPTION_PRIV_INSTRUCTION:
-                    return "EXCEPTION_PRIV_INSTRUCTION";
-                case EXCEPTION_GUARD_PAGE:
-                    return "EXCEPTION_GUARD_PAGE";
-                case EXCEPTION_INVALID_HANDLE:
-                    return "EXCEPTION_INVALID_HANDLE";
-                case 0xC0000194:
-                    return "EXCEPTION_POSSIBLE_DEADLOCK";
-                default:
-                    return fmt::format("UNKNOWN_EXCEPTION_0x{:08X}", code);
-                }
-            };
+                    switch (code)
+                    {
+                    case EXCEPTION_ACCESS_VIOLATION:
+                        return "EXCEPTION_ACCESS_VIOLATION";
+                    case EXCEPTION_STACK_OVERFLOW:
+                        return "EXCEPTION_STACK_OVERFLOW";
+                    case EXCEPTION_ILLEGAL_INSTRUCTION:
+                        return "EXCEPTION_ILLEGAL_INSTRUCTION";
+                    case EXCEPTION_INT_DIVIDE_BY_ZERO:
+                        return "EXCEPTION_INT_DIVIDE_BY_ZERO";
+                    case EXCEPTION_INT_OVERFLOW:
+                        return "EXCEPTION_INT_OVERFLOW";
+                    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
+                        return "EXCEPTION_ARRAY_BOUNDS_EXCEEDED";
+                    case EXCEPTION_FLT_DENORMAL_OPERAND:
+                        return "EXCEPTION_FLT_DENORMAL_OPERAND";
+                    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
+                        return "EXCEPTION_FLT_DIVIDE_BY_ZERO";
+                    case EXCEPTION_FLT_INEXACT_RESULT:
+                        return "EXCEPTION_FLT_INEXACT_RESULT";
+                    case EXCEPTION_FLT_INVALID_OPERATION:
+                        return "EXCEPTION_FLT_INVALID_OPERATION";
+                    case EXCEPTION_FLT_OVERFLOW:
+                        return "EXCEPTION_FLT_OVERFLOW";
+                    case EXCEPTION_FLT_STACK_CHECK:
+                        return "EXCEPTION_FLT_STACK_CHECK";
+                    case EXCEPTION_FLT_UNDERFLOW:
+                        return "EXCEPTION_FLT_UNDERFLOW";
+                    case EXCEPTION_DATATYPE_MISALIGNMENT:
+                        return "EXCEPTION_DATATYPE_MISALIGNMENT";
+                    case EXCEPTION_IN_PAGE_ERROR:
+                        return "EXCEPTION_IN_PAGE_ERROR";
+                    case EXCEPTION_INVALID_DISPOSITION:
+                        return "EXCEPTION_INVALID_DISPOSITION";
+                    case EXCEPTION_NONCONTINUABLE_EXCEPTION:
+                        return "EXCEPTION_NONCONTINUABLE_EXCEPTION";
+                    case EXCEPTION_PRIV_INSTRUCTION:
+                        return "EXCEPTION_PRIV_INSTRUCTION";
+                    case EXCEPTION_GUARD_PAGE:
+                        return "EXCEPTION_GUARD_PAGE";
+                    case EXCEPTION_INVALID_HANDLE:
+                        return "EXCEPTION_INVALID_HANDLE";
+                    case 0xC0000194:
+                        return "EXCEPTION_POSSIBLE_DEADLOCK";
+                    default:
+                        return fmt::format("UNKNOWN_EXCEPTION_0x{:08X}", code);
+                    }
+                };
 
             crashReport["exception"]["code"] = fmt::format("0x{:08X}", record->ExceptionCode);
             crashReport["exception"]["codeName"] = GetExceptionCodeString(record->ExceptionCode);
@@ -560,27 +560,27 @@ inline void ReportCrashIncident(const std::string& crashDir, void* exceptionInfo
 
         // Helper to get signal name
         auto GetSignalName = [](int sig) -> std::string
-        {
-            switch (sig)
             {
-            case SIGSEGV:
-                return "SIGSEGV";
-            case SIGBUS:
-                return "SIGBUS";
-            case SIGFPE:
-                return "SIGFPE";
-            case SIGILL:
-                return "SIGILL";
-            case SIGABRT:
-                return "SIGABRT";
-            case SIGTRAP:
-                return "SIGTRAP";
-            case SIGSYS:
-                return "SIGSYS";
-            default:
-                return fmt::format("Signal {}", sig);
-            }
-        };
+                switch (sig)
+                {
+                case SIGSEGV:
+                    return "SIGSEGV";
+                case SIGBUS:
+                    return "SIGBUS";
+                case SIGFPE:
+                    return "SIGFPE";
+                case SIGILL:
+                    return "SIGILL";
+                case SIGABRT:
+                    return "SIGABRT";
+                case SIGTRAP:
+                    return "SIGTRAP";
+                case SIGSYS:
+                    return "SIGSYS";
+                default:
+                    return fmt::format("Signal {}", sig);
+                }
+            };
 
         // Exception details from saved signal info
         if (g_linuxSigInfo)
@@ -1028,13 +1028,13 @@ static void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
     mei.ClientPointers = FALSE;
 
     MINIDUMP_TYPE type = static_cast<MINIDUMP_TYPE>(
-          MiniDumpWithDataSegs 
+        MiniDumpWithDataSegs
         | MiniDumpNormal
-        | MiniDumpWithHandleData 
-        | MiniDumpWithThreadInfo 
+        | MiniDumpWithHandleData
+        | MiniDumpWithThreadInfo
         | MiniDumpWithUnloadedModules
         | MiniDumpWithFullMemoryInfo
-    );
+        );
     BOOL result = MiniDumpWriteDump(GetCurrentProcess(), static_cast<DWORD>(pid), hFile, type, &mei, nullptr, nullptr);
     CloseHandle(hFile);
 
@@ -1047,9 +1047,9 @@ static void BreakpadDumpCallback(PEXCEPTION_POINTERS exceptionInfo)
         _write(_fileno(stdout), "\n", 1);
 
         std::thread worker([crashDir, exceptionInfo, pid, tid]()
-        {
-            ReportCrashIncident(crashDir, exceptionInfo, pid, tid);
-        });
+            {
+                ReportCrashIncident(crashDir, exceptionInfo, pid, tid);
+            });
         worker.join();
         _exit(1);
     }
@@ -1169,25 +1169,25 @@ static bool BreakpadDumpCallback(const google_breakpad::MinidumpDescriptor& desc
         std::string dumpPath = descriptor.path();
         std::string dumpRoot = g_dumpPath;
         std::thread worker([dumpPath, dumpRoot]()
-        {
-            auto sep = dumpPath.find_last_of("/\\");
-            std::string file = (sep == std::string::npos) ? dumpPath : dumpPath.substr(sep + 1);
-            auto dot = file.rfind(".dmp");
-            std::string uuid = (dot == std::string::npos) ? file : file.substr(0, dot);
-
-            std::string crashDir = dumpRoot + "/" + uuid;
-            std::error_code ec;
-            std::filesystem::create_directories(crashDir, ec);
-
-            std::string newDumpPath = crashDir + "/minidump.dmp";
-            if (std::rename(dumpPath.c_str(), newDumpPath.c_str()) != 0)
             {
-                std::filesystem::copy_file(dumpPath, newDumpPath, std::filesystem::copy_options::overwrite_existing, ec);
-                std::filesystem::remove(dumpPath, ec);
-            }
+                auto sep = dumpPath.find_last_of("/\\");
+                std::string file = (sep == std::string::npos) ? dumpPath : dumpPath.substr(sep + 1);
+                auto dot = file.rfind(".dmp");
+                std::string uuid = (dot == std::string::npos) ? file : file.substr(0, dot);
 
-            ReportCrashIncident(crashDir, nullptr);
-        });
+                std::string crashDir = dumpRoot + "/" + uuid;
+                std::error_code ec;
+                std::filesystem::create_directories(crashDir, ec);
+
+                std::string newDumpPath = crashDir + "/minidump.dmp";
+                if (std::rename(dumpPath.c_str(), newDumpPath.c_str()) != 0)
+                {
+                    std::filesystem::copy_file(dumpPath, newDumpPath, std::filesystem::copy_options::overwrite_existing, ec);
+                    std::filesystem::remove(dumpPath, ec);
+                }
+
+                ReportCrashIncident(crashDir, nullptr);
+            });
         worker.join();
         _exit(1);
     }
