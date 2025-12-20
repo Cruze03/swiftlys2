@@ -8,6 +8,11 @@ public interface IConVar
     public string Name { get; }
 
     /// <summary>
+    /// The help text of the convar.
+    /// </summary>
+    public string HelpText { get; }
+
+    /// <summary>
     /// The string value of the convar.
     /// When setting, if the convar can be replicated, it will automatically replicate to all clients.
     /// Also, setting value with this method will internally put it into a set queue,
@@ -65,41 +70,41 @@ public interface IConVar
     /// Won't replicate the change to clients.
     /// </summary>
     /// <param name="value">The value to set.</param>
-    void SetInternalAsString( string value );
+    void SetInternalAsString(string value);
 
     /// <summary>
     /// Replicate the value of the convar to specified client.
     /// </summary>
     /// <param name="clientId">The client id to replicate to.</param>
-    void ReplicateToClientAsString( int clientId, string value );
+    void ReplicateToClientAsString(int clientId, string value);
 
     /// <summary>
     /// Query the value of the convar from specified client.
     /// </summary>
     /// <param name="clientId"></param>
     /// <param name="callback">The action to execute with the value.</param>
-    void QueryClient( int clientId, Action<string> callback );
+    void QueryClient(int clientId, Action<string> callback);
 
     /// <summary>
     /// Try to get the default value of the convar.
     /// </summary>
     /// <param name="defaultValue">The default value of the convar.</param>
     /// <returns>True if the default value is found, false otherwise.</returns>
-    bool TryGetDefaultValueAsString( out string defaultValue );
+    bool TryGetDefaultValueAsString(out string defaultValue);
 
     /// <summary>
     /// Try to get the min value of the convar.
     /// </summary>
     /// <param name="minValue">The min value of the convar.</param>
     /// <returns>True if the min value is found, false otherwise.</returns>
-    bool TryGetMinValueAsString( out string minValue );
+    bool TryGetMinValueAsString(out string minValue);
 
     /// <summary>
     /// Try to get the max value of the convar.
     /// </summary>
     /// <param name="maxValue">The max value of the convar.</param>
     /// <returns>True if the max value is found, false otherwise.</returns>
-    bool TryGetMaxValueAsString( out string maxValue );
+    bool TryGetMaxValueAsString(out string maxValue);
 }
 
 public interface IConVar<T> : IConVar
@@ -157,41 +162,41 @@ public interface IConVar<T> : IConVar
     /// Won't replicate the change to clients.
     /// </summary>
     /// <param name="value">The value to set.</param>
-    void SetInternal( T value );
+    void SetInternal(T value);
 
     /// <summary>
     /// Query the value of the convar from specified client.
     /// </summary>
     /// <param name="clientId"></param>
     /// <param name="callback">The action to execute with the value.</param>
-    void QueryClient( int clientId, Action<string> callback );
+    void QueryClient(int clientId, Action<string> callback);
 
     /// <summary>
     /// Replicate the value of the convar to specified client.
     /// </summary>
     /// <param name="clientId">The client id to replicate to.</param>
-    void ReplicateToClient( int clientId, T value );
+    void ReplicateToClient(int clientId, T value);
 
     /// <summary>
     /// Try to get the min value of the convar.
     /// </summary>
     /// <param name="minValue">The min value of the convar.</param>
     /// <returns>True if the min value is found, false otherwise.</returns>
-    bool TryGetMinValue( out T minValue );
+    bool TryGetMinValue(out T minValue);
 
     /// <summary>
     /// Try to get the max value of the convar.
     /// </summary>
     /// <param name="maxValue">The max value of the convar.</param>
     /// <returns>True if the max value is found, false otherwise.</returns>
-    bool TryGetMaxValue( out T maxValue );
+    bool TryGetMaxValue(out T maxValue);
 
     /// <summary>
     /// Try to get the default value of the convar.
     /// </summary>
     /// <param name="defaultValue">The default value of the convar.</param>
     /// <returns>True if the default value is found, false otherwise.</returns>
-    bool TryGetDefaultValue( out T defaultValue );
+    bool TryGetDefaultValue(out T defaultValue);
 
 
 }

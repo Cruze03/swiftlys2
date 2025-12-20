@@ -400,6 +400,15 @@ void Bridge_Convars_SetValueInternalAsString(const char* cvarName, const char* v
     cvar.SetValueInternal(0, &v);
 }
 
+int Bridge_Convars_GetDescription(char* out, const char* cvarName)
+{
+    ConVarRefAbstract cvar(cvarName);
+    std::string s = cvar.GetHelpText();
+
+    if (out != nullptr) strcpy(out, s.c_str());
+
+    return s.size();
+}
 
 DEFINE_NATIVE("Convars.QueryClientConvar", Bridge_Convars_QueryClientConvar);
 DEFINE_NATIVE("Convars.AddQueryClientCvarCallback", Bridge_Convars_AddQueryClientCvarCallback);
@@ -449,3 +458,4 @@ DEFINE_NATIVE("Convars.GetMinValueAsString", Bridge_Convars_GetMinValueAsString)
 DEFINE_NATIVE("Convars.SetMaxValueAsString", Bridge_Convars_SetMaxValueAsString);
 DEFINE_NATIVE("Convars.GetMaxValueAsString", Bridge_Convars_GetMaxValueAsString);
 DEFINE_NATIVE("Convars.SetValueInternalAsString", Bridge_Convars_SetValueInternalAsString);
+DEFINE_NATIVE("Convars.GetDescription", Bridge_Convars_GetDescription);
