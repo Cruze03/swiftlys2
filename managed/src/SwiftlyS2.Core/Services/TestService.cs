@@ -13,6 +13,7 @@ using SwiftlyS2.Core.ProtobufDefinitions;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Convars;
+using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.GameEventDefinitions;
 using SwiftlyS2.Shared.GameEvents;
@@ -52,6 +53,7 @@ internal class TestService
         _Logger.LogWarning("TestService created");
         _Logger.LogWarning("TestService created");
 
+        _Core.Registrator.Register(this);
         Test2();
     }
 
@@ -90,18 +92,19 @@ internal class TestService
 
     public void Test2()
     {
-        _Core.GameEvent.HookPost<EventPlayerPing>(@event =>
-        {
-            var slots = @event.UserIdPawn.PingServices.PlayerPingTokens;
+        CVariant<CVariantDefaultAllocator> variant = new CVariant<CVariantDefaultAllocator>(100);
+        Console.WriteLine(variant.ToString());
+        variant.SetString("LOL");
+        Console.WriteLine(variant.ToString());
+        variant.SetVector(new(1, 1, 1));
+        Console.WriteLine(variant.ToString());
+    }
 
-            _Core.Logger.LogInformation($"Slots Count: {slots.ElementCount}");
-            for (int i = 0; i < slots.ElementCount; i++)
-            {
-                var slot = slots[i];
-                _Core.Logger.LogInformation($"Slot {i}: {slot.Value}");
-            }
 
-            return HookResult.Continue;
-        });
+    [EntityOutputHandler("*", "*")]
+    public void Test3( IOnEntityFireOutputHookEvent @event )
+    {
+        Console.WriteLine("MFMFMMFFMFMMFMFMF");
+        Console.WriteLine($"HookEntityOutput -> designerName: {@event.DesignerName} output: {@event.OutputName}, activator: {@event.Activator?.As<CBaseEntity>()?.DesignerName}, caller: {@event.Caller?.As<CBaseEntity>()?.DesignerName}, value: {@event.VariantValue.ToString()}, delay: {@event.Delay}");
     }
 }

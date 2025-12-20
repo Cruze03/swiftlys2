@@ -19,6 +19,7 @@ internal class RegistratorService : IRegistratorService {
     _Core.EventSubscriber.ParseFromObject(instance);
     _Core.GameEventService.ParseFromObject(instance);
     _Core.NetMessageService.ParseFromObject(instance);
+    _Core.EntitySystemService.ParseFromObject(instance);
 
   }
 }

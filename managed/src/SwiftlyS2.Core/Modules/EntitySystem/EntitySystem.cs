@@ -8,6 +8,7 @@ using SwiftlyS2.Core.NetMessages;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Shared.Events;
 
 namespace SwiftlyS2.Core.EntitySystem;
 
@@ -17,11 +18,12 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
     private readonly Lock callbacksLock = new();
     private readonly ILoggerFactory loggerFactory;
     private readonly IContextedProfilerService profiler;
-
-    public EntitySystemService( ILoggerFactory loggerFactory, IContextedProfilerService profiler )
+    private readonly IEventSubscriber eventSubscriber;
+    public EntitySystemService( IEventSubscriber eventSubscriber, ILoggerFactory loggerFactory, IContextedProfilerService profiler )
     {
         this.loggerFactory = loggerFactory;
         this.profiler = profiler;
+        this.eventSubscriber = eventSubscriber;
     }
 
     public T CreateEntity<T>() where T : class, ISchemaClass<T>
@@ -82,6 +84,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         return handle == nint.Zero ? null : T.From(handle);
     }
 
+    [Obsolete("Use HookEntityOutput(string outputName, Action<IOnEntityFireOutputHookEvent> callback) instead.")]
     public Guid HookEntityOutput<T>( string outputName, IEntitySystemService.EntityOutputHandler callback ) where T : class, ISchemaClass<T>
     {
         var hook = new EntityOutputHookCallback(T.ClassName ?? throw new ArgumentException($"Can't hook entity output with class {typeof(T).Name}, which doesn't have a designer name"), outputName, callback, loggerFactory, profiler);
@@ -92,6 +95,51 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         return hook.Guid;
     }
 
+    public void HookEntityOutput<T>( string outputName, IEntitySystemService.EntityOutputEventHandler callback ) where T : class, ISchemaClass<T>
+    {
+        if (T.ClassName == null)
+        {
+            throw new ArgumentException($"Can't hook entity output with class {typeof(T).Name}, which doesn't have a designer name.");
+        }
+        if (string.IsNullOrWhiteSpace(outputName))
+        {
+            throw new ArgumentException("Output name cannot be null or empty.");
+        }
+        eventSubscriber.OnEntityFireOutputHook += ( @event ) =>
+        {
+            if (outputName == "*" || outputName == @event.OutputName)
+            {
+                if (@event.DesignerName == T.ClassName)
+                {
+                    callback(@event);
+                }
+            }
+        };
+    }
+
+    public void HookEntityOutput( string designerName, string outputName, IEntitySystemService.EntityOutputEventHandler callback )
+    {
+        if (string.IsNullOrWhiteSpace(designerName))
+        {
+            throw new ArgumentException("Designer name cannot be null or empty.");
+        }
+        if (string.IsNullOrWhiteSpace(outputName))
+        {
+            throw new ArgumentException("Output name cannot be null or empty.");
+        }
+        @eventSubscriber.OnEntityFireOutputHook += ( @event ) =>
+        {
+            if (outputName == "*" || outputName == @event.OutputName)
+            {
+                if (designerName == "*" || @event.DesignerName == designerName)
+                {
+                    callback(@event);
+                }
+            }
+        };
+    }
+
+    [Obsolete("This method is deprecated.")]
     public void UnhookEntityOutput( Guid guid )
     {
         lock (callbacksLock)
