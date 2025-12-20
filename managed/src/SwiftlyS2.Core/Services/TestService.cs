@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
 using Microsoft.Extensions.Logging;
 using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Core.GameEvents;
@@ -93,7 +94,6 @@ internal class TestService
 
     public void Test2()
     {
-        IProtobufRepeatedFieldSubMessageType<IProtobufMessage> message = new CVariant<CVariantDefaultAllocator>(100);
         CVariant<CVariantDefaultAllocator> variant = new CVariant<CVariantDefaultAllocator>(100);
         Console.WriteLine(variant.ToString());
         variant.SetString("LOL");
