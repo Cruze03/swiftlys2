@@ -275,6 +275,8 @@ internal static class GameFunctions
         }
     }
 
+    private static unsafe bool Is16Aligned(CGameTrace* pTrace) => ((nuint)pTrace & 15) == 0;
+
     public static unsafe void TracePlayerBBox(
       Vector vecStart,
       Vector vecEnd,
@@ -288,12 +290,20 @@ internal static class GameFunctions
             CheckPtr(pTrace, nameof(pTrace));
             unsafe
             {
-                var size = (nuint)sizeof(CGameTrace);
-                var pAligned = NativeMemory.AlignedAlloc(size, 16);
-                NativeMemory.Copy(pTrace, pAligned, size);
-                pTracePlayerBBox(&vecStart, &vecEnd, &bounds, pFilter, (CGameTrace*)pAligned);
-                NativeMemory.Copy(pAligned, pTrace, size);
-                NativeMemory.Free(pAligned);
+                // FUCK ALL OF YOU SHIT
+                if (IsWindows || Is16Aligned(pTrace))
+                {
+                    pTracePlayerBBox(&vecStart, &vecEnd, &bounds, pFilter, pTrace);
+                }
+                else
+                {
+                    var size = (nuint)sizeof(CGameTrace);
+                    var rawBuffer = stackalloc byte[(int)size + 16];
+                    var pAligned = (CGameTrace*)(((nuint)rawBuffer + 15) & ~(nuint)15);
+                    NativeMemory.Copy(pTrace, pAligned, size);
+                    pTracePlayerBBox(&vecStart, &vecEnd, &bounds, pFilter, pAligned);
+                    NativeMemory.Copy(pAligned, pTrace, size);
+                }
             }
         }
         catch (Exception e)
@@ -317,12 +327,21 @@ internal static class GameFunctions
             {
                 CheckPtr(pEngineTrace, nameof(pEngineTrace));
                 CheckPtr(pTrace, nameof(pTrace));
-                var size = (nuint)sizeof(CGameTrace);
-                var pAligned = NativeMemory.AlignedAlloc(size, 16);
-                NativeMemory.Copy(pTrace, pAligned, size);
-                pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, (CGameTrace*)pAligned);
-                NativeMemory.Copy(pAligned, pTrace, size);
-                NativeMemory.Free(pAligned);
+                // FUCK YOU WINDOWS
+                if (IsWindows || Is16Aligned(pTrace))
+                {
+                    pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, pTrace);
+                }
+                // FUCK YOU LINUX SIMD ALIGNMENT
+                else
+                {
+                    var size = (nuint)sizeof(CGameTrace);
+                    var rawBuffer = stackalloc byte[(int)size + 16];
+                    var pAligned = (CGameTrace*)(((nuint)rawBuffer + 15) & ~(nuint)15);
+                    NativeMemory.Copy(pTrace, pAligned, size);
+                    pTraceShape(pEngineTrace, ray, &vecStart, &vecEnd, pFilter, pAligned);
+                    NativeMemory.Copy(pAligned, pTrace, size);
+                }
             }
         }
         catch (Exception e)
@@ -358,7 +377,7 @@ internal static class GameFunctions
         }
     }
 
-    public static unsafe void TakeDamage( nint pEntity, CTakeDamageInfo* info)
+    public static unsafe void TakeDamage( nint pEntity, CTakeDamageInfo* info )
     {
         try
         {
