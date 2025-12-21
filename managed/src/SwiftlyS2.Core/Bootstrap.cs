@@ -44,7 +44,7 @@ internal static class Bootstrap
         AppDomain.CurrentDomain.UnhandledException += ( sender, e ) =>
         {
             Console.WriteLine("CRITICAL: Unhandled exception. Aborting.");
-            Console.WriteLine((e.ExceptionObject as Exception).ToString());
+            Console.WriteLine((e.ExceptionObject as Exception)?.ToString());
         };
 
         TaskScheduler.UnobservedTaskException += ( sender, e ) =>

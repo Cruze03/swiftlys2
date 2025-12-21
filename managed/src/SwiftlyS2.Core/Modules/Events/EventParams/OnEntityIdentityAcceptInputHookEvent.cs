@@ -9,6 +9,7 @@ internal class OnEntityIdentityAcceptInputHookEvent : IOnEntityIdentityAcceptInp
 {
     public required CEntityIdentity Identity { get; init; }
     public required CEntityInstance EntityInstance { get; init; }
+    public required string DesignerName { get; init; }
     public required string InputName { get; init; }
     public required CEntityInstance? Activator { get; init; }
     public required CEntityInstance? Caller { get; init; }

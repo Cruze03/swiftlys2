@@ -1,26 +1,28 @@
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+
 using System.Text;
+using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Logging;
-using SwiftlyS2.Core.Events;
-using SwiftlyS2.Core.Extensions;
-using SwiftlyS2.Core.Natives;
-using SwiftlyS2.Core.ProtobufDefinitions;
-using SwiftlyS2.Core.SchemaDefinitions;
-using SwiftlyS2.Core.Schemas;
 using SwiftlyS2.Shared;
-using SwiftlyS2.Shared.Memory;
 using SwiftlyS2.Shared.Misc;
+using SwiftlyS2.Core.Events;
+using SwiftlyS2.Core.Natives;
+using SwiftlyS2.Core.Schemas;
+using SwiftlyS2.Shared.Memory;
 using SwiftlyS2.Shared.Natives;
-using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Shared.SteamAPI;
+using SwiftlyS2.Core.SchemaDefinitions;
+using SwiftlyS2.Core.ProtobufDefinitions;
+using SwiftlyS2.Shared.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.Services;
 
 internal class CoreHookService : IDisposable
 {
-    private readonly ILogger<CoreHookService> logger;
+
     private readonly ISwiftlyCore core;
+    private readonly ILogger<CoreHookService> logger;
 
     public CoreHookService( ILogger<CoreHookService> logger, ISwiftlyCore core )
     {
@@ -112,7 +114,8 @@ internal class CoreHookService : IDisposable
         {
             return ( pEntityIdentity, pInputName, pActivator, pCaller, pVariant, outputId, unk1, unk2 ) =>
             {
-                unsafe {
+                unsafe
+                {
                     var entityIdentity = core.Memory.ToSchemaClass<CEntityIdentity>(pEntityIdentity);
                     var inputName = pInputName.AsRef<CUtlSymbolLarge>();
                     var activator = pActivator != nint.Zero ? core.Memory.ToSchemaClass<CEntityInstance>(pActivator) : null;
@@ -123,6 +126,7 @@ internal class CoreHookService : IDisposable
                     var @event = new OnEntityIdentityAcceptInputHookEvent {
                         Identity = entityIdentity,
                         EntityInstance = entityIdentity.EntityInstance,
+                        DesignerName = entityIdentity?.DesignerName ?? string.Empty,
                         InputName = inputName.Value,
                         Activator = activator,
                         Caller = caller,

@@ -18,6 +18,10 @@ public interface IOnEntityIdentityAcceptInputHookEvent
     /// </summary>
     public CEntityInstance EntityInstance { get; }
     /// <summary>
+    /// The designer name of the caller.
+    /// </summary>
+    public string DesignerName { get; }
+    /// <summary>
     /// The name of the input being accepted.
     /// </summary>
     public string InputName { get; }

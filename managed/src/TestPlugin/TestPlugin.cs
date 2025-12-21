@@ -480,10 +480,20 @@ public class TestPlugin : BasePlugin
         CUtlStringToken token = new("hello");
         Console.WriteLine($"2");
 
-        _ = Core.EntitySystem.HookEntityOutput<CPropDoorRotating>("OnFullyOpen", ( entityIO, outputName, activator, caller, delay ) =>
+        // _ = Core.EntitySystem.HookEntityOutput<CPropDoorRotating>("OnFullyOpen", ( entityIO, outputName, activator, caller, delay ) =>
+        // {
+        //     Console.WriteLine($"HookEntityOutput -> entityIO: {entityIO.Desc.Name} output: {outputName}, activator: {activator?.As<CBaseEntity>()?.DesignerName}, caller: {caller?.As<CBaseEntity>()?.DesignerName}");
+        //     return HookResult.Continue;
+        // });
+
+        _ = Core.EntitySystem.HookEntityInput<CCSPlayerPawn>("SetBodygroup", ( @event ) =>
         {
-            Console.WriteLine($"HookEntityOutput -> entityIO: {entityIO.Desc.Name} output: {outputName}, activator: {activator?.As<CBaseEntity>()?.DesignerName}, caller: {caller?.As<CBaseEntity>()?.DesignerName}");
-            return HookResult.Continue;
+            Console.WriteLine($"EntityInput -> Identity: {@event.Identity.DesignerName} InputName: {@event.InputName}, Activator: {@event.Activator?.As<CBaseEntity>()?.DesignerName}, Caller: {@event.Caller?.As<CBaseEntity>()?.DesignerName}");
+        });
+
+        _ = Core.EntitySystem.HookEntityOutput<CPropDoorRotating>("OnFullyOpen", ( @event ) =>
+        {
+            Console.WriteLine($"EntityOutput -> EntityIO: {@event.EntityIO.Desc.Name} OutputName: {@event.OutputName}, Activator: {@event.Activator?.As<CBaseEntity>()?.DesignerName}, Caller: {@event.Caller?.As<CBaseEntity>()?.DesignerName}");
         });
     }
 

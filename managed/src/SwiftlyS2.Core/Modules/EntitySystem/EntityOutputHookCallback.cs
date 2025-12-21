@@ -10,9 +10,11 @@ using SwiftlyS2.Core.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.NetMessages;
 
+[Obsolete("Use HookEntityOutput with EntityOutputEventHandler instead.")]
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 internal delegate int EntityOutputHookCallbackDelegate( nint entityio, nint outputName, nint activator, nint caller, float delay );
 
+[Obsolete("Use HookEntityOutput with EntityOutputEventHandler instead.")]
 internal class EntityOutputHookCallback : IDisposable
 {
     public Guid Guid { get; init; }
