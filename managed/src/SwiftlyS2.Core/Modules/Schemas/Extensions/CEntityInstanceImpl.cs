@@ -6,7 +6,7 @@ using SwiftlyS2.Shared.SchemaDefinitions;
 
 namespace SwiftlyS2.Core.SchemaDefinitions;
 
-internal partial class CEntityInstanceImpl : CEntityInstance
+internal partial class CEntityInstanceImpl : CEntityInstance, IEquatable<CEntityInstance>
 {
     public uint Index => Entity?.EntityHandle.EntityIndex ?? uint.MaxValue;
     public string DesignerName => Entity?.DesignerName ?? string.Empty;
@@ -73,4 +73,25 @@ internal partial class CEntityInstanceImpl : CEntityInstance
     {
         return SchedulerManager.QueueOrNow(Despawn);
     }
+
+    public bool Equals( CEntityInstance? other )
+    {
+        return other != null && this.Address.Equals(other.Address);
+    }
+
+    public override string ToString()
+    {
+        return this.IsValid ? $"{this.DesignerName}[{this.Index}]" : "invalid";
+    }
+
+    public override bool Equals( object? obj )
+    {
+        return obj is CEntityInstance v && this.Equals(v);
+    }
+
+    public override int GetHashCode()
+    {
+        return this.Address.GetHashCode();
+    }
+
 }
