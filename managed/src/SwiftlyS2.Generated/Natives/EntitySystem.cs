@@ -163,4 +163,11 @@ internal static class NativeEntitySystem {
     var ret = _GetEntityByIndex(index);
     return ret;
   }
+
+  private unsafe static delegate* unmanaged<byte> _IsValid;
+
+  public unsafe static bool IsValid() {
+    var ret = _IsValid();
+    return ret == 1;
+  }
 }

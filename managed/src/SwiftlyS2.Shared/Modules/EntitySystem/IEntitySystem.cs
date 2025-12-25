@@ -42,6 +42,7 @@ public interface IEntitySystemService
     /// <typeparam name="T">Entity type.</typeparam>
     /// <returns>Created entity.</returns>
     /// <exception cref="ArgumentException">Thrown when failed to create entity by class or class doesn't have a designer name.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public T CreateEntity<T>() where T : class, ISchemaClass<T>;
 
     /// <summary>
@@ -51,6 +52,7 @@ public interface IEntitySystemService
     /// <param name="designerName">Designer name.</param>
     /// <returns>Created entity.</returns>
     /// <exception cref="ArgumentException">Thrown when failed to create entity by designer name or designer name is invalid.</exception>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public T CreateEntityByDesignerName<T>( string designerName ) where T : ISchemaClass<T>;
 
     /// <summary>
@@ -59,18 +61,21 @@ public interface IEntitySystemService
     /// <typeparam name="T">Entity type.</typeparam>
     /// <param name="entity">Entity instance.</param>
     /// <returns>Reference entity handle to the entity.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public CHandle<T> GetRefEHandle<T>( T entity ) where T : class, ISchemaClass<T>;
 
     /// <summary>
     /// Get the game rules entity.
     /// </summary>
     /// <returns>Game rules entity. Nullable.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public CCSGameRules? GetGameRules();
 
     /// <summary>
     /// Get all entities.
     /// </summary>
     /// <returns>All entities.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public IEnumerable<CEntityInstance> GetAllEntities();
 
     /// <summary>
@@ -78,6 +83,7 @@ public interface IEntitySystemService
     /// </summary>
     /// <typeparam name="T">Entity type.</typeparam>
     /// <returns>All entities by class.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public IEnumerable<T> GetAllEntitiesByClass<T>() where T : class, ISchemaClass<T>;
 
     /// <summary>
@@ -86,6 +92,7 @@ public interface IEntitySystemService
     /// <typeparam name="T">Entity type.</typeparam>
     /// <param name="designerName">Designer name.</param>
     /// <returns>All entities by designer name.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public IEnumerable<T> GetAllEntitiesByDesignerName<T>( string designerName ) where T : class, ISchemaClass<T>;
 
     /// <summary>
@@ -94,6 +101,7 @@ public interface IEntitySystemService
     /// <typeparam name="T">Entity type.</typeparam>
     /// <param name="index">Entity index.</param>
     /// <returns>Entity by index. Nullable.</returns>
+    /// <exception cref="InvalidOperationException">Thrown when called too early that entity system is not valid at this moment.</exception>
     public T? GetEntityByIndex<T>( uint index ) where T : class, ISchemaClass<T>;
 
     /// <summary>

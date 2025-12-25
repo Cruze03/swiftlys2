@@ -35,8 +35,17 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         this.disposed = false;
     }
 
+    private static void ThrowIfEntitySystemInvalid()
+    {
+        if (!NativeEntitySystem.IsValid())
+        {
+            throw new InvalidOperationException("Entity system is not valid at this moment.");
+        }
+    }
+
     public T CreateEntity<T>() where T : class, ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         return string.IsNullOrWhiteSpace(T.ClassName)
             ? throw new ArgumentException($"Can't create entity with class {typeof(T).Name}, which doesn't have a designer name.")
             : CreateEntityByDesignerName<T>(T.ClassName);
@@ -44,6 +53,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
 
     public T CreateEntityByDesignerName<T>( string designerName ) where T : ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         var handle = NativeEntitySystem.CreateEntityByName(designerName);
         return handle == nint.Zero
             ? throw new ArgumentException($"Failed to create entity by designer name: {designerName}, probably invalid designer name.")
@@ -52,17 +62,20 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
 
     public CHandle<T> GetRefEHandle<T>( T entity ) where T : class, ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         return new CHandle<T> { Raw = NativeEntitySystem.GetEntityHandleFromEntity(entity.Address) };
     }
 
     public CCSGameRules? GetGameRules()
     {
+        ThrowIfEntitySystemInvalid();
         var handle = NativeEntitySystem.GetGameRules();
         return handle.IsValidPtr() ? new CCSGameRulesImpl(handle) : null;
     }
 
     public IEnumerable<CEntityInstance> GetAllEntities()
     {
+        ThrowIfEntitySystemInvalid();
         CEntityIdentity? pFirst = new CEntityIdentityImpl(NativeEntitySystem.GetFirstActiveEntity());
 
         while (pFirst != null && pFirst.IsValid)
@@ -74,6 +87,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
 
     public IEnumerable<T> GetAllEntitiesByClass<T>() where T : class, ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         return string.IsNullOrWhiteSpace(T.ClassName)
             ? throw new ArgumentException($"Can't get entities with class {typeof(T).Name}, which doesn't have a designer name")
             : GetAllEntities().Where(( entity ) => entity.Entity?.DesignerName == T.ClassName).Select(( entity ) => T.From(entity.Address));
@@ -81,6 +95,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
 
     public IEnumerable<T> GetAllEntitiesByDesignerName<T>( string designerName ) where T : class, ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         return GetAllEntities()
             .Where(entity => entity.Entity?.DesignerName == designerName)
             .Select(entity => T.From(entity.Address));
@@ -88,6 +103,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
 
     public T? GetEntityByIndex<T>( uint index ) where T : class, ISchemaClass<T>
     {
+        ThrowIfEntitySystemInvalid();
         var handle = NativeEntitySystem.GetEntityByIndex(index);
         return handle == nint.Zero ? null : T.From(handle);
     }
