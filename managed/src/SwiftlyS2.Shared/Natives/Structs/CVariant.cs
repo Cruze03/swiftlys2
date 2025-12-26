@@ -252,7 +252,7 @@ public struct CVariant<TAllocator> where TAllocator : IVariantAllocator
         var len = Encoding.UTF8.GetByteCount(value);
         var buffer = TAllocator.Alloc((ulong)(len + 1));
         buffer.CopyFrom(Encoding.UTF8.GetBytes(value));
-        buffer.Write(len, 0);
+        buffer.Write(len, (byte)0);
         Data.ThisPointer.Write(buffer);
         SetAllocated();
     }
