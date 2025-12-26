@@ -422,6 +422,7 @@ public interface IPlayer : IEquatable<IPlayer>
 
     /// <summary>
     /// Changes the player's team.
+    /// This will also kill the player.
     /// 
     /// Thread unsafe, use async variant instead for non-main thread context.
     /// </summary>
@@ -431,6 +432,7 @@ public interface IPlayer : IEquatable<IPlayer>
 
     /// <summary>
     /// Changes the player's team asynchronously.
+    /// This will also kill the player.
     /// </summary>
     /// <param name="team">The team to assign. Cannot be null.</param>
     public Task ChangeTeamAsync( Team team );

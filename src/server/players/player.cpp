@@ -382,7 +382,7 @@ void CPlayer::Kick(const std::string& sReason, int uReason)
     auto engine = g_ifaceService.FetchInterface<IVEngineServer2>(INTERFACEVERSION_VENGINESERVER);
     if (!engine)
         return;
-    engine->DisconnectClient(m_iPlayerId, uReason, sReason.c_str());
+    engine->KickClient(m_iPlayerId, sReason.c_str(), uReason);
 }
 
 BlockedTransmitInfo& CPlayer::GetBlockedTransmittingBits()
