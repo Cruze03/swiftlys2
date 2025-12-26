@@ -8,7 +8,7 @@ namespace SwiftlyS2.Core.Natives;
 
 internal static class GameFunctions
 {
-    private static readonly bool IsWindows = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Windows);
+    private static readonly bool IsWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
     public static unsafe delegate* unmanaged< CTakeDamageInfo*, nint, nint, nint, Vector*, Vector*, float, int, int, void*, void > pCTakeDamageInfo_Constructor;
     public static unsafe delegate* unmanaged< nint, CTakeDamageInfo*, CTakeDamageResult*, void > pTakeDamage;
     public static unsafe delegate* unmanaged< nint, Ray_t*, Vector*, Vector*, CTraceFilter*, CGameTrace*, void > pTraceShape;
@@ -26,19 +26,34 @@ internal static class GameFunctions
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCHEGrenadeProjectileEmitGrenade;
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCDecoyProjectileEmitGrenade;
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCMolotovProjectileEmitGrenade;
-    public static int TeleportOffset => NativeOffsets.Fetch("CBaseEntity::Teleport");
-    public static int CommitSuicideOffset => NativeOffsets.Fetch("CBasePlayerPawn::CommitSuicide");
-    public static int GetSkeletonInstanceOffset => NativeOffsets.Fetch("CGameSceneNode::GetSkeletonInstance");
-    public static int FindPickerEntityOffset => NativeOffsets.Fetch("CGameRules::FindPickerEntity");
-    public static int RemoveWeaponsOffset => NativeOffsets.Fetch("CCSPlayer_ItemServices::RemoveWeapons");
-    public static int GiveNamedItemOffset => NativeOffsets.Fetch("CCSPlayer_ItemServices::GiveNamedItem");
-    public static int DropActiveItemOffset => NativeOffsets.Fetch("CCSPlayer_ItemServices::DropActiveItem");
-    public static int DropWeaponOffset => NativeOffsets.Fetch("CCSPlayer_WeaponServices::DropWeapon");
-    public static int SelectWeaponOffset => NativeOffsets.Fetch("CCSPlayer_WeaponServices::SelectWeapon");
-    public static int AddResourceOffset => NativeOffsets.Fetch("CEntityResourceManifest::AddResource");
-    public static int CollisionRulesChangedOffset => NativeOffsets.Fetch("CBaseEntity::CollisionRulesChanged");
-    public static int RespawnOffset => NativeOffsets.Fetch("CCSPlayerController::Respawn");
-    public static int GetViewVectorsOffset => NativeOffsets.Fetch("CGameRules::GetViewVectors");
+    private static Lazy<int> CreateOffset( string name ) => new(() => NativeOffsets.Fetch(name));
+    private static readonly Lazy<int> _teleportOffset = CreateOffset("CBaseEntity::Teleport");
+    private static readonly Lazy<int> _commitSuicideOffset = CreateOffset("CBasePlayerPawn::CommitSuicide");
+    private static readonly Lazy<int> _getSkeletonInstanceOffset = CreateOffset("CGameSceneNode::GetSkeletonInstance");
+    private static readonly Lazy<int> _findPickerEntityOffset = CreateOffset("CGameRules::FindPickerEntity");
+    private static readonly Lazy<int> _removeWeaponsOffset = CreateOffset("CCSPlayer_ItemServices::RemoveWeapons");
+    private static readonly Lazy<int> _giveNamedItemOffset = CreateOffset("CCSPlayer_ItemServices::GiveNamedItem");
+    private static readonly Lazy<int> _dropActiveItemOffset = CreateOffset("CCSPlayer_ItemServices::DropActiveItem");
+    private static readonly Lazy<int> _dropWeaponOffset = CreateOffset("CCSPlayer_WeaponServices::DropWeapon");
+    private static readonly Lazy<int> _selectWeaponOffset = CreateOffset("CCSPlayer_WeaponServices::SelectWeapon");
+    private static readonly Lazy<int> _addResourceOffset = CreateOffset("CEntityResourceManifest::AddResource");
+    private static readonly Lazy<int> _collisionRulesChangedOffset = CreateOffset("CBaseEntity::CollisionRulesChanged");
+    private static readonly Lazy<int> _respawnOffset = CreateOffset("CCSPlayerController::Respawn");
+    private static readonly Lazy<int> _getViewVectorsOffset = CreateOffset("CGameRules::GetViewVectors");
+
+    public static int TeleportOffset => _teleportOffset.Value;
+    public static int CommitSuicideOffset => _commitSuicideOffset.Value;
+    public static int GetSkeletonInstanceOffset => _getSkeletonInstanceOffset.Value;
+    public static int FindPickerEntityOffset => _findPickerEntityOffset.Value;
+    public static int RemoveWeaponsOffset => _removeWeaponsOffset.Value;
+    public static int GiveNamedItemOffset => _giveNamedItemOffset.Value;
+    public static int DropActiveItemOffset => _dropActiveItemOffset.Value;
+    public static int DropWeaponOffset => _dropWeaponOffset.Value;
+    public static int SelectWeaponOffset => _selectWeaponOffset.Value;
+    public static int AddResourceOffset => _addResourceOffset.Value;
+    public static int CollisionRulesChangedOffset => _collisionRulesChangedOffset.Value;
+    public static int RespawnOffset => _respawnOffset.Value;
+    public static int GetViewVectorsOffset => _getViewVectorsOffset.Value;
 
     private static void CheckPtr( nint ptr, string name )
     {
