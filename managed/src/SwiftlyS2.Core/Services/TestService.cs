@@ -73,12 +73,29 @@ internal class TestService
 
     public void Test2()
     {
-        var variant = new CVariant<CVariantDefaultAllocator>(100);
-        Console.WriteLine(variant.ToString());
-        variant.SetString("LOL");
-        Console.WriteLine(variant.ToString());
-        variant.SetVector(new(1, 1, 1));
-        Console.WriteLine(variant.ToString());
+        core.Command.RegisterCommand("ttt", (ctx) =>
+        {
+            var viewvec = core.EntitySystem.GetGameRules().GetViewVectors();
+            Console.WriteLine(viewvec.DuckHullMax);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.DuckHullMin);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.DuckView);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.HullMax);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.HullMin);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.ObsHullMax);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.ObsHullMin);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.View);
+            Console.WriteLine();
+            Console.WriteLine(viewvec.DeadViewHeight);
+            Console.WriteLine();
+
+        });
     }
 
     // [EntityOutputHandler("*", "*")]

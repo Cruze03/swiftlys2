@@ -38,6 +38,7 @@ internal static class GameFunctions
     public static int AddResourceOffset => NativeOffsets.Fetch("CEntityResourceManifest::AddResource");
     public static int CollisionRulesChangedOffset => NativeOffsets.Fetch("CBaseEntity::CollisionRulesChanged");
     public static int RespawnOffset => NativeOffsets.Fetch("CCSPlayerController::Respawn");
+    public static int GetViewVectorsOffset => NativeOffsets.Fetch("CGameRules::GetViewVectors");
 
     private static void CheckPtr( nint ptr, string name )
     {
@@ -652,6 +653,24 @@ internal static class GameFunctions
         {
             AnsiConsole.WriteException(e);
             return 0;
+        }
+    }
+
+    public static unsafe CViewVectors* CGameRules_GetViewVectors( nint pThis )
+    {
+        try
+        {
+            unsafe
+            {
+                CheckPtr(pThis, nameof(pThis));
+                var pGetViewVectors = (delegate* unmanaged< nint, CViewVectors* >)GetVirtualFunction(pThis, GetViewVectorsOffset);
+                return pGetViewVectors(pThis);
+            }
+        }
+        catch (Exception e)
+        {
+            AnsiConsole.WriteException(e);
+            return null;
         }
     }
 }
