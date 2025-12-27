@@ -41,6 +41,12 @@ internal sealed class MenuDesignAPI : IMenuDesignAPI
         return builder;
     }
 
+    public IMenuBuilderAPI SetCommentVisible( bool visible = true )
+    {
+        configuration.HideComment = !visible;
+        return builder;
+    }
+
     public IMenuBuilderAPI SetMaxVisibleItems( int count = 5 )
     {
         configuration.MaxVisibleItems = count;
@@ -137,7 +143,7 @@ internal sealed class MenuDesignAPI : IMenuDesignAPI
         return builder;
     }
 
-    public IMenuBuilderAPI SetDefaultComment( string? comment = null )
+    public IMenuBuilderAPI SetDefaultComment( string comment )
     {
         configuration.DefaultComment = comment;
         return builder;
