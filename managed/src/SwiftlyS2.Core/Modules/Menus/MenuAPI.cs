@@ -445,6 +445,8 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
         var currentOption = visibleOptions.Count > 0 ? visibleOptions[arrowPosition] : null;
         var optionBase = currentOption as MenuOptionBase;
 
+        var defaultComment = Configuration.DefaultComment ?? DefaultComment;
+
         var comment = !string.IsNullOrWhiteSpace(optionBase?.Comment)
             ? string.Concat(
                 "<br>",
@@ -456,7 +458,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                 "<br>",
                 guideLine,
                 "<br>",
-                $"<font class='fontSize-s'>{DefaultComment}</font><br>"
+                $"<font class='fontSize-s'>{defaultComment}</font><br>"
             );
 
         var claimInfo = optionBase?.InputClaimInfo ?? MenuInputClaimInfo.Empty;

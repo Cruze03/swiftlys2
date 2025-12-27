@@ -16,6 +16,7 @@ public record class MenuConfiguration
     private string? footerColor = null;
     private string? visualGuideLineColor = null;
     private string? disabledColor = null;
+    private string? defaultComment = null;
 
     /// <summary>
     /// The title of the menu.
@@ -170,6 +171,14 @@ public record class MenuConfiguration
                 disabledColor = value;
             }
         }
+    }
+
+    /// <summary>
+    /// The default comment text to use when a menu option's Comment is not set.
+    /// </summary>
+    public string? DefaultComment {
+        get => defaultComment;
+        set => defaultComment = value;
     }
 }
 
