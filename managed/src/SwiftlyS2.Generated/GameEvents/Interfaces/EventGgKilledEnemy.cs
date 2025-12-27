@@ -20,8 +20,44 @@ public interface EventGgKilledEnemy : IGameEvent<EventGgKilledEnemy> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController VictimIDController { get; }
+
+  /// <summary>
+  /// user ID who died
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn VictimIDPawn { get; }
+
+
+  // user ID who died
+  public IPlayer VictimIDPlayer
+  { get => Accessor.GetPlayer("victimid"); }
+  /// <summary>
+  /// user ID who died
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int VictimID { get; set; }
 
+  /// <summary>
+  /// user ID who killed
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerController AttackerIDController { get; }
+
+  /// <summary>
+  /// user ID who killed
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn AttackerIDPawn { get; }
+
+
+  // user ID who killed
+  public IPlayer AttackerIDPlayer
+  { get => Accessor.GetPlayer("attackerid"); }
   /// <summary>
   /// user ID who killed
   /// <br/>

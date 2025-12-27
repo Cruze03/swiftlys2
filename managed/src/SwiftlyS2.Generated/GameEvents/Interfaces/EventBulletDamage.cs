@@ -20,8 +20,44 @@ public interface EventBulletDamage : IGameEvent<EventBulletDamage> {
   /// <br/>
   /// type: player_controller_and_pawn
   /// </summary>
+  CCSPlayerController VictimController { get; }
+
+  /// <summary>
+  /// player index who was hurt
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn VictimPawn { get; }
+
+
+  // player index who was hurt
+  public IPlayer VictimPlayer
+  { get => Accessor.GetPlayer("victim"); }
+  /// <summary>
+  /// player index who was hurt
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
   int Victim { get; set; }
 
+  /// <summary>
+  /// player index who attacked
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerController AttackerController { get; }
+
+  /// <summary>
+  /// player index who attacked
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn AttackerPawn { get; }
+
+
+  // player index who attacked
+  public IPlayer AttackerPlayer
+  { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// player index who attacked
   /// <br/>

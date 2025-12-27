@@ -7,6 +7,7 @@ using SwiftlyS2.Shared.Natives;
 using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Shared.GameEventDefinitions;
 
 namespace SwiftlyS2.Core.Services;
 

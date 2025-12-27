@@ -353,7 +353,7 @@ def render_interface(event: GameEventDef) -> str:
   for fname, fdef in event.fields.items():
     ftype = fdef.type_name
     # userid override: three properties
-    if fname.lower() == 'userid':
+    if ftype in ['player_controller', 'player_controller_and_pawn'] or fname.lower() == 'userid':
       base_prop = to_property_name(fname)  # UserId
       # Controller (readonly)
       prop_name_ctrl = f"{base_prop}Controller"

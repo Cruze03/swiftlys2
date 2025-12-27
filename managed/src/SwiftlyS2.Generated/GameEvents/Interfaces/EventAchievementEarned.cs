@@ -20,6 +20,24 @@ public interface EventAchievementEarned : IGameEvent<EventAchievementEarned> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController PlayerController { get; }
+
+  /// <summary>
+  /// entindex of the player
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn PlayerPawn { get; }
+
+
+  // entindex of the player
+  public IPlayer PlayerPlayer
+  { get => Accessor.GetPlayer("player"); }
+  /// <summary>
+  /// entindex of the player
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Player { get; set; }
 
   /// <summary>

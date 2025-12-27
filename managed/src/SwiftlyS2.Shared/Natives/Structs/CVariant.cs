@@ -98,7 +98,7 @@ public enum VariantFieldType : byte
 }
 
 [Flags]
-public enum CVFlags
+public enum CVFlags : ushort
 {
     FREE = 0x01,
 }

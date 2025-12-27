@@ -35,6 +35,24 @@ public interface EventHltvRankCamera : IGameEvent<EventHltvRankCamera> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController TargetController { get; }
+
+  /// <summary>
+  /// best/closest target entity
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn TargetPawn { get; }
+
+
+  // best/closest target entity
+  public IPlayer TargetPlayer
+  { get => Accessor.GetPlayer("target"); }
+  /// <summary>
+  /// best/closest target entity
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Target { get; set; }
 
 }

@@ -46,8 +46,44 @@ public interface EventPlayerDeath : IGameEvent<EventPlayerDeath> {
   /// <br/>
   /// type: player_controller_and_pawn
   /// </summary>
+  CCSPlayerController AttackerController { get; }
+
+  /// <summary>
+  /// user ID who killed
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn AttackerPawn { get; }
+
+
+  // user ID who killed
+  public IPlayer AttackerPlayer
+  { get => Accessor.GetPlayer("attacker"); }
+  /// <summary>
+  /// user ID who killed
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
   int Attacker { get; set; }
 
+  /// <summary>
+  /// player who assisted in the kill
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerController AssisterController { get; }
+
+  /// <summary>
+  /// player who assisted in the kill
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn AssisterPawn { get; }
+
+
+  // player who assisted in the kill
+  public IPlayer AssisterPlayer
+  { get => Accessor.GetPlayer("assister"); }
   /// <summary>
   /// player who assisted in the kill
   /// <br/>

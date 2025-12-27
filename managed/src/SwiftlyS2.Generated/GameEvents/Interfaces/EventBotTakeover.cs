@@ -37,6 +37,22 @@ public interface EventBotTakeover : IGameEvent<EventBotTakeover> {
   int UserId { get; set; }
 
   /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerController BotIDController { get; }
+
+  /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn BotIDPawn { get; }
+
+
+  public IPlayer BotIDPlayer
+  { get => Accessor.GetPlayer("botid"); }
+  /// <summary>
+  /// <br/>
   /// type: player_controller
   /// </summary>
   int BotID { get; set; }

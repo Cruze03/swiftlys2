@@ -45,6 +45,24 @@ public interface EventPlayerHurt : IGameEvent<EventPlayerHurt> {
   /// <br/>
   /// type: player_controller_and_pawn
   /// </summary>
+  CCSPlayerController AttackerController { get; }
+
+  /// <summary>
+  /// player who attacked
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn AttackerPawn { get; }
+
+
+  // player who attacked
+  public IPlayer AttackerPlayer
+  { get => Accessor.GetPlayer("attacker"); }
+  /// <summary>
+  /// player who attacked
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
   int Attacker { get; set; }
 
   /// <summary>

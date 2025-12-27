@@ -41,6 +41,24 @@ public interface EventPlayerBlind : IGameEvent<EventPlayerBlind> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController AttackerController { get; }
+
+  /// <summary>
+  /// user ID who threw the flash
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn AttackerPawn { get; }
+
+
+  // user ID who threw the flash
+  public IPlayer AttackerPlayer
+  { get => Accessor.GetPlayer("attacker"); }
+  /// <summary>
+  /// user ID who threw the flash
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Attacker { get; set; }
 
   /// <summary>

@@ -43,6 +43,22 @@ public interface EventCsWinPanelRound : IGameEvent<EventCsWinPanelRound> {
   string FunfactToken { get; set; }
 
   /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerController FunfactPlayerController { get; }
+
+  /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn FunfactPlayerPawn { get; }
+
+
+  public IPlayer FunfactPlayerPlayer
+  { get => Accessor.GetPlayer("funfact_player"); }
+  /// <summary>
+  /// <br/>
   /// type: player_controller
   /// </summary>
   int FunfactPlayer { get; set; }

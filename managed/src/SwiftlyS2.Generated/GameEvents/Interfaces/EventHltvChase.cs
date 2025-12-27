@@ -21,8 +21,44 @@ public interface EventHltvChase : IGameEvent<EventHltvChase> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController Target1Controller { get; }
+
+  /// <summary>
+  /// primary traget index
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn Target1Pawn { get; }
+
+
+  // primary traget index
+  public IPlayer Target1Player
+  { get => Accessor.GetPlayer("target1"); }
+  /// <summary>
+  /// primary traget index
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Target1 { get; set; }
 
+  /// <summary>
+  /// secondary traget index or 0
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerController Target2Controller { get; }
+
+  /// <summary>
+  /// secondary traget index or 0
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn Target2Pawn { get; }
+
+
+  // secondary traget index or 0
+  public IPlayer Target2Player
+  { get => Accessor.GetPlayer("target2"); }
   /// <summary>
   /// secondary traget index or 0
   /// <br/>

@@ -45,6 +45,24 @@ public interface EventVipKilled : IGameEvent<EventVipKilled> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController AttackerController { get; }
+
+  /// <summary>
+  /// user ID who killed the VIP
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn AttackerPawn { get; }
+
+
+  // user ID who killed the VIP
+  public IPlayer AttackerPlayer
+  { get => Accessor.GetPlayer("attacker"); }
+  /// <summary>
+  /// user ID who killed the VIP
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Attacker { get; set; }
 
 }

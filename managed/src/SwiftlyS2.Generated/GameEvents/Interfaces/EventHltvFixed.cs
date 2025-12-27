@@ -60,6 +60,24 @@ public interface EventHltvFixed : IGameEvent<EventHltvFixed> {
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController TargetController { get; }
+
+  /// <summary>
+  /// follow this player
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn TargetPawn { get; }
+
+
+  // follow this player
+  public IPlayer TargetPlayer
+  { get => Accessor.GetPlayer("target"); }
+  /// <summary>
+  /// follow this player
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int Target { get; set; }
 
 }

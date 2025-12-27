@@ -20,6 +20,24 @@ public interface EventShowDeathpanel : IGameEvent<EventShowDeathpanel> {
   /// <br/>
   /// type: player_controller_and_pawn
   /// </summary>
+  CCSPlayerController VictimController { get; }
+
+  /// <summary>
+  /// endindex of the one who was killed
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
+  CCSPlayerPawn VictimPawn { get; }
+
+
+  // endindex of the one who was killed
+  public IPlayer VictimPlayer
+  { get => Accessor.GetPlayer("victim"); }
+  /// <summary>
+  /// endindex of the one who was killed
+  /// <br/>
+  /// type: player_controller_and_pawn
+  /// </summary>
   int Victim { get; set; }
 
   /// <summary>
@@ -30,6 +48,22 @@ public interface EventShowDeathpanel : IGameEvent<EventShowDeathpanel> {
   nint Killer { get; set; }
 
   /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerController KillerControllerController { get; }
+
+  /// <summary>
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn KillerControllerPawn { get; }
+
+
+  public IPlayer KillerControllerPlayer
+  { get => Accessor.GetPlayer("killer_controller"); }
+  /// <summary>
+  /// <br/>
   /// type: player_controller
   /// </summary>
   int KillerController { get; set; }

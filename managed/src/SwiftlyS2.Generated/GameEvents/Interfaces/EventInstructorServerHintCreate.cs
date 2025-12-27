@@ -74,6 +74,24 @@ public interface EventInstructorServerHintCreate : IGameEvent<EventInstructorSer
   /// <br/>
   /// type: player_controller
   /// </summary>
+  CCSPlayerController HintActivatorUseridController { get; }
+
+  /// <summary>
+  /// playerslot of the activator
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
+  CCSPlayerPawn HintActivatorUseridPawn { get; }
+
+
+  // playerslot of the activator
+  public IPlayer HintActivatorUseridPlayer
+  { get => Accessor.GetPlayer("hint_activator_userid"); }
+  /// <summary>
+  /// playerslot of the activator
+  /// <br/>
+  /// type: player_controller
+  /// </summary>
   int HintActivatorUserid { get; set; }
 
   /// <summary>
