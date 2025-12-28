@@ -6,10 +6,8 @@ namespace SwiftlyS2.Core.Natives;
 
 internal class StringPool
 {
-    // 用于快速查找已存在的字符串
     private static readonly ConcurrentDictionary<string, nint> _cache = new();
 
-    // 内存池相关变量
     private static readonly Lock _poolLock = new();
     private static nint _currentBlock = nint.Zero;
     private static int _remainingBytes = 0;
