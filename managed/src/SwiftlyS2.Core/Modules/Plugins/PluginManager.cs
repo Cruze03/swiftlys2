@@ -148,7 +148,6 @@ internal class PluginManager : IPluginManager
                                 await WaitForFileAccess(cts.Token, pdbFile, logger: logger);
                             }
 
-                            Console.WriteLine("\n");
                             if (ReloadPluginByDllName(directoryName, true))
                             {
                                 logger.LogInformation("Reloaded plugin: {Format}", directoryName);
@@ -157,7 +156,6 @@ internal class PluginManager : IPluginManager
                             {
                                 logger.LogWarning("Failed to reload plugin: {Format}", directoryName);
                             }
-                            Console.WriteLine("\n");
                         }
                         catch (Exception ex)
                         {
@@ -465,7 +463,6 @@ internal class PluginManager : IPluginManager
             var dllName = Path.GetFileName(pluginDir);
             var fullDisplayPath = string.IsNullOrWhiteSpace(displayPath) ? string.Empty : $"{Path.Join(displayPath, dllName)}.dll";
 
-            Console.WriteLine(string.Empty);
             logger.LogInformation("Loading plugin: {Path}", fullDisplayPath);
 
             try
@@ -499,8 +496,6 @@ internal class PluginManager : IPluginManager
                 }
                 logger.LogWarning(e, "Failed to load plugin: {Path}", fullDisplayPath);
             }
-
-            Console.WriteLine(string.Empty);
         });
 
         RebuildSharedServices();
