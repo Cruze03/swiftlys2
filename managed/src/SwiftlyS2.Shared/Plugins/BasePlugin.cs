@@ -25,8 +25,6 @@ public abstract class BasePlugin : IPlugin
 
     public abstract void Unload();
 
-    /// <summary>
-    /// You can choose when the plugin is allowed to reload.
-    /// </summary>
+    [Obsolete("Not supported.")]
     public virtual PluginReloadMethod ReloadMethod { get; set; } = PluginReloadMethod.Auto;
 }

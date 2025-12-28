@@ -1,5 +1,6 @@
 namespace SwiftlyS2.Shared.Plugins;
 
+[Obsolete("Not supported.")]
 public enum PluginReloadMethod
 {
     /// <summary>

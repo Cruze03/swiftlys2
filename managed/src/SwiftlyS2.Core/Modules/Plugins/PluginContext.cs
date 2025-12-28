@@ -16,8 +16,6 @@ internal class PluginContext : IDisposable
     public PluginStatus? Status { get; set; }
     public BasePlugin? Plugin { get; set; }
 
-    public bool NeedReloadOnMapStart { get; set; } = false;
-
     public PluginLoader? Loader { get; set; }
 
     public void Dispose()
