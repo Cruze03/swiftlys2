@@ -137,6 +137,7 @@ internal class PluginManager : IPluginManager
                             var wait = 300;
                             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
                             {
+                                wait = 5000;
                                 logger.LogWarning("Detected Linux OS, a 5 second delay for reload.");
                             }
                             await Task.Delay(wait, cts.Token);
