@@ -15,7 +15,7 @@ internal partial class CEntityInstanceImpl : CEntityInstance, IEquatable<CEntity
     {
         NativeBinding.ThrowIfNonMainThread();
 
-        var variant = new CVariant<CVariantDefaultAllocator>(value);
+        using var variant = new CVariant<CVariantDefaultAllocator>(value);
 
         NativeEntitySystem.AcceptInput(Address, input, activator?.Address ?? nint.Zero, caller?.Address ?? nint.Zero, new nint(&variant), outputID);
     }
@@ -29,7 +29,7 @@ internal partial class CEntityInstanceImpl : CEntityInstance, IEquatable<CEntity
     {
         NativeBinding.ThrowIfNonMainThread();
 
-        var variant = new CVariant<CVariantDefaultAllocator>(value);
+        using var variant = new CVariant<CVariantDefaultAllocator>(value);
 
         NativeEntitySystem.AddEntityIOEvent(Address, input, activator?.Address ?? nint.Zero, caller?.Address ?? nint.Zero, (nint)(&variant), delay);
     }
