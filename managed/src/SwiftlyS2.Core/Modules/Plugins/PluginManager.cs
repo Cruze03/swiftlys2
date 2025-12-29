@@ -252,7 +252,7 @@ internal class PluginManager : IPluginManager
         return foundDir;
     }
 
-    public bool UnloadPluginById( string id, bool silent = false )
+    public bool UnloadPluginById( string id, bool silent = false, bool rebuild = true )
     {
         var context = plugins
             .Where(p => p.Status != PluginStatus.Unloaded)
@@ -277,11 +277,14 @@ internal class PluginManager : IPluginManager
         }
         finally
         {
-            RebuildSharedServices();
+            if (rebuild)
+            {
+                RebuildSharedServices();
+            }
         }
     }
 
-    public bool UnloadPluginByDllName( string dllName, bool silent = false )
+    public bool UnloadPluginByDllName( string dllName, bool silent = false, bool rebuild = true )
     {
         var pluginDir = FindPluginDirectoryByDllName(dllName);
         if (string.IsNullOrWhiteSpace(pluginDir))
@@ -300,7 +303,7 @@ internal class PluginManager : IPluginManager
             return false;
         }
 
-        return UnloadPluginById(context.Metadata.Id, silent);
+        return UnloadPluginById(context.Metadata.Id, silent, rebuild);
     }
 
     public bool LoadPluginById( string id, bool silent = false )
@@ -369,13 +372,13 @@ internal class PluginManager : IPluginManager
 
     public bool ReloadPluginById( string id, bool silent = false )
     {
-        _ = UnloadPluginById(id, silent);
+        _ = UnloadPluginById(id, silent, false);
         return LoadPluginById(id, silent);
     }
 
     public bool ReloadPluginByDllName( string dllName, bool silent = false )
     {
-        _ = UnloadPluginByDllName(dllName, silent);
+        _ = UnloadPluginByDllName(dllName, silent, false);
         return LoadPluginByDllName(dllName, silent);
     }
 
