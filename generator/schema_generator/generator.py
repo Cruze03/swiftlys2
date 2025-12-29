@@ -539,6 +539,7 @@ class Writer():
     self.class_value_field_template = open("templates/class_value_field_template.cs", "r").read()
     self.class_fixed_array_field_template = open("templates/class_fixed_array_field_template.cs", "r").read()
     self.class_ptr_field_template = open("templates/class_ptr_field_template.cs", "r").read()
+    self.class_utl_string_field_template = open("templates/class_utl_string_field_template.cs", "r").read()
     self.class_string_field_template = open("templates/class_string_field_template.cs", "r").read()
     self.class_fixed_string_field_template = open("templates/class_fixed_string_field_template.cs", "r").read()
 
@@ -587,6 +588,9 @@ class Writer():
         # Special string cases
         if field_info["IS_FIXED_CHAR_STRING"]:
           fields.append(render_template(self.class_fixed_string_field_template, field_info))
+          continue
+        if field_info["IS_UTL_STRING_HANDLE"]:
+          fields.append(render_template(self.class_utl_string_field_template, field_info))
           continue
         if field_info["IS_CHAR_PTR_STRING"] or field_info["IS_STRING_HANDLE"]:
           fields.append(render_template(self.class_string_field_template, field_info))
@@ -643,7 +647,7 @@ class Writer():
         field_info["SETTER"] = ""
 
         # Interface type overrides for special string cases
-        if field_info["IS_FIXED_CHAR_STRING"] or field_info["IS_CHAR_PTR_STRING"] or field_info["IS_STRING_HANDLE"]:
+        if field_info["IS_FIXED_CHAR_STRING"] or field_info["IS_CHAR_PTR_STRING"] or field_info["IS_STRING_HANDLE"] or field_info["IS_UTL_STRING_HANDLE"]:
           field_info["REF"] = ""
           field_info["INTERFACE_TYPE"] = "string"
           field_info["NULLABLE"] = ""
