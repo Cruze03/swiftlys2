@@ -219,6 +219,11 @@ public interface IPlayer : IEquatable<IPlayer>
     public ulong UnauthorizedSteamID { get; }
 
     /// <summary>
+    /// Gets a value indicating whether the player is currently alive.
+    /// </summary>
+    public bool IsAlive { get; }
+
+    /// <summary>
     /// Gets the player controller associated with the player.
     /// </summary>
     public CCSPlayerController Controller { get; }
@@ -360,7 +365,7 @@ public interface IPlayer : IEquatable<IPlayer>
     /// <param name="damageType">The type of damage to apply.</param>
     [ThreadUnsafe]
     public void TakeDamage( float damage, DamageTypes_t damageType, CBaseEntity? inflictor = null, CBaseEntity? attacker = null, CBaseEntity? ability = null );
-    
+
     /// <summary>
     /// Applies damage to the entity based on the specified damage information asynchronously.
     /// </summary>
