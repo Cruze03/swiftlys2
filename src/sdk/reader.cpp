@@ -291,12 +291,18 @@ void ReadClassDatamap(CSchemaType_DeclaredClass* declClass, json& outJson)
     auto map = classInfo->m_pDataDescMap;
     if (!map) return;
 
+    std::string baseMapName = "";
+    if (map->baseMap) {
+        baseMapName = map->baseMap->dataClassName ? map->baseMap->dataClassName : "";
+    }
+
     if (!outJson.contains("datamaps"))
         outJson["datamaps"] = json::array();
 
     outJson["datamaps"].push_back({
         {"class_name", classInfo->m_pszName},
         {"data_class_name", map->dataClassName ? map->dataClassName : classInfo->m_pszName},
+        {"base_data_class_name", baseMapName},
         });
 
     auto& datamap = outJson["datamaps"].back();
