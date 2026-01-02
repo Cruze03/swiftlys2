@@ -59,7 +59,7 @@
 #define FREE_CVAR(data_type) \
     delete (CConVar<data_type>*)cvarptr;
 
-#define CONVAR_FLAGS_TO_REMOVE (FCVAR_HIDDEN | FCVAR_DEVELOPMENTONLY)
+#define CONVAR_FLAGS_TO_REMOVE (FCVAR_HIDDEN | FCVAR_DEVELOPMENTONLY | FCVAR_CLIENTDLL)
 
 std::map<std::string, void*> g_mCvars;
 uint64_t g_uQueryCallbacks = 0;
