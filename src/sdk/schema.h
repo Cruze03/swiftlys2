@@ -33,6 +33,7 @@ using json = nlohmann::json;
 
 void ReadClasses(CSchemaType_DeclaredClass* declClass, json& outJson);
 void ReadEnums(CSchemaType_DeclaredEnum* declClass, json& outJson);
+void ReadClassDatamap(CSchemaType_DeclaredClass* declClass, json& outJson);
 
 class CSDKSchema : public ISDKSchema
 {

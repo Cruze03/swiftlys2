@@ -104,6 +104,7 @@ void CSDKSchema::Load()
 	auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
 
 	json sdkJson;
+    json datamapsJson;
 
 	logger->Info("SDK", "Loading inline network var vtables...\n");
 
@@ -137,6 +138,7 @@ void CSDKSchema::Load()
 	FOR_EACH_MAP(gts->m_DeclaredClasses.m_Map, iter)
 	{
 		ReadClasses(gts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
+        ReadClassDatamap(gts->m_DeclaredClasses.m_Map.Element(iter), datamapsJson);
 	}
 
 	for (int i = 0; i < schemaSystem->m_TypeScopes.GetNumStrings(); i++)
@@ -148,6 +150,7 @@ void CSDKSchema::Load()
 		FOR_EACH_MAP(ts->m_DeclaredClasses.m_Map, iter)
 		{
 			ReadClasses(ts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
+            ReadClassDatamap(ts->m_DeclaredClasses.m_Map.Element(iter), datamapsJson);
 		}
 	}
 
@@ -179,6 +182,7 @@ void CSDKSchema::Load()
 	schemaSystem->PrintSchemaStats("");
 
 	WriteJSON(g_SwiftlyCore.GetCorePath() + "gamedata/cs2/sdk.json", sdkJson);
+    WriteJSON(g_SwiftlyCore.GetCorePath() + "gamedata/cs2/datamaps.json", datamapsJson);
 }
 
 void CSDKSchema::SetStateChanged(void* pEntity, const char* sClassName, const char* sMemberName)
