@@ -76,25 +76,8 @@ internal class TestService
     {
         core.Command.RegisterCommand("ttt", (ctx) =>
         {
-            var viewvec = core.EntitySystem.GetGameRules().GetViewVectors();
-            Console.WriteLine(viewvec.DuckHullMax);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.DuckHullMin);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.DuckView);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.HullMax);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.HullMin);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.ObsHullMax);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.ObsHullMin);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.View);
-            Console.WriteLine();
-            Console.WriteLine(viewvec.DeadViewHeight);
-            Console.WriteLine();
+            var data = ctx.Sender!.Controller.InventoryServices.SOPersonaDataPublic;
+            Console.WriteLine(data.PlayerLevel);
 
         });
     }
