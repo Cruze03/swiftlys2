@@ -65,4 +65,23 @@ public interface IConVarService
     /// <param name="flags">The flags of the convar.</param>
     /// <returns>The created or found convar.</returns>
     public IConVar<T> CreateOrFind<T>( string name, string helpMessage, T defaultValue, T? minValue, T? maxValue, ConvarFlags flags = ConvarFlags.NONE ) where T : unmanaged;
+
+    /// <summary>
+    /// Replicate the value of the convar to a specific client.
+    /// You can use this method to replicate those convars that don't exist on server.
+    /// 
+    /// </summary>
+    /// <param name="clientId">The client id to replicate to.</param>
+    /// <param name="name">The name of the convar.</param>
+    /// <param name="value">The value to replicate.</param>
+    public void ReplicateToClient(int clientId, string name, string value);
+
+    /// <summary>
+    /// Replicate the value of the convar to all clients.
+    /// You can use this method to replicate those convars that don't exist on server.
+    /// 
+    /// </summary>
+    /// <param name="name">The name of the convar.</param>
+    /// <param name="value">The value to replicate.</param>
+    public void ReplicateToAll(string name, string value);
 }

@@ -1,6 +1,8 @@
 using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared.Convars;
 using SwiftlyS2.Shared.Natives;
+using SwiftlyS2.Shared.NetMessages;
+using SwiftlyS2.Shared.ProtobufDefinitions;
 
 namespace SwiftlyS2.Core.Convars;
 
@@ -27,6 +29,14 @@ internal enum EConVarType : int
 
 internal class ConVarService : IConVarService
 {
+
+    private INetMessageService _netMessageService;  
+
+    public ConVarService(INetMessageService netMessageService)
+    {
+        _netMessageService = netMessageService;
+    }
+
     public IConVar<T>? Find<T>( string name )
     {
 
@@ -269,4 +279,27 @@ internal class ConVarService : IConVarService
     {
         return NativeConvars.ExistsConvar(name) ? new ConVar<T>(name) : Create(name, helpMessage, defaultValue, minValue, maxValue, flags);
     }
+
+    public void ReplicateToClient(int clientId, string name, string value)
+    {
+        _netMessageService.Send<CNETMsg_SetConVar>(msg => { 
+            var cvar = msg.Convars.Cvars.Add();
+            cvar.Name = name;
+            cvar.Value = value;
+            msg.Recipients.AddRecipient(clientId);
+        });
+    }
+
+    public void ReplicateToAll(string name, string value)
+    {
+        _netMessageService.Send<CNETMsg_SetConVar>(msg => { 
+            var cvar = msg.Convars.Cvars.Add();
+            cvar.Name = name;
+            cvar.Value = value;
+            msg.Recipients.AddAllPlayers();
+        });
+    }
+
+    
+    
 }

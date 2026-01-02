@@ -76,8 +76,7 @@ internal class TestService
     {
         core.Command.RegisterCommand("ttt", (ctx) =>
         {
-            var data = ctx.Sender!.Controller.InventoryServices.SOPersonaDataPublic;
-            Console.WriteLine(data.PlayerLevel);
+            core.ConVar.ReplicateToAll("sv_gameinstructor_enable", "true");
 
         });
     }
