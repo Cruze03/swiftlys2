@@ -152,7 +152,7 @@ def generate_datamap_docs(dest_root, datamap_path=None):
             lines.append(f"Inherited from [{base_class}](/docs/api/datamaps/{base_slug})")
             lines.append("")
 
-        for section_name in ("Input", "Output", "Functions", "Fields"):
+        for section_name in ("Fields", "Input", "Output", "Functions"):
             lines.append(_render_section(section_name, groups[section_name]))
 
         dest_path = os.path.join(output_dir, f"{slug}.mdx")
