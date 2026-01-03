@@ -8,6 +8,7 @@ using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.GameEventDefinitions;
+using SwiftlyS2.Core.Datamaps;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -74,6 +75,12 @@ internal class TestService
 
     public void Test2()
     {
+        BaseDatamapFunction<CCSPlayerController> func = new("CCSPlayerControllerInventoryUpdateThink");
+        func.Get("test").HookPre((ctx) =>
+        {
+            Console.WriteLine($"HookPre -> {ctx.DatamapObject.Address}");
+        });
+
         core.Command.RegisterCommand("ttt", (ctx) =>
         {
             core.ConVar.ReplicateToAll("sv_gameinstructor_enable", "true");
