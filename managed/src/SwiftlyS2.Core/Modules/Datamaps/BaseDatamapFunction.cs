@@ -90,11 +90,13 @@ internal class BaseDatamapFunction<T, K>
 
     internal void Invoke( nint a1 )
     {
+        Initialize();
         Stub(a1);
     }
 
     internal void InvokeOriginal( nint a1 )
     {
+        Initialize();
         unsafe
         {
             ((delegate* unmanaged< nint, void >)_OriginalFunctionPtr)(a1);

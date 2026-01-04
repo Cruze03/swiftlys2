@@ -77,6 +77,10 @@ internal class TestService
 
     public void Test2()
     {
+        core.Datamap.Functions.CSmokeGrenadeProjectileThink_Detonate.HookPre(ctx => {
+            Console.WriteLine("Detonate");
+            ctx.HookResult = HookResult.Stop;
+        });
     }
 
     [DatamapHook(HookMode.Pre)]
