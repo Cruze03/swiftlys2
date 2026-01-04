@@ -70,6 +70,11 @@ internal class PlayerManagerService : IPlayerManagerService
             .Select(( pid ) => GetPlayer(pid)!);
     }
 
+    public IEnumerable<IPlayer> GetAllValidPlayers()
+    {
+        return GetAllPlayers().Where(p => p.IsValid);
+    }
+
     public IEnumerable<IPlayer> FindTargettedPlayers( IPlayer player, string target, TargetSearchMode searchMode,
         StringComparison nameComparison = StringComparison.OrdinalIgnoreCase )
     {
