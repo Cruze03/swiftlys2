@@ -2,7 +2,7 @@ import json
 import os
 import re
 
-SCRIPT_DIR = os.path.dirname(os.path.join(os.path.abspath(__file__), ".."))
+SCRIPT_DIR = os.path.pardir
 DEFAULT_DATAMAP_PATH = os.path.join(SCRIPT_DIR, "datamaps.json")
 
 

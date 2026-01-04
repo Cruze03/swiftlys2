@@ -4,8 +4,8 @@ using SwiftlyS2.Shared.Schemas;
 
 namespace SwiftlyS2.Core.Datamaps;
 
-internal class DatamapFunctionHookContext<T> : IDatamapFunctionHookContext<T> where T : ISchemaClass<T>
+internal class BaseDatamapFunctionHookContext<T> : IDatamapFunctionHookContext<T> where T : ISchemaClass<T>
 {
-    public required T DatamapObject { get; internal set; }
+    public T SchemaObject { get; set; }
     public HookResult HookResult { get; set; }
 }

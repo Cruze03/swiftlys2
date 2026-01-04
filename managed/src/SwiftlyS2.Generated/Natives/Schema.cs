@@ -90,4 +90,11 @@ internal static class NativeSchema {
     var ret = _GetVData(entity);
     return ret;
   }
+
+  private unsafe static delegate* unmanaged<uint, nint> _GetDatamapFunction;
+
+  public unsafe static nint GetDatamapFunction(uint hash) {
+    var ret = _GetDatamapFunction(hash);
+    return ret;
+  }
 }

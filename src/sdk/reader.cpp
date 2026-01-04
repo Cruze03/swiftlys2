@@ -265,6 +265,13 @@ void CollectDatamapFields(datamap_t* map, json& fields)
         bool isInput = (desc.flags & FTYPEDESC_WAS_INPUT) != 0;
         bool isOutput = (desc.flags & FTYPEDESC_WAS_OUTPUT) != 0;
 
+        uint32_t function_hash = 0;
+
+        if (isFunction && fieldName != "") {
+            function_hash = hash_32_fnv1a_const(fieldName.c_str());
+            datamapFunctions.insert({ function_hash , &desc.inputFunc });
+        }
+
         if (
             !isFunction && !isInput && !isOutput
             && (fieldName == "" || externalName == "")
@@ -279,6 +286,7 @@ void CollectDatamapFields(datamap_t* map, json& fields)
             {"isFunction", isFunction},
             {"isInput", isInput},
             {"isOutput", isOutput},
+            {"functionHash", function_hash},
         });
     }
 }

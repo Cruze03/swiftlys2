@@ -1,51 +1,79 @@
 using System.Runtime.InteropServices;
+using Spectre.Console;
 using SwiftlyS2.Core.Extensions;
+using SwiftlyS2.Core.Hooks;
+using SwiftlyS2.Core.Natives;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Datamaps;
+using SwiftlyS2.Shared.Profiler;
 using SwiftlyS2.Shared.Schemas;
 
 namespace SwiftlyS2.Core.Datamaps;
 
-internal class BaseDatamapFunction<T>( string functionName ) : IDatamapFunction<T>
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+internal delegate void StubDelegate( nint a1 );
+
+internal class BaseDatamapFunction<T, K>
     where T : ISchemaClass<T>
+    where K : IDatamapFunctionHookContext<T>, new()
 {
-    public string FunctionName { get; } = functionName;
+    public uint Hash { get; }
     private bool _Initialized { get; set; }
     private bool _Hooked { get; set; }
     private nint _OriginalFunctionPtr { get; set; }
+    private DatamapFunctionManager _Manager { get; set; }
 
-    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    private delegate void StubDelegate( nint a1 );
     private StubDelegate? _keptAliveDelegate;
 
-    private readonly Dictionary<string, BaseDatamapFunctionOperator<T>> _Operators = [];
+    private readonly Dictionary<string, BaseDatamapFunctionOperator<T, K>> _Operators = [];
 
-    public IDatamapFunctionOperator<T> Get( string pluginId )
+    public BaseDatamapFunction( DatamapFunctionManager manager, uint hash )
+    {
+        _Manager = manager;
+        Hash = hash;
+        _Manager.OnPluginUnloaded += Unregister;
+    }
+
+    public IDatamapFunctionOperator<T, K> Get( string pluginId, IContextedProfilerService profiler )
     {
         if (!_Operators.TryGetValue(pluginId, out var op))
         {
-            op = new BaseDatamapFunctionOperator<T>(this);
+            op = new BaseDatamapFunctionOperator<T, K>(this, profiler);
             _Operators.Add(pluginId, op);
         }
         return op;
     }
 
+    public void Unregister( string pluginId )
+    {
+        if (!_Operators.TryGetValue(pluginId, out var op)) return;
+        op.Dispose();
+        var _ = _Operators.Remove(pluginId);
+    }
+
     private nint GetDatamapFunctionAddressPtr()
     {
-        // TODO
-        return 0;
+        return NativeSchema.GetDatamapFunction(Hash);
     }
 
     private void Stub( nint a1 )
     {
-        foreach (var op in _Operators.Values)
+        try
         {
-            if (!op.CallbackPre(a1)) return;
+            foreach (var op in _Operators.Values)
+            {
+                if (!op.CallbackPre(a1)) return;
+            }
+            InvokeOriginal(a1);
+            foreach (var op in _Operators.Values)
+            {
+                op.CallbackPost(a1);
+            }
         }
-        InvokeOriginal(a1);
-        foreach (var op in _Operators.Values)
+        catch (Exception e)
         {
-            op.CallbackPost(a1);
+            if (!GlobalExceptionHandler.Handle(e)) return;
+            AnsiConsole.WriteException(e);
         }
     }
 
@@ -55,7 +83,7 @@ internal class BaseDatamapFunction<T>( string functionName ) : IDatamapFunction<
         _OriginalFunctionPtr = GetDatamapFunctionAddressPtr().Read<nint>();
         if (_OriginalFunctionPtr == nint.Zero)
         {
-            throw new Exception($"Failed to get the address of the function {FunctionName}");
+            throw new Exception($"Failed to get the address of the function {Hash}");
         }
         _Initialized = true;
     }
@@ -77,9 +105,10 @@ internal class BaseDatamapFunction<T>( string functionName ) : IDatamapFunction<
     {
         if (_Hooked) return;
         Initialize();
-        _keptAliveDelegate = new StubDelegate(Stub);
-        var stubPtr = Marshal.GetFunctionPointerForDelegate(_keptAliveDelegate);
-        GetDatamapFunctionAddressPtr().Write(stubPtr);
+        var func = new StubDelegate(Stub);
+        _keptAliveDelegate = func;
+        var ptr = Marshal.GetFunctionPointerForDelegate(func);
+        DatamapFunctionHookManager.AddHook(_OriginalFunctionPtr, ptr);
         _Hooked = true;
     }
 

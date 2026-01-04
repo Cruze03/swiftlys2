@@ -1,29 +1,35 @@
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Datamaps;
 using SwiftlyS2.Shared.Misc;
+using SwiftlyS2.Shared.Profiler;
 using SwiftlyS2.Shared.Schemas;
 
 namespace SwiftlyS2.Core.Datamaps;
 
-internal class BaseDatamapFunctionOperator<T> : IDatamapFunctionOperator<T>
+internal class BaseDatamapFunctionOperator<T, K> : IDatamapFunctionOperator<T, K>
     where T : ISchemaClass<T>
+    where K : IDatamapFunctionHookContext<T>, new()
 {
 
-    private BaseDatamapFunction<T> _Owner { get; set; }
+    private BaseDatamapFunction<T, K> _Owner { get; set; }
+    private IContextedProfilerService _Profiler { get; set; }
+    private bool _Disposed { get; set; }
+    public bool IsDisposed => _Disposed;
 
-    public BaseDatamapFunctionOperator( BaseDatamapFunction<T> owner )
+    public BaseDatamapFunctionOperator( BaseDatamapFunction<T, K> owner, IContextedProfilerService profiler )
     {
         _Owner = owner;
+        _Profiler = profiler;
     }
 
-    private List<Action<IDatamapFunctionHookContext<T>>> _PreCallbacks = [];
-    private List<Action<IDatamapFunctionHookContext<T>>> _PostCallbacks = [];
+    private List<Action<K>> _PreCallbacks = [];
+    private List<Action<K>> _PostCallbacks = [];
 
     internal bool CallbackPre( nint ptr )
     {
 
-        var ctx = new DatamapFunctionHookContext<T>() {
-            DatamapObject = Helper.AsSchema<T>(ptr),
+        var ctx = new K {
+            SchemaObject = Helper.AsSchema<T>(ptr),
             HookResult = HookResult.Continue
         };
 
@@ -38,8 +44,8 @@ internal class BaseDatamapFunctionOperator<T> : IDatamapFunctionOperator<T>
 
     internal void CallbackPost( nint ptr )
     {
-        var ctx = new DatamapFunctionHookContext<T>() {
-            DatamapObject = Helper.AsSchema<T>(ptr),
+        var ctx = new K {
+            SchemaObject = Helper.AsSchema<T>(ptr),
             HookResult = HookResult.Continue
         };
         foreach (var callback in _PostCallbacks)
@@ -48,26 +54,40 @@ internal class BaseDatamapFunctionOperator<T> : IDatamapFunctionOperator<T>
         }
     }
 
-    public void HookPre( Action<IDatamapFunctionHookContext<T>> callback )
+    private void ThrowIfDisposed()
     {
+        ObjectDisposedException.ThrowIf(_Disposed, this);
+    }
+
+    public void HookPre( Action<K> callback )
+    {
+        ThrowIfDisposed();
         _Owner.Hook();
         _PreCallbacks.Add(callback);
     }
 
-    public void HookPost( Action<IDatamapFunctionHookContext<T>> callback )
+    public void HookPost( Action<K> callback )
     {
+        ThrowIfDisposed();
         _Owner.Hook();
         _PostCallbacks.Add(callback);
     }
 
     public void Invoke( T schemaObject )
     {
+        ThrowIfDisposed();
         _Owner.Invoke(schemaObject.Address);
     }
 
     public void InvokeOriginal( T schemaObject )
     {
+        ThrowIfDisposed();
         _Owner.InvokeOriginal(schemaObject.Address);
+    }
+
+    public void Dispose()
+    {
+        _Disposed = true;
     }
 
 }

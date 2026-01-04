@@ -33,9 +33,10 @@
 
 #define CBaseEntity_m_nSubclassID 0x9DC483B8C02CE796
 
-std::unordered_map<uint64_t, SchemaField> offsets;
-std::unordered_map<uint32_t, SchemaClass> classes;
-std::unordered_map<uint64_t, uint64_t> inlineNetworkVarVtbs;
+std::unordered_map<uint64_t, SchemaField, FNV1aHasher64> offsets;
+std::unordered_map<uint32_t, SchemaClass, FNV1aHasher32> classes;
+std::unordered_map<uint64_t, uint64_t, FNV1aHasher64> inlineNetworkVarVtbs;
+std::unordered_map<uint32_t, inputfunc_t*, FNV1aHasher32> datamapFunctions;
 
 // Special inline classes for state changed
 // These fields has vtable "CLASS::NetworkVar_FIELDNAME"
@@ -295,4 +296,11 @@ void* CSDKSchema::GetVData(void* pEntity)
 {
 	void* subclassPtr = GetPropPtr(pEntity, CBaseEntity_m_nSubclassID);
 	return *(void**)((uintptr_t)subclassPtr + 4);
+}
+
+inputfunc_t* CSDKSchema::GetDatamapFunction(uint32_t uHash)
+{
+	auto it = datamapFunctions.find(uHash);
+	if (it == datamapFunctions.end()) return nullptr;
+	else return it->second;
 }

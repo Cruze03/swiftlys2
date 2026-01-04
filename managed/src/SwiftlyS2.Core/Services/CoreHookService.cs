@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using Microsoft.Extensions.Logging;
+using Spectre.Console;
+using SwiftlyS2.Core.Datamaps;
 using SwiftlyS2.Core.Events;
 using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Core.Natives;
@@ -39,6 +41,7 @@ internal class CoreHookService : IDisposable
         HookCCSPlayerPawnPostThink();
         HookEntityIdentityAcceptInput();
         HookEntityIOOutputFireOutputInternal();
+        HookDispatchDatamapFunction();
     }
 
     /*
@@ -76,6 +79,7 @@ internal class CoreHookService : IDisposable
     private delegate void CCSPlayerPawnPostThink( nint pPlayerPawn );
     private delegate void CEntityIdentityAcceptInput( nint pEntityIdentity, nint inputName, nint activator, nint caller, nint variant, int outputId, nint unk1, nint unk2 );
     private delegate void CEntityIOOutputFireOutputInternal( nint pEntityIO, nint pActivator, nint pCaller, nint pVariant, float flDelay, nint unk1, nint unk2 );
+    private delegate void DispatchDatamapFunction( nint a1, nint pDatamapFunc, nint a3, uint a4, nint a5 );
 
     private IUnmanagedFunction<ExecuteCommand>? executeCommand;
     private Guid executeCommandGuid;
@@ -102,6 +106,8 @@ internal class CoreHookService : IDisposable
     private Guid entityIdentityAcceptInputGuid;
     private IUnmanagedFunction<CEntityIOOutputFireOutputInternal>? entityIOOutputFireOutputInternal;
     private Guid entityIOOutputFireOutputInternalGuid;
+    private IUnmanagedFunction<DispatchDatamapFunction>? dispatchDatamapFunction;
+    private Guid dispatchDatamapFunctionGuid;
 
     private void HookEntityIdentityAcceptInput()
     {
@@ -470,6 +476,32 @@ internal class CoreHookService : IDisposable
         });
     }
 
+    private void HookDispatchDatamapFunction()
+    {
+        var address = core.GameData.GetSignature("DispatchDatamapFunction");
+        dispatchDatamapFunction = core.Memory.GetUnmanagedFunctionByAddress<DispatchDatamapFunction>(address);
+        dispatchDatamapFunctionGuid = dispatchDatamapFunction.AddHook(next =>
+        {
+            return ( a1, pDatamapFunc, a3, a4, a5 ) =>
+            {
+                try
+                {
+                    var func = pDatamapFunc;
+                    if (DatamapFunctionHookManager.TryGetHook(func, out var hook))
+                    {
+                        func = hook;
+                    }
+                    next()(a1, func, a3, a4, a5);
+                }
+                catch (Exception e)
+                {
+                    if (!GlobalExceptionHandler.Handle(e)) return;
+                    AnsiConsole.WriteException(e);
+                }
+            };
+        });
+    }
+
     public void Dispose()
     {
         executeCommand?.RemoveHook(executeCommandGuid);
@@ -485,5 +517,6 @@ internal class CoreHookService : IDisposable
         playerPawnPostThink?.RemoveHook(playerPawnPostThinkGuid);
         entityIdentityAcceptInput?.RemoveHook(entityIdentityAcceptInputGuid);
         entityIOOutputFireOutputInternal?.RemoveHook(entityIOOutputFireOutputInternalGuid);
+        dispatchDatamapFunction?.RemoveHook(dispatchDatamapFunctionGuid);
     }
 }
