@@ -112,6 +112,7 @@ void CPlayer::Initialize(int playerid)
     m_bAuthorized = false;
 
     m_uConnectedTimeStart = std::chrono::high_resolution_clock::now();
+    m_bvBlockedTransmittingEntities.activeMasks.reserve(256);
 }
 
 void CPlayer::Shutdown()
