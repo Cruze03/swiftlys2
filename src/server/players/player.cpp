@@ -154,22 +154,24 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
             msg = ClearColors(msg);
             msg += "\n";
         }
-        if (msg.size() > 0)
+
+        if (type == MessageType::Chat || type == MessageType::ChatEOT)
         {
-            if (msg.ends_with("\n"))
-                msg.pop_back();
+            if (msg.size() > 0)
+            {
+                msg = replace(msg, "\n", "\u2029");
+                msg += "\x01";
 
-            msg += "\x01";
+                bool startsWithColor = (msg.at(0) == '[');
+                auto schema = g_ifaceService.FetchInterface<ISDKSchema>(SDKSCHEMA_INTERFACE_VERSION);
+                if (!schema)
+                    return;
 
-            bool startsWithColor = (msg.at(0) == '[');
-            auto schema = g_ifaceService.FetchInterface<ISDKSchema>(SDKSCHEMA_INTERFACE_VERSION);
-            if (!schema)
-                return;
+                msg = ProcessColor(message, *(int*)(schema->GetPropPtr(GetController(), CBaseEntity_m_iTeamNum)));
 
-            msg = ProcessColor(message, *(int*)(schema->GetPropPtr(GetController(), CBaseEntity_m_iTeamNum)));
-
-            if (startsWithColor)
-                msg = " " + msg;
+                if (startsWithColor)
+                    msg = " " + msg;
+            }
         }
 
         auto gameEventSystem = g_ifaceService.FetchInterface<IGameEventSystem>(GAMEEVENTSYSTEM_INTERFACE_VERSION);
