@@ -31,6 +31,18 @@ public struct Vector
         Z = other.Z;
     }
 
+    public readonly Vector FromString( string input )
+    {
+        var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return parts.Length != 3
+            ? Zero
+            : !float.TryParse(parts[0], out var x) ||
+            !float.TryParse(parts[1], out var y) ||
+            !float.TryParse(parts[2], out var z)
+            ? Zero
+            : new(x, y, z);
+    }
+
     public readonly Vector3 ToBuiltin()
     {
         return new(X, Y, Z);
