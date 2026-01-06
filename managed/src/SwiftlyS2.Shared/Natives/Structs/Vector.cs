@@ -135,6 +135,7 @@ public struct Vector
     public override readonly bool Equals( object? obj ) => obj is Vector vector && this == vector;
     public override readonly int GetHashCode() => HashCode.Combine(X, Y, Z);
     public override readonly string ToString() => $"Vector({X}, {Y}, {Z})";
+    public readonly string ToXYZString() => $"{X} {Y} {Z}";
 
     public static Vector FromBuiltin( Vector3 vector ) => new(vector.X, vector.Y, vector.Z);
     public static Vector Zero => new(0, 0, 0);

@@ -77,6 +77,7 @@ public struct QAngle
     public override readonly bool Equals( object? obj ) => obj is QAngle angle && this == angle;
     public override readonly int GetHashCode() => HashCode.Combine(Pitch, Yaw, Roll);
     public override readonly string ToString() => $"QAngle({Pitch}, {Yaw}, {Roll})";
+    public readonly string ToXYZString() => $"{Pitch} {Yaw} {Roll}";
 
     public static QAngle Zero => new(0, 0, 0);
 
