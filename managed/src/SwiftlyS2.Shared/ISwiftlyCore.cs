@@ -4,6 +4,7 @@ using SwiftlyS2.Shared.Commands;
 using SwiftlyS2.Shared.ConsoleOutput;
 using SwiftlyS2.Shared.Convars;
 using SwiftlyS2.Shared.Database;
+using SwiftlyS2.Shared.Datamaps;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.Events;
 using SwiftlyS2.Shared.FileSystem;
@@ -172,6 +173,11 @@ public interface ISwiftlyCore
     /// Plugin manager.
     /// </summary>
     public IPluginManager PluginManager { get; }
+
+    /// <summary>
+    /// Datamap service.
+    /// </summary>
+    public IDatamapService Datamap { get; }
 
     /// <summary>
     /// Gets the file path to the plugin directory.

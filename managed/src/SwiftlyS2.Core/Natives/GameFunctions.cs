@@ -27,7 +27,6 @@ internal static class GameFunctions
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCHEGrenadeProjectileEmitGrenade;
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCDecoyProjectileEmitGrenade;
     public static unsafe delegate* unmanaged< Vector*, QAngle*, Vector*, Vector*, nint, uint, nint > pCMolotovProjectileEmitGrenade;
-
     private static Lazy<int> CreateOffset( string name ) => new(() => NativeOffsets.Fetch(name));
     private static readonly Lazy<int> _teleportOffset = CreateOffset("CBaseEntity::Teleport");
     private static readonly Lazy<int> _commitSuicideOffset = CreateOffset("CBasePlayerPawn::CommitSuicide");

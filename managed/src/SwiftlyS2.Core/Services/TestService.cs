@@ -8,6 +8,9 @@ using SwiftlyS2.Core.Extensions;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.GameEventDefinitions;
+using SwiftlyS2.Core.Datamaps;
+using SwiftlyS2.Shared.Datamaps;
+using SwiftlyS2.Shared.Misc;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -74,11 +77,16 @@ internal class TestService
 
     public void Test2()
     {
-        core.Command.RegisterCommand("ttt", (ctx) =>
-        {
-            core.ConVar.ReplicateToAll("sv_gameinstructor_enable", "true");
-
+        core.Datamap.Functions.CSmokeGrenadeProjectileThink_Detonate.HookPre(ctx => {
+            Console.WriteLine("Detonate");
+            ctx.HookResult = HookResult.Stop;
         });
+    }
+
+    [DatamapHook(HookMode.Pre)]
+    public void Test2( IDHookCCSPlayerControllerInventoryUpdateThink ctx )
+    {
+        Console.WriteLine($"IDHookCCSPlayerControllerInventoryUpdateThink -> ctx: {ctx.SchemaObject.DesignerName}");
     }
 
     // [EntityOutputHandler("*", "*")]

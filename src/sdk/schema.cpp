@@ -33,9 +33,10 @@
 
 #define CBaseEntity_m_nSubclassID 0x9DC483B8C02CE796
 
-std::unordered_map<uint64_t, SchemaField> offsets;
-std::unordered_map<uint32_t, SchemaClass> classes;
-std::unordered_map<uint64_t, uint64_t> inlineNetworkVarVtbs;
+std::unordered_map<uint64_t, SchemaField, FNV1aHasher64> offsets;
+std::unordered_map<uint32_t, SchemaClass, FNV1aHasher32> classes;
+std::unordered_map<uint64_t, uint64_t, FNV1aHasher64> inlineNetworkVarVtbs;
+std::unordered_map<uint32_t, inputfunc_t*, FNV1aHasher32> datamapFunctions;
 
 // Special inline classes for state changed
 // These fields has vtable "CLASS::NetworkVar_FIELDNAME"
@@ -103,7 +104,8 @@ void CSDKSchema::Load()
     auto schemaSystem = g_ifaceService.FetchInterface<CSchemaSystem>(SCHEMASYSTEM_INTERFACE_VERSION);
     auto logger = g_ifaceService.FetchInterface<ILogger>(LOGGER_INTERFACE_VERSION);
 
-    json sdkJson;
+	  json sdkJson;
+    json datamapsJson;
 
     logger->Info("SDK", "Loading inline network var vtables...\n");
 
@@ -134,10 +136,11 @@ void CSDKSchema::Load()
 
     int classes_count = gts->m_DeclaredClasses.m_Map.Count();
 
-    FOR_EACH_MAP(gts->m_DeclaredClasses.m_Map, iter)
-    {
-        ReadClasses(gts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
-    }
+	  FOR_EACH_MAP(gts->m_DeclaredClasses.m_Map, iter)
+	  {
+		    ReadClasses(gts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
+        ReadClassDatamap(gts->m_DeclaredClasses.m_Map.Element(iter), datamapsJson);
+	  }
 
     for (int i = 0; i < schemaSystem->m_TypeScopes.GetNumStrings(); i++)
     {
@@ -145,11 +148,12 @@ void CSDKSchema::Load()
 
         classes_count += ts->m_DeclaredClasses.m_Map.Count();
 
-        FOR_EACH_MAP(ts->m_DeclaredClasses.m_Map, iter)
-        {
-            ReadClasses(ts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
-        }
-    }
+		    FOR_EACH_MAP(ts->m_DeclaredClasses.m_Map, iter)
+		    {
+			      ReadClasses(ts->m_DeclaredClasses.m_Map.Element(iter), sdkJson);
+            ReadClassDatamap(ts->m_DeclaredClasses.m_Map.Element(iter), datamapsJson);
+		    }
+	  }
 
     logger->Info("SDK", fmt::format("Finished loading {} SDK classes ({} fields).\n", classes_count, offsets.size()));
 
@@ -178,7 +182,8 @@ void CSDKSchema::Load()
 
     schemaSystem->PrintSchemaStats("");
 
-    WriteJSON(g_SwiftlyCore.GetCorePath() + "gamedata/cs2/sdk.json", sdkJson);
+	  WriteJSON(g_SwiftlyCore.GetCorePath() + "gamedata/cs2/sdk.json", sdkJson);
+    WriteJSON(g_SwiftlyCore.GetCorePath() + "gamedata/cs2/datamaps.json", datamapsJson);
 }
 
 void CSDKSchema::SetStateChanged(void* pEntity, const char* sClassName, const char* sMemberName)
@@ -289,6 +294,13 @@ void CSDKSchema::WritePropPtr(void* pEntity, uint64_t uHash, void* pValue, uint3
 
 void* CSDKSchema::GetVData(void* pEntity)
 {
-    void* subclassPtr = GetPropPtr(pEntity, CBaseEntity_m_nSubclassID);
-    return *(void**)((uintptr_t)subclassPtr + 4);
+	  void* subclassPtr = GetPropPtr(pEntity, CBaseEntity_m_nSubclassID);
+	  return *(void**)((uintptr_t)subclassPtr + 4);
+}
+
+inputfunc_t* CSDKSchema::GetDatamapFunction(uint32_t uHash)
+{
+	  auto it = datamapFunctions.find(uHash);
+	  if (it == datamapFunctions.end()) return nullptr;
+	  else return it->second;
 }
