@@ -11,6 +11,8 @@ internal partial class CEntityInstanceImpl : CEntityInstance, IEquatable<CEntity
     public uint Index => Entity?.EntityHandle.EntityIndex ?? uint.MaxValue;
     public string DesignerName => Entity?.DesignerName ?? string.Empty;
 
+    public bool IsValidEntity => NativeEntitySystem.IsValidEntity(Address);
+
     public unsafe void AcceptInput<T>( string input, T? value, CEntityInstance? activator = null, CEntityInstance? caller = null, int outputID = 0 )
     {
         NativeBinding.ThrowIfNonMainThread();

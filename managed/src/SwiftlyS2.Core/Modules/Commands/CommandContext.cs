@@ -24,7 +24,14 @@ internal class CommandContext : ICommandContext
     {
         if (IsSentByPlayer)
         {
-            Sender?.SendMessage(MessageType.Chat, message);
+            if (Prefix == "sw_")
+            {
+                Sender?.SendMessage(MessageType.Console, message);
+            }
+            else
+            {
+                Sender?.SendMessage(MessageType.Chat, message);
+            }
         }
         else
         {
