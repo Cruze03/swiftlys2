@@ -368,9 +368,9 @@ jobs:
 
         # Get commits since previous tag, or last 10 if no previous tag
         if [ -n "$PREV_TAG" ]; then
-          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s (\`%h\`)" | head -c 900)
+          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s ([\`%h\`](https://github.com/swiftly-solution/swiftlys2/commit/%h))" | head -c 900)
         else
-          COMMITS=$(git log -10 --pretty=format:"• %s (\`%h\`)" | head -c 900)
+          COMMITS=$(git log -10 --pretty=format:"• %s ([\`%h\`](https://github.com/swiftly-solution/swiftlys2/commit/%h))" | head -c 900)
         fi
 
         # If commits are empty, set a default message
@@ -412,9 +412,9 @@ jobs:
 
         # Get commits since previous tag, or last 15 if no previous tag
         if [ -n "$PREV_TAG" ]; then
-          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s (\`%h\`)" | head -c 900)
+          COMMITS=$(git log ${PREV_TAG}..HEAD --pretty=format:"• %s ([\`%h\`](https://github.com/swiftly-solution/swiftlys2/commit/%h))" | head -c 900)
         else
-          COMMITS=$(git log -15 --pretty=format:"• %s (\`%h\`)" | head -c 900)
+          COMMITS=$(git log -15 --pretty=format:"• %s ([\`%h\`](https://github.com/swiftly-solution/swiftlys2/commit/%h))" | head -c 900)
         fi
 
         # If commits are empty, set a default message
