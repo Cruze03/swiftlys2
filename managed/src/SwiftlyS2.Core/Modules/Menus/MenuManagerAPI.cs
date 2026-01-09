@@ -248,7 +248,18 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 var optionBase = option as MenuOptionBase;
                 var claimInfo = optionBase?.InputClaimInfo ?? MenuInputClaimInfo.Empty;
 
-                if (claimInfo.ClaimsExit && optionBase != null)
+                if (optionBase is SliderMenuOption sliderOption && menu.Options.Count(a => a is not SliderMenuOption) > 0)
+                {
+                    _ = sliderOption.DecrementValue(player);
+
+                    if (menu.Configuration.PlaySound && option!.PlaySound)
+                    {
+                        useSound.Recipients.AddRecipient(@event.PlayerId);
+                        _ = useSound.Emit();
+                        useSound.Recipients.RemoveRecipient(@event.PlayerId);
+                    }
+                }
+                else if (claimInfo.ClaimsExit && optionBase != null)
                 {
                     optionBase.OnClaimedExit(player);
 
@@ -277,7 +288,18 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                 var optionBase = option as MenuOptionBase;
                 var claimInfo = optionBase?.InputClaimInfo ?? MenuInputClaimInfo.Empty;
 
-                if (claimInfo.ClaimsUse && optionBase != null)
+                if (optionBase is SliderMenuOption sliderOption)
+                {
+                    _ = sliderOption.IncrementValue(player);
+
+                    if (menu.Configuration.PlaySound && option!.PlaySound)
+                    {
+                        useSound.Recipients.AddRecipient(@event.PlayerId);
+                        _ = useSound.Emit();
+                        useSound.Recipients.RemoveRecipient(@event.PlayerId);
+                    }
+                }
+                else if (claimInfo.ClaimsUse && optionBase != null)
                 {
                     optionBase.OnClaimedUse(player);
 
