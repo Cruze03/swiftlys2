@@ -118,9 +118,14 @@ public interface IStringTable
 
     /// <summary>
     /// Replicates the user data for the specified string to the specified recipients.
+    /// Notice that the string MUST be already added to the string table BEFORE A FEW TICKS.
+    /// If the string is not added, the replication will fail.
+    /// If the string is added only 1-2 ticks ago before this call, the server will overwrites the replicated value.
+    /// 
     /// </summary>
     /// <param name="str">The string to replicate the user data for.</param>
     /// <param name="userData">The user data to replicate.</param>
     /// <param name="filter">The recipients to replicate the user data to.</param>
+    /// <exception cref="ArgumentException">Thrown if the string is not found in the string table.</exception>
     void ReplicateUserData(string str, StringTableUserData userData, in CRecipientFilter filter);   
 }

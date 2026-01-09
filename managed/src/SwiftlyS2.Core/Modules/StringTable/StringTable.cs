@@ -125,30 +125,8 @@ internal class StringTable( nint handle, INetMessageService netMessageService ) 
         return NativeStringTable.AddString(handle, str);
     }
 
-    public void ReplicateUserData(int stringIndex, StringTableUserData userData, in CRecipientFilter filter)
+    public void ReplicateUserData( int stringIndex, StringTableUserData userData, in CRecipientFilter filter )
     {
-        using var msg = netMessageService.Create<CSVCMsg_UpdateStringTable>();
-        msg.TableId = TableId;
-        msg.NumChangedEntries = 1;
-        msg.Recipients = filter;
-
-        unsafe {
-            fixed (byte* userDataPtr = userData.Data)
-            {
-                msg.StringData = NativeStringTable.Serialize(handle, stringIndex, "", false, (nint)userDataPtr, userData.Data.Length);
-            }
-        }
-
-        msg.Send();
-    }
-    public void ReplicateUserData(string str, StringTableUserData userData, in CRecipientFilter filter)
-    {
-        if (FindStringIndex(str) is {} index) {
-            ReplicateUserData(index, userData, filter);
-            return;
-        }
-
-        index = NumStrings;
         using var msg = netMessageService.Create<CSVCMsg_UpdateStringTable>();
         msg.TableId = TableId;
         msg.NumChangedEntries = 1;
@@ -158,11 +136,19 @@ internal class StringTable( nint handle, INetMessageService netMessageService ) 
         {
             fixed (byte* userDataPtr = userData.Data)
             {
-                msg.StringData = NativeStringTable.Serialize(handle, index, str, true, (nint)userDataPtr, userData.Data.Length);
+                msg.StringData = NativeStringTable.Serialize(handle, stringIndex, "", false, (nint)userDataPtr, userData.Data.Length);
             }
         }
 
         msg.Send();
+    }
+    public void ReplicateUserData( string str, StringTableUserData userData, in CRecipientFilter filter )
+    {
+        if (FindStringIndex(str) is not { } index)
+        {
+            throw new ArgumentException("Failed to replicate string user data. String is not found in string table.");
+        }
+        ReplicateUserData(index, userData, filter);
     }
 
 

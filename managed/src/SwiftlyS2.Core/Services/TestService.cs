@@ -81,31 +81,18 @@ internal class TestService
     {
         core.Event.OnStartupServer += () =>
         {
-            // var table = core.StringTable.FindTable("InfoPanel")!;
-            // table.AddString("motd");
-            // table.SetStringUserData("motd", StringTableUserData.FromString("https://swiftlys2.net"));
-            // // table.ReplicateUserData("motd", StringTableUserData.FromString("https://swiftlys2.net/replicated"), CRecipientFilter.FromSingle(1));
-        };
-        // core.Event.OnClientPutInServer += (@event) =>
-        // {
-        //     var table = core.StringTable.FindTable("InfoPanel")!;
-        //     // table.SetStringUserData("motd", StringTableUserData.FromString("123"));
-        //     CRecipientFilter a = new();
-        //     a.AddAllPlayers();
-        //     table.ReplicateUserData("motd", StringTableUserData.FromString("https://google.com"), a);
-
-        // };
-        _ = core.Command.RegisterCommand("motd", ( context ) =>
-        {
-            // var table = core.StringTable.FindTable("InfoPanel")!;
-
             var table = core.StringTable.FindTable("InfoPanel")!;
-            // table.SetStringUserData("motd", StringTableUserData.FromString("123"));
-            CRecipientFilter a = new();
-            a.AddAllPlayers();
-            table.ReplicateUserData("motd", StringTableUserData.FromString("https://google.com"), a);
+            _ = table.GetOrAddString("motd");
+            _ = table.SetStringUserData("motd", StringTableUserData.FromString("https://swiftlys2.net"));
+        };
+        core.Event.OnClientPutInServer += (@event) =>
+        {
+            var table = core.StringTable.FindTable("InfoPanel")!;
+            CRecipientFilter filter = new();
+            filter.AddAllPlayers();
+            table.ReplicateUserData("motd", StringTableUserData.FromString("https://google.com"), filter);
 
-        });
+        };
     }
 
     [DatamapHook(HookMode.Pre)]
