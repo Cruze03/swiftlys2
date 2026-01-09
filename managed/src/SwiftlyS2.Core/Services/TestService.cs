@@ -11,6 +11,8 @@ using SwiftlyS2.Shared.GameEventDefinitions;
 using SwiftlyS2.Core.Datamaps;
 using SwiftlyS2.Shared.Datamaps;
 using SwiftlyS2.Shared.Misc;
+using SwiftlyS2.Shared.StringTable;
+using SwiftlyS2.Shared.ProtobufDefinitions;
 
 namespace SwiftlyS2.Core.Services;
 
@@ -77,9 +79,32 @@ internal class TestService
 
     public void Test2()
     {
-        core.Datamap.Functions.CSmokeGrenadeProjectileThink_Detonate.HookPre(ctx => {
-            Console.WriteLine("Detonate");
-            ctx.HookResult = HookResult.Stop;
+        core.Event.OnStartupServer += () =>
+        {
+            // var table = core.StringTable.FindTable("InfoPanel")!;
+            // table.AddString("motd");
+            // table.SetStringUserData("motd", StringTableUserData.FromString("https://swiftlys2.net"));
+            // // table.ReplicateUserData("motd", StringTableUserData.FromString("https://swiftlys2.net/replicated"), CRecipientFilter.FromSingle(1));
+        };
+        // core.Event.OnClientPutInServer += (@event) =>
+        // {
+        //     var table = core.StringTable.FindTable("InfoPanel")!;
+        //     // table.SetStringUserData("motd", StringTableUserData.FromString("123"));
+        //     CRecipientFilter a = new();
+        //     a.AddAllPlayers();
+        //     table.ReplicateUserData("motd", StringTableUserData.FromString("https://google.com"), a);
+
+        // };
+        _ = core.Command.RegisterCommand("motd", ( context ) =>
+        {
+            // var table = core.StringTable.FindTable("InfoPanel")!;
+
+            var table = core.StringTable.FindTable("InfoPanel")!;
+            // table.SetStringUserData("motd", StringTableUserData.FromString("123"));
+            CRecipientFilter a = new();
+            a.AddAllPlayers();
+            table.ReplicateUserData("motd", StringTableUserData.FromString("https://google.com"), a);
+
         });
     }
 
@@ -87,6 +112,7 @@ internal class TestService
     public void Test2( IDHookCCSPlayerControllerInventoryUpdateThink ctx )
     {
         Console.WriteLine($"IDHookCCSPlayerControllerInventoryUpdateThink -> ctx: {ctx.SchemaObject.DesignerName}");
+
     }
 
     // [EntityOutputHandler("*", "*")]
