@@ -35,6 +35,7 @@ target("swiftlys2")
         "src/**/*.cpp",
 
         sdk_path.."/public/tier1/keyvalues3.cpp",
+        sdk_path.."/public/tier1/bitbuf.cpp",
         sdk_path.."/public/entity2/entitysystem.cpp",
         sdk_path.."/public/entity2/entityidentity.cpp",
         sdk_path.."/public/tier1/convar.cpp",

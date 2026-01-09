@@ -19,6 +19,7 @@ using SwiftlyS2.Shared.Plugins;
 using SwiftlyS2.Shared.Profiler;
 using SwiftlyS2.Shared.Scheduler;
 using SwiftlyS2.Shared.Services;
+using SwiftlyS2.Shared.StringTable;
 using SwiftlyS2.Shared.Translation;
 
 namespace SwiftlyS2.Shared;
@@ -178,6 +179,11 @@ public interface ISwiftlyCore
     /// Datamap service.
     /// </summary>
     public IDatamapService Datamap { get; }
+
+    /// <summary>
+    /// String table service.
+    /// </summary>
+    public IStringTableService StringTable { get; }
 
     /// <summary>
     /// Gets the file path to the plugin directory.
