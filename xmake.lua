@@ -136,7 +136,7 @@ target("swiftlys2")
 
     add_files({
         sdk_path.."/mathlib/mathlib.cpp"
-    })
+    }, { cxxflags = "-g0" })
 
     if is_plat("windows") then
         add_links({
@@ -261,7 +261,7 @@ target("swiftlys2")
             breakpad_path.."/common/linux/memory_mapped_file.cc",
             breakpad_path.."/common/linux/safe_readlink.cc",
             breakpad_path.."/common/linux/breakpad_getcontext.S",
-        })
+        }, { cxxflags = "-g0" })
     end
 
     add_defines({
@@ -325,7 +325,7 @@ target("swiftlys2")
     add_files({
         "vendor/safetyhook/safetyhook.cpp",
         "vendor/safetyhook/Zydis.c"
-    })
+    }, { cxxflags = "-g0" })
 
     --[[ -------------------------------- Protobuf Section -------------------------------- ]]
 
@@ -363,7 +363,7 @@ target("swiftlys2")
         end
     end)
 
-    add_files("build/proto/**.cc")
+    add_files("build/proto/**.cc", { cxxflags = "-g0" })
 
     --[[ -------------------------------- Misc Section -------------------------------- ]]
 
