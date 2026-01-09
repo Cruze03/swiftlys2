@@ -217,6 +217,33 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                     }
                 }
             }
+
+            // Handle extra buttons
+            foreach (var extraButton in menu.Configuration.ExtraButtons)
+            {
+                if (extraButton.KeyBind.HasFlag(@event.Key.ToKeyBind()))
+                {
+                    try
+                    {
+                        extraButton.Action(player, menu);
+
+                        if (menu.Configuration.PlaySound)
+                        {
+                            useSound.Recipients.AddRecipient(@event.PlayerId);
+                            _ = useSound.Emit();
+                            useSound.Recipients.RemoveRecipient(@event.PlayerId);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        if (GlobalExceptionHandler.Handle(ex))
+                        {
+                            Spectre.Console.AnsiConsole.WriteException(ex);
+                        }
+                    }
+                    break;
+                }
+            }
         }
         else if (Configuration.InputMode.Trim().Equals("wasd", StringComparison.CurrentCultureIgnoreCase))
         {
@@ -325,6 +352,33 @@ internal sealed class MenuManagerAPI : IMenuManagerAPI
                         _ = useSound.Emit();
                         useSound.Recipients.RemoveRecipient(@event.PlayerId);
                     }
+                }
+            }
+
+            // Handle extra buttons
+            foreach (var extraButton in menu.Configuration.ExtraButtons)
+            {
+                if (extraButton.KeyBind.HasFlag(@event.Key.ToKeyBind()))
+                {
+                    try
+                    {
+                        extraButton.Action(player, menu);
+
+                        if (menu.Configuration.PlaySound)
+                        {
+                            useSound.Recipients.AddRecipient(@event.PlayerId);
+                            _ = useSound.Emit();
+                            useSound.Recipients.RemoveRecipient(@event.PlayerId);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        if (GlobalExceptionHandler.Handle(ex))
+                        {
+                            Spectre.Console.AnsiConsole.WriteException(ex);
+                        }
+                    }
+                    break;
                 }
             }
         }

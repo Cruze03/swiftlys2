@@ -178,6 +178,33 @@ public record class MenuConfiguration
     /// The default comment text to use when a menu option's Comment is not set.
     /// </summary>
     public string DefaultComment { get; set; } = $"Powered by <font color='#ff3c00'>❤️</font> {HtmlGradient.GenerateGradientText("SwiftlyS2", "#ffffff", "#96d5ff")}";
+
+    /// <summary>
+    /// Extra buttons that can be bound to custom actions in the menu.
+    /// These buttons are displayed in the footer and execute custom actions when pressed.
+    /// </summary>
+    public List<MenuExtraButton> ExtraButtons { get; set; } = new();
+}
+
+/// <summary>
+/// Represents an extra button in the menu that executes a custom action when pressed.
+/// </summary>
+public sealed class MenuExtraButton
+{
+    /// <summary>
+    /// The key binding for this extra button.
+    /// </summary>
+    public required KeyBind KeyBind { get; init; }
+
+    /// <summary>
+    /// The label to display for this button in the menu footer.
+    /// </summary>
+    public required string Label { get; init; }
+
+    /// <summary>
+    /// The action to execute when this button is pressed.
+    /// </summary>
+    public required Action<IPlayer, IMenuAPI> Action { get; init; }
 }
 
 /// <summary>

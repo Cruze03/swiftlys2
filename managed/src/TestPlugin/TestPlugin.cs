@@ -1040,6 +1040,30 @@ public class TestPlugin : BasePlugin
         boundText = Guid.NewGuid().ToString();
     }
 
+    [Command("abutt")]
+    public void AddButtonTestMenu( ICommandContext context )
+    {
+        var player = context.Sender!;
+        var menu = Core.MenusAPI
+            .CreateBuilder()
+            .EnableExit()
+            .SetPlayerFrozen(false)
+            .Design.SetMenuTitle("Add Button Test Menu")
+            .AddOption(new ButtonMenuOption("Button 1") { CloseAfterClick = true })
+            .AddOption(new ButtonMenuOption("Button 2") { CloseAfterClick = true })
+            .AddOption(new ButtonMenuOption("Button 3") { CloseAfterClick = true })
+            .AddExtraButton(KeyBind.Ctrl, "Ctrl Button", ( p, m ) =>
+            {
+                p.SendChat("Ctrl Button Clicked");
+            })
+            .Build();
+
+        Core.MenusAPI.OpenMenuForPlayer(player, menu, ( p, m ) =>
+        {
+            Console.WriteLine($"{m.Configuration.Title} closed for player: {p.Controller.PlayerName}");
+        });
+    }
+
     [Command("rmt")]
     public void RefactoredMenuTestCommand( ICommandContext context )
     {

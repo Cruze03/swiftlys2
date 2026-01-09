@@ -466,6 +466,12 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
 
         var claimInfo = optionBase?.InputClaimInfo ?? MenuInputClaimInfo.Empty;
 
+        var extraButtonsHtml = Configuration.ExtraButtons.Count > 0
+            ? string.Concat(" | ", string.Join(" | ", Configuration.ExtraButtons.Select(btn =>
+                $"<font color='{footerColor}'>{btn.Label}:</font> {btn.KeyBind.ToString().ToUpper()}"
+            )))
+            : string.Empty;
+
         var footerSection = Configuration.HideFooter ? string.Empty :
             core.MenusAPI.Configuration.InputMode switch {
                 "wasd" => string.Concat(
@@ -477,6 +483,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                     claimInfo.ClaimsExit
                         ? $" | <font color='{footerColor}'>{claimInfo.ExitLabel ?? "Exit"}:</font> A"
                         : (Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> A"),
+                    extraButtonsHtml,
                     "</font>"
                 ),
                 _ => string.Concat(
@@ -488,6 +495,7 @@ internal sealed class MenuAPI : IMenuAPI, IDisposable
                     claimInfo.ClaimsExit
                         ? $" | <font color='{footerColor}'>{claimInfo.ExitLabel ?? "Exit"}:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}"
                         : (Configuration.DisableExit ? string.Empty : $" | <font color='{footerColor}'>Exit:</font> {KeybindOverrides.Exit?.ToString() ?? core.MenusAPI.Configuration.ButtonsExit.ToUpper()}"),
+                    extraButtonsHtml,
                     "</font>"
                 )
             };

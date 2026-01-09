@@ -1,5 +1,6 @@
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Menus;
+using SwiftlyS2.Shared.Players;
 
 namespace SwiftlyS2.Core.Menus;
 
@@ -93,6 +94,16 @@ internal sealed class MenuBuilderAPI : IMenuBuilderAPI
     public IMenuBuilderAPI SetExitButton( KeyBind keyBind )
     {
         keybindOverrides = keybindOverrides with { Exit = keyBind };
+        return this;
+    }
+
+    public IMenuBuilderAPI AddExtraButton( KeyBind keyBind, string label, Action<IPlayer, IMenuAPI> action )
+    {
+        configuration.ExtraButtons.Add(new MenuExtraButton {
+            KeyBind = keyBind,
+            Label = label,
+            Action = action
+        });
         return this;
     }
 
