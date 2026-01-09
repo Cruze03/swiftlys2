@@ -114,7 +114,13 @@ internal class StringTable( nint handle, INetMessageService netMessageService ) 
         return SetStringUserData(index!.Value, userData, forceOverride);
     }
 
-    public int AddString( string str )
+    public bool SetOrAddStringUserData( string str, StringTableUserData userData, bool forceOverride = true )
+    {
+        var index = GetOrAddString(str);
+        return SetStringUserData(index, userData, forceOverride);
+    }
+
+    public int GetOrAddString( string str )
     {
         return NativeStringTable.AddString(handle, str);
     }

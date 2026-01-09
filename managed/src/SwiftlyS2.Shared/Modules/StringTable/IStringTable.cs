@@ -91,12 +91,22 @@ public interface IStringTable
     /// <returns>True if the user data was successfully set, false otherwise.</returns>
     bool SetStringUserData(string str, StringTableUserData userData, bool forceOverride = true);
 
+
     /// <summary>
-    /// Adds a new string to the string table and returns the index of the added string.
+    /// Sets the user data for the specified string, or adds the string and set if it does not exist.
     /// </summary>
-    /// <param name="str">The string to add to the string table.</param>
-    /// <returns>The index of the added string.</returns>
-    int AddString(string str);
+    /// <param name="str">The string to set the user data for.</param>
+    /// <param name="userData">The user data to set.</param>
+    /// <param name="forceOverride">Whether to override the user data if it already exists.</param>
+    /// <returns>True if the user data was successfully set or added, false otherwise.</returns>
+    bool SetOrAddStringUserData(string str, StringTableUserData userData, bool forceOverride = true);
+
+    /// <summary>
+    /// Gets the index of the specified string in the string table, or adds it if it does not exist.
+    /// </summary>
+    /// <param name="str">The string to get or add.</param>
+    /// <returns>The index of the string, or new index if the string is not found and added.</returns>
+    int GetOrAddString(string str);
 
     /// <summary>
     /// Replicates the user data for the specified string to the specified recipients.
