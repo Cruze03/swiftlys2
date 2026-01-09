@@ -8,7 +8,7 @@ public readonly ref struct StringTableUserData
 
     public static StringTableUserData FromString( string str ) => new(Encoding.UTF8.GetBytes(str + "\0"));
 
-    public static StringTableUserData FromRawBytes( byte[] data ) => new(data);
+    public static StringTableUserData FromRaw( byte[] data ) => new(data);
 
     public static StringTableUserData FromRaw( ReadOnlySpan<byte> data ) => new(data);
 }
@@ -20,6 +20,6 @@ public readonly ref struct StringTableOutUserData
     internal StringTableOutUserData( ReadOnlySpan<byte> data, bool isValid ) { Data = data; IsValid = isValid; }
     private void ThrowIfInvalid() { if (!IsValid) throw new InvalidOperationException("User data is invalid."); }
     public string AsString() { ThrowIfInvalid(); return Encoding.UTF8.GetString(Data); }
-    public ReadOnlySpan<byte> AsRawBytes() { ThrowIfInvalid(); return Data; }
+    public ReadOnlySpan<byte> AsRaw() { ThrowIfInvalid(); return Data; }
 
 }
