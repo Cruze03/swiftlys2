@@ -94,7 +94,7 @@ void CEntityListener::OnEntityDeleted(CEntityInstance* pEntity)
         }
 
     if (g_pOnEntityDeletedCallback)
-        reinterpret_cast<void(*)(void*)>(g_pOnEntityDeletedCallback)(pEntity);
+        reinterpret_cast<void(*)(void*, int)>(g_pOnEntityDeletedCallback)(pEntity, pEntity->GetEntityIndex().Get());
 
     g_entitySet.erase(pEntity);
 }

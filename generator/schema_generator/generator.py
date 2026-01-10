@@ -474,7 +474,6 @@ classname_dict = {
   "CCSWeaponBase": "weapon_cs_base",
   "CCSTeam": "cs_team_manager",
   "CCSSprite": "env_sprite_clientside",
-  "CCSServerPointScriptEntity": "point_script",
   "CCSPlayerResource": "cs_player_manager",
   "CCSPlace": "env_cs_place",
   "CCSPetPlacement": "cs_pet_placement",
@@ -511,7 +510,6 @@ classname_dict = {
   "CAI_ChangeHintGroup": "ai_changehintgroup",
   "CPropDoorRotating": "prop_door_rotating",
   "CPropDoorRotatingBreakable": "prop_door_rotating",
-  "CEnvTracer": "env_tracer",
 }
 
 found_dangerous_fields = []
@@ -550,6 +548,7 @@ class Writer():
     self.interface_updator_template = open("templates/interface_updator_template.cs", "r").read()
 
     self.enum_template = open("templates/enum_template.cs", "r").read()
+    self.class_convertor_template = open("templates/class_convertor.cs", "r").read()
 
     self.base_class = self.class_def["base_classes"][0] if "base_classes" in self.class_def else "SchemaClass"
     self.base_class = self.base_class.replace(":", "_")
@@ -730,6 +729,25 @@ with open("sdk.json", "r") as f:
 
     writer = Writer(enum_def, all_class_names, all_enum_names)
     writer.write_enum()
+
+  # Generate class convertor
+  print("\nGenerating class convertor...")
+  class_convertor_template = open("templates/class_convertor.cs", "r").read()
+  switches = []
+  seen_designer_names = set()
+  
+  for class_name, designer_name in classname_dict.items():
+    if designer_name not in seen_designer_names:
+      impl_name = get_impl_name(class_name)
+      switches.append(f'            "{designer_name}" => new {impl_name}(address),')
+      seen_designer_names.add(designer_name)
+  
+  class_convertor_content = class_convertor_template.replace("$SWITCHES$", "\n".join(switches))
+  
+  with open(OUT_DIR / "ClassConvertor.cs", "w") as convertor_file:
+    convertor_file.write(class_convertor_content)
+  
+  print(f"Generated class convertor with {len(switches)} mappings")
 
   if found_dangerous_fields:
     print("\n")

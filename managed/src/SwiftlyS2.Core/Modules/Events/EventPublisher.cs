@@ -47,7 +47,7 @@ internal static class EventPublisher
             NativeEvents.RegisterOnClientSteamAuthorizeCallback((nint)(delegate* unmanaged< int, void >)&OnClientSteamAuthorize);
             NativeEvents.RegisterOnClientSteamAuthorizeFailCallback((nint)(delegate* unmanaged< int, void >)&OnClientSteamAuthorizeFail);
             NativeEvents.RegisterOnEntityCreatedCallback((nint)(delegate* unmanaged< nint, void >)&OnEntityCreated);
-            NativeEvents.RegisterOnEntityDeletedCallback((nint)(delegate* unmanaged< nint, void >)&OnEntityDeleted);
+            NativeEvents.RegisterOnEntityDeletedCallback((nint)(delegate* unmanaged< nint, int, void >)&OnEntityDeleted);
             NativeEvents.RegisterOnEntityParentChangedCallback((nint)(delegate* unmanaged< nint, nint, void >)&OnEntityParentChanged);
             NativeEvents.RegisterOnEntitySpawnedCallback((nint)(delegate* unmanaged< nint, void >)&OnEntitySpawned);
             NativeEvents.RegisterOnMapLoadCallback((nint)(delegate* unmanaged< nint, void >)&OnMapLoad);
@@ -383,9 +383,7 @@ internal static class EventPublisher
     [UnmanagedCallersOnly]
     public static void OnEntityCreated( nint entityPtr )
     {
-        var entityInstanceImpl = new CEntityInstanceImpl(entityPtr);
-
-        EntitySystemManager.OnEntityCreated(entityInstanceImpl);
+        var entityInstanceImpl = EntitySystemManager.OnEntityCreated(entityPtr);
 
         if (subscribers.Count == 0)
         {
@@ -411,10 +409,9 @@ internal static class EventPublisher
     }
 
     [UnmanagedCallersOnly]
-    public static void OnEntityDeleted( nint entityPtr )
+    public static void OnEntityDeleted( nint entityPtr, int entityIndex )
     {
-        var entityInstanceImpl = new CEntityInstanceImpl(entityPtr);
-        EntitySystemManager.OnEntityRemoved(entityInstanceImpl);
+        var entityInstanceImpl = EntitySystemManager.OnEntityRemoved(entityPtr, (uint)entityIndex);
 
         if (subscribers.Count == 0)
         {

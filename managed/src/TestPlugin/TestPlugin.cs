@@ -1072,6 +1072,7 @@ public class TestPlugin : BasePlugin
         {
             context.Reply($"{entity.Key}: {entity.Count()}");
         }
+        context.Reply($"Total SoundScape Entities: {Core.EntitySystem.GetAllEntities().Count(( x ) => x is CEnvSoundscape)}");
     }
 
     [Command("rmt")]
