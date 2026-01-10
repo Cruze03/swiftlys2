@@ -11,6 +11,7 @@ using SwiftlyS2.Core.NetMessages;
 using SwiftlyS2.Shared.EntitySystem;
 using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Shared.SchemaDefinitions;
+using SwiftlyS2.Core.Services;
 
 namespace SwiftlyS2.Core.EntitySystem;
 
@@ -76,13 +77,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
     public IEnumerable<CEntityInstance> GetAllEntities()
     {
         ThrowIfEntitySystemInvalid();
-        CEntityIdentity? pFirst = new CEntityIdentityImpl(NativeEntitySystem.GetFirstActiveEntity());
-
-        while (pFirst != null && pFirst.IsValid)
-        {
-            yield return new CEntityInstanceImpl(pFirst.Address.Read<nint>());
-            pFirst = pFirst.Next;
-        }
+        return EntitySystemManager.ActiveEntities.Values;
     }
 
     public IEnumerable<T> GetAllEntitiesByClass<T>() where T : class, ISchemaClass<T>
@@ -98,14 +93,13 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         ThrowIfEntitySystemInvalid();
         return GetAllEntities()
             .Where(entity => entity.Entity?.DesignerName == designerName)
-            .Select(entity => T.From(entity.Address));
+            .Select(entity => entity.As<T>());
     }
 
     public T? GetEntityByIndex<T>( uint index ) where T : class, ISchemaClass<T>
     {
         ThrowIfEntitySystemInvalid();
-        var handle = NativeEntitySystem.GetEntityByIndex(index);
-        return handle == nint.Zero ? null : T.From(handle);
+        return EntitySystemManager.ActiveEntities.TryGetValue(index, out var instance) ? instance.As<T>() : null;
     }
 
     [Obsolete("Use HookEntityOutput(string outputName, Action<IOnEntityFireOutputHookEvent> callback) instead.")]

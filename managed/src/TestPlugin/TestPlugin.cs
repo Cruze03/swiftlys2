@@ -1064,6 +1064,16 @@ public class TestPlugin : BasePlugin
         });
     }
 
+    [Command("ents")]
+    public void EntsSummary( ICommandContext context )
+    {
+        context.Reply($"Total Entities: {Core.EntitySystem.GetAllEntities().Count()}");
+        foreach (var entity in Core.EntitySystem.GetAllEntities().GroupBy(e => e.DesignerName).OrderByDescending(g => g.Count()))
+        {
+            context.Reply($"{entity.Key}: {entity.Count()}");
+        }
+    }
+
     [Command("rmt")]
     public void RefactoredMenuTestCommand( ICommandContext context )
     {

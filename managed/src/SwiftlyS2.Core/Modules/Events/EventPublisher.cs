@@ -8,6 +8,7 @@ using SwiftlyS2.Core.SchemaDefinitions;
 using SwiftlyS2.Core.ProtobufDefinitions;
 using SwiftlyS2.Shared.SchemaDefinitions;
 using SwiftlyS2.Shared.ProtobufDefinitions;
+using SwiftlyS2.Core.Services;
 
 namespace SwiftlyS2.Core.Events;
 
@@ -382,6 +383,10 @@ internal static class EventPublisher
     [UnmanagedCallersOnly]
     public static void OnEntityCreated( nint entityPtr )
     {
+        var entityInstanceImpl = new CEntityInstanceImpl(entityPtr);
+
+        EntitySystemManager.OnEntityCreated(entityInstanceImpl);
+
         if (subscribers.Count == 0)
         {
             return;
@@ -389,7 +394,7 @@ internal static class EventPublisher
 
         try
         {
-            OnEntityCreatedEvent @event = new() { Entity = new CEntityInstanceImpl(entityPtr) };
+            OnEntityCreatedEvent @event = new() { Entity = entityInstanceImpl };
             foreach (var subscriber in subscribers)
             {
                 subscriber.InvokeOnEntityCreated(@event);
@@ -408,6 +413,9 @@ internal static class EventPublisher
     [UnmanagedCallersOnly]
     public static void OnEntityDeleted( nint entityPtr )
     {
+        var entityInstanceImpl = new CEntityInstanceImpl(entityPtr);
+        EntitySystemManager.OnEntityRemoved(entityInstanceImpl);
+
         if (subscribers.Count == 0)
         {
             return;
@@ -415,7 +423,7 @@ internal static class EventPublisher
 
         try
         {
-            OnEntityDeletedEvent @event = new() { Entity = new CEntityInstanceImpl(entityPtr) };
+            OnEntityDeletedEvent @event = new() { Entity = entityInstanceImpl };
             foreach (var subscriber in subscribers)
             {
                 subscriber.InvokeOnEntityDeleted(@event);
