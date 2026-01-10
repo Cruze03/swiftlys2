@@ -159,7 +159,6 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
         {
             if (msg.size() > 0)
             {
-                msg = replace(msg, "\n", "\u2029");
                 msg += "\x01";
 
                 bool startsWithColor = (msg.at(0) == '[');
@@ -172,27 +171,54 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
                 if (startsWithColor)
                     msg = " " + msg;
             }
+
+            auto splitMessage = explode(msg, "\n");
+
+            auto gameEventSystem = g_ifaceService.FetchInterface<IGameEventSystem>(GAMEEVENTSYSTEM_INTERFACE_VERSION);
+            if (!gameEventSystem)
+                return;
+
+            auto netmsg = networkMessages->FindNetworkMessagePartial("TextMsg");
+
+            for (auto& part : splitMessage)
+            {
+                auto pmsg = netmsg->AllocateMessage()->ToPB<CUserMessageTextMsg>();
+
+                pmsg->set_dest((int)type);
+                pmsg->add_param(part);
+
+                bypassPostEventAbstractHook = true;
+
+                CSingleRecipientFilter filter(m_iPlayerId);
+                gameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, pmsg, 0);
+
+                bypassPostEventAbstractHook = false;
+
+                // see in src/engine/convars/convars.cpp at the end of the file why i "love" this now
+                delete pmsg;
+            }
         }
+        else {
+            auto gameEventSystem = g_ifaceService.FetchInterface<IGameEventSystem>(GAMEEVENTSYSTEM_INTERFACE_VERSION);
+            if (!gameEventSystem)
+                return;
 
-        auto gameEventSystem = g_ifaceService.FetchInterface<IGameEventSystem>(GAMEEVENTSYSTEM_INTERFACE_VERSION);
-        if (!gameEventSystem)
-            return;
+            auto netmsg = networkMessages->FindNetworkMessagePartial("TextMsg");
+            auto pmsg = netmsg->AllocateMessage()->ToPB<CUserMessageTextMsg>();
 
-        auto netmsg = networkMessages->FindNetworkMessagePartial("TextMsg");
-        auto pmsg = netmsg->AllocateMessage()->ToPB<CUserMessageTextMsg>();
+            pmsg->set_dest((int)type);
+            pmsg->add_param(msg);
 
-        pmsg->set_dest((int)type);
-        pmsg->add_param(msg);
+            bypassPostEventAbstractHook = true;
 
-        bypassPostEventAbstractHook = true;
+            CSingleRecipientFilter filter(m_iPlayerId);
+            gameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, pmsg, 0);
 
-        CSingleRecipientFilter filter(m_iPlayerId);
-        gameEventSystem->PostEventAbstract(-1, false, &filter, netmsg, pmsg, 0);
+            bypassPostEventAbstractHook = false;
 
-        bypassPostEventAbstractHook = false;
-
-        // see in src/engine/convars/convars.cpp at the end of the file why i "love" this now
-        delete pmsg;
+            // see in src/engine/convars/convars.cpp at the end of the file why i "love" this now
+            delete pmsg;
+        }
     }
 }
 
