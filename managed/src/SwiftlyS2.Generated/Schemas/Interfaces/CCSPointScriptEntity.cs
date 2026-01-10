@@ -12,7 +12,7 @@ public partial interface CCSPointScriptEntity : CBaseEntity, ISchemaClass<CCSPoi
 {
     static CCSPointScriptEntity ISchemaClass<CCSPointScriptEntity>.From(nint handle) => new CCSPointScriptEntityImpl(handle);
     static int ISchemaClass<CCSPointScriptEntity>.Size => 1624;
-    static string? ISchemaClass<CCSPointScriptEntity>.ClassName => null;
+    static string? ISchemaClass<CCSPointScriptEntity>.ClassName => "point_script";
 
 
 

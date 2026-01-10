@@ -200,6 +200,7 @@ classname_dict = {
   "CPrecipitationBlocker": "func_precipitation_blocker",
   "CPrecipitation": "func_precipitation",
   "CPostProcessingVolume": "post_processing_volume",
+  "CCSPointScriptEntity": "point_script",
   "CPointWorldText": "point_worldtext",
   "CPointVelocitySensor": "point_velocitysensor",
   "CPointValueRemapper": "point_value_remapper",

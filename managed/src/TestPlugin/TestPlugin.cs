@@ -1072,7 +1072,14 @@ public class TestPlugin : BasePlugin
         {
             context.Reply($"{entity.Key}: {entity.Count()}");
         }
-        context.Reply($"Total SoundScape Entities: {Core.EntitySystem.GetAllEntities().Count(( x ) => x is CEnvSoundscape)}");
+
+        var soundScapes = Core.EntitySystem.GetAllEntitiesByClass<CEnvSoundscape>();
+
+        var soundEventNames = soundScapes.Select(x => x.SoundEventName);
+        foreach (var soundeventName in soundEventNames)
+        {
+            context.Reply($"Soundscape has sound event {soundeventName}");
+        }
     }
 
     [Command("rmt")]

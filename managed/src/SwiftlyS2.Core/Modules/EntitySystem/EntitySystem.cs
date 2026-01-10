@@ -85,7 +85,7 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         ThrowIfEntitySystemInvalid();
         return string.IsNullOrWhiteSpace(T.ClassName)
             ? throw new ArgumentException($"Can't get entities with class {typeof(T).Name}, which doesn't have a designer name")
-            : GetAllEntities().Where(( entity ) => entity.Entity?.DesignerName == T.ClassName).Select(( entity ) => T.From(entity.Address));
+            : GetAllEntities().Where(( entity ) => entity is T).Select(( entity ) => (entity as T)!);
     }
 
     public IEnumerable<T> GetAllEntitiesByDesignerName<T>( string designerName ) where T : class, ISchemaClass<T>
@@ -93,13 +93,13 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
         ThrowIfEntitySystemInvalid();
         return GetAllEntities()
             .Where(entity => entity.Entity?.DesignerName == designerName)
-            .Select(entity => entity.As<T>());
+            .Select(entity => (entity as T)!);
     }
 
     public T? GetEntityByIndex<T>( uint index ) where T : class, ISchemaClass<T>
     {
         ThrowIfEntitySystemInvalid();
-        return EntitySystemManager.ActiveEntities.TryGetValue(index, out var instance) ? instance.As<T>() : null;
+        return EntitySystemManager.ActiveEntities.TryGetValue(index, out var instance) ? instance as T : null;
     }
 
     [Obsolete("Use HookEntityOutput(string outputName, Action<IOnEntityFireOutputHookEvent> callback) instead.")]

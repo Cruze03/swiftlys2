@@ -144,6 +144,7 @@ internal static class ClassConvertor
             "func_precipitation_blocker" => new CPrecipitationBlockerImpl(address),
             "func_precipitation" => new CPrecipitationImpl(address),
             "post_processing_volume" => new CPostProcessingVolumeImpl(address),
+            "point_script" => new CCSPointScriptEntityImpl(address),
             "point_worldtext" => new CPointWorldTextImpl(address),
             "point_velocitysensor" => new CPointVelocitySensorImpl(address),
             "point_value_remapper" => new CPointValueRemapperImpl(address),
