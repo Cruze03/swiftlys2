@@ -119,13 +119,6 @@ internal static class NativeEntitySystem {
     return ret;
   }
 
-  private unsafe static delegate* unmanaged<nint> _GetFirstActiveEntity;
-
-  public unsafe static nint GetFirstActiveEntity() {
-    var ret = _GetFirstActiveEntity();
-    return ret;
-  }
-
   private unsafe static delegate* unmanaged<byte*, byte*, nint, ulong> _HookEntityOutput;
 
   /// <summary>
@@ -155,13 +148,6 @@ internal static class NativeEntitySystem {
 
   public unsafe static void UnhookEntityOutput(ulong hookid) {
     _UnhookEntityOutput(hookid);
-  }
-
-  private unsafe static delegate* unmanaged<uint, nint> _GetEntityByIndex;
-
-  public unsafe static nint GetEntityByIndex(uint index) {
-    var ret = _GetEntityByIndex(index);
-    return ret;
   }
 
   private unsafe static delegate* unmanaged<byte> _IsValid;

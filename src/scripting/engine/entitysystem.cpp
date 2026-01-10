@@ -77,14 +77,6 @@ void* Bridge_EntitySystem_GetEntitySystem()
     return entsystem->GetEntitySystem();
 }
 
-
-void* Bridge_EntitySystem_GetFirstActiveEntity()
-{
-    static auto entsystem = g_ifaceService.FetchInterface<IEntitySystem>(ENTITYSYSTEM_INTERFACE_VERSION);
-    return entsystem->GetEntitySystem()->m_EntityList.m_pFirstActiveEntity;
-}
-
-
 bool Bridge_EntitySystem_EntityHandleIsValid(uint32 ihandle)
 {
     CEntityHandle handle(ihandle);
@@ -114,13 +106,6 @@ void Bridge_EntitySystem_UnhookEntityOutput(uint64_t hookid)
     hooksystem->DestroyEntityHookOutput(hookid);
 }
 
-
-void* Bridge_EntitySystem_GetEntityByIndex(uint32_t index)
-{
-    static auto entsystem = g_ifaceService.FetchInterface<IEntitySystem>(ENTITYSYSTEM_INTERFACE_VERSION);
-    return entsystem->GetEntitySystem()->GetEntityInstance(CEntityIndex(index));
-}
-
 bool Bridge_EntitySystem_IsValid()
 {
     static auto entsystem = g_ifaceService.FetchInterface<IEntitySystem>(ENTITYSYSTEM_INTERFACE_VERSION);
@@ -138,8 +123,6 @@ DEFINE_NATIVE("EntitySystem.GetEntitySystem", Bridge_EntitySystem_GetEntitySyste
 DEFINE_NATIVE("EntitySystem.EntityHandleIsValid", Bridge_EntitySystem_EntityHandleIsValid);
 DEFINE_NATIVE("EntitySystem.EntityHandleGet", Bridge_EntitySystem_EntityHandleGet);
 DEFINE_NATIVE("EntitySystem.GetEntityHandleFromEntity", Bridge_EntitySystem_GetEntityHandleFromEntity);
-DEFINE_NATIVE("EntitySystem.GetFirstActiveEntity", Bridge_EntitySystem_GetFirstActiveEntity);
 DEFINE_NATIVE("EntitySystem.HookEntityOutput", Bridge_EntitySystem_HookEntityOutput);
 DEFINE_NATIVE("EntitySystem.UnhookEntityOutput", Bridge_EntitySystem_UnhookEntityOutput);
-DEFINE_NATIVE("EntitySystem.GetEntityByIndex", Bridge_EntitySystem_GetEntityByIndex);
 DEFINE_NATIVE("EntitySystem.IsValid", Bridge_EntitySystem_IsValid);
