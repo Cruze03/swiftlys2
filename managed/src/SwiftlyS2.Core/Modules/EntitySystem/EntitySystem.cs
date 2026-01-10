@@ -52,13 +52,17 @@ internal class EntitySystemService : IEntitySystemService, IDisposable
             : CreateEntityByDesignerName<T>(T.ClassName);
     }
 
-    public T CreateEntityByDesignerName<T>( string designerName ) where T : ISchemaClass<T>
+    public T CreateEntityByDesignerName<T>( string designerName ) where T : class, ISchemaClass<T>
     {
         ThrowIfEntitySystemInvalid();
         var handle = NativeEntitySystem.CreateEntityByName(designerName);
-        return handle == nint.Zero
-            ? throw new ArgumentException($"Failed to create entity by designer name: {designerName}, probably invalid designer name.")
-            : T.From(handle);
+        if (handle == nint.Zero)
+        {
+            throw new ArgumentException($"Failed to create entity by designer name: {designerName}, probably invalid designer name.");
+        }
+
+        var entityInstance = ClassConvertor.ConvertEntityByDesignerName(handle, designerName);
+        return (entityInstance as T)!;
     }
 
     public CHandle<T> GetRefEHandle<T>( T entity ) where T : class, ISchemaClass<T>
