@@ -79,7 +79,7 @@ internal class CoreHookService : IDisposable
     private delegate void CCSPlayerPawnPostThink( nint pPlayerPawn );
     private delegate void CEntityIdentityAcceptInput( nint pEntityIdentity, nint inputName, nint activator, nint caller, nint variant, int outputId, nint unk1, nint unk2 );
     private delegate void CEntityIOOutputFireOutputInternal( nint pEntityIO, nint pActivator, nint pCaller, nint pVariant, float flDelay, nint unk1, nint unk2 );
-    private delegate void DispatchDatamapFunction( nint a1, nint pDatamapFunc, nint a3, uint a4, nint a5 );
+    private delegate void DispatchDatamapFunction( nint a1, nint pDatamapFunc, nint a3, uint a4, nint a5, double a6 /* unknown */ );
 
     private IUnmanagedFunction<ExecuteCommand>? executeCommand;
     private Guid executeCommandGuid;
@@ -482,7 +482,7 @@ internal class CoreHookService : IDisposable
         dispatchDatamapFunction = core.Memory.GetUnmanagedFunctionByAddress<DispatchDatamapFunction>(address);
         dispatchDatamapFunctionGuid = dispatchDatamapFunction.AddHook(next =>
         {
-            return ( a1, pDatamapFunc, a3, a4, a5 ) =>
+            return ( a1, pDatamapFunc, a3, a4, a5, a6 ) =>
             {
                 try
                 {
@@ -491,7 +491,7 @@ internal class CoreHookService : IDisposable
                     {
                         func = hook;
                     }
-                    next()(a1, func, a3, a4, a5);
+                    next()(a1, func, a3, a4, a5, a6);
                 }
                 catch (Exception e)
                 {
