@@ -12,6 +12,7 @@ namespace SwiftlyS2.Core.Players;
 internal class PlayerManagerService : IPlayerManagerService
 {
     private ITranslationService _translationService;
+    public static List<IPlayer> PlayerObjects = Enumerable.Range(0, NativePlayerManager.GetPlayerCap()).Select(i => new Player(i) as IPlayer).ToList();
 
     public PlayerManagerService( ITranslationService translationService )
     {
@@ -29,8 +30,7 @@ internal class PlayerManagerService : IPlayerManagerService
 
     public IPlayer? GetPlayer( int playerid )
     {
-        if (!IsPlayerOnline(playerid)) return null;
-        return new Player(playerid);
+        return !IsPlayerOnline(playerid) ? null : PlayerObjects[playerid];
     }
 
     public IPlayer? GetPlayerFromController( CBasePlayerController controller )
@@ -65,9 +65,8 @@ internal class PlayerManagerService : IPlayerManagerService
 
     public IEnumerable<IPlayer> GetAllPlayers()
     {
-        return Enumerable.Range(0, PlayerCap)
-            .Where(IsPlayerOnline)
-            .Select(( pid ) => GetPlayer(pid)!);
+        return PlayerObjects
+            .Where(( p ) => IsPlayerOnline(p.PlayerID));
     }
 
     public IEnumerable<IPlayer> GetAllValidPlayers()

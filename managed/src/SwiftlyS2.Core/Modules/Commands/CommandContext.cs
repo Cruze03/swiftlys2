@@ -47,7 +47,7 @@ internal class CommandContext : ICommandContext
     public CommandContext( int playerId, string[] args, string commandName, string prefix, bool slient )
     {
         IsSentByPlayer = playerId != -1;
-        Sender = playerId != -1 ? new Player(playerId) : null;
+        Sender = playerId != -1 ? PlayerManagerService.PlayerObjects[playerId] : null;
         Prefix = prefix;
         IsSlient = slient;
         CommandName = commandName;
