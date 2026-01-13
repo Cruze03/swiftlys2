@@ -136,10 +136,12 @@ internal class GameEventAccessor : NativeHandle, IGameEventAccessor, IDisposable
         return new CCSPlayerPawnImpl(NativeGameEvents.GetPlayerPawn(Address, key));
     }
 
-    public IPlayer GetPlayer( string key )
+    public IPlayer? GetPlayer( string key )
     {
         CheckIsValid();
-        return PlayerManagerService.PlayerObjects[GetInt32(key)];
+
+        var playerid = GetInt32(key);
+        return !NativePlayerManager.IsPlayerOnline(playerid) ? null : PlayerManagerService.PlayerObjects[playerid];
     }
 
     public void SetPtr( string key, nint value )

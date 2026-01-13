@@ -1064,6 +1064,14 @@ public class TestPlugin : BasePlugin
         });
     }
 
+    [GameEventHandler(HookMode.Pre)]
+    public HookResult PlayerHurtEventHandler( EventBreakProp @event )
+    {
+        var player = @event.UserIdPlayer;
+        Console.WriteLine($"{player.Controller!.PlayerName} broke a prop!");
+        return HookResult.Continue;
+    }
+
     [Command("rmt")]
     public void RefactoredMenuTestCommand( ICommandContext context )
     {
