@@ -30,7 +30,7 @@ internal class EventDefuserPickupImpl : GameEvent<EventDefuserPickup>, EventDefu
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who picked up the defuser
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who picked up the defuser

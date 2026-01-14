@@ -26,7 +26,7 @@ internal class EventSpecModeUpdatedImpl : GameEvent<EventSpecModeUpdated>, Event
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // spectating player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // spectating player

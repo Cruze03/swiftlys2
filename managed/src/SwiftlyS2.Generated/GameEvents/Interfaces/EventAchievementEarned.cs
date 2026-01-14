@@ -31,7 +31,7 @@ public interface EventAchievementEarned : IGameEvent<EventAchievementEarned> {
 
 
   // entindex of the player
-  public IPlayer PlayerPlayer
+  public IPlayer? PlayerPlayer
   { get => Accessor.GetPlayer("player"); }
   /// <summary>
   /// entindex of the player

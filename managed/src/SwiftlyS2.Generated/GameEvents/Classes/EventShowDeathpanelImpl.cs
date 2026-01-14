@@ -26,7 +26,7 @@ internal class EventShowDeathpanelImpl : GameEvent<EventShowDeathpanel>, EventSh
   { get => Accessor.GetPlayerPawn("victim"); }
 
   // endindex of the one who was killed
-  public IPlayer VictimPlayer
+  public IPlayer? VictimPlayer
   { get => Accessor.GetPlayer("victim"); }
 
   // endindex of the one who was killed
@@ -43,7 +43,7 @@ internal class EventShowDeathpanelImpl : GameEvent<EventShowDeathpanel>, EventSh
   public CCSPlayerPawn KillerControllerPawn
   { get => Accessor.GetPlayerPawn("killer_controller"); }
 
-  public IPlayer KillerControllerPlayer
+  public IPlayer? KillerControllerPlayer
   { get => Accessor.GetPlayer("killer_controller"); }
 
   public int KillerController

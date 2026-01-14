@@ -55,7 +55,7 @@ public interface EventCsWinPanelRound : IGameEvent<EventCsWinPanelRound> {
   CCSPlayerPawn FunfactPlayerPawn { get; }
 
 
-  public IPlayer FunfactPlayerPlayer
+  public IPlayer? FunfactPlayerPlayer
   { get => Accessor.GetPlayer("funfact_player"); }
   /// <summary>
   /// <br/>

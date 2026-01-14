@@ -31,7 +31,7 @@ public interface EventDzItemInteraction : IGameEvent<EventDzItemInteraction> {
 
 
   // player entindex
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player entindex

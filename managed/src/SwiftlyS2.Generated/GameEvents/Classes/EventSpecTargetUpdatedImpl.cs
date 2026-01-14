@@ -26,7 +26,7 @@ internal class EventSpecTargetUpdatedImpl : GameEvent<EventSpecTargetUpdated>, E
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // spectating player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // spectating player

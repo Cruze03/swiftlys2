@@ -28,7 +28,7 @@ public interface EventJointeamFailed : IGameEvent<EventJointeamFailed> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>

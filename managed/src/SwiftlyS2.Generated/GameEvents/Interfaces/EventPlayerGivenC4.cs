@@ -31,7 +31,7 @@ public interface EventPlayerGivenC4 : IGameEvent<EventPlayerGivenC4> {
 
 
   // user ID who received the c4
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// user ID who received the c4

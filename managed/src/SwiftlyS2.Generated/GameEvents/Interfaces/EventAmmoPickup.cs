@@ -28,7 +28,7 @@ public interface EventAmmoPickup : IGameEvent<EventAmmoPickup> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>

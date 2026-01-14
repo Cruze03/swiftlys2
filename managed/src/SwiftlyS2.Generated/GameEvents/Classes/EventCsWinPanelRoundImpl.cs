@@ -39,7 +39,7 @@ internal class EventCsWinPanelRoundImpl : GameEvent<EventCsWinPanelRound>, Event
   public CCSPlayerPawn FunfactPlayerPawn
   { get => Accessor.GetPlayerPawn("funfact_player"); }
 
-  public IPlayer FunfactPlayerPlayer
+  public IPlayer? FunfactPlayerPlayer
   { get => Accessor.GetPlayer("funfact_player"); }
 
   public int FunfactPlayer

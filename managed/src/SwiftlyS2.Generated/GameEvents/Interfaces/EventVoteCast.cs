@@ -43,7 +43,7 @@ public interface EventVoteCast : IGameEvent<EventVoteCast> {
 
 
   // player who voted
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who voted

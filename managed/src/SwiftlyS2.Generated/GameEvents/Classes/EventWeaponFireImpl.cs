@@ -23,7 +23,7 @@ internal class EventWeaponFireImpl : GameEvent<EventWeaponFire>, EventWeaponFire
   public CCSPlayerPawn UserIdPawn
   { get => Accessor.GetPlayerPawn("userid"); }
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   public int UserId

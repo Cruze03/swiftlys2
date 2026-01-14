@@ -26,7 +26,7 @@ internal class EventAchievementEarnedImpl : GameEvent<EventAchievementEarned>, E
   { get => Accessor.GetPlayerPawn("player"); }
 
   // entindex of the player
-  public IPlayer PlayerPlayer
+  public IPlayer? PlayerPlayer
   { get => Accessor.GetPlayer("player"); }
 
   // entindex of the player

@@ -31,7 +31,7 @@ public interface EventVipEscaped : IGameEvent<EventVipEscaped> {
 
 
   // player who was the VIP
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who was the VIP

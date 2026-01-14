@@ -28,7 +28,7 @@ public interface EventPlayerBlind : IGameEvent<EventPlayerBlind> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>
@@ -52,7 +52,7 @@ public interface EventPlayerBlind : IGameEvent<EventPlayerBlind> {
 
 
   // user ID who threw the flash
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// user ID who threw the flash

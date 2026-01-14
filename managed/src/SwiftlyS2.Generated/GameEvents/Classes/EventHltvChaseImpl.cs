@@ -27,7 +27,7 @@ internal class EventHltvChaseImpl : GameEvent<EventHltvChase>, EventHltvChase
   { get => Accessor.GetPlayerPawn("target1"); }
 
   // primary traget index
-  public IPlayer Target1Player
+  public IPlayer? Target1Player
   { get => Accessor.GetPlayer("target1"); }
 
   // primary traget index
@@ -43,7 +43,7 @@ internal class EventHltvChaseImpl : GameEvent<EventHltvChase>, EventHltvChase
   { get => Accessor.GetPlayerPawn("target2"); }
 
   // secondary traget index or 0
-  public IPlayer Target2Player
+  public IPlayer? Target2Player
   { get => Accessor.GetPlayer("target2"); }
 
   // secondary traget index or 0

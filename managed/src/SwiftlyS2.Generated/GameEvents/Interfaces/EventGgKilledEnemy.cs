@@ -31,7 +31,7 @@ public interface EventGgKilledEnemy : IGameEvent<EventGgKilledEnemy> {
 
 
   // user ID who died
-  public IPlayer VictimIDPlayer
+  public IPlayer? VictimIDPlayer
   { get => Accessor.GetPlayer("victimid"); }
   /// <summary>
   /// user ID who died
@@ -56,7 +56,7 @@ public interface EventGgKilledEnemy : IGameEvent<EventGgKilledEnemy> {
 
 
   // user ID who killed
-  public IPlayer AttackerIDPlayer
+  public IPlayer? AttackerIDPlayer
   { get => Accessor.GetPlayer("attackerid"); }
   /// <summary>
   /// user ID who killed

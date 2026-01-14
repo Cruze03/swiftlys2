@@ -31,7 +31,7 @@ public interface EventHostageFollows : IGameEvent<EventHostageFollows> {
 
 
   // player who touched the hostage
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who touched the hostage

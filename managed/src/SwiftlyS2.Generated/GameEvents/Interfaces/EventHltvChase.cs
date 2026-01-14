@@ -32,7 +32,7 @@ public interface EventHltvChase : IGameEvent<EventHltvChase> {
 
 
   // primary traget index
-  public IPlayer Target1Player
+  public IPlayer? Target1Player
   { get => Accessor.GetPlayer("target1"); }
   /// <summary>
   /// primary traget index
@@ -57,7 +57,7 @@ public interface EventHltvChase : IGameEvent<EventHltvChase> {
 
 
   // secondary traget index or 0
-  public IPlayer Target2Player
+  public IPlayer? Target2Player
   { get => Accessor.GetPlayer("target2"); }
   /// <summary>
   /// secondary traget index or 0

@@ -32,7 +32,7 @@ public interface EventPlayerScore : IGameEvent<EventPlayerScore> {
 
 
   // user ID on server
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// user ID on server

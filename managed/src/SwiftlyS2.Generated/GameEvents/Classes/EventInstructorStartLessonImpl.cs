@@ -26,7 +26,7 @@ internal class EventInstructorStartLessonImpl : GameEvent<EventInstructorStartLe
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // The player who this lesson is intended for
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // The player who this lesson is intended for

@@ -26,7 +26,7 @@ internal class EventLootCrateVisibleImpl : GameEvent<EventLootCrateVisible>, Eve
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player entindex
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player entindex

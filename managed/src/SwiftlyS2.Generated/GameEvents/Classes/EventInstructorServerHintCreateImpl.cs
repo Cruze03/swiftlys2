@@ -27,7 +27,7 @@ internal class EventInstructorServerHintCreateImpl : GameEvent<EventInstructorSe
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // user ID of the player that triggered the hint
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // user ID of the player that triggered the hint
@@ -59,7 +59,7 @@ internal class EventInstructorServerHintCreateImpl : GameEvent<EventInstructorSe
   { get => Accessor.GetPlayerPawn("hint_activator_userid"); }
 
   // playerslot of the activator
-  public IPlayer HintActivatorUseridPlayer
+  public IPlayer? HintActivatorUseridPlayer
   { get => Accessor.GetPlayer("hint_activator_userid"); }
 
   // playerslot of the activator

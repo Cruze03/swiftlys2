@@ -31,7 +31,7 @@ public interface EventBulletDamage : IGameEvent<EventBulletDamage> {
 
 
   // player index who was hurt
-  public IPlayer VictimPlayer
+  public IPlayer? VictimPlayer
   { get => Accessor.GetPlayer("victim"); }
   /// <summary>
   /// player index who was hurt
@@ -56,7 +56,7 @@ public interface EventBulletDamage : IGameEvent<EventBulletDamage> {
 
 
   // player index who attacked
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// player index who attacked

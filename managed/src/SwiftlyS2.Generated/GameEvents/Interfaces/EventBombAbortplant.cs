@@ -31,7 +31,7 @@ public interface EventBombAbortplant : IGameEvent<EventBombAbortplant> {
 
 
   // player who is planting the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who is planting the bomb

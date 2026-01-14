@@ -28,7 +28,7 @@ public interface EventExitBuyzone : IGameEvent<EventExitBuyzone> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>

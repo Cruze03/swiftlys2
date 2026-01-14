@@ -28,7 +28,7 @@ public interface EventSmokeBeaconParadrop : IGameEvent<EventSmokeBeaconParadrop>
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>

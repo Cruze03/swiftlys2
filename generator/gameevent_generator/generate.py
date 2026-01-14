@@ -399,7 +399,7 @@ def render_interface(event: GameEventDef) -> str:
       lines.append("")
       if fdef.comment:
         lines.append(f"  // {fdef.comment.strip()}")
-      lines.append(f"  public IPlayer {prop_name_player}")
+      lines.append(f"  public IPlayer? {prop_name_player}")
       lines.append(f"  {{ get => {getter_player}; }}")
 
       # Raw int (read/write)
@@ -513,7 +513,7 @@ def render_class(event: GameEventDef) -> str:
       lines.append("")
       if fdef.comment:
         lines.append(f"  // {fdef.comment.strip()}")
-      lines.append(f"  public IPlayer {prop_name_player}")
+      lines.append(f"  public IPlayer? {prop_name_player}")
       lines.append(f"  {{ get => {getter_player}; }}")
 
       # Raw int

@@ -31,7 +31,7 @@ public interface EventBombAbortdefuse : IGameEvent<EventBombAbortdefuse> {
 
 
   // player who was defusing
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who was defusing

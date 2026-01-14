@@ -26,7 +26,7 @@ internal class EventBombBeginplantImpl : GameEvent<EventBombBeginplant>, EventBo
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who is planting the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who is planting the bomb

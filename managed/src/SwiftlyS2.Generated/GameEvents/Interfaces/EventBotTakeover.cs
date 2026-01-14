@@ -28,7 +28,7 @@ public interface EventBotTakeover : IGameEvent<EventBotTakeover> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>
@@ -49,7 +49,7 @@ public interface EventBotTakeover : IGameEvent<EventBotTakeover> {
   CCSPlayerPawn BotIDPawn { get; }
 
 
-  public IPlayer BotIDPlayer
+  public IPlayer? BotIDPlayer
   { get => Accessor.GetPlayer("botid"); }
   /// <summary>
   /// <br/>

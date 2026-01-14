@@ -32,7 +32,7 @@ public interface EventPlayerDeath : IGameEvent<EventPlayerDeath> {
 
 
   // user ID who died
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// user ID who died
@@ -57,7 +57,7 @@ public interface EventPlayerDeath : IGameEvent<EventPlayerDeath> {
 
 
   // user ID who killed
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// user ID who killed
@@ -82,7 +82,7 @@ public interface EventPlayerDeath : IGameEvent<EventPlayerDeath> {
 
 
   // player who assisted in the kill
-  public IPlayer AssisterPlayer
+  public IPlayer? AssisterPlayer
   { get => Accessor.GetPlayer("assister"); }
   /// <summary>
   /// player who assisted in the kill

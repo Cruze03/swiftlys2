@@ -31,7 +31,7 @@ public interface EventBombPickup : IGameEvent<EventBombPickup> {
 
 
   // player pawn who picked up the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player pawn who picked up the bomb

@@ -35,7 +35,7 @@ internal class EventHltvRankCameraImpl : GameEvent<EventHltvRankCamera>, EventHl
   { get => Accessor.GetPlayerPawn("target"); }
 
   // best/closest target entity
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
 
   // best/closest target entity

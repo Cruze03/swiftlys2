@@ -33,7 +33,7 @@ internal class EventVoteCastImpl : GameEvent<EventVoteCast>, EventVoteCast
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who voted
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who voted

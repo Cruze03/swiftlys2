@@ -50,7 +50,7 @@ internal class EventHltvFixedImpl : GameEvent<EventHltvFixed>, EventHltvFixed
   { get => Accessor.GetPlayerPawn("target"); }
 
   // follow this player
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
 
   // follow this player

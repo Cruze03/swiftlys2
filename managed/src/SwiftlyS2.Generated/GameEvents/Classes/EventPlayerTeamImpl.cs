@@ -26,7 +26,7 @@ internal class EventPlayerTeamImpl : GameEvent<EventPlayerTeam>, EventPlayerTeam
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player

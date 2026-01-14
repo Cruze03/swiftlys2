@@ -26,7 +26,7 @@ internal class EventPlayerHurtImpl : GameEvent<EventPlayerHurt>, EventPlayerHurt
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who was hurt
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who was hurt
@@ -42,7 +42,7 @@ internal class EventPlayerHurtImpl : GameEvent<EventPlayerHurt>, EventPlayerHurt
   { get => Accessor.GetPlayerPawn("attacker"); }
 
   // player who attacked
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
 
   // player who attacked

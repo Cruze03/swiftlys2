@@ -39,7 +39,7 @@ public interface EventPlayerChat : IGameEvent<EventPlayerChat> {
 
 
   // chatting player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// chatting player

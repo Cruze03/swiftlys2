@@ -23,7 +23,7 @@ internal class EventJointeamFailedImpl : GameEvent<EventJointeamFailed>, EventJo
   public CCSPlayerPawn UserIdPawn
   { get => Accessor.GetPlayerPawn("userid"); }
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   public int UserId

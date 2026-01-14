@@ -27,7 +27,7 @@ internal class EventPlayerScoreImpl : GameEvent<EventPlayerScore>, EventPlayerSc
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // user ID on server
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // user ID on server

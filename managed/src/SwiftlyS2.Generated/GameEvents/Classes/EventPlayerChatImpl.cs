@@ -31,7 +31,7 @@ internal class EventPlayerChatImpl : GameEvent<EventPlayerChat>, EventPlayerChat
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // chatting player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // chatting player

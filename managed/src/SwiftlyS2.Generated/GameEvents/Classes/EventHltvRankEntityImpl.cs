@@ -27,7 +27,7 @@ internal class EventHltvRankEntityImpl : GameEvent<EventHltvRankEntity>, EventHl
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player slot
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player slot
@@ -47,7 +47,7 @@ internal class EventHltvRankEntityImpl : GameEvent<EventHltvRankEntity>, EventHl
   { get => Accessor.GetPlayerPawn("target"); }
 
   // best/closest target entity
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
 
   // best/closest target entity

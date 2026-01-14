@@ -31,7 +31,7 @@ public interface EventWeaponhudSelection : IGameEvent<EventWeaponhudSelection> {
 
 
   // Player who this event applies to
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// Player who this event applies to

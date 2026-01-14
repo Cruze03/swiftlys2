@@ -26,7 +26,7 @@ internal class EventVipEscapedImpl : GameEvent<EventVipEscaped>, EventVipEscaped
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who was the VIP
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who was the VIP

@@ -32,7 +32,7 @@ public interface EventHltvRankEntity : IGameEvent<EventHltvRankEntity> {
 
 
   // player slot
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player slot
@@ -64,7 +64,7 @@ public interface EventHltvRankEntity : IGameEvent<EventHltvRankEntity> {
 
 
   // best/closest target entity
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
   /// <summary>
   /// best/closest target entity

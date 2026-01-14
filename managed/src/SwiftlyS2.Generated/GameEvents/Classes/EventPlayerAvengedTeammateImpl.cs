@@ -23,7 +23,7 @@ internal class EventPlayerAvengedTeammateImpl : GameEvent<EventPlayerAvengedTeam
   public CCSPlayerPawn AvengerIdPawn
   { get => Accessor.GetPlayerPawn("avenger_id"); }
 
-  public IPlayer AvengerIdPlayer
+  public IPlayer? AvengerIdPlayer
   { get => Accessor.GetPlayer("avenger_id"); }
 
   public int AvengerId
@@ -35,7 +35,7 @@ internal class EventPlayerAvengedTeammateImpl : GameEvent<EventPlayerAvengedTeam
   public CCSPlayerPawn AvengedPlayerIdPawn
   { get => Accessor.GetPlayerPawn("avenged_player_id"); }
 
-  public IPlayer AvengedPlayerIdPlayer
+  public IPlayer? AvengedPlayerIdPlayer
   { get => Accessor.GetPlayer("avenged_player_id"); }
 
   public int AvengedPlayerId

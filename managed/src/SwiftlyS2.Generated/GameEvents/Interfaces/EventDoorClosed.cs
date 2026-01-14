@@ -31,7 +31,7 @@ public interface EventDoorClosed : IGameEvent<EventDoorClosed> {
 
 
   // Who closed the door
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// Who closed the door

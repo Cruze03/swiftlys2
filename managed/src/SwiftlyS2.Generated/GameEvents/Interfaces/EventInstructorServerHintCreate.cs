@@ -32,7 +32,7 @@ public interface EventInstructorServerHintCreate : IGameEvent<EventInstructorSer
 
 
   // user ID of the player that triggered the hint
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// user ID of the player that triggered the hint
@@ -85,7 +85,7 @@ public interface EventInstructorServerHintCreate : IGameEvent<EventInstructorSer
 
 
   // playerslot of the activator
-  public IPlayer HintActivatorUseridPlayer
+  public IPlayer? HintActivatorUseridPlayer
   { get => Accessor.GetPlayer("hint_activator_userid"); }
   /// <summary>
   /// playerslot of the activator

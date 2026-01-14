@@ -26,7 +26,7 @@ internal class EventVipKilledImpl : GameEvent<EventVipKilled>, EventVipKilled
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who was the VIP
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who was the VIP
@@ -42,7 +42,7 @@ internal class EventVipKilledImpl : GameEvent<EventVipKilled>, EventVipKilled
   { get => Accessor.GetPlayerPawn("attacker"); }
 
   // user ID who killed the VIP
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
 
   // user ID who killed the VIP

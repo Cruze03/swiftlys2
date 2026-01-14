@@ -26,7 +26,7 @@ internal class EventTrialTimeExpiredImpl : GameEvent<EventTrialTimeExpired>, Eve
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player whose time has expired
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player whose time has expired

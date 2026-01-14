@@ -46,7 +46,7 @@ public interface EventHltvRankCamera : IGameEvent<EventHltvRankCamera> {
 
 
   // best/closest target entity
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
   /// <summary>
   /// best/closest target entity

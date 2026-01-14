@@ -26,7 +26,7 @@ internal class EventHostageStopsFollowingImpl : GameEvent<EventHostageStopsFollo
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who rescued the hostage
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who rescued the hostage

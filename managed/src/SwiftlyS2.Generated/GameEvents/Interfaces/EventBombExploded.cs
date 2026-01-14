@@ -31,7 +31,7 @@ public interface EventBombExploded : IGameEvent<EventBombExploded> {
 
 
   // player who planted the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who planted the bomb

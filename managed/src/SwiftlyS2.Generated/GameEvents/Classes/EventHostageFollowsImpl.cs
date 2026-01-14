@@ -26,7 +26,7 @@ internal class EventHostageFollowsImpl : GameEvent<EventHostageFollows>, EventHo
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who touched the hostage
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who touched the hostage

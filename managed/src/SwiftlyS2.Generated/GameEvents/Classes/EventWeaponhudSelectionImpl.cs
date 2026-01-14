@@ -26,7 +26,7 @@ internal class EventWeaponhudSelectionImpl : GameEvent<EventWeaponhudSelection>,
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // Player who this event applies to
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // Player who this event applies to

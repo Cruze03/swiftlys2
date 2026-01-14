@@ -31,7 +31,7 @@ public interface EventInstructorCloseLesson : IGameEvent<EventInstructorCloseLes
 
 
   // The player who this lesson is intended for
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// The player who this lesson is intended for

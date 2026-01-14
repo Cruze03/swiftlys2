@@ -26,7 +26,7 @@ internal class EventBombDefusedImpl : GameEvent<EventBombDefused>, EventBombDefu
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who defused the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who defused the bomb

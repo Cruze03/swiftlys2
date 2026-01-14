@@ -31,7 +31,7 @@ public interface EventSpecTargetUpdated : IGameEvent<EventSpecTargetUpdated> {
 
 
   // spectating player
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// spectating player

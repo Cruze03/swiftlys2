@@ -32,7 +32,7 @@ public interface EventHltvCameraman : IGameEvent<EventHltvCameraman> {
 
 
   // camera man entity index
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// camera man entity index

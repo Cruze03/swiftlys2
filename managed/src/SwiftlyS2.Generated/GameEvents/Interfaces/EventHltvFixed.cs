@@ -71,7 +71,7 @@ public interface EventHltvFixed : IGameEvent<EventHltvFixed> {
 
 
   // follow this player
-  public IPlayer TargetPlayer
+  public IPlayer? TargetPlayer
   { get => Accessor.GetPlayer("target"); }
   /// <summary>
   /// follow this player

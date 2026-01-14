@@ -31,7 +31,7 @@ public interface EventLootCrateOpened : IGameEvent<EventLootCrateOpened> {
 
 
   // player entindex
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player entindex

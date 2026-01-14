@@ -28,7 +28,7 @@ public interface EventPlayerAvengedTeammate : IGameEvent<EventPlayerAvengedTeamm
   CCSPlayerPawn AvengerIdPawn { get; }
 
 
-  public IPlayer AvengerIdPlayer
+  public IPlayer? AvengerIdPlayer
   { get => Accessor.GetPlayer("avenger_id"); }
   /// <summary>
   /// <br/>
@@ -49,7 +49,7 @@ public interface EventPlayerAvengedTeammate : IGameEvent<EventPlayerAvengedTeamm
   CCSPlayerPawn AvengedPlayerIdPawn { get; }
 
 
-  public IPlayer AvengedPlayerIdPlayer
+  public IPlayer? AvengedPlayerIdPlayer
   { get => Accessor.GetPlayer("avenged_player_id"); }
   /// <summary>
   /// <br/>

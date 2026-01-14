@@ -26,7 +26,7 @@ internal class EventDoorCloseImpl : GameEvent<EventDoorClose>, EventDoorClose
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // Who closed the door
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // Who closed the door

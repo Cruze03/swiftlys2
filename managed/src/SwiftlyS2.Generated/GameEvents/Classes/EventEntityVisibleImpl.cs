@@ -26,7 +26,7 @@ internal class EventEntityVisibleImpl : GameEvent<EventEntityVisible>, EventEnti
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // The player who sees the entity
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // The player who sees the entity

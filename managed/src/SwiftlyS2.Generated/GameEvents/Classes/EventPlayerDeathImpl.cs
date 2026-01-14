@@ -27,7 +27,7 @@ internal class EventPlayerDeathImpl : GameEvent<EventPlayerDeath>, EventPlayerDe
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // user ID who died
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // user ID who died
@@ -43,7 +43,7 @@ internal class EventPlayerDeathImpl : GameEvent<EventPlayerDeath>, EventPlayerDe
   { get => Accessor.GetPlayerPawn("attacker"); }
 
   // user ID who killed
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
 
   // user ID who killed
@@ -59,7 +59,7 @@ internal class EventPlayerDeathImpl : GameEvent<EventPlayerDeath>, EventPlayerDe
   { get => Accessor.GetPlayerPawn("assister"); }
 
   // player who assisted in the kill
-  public IPlayer AssisterPlayer
+  public IPlayer? AssisterPlayer
   { get => Accessor.GetPlayer("assister"); }
 
   // player who assisted in the kill

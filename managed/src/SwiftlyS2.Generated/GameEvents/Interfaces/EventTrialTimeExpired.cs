@@ -31,7 +31,7 @@ public interface EventTrialTimeExpired : IGameEvent<EventTrialTimeExpired> {
 
 
   // player whose time has expired
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player whose time has expired

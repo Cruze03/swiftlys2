@@ -26,7 +26,7 @@ internal class EventBombAbortdefuseImpl : GameEvent<EventBombAbortdefuse>, Event
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who was defusing
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who was defusing

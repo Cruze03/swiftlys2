@@ -31,7 +31,7 @@ public interface EventShowDeathpanel : IGameEvent<EventShowDeathpanel> {
 
 
   // endindex of the one who was killed
-  public IPlayer VictimPlayer
+  public IPlayer? VictimPlayer
   { get => Accessor.GetPlayer("victim"); }
   /// <summary>
   /// endindex of the one who was killed
@@ -60,7 +60,7 @@ public interface EventShowDeathpanel : IGameEvent<EventShowDeathpanel> {
   CCSPlayerPawn KillerControllerPawn { get; }
 
 
-  public IPlayer KillerControllerPlayer
+  public IPlayer? KillerControllerPlayer
   { get => Accessor.GetPlayer("killer_controller"); }
   /// <summary>
   /// <br/>

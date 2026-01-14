@@ -23,7 +23,7 @@ internal class EventBotTakeoverImpl : GameEvent<EventBotTakeover>, EventBotTakeo
   public CCSPlayerPawn UserIdPawn
   { get => Accessor.GetPlayerPawn("userid"); }
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   public int UserId
@@ -35,7 +35,7 @@ internal class EventBotTakeoverImpl : GameEvent<EventBotTakeover>, EventBotTakeo
   public CCSPlayerPawn BotIDPawn
   { get => Accessor.GetPlayerPawn("botid"); }
 
-  public IPlayer BotIDPlayer
+  public IPlayer? BotIDPlayer
   { get => Accessor.GetPlayer("botid"); }
 
   public int BotID

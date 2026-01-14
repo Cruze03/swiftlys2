@@ -23,7 +23,7 @@ internal class EventTagrenadeDetonateImpl : GameEvent<EventTagrenadeDetonate>, E
   public CCSPlayerPawn UserIdPawn
   { get => Accessor.GetPlayerPawn("userid"); }
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   public int UserId

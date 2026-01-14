@@ -31,7 +31,7 @@ public interface EventEntityVisible : IGameEvent<EventEntityVisible> {
 
 
   // The player who sees the entity
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// The player who sees the entity

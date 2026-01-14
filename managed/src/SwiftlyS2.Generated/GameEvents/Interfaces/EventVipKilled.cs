@@ -31,7 +31,7 @@ public interface EventVipKilled : IGameEvent<EventVipKilled> {
 
 
   // player who was the VIP
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who was the VIP
@@ -56,7 +56,7 @@ public interface EventVipKilled : IGameEvent<EventVipKilled> {
 
 
   // user ID who killed the VIP
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// user ID who killed the VIP

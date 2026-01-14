@@ -23,7 +23,7 @@ internal class EventPlayerBlindImpl : GameEvent<EventPlayerBlind>, EventPlayerBl
   public CCSPlayerPawn UserIdPawn
   { get => Accessor.GetPlayerPawn("userid"); }
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   public int UserId
@@ -38,7 +38,7 @@ internal class EventPlayerBlindImpl : GameEvent<EventPlayerBlind>, EventPlayerBl
   { get => Accessor.GetPlayerPawn("attacker"); }
 
   // user ID who threw the flash
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
 
   // user ID who threw the flash

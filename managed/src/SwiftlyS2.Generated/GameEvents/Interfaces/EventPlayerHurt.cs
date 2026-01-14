@@ -31,7 +31,7 @@ public interface EventPlayerHurt : IGameEvent<EventPlayerHurt> {
 
 
   // player who was hurt
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who was hurt
@@ -56,7 +56,7 @@ public interface EventPlayerHurt : IGameEvent<EventPlayerHurt> {
 
 
   // player who attacked
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
   /// <summary>
   /// player who attacked

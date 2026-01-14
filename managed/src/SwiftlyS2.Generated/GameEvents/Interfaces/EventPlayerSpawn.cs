@@ -29,7 +29,7 @@ public interface EventPlayerSpawn : IGameEvent<EventPlayerSpawn> {
   CCSPlayerPawn UserIdPawn { get; }
 
 
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// <br/>

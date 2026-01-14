@@ -27,7 +27,7 @@ internal class EventHltvCameramanImpl : GameEvent<EventHltvCameraman>, EventHltv
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // camera man entity index
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // camera man entity index

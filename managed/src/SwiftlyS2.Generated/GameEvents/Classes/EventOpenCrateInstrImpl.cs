@@ -26,7 +26,7 @@ internal class EventOpenCrateInstrImpl : GameEvent<EventOpenCrateInstr>, EventOp
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player entindex
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player entindex

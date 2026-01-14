@@ -31,7 +31,7 @@ public interface EventHostageRescued : IGameEvent<EventHostageRescued> {
 
 
   // player who rescued the hostage
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who rescued the hostage

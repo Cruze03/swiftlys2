@@ -26,7 +26,7 @@ internal class EventBulletDamageImpl : GameEvent<EventBulletDamage>, EventBullet
   { get => Accessor.GetPlayerPawn("victim"); }
 
   // player index who was hurt
-  public IPlayer VictimPlayer
+  public IPlayer? VictimPlayer
   { get => Accessor.GetPlayer("victim"); }
 
   // player index who was hurt
@@ -42,7 +42,7 @@ internal class EventBulletDamageImpl : GameEvent<EventBulletDamage>, EventBullet
   { get => Accessor.GetPlayerPawn("attacker"); }
 
   // player index who attacked
-  public IPlayer AttackerPlayer
+  public IPlayer? AttackerPlayer
   { get => Accessor.GetPlayer("attacker"); }
 
   // player index who attacked

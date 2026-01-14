@@ -26,7 +26,7 @@ internal class EventBombPickupImpl : GameEvent<EventBombPickup>, EventBombPickup
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player pawn who picked up the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player pawn who picked up the bomb

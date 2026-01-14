@@ -26,7 +26,7 @@ internal class EventPlayerGivenC4Impl : GameEvent<EventPlayerGivenC4>, EventPlay
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // user ID who received the c4
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // user ID who received the c4

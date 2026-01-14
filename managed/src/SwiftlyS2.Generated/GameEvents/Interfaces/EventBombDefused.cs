@@ -31,7 +31,7 @@ public interface EventBombDefused : IGameEvent<EventBombDefused> {
 
 
   // player who defused the bomb
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
   /// <summary>
   /// player who defused the bomb

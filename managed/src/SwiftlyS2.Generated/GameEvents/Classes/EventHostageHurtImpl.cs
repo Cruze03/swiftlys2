@@ -26,7 +26,7 @@ internal class EventHostageHurtImpl : GameEvent<EventHostageHurt>, EventHostageH
   { get => Accessor.GetPlayerPawn("userid"); }
 
   // player who hurt the hostage
-  public IPlayer UserIdPlayer
+  public IPlayer? UserIdPlayer
   { get => Accessor.GetPlayer("userid"); }
 
   // player who hurt the hostage
