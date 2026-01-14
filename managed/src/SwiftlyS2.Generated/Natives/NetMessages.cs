@@ -1132,7 +1132,7 @@ internal static class NativeNetMessages
         }
     }
 
-    private unsafe static delegate* unmanaged<nint, byte*, byte*, int, void> _SetBytes;
+    private unsafe static delegate* unmanaged<nint, byte*, byte*, void> _SetBytes;
 
     public unsafe static void SetBytes(nint netmsg, string fieldName, byte[] value)
     {
@@ -1141,14 +1141,18 @@ internal static class NativeNetMessages
         var fieldNameBuffer = pool.Rent(fieldNameLength + 1);
         Encoding.UTF8.GetBytes(fieldName, fieldNameBuffer);
         fieldNameBuffer[fieldNameLength] = 0;
+        var valueLength = value.Length;
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
-            _SetBytes(netmsg, fieldNameBufferPtr, value);
-            pool.Return(fieldNameBuffer);
+            fixed (byte* valueBufferPtr = value)
+            {
+                _SetBytes(netmsg, fieldNameBufferPtr, valueBufferPtr);
+                pool.Return(fieldNameBuffer);
+            }
         }
     }
 
-    private unsafe static delegate* unmanaged<nint, byte*, int, byte*, int, void> _SetRepeatedBytes;
+    private unsafe static delegate* unmanaged<nint, byte*, int, byte*, void> _SetRepeatedBytes;
 
     public unsafe static void SetRepeatedBytes(nint netmsg, string fieldName, int index, byte[] value)
     {
@@ -1157,14 +1161,18 @@ internal static class NativeNetMessages
         var fieldNameBuffer = pool.Rent(fieldNameLength + 1);
         Encoding.UTF8.GetBytes(fieldName, fieldNameBuffer);
         fieldNameBuffer[fieldNameLength] = 0;
+        var valueLength = value.Length;
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
-            _SetRepeatedBytes(netmsg, fieldNameBufferPtr, index, value);
-            pool.Return(fieldNameBuffer);
+            fixed (byte* valueBufferPtr = value)
+            {
+                _SetRepeatedBytes(netmsg, fieldNameBufferPtr, index, valueBufferPtr);
+                pool.Return(fieldNameBuffer);
+            }
         }
     }
 
-    private unsafe static delegate* unmanaged<nint, byte*, byte*, int, void> _AddBytes;
+    private unsafe static delegate* unmanaged<nint, byte*, byte*, void> _AddBytes;
 
     public unsafe static void AddBytes(nint netmsg, string fieldName, byte[] value)
     {
@@ -1173,10 +1181,14 @@ internal static class NativeNetMessages
         var fieldNameBuffer = pool.Rent(fieldNameLength + 1);
         Encoding.UTF8.GetBytes(fieldName, fieldNameBuffer);
         fieldNameBuffer[fieldNameLength] = 0;
+        var valueLength = value.Length;
         fixed (byte* fieldNameBufferPtr = fieldNameBuffer)
         {
-            _AddBytes(netmsg, fieldNameBufferPtr, value);
-            pool.Return(fieldNameBuffer);
+            fixed (byte* valueBufferPtr = value)
+            {
+                _AddBytes(netmsg, fieldNameBufferPtr, valueBufferPtr);
+                pool.Return(fieldNameBuffer);
+            }
         }
     }
 

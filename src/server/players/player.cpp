@@ -172,7 +172,7 @@ void CPlayer::SendMsg(MessageType type, const std::string& message, int duration
                     msg = " " + msg;
             }
 
-            auto splitMessage = explode(msg, "\n");
+            auto splitMessage = explode(msg, "[newline]");
 
             auto gameEventSystem = g_ifaceService.FetchInterface<IGameEventSystem>(GAMEEVENTSYSTEM_INTERFACE_VERSION);
             if (!gameEventSystem)
