@@ -41,6 +41,9 @@ public struct Vector
     public readonly float Length() => (float)Math.Sqrt((X * X) + (Y * Y) + (Z * Z));
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public readonly float Length2D() => (float)Math.Sqrt((X * X) + (Y * Y));
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public readonly float LengthSquared() => (X * X) + (Y * Y) + (Z * Z);
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
